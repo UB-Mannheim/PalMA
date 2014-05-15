@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ -n "${1}" ]; then
+
+    name=${1}
+    name_uc=`echo "LC "${name:2:3}`
+
+    files=("/etc/hostname" "/etc/hosts" "/var/www/html/palma/palma.ini")
+
+    for i in "${files[@]}"
+    do
+    file="$i"
+        if [ -f $file ]
+            then
+                sed -i 's/lc[0-9][0-9]/'$name'/g' $file
+                sed -i 's/LC [0-9][0-9]/'"$name_uc"'/g' $file
+            else
+                echo "File with filename $file does not exist."
+        fi
+    done
+
+else
+    echo "Nothing changed, no name specified. Please enter command like this: hostis lc08."
+fi

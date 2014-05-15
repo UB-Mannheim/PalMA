@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# startvncserver - start a VNC server
+
+basedir=`dirname $0`
+basedir=`cd $basedir && cd .. && pwd`
+
+export DISPLAY=`grep ^id $basedir/palma.ini|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
+
+exec x11vnc -forever -nopw -shared -xdamage -allow localhost

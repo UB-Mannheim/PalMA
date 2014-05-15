@@ -1,0 +1,103 @@
+#!/bin/sh
+
+# Start X server, window manager and other software for PalMA.
+
+# Copyright (C) 2014 Universitätsbibliothek Mannheim
+# See file LICENSE for license details.
+
+# After the X server, the window manager is started.
+# Then a background image is loaded and DPMS and screensaver are disabled.
+# Now the PalMA state machine can run.
+
+# Enable more log messages.
+set -x
+
+# Power saving recommendations from powertop.
+echo 1500 >/proc/sys/vm/dirty_writeback_centisecs
+echo 0 >/proc/sys/kernel/nmi_watchdog
+echo 1 >/sys/module/snd_hda_intel/parameters/power_save
+
+basedir=`dirname $0`
+basedir=`cd "$basedir" && cd .. && pwd`
+
+cd "$basedir"
+
+inifile="$basedir/palma.ini"
+
+export DISPLAY=`grep "^id[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
+background=`grep "^background[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
+screensaver=`grep "^screensaver[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
+
+if test -z "$HOME"; then
+export HOME=/root
+fi
+
+# Allow X server on display :0 to start.
+/bin/sleep 3
+
+# Start X server.
+/usr/bin/Xorg $DISPLAY -verbose 0 -nolisten tcp vt8 &
+
+# Allow X server to start before continuing.
+/bin/sleep 5
+
+# Start X window manager.
+/usr/bin/openbox --config-file "$basedir/settings/openbox/rc.xml" &
+
+# Allow window manager to start.
+/bin/sleep 2
+
+# Show background image.
+/usr/bin/feh --bg-scale --no-fehbg "$background"
+
+# Disable DPMS.
+/usr/bin/xset -dpms
+
+# Disable screensaver.
+/usr/bin/xset s off
+
+# Show the DPMS and screensaver settings.
+# /usr/bin/xset q
+
+# Wait a littĺe before the screensaver image hides the background.
+/bin/sleep 2
+
+rm palma.db
+rm -rf /root/.mozilla/firefox
+mkdir -p /root/.mozilla
+cp -a settings/firefox /root/.mozilla/
+
+# 0=initial state
+# 1=screen saver running
+# 2=vnc viewer running
+state=0
+
+# Disable too many log messages in loop.
+set +x
+
+while true; do
+    if test -f palma.db; then
+        users=`sqlite3 palma.db "select count(*) from user"`
+    else
+        users=0
+    fi
+    if test "$state" = "0"; then
+        set -x
+        killall -q ssvncviewer
+        /usr/bin/iceweasel "$screensaver" &
+        state="1"
+        set +x
+    elif test "$state" = "1" -a "$users" != '0'; then
+        set -x
+        killall --user root --quiet iceweasel
+        su -c "/usr/bin/php5 SSVNCDaemon.php" www-data &
+        state="2"
+        set +x
+    elif test "$state" = "2" -a "$users" = '0'; then
+        set -x
+        state="0"
+        set +x
+        continue
+    fi
+    sleep 5
+done

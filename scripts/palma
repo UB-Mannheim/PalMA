@@ -1,0 +1,61 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          palma
+# Should-Start:      console-screen kbd acpid dbus hal consolekit
+# Required-Start:    $local_fs $remote_fs apache2 x11-common
+# Required-Stop:     $local_fs $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: PalMA
+# Description:       Present and learn in Mannheim
+### END INIT INFO
+#
+# Author:       Alex Wagner, Stefan Weil (UB Mannheim)
+#
+set -e
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/var/www/html/palma/scripts/startx
+
+test -x $DAEMON || exit 0
+
+if [ -r /etc/default/locale ]; then
+  . /etc/default/locale
+  export LANG LANGUAGE
+fi
+
+# . /lib/lsb/init-functions
+echo "$1" >>/tmp/palma.log
+
+case "$1" in
+  start)
+        #log_daemon_msg "Starting PalMA" "palma"
+        #start-stop-daemon --start --quiet --pidfile /var/run/palma.pid --name palma --exec $DAEMON|| echo -n " already running"
+        /usr/bin/nohup $DAEMON >>/tmp/palma.log 2>&1 &
+        sleep 2
+  ;;
+  stop)
+        #log_daemon_msg "Stopping PalMA" "palma"
+        set +e
+        #start-stop-daemon --stop --quiet --pidfile /var/run/palma.pid \
+        #        --name palma --retry 5
+        set -e
+        #log_end_msg $?
+  ;;
+  reload)
+  ;;
+  status)
+        status_of_proc -p "$PIDFILE" "$DAEMON" palma && exit 0 || exit $?
+  ;;
+  restart|force-reload)
+        $0 stop
+        sleep 1
+        $0 start
+  ;;
+  *)
+        echo "Usage: /etc/init.d/palma {start|stop|restart|reload|force-reload|status}"
+        exit 1
+  ;;
+esac
+
+exit 0

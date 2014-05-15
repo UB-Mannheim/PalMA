@@ -1,0 +1,490 @@
+/* Styles for PalMA. */
+
+/* General settings (login.php, learningcenter.php, index.php) */
+
+/* TODO:
+ */
+
+.pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
+    background-color: #990000;
+    border-radius: 6px;
+}
+
+/* Login form (login.php) */
+
+legend {
+    font-family: sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+#login_mask {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+
+    padding: 0px 0px 20px 0px;
+    background-color: #F1F1F1;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 8px 8px 4px #666666;
+    width: 460px;
+}
+#login_mask i {
+    margin: 5px 5px 5px 10px;
+}
+#login_mask p {
+    text-align: center;
+}
+
+/* Workplace selection (monitor.php) */
+
+#monitor_selection button {
+    margin: 10px 10px 10px 10px;
+    text-align: left;
+    width: 240px;
+}
+
+#monitor_selection .fa-desktop {
+    float: right;
+    padding: 0px 10px 0px 10px;
+}
+
+#monitor_selection {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: #F1F1F1;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 8px 8px 4px #666666;
+    width: 790px;
+}
+
+/* Workplace selection (learningcenter.php) */
+
+#monitor_mask {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+
+    padding: 0px 0px 20px 0px;
+    background-color: #F1F1F1;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 8px 8px 4px #666666;
+    width: 560px;
+}
+
+.monitorchoice {
+    margin-left: 40px;
+}
+
+.selectdisplay {
+    background:url("images/main-klein.png");
+    width:100px;
+    height:80px;
+    background-repeat:no-repeat;
+    display:block;
+    margin: 10px 10px 0px 0px;
+}
+
+/* Workplace (index.php) */
+
+.fa-sign-out {
+    margin: 10px 0px 5px 10px;
+}
+
+#workbench {
+    background-color: #F1F1F1;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 8px 8px 4px #666666;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding: 10px 10px 10px 10px;
+    width: 880px;
+}
+
+/* Left part of workbench */
+
+#workbench_left {
+    width: 600px;
+}
+
+/* Main display. */
+#workbench_left .maindisplay {
+    width: 600px;
+    height: 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+#workbench_left .maindisplay caption {
+    caption-side: top;
+}
+.maindisplay td, .maindisplay tr {
+    border: 2px solid #EFEFEF;
+}
+.maindisplay {
+    background-color: LightGray;
+    padding: 0px;
+    text-align: center;
+    vertical-align: middle;
+}
+.maindisplay button {
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    vertical-align: middle;
+}
+.maindisplay i {
+    background-color: #990000;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Cursor controls. */
+.maindisplay .control {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+}
+
+.maindisplay .control td, .maindisplay .control tr {
+    border: 0px solid green;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+.maindisplay #more {
+    cursor: pointer;
+    font-size: 120%;
+}
+
+/* Online help. */
+
+#helpwindow {
+    background-color: #000000;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 10;
+}
+#helpcontainer {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 20px 20px 40px 20px;
+    display: block;
+    width: 600px;
+}
+#helpcontainer h3 {
+    font-size: 2em;
+}
+#helpcontainer button {
+    margin-top: 10px;
+}
+#helpclose {
+    color: #990000;
+    cursor: pointer;
+    float:right;
+    font-size: 3em;
+}
+
+/* Extended control panel (overlay) */
+
+.overlay button {
+    height: 70px;
+    width: 70px;
+}
+.overlay .fa-times {
+    color: #990000;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+#overlay {
+    background-color: #000000;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 200%;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 10;
+}
+#container {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 20px 20px 40px 20px;
+    display: block;
+    width: 600px;
+}
+#close {
+    float:right;
+}
+
+/* Right part of workbench */
+
+#workbench_right {
+    float: right;
+    width: 260px;
+}
+
+/* Logout link. */
+#workbench_right a {
+    background-color: #990000;
+    color: white;
+    border-radius: 6px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#workbench_right a:link {
+    text-decoration: none;
+}
+#workbench_right a:visited {
+    text-decoration: none;
+}
+
+#workbench_end {
+    clear:both;
+}
+
+#url_field {
+    width: 30em;
+}
+.fa-upload {
+    float: right;
+}
+
+/* File list, user list. */
+
+.itemlist, .userlist {
+    margin-top: 20px;
+    width: 100%;
+}
+.itemlist caption, .userlist caption {
+    caption-side: top;
+}
+.itemlist caption i {
+    margin-left: 10px;
+    text-align: center;
+}
+.itemlist i {
+    text-align: center;
+}
+.itemlist .fa-ban, .itemlist .fa-eye, .itemlist .fa-trash-o {
+    background-color: #990000;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    margin: 2px;
+    width: 15px;
+    padding: 2px;
+}
+.itemlist, .itemlist td, .itemlist tr, .userlist, .userlist td, .userlist tr {
+    background-color: white;
+    border: 1px solid #666666;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    padding: 1px;
+    vertical-align: top;
+}
+.userlist caption i {
+    background-color: inherit;
+    color: black;
+    margin-left: 10px;
+}
+.userlist i {
+    background-color: LightGray;
+    border-radius: 3px;
+    color: black;
+    margin: 2px 5px 2px 0px;
+    width: 15px;
+    padding: 2px;
+    text-align: center;
+}
+.userlist .fa-user {
+    background-color: black;
+    border-radius: 3px;
+    color: white;
+    margin: 2px;
+    padding: 2px;
+}
+#workbench_right button {
+    margin-top: 10px;
+}
+.dz-default {
+    margin-top: 10px;
+    width: 580px;
+    padding: 10px;
+}
+
+.minidisplaylist table {
+    background-color: LightGray;
+    width: 85px;
+    height: 45px;
+}
+.minidisplaylist tr, .minidisplaylist td {
+    border: 1px solid #EFEFEF;
+}
+.minidisplaylist button {
+    color: #990000;
+    width: 100px;
+    height: 60px;
+}
+
+#palma-dropzone {
+    background-color: #990000;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* --- */
+
+h2 {
+    text-align: center;
+}
+
+/*
+table, tr, th, td {
+    border: 1px solid Gray;
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+*/
+table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0px;
+/*
+    padding: 0px;
+    empty-cells: show;
+    table-layout: fixed;
+*/
+}
+/*
+#zeit {
+    margin-top: 8px;
+    border: 2px solid darkred;
+    border: 1px solid magenta;
+}
+*/
+
+.controlpanel {
+    background-color: #EFEFEF;
+    border: 1px solid #696969;
+    border-radius: 10px;
+    margin: 20px 20px 0;
+    padding: 20px;
+}
+
+.controlbutton {
+    cursor: pointer;
+}
+
+.updown {
+    background-color: LightGray;
+    border-radius: 5px;
+    float: left;
+    margin: 0 0 20px;
+    padding: 5px 5px 0 75px;
+    text-align: center;
+    width: 300px;
+}
+
+.zoom {
+    float: right;
+}
+
+.bar {
+    clear: left;
+}
+
+/* List of display variants. */
+.minidisplaylist {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    padding: 0px;
+    width: 600px;
+    height: 90px;
+}
+.minidisplaylist caption {
+    caption-side: top;
+}
+.minidisplaylist td, .minidisplaylist tr {
+    padding: 0px;
+}
+.minidisplaylist, .minidisplaylist td, .minidisplaylist tr {
+}
+
+.minidisplaylist div {
+    cursor: pointer;
+    display: block;
+    height: 80px;
+    width: 100px;
+}
+
+/* Display variant. */
+.minidisplay {
+    border: 1px solid orange;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 120px;
+    height: 80px;
+    margin-left: 0px;
+    margin-right: 5px;
+}
+.minidisplay td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+    height: 50%;
+    padding: 0px;
+}
+.minidisplay tr {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    padding: 0px;
+}
+.minidisplay, .minidisplay td, .minidisplay tr {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    padding: 0px;
+}
+.minidisplay:hover {
+    border: 1px solid red;
+}
+
+/* Test feature. */
+td:hover {
+/*
+    border: 1px solid yellow;
+*/
+}
+
+@media print {
+  .hidden { display: block; visibility: visible }
+
+  div.slide pre { font-size: 60%; padding-left: 0.5em; }
+  div.toolbar { display: none; visibility: hidden; }
+  div.slidy_toc { display: none; visibility: hidden; }
+  div.background { display: none; visibility: hidden; }
+  div.slide { page-break-before: always }
+  /* :first-child isn't reliable for print media */
+  div.slide.first-slide { page-break-before: avoid }
+}

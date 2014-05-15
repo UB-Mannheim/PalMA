@@ -1,0 +1,290 @@
+# PalMA translation.
+# Copyright (C) 2014 Universitätsbibliothek Mannheim
+# This file is distributed under the same license as the PalMA package.
+# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PalMA 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-13 14:10+0200\n"
+"PO-Revision-Date: 2014-04-09 21:31+0200\n"
+"Last-Translator: Stefan Weil <stefan.weil@bib.uni-mannheim.de>\n"
+"Language-Team: Deutsch <de@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:159
+msgid "Screen section"
+msgstr "Bildschirmbereich"
+
+#: index.php:164
+msgid "Close the advanced control"
+msgstr "Schließe die erweiterte Steuerung"
+
+#: index.php:236
+msgid "Enter valid URL"
+msgstr "Bitte gültige URL eingeben"
+
+#: index.php:274 index.php:279 index.php:294 index.php:299
+msgid "Cursor control"
+msgstr "Cursortaste"
+
+#: index.php:289
+msgid "Advanced control"
+msgstr "Erweiterte Steuerung"
+
+#: index.php:342
+msgid "Zoom in"
+msgstr "Anzeige vergrößern"
+
+#: index.php:348
+msgid "Zoom out"
+msgstr "Anzeige verkleinern"
+
+#: index.php:363
+msgid "Jump to start"
+msgstr "Springe zum Anfang"
+
+#: index.php:366
+msgid "Page up"
+msgstr "Blättere zurück"
+
+#: index.php:369
+msgid "Page down"
+msgstr "Blättere vorwärts"
+
+#: index.php:372
+msgid "Jump to end"
+msgstr "Springe zum Ende"
+
+#: index.php:375
+msgid "Download this file"
+msgstr "Lade diese Datei herunter"
+
+#: index.php:688
+msgid "You were disconnected!"
+msgstr "Sie wurden abgemeldet!"
+
+#: index.php:776
+msgid "Toggle visibility"
+msgstr "Umschalten zwischen sichtbar / unsichtbar"
+
+#: index.php:784
+msgid "Select screen section for display"
+msgstr "Auswahl des Bildschirmbereiches für die Anzeige"
+
+#: index.php:837
+msgid "Remove this object"
+msgstr "Entferne dieses Objekt"
+
+#: index.php:973
+msgid "Disconnect the current user"
+msgstr "Melde den aktuellen Benutzer ab"
+
+#: index.php:977 index.php:979
+msgid "Display list"
+msgstr "Anzeigeliste"
+
+#: index.php:978
+msgid "List of files, URLs and shared displays"
+msgstr ""
+"Liste der angezeigten bzw. anzeigbaren Dateien, URLs und Bildschirmfreigaben"
+
+#: index.php:986
+msgid "Close all windows and remove uploaded files"
+msgstr "Schließe alle Fenster und lösche hochgeladene Dateien"
+
+#: index.php:987
+msgid "Close all windows"
+msgstr "Alle Fenster schließen"
+
+#: index.php:989 index.php:990
+msgid "User list"
+msgstr "Benutzerliste"
+
+#: index.php:989
+msgid "List of connected users"
+msgstr "Liste der angemeldeten Benutzer"
+
+#: index.php:997
+msgid "Disconnect all users and reset the work place"
+msgstr ""
+"Melde alle Benutzer ab und setze den Arbeitsplatz auf den Ausgangszustand "
+"zurück"
+
+#: index.php:998
+msgid "Disconnect all users"
+msgstr "Alle Benutzer abmelden"
+
+#: index.php:1003
+msgid "Show help and offer some extras"
+msgstr "Zeige eine Hilfeseite mit zusätzlichen Funktionen an"
+
+#: index.php:1004 index.php:1114
+msgid "Help + Extras"
+msgstr "Hilfe + Extras"
+
+#: index.php:1011 index.php:1012
+msgid "Team display"
+msgstr "Team-Monitor"
+
+#: index.php:1023 index.php:1024
+msgid "Screen layout"
+msgstr "Bildschirmaufteilung"
+
+#: index.php:1029 index.php:1036 index.php:1043 index.php:1050 index.php:1057
+msgid "Choose screen layout"
+msgstr "Wähle Bildschirmaufteilung"
+
+#: index.php:1067 index.php:1069
+msgid "Enter URL"
+msgstr "Bitte URL eingeben"
+
+#: index.php:1071
+msgid "Show this URL in a new browser window"
+msgstr "Zeige diese URL in einem neuen Browserfenster"
+
+#: index.php:1081
+msgid "Drop documents here (or click) to load them up"
+msgstr "Dokumente zum Hochladen hierher ziehen (oder klicken)"
+
+#: index.php:1085
+msgid "Drop documents here (or click)"
+msgstr "Dokumente hierher ziehen (oder klicken)"
+
+#: index.php:1111
+msgid "Close the help window"
+msgstr "Schließe das Hilfefenster"
+
+#: index.php:1117
+msgid ""
+"With PalMA, you can share your documents and your desktop\n"
+"            with your learning group."
+msgstr ""
+
+#: index.php:1119
+msgid ""
+"Team members can join the group at any time. All they need\n"
+"            is URL and PIN."
+msgstr ""
+
+#: index.php:1123
+msgid ""
+"The PalMA team monitor shows up to 4 contributions\n"
+"            simultaneously."
+msgstr ""
+
+#: index.php:1125
+msgid ""
+"Just upload PDF files, images, OpenDocument or\n"
+"            MS Office files or enter a URL &ndash; PalMA will show them."
+msgstr ""
+
+#: index.php:1127
+msgid ""
+"Share the desktop of your notebook with others.\n"
+"            PalMA uses VNC for screen sharing. Download the VNC software\n"
+"            once for your Windows PC (preconfigured UltraVNC)\n"
+"            or MacBook (RealVNC)."
+msgstr ""
+
+#: index.php:1135
+msgid "Share desktop (free UltraVNC / Windows only)"
+msgstr "Desktopfreigabe (UltraVNC (freie Software) / Windows)"
+
+#: index.php:1142
+msgid "Share desktop (non free RealVNC)"
+msgstr "Desktopfreigabe (RealVNC (kommerziell) / OS X)"
+
+#: index.php:1150
+msgid "Show team display"
+msgstr "Team-Monitor anzeigen"
+
+#: login.php:72 login.php:81 login.php:84
+msgid "Invalid credentials!"
+msgstr "Benutzerkennung ungültig!"
+
+#: login.php:78
+msgid "Cannot check credentials, sorry!"
+msgstr "Prüfung der Benutzerkennung zur Zeit leider nicht möglich!"
+
+#: login.php:103
+msgid "Invalid PIN."
+msgstr "PIN ungültig."
+
+#: login.php:136
+msgid "PalMA &ndash; Login"
+msgstr "PalMA &ndash; Anmeldung"
+
+#: login.php:161
+msgid "Login"
+msgstr "Anmeldung"
+
+#: login.php:163
+msgid "User name"
+msgstr "Benutzername"
+
+#: login.php:167
+msgid "Password"
+msgstr "Passwort"
+
+#: login.php:171
+msgid "PIN"
+msgstr "PIN"
+
+#: login.php:175
+msgid "Log in"
+msgstr "Anmelden"
+
+#: upload.php:51
+msgid "This file is too large."
+msgstr "Diese Datei ist zu groß."
+
+#: upload.php:54
+msgid "Large files are not supported."
+msgstr "Große Dateien werden nicht unterstützt."
+
+#: upload.php:57
+msgid "File was only partially uploaded."
+msgstr "Die Datei wurde nur teilweise hochgeladen."
+
+#: upload.php:60
+#, php-format
+msgid "Error code %s."
+msgstr "Fehlercode %s."
+
+#: upload.php:63
+#, php-format
+msgid "File '%s' cannot be shown."
+msgstr "Die Datei '%s' kann leider nicht angezeigt werden."
+
+#: screensaver/pictureshow.php:35
+msgid "Picture Show"
+msgstr "Bilderschau"
+
+#: screensaver/tiles.php:46
+msgid "Tiles"
+msgstr "Kacheln"
+
+#: selectplace/learningcenter.php:25 selectplace/learningcenter.php:39
+#: selectplace/monitor.php:25 selectplace/monitor.php:51
+msgid "Select workplace"
+msgstr "Arbeitsplatz auswählen"
+
+#: selectplace/learningcenter.php:45
+msgid "Conference room"
+msgstr "Besprechungsraum"
+
+#: selectplace/learningcenter.php:45 selectplace/monitor.php:76
+msgid "Test monitor"
+msgstr "Testmonitor"
+
+#: selectplace/learningcenter.php:46 selectplace/monitor.php:69
+msgid "Mannheim table"
+msgstr "Mannheimer Tisch"
+
+#~ msgid "Share my desktop"
+#~ msgstr "Bildschirmfreigabe"

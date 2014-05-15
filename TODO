@@ -1,0 +1,108 @@
+= TODO Liste für PalMA =
+
+== Apache Serverkonfiguration ==
+
+* AllowOverrides für .htaccess dokumentieren.
+  Aktuell nicht notwendig, da wir Sessions verwenden.
+  Von .htaccess wird auch generell abgeraten.
+
+* "Options MultiViews" in /etc/apache2/sites-available/000-default.conf
+
+
+
+== Designentscheidungen ==
+
+* HTML 5 nicht verwendet, da fehlende Unterstützung durch MS Internet Explorer.
+* Daher auch Websockets statt HTML5 Server-Sent Events.
+
+
+
+== Installationshinweise ==
+
+* sysvinit-core durch systemd-sysv ersetzen (reduziert Boot-Zeit).
+* Anzahl der Linux-Konsolen in /etc/default/console-setup reduzieren (spart Speicher).
+
+
+
+== Offene Punkte ==
+
+Bitte erledigte Punkte entfernen und Änderungen einchecken.
+
+* Alle *.php Dateien prüfen, ob Authentisierung notwendig ist und noch fehlt.
+  <?php include('auth.php'); ?>
+
+
+
+== Offene Punkte 2014-03-28 ==
+
+* [DONE] Download-Button im Steuerfeld sollte ein neues Fenster / Tab öffnen, da
+  sonst u. U. die aktuelle Ansicht durch die geladene Datei ersetzt wird
+
+* Download-Button nach rechts verschieben (gleiche Spalte wie Zoom-Buttons)?
+
+* [DONE] Blättern im Webbrowser funktioniert nicht, da Cursor in der Adressleiste steht.
+
+* Webbrowser sollte Menü- und Buttonzeile nicht anzeigen.
+
+* [DONE] Im Anmeldefenster sollte der Anmeldeknopf mittig oder rechts stehen.
+
+== Offene Punkte 2014-04-02 ==
+
+* Welche Benutzergruppen wollen wir zulassen? Nur mit RUM-Kennung?
+
+* Einfachversion der Software als Option anbieten:
+  optionale Authentisierung, optionale PIN-Generierung und -Abfrage,
+  Desktop-Anzeige für einen Benutzer (skaliert auf fullscreen).
+  Optional Fernbedienung mit Scroll- und Zoomfunktionen.
+
+* [DONE] Was zeigen wir an, wenn der Monitor ungenutzt ist? Das Bild muss
+  wechseln, da es sonst "einbrennt".
+
+* Können wir den Monitor nach längerer Nichtnutzung ausschalten
+  (und bei Anwahl durch einen Benutzer wieder anschalten)?
+
+* [DONE] VNC-Verbindung beenden, wenn der Benutzer sich abmeldet
+
+* [DONE] Sammelabmeldung für alle Benutzer fertig implementieren.
+
+* [DONE] Zoom + funktioniert nicht bei Bildern
+
+* [DONE] Download verwendet abgekürzten Dateinamen und funktioniert daher nicht.
+
+---------------------------------------------------------------
+
+Testergebnis Sarah / Angela 2014-04-16
+
+Bereinigen
+* In WinVNC-Fenster nur eine Verbindungsmöglichkeit anzeigen, auf Doppelklick hinweisen
+
+Probleme
+* Rückmeldung bei Upload von nicht erlaubten Dateien, sonst gibt es Probleme
+-    Zuordnung Fensternummern
+-    Fokus in Browser
+-    Monitoranordnung
+* [DONE] Öffnen von Download in neuem Fenster/Tab
+* Ausgeblendete Inhalte werden trotz Deaktivierung angezeigt (auch nach Refresh)
+
+---------------------------------------------------------------
+
+== Offene Punkte 2014-05-07 ==
+
+* uvnc/helpdesk.txt aktualisieren.
+
+* Code, der nur für Mannheim ist, nach examples/ub-mannheim verschieben?
+
+* Statt Word (docx) besser LibreOffice (odt) verwenden für GitHub
+  --> ? odt wird bereits im FileHandler beruecksichtigt ...
+
+* Wenn kein Benutzer mehr per Browser verbunden ist, muss ein Abmeldeprozess
+  anlaufen:
+  * Wenn auch kein Fenster mehr angezeigt wird, dann kann die Station sofort
+    freigegeben werden.
+  * Wird noch mindestens ein Fenster angezeigt, dann wird die Station nach
+    Ablauf einer Wartezeit (5 min) freigegeben.
+
+* Prüfen, welche Daten nicht per Browser abrufbar sein sollten:
+  für niemand: palma.db.
+  nur für angemelde Benutzer: control.php, uploads/.
+  nur für NUC: screensaver/.
