@@ -42,16 +42,12 @@ if (file_exists('palma.ini') && !$unittest[__FILE__]) {
     if (isset($conf['display']['ssh'])) {
         $ssh = $conf['display']['ssh'];
     }
-    $screenWidth = $conf['display']['width'];
-    $screenHeight = $conf['display']['height'];
     $url = $conf['path']['control_file'];
     trace("url = $url");
 } else {
-    // Guess configuration from global PHP variables.
-    $display = ':0';
+    // Guess configuration.
+    $display = ':1';
     if (!$unittest[__FILE__]) {
-        $screenWidth = 1024;
-        $screenHeight = 768;
         $url = dirname($_SERVER['HTTP_REFERER']) . '/' . basename($_SERVER['PHP_SELF']);
         trace("url = $url");
     }
@@ -162,8 +158,6 @@ function clearUploadDir() {
 
 function setLayout($layout) {
     // Set layout of team display.
-    global $screenHeight;
-    global $screenWidth;
 
     trace("layout $layout");
 
@@ -192,6 +186,15 @@ function setLayout($layout) {
 
     // Make sure that desktop 0 is selected.
     displayCommand('wmctrl -s 0');
+
+    // Get width and height of desktop.
+    $desktops = displayCommand("wmctrl -d");
+    // $desktop looks like this.
+    // 0  * DG: 1600x900  VP: 0,0  WA: 0,27 1600x873  Arbeitsfläche 1
+    $fields = preg_split("/[\n ]+/", $desktops);
+    $geom = preg_split("/x/", $fields[3]);
+    $screenWidth = $geom[0];
+    $screenHeight = $geom[1];
 
     $wi = 0;
     foreach (windowList() as $id) {
