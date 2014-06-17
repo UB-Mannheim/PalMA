@@ -12,6 +12,17 @@ Parts of the software use different licenses which are listed
 in file [LICENSE](LICENSE).
 
 
+Summary
+-------
+
+With PalMA, a group of people can share a team monitor. Different documents,
+websites or local desktops can be shown simultaneously in up to four display
+sections.
+
+Users authorize to the team monitor and control it by using a web application
+which runs on their mobile device or on their notebook.
+
+
 Hardware requirements
 ---------------------
 
@@ -45,7 +56,7 @@ This also needs write access for www-data to the installation directory.
 Some viewer programs want to write their configuration data. This requires
 write access for www-data in directory ~www-data (typically /var/www).
 
-Debian packages: feh libjs-jquery php5-curl php5-gd php5-intl.
+Debian packages: feh libjs-jquery php5-curl php5-gd php5-intl wmctrl xdotool.
 
  # Activate javascript for Apache.
  $ a2enconf javascript-common

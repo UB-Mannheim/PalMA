@@ -284,7 +284,7 @@ protected function sendVncWindowToNuc($id, $vncclient) {
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_URL => $this->_URL.'?newVncWindow='.$sw,
-            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+            CURLOPT_USERAGENT => 'PalMA cURL Request'
             ));
         // Send the request & save response to $resp
         $resp = curl_exec($curl);
@@ -339,7 +339,7 @@ protected function deleteInactiveVncWindow() {
             curl_setopt_array($curl, array(
                 CURLOPT_RETURNTRANSFER => 1,
                 CURLOPT_URL => $this->_URL.'?window=vncwin&delete=VNC&vncid='.$inactive_win_id,
-                CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+                CURLOPT_USERAGENT => 'PalMA cURL Request'
                 ));
 
             $resp = curl_exec($curl);

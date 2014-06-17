@@ -10,8 +10,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
+   width="332.20267"
+   height="123.19259"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
@@ -19,6 +19,8 @@
    inkscape:export-filename="C:\Users\wagneral\Desktop\palma_logo_v1.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
+  <title
+     id="title3761">PalMA Logo</title>
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -28,17 +30,24 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.9476634"
-     inkscape:cx="621.96201"
-     inkscape:cy="383.99929"
-     inkscape:document-units="px"
+     inkscape:zoom="1.3401984"
+     inkscape:cx="420.3253"
+     inkscape:cy="45.941714"
+     inkscape:document-units="mm"
      inkscape:current-layer="g3791"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1060"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1600"
+     inkscape:window-height="834"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     units="mm"
+     inkscape:showpageshadow="false"
+     showborder="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -47,8 +56,51 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title>PalMA Logo</dc:title>
+        <dc:date>2014-05-22</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Alexander Wagner</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>UB Mannheim</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>UB Mannheim</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>Logo</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/" />
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title>Stefan Weil</dc:title>
+          </cc:Agent>
+        </dc:contributor>
       </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/3.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
     </rdf:RDF>
   </metadata>
   <g
@@ -56,7 +108,8 @@
      inkscape:groupmode="layer"
      id="layer1"
      sodipodi:insensitive="true"
-     style="display:none">
+     style="display:none"
+     transform="translate(-207.34993,-503.81151)">
     <image
        y="531.79071"
        x="328"
@@ -68,36 +121,50 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Ebene">
+     inkscape:label="Ebene"
+     transform="translate(-207.34993,-503.81151)">
     <g
        id="g3791"
        transform="matrix(3.2559655,0,0,3.2559655,-827.41017,-1268.9255)">
+      <path
+         sodipodi:nodetypes="ccccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path3775"
+         d="m 359.40705,554.8226 c -3.02248,0.60997 -4.69908,3.57523 -6.80869,5.78273 0.14475,-4.32687 0.39518,-4.75233 0.90353,-6.83132 -3.3709,0.49014 -5.04034,1.43111 -9.95067,6.55151 0.8385,-3.97985 2.13611,-8.35254 8.2963,-10.39723 -1.45275,-1.09191 -4.52887,-1.25061 -7.72914,-1.2662 3.61202,-1.77712 8.86207,-2.15731 12.23341,-1.35006 -0.33781,-1.45558 -0.74177,-1.77683 -2.04535,-2.82729 2.64646,-0.20174 4.23729,0.74709 5.28718,2.78301 8.38727,-1.90436 13.94021,1.43862 16.9751,6.34234 -10.17728,-3.65201 -11.93779,-2.50095 -14.45211,-1.80133 2.12956,2.40398 2.34874,2.43079 4.0775,6.93209 -6.36592,-5.19672 -7.13612,-3.63513 -6.78706,-3.91825 z"
+         style="fill:#00ff00;fill-opacity:1;stroke:none" />
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path3777"
+         d="m 359.75846,581.64025 6.92363,0 c -11.04987,-8.9059 -5.72282,-27.48411 -7.74139,-26.87822 -1.4391,1.15192 -5.11748,16.93694 0.81776,26.87822 z"
+         style="fill:#b54800;fill-opacity:1;stroke:none" />
       <g
-         id="g2989">
+         style="font-size:36px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         id="text3779">
         <path
-           style="fill:#cfcfcf;fill-opacity:1;stroke:none"
-           d="m 359.40705,554.8226 c -3.02248,0.60997 -4.69908,3.57523 -6.80869,5.78273 0.14475,-4.32687 0.39518,-4.75233 0.90353,-6.83132 -3.3709,0.49014 -5.04034,1.43111 -9.95067,6.55151 0.8385,-3.97985 2.13611,-8.35254 8.2963,-10.39723 -1.45275,-1.09191 -4.52887,-1.25061 -7.72914,-1.2662 3.61202,-1.77712 8.86207,-2.15731 12.23341,-1.35006 -0.33781,-1.45558 -0.74177,-1.77683 -2.04535,-2.82729 2.64646,-0.20174 4.23729,0.74709 5.28718,2.78301 8.38727,-1.90436 13.94021,1.43862 16.9751,6.34234 -10.17728,-3.65201 -11.93779,-2.50095 -14.45211,-1.80133 2.12956,2.40398 2.34874,2.43079 4.0775,6.93209 -6.36592,-5.19672 -7.13612,-3.63513 -6.78706,-3.91825 z"
-           id="path3775"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="ccccccccccccc" />
+           d="m 321.35516,558.45819 0,9.86133 4.46485,0 c 1.65233,10e-6 2.92967,-0.42772 3.83203,-1.2832 0.90233,-0.85546 1.3535,-2.07421 1.35351,-3.65625 -1e-5,-1.5703 -0.45118,-2.78319 -1.35351,-3.63868 -0.90236,-0.85544 -2.1797,-1.28318 -3.83203,-1.2832 l -4.46485,0 m -3.55078,-2.91797 8.01563,0 c 2.94139,3e-5 5.16209,0.668 6.66211,2.00391 1.5117,1.32424 2.26755,3.26955 2.26757,5.83594 -2e-5,2.58986 -0.75587,4.54688 -2.26757,5.87109 -1.50002,1.32423 -3.72072,1.98634 -6.66211,1.98633 l -4.46485,0 0,10.54687 -3.55078,0 0,-26.24414"
+           style="font-variant:normal;font-stretch:normal;fill:#000000;font-family:Raleway;-inkscape-font-specification:Raleway"
+           id="path3795"
+           inkscape:connector-curvature="0" />
         <path
-           style="fill:#cfcfcf;fill-opacity:1;stroke:none"
-           d="m 359.75846,581.64025 6.92363,0 c -11.04987,-9.20947 -5.72282,-28.42094 -7.74139,-27.79439 -1.4391,1.19118 -5.11748,17.51425 0.81776,27.79439 z"
-           id="path3777"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="cccc" />
-        <text
-           xml:space="preserve"
-           style="font-size:36px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cfcfcf;fill-opacity:1;stroke:none;font-family:Sans"
-           x="314.27118"
-           y="581.78436"
-           id="text3779"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3781"
-             x="314.27118"
-             y="581.78436"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Raleway;-inkscape-font-specification:Raleway">Pa MA</tspan></text>
+           d="m 346.7204,571.88788 c -2.61329,10e-6 -4.42384,0.29884 -5.43164,0.89648 -1.00782,0.59767 -1.51173,1.6172 -1.51172,3.0586 -10e-6,1.14844 0.37499,2.0625 1.125,2.74218 0.76171,0.66798 1.79296,1.00196 3.09375,1.00196 1.79296,0 3.2285,-0.63281 4.30664,-1.89844 1.08983,-1.27734 1.63475,-2.9707 1.63476,-5.08008 l 0,-0.7207 -3.21679,0 m 6.45117,-1.33594 0,11.23242 -3.23438,0 0,-2.98828 c -0.73829,1.19532 -1.65821,2.08008 -2.75976,2.6543 -1.10157,0.5625 -2.44923,0.84375 -4.04297,0.84375 -2.01563,0 -3.6211,-0.5625 -4.81641,-1.6875 -1.18359,-1.13672 -1.77539,-2.65429 -1.77539,-4.55274 0,-2.21483 0.73828,-3.88475 2.21485,-5.00976 1.48827,-1.12499 3.70311,-1.68749 6.64453,-1.6875 l 4.53515,0 0,-0.31641 c -10e-6,-1.48826 -0.4922,-2.6367 -1.47656,-3.44531 -0.97267,-0.8203 -2.34376,-1.23045 -4.11328,-1.23047 -1.12501,2e-5 -2.22071,0.13478 -3.28711,0.4043 -1.06641,0.26955 -2.0918,0.67384 -3.07617,1.21289 l 0,-2.98828 c 1.18359,-0.45701 2.33203,-0.79686 3.44531,-1.01953 1.11328,-0.23436 2.19726,-0.35155 3.25196,-0.35157 2.84764,2e-5 4.97459,0.7383 6.38085,2.21485 1.40624,1.47658 2.10936,3.71486 2.10938,6.71484"
+           style="font-variant:normal;font-stretch:normal;fill:#000000;font-family:Raleway;-inkscape-font-specification:Raleway"
+           id="path3797"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-size:36px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         id="text3779-1">
+        <path
+           d="m 367.96027,555.28967 5.29101,0 6.69727,17.85938 6.73242,-17.85938 5.29101,0 0,26.24414 -3.46289,0 0,-23.04492 -6.76757,18 -3.56836,0 -6.76758,-18 0,23.04492 -3.44531,0 0,-26.24414"
+           style="font-variant:normal;font-stretch:normal;fill:#000000;font-family:Raleway;-inkscape-font-specification:Raleway"
+           id="path3790"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m 407.80988,558.78772 -4.81641,13.06055 9.65039,0 -4.83398,-13.06055 m -2.00391,-3.49805 4.02539,0 10.00195,26.24414 -3.6914,0 -2.39063,-6.73242 -11.83008,0 -2.39062,6.73242 -3.74414,0 10.01953,-26.24414"
+           style="font-variant:normal;font-stretch:normal;fill:#000000;font-family:Raleway;-inkscape-font-specification:Raleway"
+           id="path3792"
+           inkscape:connector-curvature="0" />
       </g>
     </g>
   </g>

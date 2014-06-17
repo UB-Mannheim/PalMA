@@ -496,14 +496,14 @@ handler["default"] = new Object();
     handler["default"]["zoomout"] = "ctrl+minus";
     handler["default"]["download"] = "download";
 handler["eog"] = new Object();
-    handler["eog"]["up"] = "Up";
-    handler["eog"]["down"] = "Down";
-    handler["eog"]["left"] = "Left";
-    handler["eog"]["right"] = "Right";
-    handler["eog"]["next"] = "Next";
-    handler["eog"]["prior"] = "Prior";
-    handler["eog"]["home"] = "Home";
-    handler["eog"]["end"] = "End";
+    handler["eog"]["up"] = "alt+Up";
+    handler["eog"]["down"] = "alt+Down";
+    handler["eog"]["left"] = "alt+Left";
+    handler["eog"]["right"] = "alt+Right";
+    handler["eog"]["next"] = "alt+Next";
+    handler["eog"]["prior"] = "alt+Prior";
+    handler["eog"]["home"] = "undefined";
+    handler["eog"]["end"] = "undefined";
     handler["eog"]["zoomin"] = "ctrl+plus";
     handler["eog"]["zoomout"] = "ctrl+minus";
     handler["eog"]["download"] = "download";
@@ -1009,7 +1009,9 @@ pollDatabase();
 
 <div id="workbench_left">
     <table class="maindisplay" summary="<?=_('Team display')?>">
-        <caption><img id="palma_logo" src="images/logo/palma_logo_000000_50x18.png" alt="PalMA Logo" /> <?=_('Team display')?>
+        <caption>
+            <img id="palma_logo" src="images/logo/palma_logo.svg"
+                 alt="PalMA Logo" height="18" /> <?=_('Team display')?>
         <?php
               if (isset($_SESSION['monitor'])) {
                   echo('(' . $_SESSION['monitor'] . ')');
@@ -1124,10 +1126,13 @@ pollDatabase();
             simultaneously.')?></p>
             <p><?=_('Just upload PDF files, images, OpenDocument or
             MS Office files or enter a URL &ndash; PalMA will show them.')?></p>
-            <p><?=_('Share the desktop of your notebook with others.
-            PalMA uses VNC for screen sharing. Download the VNC software
-            once for your Windows PC (preconfigured UltraVNC)
-            or MacBook (RealVNC).')?></p>
+            <p><?=_('Share the desktop of your notebook with others. PalMA uses
+            VNC for screen sharing. Download the VNC software once for your
+            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf" target="_blank">Windows PC</a>
+            (preconfigured UltraVNC) or
+            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf" target="_blank">MacBook</a> (RealVNC).')?></p>
+            <p><?=_('Linux users can share their X display like this:')?><br>
+            <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>
         </div>
     <button
         class="pure-button pure-button-primary pure-input-rounded"

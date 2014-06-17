@@ -35,8 +35,25 @@ if (!is_dir($targetPath)) {
 }
 
 if ($error == UPLOAD_ERR_OK) {
+    # All uploaded files are collected in the upload directory.
+    # If necessary, an index is added to get a unique filename.
     $tempFile = $_FILES['file']['tmp_name'];
     $targetFile = "$targetPath/$filename";
+    $index = 0;
+    $fparts = pathinfo($filename);
+    $fname = $fparts['filename'];
+    $ftype = null;
+    if (isset($fparts['extension'])) {
+        $ftype = $fparts['extension'];
+    }
+    while (file_exists($targetFile)) {
+        $index++;
+        if ($ftype) {
+            $targetFile = "$targetPath/$fname-$index.$ftype";
+        } else {
+            $targetFile = "$targetPath/$fname-$index";
+        }
+    }
     trace("upload '$tempFile' to '$targetFile'");
     move_uploaded_file($tempFile, $targetFile);
 } else {
@@ -67,7 +84,7 @@ if ($error == UPLOAD_ERR_OK) {
     $targetFile = "file:///$targetFile";
 }
 
-  // get information of application for uploaded file
+  // Get information of application for uploaded file.
   require_once ('FileHandler.class.php');
   $handler = FileHandler::getFileHandler($targetFile);
 
@@ -98,7 +115,7 @@ if ($error == UPLOAD_ERR_OK) {
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
         CURLOPT_URL => $url . '?newWindow=' . $sw,
-        CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+        CURLOPT_USERAGENT => 'PalMA cURL Request'
     ));
     // Send the request & save response to $resp
     $resp = curl_exec($curl);

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-13 14:10+0200\n"
+"POT-Creation-Date: 2014-06-13 15:22+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Stefan Weil <stefan.weil@bib.uni-mannheim.de>\n"
 "Language-Team: Deutsch <de@li.org>\n"
@@ -123,140 +123,148 @@ msgstr "Alle Benutzer abmelden"
 msgid "Show help and offer some extras"
 msgstr "Zeige eine Hilfeseite mit zusätzlichen Funktionen an"
 
-#: index.php:1004 index.php:1114
+#: index.php:1004 index.php:1116
 msgid "Help + Extras"
 msgstr "Hilfe + Extras"
 
-#: index.php:1011 index.php:1012
+#: index.php:1011 index.php:1014
 msgid "Team display"
 msgstr "Team-Monitor"
 
-#: index.php:1023 index.php:1024
+#: index.php:1025 index.php:1026
 msgid "Screen layout"
 msgstr "Bildschirmaufteilung"
 
-#: index.php:1029 index.php:1036 index.php:1043 index.php:1050 index.php:1057
+#: index.php:1031 index.php:1038 index.php:1045 index.php:1052 index.php:1059
 msgid "Choose screen layout"
 msgstr "Wähle Bildschirmaufteilung"
 
-#: index.php:1067 index.php:1069
+#: index.php:1069 index.php:1071
 msgid "Enter URL"
 msgstr "Bitte URL eingeben"
 
-#: index.php:1071
+#: index.php:1073
 msgid "Show this URL in a new browser window"
 msgstr "Zeige diese URL in einem neuen Browserfenster"
 
-#: index.php:1081
+#: index.php:1083
 msgid "Drop documents here (or click) to load them up"
 msgstr "Dokumente zum Hochladen hierher ziehen (oder klicken)"
 
-#: index.php:1085
+#: index.php:1087
 msgid "Drop documents here (or click)"
 msgstr "Dokumente hierher ziehen (oder klicken)"
 
-#: index.php:1111
+#: index.php:1113
 msgid "Close the help window"
 msgstr "Schließe das Hilfefenster"
 
-#: index.php:1117
+#: index.php:1119
 msgid ""
 "With PalMA, you can share your documents and your desktop\n"
 "            with your learning group."
 msgstr ""
 
-#: index.php:1119
+#: index.php:1121
 msgid ""
 "Team members can join the group at any time. All they need\n"
 "            is URL and PIN."
 msgstr ""
 
-#: index.php:1123
+#: index.php:1125
 msgid ""
 "The PalMA team monitor shows up to 4 contributions\n"
 "            simultaneously."
 msgstr ""
 
-#: index.php:1125
+#: index.php:1127
 msgid ""
 "Just upload PDF files, images, OpenDocument or\n"
 "            MS Office files or enter a URL &ndash; PalMA will show them."
 msgstr ""
 
-#: index.php:1127
+#: index.php:1129
 msgid ""
-"Share the desktop of your notebook with others.\n"
-"            PalMA uses VNC for screen sharing. Download the VNC software\n"
-"            once for your Windows PC (preconfigured UltraVNC)\n"
-"            or MacBook (RealVNC)."
+"Share the desktop of your notebook with others. PalMA uses\n"
+"            VNC for screen sharing. Download the VNC software once for your\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-kurzanleitung.pdf\" target=\"_blank\">Windows PC</a>\n"
+"            (preconfigured UltraVNC) or\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-anleitung-mac.pdf\" target=\"_blank\">MacBook</a> "
+"(RealVNC)."
 msgstr ""
 
-#: index.php:1135
+#: index.php:1134
+msgid "Linux users can share their X display like this:"
+msgstr ""
+
+#: index.php:1140
 msgid "Share desktop (free UltraVNC / Windows only)"
 msgstr "Desktopfreigabe (UltraVNC (freie Software) / Windows)"
 
-#: index.php:1142
+#: index.php:1147
 msgid "Share desktop (non free RealVNC)"
 msgstr "Desktopfreigabe (RealVNC (kommerziell) / OS X)"
 
-#: index.php:1150
+#: index.php:1155
 msgid "Show team display"
 msgstr "Team-Monitor anzeigen"
 
-#: login.php:72 login.php:81 login.php:84
+#: login.php:84 login.php:93 login.php:96
 msgid "Invalid credentials!"
 msgstr "Benutzerkennung ungültig!"
 
-#: login.php:78
+#: login.php:90
 msgid "Cannot check credentials, sorry!"
 msgstr "Prüfung der Benutzerkennung zur Zeit leider nicht möglich!"
 
-#: login.php:103
+#: login.php:115
 msgid "Invalid PIN."
 msgstr "PIN ungültig."
 
-#: login.php:136
+#: login.php:148
 msgid "PalMA &ndash; Login"
 msgstr "PalMA &ndash; Anmeldung"
 
-#: login.php:161
+#: login.php:175
 msgid "Login"
 msgstr "Anmeldung"
 
-#: login.php:163
+#: login.php:178
 msgid "User name"
 msgstr "Benutzername"
 
-#: login.php:167
+#: login.php:182
 msgid "Password"
 msgstr "Passwort"
 
-#: login.php:171
+#: login.php:186
 msgid "PIN"
 msgstr "PIN"
 
-#: login.php:175
+#: login.php:190
 msgid "Log in"
 msgstr "Anmelden"
 
-#: upload.php:51
+#: upload.php:68
 msgid "This file is too large."
 msgstr "Diese Datei ist zu groß."
 
-#: upload.php:54
+#: upload.php:71
 msgid "Large files are not supported."
 msgstr "Große Dateien werden nicht unterstützt."
 
-#: upload.php:57
+#: upload.php:74
 msgid "File was only partially uploaded."
 msgstr "Die Datei wurde nur teilweise hochgeladen."
 
-#: upload.php:60
+#: upload.php:77
 #, php-format
 msgid "Error code %s."
 msgstr "Fehlercode %s."
 
-#: upload.php:63
+#: upload.php:80
 #, php-format
 msgid "File '%s' cannot be shown."
 msgstr "Die Datei '%s' kann leider nicht angezeigt werden."

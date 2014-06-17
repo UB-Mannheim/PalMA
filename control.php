@@ -70,6 +70,21 @@ function displayCommand($cmd) {
     return $result;
 }
 
+function wmClose($id) {
+    // Close window gracefully.
+    displayCommand("wmctrl -i -c $id");
+}
+
+function wmHide($id) {
+    // Hide window. This is done by moving it to desktop 1.
+    displayCommand("wmctrl -i -r $id -t 1");
+}
+
+function wmShow($id) {
+    // Show window on current desktop.
+    displayCommand("wmctrl -i -R $id");
+}
+
 function windowListOnScreen() {
     $list = array();
     $windows = explode("\n", displayCommand('wmctrl -l'));
@@ -108,10 +123,10 @@ function closeAll() {
 
     $windows_on_screen = windowListOnScreen();
 
-    foreach($windows_on_screen as $id) {
-        displayCommand('wmctrl -ic "' . $id . '"');
-        // trace("closeAllWindows: " . $id);
-        if($dbcon->getState_Window($id)!=null) {
+    foreach ($windows_on_screen as $id) {
+        wmClose($id);
+        // trace("closeAllWindows: $id");
+        if ($dbcon->getState_Window($id) != null) {
             $dbcon->deleteWindow($id);
         }
     }
@@ -136,7 +151,7 @@ function clearUploadDir() {
     if (is_dir($upload_dir)) {
         if ($dh = opendir($upload_dir)) {
             while (($file = readdir($dh)) !== false) {
-                if ($file!="." AND $file !="..") {
+                if ($file != "." AND $file != "..") {
                     unlink("$upload_dir/$file");
                 }
             }
@@ -156,20 +171,17 @@ function setLayout($layout) {
     $dbcon->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
 
     $geom['g1x1'] = array(
-                    array(0, 0, 1, 1), array(0, 0, 0, 0),
-                    array(0, 0, 0, 0), array(0, 0, 0, 0)
+                    array(0, 0, 1, 1)
                   );
     $geom['g2x1'] = array(
-                    array(0, 0, 2, 1), array(1, 0, 2, 1),
-                    array(0, 0, 0, 0), array(0, 0, 0, 0)
+                    array(0, 0, 2, 1), array(1, 0, 2, 1)
                   );
     $geom['g1x2'] = array(
-                    array(0, 0, 1, 2), array(0, 1, 1, 2),
-                    array(0, 0, 0, 0), array(0, 0, 0, 0)
+                    array(0, 0, 1, 2), array(0, 1, 1, 2)
                   );
     $geom['g1a2'] = array(
                     array(0, 0, 2, 1), array(1, 0, 2, 2),
-                    array(1, 1, 2, 2), array(0, 0, 0, 0)
+                    array(1, 1, 2, 2)
                   );
     $geom['g2x2'] = array(
                     array(0, 0, 2, 2), array(1, 0, 2, 2),
@@ -178,41 +190,31 @@ function setLayout($layout) {
 
     $dim = $geom[$layout];
 
+    // Make sure that desktop 0 is selected.
+    displayCommand('wmctrl -s 0');
+
     $wi = 0;
     foreach (windowList() as $id) {
-        $x = $dim[$wi][0];
-        $y = $dim[$wi][1];
-        $dx = $dim[$wi][2];
-        $dy = $dim[$wi][3];
-        if ($dx == 0 || $dy == 0) {
-            // Hide window by moving it to desktop 1.
-            $ret = displayCommand('wmctrl -r ' . $id . ' -i -t 1');
+        if ($wi < count($dim)) {
+            // Show window, set size and position.
+            $dx = $screenWidth / $dim[$wi][2];
+            $dy = $screenHeight / $dim[$wi][3];
+            $x = $dim[$wi][0] * $dx;
+            $y = $dim[$wi][1] * $dy;
+            wmShow($id);
+            $ret = displayCommand("wmctrl -r $id -i -e 0,$x,$y,$dx,$dy");
         } else {
-            // Show window by moving it to desktop 0, set size and position.
-            $dx = $screenWidth / $dx;
-            $dy = $screenHeight / $dy;
-            $x = $dx * $x;
-            $y = $dy * $y;
-            $ret = displayCommand('wmctrl -s 0');
-            $ret = displayCommand('wmctrl -R ' . $id . ' -i');
-            $ret = displayCommand('wmctrl -r ' . $id . ' -i -t 0');
-            $ret = displayCommand('wmctrl -r ' . $id . ' -i -e 0,' . $x . ',' . $y . ',' . $dx . ',' . $dy);
+            // Hide window.
+            wmHide($id);
         }
-        trace('wmctrl -r ' . $id . ' -i -e 0,' . $x . ',' . $y . ',' . $dx . ',' . $dy);
         $wi += 1;
     }
 }
 
 function activateControls($windowhex) {
-
-global $dbcon;
-
-$fhandler = $dbcon->querySingle('SELECT handler FROM window WHERE win_id ="$windowhex"');
-error_log("activateControls for Handler " . $fhandler);
-
-    // experimental: in case of Libre-Office possibly activate pageview-mode for Zoom
-    // if(strpos($fhandler, 'libreoffice') > -1)
-    //    displayCommand("xdotool windowfocus $windowhex key Ctrl+Shift+O");
+    global $dbcon;
+    $fhandler = $dbcon->querySingle("SELECT handler FROM window WHERE win_id=\"$windowhex\"");
+    error_log("activateControls for handler $fhandler");
 }
 
 function restartVNCDaemon() {
@@ -225,35 +227,37 @@ function restartVNCDaemon() {
     $pid = preg_split("/\n/", $pinfo);
     $kill = "";
 
-    for($i=0; $i<count($pid)-1; $i++) {
-        $kill = shell_exec("kill ".$pid[$i]);
+    for ($i = 0; $i < count($pid) - 1; $i++) {
+        $kill = shell_exec("kill " . $pid[$i]);
         trace("proc with procid " . $pid[$i] . " killed ");
     }
 
-
     $webroot = $_SERVER['DOCUMENT_ROOT'];
     $subdir = $_SERVER['PHP_SELF'];
-    $path = $webroot.substr($subdir, 0, (strlen($subdir)-(strrpos($subdir, '/')+4)));
+    $path = $webroot . substr($subdir, 0, (strlen($subdir) - (strrpos($subdir, '/') + 4)));
 
-    $startup = shell_exec("export DISPLAY=".$display."; cd ".$path."; php SSVNCDaemon.php");
+    $startup = shell_exec("export DISPLAY=$display; cd $path; php SSVNCDaemon.php");
     // $user = shell_exec("whoami");
 
-    // trace("Execute Task as User : " . $user);
-    trace("Return value for kill Command : " . $kill);
-    // trace("Return value for startup Command : " . $startup);
+    // trace("Execute task as user $user");
+    trace("Return value for kill command: $kill");
+    // trace("Return value for startup command: $startup");
 
     trace("+++ SSVNC Daemon restarted +++");
 }
 
 function processRequests() {
 
-global $dbcon;
+    global $dbcon;
 
-if (array_key_exists('window', $_REQUEST)) {
-    // All windows related commands must start with window=.
+    if (array_key_exists('window', $_REQUEST)) {
+        // All windows related commands must start with window=.
 
-        $windownumber = $_REQUEST['window'];
-        $window = $windownumber-1;
+    $windownumber = $_REQUEST['window'];
+    if ($windownumber != 'vncwin') {
+        // This is the normal case.
+        // Special handling is needed when called with window=vncwin, see below.
+        $window = $windownumber - 1;
 
         // TODO: $win_id und $windowname können vermutlich zusammengefasst werden.
         $win_id = $dbcon->getWindowIDBySection($windownumber);
@@ -267,46 +271,49 @@ if (array_key_exists('window', $_REQUEST)) {
             $windowname = $windowlist[$window];
             $windowhex = hexdec($windowname);
         }
+    }
 
     if (array_key_exists('key', $_REQUEST)) {
         $key = $_REQUEST['key'];
         trace("key '$key' in window '$windownumber'");
-        displayCommand("wmctrl -R '$windowname' -i");
+        wmShow($windowname);
             // activateControls($windowhex);
         // displayCommand("xdotool windowfocus $windowhex key $key");
 
-        // trying mousemove and mouseclick for better vnc control
-        displayCommand("xdotool mousemove --window $windowhex 100 100");
-        displayCommand("xdotool mouseclick");
-        displayCommand("xdotool key $key");
+        // trying mousemove and click for better vnc control
+        displayCommand("xdotool mousemove --window $windowhex 100 100 " .
+                       "key $key");
     }
 
     if (array_key_exists('keydown', $_REQUEST)) {
+        // TODO: keydown is currently mapped to key because we had problems
+        // with sticking keys (no keyup seen). This should be fixed by a
+        // better event handling.
         $key = $_REQUEST['keydown'];
         trace("keydown '$key' in window '$windownumber'");
-        displayCommand("wmctrl -R '$windowname' -i");
+        wmShow($windowname);
             // activateControls($windowhex);
         // displayCommand("xdotool windowfocus $windowhex key $key");
 
-        // trying mousemove and mouseclick for better vnc control
-        displayCommand("xdotool mousemove --window $windowhex 100 100");
-        displayCommand("xdotool mouseclick");
-        displayCommand("xdotool key $key");
+        // trying mousemove and click for better vnc control
+        displayCommand("xdotool mousemove --window $windowhex 100 100 " .
+                       "key $key");
         //~ displayCommand("xdotool windowfocus $windowhex keydown $key");
     }
 
     if (array_key_exists('keyup', $_REQUEST)) {
+        // TODO: keyup is currently ignored, see comment above.
         $key = $_REQUEST['keyup'];
         trace("keyup '$key' in window '$windownumber'");
             // activateControls($windowhex);
-        //~ displayCommand("wmctrl -R '$windowname' -i");
+        //~ wmShow($windowname);
         //~ displayCommand("xdotool windowfocus $windowhex keyup $key");
     }
 
     if (array_key_exists('delete', $_REQUEST)) {
 
         $delete = str_replace(" ","\ ", addslashes($_REQUEST['delete']));
-        trace("+++ ENTERING DELETE Section : delete=$delete and close window $win_id +++");
+        trace("delete=$delete, close window $windownumber");
 
         if (file_exists($delete)) {
             trace("+++ DELETE FILE FROM WEBINTERFACE +++");
@@ -322,18 +329,16 @@ if (array_key_exists('window', $_REQUEST)) {
             trace("+++ DELETE Browserwindow +++");
         } else if (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
             trace("+++ DELETE VNC Client FROM WEBINTERFACE +++");
-                // call via webinterface
-                // if preg_match ~ name@host
-
-            $win_id = $dbcon->querySingle('SELECT win_id FROM window where file="'.$delete.'" AND handler="vnc"');
-            trace('DELETE VNC Window with ID='.$win_id.'FROM Database ::
-                SELECT win_id FROM window where file="'.$delete.'" AND handler="vnc"');
+            // call via webinterface
+            $win_id = $dbcon->querySingle("SELECT win_id FROM window WHERE file=\"$delete\" AND handler=\"vnc\"");
+            trace("DELETE VNC Window with ID=$win_id FROM Database ::
+                SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
         } else {
             trace("Unhandled delete for '$delete'");
         }
 
         // displayCommand("xdotool windowkill $win_id");
-        displayCommand("wmctrl -ic $win_id");
+        wmClose($win_id);
         $dbcon->deleteWindow($win_id);
     }
 
@@ -343,8 +348,8 @@ if (array_key_exists('window', $_REQUEST)) {
         $windows_in_db = $dbcon->getWindows();
         $db_ids = array();
 
-        if(count($windows_in_db)>0) {
-            foreach($windows_in_db as $win) {
+        if (count($windows_in_db) > 0) {
+            foreach ($windows_in_db as $win) {
                 array_push($db_ids, $win['win_id']);
             }
         }
@@ -357,8 +362,8 @@ if (array_key_exists('window', $_REQUEST)) {
 
         if (count($orphan_ids > 0)) {
             // close windows on screen not existing in database
-            foreach($orphan_ids as $id) {
-                displayCommand('wmctrl -ic "' . $id . '"');
+            foreach ($orphan_ids as $id) {
+                wmClose($id);
             }
         }
 
@@ -367,13 +372,13 @@ if (array_key_exists('window', $_REQUEST)) {
     if (array_key_exists('toggle', $_REQUEST)) {
         $windowhex = hexdec($win_id);
         trace("toggle in window '$windownumber' (id=$win_id)");
-        // displayCommand('wmctrl -R "' . $win_id . '"');
+        // wmShow($win_id);
         // displayCommand('xdotool windowkill ' . hexdec($windowname));
 
         // just change state
         $state = $dbcon->getState_Window($win_id);
         trace("Window Status: $state");
-        if ($state =="active") {
+        if ($state == "active") {
             displayCommand("xdotool windowminimize $windowhex");
             $new_state = $dbcon->setState_Window($win_id, "inactive");
         } else {
@@ -403,8 +408,8 @@ if (array_key_exists('newWindow', $_REQUEST)) {
     $new = urldecode($_REQUEST['newWindow']);
     trace("newWindow '$new'");
     $new = unserialize($new);
-    // '$new' already contains 'id', 'file', 'state', 'type', 'userid'
-    // 'win_id' + 'name' has to be defined afterwards
+    // '$new' already contains 'file', 'handler' and 'date'.
+    // 'win_id', 'name' have to be defined afterwards.
 
     $handler = $new['handler'];
     // TODO: use escapeshellarg() for filename.
@@ -415,46 +420,41 @@ if (array_key_exists('newWindow', $_REQUEST)) {
 
         $webroot = $_SERVER['DOCUMENT_ROOT'];
         $subdir = $_SERVER['PHP_SELF'];
-        $path = $webroot.substr($subdir, 0, (strlen($subdir)-(strrpos($subdir, '/')+4)));
+        $path = $webroot . substr($subdir, 0, (strlen($subdir) - (strrpos($subdir, '/') + 4)));
 
         $cmd = "$handler '$filename'";
         displayCommand("/usr/bin/nohup $cmd >/dev/null 2>&1 &");
-        // trace("(2) open=".$new['handler'].$new['file'].' > /dev/null 2>/dev/null &');
-    }
-    // TODO: check if necessary t wait 1 second (if bigger files are uploaded)
-    sleep(1);
-
-// TODO: db feld 'name' in 'section' umbenennen
-
-    $window_ids_on_screen = windowListOnScreen();
-    $windows_in_db = $dbcon->getWindows();
-
-    $existing_ids = array();
-    $new_window_id="";
-
-    if (count($windows_in_db)>0) {
-        // add db widnows to existing_ids
-        foreach($windows_in_db as $win) {
-          $existing_ids[] = $win['win_id'];
-        }
-
-        $new_window = array_diff($window_ids_on_screen, $existing_ids);
-        // trace(serialize($new_window));
-
-        foreach($new_window as $win_id) {
-            if($win_id!="")
-                $new_window_id = $win_id;
-        }
-        trace("neues Fenster hat ID $new_window_id");
-
-    } else {
-        $new_window_id = $window_ids_on_screen[0];
-        // trace("(5) nothing in database, only one window on display : ".$new_window_id);
+        // trace("(2) open=" . $new['handler'] . $new['file'] . ' >/dev/null 2>&1 &');
     }
 
-  // search window and activate it
-  displayCommand('wmctrl -R "' . $new_window_id . '"');
-  // trace("(6) searching for window : ".$new_window_id);
+    // TODO: db feld 'name' in 'section' umbenennen
+
+    // Get new window. Wait up to 10 s for it.
+    $t_total = 0;
+    do {
+        $window_ids_on_screen = windowListOnScreen();
+        $windows_in_db = $dbcon->getWindows();
+
+        $existing_ids = array();
+        $new_window_id = '';
+
+        if (count($windows_in_db) > 0) {
+            // Add db windows to existing_ids.
+            foreach ($windows_in_db as $win) {
+                $existing_ids[] = $win['win_id'];
+            }
+
+            $new_window = array_diff($window_ids_on_screen, $existing_ids);
+            foreach ($new_window as $win_id) {
+                if($win_id != "") {
+                    $new_window_id = $win_id;
+                }
+            }
+        } else if (!empty($window_ids_on_screen)) {
+            $new_window_id = $window_ids_on_screen[0];
+        }
+    } while (!$new_window_id && $t_total++ <= 10 && !sleep(1));
+    trace("new window $new_window_id");
 
   // determine last assigned monitor section
   $max_section = $dbcon->maxSection();
@@ -467,12 +467,12 @@ if (array_key_exists('newWindow', $_REQUEST)) {
   $new['id'] = $dbcon->nextID();
   $new['name'] = $section;
 
-  if($new['id']<=4) {
+  if ($new['id'] <= 4) {
     $new['state'] = "active";
   } else {
     $new['state'] = "inactive";
     displayCommand('xdotool windowminimize ' . hexdec($new_window_id));
-    trace($new_window_id. " + ". hexdec($new_window_id));
+    trace("$new_window_id + " . hexdec($new_window_id));
   }
 
   // $new['file'] = $active_window; (?)
@@ -496,39 +496,31 @@ if (array_key_exists('newWindow', $_REQUEST)) {
 }
 
 if (array_key_exists('switchWindows', $_REQUEST)) {
-    trace("switching " . $_REQUEST['before'] . ' and  ' . $_REQUEST['after']);
-
-    if(isset($_REQUEST['before']))
-        $before = $_REQUEST['before'];
-    if(isset($_REQUEST['after']))
-        $after = $_REQUEST['after'];
+    $before = $_REQUEST['before'];
+    $after = $_REQUEST['after'];
+    trace("switching $before and $after");
 
     $temp = "tmp";
 
     // exchange section
     $win_id1 = $dbcon->getWindowIDBySection($before);
     $win_id2 = $dbcon->getWindowIDBySection($after);
-trace("+++ Quadrant ".$win_id1." mit Quadrant ".$win_id2." tauschen +++");
+    trace("exchange section $win_id1 with section $win_id2");
 
     $update1 = $dbcon->updateWindow($win_id1, "name", $after);
     $update2 = $dbcon->updateWindow($win_id2, "name", $before);
 
-trace("++updating database ".$win_id1." name=".$after);
-trace("++updating database ".$win_id2." name=".$before);
+    trace("++updating database $win_id1 name=$after");
+    trace("++updating database $win_id2 name=$before");
 
     // TODO: Update layout automatically.
 }
 
 if (array_key_exists('openURL', $_REQUEST)) {
-    trace("openURL " . $_REQUEST['openURL']);
+    $openURL = $_REQUEST['openURL'];
+    trace("openURL $openURL");
 
     global $url;
-
-    if (isset($_REQUEST['openURL'])) {
-        $openURL = $_REQUEST['openURL'];
-    }
-
-    trace("MYURL: ".$openURL);
 
     $dt = new DateTime();
     $date = $dt->format('Y-m-d H:i:s');
@@ -553,8 +545,8 @@ if (array_key_exists('openURL', $_REQUEST)) {
       // Set some options - we are passing in a useragent too here
       curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => $url.'?newWindow='.$sw,
-        CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+        CURLOPT_URL => "$url?newWindow=$sw",
+        CURLOPT_USERAGENT => 'PalMA cURL Request'
         ));
         // Send the request & save response to $resp
         $resp = curl_exec($curl);
@@ -564,11 +556,8 @@ if (array_key_exists('openURL', $_REQUEST)) {
 
 // TODO: chef if query redundant?
 if (array_key_exists('closeAll', $_REQUEST)) {
-    trace("close All Windows " . $_REQUEST['closeAll']);
-
-    if(isset($_REQUEST['closeAll']))
-        $close = $_REQUEST['closeAll'];
-
+    $close = $_REQUEST['closeAll'];
+    trace("close all windows $close");
     closeAll();
 }
 
@@ -579,7 +568,7 @@ if (array_key_exists('getHandler', $_REQUEST)) {
         $section = $_REQUEST['getHandler'];
         }
 
-    $fhandler = $dbcon->querySingle('SELECT handler from window where name='.$section);
+    $fhandler = $dbcon->querySingle("SELECT handler FROM window WHERE name=$section");
 
     if (strpos($fhandler, 'eog') > -1) {
         $fhandler = 'eog';
@@ -601,28 +590,24 @@ if (array_key_exists('getHandler', $_REQUEST)) {
         $fhandler = 'zathura';
     }
 
-    trace("returning FileHandle " . $fhandler);
+    trace("returning FileHandle $fhandler");
     // TODO: no longer print but send return value
     print $fhandler;
     // Return value not accepted by Javascript xmlhttprequest
     return $fhandler;
 }
 
-
 if (array_key_exists('isFile', $_REQUEST)) {
-    // trace("get Section ID " . $_REQUEST['isFile']);
+    $section = $_REQUEST['isFile'];
+    // trace("get section ID $section");
 
-    if(isset($_REQUEST['isFile']))
-        $section = $_REQUEST['isFile'];
-
-    $filename = $dbcon->querySingle('SELECT file from window where name='.$section);
-    $file_exists = 1;
-
-    if(file_exists($filename)!=1) {
-        $file_exists = 0;
+    $filename = $dbcon->querySingle("SELECT file FROM window WHERE name=$section");
+    $file_exists = 0;
+    if (file_exists($filename)) {
+        $file_exists = 1;
     }
 
-    trace($filename . " - " . $file_exists);
+    trace("$filename - $file_exists");
     // TODO: no longer print but send return value
     print $file_exists;
     // Return value not accepted by Javascript xmlhttprequest
@@ -634,10 +619,31 @@ if (array_key_exists('isFile', $_REQUEST)) {
 processRequests();
 
 if ($unittest[__FILE__]) {
-    // Run unit test.
-    echo("<p>Running unit test</p>");
-    trace("Running unit test for " . __FILE__);
-    trace("Finished unit test");
-}
 
+    // Experimental: Get function call from startx.
+    parse_str(implode('&', array_slice($argv, 1)), $_GET);
+    if (isset($_GET) && count($_GET) > 0) {
+
+        if (file_exists('palma.ini')) {
+            // Get configuration from ini file.
+            $conf = parse_ini_file("palma.ini", true);
+            $display = $conf['display']['id'];
+        } else {
+            // Guess configuration from global PHP variables.
+            $display = ':0';
+        }
+
+        foreach ($_GET as $key=>$value) {
+            // Only defined actions allowed.
+            if ($key == "doLogout") {
+                doLogout($value);
+            }
+        }
+    } else {
+        // Run unit test.
+        echo("<p>Running unit test</p>");
+        trace("Running unit test for " . __FILE__);
+        trace("Finished unit test");
+    }
+}
 ?>

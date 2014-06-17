@@ -1,10 +1,6 @@
-= TODO Liste für PalMA =
+= TODO List for PalMA =
 
-== Apache Serverkonfiguration ==
-
-* AllowOverrides für .htaccess dokumentieren.
-  Aktuell nicht notwendig, da wir Sessions verwenden.
-  Von .htaccess wird auch generell abgeraten.
+== Apache server configuration ==
 
 * "Options MultiViews" in /etc/apache2/sites-available/000-default.conf
 
@@ -35,53 +31,37 @@ Bitte erledigte Punkte entfernen und Änderungen einchecken.
 
 == Offene Punkte 2014-03-28 ==
 
-* [DONE] Download-Button im Steuerfeld sollte ein neues Fenster / Tab öffnen, da
-  sonst u. U. die aktuelle Ansicht durch die geladene Datei ersetzt wird
-
 * Download-Button nach rechts verschieben (gleiche Spalte wie Zoom-Buttons)?
-
-* [DONE] Blättern im Webbrowser funktioniert nicht, da Cursor in der Adressleiste steht.
 
 * Webbrowser sollte Menü- und Buttonzeile nicht anzeigen.
 
-* [DONE] Im Anmeldefenster sollte der Anmeldeknopf mittig oder rechts stehen.
 
 == Offene Punkte 2014-04-02 ==
 
-* Welche Benutzergruppen wollen wir zulassen? Nur mit RUM-Kennung?
+* [DONE] Welche Benutzergruppen wollen wir zulassen? Nur mit RUM-Kennung? Ja.
 
 * Einfachversion der Software als Option anbieten:
   optionale Authentisierung, optionale PIN-Generierung und -Abfrage,
   Desktop-Anzeige für einen Benutzer (skaliert auf fullscreen).
   Optional Fernbedienung mit Scroll- und Zoomfunktionen.
 
-* [DONE] Was zeigen wir an, wenn der Monitor ungenutzt ist? Das Bild muss
-  wechseln, da es sonst "einbrennt".
-
 * Können wir den Monitor nach längerer Nichtnutzung ausschalten
   (und bei Anwahl durch einen Benutzer wieder anschalten)?
-
-* [DONE] VNC-Verbindung beenden, wenn der Benutzer sich abmeldet
-
-* [DONE] Sammelabmeldung für alle Benutzer fertig implementieren.
-
-* [DONE] Zoom + funktioniert nicht bei Bildern
-
-* [DONE] Download verwendet abgekürzten Dateinamen und funktioniert daher nicht.
 
 ---------------------------------------------------------------
 
 Testergebnis Sarah / Angela 2014-04-16
 
 Bereinigen
-* In WinVNC-Fenster nur eine Verbindungsmöglichkeit anzeigen, auf Doppelklick hinweisen
+* In WinVNC-Fenster nur eine Verbindungsmöglichkeit anzeigen,
+  auf Doppelklick hinweisen. Wird so nicht realisiert.
 
 Probleme
 * Rückmeldung bei Upload von nicht erlaubten Dateien, sonst gibt es Probleme
 -    Zuordnung Fensternummern
 -    Fokus in Browser
 -    Monitoranordnung
-* [DONE] Öffnen von Download in neuem Fenster/Tab
+
 * Ausgeblendete Inhalte werden trotz Deaktivierung angezeigt (auch nach Refresh)
 
 ---------------------------------------------------------------
@@ -91,18 +71,28 @@ Probleme
 * uvnc/helpdesk.txt aktualisieren.
 
 * Code, der nur für Mannheim ist, nach examples/ub-mannheim verschieben?
-
-* Statt Word (docx) besser LibreOffice (odt) verwenden für GitHub
-  --> ? odt wird bereits im FileHandler beruecksichtigt ...
-
-* Wenn kein Benutzer mehr per Browser verbunden ist, muss ein Abmeldeprozess
-  anlaufen:
-  * Wenn auch kein Fenster mehr angezeigt wird, dann kann die Station sofort
-    freigegeben werden.
-  * Wird noch mindestens ein Fenster angezeigt, dann wird die Station nach
-    Ablauf einer Wartezeit (5 min) freigegeben.
+  Wird über theme/ub-mannheim realisiert.
 
 * Prüfen, welche Daten nicht per Browser abrufbar sein sollten:
   für niemand: palma.db.
   nur für angemelde Benutzer: control.php, uploads/.
   nur für NUC: screensaver/.
+
+---------------------------------------------------------------
+
+== Offene Punkte 2014-06-02 ==
+
+* Für Dokumentation Word (docx) durch LibreOffice (odt) ersetzen.
+
+* Zusätzliche Funktionen für vlc: springe an Anfang (und spiele erneut ab),
+  eventuell weitere.
+
+* Download wird von /~stefan/uploads versucht, richtig wäre aber
+  /~stefan/palma/uploads.
+
+* PDF-Anzeige war plötzlich im Suchmodus (wie mit Taste '/'). Dadurch
+  funktionierte Zoomfunktion nicht mehr.
+
+* Test: vier Anzeigen öffnen, 1 bis 3 schließen, weitere Anzeige öffnen =>
+  Steuerung zeigt neue Anzeige als nicht sichtbar an, tatsächlich wird sie
+  aber angezeigt. Soll: neue Anzeige nutzt erste freie Sektion.

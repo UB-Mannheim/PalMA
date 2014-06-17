@@ -153,7 +153,8 @@ function switchImage() {
     }
 }
 
-setInterval("switchImage()", 60000);
+switchImage();
+setInterval("switchImage()", 600000);
 
 //Random Movement - http://www.btinternet.com/~kurt.grigg/javascript
 
@@ -164,9 +165,9 @@ window.addEventListener || window.attachEvent){
 
 var imgh = 163;
 var imgw = 156;
-var timer = 40; //setTimeout speed.
-var min = 1;    //slowest speed.
-var max = 5;    //fastest speed.
+var timer = 40; // SetTimeout speed.
+var min = 0.2;  // Slowest speed.
+var max = 1.0;  // Fastest speed.
 
 var h,w,r,temp;
 var d = document;

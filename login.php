@@ -45,14 +45,19 @@
     global $errtext;
 
     $remote = $_SERVER['REMOTE_ADDR'];
-    if ($username == 'chef' && $password == 'chef' &&
-        preg_match('/^134[.]155[.]36[.]/', $remote) &&
-        $remote != '134.155.36.48') {
-        // Allow test access for restricted remote hosts
-        // (UB Mannheim library staff, but not via proxy server).
-        // TODO: PalMA installations which are accessible from the Internet
-        // should remove this test access.
-        return true;
+    if ($username == 'chef' && $password == 'chef') {
+        if ($remote == '::1' || $remote == '127.0.0.1' ||
+            preg_match('/^134[.]155[.]36[.]/', $remote) &&
+            $remote != '134.155.36.48') {
+            // Allow test access for restricted remote hosts (localhost,
+            // UB Mannheim library staff, but not via proxy server).
+            // TODO: PalMA installations which are accessible from
+            // the Internet may want to remove this test access.
+            return true;
+        } else {
+            trace("Test access not allowed for IP address $remote");
+            return false;
+        }
     }
 
     if ($username == '' || $password == '') {
@@ -165,7 +170,10 @@ TODO:
 <form name="auth" class="pure-form pure-form-aligned" action="login.php" method="post">
 
 <fieldset class="login">
-    <legend><img src="images/logo/palma_logo_000000_70x25.png" alt="PalMA" /> &ndash; <?=_("Login")?></legend>
+    <legend>
+        <img src="images/logo/palma_logo.svg" alt="PalMA" height="25"/>
+        &ndash; <?=_("Login")?>
+    </legend>
         <div class="pure-control-group">
             <label for="username"><?=_("User name")?></label>
             <input id="username" name="username" type="text" value="<?=$username?>">

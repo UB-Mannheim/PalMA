@@ -136,9 +136,11 @@ function pollDatabase(lastJSON, urlBase, button) {
 
 <?php
 $remote = $_SERVER['REMOTE_ADDR'];
-if ($remote == '134.155.62.179' ||
+if ($remote == '::1' || $remote == '127.0.0.1' ||
+    $remote == '134.155.62.179' ||
+    $remote == '::1' || $remote == '127.0.0.1' ||
     preg_match('/^134[.]155[.]36[.]/', $remote) && $remote != '134.155.36.48') {
-    /* Allow access for library staff, but not for the proxy host. */
+    // Allow access for localhost and library staff, but not for the proxy host.
 ?>
 
     <h2>Übersicht Learning Center &ndash; PalMA-Stationen</h2>
@@ -173,7 +175,6 @@ stations.push(new Array('LC 15', 'http://lc15.bib.uni-mannheim.de/palma/'));
 stations.push(new Array('LC 16', 'http://lc16.bib.uni-mannheim.de/palma/'));
 stations.push(new Array('LC 17', 'http://lc17.bib.uni-mannheim.de/palma/'));
 stations.push(new Array('LC 18', 'http://lc18.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 19', 'http://lc19.bib.uni-mannheim.de/palma/'));
 
 // Get the <div> element which contains the station entries.
 var list = document.getElementById('stations');
@@ -197,7 +198,8 @@ for (var n = 0; n < stations.length; n++) {
     button.appendChild(i);
     button.appendChild(document.createTextNode(stationname + ' (' + 0 + ')'));
     list.appendChild(button);
-    pollDatabase('', stationurl, button);
+    // TODO: Polling disabled because it retriggers the timeout of each station.
+    //pollDatabase('', stationurl, button);
 }
 
 </script>

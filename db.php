@@ -19,7 +19,7 @@ $oldJSON = '';
 
 if (isset($_REQUEST['json'])) {
     $oldJSON = $_REQUEST['json'];
-    error_log("db polled:  $oldJSON");
+    trace("db old: $oldJSON");
 }
 
 for ($t = 0; $t < 300; $t++) {
@@ -66,12 +66,14 @@ for ($t = 0; $t < 300; $t++) {
     //~ $newJSON = json_encode($database, JSON_PRETTY_PRINT);
     $newJSON = json_encode($database);
     if ($oldJSON != $newJSON) {
-        error_log("db changed: $newJSON");
+        trace("db new: $newJSON");
         break;
     }
 
     sleep(1);
 }
+
+touch("last_activity");
 
 echo($newJSON);
 
