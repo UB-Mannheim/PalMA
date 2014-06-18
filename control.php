@@ -249,6 +249,96 @@ function restartVNCDaemon() {
     trace("+++ SSVNC Daemon restarted +++");
 }
 
+function addNewWindow($dbcon, $new) {
+    trace("addNewWindow '$new'");
+    $new = unserialize($new);
+    // '$new' already contains 'file', 'handler' and 'date'.
+    // 'win_id', 'name' have to be defined afterwards.
+
+    // TODO: db feld 'name' in 'section' umbenennen
+
+    // Get new window. Wait up to 10 s for it.
+    $t_total = 0;
+    do {
+        $window_ids_on_screen = windowListOnScreen();
+        $windows_in_db = $dbcon->getWindows();
+
+        $existing_ids = array();
+        $new_window_id = '';
+
+        if (count($windows_in_db) > 0) {
+            // Add db windows to existing_ids.
+            foreach ($windows_in_db as $win) {
+                $existing_ids[] = $win['win_id'];
+            }
+
+            $new_window = array_diff($window_ids_on_screen, $existing_ids);
+            foreach ($new_window as $win_id) {
+                if($win_id != "") {
+                    $new_window_id = $win_id;
+                }
+            }
+        } else if (!empty($window_ids_on_screen)) {
+            $new_window_id = $window_ids_on_screen[0];
+        }
+    } while (!$new_window_id && $t_total++ <= 10 && !sleep(1));
+    trace("new window $new_window_id");
+
+    // Determine last assigned monitor section.
+    $max_section = $dbcon->maxSection();
+
+    $section = $max_section + 1;
+    trace("(7) maxSection: $max_section");
+
+    // If all information is available, create window object.
+
+    $new['id'] = $dbcon->nextID();
+    $new['name'] = $section;
+
+    if ($new['id'] <= 4) {
+        $new['state'] = "active";
+    } else {
+        $new['state'] = "inactive";
+        displayCommand('xdotool windowminimize ' . hexdec($new_window_id));
+        trace("$new_window_id + " . hexdec($new_window_id));
+    }
+
+    // $new['file'] = $active_window; (?)
+
+    // TODO: check how to insert the userid.
+    // Perhaps better add to array in upload.php ?
+    $new['userid'] = "all";
+
+    $myWindow = array(
+        $new['id'],
+        $new_window_id,
+        $new['name'],
+        $new['state'],
+        $new['file'],
+        $new['handler'],
+        $new['userid'],
+        $new['date']
+    );
+
+    // Save window in database.
+    $dbcon->insertWindow($myWindow);
+}
+
+function createNewWindow($dbcon, $new) {
+    $w = unserialize($new);
+    // '$new' already contains 'file', 'handler' and 'date'.
+    // 'win_id', 'name' have to be defined afterwards.
+
+    $handler = $w['handler'];
+    // TODO: use escapeshellarg() for filename.
+    $filename = $w['file'];
+
+    $cmd = "$handler '$filename'";
+    displayCommand("/usr/bin/nohup $cmd >/dev/null 2>&1 &");
+
+    addNewWindow($dbcon, $new);
+}
+
 function processRequests() {
 
     global $dbcon;
@@ -389,114 +479,16 @@ function processRequests() {
             $new_state = $dbcon->setState_Window($win_id, "active");
         }
     }
-
-}
-
-if (array_key_exists('layout', $_REQUEST)) {
-  setLayout($_REQUEST['layout']);
-}
-
-if (array_key_exists('logout', $_REQUEST)) {
-  doLogout($_REQUEST['logout']);
-}
-
-if (array_key_exists('newVncWindow', $_REQUEST)) {
-    // TODO: Better write new code for VNC window.
-    // This is just a workaround to handle it below.
-    $_REQUEST['newWindow'] = $_REQUEST['newVncWindow'];
-}
-
-if (array_key_exists('newWindow', $_REQUEST)) {
-
-    $new = urldecode($_REQUEST['newWindow']);
-    trace("newWindow '$new'");
-    $new = unserialize($new);
-    // '$new' already contains 'file', 'handler' and 'date'.
-    // 'win_id', 'name' have to be defined afterwards.
-
-    $handler = $new['handler'];
-    // TODO: use escapeshellarg() for filename.
-    $filename = $new['file'];
-
-    // if new window is no vnc window, just open it with current handler
-    if ($handler != "vnc") {
-
-        $webroot = $_SERVER['DOCUMENT_ROOT'];
-        $subdir = $_SERVER['PHP_SELF'];
-        $path = $webroot . substr($subdir, 0, (strlen($subdir) - (strrpos($subdir, '/') + 4)));
-
-        $cmd = "$handler '$filename'";
-        displayCommand("/usr/bin/nohup $cmd >/dev/null 2>&1 &");
-        // trace("(2) open=" . $new['handler'] . $new['file'] . ' >/dev/null 2>&1 &');
+    } else if (array_key_exists('layout', $_REQUEST)) {
+        setLayout($_REQUEST['layout']);
+    } else if (array_key_exists('logout', $_REQUEST)) {
+        doLogout($_REQUEST['logout']);
+    } else if (array_key_exists('newVncWindow', $_REQUEST)) {
+        // TODO: Better write new code for VNC window.
+        addNewWindow($dbcon, urldecode($_REQUEST['newVncWindow']));
+    } else if (array_key_exists('newWindow', $_REQUEST)) {
+        createNewWindow($dbcon, urldecode($_REQUEST['newWindow']));
     }
-
-    // TODO: db feld 'name' in 'section' umbenennen
-
-    // Get new window. Wait up to 10 s for it.
-    $t_total = 0;
-    do {
-        $window_ids_on_screen = windowListOnScreen();
-        $windows_in_db = $dbcon->getWindows();
-
-        $existing_ids = array();
-        $new_window_id = '';
-
-        if (count($windows_in_db) > 0) {
-            // Add db windows to existing_ids.
-            foreach ($windows_in_db as $win) {
-                $existing_ids[] = $win['win_id'];
-            }
-
-            $new_window = array_diff($window_ids_on_screen, $existing_ids);
-            foreach ($new_window as $win_id) {
-                if($win_id != "") {
-                    $new_window_id = $win_id;
-                }
-            }
-        } else if (!empty($window_ids_on_screen)) {
-            $new_window_id = $window_ids_on_screen[0];
-        }
-    } while (!$new_window_id && $t_total++ <= 10 && !sleep(1));
-    trace("new window $new_window_id");
-
-  // determine last assigned monitor section
-  $max_section = $dbcon->maxSection();
-
-  $section = $max_section + 1;
-  trace("(7) maxSection: $max_section");
-
-  // if all information available, create window object
-
-  $new['id'] = $dbcon->nextID();
-  $new['name'] = $section;
-
-  if ($new['id'] <= 4) {
-    $new['state'] = "active";
-  } else {
-    $new['state'] = "inactive";
-    displayCommand('xdotool windowminimize ' . hexdec($new_window_id));
-    trace("$new_window_id + " . hexdec($new_window_id));
-  }
-
-  // $new['file'] = $active_window; (?)
-
-  // TODO: check how to insert the userid
-  // perhaps better add to array in upload.php ?
-  $new['userid'] = "all";
-
-  $myWindow = array( $new['id'],
-                     $new_window_id,
-                     $new['name'],
-                     $new['state'],
-                     $new['file'],
-                     $new['handler'],
-                     $new['userid'],
-                     $new['date']
-                     );
-
-  // save window in database
-  $dbcon->insertWindow($myWindow);
-}
 
 if (array_key_exists('switchWindows', $_REQUEST)) {
     $before = $_REQUEST['before'];
