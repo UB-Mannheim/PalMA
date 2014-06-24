@@ -251,7 +251,6 @@ function restartVNCDaemon() {
 
 function addNewWindow($dbcon, $new) {
     trace("addNewWindow '$new'");
-    $new = unserialize($new);
     // '$new' already contains 'file', 'handler' and 'date'.
     // 'win_id', 'name' have to be defined afterwards.
 
@@ -324,9 +323,8 @@ function addNewWindow($dbcon, $new) {
     $dbcon->insertWindow($myWindow);
 }
 
-function createNewWindow($dbcon, $new) {
-    $w = unserialize($new);
-    // '$new' already contains 'file', 'handler' and 'date'.
+function createNewWindow($dbcon, $w) {
+    // '$w' already contains 'file', 'handler' and 'date'.
     // 'win_id', 'name' have to be defined afterwards.
 
     $handler = $w['handler'];
@@ -336,7 +334,7 @@ function createNewWindow($dbcon, $new) {
     $cmd = "$handler '$filename'";
     displayCommand("/usr/bin/nohup $cmd >/dev/null 2>&1 &");
 
-    addNewWindow($dbcon, $new);
+    addNewWindow($dbcon, $w);
 }
 
 function processRequests() {
@@ -485,9 +483,9 @@ function processRequests() {
         doLogout($_REQUEST['logout']);
     } else if (array_key_exists('newVncWindow', $_REQUEST)) {
         // TODO: Better write new code for VNC window.
-        addNewWindow($dbcon, urldecode($_REQUEST['newVncWindow']));
+        addNewWindow($dbcon, unserialize(urldecode($_REQUEST['newVncWindow'])));
     } else if (array_key_exists('newWindow', $_REQUEST)) {
-        createNewWindow($dbcon, urldecode($_REQUEST['newWindow']));
+        createNewWindow($dbcon, unserialize(urldecode($_REQUEST['newWindow'])));
     }
 
 if (array_key_exists('switchWindows', $_REQUEST)) {
@@ -532,21 +530,7 @@ if (array_key_exists('openURL', $_REQUEST)) {
         "date" => $date
         );
 
-      $serializedWindow = serialize($window);
-
-      $sw = urlencode($serializedWindow);
-      // Get cURL resource
-      $curl = curl_init();
-      // Set some options - we are passing in a useragent too here
-      curl_setopt_array($curl, array(
-        CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => "$url?newWindow=$sw",
-        CURLOPT_USERAGENT => 'PalMA cURL Request'
-        ));
-        // Send the request & save response to $resp
-        $resp = curl_exec($curl);
-        // Close request to clear up some resources
-        curl_close($curl);
+    createNewWindow($dbcon, $window);
 }
 
 // TODO: chef if query redundant?
