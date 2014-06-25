@@ -23,14 +23,6 @@ if (!$unittest[__FILE__]) {
     trace("QUERY_STRING=" . $_SERVER['QUERY_STRING']);
 }
 
-// TODO: Get display dimensions automatically:
-// xdpyinfo
-//   dimensions:    1600x900 pixels (423x238 millimeters)
-// xrandr
-//   Screen 0: minimum 320 x 200, current 1600 x 900, maximum 8192 x 8192
-// xwininfo -root
-//   -geometry 1600x900+0+0
-
 if (file_exists('palma.ini') && !$unittest[__FILE__]) {
     // Get configuration from ini file.
     if (isset($_SERVER['HTTP_REFERER'])) {
@@ -205,7 +197,7 @@ function setLayout($layout) {
             $x = $dim[$wi][0] * $dx;
             $y = $dim[$wi][1] * $dy;
             wmShow($id);
-            $ret = displayCommand("wmctrl -r $id -i -e 0,$x,$y,$dx,$dy");
+            $ret = displayCommand("wmctrl -i -r $id -e 0,$x,$y,$dx,$dy");
         } else {
             // Hide window.
             wmHide($id);
@@ -216,7 +208,7 @@ function setLayout($layout) {
 
 function activateControls($windowhex) {
     global $dbcon;
-    $fhandler = $dbcon->querySingle("SELECT handler FROM window WHERE win_id=\"$windowhex\"");
+    $fhandler = $dbcon->querySingle("SELECT handler FROM window WHERE win_id='$windowhex'");
     error_log("activateControls for handler $fhandler");
 }
 
@@ -383,7 +375,7 @@ function processRequests() {
         $key = $_REQUEST['keydown'];
         trace("keydown '$key' in window '$windownumber'");
         wmShow($windowname);
-            // activateControls($windowhex);
+        // activateControls($windowhex);
         // displayCommand("xdotool windowfocus $windowhex key $key");
 
         // trying mousemove and click for better vnc control
@@ -421,7 +413,7 @@ function processRequests() {
         } else if (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
             trace("+++ DELETE VNC Client FROM WEBINTERFACE +++");
             // call via webinterface
-            $win_id = $dbcon->querySingle("SELECT win_id FROM window WHERE file=\"$delete\" AND handler=\"vnc\"");
+            $win_id = $dbcon->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
             trace("DELETE VNC Window with ID=$win_id FROM Database ::
                 SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
         } else {
