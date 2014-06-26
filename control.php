@@ -455,23 +455,18 @@ function processRequests() {
 
     }
 
-    if (array_key_exists('toggle', $_REQUEST)) {
-        $windowhex = hexdec($win_id);
-        trace("toggle in window '$windownumber' (id=$win_id)");
-        // wmShow($win_id);
-        // displayCommand('xdotool windowkill ' . hexdec($windowname));
-
-        // just change state
-        $state = $dbcon->getState_Window($win_id);
-        trace("Window Status: $state");
-        if ($state == "active") {
-            displayCommand("xdotool windowminimize $windowhex");
-            $new_state = $dbcon->setState_Window($win_id, "inactive");
-        } else {
-            displayCommand("xdotool windowactivate $windowhex");
-            $new_state = $dbcon->setState_Window($win_id, "active");
+        if (array_key_exists('toggle', $_REQUEST)) {
+            // Change window state from visible to invisible and vice versa.
+            $state = $dbcon->getState_Window($win_id);
+            trace("toggle window $windownumber, id=$win_id, state=$state");
+            if ($state == "active") {
+                wmHide($win_id);
+                $new_state = $dbcon->setState_Window($win_id, "inactive");
+            } else {
+                wmShow($win_id);
+                $new_state = $dbcon->setState_Window($win_id, "active");
+            }
         }
-    }
     } else if (array_key_exists('layout', $_REQUEST)) {
         setLayout($_REQUEST['layout']);
     } else if (array_key_exists('logout', $_REQUEST)) {
