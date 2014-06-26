@@ -147,12 +147,19 @@ function clearUploadDir() {
 }
 
 function setLayout($layout) {
-    // Set layout of team display.
-
-    trace("layout $layout");
+    // Set layout of team display. Layouts are specified by their name.
+    // We use names like g1x1, g2x1, g1x2, ...
+    // Restore the last layout if the function is called with a null argument.
 
     global $dbcon;
-    $dbcon->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
+
+    if ($layout == null) {
+        $layout = $dbcon->querySingle("SELECT value FROM setting WHERE key='layout'");
+    } else {
+        $dbcon->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
+    }
+
+    trace("layout $layout");
 
     $geom['g1x1'] = array(
                     array(0, 0, 1, 1)
@@ -488,7 +495,6 @@ if (array_key_exists('switchWindows', $_REQUEST)) {
     // exchange section
     $win_id1 = $dbcon->getWindowIDBySection($before);
     $win_id2 = $dbcon->getWindowIDBySection($after);
-    trace("exchange section $win_id1 with section $win_id2");
 
     $update1 = $dbcon->updateWindow($win_id1, 'section', $after);
     $update2 = $dbcon->updateWindow($win_id2, 'section', $before);
@@ -496,7 +502,8 @@ if (array_key_exists('switchWindows', $_REQUEST)) {
     trace("++updating database $win_id1 section=$after");
     trace("++updating database $win_id2 section=$before");
 
-    // TODO: Update layout automatically.
+    // Update display (no layout change).
+    setLayout(null);
 }
 
 if (array_key_exists('openURL', $_REQUEST)) {
