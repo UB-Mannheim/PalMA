@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS address (
 CREATE TABLE IF NOT EXISTS window (
   id INTEGER PRIMARY KEY,
   win_id VARCHAR (3),
-  name INTEGER,
+  section INTEGER,
   state VARCHAR (10),
   file VARCHAR (255),
   handler VARCHAR (255),
@@ -100,7 +100,7 @@ eod;
     }
 
     public function nextID() {
-        $next = $this->querySingle('SELECT max(id) FROM window');
+        // Find the first unused monitor section and return its number.
         $quadrant_ids = array(1, 2, 3, 4);
         $window_db_ids = array();
 
@@ -113,21 +113,14 @@ eod;
         //~ trace("ids in QD " . serialize($quadrant_ids));
         //~ trace("ids in DB " . serialize($window_db_ids));
 
-        $next_ids = array_diff($quadrant_ids, $window_db_ids);
+        $next_ids = array_values(array_diff($quadrant_ids, $window_db_ids));
         //~ trace("ids in NXT " . serialize($next_ids));
         if (count($next_ids) > 0) {
-            $next = array_values($next_ids);
-            $next = $next[0];
+            $next = $next_ids[0];
         } else {
-            $next = $this->querySingle('SELECT max(id) FROM window');
-            $next+=1;
+            $next = $this->querySingle('SELECT MAX(id) FROM window') + 1;
         }
         return $next;
-    }
-
-    public function maxSection() {
-        $max = $this->querySingle('SELECT max(name) FROM window');
-        return $max;
     }
 
     public function ipAddress() {
@@ -213,7 +206,7 @@ eod;
     }
 
     public function getWindowIDBySection($section) {
-        $id = $this->querySingle('SELECT win_id FROM window WHERE name="'.$section.'"');
+        $id = $this->querySingle("SELECT win_id FROM window WHERE section='$section'");
         return $id;
     }
 
@@ -252,7 +245,7 @@ eod;
 
     public function insertWindow($window) {
         // transfer ob complete window object/array necessary
-        $sql = 'INSERT INTO window (id, win_id, name, state, file, handler, userid, date) ' .
+        $sql = 'INSERT INTO window (id, win_id, section, state, file, handler, userid, date) ' .
                 'VALUES ' . '("' .
                 $window[0] . '", "' . $window[1] . '", "' .
                 $window[2] . '", "' . $window[3] . '", "' .

@@ -91,10 +91,8 @@ function windowListOnScreen() {
 function windowList() {
     $list = array();
     global $dbcon;
-    $field = "name";
-    $order = "ASC";
 
-    $windows = $dbcon->getWindowsOrderBy($field, $order);
+    $windows = $dbcon->getWindowsOrderBy('section', 'ASC');
     foreach ($windows as $w) {
 // trace("w = " . serialize($w));
         $id = $w['win_id'];
@@ -242,11 +240,14 @@ function restartVNCDaemon() {
 }
 
 function addNewWindow($dbcon, $new) {
+    // Add a new window to the monitor. This window either uses the first
+    // unused section or it will be hidden.
+
+    global $dbcon;
+
     trace("addNewWindow '$new'");
     // '$new' already contains 'file', 'handler' and 'date'.
-    // 'win_id', 'name' have to be defined afterwards.
-
-    // TODO: db feld 'name' in 'section' umbenennen
+    // 'win_id', 'section' have to be defined afterwards.
 
     // Get new window. Wait up to 10 s for it.
     $t_total = 0;
@@ -276,22 +277,25 @@ function addNewWindow($dbcon, $new) {
     trace("new window $new_window_id");
 
     // Determine last assigned monitor section.
-    $max_section = $dbcon->maxSection();
+    //~ $max_section = $dbcon->querySingle('SELECT MAX(section) FROM window');
 
-    $section = $max_section + 1;
-    trace("(7) maxSection: $max_section");
+    // Get first unused monitor section.
+    $section = $dbcon->nextID();
 
     // If all information is available, create window object.
 
-    $new['id'] = $dbcon->nextID();
-    $new['name'] = $section;
+    $new['id'] = $section;
+    $new['section'] = $section;
 
-    if ($new['id'] <= 4) {
+    if ($section <= 4) {
         $new['state'] = "active";
     } else {
+        // All sections are used, so there is no free one for the new window.
         $new['state'] = "inactive";
-        displayCommand('xdotool windowminimize ' . hexdec($new_window_id));
-        trace("$new_window_id + " . hexdec($new_window_id));
+        // We could hide the new window immediately, but don't do it here:
+        // Each new window will be shown in the middle of the screen.
+        //~ wmHide($new_window_id);
+        //~ trace("hide new window $new_window_id");
     }
 
     // $new['file'] = $active_window; (?)
@@ -303,7 +307,7 @@ function addNewWindow($dbcon, $new) {
     $myWindow = array(
         $new['id'],
         $new_window_id,
-        $new['name'],
+        $new['section'],
         $new['state'],
         $new['file'],
         $new['handler'],
@@ -317,7 +321,7 @@ function addNewWindow($dbcon, $new) {
 
 function createNewWindow($dbcon, $w) {
     // '$w' already contains 'file', 'handler' and 'date'.
-    // 'win_id', 'name' have to be defined afterwards.
+    // 'win_id', 'section' have to be defined afterwards.
 
     $handler = $w['handler'];
     // TODO: use escapeshellarg() for filename.
@@ -420,7 +424,6 @@ function processRequests() {
             trace("Unhandled delete for '$delete'");
         }
 
-        // displayCommand("xdotool windowkill $win_id");
         wmClose($win_id);
         $dbcon->deleteWindow($win_id);
     }
@@ -492,11 +495,11 @@ if (array_key_exists('switchWindows', $_REQUEST)) {
     $win_id2 = $dbcon->getWindowIDBySection($after);
     trace("exchange section $win_id1 with section $win_id2");
 
-    $update1 = $dbcon->updateWindow($win_id1, "name", $after);
-    $update2 = $dbcon->updateWindow($win_id2, "name", $before);
+    $update1 = $dbcon->updateWindow($win_id1, 'section', $after);
+    $update2 = $dbcon->updateWindow($win_id2, 'section', $before);
 
-    trace("++updating database $win_id1 name=$after");
-    trace("++updating database $win_id2 name=$before");
+    trace("++updating database $win_id1 section=$after");
+    trace("++updating database $win_id2 section=$before");
 
     // TODO: Update layout automatically.
 }
@@ -513,7 +516,7 @@ if (array_key_exists('openURL', $_REQUEST)) {
     $window = array(
         "id" => "",
         "win_id" => "",
-        "name" => "",
+        "section" => "",
         "state" => "",
         "file" => $openURL,
         // "handler" => "iceweasel --new-window ",
@@ -539,7 +542,7 @@ if (array_key_exists('getHandler', $_REQUEST)) {
         $section = $_REQUEST['getHandler'];
         }
 
-    $fhandler = $dbcon->querySingle("SELECT handler FROM window WHERE name=$section");
+    $fhandler = $dbcon->querySingle("SELECT handler FROM window WHERE section=$section");
 
     if (strpos($fhandler, 'eog') > -1) {
         $fhandler = 'eog';
@@ -572,7 +575,7 @@ if (array_key_exists('isFile', $_REQUEST)) {
     $section = $_REQUEST['isFile'];
     // trace("get section ID $section");
 
-    $filename = $dbcon->querySingle("SELECT file FROM window WHERE name=$section");
+    $filename = $dbcon->querySingle("SELECT file FROM window WHERE section=$section");
     $file_exists = 0;
     if (file_exists($filename)) {
         $file_exists = 1;

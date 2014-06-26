@@ -733,7 +733,7 @@ function updateWindowList(window) {
         // Add an entry for each window.
         var n;
         for (n = 0; n < window.length; n++) {
-            var screensection = window[n].name;
+            var screensection = window[n].section;
             var file = window[n].file;
             var handler = window[n].handler;
             var s0 = false;
@@ -848,13 +848,12 @@ function updateControlsBySection(window) {
     var sectionControls = new Array();
 
     for (n = 0; n < window.length; n++) {
-
         var win_id = window[n].win_id;
-        var name = window[n].name;
+        var section = window[n].section;
         var file = window[n].file;
         var handler = window[n].handler;
 
-        // alert("Section: "+name+" - "+"Handler: "+handler);
+        // alert("Section: " + section + " - Handler: " + handler);
 
         if (handler.indexOf("eog") > -1) {
             // up down left right zoomin zoomout home end prior next download
@@ -884,8 +883,7 @@ function updateControlsBySection(window) {
             control = new Array("undefined", false, false, false, false, false, false, false, false, false, false, false);
         }
 
-        sectionControls[name] = control;
-
+        sectionControls[section] = control;
     }
 
     // Fill empty sections with default values.
