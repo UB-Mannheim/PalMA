@@ -117,6 +117,10 @@ function closeAll() {
         }
     }
 
+    // Remove any remaining window entries in database.
+    $db->exec('DELETE FROM window');
+
+    // Remove any remaining files in the upload directory.
     clearUploadDir();
 }
 
