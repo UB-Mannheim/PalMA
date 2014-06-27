@@ -21,6 +21,9 @@ class DBConnector extends SQLite3
     private $_WINDOW_COUNT;
 
     const SQL_CREATE_TABLES = <<< eod
+
+PRAGMA foreign_keys = ON;
+
 CREATE TABLE IF NOT EXISTS setting (
   key VARCHAR (10) PRIMARY KEY,
   value VARCHAR (20)
@@ -37,9 +40,10 @@ CREATE TABLE IF NOT EXISTS user (
 
 -- Table with user name, IP address and device type (laptop, tablet, mobile).
 CREATE TABLE IF NOT EXISTS address (
-  userid INTEGER REFERENCES user(userid),
+  userid INTEGER,
   address VARCHAR (30),
-  device VARCHAR (6)
+  device VARCHAR (6),
+  FOREIGN KEY(userid) REFERENCES user(userid)
 );
 
 CREATE TABLE IF NOT EXISTS window (
@@ -138,7 +142,7 @@ eod;
     public function addUser($username, $address, $device = 'laptop') {
         // Add a new user with his/her address and the device to the database.
         // TODO: Support more than one address for a given username.
-        $this->exec("INSERT INTO user VALUES (NULL, '$username', 1, 0)");
+        $this->exec("INSERT OR IGNORE INTO user VALUES (NULL, '$username', 1, 0)");
         $usercount = $this->querySingle("SELECT COUNT(*) FROM user");
         $userid = $this->querySingle("SELECT userid from user where name='".$username."'");
         $this->exec("INSERT INTO address VALUES ('$userid', '$address', '$device')");
@@ -153,8 +157,10 @@ eod;
         // Remove an existing user with his/her address from the database.
         // TODO: Support more than one address for a given username.
         $ip = $this->ipAddress();
-        $this->exec("DELETE FROM address WHERE userid = '$username' AND address = '$ip'");
-        $this->exec("DELETE FROM user WHERE name = '$username'");
+        $userid = $this->querySingle("SELECT userid from user where name='$username'");
+        $this->exec("DELETE FROM address WHERE userid = '$userid' AND address = '$ip'");
+        // TODO: Remove user only when no address refers to it.
+        $this->exec("DELETE FROM user WHERE userid = '$userid'");
         $usercount = $this->querySingle("SELECT COUNT(*) FROM user");
         trace("user $username disconnected, $usercount user(s) now connected");
         if ($usercount == 0) {
