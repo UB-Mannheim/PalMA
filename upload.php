@@ -77,8 +77,20 @@ if ($error == UPLOAD_ERR_OK) {
                 $message = sprintf(_("Error code %s."), $error);
                 break;
         }
+        fprintf($f, "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\"");
+        fprintf($f, "\"http://www.w3.org/TR/html4/strict.dtd\">");
+        fprintf($f, "<html>\n");
+        fprintf($f, "<head>\n");
+        fprintf($f, "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n");
+        fprintf($f, "<title>Error</title>\n");
+        fprintf($f, "</head>\n");
+        fprintf($f, "<body>\n");
+        fprintf($f, "<p>\n");
         fprintf($f, _("File '%s' cannot be shown.") . "<br>\n%s\n",
                 $filename, $message);
+        fprintf($f, "</p>\n");
+        fprintf($f, "</body>\n");
+        fprintf($f, "</html>\n");
         fclose($f);
     }
     $targetFile = "file:///$targetFile";
