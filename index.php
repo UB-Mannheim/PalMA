@@ -636,9 +636,9 @@ function showHelp(visible) {
     // Hide or show an overlay window with help text and some extra functions.
     var element = document.getElementById('helpwindow');
     if (visible) {
-        element.removeAttribute('hidden');
+        element.style.visibility = "visible";
     } else {
-        element.setAttribute('hidden', '');
+        element.style.visibility = "hidden";
     }
 }
 
@@ -716,12 +716,6 @@ function updateWindowList(window) {
         tr = document.createElement('tr');
         td = document.createElement('td');
         td.appendChild(document.createTextNode("\u00a0"));
-        tr.appendChild(td);
-        td = document.createElement('td');
-        tr.appendChild(td);
-        td = document.createElement('td');
-        tr.appendChild(td);
-        td = document.createElement('td');
         tr.appendChild(td);
         list.appendChild(tr);
     } else {
@@ -1006,7 +1000,7 @@ pollDatabase();
     <table class="maindisplay" summary="<?=_('Team display')?>">
         <caption>
             <img id="palma_logo" src="images/logo/palma_logo.svg"
-                 alt="PalMA Logo" height="18" /> <?=_('Team display')?>
+                 alt="PalMA Logo" height="18"> <?=_('Team display')?>
         <?php
               if (isset($_SESSION['monitor'])) {
                   echo('(' . $_SESSION['monitor'] . ')');
@@ -1102,7 +1096,7 @@ pollDatabase();
 </div> <!-- workbench_left -->
 <div id="workbench_end"></div>
 
-<div id="helpwindow" hidden>
+<div id="helpwindow">
     <div id="helpcontainer">
         <div id="helpclose" onclick="showHelp(false)">
             <i class="fa fa-times" title="<?=_('Close the help window')?>"></i>
@@ -1123,9 +1117,12 @@ pollDatabase();
             MS Office files or enter a URL &ndash; PalMA will show them.')?></p>
             <p><?=_('Share the desktop of your notebook with others. PalMA uses
             VNC for screen sharing. Download the VNC software once for your
-            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf" target="_blank">Windows PC</a>
+            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf"
+            onclick="window.open(this.href); return false;">Windows PC</a>
             (preconfigured UltraVNC) or
-            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf" target="_blank">MacBook</a> (RealVNC).')?></p>
+            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf"
+            onclick="window.open(this.href); return false;">MacBook</a>
+            (RealVNC).')?></p>
             <p><?=_('Linux users can share their X display like this:')?><br>
             <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>
         </div>
