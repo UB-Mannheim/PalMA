@@ -46,6 +46,10 @@ CREATE TABLE IF NOT EXISTS address (
   FOREIGN KEY(userid) REFERENCES user(userid)
 );
 
+-- TODO: Entry 'userid' in table 'window' should refer to user(userid):
+-- userid INTEGER REFERENCES user(userid)
+-- The software currently does not handle this correctly, so we had to remove
+-- the reference because it fails with pragma foreign_keys.
 CREATE TABLE IF NOT EXISTS window (
   id INTEGER PRIMARY KEY,
   win_id VARCHAR (3),
@@ -53,7 +57,7 @@ CREATE TABLE IF NOT EXISTS window (
   state VARCHAR (10),
   file VARCHAR (255),
   handler VARCHAR (255),
-  userid INTEGER REFERENCES user(userid),
+  userid INTEGER,
   date DATETIME
 );
 eod;
