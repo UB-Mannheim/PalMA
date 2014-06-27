@@ -967,6 +967,19 @@ pollDatabase();
             "\">$user<i class=\"fa fa-sign-out\"></i></a></p>");
       }
     ?>
+
+    <table class="userlist" summary="<?=_('User list')?>" title="<?=_('List of connected users')?>">
+        <caption><?=_('User list')?><i class="fa fa-users"></i></caption>
+        <tbody id="userlist">
+            <tr><td><!-- filled by function updateUserList() --></td></tr>
+        </tbody>
+    </table>
+    <button class="pure-button pure-button-primary pure-input-rounded"
+            onClick="sendToNuc('logout=ALL')"
+            title="<?=_('Disconnect all users and reset the work place')?>">
+        <?=_('Disconnect all users')?>
+    </button>
+
         <table class="itemlist" summary="<?=_('Display list')?>"
                title="<?=_('List of files, URLs and shared displays')?>">
             <caption><?=_('Display list')?><i class="fa fa-desktop"></i></caption>
@@ -978,17 +991,6 @@ pollDatabase();
             onClick="sendToNuc('closeAll=TRUE')"
             title="<?=_('Close all windows and remove uploaded files')?>">
         <?=_('Close all windows')?>
-    </button>
-    <table class="userlist" summary="<?=_('User list')?>" title="<?=_('List of connected users')?>">
-        <caption><?=_('User list')?><i class="fa fa-users"></i></caption>
-        <tbody id="userlist">
-            <tr><td><!-- filled by function updateUserList() --></td></tr>
-        </tbody>
-    </table>
-    <button class="pure-button pure-button-primary pure-input-rounded"
-            onClick="sendToNuc('logout=ALL')"
-            title="<?=_('Disconnect all users and reset the work place')?>">
-        <?=_('Disconnect all users')?>
     </button>
     <button
         class="pure-button pure-button-primary pure-input-rounded"
