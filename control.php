@@ -252,7 +252,7 @@ function addNewWindow($dbcon, $new) {
 
     global $dbcon;
 
-    trace("addNewWindow '$new'");
+    trace('addNewWindow ' . serialize($new));
     // '$new' already contains 'file', 'handler' and 'date'.
     // 'win_id', 'section' have to be defined afterwards.
 
