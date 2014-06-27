@@ -669,9 +669,6 @@ function updateUserList(address, user) {
             var tr = document.createElement('tr');
             var td = document.createElement('td');
             var i = document.createElement('i');
-            i.setAttribute('class', 'fa fa-user');
-            td.appendChild(i);
-            i = document.createElement('i');
             i.setAttribute('class', 'fa fa-fw fa-' + device);
             td.appendChild(i);
             td.appendChild(document.createTextNode(user[n].name));
