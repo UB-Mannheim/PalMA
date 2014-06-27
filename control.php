@@ -250,8 +250,6 @@ function addNewWindow($dbcon, $new) {
     // Add a new window to the monitor. This window either uses the first
     // unused section or it will be hidden.
 
-    global $dbcon;
-
     trace('addNewWindow ' . serialize($new));
     // '$new' already contains 'file', 'handler' and 'date'.
     // 'win_id', 'section' have to be defined afterwards.
@@ -281,6 +279,12 @@ function addNewWindow($dbcon, $new) {
             $new_window_id = $window_ids_on_screen[0];
         }
     } while (!$new_window_id && $t_total++ <= 10 && !sleep(1));
+
+    if (!new_window_id) {
+        trace('no new window found');
+        return;
+    }
+
     trace("new window $new_window_id");
 
     // Determine last assigned monitor section.
@@ -340,9 +344,7 @@ function createNewWindow($dbcon, $w) {
     addNewWindow($dbcon, $w);
 }
 
-function processRequests() {
-
-    global $dbcon;
+function processRequests($dbcon) {
 
     if (array_key_exists('window', $_REQUEST)) {
         // All windows related commands must start with window=.
@@ -592,7 +594,7 @@ if (array_key_exists('isFile', $_REQUEST)) {
 
 } // processRequests
 
-processRequests();
+processRequests($dbcon);
 
 if ($unittest[__FILE__]) {
 
