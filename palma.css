@@ -289,6 +289,12 @@ legend {
     width: 15px;
     padding: 2px;
 }
+.itemlist #itemstatus {
+    width: 4em;
+}
+.itemlist #itemtrash {
+    width: 1em;
+}
 .itemlist, .itemlist td, .itemlist tr, .userlist, .userlist td, .userlist tr {
     background-color: white;
     border: 1px solid #666666;

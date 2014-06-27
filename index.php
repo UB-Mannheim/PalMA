@@ -755,6 +755,7 @@ function updateWindowList(window) {
             var div;
             var option;
             td = document.createElement('td');
+            td.setAttribute('id', 'itemstatus');
             i = document.createElement('i');
             if (status == 'active') {
                 i.setAttribute('class', 'fa fa-eye');
@@ -820,6 +821,7 @@ function updateWindowList(window) {
             td.appendChild(div);
             tr.appendChild(td);
             td = document.createElement('td');
+            td.setAttribute('id', 'itemtrash');
             i = document.createElement('i');
             i.setAttribute('class', 'fa fa-trash-o');
             i.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
