@@ -1054,11 +1054,12 @@ pollDatabase();
     <table>
   <tr>
   <td>
-    <!-- TODO: URL-Vorgabe für Produktivbetrieb entfernen. -->
     <input type="text" value="<?=_('Enter URL')?>"
            id="url_field" maxlength="256" size="46"
+           onkeydown="if (event.keyCode == 13) document.getElementById('url_button').click()"
            onfocus="clearURLField('<?=_('Enter URL')?>')">
     <button class="pure-button pure-button-primary pure-input-rounded"
+            id="url_button"
             onClick="urlToNuc()" title="<?=_('Show this URL in a new browser window')?>">
          URL
             <i class="fa fa-folder-open"></i>
