@@ -658,25 +658,23 @@ function updateUserList(address, user) {
         var n;
         for (n = 0; n < user.length; n++) {
             var device = 'laptop';
-            var username = user[n].name;
-            var tr = document.createElement('tr');
-            var td = document.createElement('td');
-            var i;
             var m;
             for (m = 0; m < address.length; m++) {
-                if (username == address[m].userid) {
+                if (user[n].userid == address[m].userid) {
                     device = address[m].device;
                     break;
                 }
             }
-            i = document.createElement('i');
+            var tr = document.createElement('tr');
+            var td = document.createElement('td');
+            var i = document.createElement('i');
             // TODO: handle users which connect more than once.
             i.setAttribute('class', 'fa fa-user');
             td.appendChild(i);
             i = document.createElement('i');
             i.setAttribute('class', 'fa fa-fw fa-' + device);
             td.appendChild(i);
-            td.appendChild(document.createTextNode(username));
+            td.appendChild(document.createTextNode(user[n].name));
             tr.appendChild(td);
             list.appendChild(tr);
         }
