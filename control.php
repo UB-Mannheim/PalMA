@@ -17,7 +17,7 @@ $unittest[__FILE__] = !isset($_SERVER['SERVER_NAME']);
 
 // initialize database
 require_once('DBConnector.class.php');
-$dbcon = new DBConnector();
+$db = new DBConnector();
 
 if (!$unittest[__FILE__]) {
     trace("QUERY_STRING=" . $_SERVER['QUERY_STRING']);
@@ -90,9 +90,9 @@ function windowListOnScreen() {
 
 function windowList() {
     $list = array();
-    global $dbcon;
+    global $db;
 
-    $windows = $dbcon->getWindowsOrderBy('section', 'ASC');
+    $windows = $db->getWindowsOrderBy('section', 'ASC');
     foreach ($windows as $w) {
 // trace("w = " . serialize($w));
         $id = $w['win_id'];
@@ -105,15 +105,15 @@ function windowList() {
 }
 
 function closeAll() {
-    global $dbcon;
+    global $db;
 
     $windows_on_screen = windowListOnScreen();
 
     foreach ($windows_on_screen as $id) {
         wmClose($id);
         // trace("closeAllWindows: $id");
-        if ($dbcon->getState_Window($id) != null) {
-            $dbcon->deleteWindow($id);
+        if ($db->getState_Window($id) != null) {
+            $db->deleteWindow($id);
         }
     }
 
@@ -121,12 +121,12 @@ function closeAll() {
 }
 
 function doLogout($username) {
-    global $dbcon;
+    global $db;
     if ($username == 'ALL') {
         // Terminate all user connections and reset system.
         closeAll();
         //restartVNCDaemon();
-        $dbcon->resetTables();
+        $db->resetTables();
     }
 }
 
@@ -151,12 +151,12 @@ function setLayout($layout) {
     // We use names like g1x1, g2x1, g1x2, ...
     // Restore the last layout if the function is called with a null argument.
 
-    global $dbcon;
+    global $db;
 
     if ($layout == null) {
-        $layout = $dbcon->querySingle("SELECT value FROM setting WHERE key='layout'");
+        $layout = $db->querySingle("SELECT value FROM setting WHERE key='layout'");
     } else {
-        $dbcon->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
+        $db->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
     }
 
     trace("layout $layout");
@@ -212,8 +212,8 @@ function setLayout($layout) {
 }
 
 function activateControls($windowhex) {
-    global $dbcon;
-    $fhandler = $dbcon->querySingle("SELECT handler FROM window WHERE win_id='$windowhex'");
+    global $db;
+    $fhandler = $db->querySingle("SELECT handler FROM window WHERE win_id='$windowhex'");
     error_log("activateControls for handler $fhandler");
 }
 
@@ -246,7 +246,7 @@ function restartVNCDaemon() {
     trace("+++ SSVNC Daemon restarted +++");
 }
 
-function addNewWindow($dbcon, $new) {
+function addNewWindow($db, $new) {
     // Add a new window to the monitor. This window either uses the first
     // unused section or it will be hidden.
 
@@ -258,7 +258,7 @@ function addNewWindow($dbcon, $new) {
     $t_total = 0;
     do {
         $window_ids_on_screen = windowListOnScreen();
-        $windows_in_db = $dbcon->getWindows();
+        $windows_in_db = $db->getWindows();
 
         $existing_ids = array();
         $new_window_id = '';
@@ -281,17 +281,17 @@ function addNewWindow($dbcon, $new) {
     } while (!$new_window_id && $t_total++ <= 10 && !sleep(1));
 
     if (!new_window_id) {
-        trace('no new window found');
+        trace('warning: no new window found');
         return;
     }
 
     trace("new window $new_window_id");
 
     // Determine last assigned monitor section.
-    //~ $max_section = $dbcon->querySingle('SELECT MAX(section) FROM window');
+    //~ $max_section = $db->querySingle('SELECT MAX(section) FROM window');
 
     // Get first unused monitor section.
-    $section = $dbcon->nextID();
+    $section = $db->nextID();
 
     // If all information is available, create window object.
 
@@ -327,10 +327,10 @@ function addNewWindow($dbcon, $new) {
     );
 
     // Save window in database.
-    $dbcon->insertWindow($myWindow);
+    $db->insertWindow($myWindow);
 }
 
-function createNewWindow($dbcon, $w) {
+function createNewWindow($db, $w) {
     // '$w' already contains 'file', 'handler' and 'date'.
     // 'win_id', 'section' have to be defined afterwards.
 
@@ -341,10 +341,10 @@ function createNewWindow($dbcon, $w) {
     $cmd = "$handler '$filename'";
     displayCommand("/usr/bin/nohup $cmd >/dev/null 2>&1 &");
 
-    addNewWindow($dbcon, $w);
+    addNewWindow($db, $w);
 }
 
-function processRequests($dbcon) {
+function processRequests($db) {
 
     if (array_key_exists('window', $_REQUEST)) {
         // All windows related commands must start with window=.
@@ -356,7 +356,7 @@ function processRequests($dbcon) {
         $window = $windownumber - 1;
 
         // TODO: $win_id und $windowname können vermutlich zusammengefasst werden.
-        $win_id = $dbcon->getWindowIDBySection($windownumber);
+        $win_id = $db->getWindowIDBySection($windownumber);
         $windowlist = windowList();
 
         if (count($windowlist) == 0) {
@@ -426,7 +426,7 @@ function processRequests($dbcon) {
         } else if (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
             trace("+++ DELETE VNC Client FROM WEBINTERFACE +++");
             // call via webinterface
-            $win_id = $dbcon->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
+            $win_id = $db->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
             trace("DELETE VNC Window with ID=$win_id FROM Database ::
                 SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
         } else {
@@ -434,13 +434,13 @@ function processRequests($dbcon) {
         }
 
         wmClose($win_id);
-        $dbcon->deleteWindow($win_id);
+        $db->deleteWindow($win_id);
     }
 
     if (array_key_exists('closeOrphans', $_REQUEST)) {
 
         // win_ids in db
-        $windows_in_db = $dbcon->getWindows();
+        $windows_in_db = $db->getWindows();
         $db_ids = array();
 
         if (count($windows_in_db) > 0) {
@@ -466,14 +466,14 @@ function processRequests($dbcon) {
 
         if (array_key_exists('toggle', $_REQUEST)) {
             // Change window state from visible to invisible and vice versa.
-            $state = $dbcon->getState_Window($win_id);
+            $state = $db->getState_Window($win_id);
             trace("toggle window $windownumber, id=$win_id, state=$state");
             if ($state == "active") {
                 wmHide($win_id);
-                $new_state = $dbcon->setState_Window($win_id, "inactive");
+                $new_state = $db->setState_Window($win_id, "inactive");
             } else {
                 wmShow($win_id);
-                $new_state = $dbcon->setState_Window($win_id, "active");
+                $new_state = $db->setState_Window($win_id, "active");
             }
         }
     } else if (array_key_exists('layout', $_REQUEST)) {
@@ -482,9 +482,9 @@ function processRequests($dbcon) {
         doLogout($_REQUEST['logout']);
     } else if (array_key_exists('newVncWindow', $_REQUEST)) {
         // TODO: Better write new code for VNC window.
-        addNewWindow($dbcon, unserialize(urldecode($_REQUEST['newVncWindow'])));
+        addNewWindow($db, unserialize(urldecode($_REQUEST['newVncWindow'])));
     } else if (array_key_exists('newWindow', $_REQUEST)) {
-        createNewWindow($dbcon, unserialize(urldecode($_REQUEST['newWindow'])));
+        createNewWindow($db, unserialize(urldecode($_REQUEST['newWindow'])));
     }
 
 if (array_key_exists('switchWindows', $_REQUEST)) {
@@ -495,11 +495,11 @@ if (array_key_exists('switchWindows', $_REQUEST)) {
     $temp = "tmp";
 
     // exchange section
-    $win_id1 = $dbcon->getWindowIDBySection($before);
-    $win_id2 = $dbcon->getWindowIDBySection($after);
+    $win_id1 = $db->getWindowIDBySection($before);
+    $win_id2 = $db->getWindowIDBySection($after);
 
-    $update1 = $dbcon->updateWindow($win_id1, 'section', $after);
-    $update2 = $dbcon->updateWindow($win_id2, 'section', $before);
+    $update1 = $db->updateWindow($win_id1, 'section', $after);
+    $update2 = $db->updateWindow($win_id2, 'section', $before);
 
     trace("++updating database $win_id1 section=$after");
     trace("++updating database $win_id2 section=$before");
@@ -529,7 +529,7 @@ if (array_key_exists('openURL', $_REQUEST)) {
         "date" => $date
         );
 
-    createNewWindow($dbcon, $window);
+    createNewWindow($db, $window);
 }
 
 // TODO: chef if query redundant?
@@ -546,7 +546,7 @@ if (array_key_exists('getHandler', $_REQUEST)) {
         $section = $_REQUEST['getHandler'];
         }
 
-    $fhandler = $dbcon->querySingle("SELECT handler FROM window WHERE section=$section");
+    $fhandler = $db->querySingle("SELECT handler FROM window WHERE section=$section");
 
     if (strpos($fhandler, 'eog') > -1) {
         $fhandler = 'eog';
@@ -579,7 +579,7 @@ if (array_key_exists('isFile', $_REQUEST)) {
     $section = $_REQUEST['isFile'];
     // trace("get section ID $section");
 
-    $filename = $dbcon->querySingle("SELECT file FROM window WHERE section=$section");
+    $filename = $db->querySingle("SELECT file FROM window WHERE section=$section");
     $file_exists = 0;
     if (file_exists($filename)) {
         $file_exists = 1;
@@ -594,7 +594,7 @@ if (array_key_exists('isFile', $_REQUEST)) {
 
 } // processRequests
 
-processRequests($dbcon);
+processRequests($db);
 
 if ($unittest[__FILE__]) {
 
