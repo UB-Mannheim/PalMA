@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 15:22+0200\n"
+"POT-Creation-Date: 2014-06-28 08:59+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Stefan Weil <stefan.weil@bib.uni-mannheim.de>\n"
 "Language-Team: English <en@li.org>\n"
@@ -64,147 +64,150 @@ msgstr ""
 msgid "Download this file"
 msgstr ""
 
-#: index.php:688
+#: index.php:683
 msgid "You were disconnected!"
 msgstr ""
 
-#: index.php:776
+#: index.php:766
 msgid "Toggle visibility"
 msgstr ""
 
-#: index.php:784
+#: index.php:774
 msgid "Select screen section for display"
 msgstr ""
 
-#: index.php:837
+#: index.php:828
 msgid "Remove this object"
 msgstr ""
 
-#: index.php:973
+#: index.php:962
 msgid "Disconnect the current user"
 msgstr ""
 
-#: index.php:977 index.php:979
-msgid "Display list"
-msgstr ""
-
-#: index.php:978
-msgid "List of files, URLs and shared displays"
-msgstr ""
-
-#: index.php:986
-msgid "Close all windows and remove uploaded files"
-msgstr ""
-
-#: index.php:987
-msgid "Close all windows"
-msgstr ""
-
-#: index.php:989 index.php:990
+#: index.php:967 index.php:968
 msgid "User list"
 msgstr ""
 
-#: index.php:989
+#: index.php:967
 msgid "List of connected users"
 msgstr ""
 
-#: index.php:997
+#: index.php:975
 msgid "Disconnect all users and reset the work place"
 msgstr ""
 
-#: index.php:998
+#: index.php:976
 msgid "Disconnect all users"
 msgstr ""
 
-#: index.php:1003
+#: index.php:979 index.php:981
+msgid "Display list"
+msgstr ""
+
+#: index.php:980
+msgid "List of files, URLs and shared displays"
+msgstr ""
+
+#: index.php:988
+msgid "Close all windows and remove uploaded files"
+msgstr ""
+
+#: index.php:989
+msgid "Close all windows"
+msgstr ""
+
+#: index.php:994
 msgid "Show help and offer some extras"
 msgstr ""
 
-#: index.php:1004 index.php:1116
+#: index.php:995 index.php:1108
 msgid "Help + Extras"
 msgstr ""
 
-#: index.php:1011 index.php:1014
+#: index.php:1002 index.php:1005
 msgid "Team display"
 msgstr ""
 
-#: index.php:1025 index.php:1026
+#: index.php:1016 index.php:1017
 msgid "Screen layout"
 msgstr ""
 
-#: index.php:1031 index.php:1038 index.php:1045 index.php:1052 index.php:1059
+#: index.php:1022 index.php:1029 index.php:1036 index.php:1043 index.php:1050
 msgid "Choose screen layout"
 msgstr ""
 
-#: index.php:1069 index.php:1071
+#: index.php:1059 index.php:1062
 msgid "Enter URL"
 msgstr "Please enter URL"
 
-#: index.php:1073
+#: index.php:1065
 msgid "Show this URL in a new browser window"
 msgstr ""
 
-#: index.php:1083
+#: index.php:1075
 msgid "Drop documents here (or click) to load them up"
 msgstr ""
 
-#: index.php:1087
+#: index.php:1079
 msgid "Drop documents here (or click)"
 msgstr ""
 
-#: index.php:1113
+#: index.php:1105
 msgid "Close the help window"
 msgstr ""
 
-#: index.php:1119
+#: index.php:1111
 msgid ""
 "With PalMA, you can share your documents and your desktop\n"
 "            with your learning group."
 msgstr ""
 
-#: index.php:1121
+#: index.php:1113
 msgid ""
 "Team members can join the group at any time. All they need\n"
 "            is URL and PIN."
 msgstr ""
 
-#: index.php:1125
+#: index.php:1117
 msgid ""
 "The PalMA team monitor shows up to 4 contributions\n"
 "            simultaneously."
 msgstr ""
 
-#: index.php:1127
+#: index.php:1119
 msgid ""
 "Just upload PDF files, images, OpenDocument or\n"
 "            MS Office files or enter a URL &ndash; PalMA will show them."
 msgstr ""
 
-#: index.php:1129
+#: index.php:1121
 msgid ""
 "Share the desktop of your notebook with others. PalMA uses\n"
 "            VNC for screen sharing. Download the VNC software once for your\n"
 "            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
-"LearningCenter/palma-kurzanleitung.pdf\" target=\"_blank\">Windows PC</a>\n"
+"LearningCenter/palma-kurzanleitung.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">Windows PC</"
+"a>\n"
 "            (preconfigured UltraVNC) or\n"
 "            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
-"LearningCenter/palma-anleitung-mac.pdf\" target=\"_blank\">MacBook</a> "
-"(RealVNC)."
+"LearningCenter/palma-anleitung-mac.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">MacBook</a>\n"
+"            (RealVNC)."
 msgstr ""
 
-#: index.php:1134
+#: index.php:1129
 msgid "Linux users can share their X display like this:"
 msgstr ""
 
-#: index.php:1140
+#: index.php:1135
 msgid "Share desktop (free UltraVNC / Windows only)"
 msgstr ""
 
-#: index.php:1147
+#: index.php:1142
 msgid "Share desktop (non free RealVNC)"
 msgstr ""
 
-#: index.php:1155
+#: index.php:1150
 msgid "Show team display"
 msgstr ""
 
@@ -261,7 +264,7 @@ msgstr ""
 msgid "Error code %s."
 msgstr ""
 
-#: upload.php:80
+#: upload.php:89
 #, php-format
 msgid "File '%s' cannot be shown."
 msgstr ""
