@@ -66,7 +66,7 @@ msgstr ""
 
 #: index.php:688
 msgid "You were disconnected!"
-msgstr ""
+msgstr "Verbindung verweigert"
 
 #: index.php:776
 msgid "Toggle visibility"
