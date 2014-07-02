@@ -90,7 +90,7 @@ rm palma.db
 # TODO: try other lightweight browsers.
 webbrowser=/bin/false
 if test -f /usr/bin/midori; then
-    webbrowser="midori"
+    webbrowser=midori
 elif test -f /usr/bin/iceweasel; then
     webbrowser=iceweasel
     rm -rf /root/.mozilla/firefox
@@ -129,13 +129,23 @@ while true; do
         fi
         state="1"
         set +x
-    elif test "$state" = "1" -a "$users" != '0'; then
-        set -x
-        killall --user root --quiet $webbrowser
-        su -c "/usr/bin/php5 SSVNCDaemon.php" www-data &
-        su -c "/usr/bin/touch last_activity" www-data
-        state="2"
-        set +x
+    elif test "$state" = "1"; then
+        if test "$users" = '0'; then
+            if !(ps x|grep $webbrowser|grep -v --quiet grep); then
+                # Webbrowser was killed (software bug). Restart it.
+                echo restart $webbrowser
+                set -x
+                state="0"
+                set +x
+            fi
+        else
+            set -x
+            killall --user root --quiet $webbrowser
+            su -c "/usr/bin/php5 SSVNCDaemon.php" www-data &
+            su -c "/usr/bin/touch last_activity" www-data
+            state="2"
+            set +x
+        fi
     elif test "$state" = "2"; then
         if test "$users" = '0'; then
             set -x
