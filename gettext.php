@@ -29,6 +29,9 @@ $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
     case 'en':
         $locale = 'en_US.UTF-8';
         break;
+    case 'it':
+        $locale = 'it_IT.UTF-8';
+        break;
     default:
         $locale = 'en_US.UTF-8';
         break;
