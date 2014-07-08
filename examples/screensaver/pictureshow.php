@@ -20,7 +20,7 @@ $pin = sprintf("%04u", rand(0, 9999));
 $url = "http://${servername}${serveruri}/index.php";
 
 // Store PIN in database.
-require_once('../DBConnector.class.php');
+require_once('../../DBConnector.class.php');
 $dbcon = new DBConnector();
 $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 
@@ -34,7 +34,7 @@ $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>PalMA &ndash; <?=_("Picture Show")?></title>
 <script type="text/javascript" src="/javascript/jquery/jquery.js"></script>
-<script type="text/javascript" src="../unslider.js"></script>
+<script type="text/javascript" src="../../unslider.js"></script>
 <style type="text/css">
 * {
     margin: 0;
@@ -81,14 +81,14 @@ img {
 </head>
 
 <body>
-    <div><img src="../qrcode/php/qr_img.php?d=<?=$url?>&amp;e=H" alt="QR Code"></div>
+    <div><img src="../../qrcode/php/qr_img.php?d=<?=$url?>&amp;e=H" alt="QR Code"></div>
     <div id="pin"><h1>PIN: <?=$pin?></h1></div>
 
   <div class="banner">
     <ul>
 <?php
     //~ <ul id="bannerlist">
-    $pictures = '../pictures';
+    $pictures = '../../pictures';
     if (is_dir($pictures)) {
         $filelist = scandir($pictures);
         sort($filelist, SORT_NATURAL);

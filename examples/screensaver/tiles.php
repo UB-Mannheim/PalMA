@@ -20,9 +20,9 @@ $servername = $_SERVER["SERVER_NAME"];
 $serveruri = dirname($_SERVER["REQUEST_URI"]);
 $url = "http://${servername}${serveruri}";
 
-if (file_exists('palma.ini')) {
+if (file_exists('../../palma.ini')) {
     // Get configuration from ini file.
-    $conf = parse_ini_file("palma.ini", true);
+    $conf = parse_ini_file("../../palma.ini", true);
     if (isset($conf['path']['start_url'])) {
         $url = $conf['path']['start_url'];
     }
@@ -31,7 +31,7 @@ if (file_exists('palma.ini')) {
 $pin = sprintf("%04u", rand(0, 9999));
 
 // Store PIN in database.
-require_once('../DBConnector.class.php');
+require_once('../../DBConnector.class.php');
 $dbcon = new DBConnector();
 $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 
@@ -144,7 +144,7 @@ UB Mannheim
 
 <div id="RightSide">
     <span>
-    <img src="../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
+    <img src="../../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
     <h2>maTeam &ndash; Mannheim Team Monitor / Share your desktop.</h2>
     <p>Just go to <?=$url?> and enter the PIN.</p>
     <p id="Pin">PIN: <?= $pin ?></p>

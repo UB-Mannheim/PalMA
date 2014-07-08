@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-07 11:07+0200\n"
+"POT-Creation-Date: 2014-07-08 17:57+0200\n"
 "PO-Revision-Date: 2014-07-01 16:39+0200\n"
 "Last-Translator: Stefano Leccese\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -291,11 +291,11 @@ msgstr "Codice di errore %s."
 msgid "File '%s' cannot be shown."
 msgstr "File '%s' non può essere mostrato."
 
-#: screensaver/pictureshow.php:35
+#: examples/screensaver/pictureshow.php:35
 msgid "Picture Show"
 msgstr "proiezione di diapositive"
 
-#: screensaver/tiles.php:46
+#: examples/screensaver/tiles.php:46
 msgid "Tiles"
 msgstr "Piastrelle"
 
