@@ -1,0 +1,297 @@
+# PalMA translation.
+# Copyright (C) 2014 Universitätsbibliothek Mannheim
+# This file is distributed under the same license as the PalMA package.
+# Mariia Zrianina <zryaninam@gmail.com>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PalMA 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-08 17:57+0200\n"
+"PO-Revision-Date: 2014-07-01 16:39+0200\n"
+"Last-Translator: Mariia Zrianina\n"
+"Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:159
+msgid "Screen section"
+msgstr "Выбор экрана"
+
+#: index.php:164
+msgid "Close the advanced control"
+msgstr "Закрыть расширенные настройки"
+
+#: index.php:236
+msgid "Enter valid URL"
+msgstr "Введите корректный URL"
+
+#: index.php:274 index.php:279 index.php:294 index.php:299
+msgid "Cursor control"
+msgstr "Управление курсором"
+
+#: index.php:289
+msgid "Advanced control"
+msgstr "Расширенные настройки"
+
+#: index.php:342
+msgid "Zoom in"
+msgstr "Приблизить"
+
+#: index.php:348
+msgid "Zoom out"
+msgstr "Отдалить"
+
+#: index.php:363
+msgid "Jump to start"
+msgstr "В начало"
+
+#: index.php:366
+msgid "Page up"
+msgstr "Страница вверх"
+
+#: index.php:369
+msgid "Page down"
+msgstr "Страница вниз"
+
+#: index.php:372
+msgid "Jump to end"
+msgstr "В конец"
+
+#: index.php:375
+msgid "Download this file"
+msgstr "Скачать этот файл"
+
+#: index.php:683
+msgid "You were disconnected!"
+msgstr "Подключение разорвано!"
+
+#: index.php:766
+msgid "Toggle visibility"
+msgstr "Переключение видимости"
+
+#: index.php:774
+msgid "Select screen section for display"
+msgstr "Выбор области для отображения"
+
+#: index.php:828
+msgid "Remove this object"
+msgstr "Удалить объект"
+
+#: index.php:962
+msgid "Disconnect the current user"
+msgstr "Отключить текущего пользователя"
+
+#: index.php:967 index.php:968
+msgid "User list"
+msgstr "Список пользователей"
+
+#: index.php:967
+msgid "List of connected users"
+msgstr "Список подключенных пользователей"
+
+#: index.php:975
+msgid "Disconnect all users and reset the work place"
+msgstr "Отключить всех пользователей и очистить рабочую область"
+
+#: index.php:976
+msgid "Disconnect all users"
+msgstr "Отключить всех пользователей"
+
+#: index.php:979 index.php:981
+msgid "Display list"
+msgstr "Список дисплеев"
+
+#: index.php:980
+msgid "List of files, URLs and shared displays"
+msgstr "Список файлов, URL и общих дисплеев"
+
+#: index.php:988
+msgid "Close all windows and remove uploaded files"
+msgstr "Закрыть все окна и удалить загруженные файлы"
+
+#: index.php:989
+msgid "Close all windows"
+msgstr "Закрыть все окна"
+
+#: index.php:994
+msgid "Show help and offer some extras"
+msgstr "Показать помощь и предложить подолнения"
+
+#: index.php:995 index.php:1108
+msgid "Help + Extras"
+msgstr "Помощь и дополнения"
+
+#: index.php:1002 index.php:1005
+msgid "Team display"
+msgstr "Командный дисплей"
+
+#: index.php:1016 index.php:1017
+msgid "Screen layout"
+msgstr "Схема экрана"
+
+#: index.php:1022 index.php:1029 index.php:1036 index.php:1043 index.php:1050
+msgid "Choose screen layout"
+msgstr "Выберите схему экрана"
+
+#: index.php:1059 index.php:1062
+msgid "Enter URL"
+msgstr "Введите URL"
+
+#: index.php:1065
+msgid "Show this URL in a new browser window"
+msgstr "Открыть URL в новом окне браузера"
+
+#: index.php:1075
+msgid "Drop documents here (or click) to load them up"
+msgstr "Перетащите документы сюда (или кликните) для загрузки"
+
+#: index.php:1079
+msgid "Drop documents here (or click)"
+msgstr "Перетащите документы сюда (или кликните)"
+
+#: index.php:1105
+msgid "Close the help window"
+msgstr "Закрыть окно справки"
+
+#: index.php:1111
+msgid ""
+"With PalMA, you can share your documents and your desktop\n"
+"            with your learning group."
+msgstr ""
+"С помощью PALMA, вы можете поделиться документами и экраном \n"
+"            с вашей учебной группой."
+
+#: index.php:1113
+msgid ""
+"Team members can join the group at any time. All they need\n"
+"            is URL and PIN."
+msgstr "Члены группы могут присоединиться в любое время. Всё, что им нужно, - ссылка и ПИН"
+
+#: index.php:1117
+msgid ""
+"The PalMA team monitor shows up to 4 contributions\n"
+"            simultaneously."
+msgstr "Команда PalMa отображает до 4 помощников одновременно"
+
+#: index.php:1119
+msgid ""
+"Just upload PDF files, images, OpenDocument or\n"
+"            MS Office files or enter a URL &ndash; PalMA will show them."
+msgstr "Загрузите файлы PDF, изображния, OpenDocument или файлы MS Office либо введите ссылку &ndash; PalMa отобразит их "
+
+#: index.php:1121
+msgid ""
+"Share the desktop of your notebook with others. PalMA uses\n"
+"            VNC for screen sharing. Download the VNC software once for your\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-kurzanleitung.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">Windows PC</"
+"a>\n"
+"            (preconfigured UltraVNC) or\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-anleitung-mac.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">MacBook</a>\n"
+"            (RealVNC)."
+msgstr ""
+
+#: index.php:1129
+msgid "Linux users can share their X display like this:"
+msgstr "Пользователи Линуксы могут показать их X экран следующим образом:"
+
+#: index.php:1135
+msgid "Share desktop (free UltraVNC / Windows only)"
+msgstr "Показать рабочий стол (free UltraVNC / Windows only)"
+
+#: index.php:1142
+msgid "Share desktop (non free RealVNC)"
+msgstr "Показать рабочий стол (non free RealVNC)"
+
+#: index.php:1150
+msgid "Show team display"
+msgstr "Показать коммандный экран"
+
+#: login.php:84 login.php:93 login.php:96
+msgid "Invalid credentials!"
+msgstr "Некорректные полномочия"
+
+#: login.php:90
+msgid "Cannot check credentials, sorry!"
+msgstr "К сожалению, полномочия не могут быть проверены!"
+
+#: login.php:115
+msgid "Invalid PIN."
+msgstr "некорректный ПИН"
+
+#: login.php:148
+msgid "PalMA &ndash; Login"
+msgstr "PalMA &ndash; Логин"
+
+#: login.php:175
+msgid "Login"
+msgstr "Логин"
+
+#: login.php:178
+msgid "User name"
+msgstr "Имя пользователя"
+
+#: login.php:182
+msgid "Password"
+msgstr "Пароль"
+
+#: login.php:186
+msgid "PIN"
+msgstr "ПИН"
+
+#: login.php:190
+msgid "Log in"
+msgstr "Вход"
+
+#: upload.php:68
+msgid "This file is too large."
+msgstr "Этот файл слишком велик"
+
+#: upload.php:71
+msgid "Large files are not supported."
+msgstr "Большие файлы не поддерживаются"
+
+#: upload.php:74
+msgid "File was only partially uploaded."
+msgstr "Файл был загружен только частично"
+
+#: upload.php:77
+#, php-format
+msgid "Error code %s."
+msgstr "Код ошибки $s."
+
+#: upload.php:89
+#, php-format
+msgid "File '%s' cannot be shown."
+msgstr "Файл '%s' не может быть отображен"
+
+#: examples/screensaver/pictureshow.php:35
+msgid "Picture Show"
+msgstr "Показать изображения"
+
+#: examples/screensaver/tiles.php:46
+msgid "Tiles"
+msgstr ""
+
+#: selectplace/learningcenter.php:25 selectplace/learningcenter.php:39
+#: selectplace/monitor.php:25 selectplace/monitor.php:51
+msgid "Select workplace"
+msgstr "Выбрать рабочую область"
+
+#: selectplace/learningcenter.php:45
+msgid "Conference room"
+msgstr "Конференцзал"
+
+#: selectplace/learningcenter.php:45 selectplace/monitor.php:76
+msgid "Test monitor"
+msgstr ""
+
+#: selectplace/learningcenter.php:46 selectplace/monitor.php:69
+msgid "Mannheim table"
+msgstr "Таблица Маннхайма"
