@@ -1,6 +1,7 @@
 # PalMA translation.
 # Copyright (C) 2014 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
+# Alexander Egurnov <aegurnov@mail.uni-mannheim.de>, 2014.
 # Mariia Zrianina <zryaninam@gmail.com>, 2014.
 #
 msgid ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-08 17:57+0200\n"
 "PO-Revision-Date: 2014-07-01 16:39+0200\n"
-"Last-Translator: Mariia Zrianina\n"
+"Last-Translator: Mariia Zrianina, Alexander Egurnov\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +19,7 @@ msgstr ""
 
 #: index.php:159
 msgid "Screen section"
-msgstr "Выбор экрана"
+msgstr "Область"
 
 #: index.php:164
 msgid "Close the advanced control"
@@ -34,7 +35,7 @@ msgstr "Управление курсором"
 
 #: index.php:289
 msgid "Advanced control"
-msgstr "Расширенные настройки"
+msgstr "Расширенное управление"
 
 #: index.php:342
 msgid "Zoom in"
@@ -66,7 +67,7 @@ msgstr "Скачать этот файл"
 
 #: index.php:683
 msgid "You were disconnected!"
-msgstr "Подключение разорвано!"
+msgstr "Подключение прервано!"
 
 #: index.php:766
 msgid "Toggle visibility"
@@ -90,7 +91,7 @@ msgstr "Список пользователей"
 
 #: index.php:967
 msgid "List of connected users"
-msgstr "Список подключенных пользователей"
+msgstr "Список подключенных"
 
 #: index.php:975
 msgid "Disconnect all users and reset the work place"
@@ -98,11 +99,11 @@ msgstr "Отключить всех пользователей и очистит
 
 #: index.php:976
 msgid "Disconnect all users"
-msgstr "Отключить всех пользователей"
+msgstr "Отключить всех"
 
 #: index.php:979 index.php:981
 msgid "Display list"
-msgstr "Список дисплеев"
+msgstr "Показать список"
 
 #: index.php:980
 msgid "List of files, URLs and shared displays"
@@ -118,15 +119,15 @@ msgstr "Закрыть все окна"
 
 #: index.php:994
 msgid "Show help and offer some extras"
-msgstr "Показать помощь и предложить подолнения"
+msgstr "Показать помощь и дополнительные опции"
 
 #: index.php:995 index.php:1108
 msgid "Help + Extras"
-msgstr "Помощь и дополнения"
+msgstr "Помощь + Дополнительно"
 
 #: index.php:1002 index.php:1005
 msgid "Team display"
-msgstr "Командный дисплей"
+msgstr "Командный вид"
 
 #: index.php:1016 index.php:1017
 msgid "Screen layout"
@@ -161,26 +162,27 @@ msgid ""
 "With PalMA, you can share your documents and your desktop\n"
 "            with your learning group."
 msgstr ""
-"С помощью PALMA, вы можете поделиться документами и экраном \n"
+"С помощью PALMA, вы можете делиться документами и экраном\n"
 "            с вашей учебной группой."
 
 #: index.php:1113
 msgid ""
 "Team members can join the group at any time. All they need\n"
 "            is URL and PIN."
-msgstr "Члены группы могут присоединиться в любое время. Всё, что им нужно, - ссылка и ПИН"
+msgstr "Члены группы могут присоединиться в любое время. Понадобятся только URL и ПИН."
 
 #: index.php:1117
 msgid ""
 "The PalMA team monitor shows up to 4 contributions\n"
 "            simultaneously."
-msgstr "Команда PalMa отображает до 4 помощников одновременно"
+msgstr "Команда PalMa отображает до 4 объектов одновременно."
 
 #: index.php:1119
 msgid ""
 "Just upload PDF files, images, OpenDocument or\n"
 "            MS Office files or enter a URL &ndash; PalMA will show them."
-msgstr "Загрузите файлы PDF, изображния, OpenDocument или файлы MS Office либо введите ссылку &ndash; PalMa отобразит их "
+msgstr "Загрузите файлы PDF, изображния, OpenDocument\n"
+"            или файлы MS Office, либо введите URL и PalMa отобразит их."
 
 #: index.php:1121
 msgid ""
@@ -196,34 +198,45 @@ msgid ""
 "            onclick=\"window.open(this.href); return false;\">MacBook</a>\n"
 "            (RealVNC)."
 msgstr ""
+"Делитесь вашим экраном с кем угодно. PalMA использует\n"
+"            VNC для передачи изображения. Загрузите программу VNC для вашего\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-kurzanleitung.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">Windows PC</"
+"a>\n"
+"            (настроенный UltraVNC) или\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-anleitung-mac.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">MacBook</a>\n"
+"            (RealVNC)."
 
 #: index.php:1129
 msgid "Linux users can share their X display like this:"
-msgstr "Пользователи Линуксы могут показать их X экран следующим образом:"
+msgstr "Пользователи Linux могут поделиться экраном следующим образом:"
 
 #: index.php:1135
 msgid "Share desktop (free UltraVNC / Windows only)"
-msgstr "Показать рабочий стол (free UltraVNC / Windows only)"
+msgstr "Поделиться рабочим столом (бесплатный UltraVNC / только Windows)"
 
 #: index.php:1142
 msgid "Share desktop (non free RealVNC)"
-msgstr "Показать рабочий стол (non free RealVNC)"
+msgstr "Поделиться рабочим столом (платный RealVNC)"
 
 #: index.php:1150
 msgid "Show team display"
-msgstr "Показать коммандный экран"
+msgstr "Показать коммандный вид"
 
 #: login.php:84 login.php:93 login.php:96
 msgid "Invalid credentials!"
-msgstr "Некорректные полномочия"
+msgstr "Неверные логин/пароль"
 
 #: login.php:90
 msgid "Cannot check credentials, sorry!"
-msgstr "К сожалению, полномочия не могут быть проверены!"
+msgstr "К сожалению, логин/пароль не могут быть проверены!"
 
 #: login.php:115
 msgid "Invalid PIN."
-msgstr "некорректный ПИН"
+msgstr "Неверный ПИН"
 
 #: login.php:148
 msgid "PalMA &ndash; Login"
@@ -235,7 +248,7 @@ msgstr "Логин"
 
 #: login.php:178
 msgid "User name"
-msgstr "Имя пользователя"
+msgstr "Пользователь"
 
 #: login.php:182
 msgid "Password"
@@ -247,11 +260,11 @@ msgstr "ПИН"
 
 #: login.php:190
 msgid "Log in"
-msgstr "Вход"
+msgstr "Войти"
 
 #: upload.php:68
 msgid "This file is too large."
-msgstr "Этот файл слишком велик"
+msgstr "Этот файл слишком большой"
 
 #: upload.php:71
 msgid "Large files are not supported."
@@ -294,4 +307,4 @@ msgstr ""
 
 #: selectplace/learningcenter.php:46 selectplace/monitor.php:69
 msgid "Mannheim table"
-msgstr "Таблица Маннхайма"
+msgstr ""
