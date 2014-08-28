@@ -19,7 +19,7 @@ with these additional Debian packages:
 apache2 eog feh libjs-jquery midori netsurf
 php5-curl php5-gd php5-intl wmctrl xdotool
 
-The web server wants to create and modifiy a sqlite3 database palma.db,
+The web server wants to create and modify a sqlite3 database palma.db,
 so www-data needs write access to the installation directory.
 
 For file uploads, a writable directory upload is created automatically.
