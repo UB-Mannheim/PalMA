@@ -53,7 +53,7 @@ README_e.txt  this document.
  And you may need to compile or to coordinate parameters
  for using GD correctly from Perl or PHP.
 
- I checked this program on below enviroment
+ I checked this program on below environment
 
      Linux 2.4.18 (x86)
 Å@Å@ apache-1.3.27 + PHP-4.3.0(as apache module)

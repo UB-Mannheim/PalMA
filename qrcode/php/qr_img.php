@@ -16,7 +16,7 @@
 #  You must set $path & $image_path the path to QRcode data file.
 #
 #
-# [useage]
+# [usage]
 #   qr_img.php?d=[data]&e=[(L,M,Q,H)]&s=[int]&v=[(1-40)]
 #             (&m=[(1-16)]&n=[(2-16)](&p=[(0-255)],&o=[data]))
 #
