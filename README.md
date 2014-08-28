@@ -47,19 +47,12 @@ even larger resolution.
 Installation
 ------------
 
-The web server wants to create and modifiy a sqlite3 database palma.db,
-so www-data needs write access to the installation directory.
+Mannheim University Library develops and installs the PalMA web application
+on mini pcs running Debian GNU Linux (Jessie). Other Linux based hardware
+and software combination can also be used, but might require some smaller
+modifications.
 
-For file uploads, a writable directory upload is created automatically.
-This also needs write access for www-data to the installation directory.
-
-Some viewer programs want to write their configuration data. This requires
-write access for www-data in directory ~www-data (typically /var/www).
-
-Debian packages: feh libjs-jquery php5-curl php5-gd php5-intl wmctrl xdotool.
-
- # Activate javascript for Apache.
- $ a2enconf javascript-common
+See [INSTALL.md](INSTALL.md) for details.
 
 
 Client Software
