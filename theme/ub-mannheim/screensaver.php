@@ -11,12 +11,12 @@ Author: Stefan Weil, Universitätsbibliothek Mannheim
 
 $servername = $_SERVER["SERVER_NAME"];
 $serveraddress = $_SERVER["SERVER_ADDR"];
-$serveruri = dirname(dirname($_SERVER["REQUEST_URI"]));
+$serveruri = dirname(dirname(dirname($_SERVER["REQUEST_URI"])));
 $pin = sprintf("%04u", rand(0, 9999));
 $url = "http://${servername}${serveruri}";
 
 // Store PIN in database.
-require_once('../DBConnector.class.php');
+require_once('../../DBConnector.class.php');
 $dbcon = new DBConnector();
 $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 
@@ -121,14 +121,14 @@ h1, p {
     <div id="PIN">PIN: <?=$pin?></div>
 
     <div id="Variant1">
-    <img class="screen" src="../images/palma_d.png">
-    <img id="QR-Code" src="../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
+    <img class="screen" src="palma_d.png">
+    <img id="QR-Code" src="../../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
     <div id="URL"><?=$url?></div>
     </div>
 
     <div id="Variant2" hidden>
-    <img class="screen" src="../images/palma_e.png">
-    <img id="QR-Code" src="../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
+    <img class="screen" src="palma_e.png">
+    <img id="QR-Code" src="../../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
     <div id="URL"><?=$url?></div>
     </div>
 
