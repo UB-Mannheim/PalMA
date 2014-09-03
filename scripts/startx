@@ -47,9 +47,9 @@ cd "$basedir"
 inifile="$basedir/palma.ini"
 
 export DISPLAY=`grep "^id[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
-background=`grep "^background[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
 start_url=`grep "^start_url[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
 theme=`grep "^theme[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
+background="${start_url}theme/${theme}/background.png"
 screensaver="${start_url}theme/${theme}/screensaver.php"
 
 if test -z "$HOME"; then
