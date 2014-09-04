@@ -13,11 +13,30 @@ by feh), a video player (vlc) and an office suite (libreoffice).
 
 PalMA controls running viewers using wmctrl and xdotool.
 
-So a complete PalMA installation can be based on Debian GNU Linux (Jessie)
-with these additional Debian packages:
+So a complete PalMA installation can be based on Debian GNU Linux (Jessie).
+Just add some required Debian packages:
 
-apache2 eog feh libjs-jquery midori netsurf
-php5-curl php5-gd php5-intl wmctrl xdotool
+    apt-get install apache2 eog feh libapache2-mod-php5 libjs-jquery midori
+    apt-get install netsurf openbox php5-curl php5-gd php5-intl php5-sqlite
+    apt-get install ssvnc wmctrl xdotool zathura
+
+Some more packages are optional:
+
+    apt-get install gettext git unattended-upgrades
+
+The last one must be configured:
+
+    dpkg-reconfigure unattended-upgrades
+
+PalMA
+-----
+
+Get the latest version of PalMA from GitHub:
+
+    # Get latest PalMA. Add --branch v1.1.0 to get that version.
+    git clone git@github.com:UB-Mannheim/PalMA.git /var/www/html/palma
+    # Create or update translations of PalMA user interface (optional).
+    make
 
 The web server wants to create and modify a sqlite3 database palma.db,
 so www-data needs write access to the installation directory.
@@ -28,9 +47,12 @@ This also needs write access for www-data to the installation directory.
 Some viewer programs want to write their configuration data. This requires
 write access for www-data in directory ~www-data (typically /var/www).
 
+Adding write access for www-data can be done by fixing the ownership:
 
- # Activate javascript for Apache.
- $ a2enconf javascript-common
+    chown -R www-data.www-data /var/www
+
+    # Activate javascript for Apache. TODO: Is that necessary?
+    #$ a2enconf javascript-common
 
 
 
@@ -38,8 +60,8 @@ How to add existing and new translations
 ----------------------------------------
 
 PalMA initially supported English and German user interfaces for the web frontend.
-Students from Mannheim University provided additional translations. More translations
-can be added on demand.
+Students from Mannheim University provided additional translations.
+More translations can be added on demand.
 
 All translated texts are under subdirectory locale.
 
