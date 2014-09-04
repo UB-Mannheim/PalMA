@@ -14,19 +14,24 @@ by feh), a video player (vlc) and an office suite (libreoffice).
 PalMA controls running viewers using wmctrl and xdotool.
 
 So a complete PalMA installation can be based on Debian GNU Linux (Jessie).
-Just add some required Debian packages:
+Just add some required Debian packages (these and all other installation
+commands must be run as root user):
 
     apt-get install apache2 eog feh libapache2-mod-php5 libjs-jquery midori
     apt-get install netsurf openbox php5-curl php5-gd php5-intl php5-sqlite
-    apt-get install ssvnc wmctrl xdotool zathura
+    apt-get install ssvnc sqlite3 wmctrl xdotool zathura
 
 Some more packages are optional:
 
-    apt-get install gettext git unattended-upgrades
+    apt-get install gettext git libavcodec-extra unattended-upgrades
 
 The last one must be configured:
 
     dpkg-reconfigure unattended-upgrades
+
+More advanced users will also want to configure mail:
+
+    dpkg-reconfigure exim4-config
 
 PalMA
 -----
@@ -54,6 +59,11 @@ Adding write access for www-data can be done by fixing the ownership:
     # Activate javascript for Apache. TODO: Is that necessary?
     #$ a2enconf javascript-common
 
+Normally, PalMA should be started automatically. Activate autostart with
+these commands:
+
+    cp /var/www/html/palma/scripts/palma /etc/init.d
+    update-rc.d palma defaults
 
 
 How to add existing and new translations
@@ -72,4 +82,4 @@ either by running 'dpkg-reconfigure locales' manually or by enabling the locales
 in /etc/locale.gen and running locale-gen. Here is an example which enables
 the English locale in its US variant (en_US.UTF-8):
 
-perl -pi -e s/^#.en_US.UTF-8/en_US.UTF-8/ /etc/locale.gen && locale-gen
+    perl -pi -e s/^#.en_US.UTF-8/en_US.UTF-8/ /etc/locale.gen && locale-gen
