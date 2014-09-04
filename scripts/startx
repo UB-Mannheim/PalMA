@@ -121,7 +121,9 @@ while true; do
         users=0
     fi
     if test "$state" = "0"; then
-        set -x
+        # Initial state. Start a webbrowser with the screensaver image.
+        # Kill the VNC viewer if it was running.
+        date +"%F %T start $webbrowser with screensaver"
         killall -q ssvncviewer
         su -c "/usr/bin/php5 control.php doLogout=ALL" -s /bin/sh www-data
         if test "$webbrowser" = "midori"; then
@@ -130,35 +132,41 @@ while true; do
             /usr/bin/$webbrowser "$screensaver" &
         fi
         state="1"
-        set +x
     elif test "$state" = "1"; then
+        # Screen saver is running. Wait for the first user connection.
         if test "$users" = '0'; then
+            # There is still no user connected.
+            # The screensaver should be running. If not: restart it.
             if !(ps x|grep $webbrowser|grep -v --quiet grep); then
                 # Webbrowser was killed (software bug). Restart it.
-                echo restart $webbrowser
-                set -x
+                date +"%F %T $webbrowser was killed"
                 state="0"
-                set +x
+                continue
             fi
         else
-            set -x
+            # First user connected. Terminate the screensaver.
+            # Start the VNC viewer process, so users can share their desktop.
+            date +"%F %T kill $webbrowser"
             killall --user root --quiet $webbrowser
             su -c "/usr/bin/php5 SSVNCDaemon.php" -s /bin/sh www-data &
             su -c "/usr/bin/touch last_activity" -s /bin/sh www-data
             state="2"
-            set +x
         fi
     elif test "$state" = "2"; then
+        # Users are connected. The VNC viewer process is running.
         if test "$users" = '0'; then
-            set -x
+            # The last user disconnected. Start the screensaver.
+            date +"%F %T last user disconnected"
             state="0"
-            set +x
             continue
         else
             ACTIVITY=`date -r last_activity '+%s'`
             NOW=`date '+%s'`
             DIFF=$((NOW - ACTIVITY))
             if test $((DIFF / 60)) -ge "$TIMEOUT"; then
+                # Users are still connected but for some time no longer active.
+                # Force initial state.
+                date +"%F %T inactivity timeout"
                 state="0"
                 continue
             fi
