@@ -72,6 +72,11 @@ Todo
         # .htaccess basic authorization.
         $user = $_SERVER['PHP_AUTH_USER'];
     }
+
+    $conf = parse_ini_file("palma.ini", true);
+    $url = $conf['path']['start_url'];
+    $theme = $conf['general']['theme'];
+    $winvnc = "$url/theme/$theme/winvnc-palma.exe";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
        "http://www.w3.org/TR/html4/strict.dtd">
@@ -1131,7 +1136,7 @@ pollDatabase();
         </div>
     <button
         class="pure-button pure-button-primary pure-input-rounded"
-        onclick="window.open('winvnc-ubma.exe'); return false;">
+        onclick="window.open('<?=$winvnc?>'); return false;">
         <?=_('Share desktop (free UltraVNC / Windows only)')?>
         <i class="fa fa-download"></i>
     </button>
