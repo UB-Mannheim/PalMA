@@ -39,9 +39,9 @@ PalMA
 Get the latest version of PalMA from GitHub:
 
     # Get latest PalMA. Add --branch v1.1.0 to get that version.
-    git clone git@github.com:UB-Mannheim/PalMA.git /var/www/html/palma
+    git clone https://github.com/UB-Mannheim/PalMA.git /var/www/html/palma
     # Create or update translations of PalMA user interface (optional).
-    make
+    make -C /var/www/html/palma
 
 The web server wants to create and modify a sqlite3 database palma.db,
 so www-data needs write access to the installation directory.
