@@ -65,6 +65,16 @@ these commands:
     cp /var/www/html/palma/scripts/palma /etc/init.d
     update-rc.d palma defaults
 
+Now a configuration file /var/www/html/palma/palma.ini must be added.
+A template for this file is available from subdirectory examples, so run
+this command to get a preliminary file:
+
+    cp /var/www/html/palma/examples/palma.ini /var/www/html/palma/palma.ini
+
+Some entries in palma.ini still need to be fixed for your local installation.
+These include at least the entries stationname, theme, start_url and
+control_file.
+
 
 How to add existing and new translations
 ----------------------------------------
@@ -83,3 +93,6 @@ in /etc/locale.gen and running locale-gen. Here is an example which enables
 the English locale in its US variant (en_US.UTF-8):
 
     perl -pi -e s/^#.en_US.UTF-8/en_US.UTF-8/ /etc/locale.gen && locale-gen
+
+PalMA currently includes translations for these locales:
+de_DE.UTF-8, en_US.UTF-8, it_IT.UTF-8, ru_RU.UTF-8.
