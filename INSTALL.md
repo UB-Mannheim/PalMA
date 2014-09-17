@@ -33,6 +33,16 @@ More advanced users will also want to configure mail:
 
     dpkg-reconfigure exim4-config
 
+
+Apache
+------
+
+The PHP5 default configuration for the Apache2 webserver permits file uploads
+up to 2 MB. This limit is too low for typical documents (images,
+office documents, pdf). Change the setting upload_max_filesize in
+/etc/php5/apache2/php.ini. 10 MB is a good value.
+
+
 PalMA
 -----
 
