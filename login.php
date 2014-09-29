@@ -9,6 +9,9 @@
 
     require_once('gettext.php');
 
+    $conf = parse_ini_file("palma.ini", true);
+    $theme = $conf['general']['theme'];
+
     $errtext = false;
 
     function getPin() {
@@ -115,7 +118,6 @@
         $errtext = _('Invalid PIN.');
     } else {
         // Successfully checked username, password and PIN.
-        $conf = parse_ini_file("palma.ini", true);
         $_SESSION['username'] = $username;
         $_SESSION['address'] = $dbcon->ipAddress();
         $_SESSION['pin'] = $pin;
@@ -145,6 +147,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><?=_("PalMA &ndash; Login")?></title>
 
 <link rel="icon" href="images/logo.ico" type="image/x-icon">
@@ -171,7 +174,7 @@ TODO:
 
 <fieldset class="login">
     <legend>
-        <img src="images/logo/palma_logo.svg" alt="PalMA" height="25"/>
+        <img src="theme/<?=$theme?>/palma-logo-67x25.png" alt="PalMA" height="25"/>
         &ndash; <?=_("Login")?>
     </legend>
         <div class="pure-control-group">
