@@ -150,7 +150,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><?=_("PalMA &ndash; Login")?></title>
 
-<link rel="icon" href="images/logo.ico" type="image/x-icon">
+<link rel="icon" href="theme/<?=$theme?>/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="pure-min.css">
 <link rel="stylesheet" href="palma.css">

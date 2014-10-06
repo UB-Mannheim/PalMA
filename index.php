@@ -87,7 +87,7 @@ Todo
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>PalMA</title>
 
-<link rel="icon" href="images/logo.ico" type="image/x-icon">
+<link rel="icon" href="theme/<?=$theme?>/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="pure-min.css">
 <link rel="stylesheet" href="palma.css" type="text/css">
