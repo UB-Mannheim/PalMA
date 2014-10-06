@@ -91,7 +91,9 @@ rm palma.db
 # Find a web browser which supports JavaScript.
 # TODO: try other lightweight browsers.
 webbrowser=/bin/false
-if test -f /usr/bin/midori; then
+if test -f /usr/bin/dwb; then
+    webbrowser=dwb
+elif test -f /usr/bin/midori; then
     webbrowser=midori
 elif test -f /usr/bin/iceweasel; then
     webbrowser=iceweasel
@@ -126,11 +128,17 @@ while true; do
         date +"%F %T start $webbrowser with screensaver"
         killall -q ssvncviewer
         su -c "/usr/bin/php5 control.php doLogout=ALL" -s /bin/sh www-data
-        if test "$webbrowser" = "midori"; then
-            /usr/bin/$webbrowser -e Fullscreen -a "$screensaver" &
-        else
-            /usr/bin/$webbrowser "$screensaver" &
-        fi
+        case $webbrowser in
+            dwb)
+                /usr/bin/$webbrowser --execute=presentation_mode "$screensaver" &
+                ;;
+            midori)
+                /usr/bin/$webbrowser -e Fullscreen -a "$screensaver" &
+                ;;
+            *)
+                /usr/bin/$webbrowser "$screensaver" &
+                ;;
+        esac
         state="1"
     elif test "$state" = "1"; then
         # Screen saver is running. Wait for the first user connection.
