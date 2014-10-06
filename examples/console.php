@@ -22,6 +22,10 @@ TODO:
     require_once('../DBConnector.class.php');
     $dbcon = new DBConnector();
 
+    // Get theme from palma.ini configuration.
+    $conf = parse_ini_file("palma.ini", true);
+    $theme = $conf['general']['theme'];
+
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
        "http://www.w3.org/TR/html4/strict.dtd">
@@ -32,7 +36,7 @@ TODO:
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>LearningCenter &ndash; PalMA-Stationen</title>
 
-<link rel="icon" href="../images/logo.ico" type="image/x-icon">
+<link rel="icon" href="../theme/<?=$theme?>/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="../pure-min.css">
 <link rel="stylesheet" href="../palma.css" type="text/css">
