@@ -595,8 +595,8 @@ handler["vnc"] = new Object();
     handler["vnc"]["prior"] = "undefined";
     handler["vnc"]["home"] = "undefined";
     handler["vnc"]["end"] = "undefined";
-    handler["vnc"]["zoomin"] = "undefined";
-    handler["vnc"]["zoomout"] = "undefined";
+    handler["vnc"]["zoomin"] = "plus";
+    handler["vnc"]["zoomout"] = "minus";
     handler["vnc"]["download"] = "undefined";
 handler["zathura"] = new Object();
     handler["zathura"]["up"] = "Up";
@@ -872,7 +872,7 @@ function updateControlsBySection(window) {
         } else if (handler.indexOf("vlc") > -1) {
             control = new Array("vlc", false, false, false, true, false, false, false, false, false, false, false);
         } else if (handler.indexOf("vnc") > -1) {
-            control = new Array("vnc", true, true, true, true, false, false, false, false, false, false, false);
+            control = new Array("vnc", true, true, true, true, true, true, false, false, false, false, false);
         } else if (handler.indexOf("zathura") > -1) {
             control = new Array("zathura", true, true, true, true, true, true, true, true, true, true, true);
         } else {
