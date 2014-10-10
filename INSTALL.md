@@ -8,8 +8,9 @@ The PalMA web application requires a web server (usually Apache 2) which
 supports PHP 2 and SQLite.
 
 User provided contents are shown using a simple web browser (currently still
-netsurf, will be replaced by midori), an image viewer (eog, will be replaced
-by feh), a video player (vlc) and an office suite (libreoffice).
+netsurf, will be replaced by dwb, midori or some other lightweight browser),
+an image viewer (eog, will be replaced by feh),
+a video player (vlc) and an office suite (libreoffice).
 
 PalMA controls running viewers using wmctrl and xdotool.
 
@@ -17,7 +18,7 @@ So a complete PalMA installation can be based on Debian GNU Linux (Jessie).
 Just add some required Debian packages (these and all other installation
 commands must be run as root user):
 
-    apt-get install apache2 eog feh libapache2-mod-php5 libjs-jquery midori
+    apt-get install apache2 dwb eog feh libapache2-mod-php5 libjs-jquery
     apt-get install netsurf openbox php5-curl php5-gd php5-intl php5-sqlite
     apt-get install ssvnc sqlite3 wmctrl xdotool zathura
 
@@ -40,7 +41,10 @@ Apache
 The PHP5 default configuration for the Apache2 webserver permits file uploads
 up to 2 MB. This limit is too low for typical documents (images,
 office documents, pdf). Change the setting upload_max_filesize in
-/etc/php5/apache2/php.ini. 10 MB is a good value.
+/etc/php5/apache2/php.ini. 10 MB is a good value. There is another limit
+for the maximum size of HTML posts with a default value of 8 MB.
+As this is less than the 10 MB needed for file uploads, the setting
+post_max_size must also be increased by setting it to 10 MB.
 
 
 PalMA
@@ -106,3 +110,10 @@ the English locale in its US variant (en_US.UTF-8):
 
 PalMA currently includes translations for these locales:
 de_DE.UTF-8, en_US.UTF-8, it_IT.UTF-8, ru_RU.UTF-8.
+
+
+Viewers
+-------
+
+PalMA uses external applications as viewers for the different document types.
+For HTML, a web browser is needed. midori, netsurf, dwb, surf, xombrero, uzbl.
