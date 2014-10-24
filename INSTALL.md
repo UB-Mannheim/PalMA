@@ -57,14 +57,14 @@ Get the latest version of PalMA from GitHub:
     # Create or update translations of PalMA user interface (optional).
     make -C /var/www/html/palma
 
-The web server wants to create and modify a sqlite3 database palma.db,
+The web server wants to create and modify a sqlite3 database `palma.db`,
 so www-data needs write access to the installation directory.
 
 For file uploads, a writable directory upload is created automatically.
 This also needs write access for www-data to the installation directory.
 
 Some viewer programs want to write their configuration data. This requires
-write access for www-data in directory ~www-data (typically /var/www).
+write access for www-data in directory `~www-data` (typically `/var/www`).
 
 Adding write access for www-data can be done by fixing the ownership:
 
@@ -79,37 +79,50 @@ these commands:
     cp /var/www/html/palma/scripts/palma /etc/init.d
     update-rc.d palma defaults
 
-Now a configuration file /var/www/html/palma/palma.ini must be added.
-A template for this file is available from subdirectory examples, so run
+Now a configuration file `/var/www/html/palma/palma.ini` must be added.
+A template for this file is available from subdirectory `examples`, so run
 this command to get a preliminary file:
 
     cp /var/www/html/palma/examples/palma.ini /var/www/html/palma/palma.ini
 
-Some entries in palma.ini still need to be fixed for your local installation.
+Some entries in `palma.ini` still need to be fixed for your local installation.
 These include at least the entries stationname, theme, start_url and
 control_file.
+
+
+Customize an installation
+-------------------------
+
+Most site specific settings are kept in a special subdirectory under `theme`.
+A new PalMA installation can add its own subdirectory which optionally can
+include more subdirectories if the installation uses several different
+settings.
+
+Each setting includes files for the screensaver, several images and icons,
+and a preconfigured Windows executable (UltraVNC SC).
 
 
 How to add existing and new translations
 ----------------------------------------
 
 PalMA initially supported English and German user interfaces for the web frontend.
-Students from Mannheim University provided additional translations.
+Students from the University of Mannheim provided additional translations.
 More translations can be added on demand.
 
-All translated texts are under subdirectory locale.
+All translated texts are under subdirectory `locale`.
 
-Newly added languages also need modifications in Makefile and in gettext.php.
+Newly added languages also need modifications in `Makefile`
+and in `gettext.php`.
 
-In a Debian GNU Linux installation, it is also necessary to add matching locales,
-either by running 'dpkg-reconfigure locales' manually or by enabling the locales
-in /etc/locale.gen and running locale-gen. Here is an example which enables
-the English locale in its US variant (en_US.UTF-8):
+In a Debian GNU Linux installation, it is also necessary to add matching
+locales, either by running `dpkg-reconfigure locales` manually or by enabling
+the locales in `/etc/locale.gen` and running `locale-gen`. Here is an
+example which enables the English locale in its US variant (`en_US.UTF-8`):
 
     perl -pi -e s/^#.en_US.UTF-8/en_US.UTF-8/ /etc/locale.gen && locale-gen
 
 PalMA currently includes translations for these locales:
-de_DE.UTF-8, en_US.UTF-8, it_IT.UTF-8, ru_RU.UTF-8.
+`de_DE.UTF-8`, `en_US.UTF-8`, `it_IT.UTF-8`, `ru_RU.UTF-8`.
 
 
 Viewers
