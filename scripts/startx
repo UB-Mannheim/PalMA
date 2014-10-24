@@ -130,7 +130,9 @@ while true; do
         su -c "/usr/bin/php5 control.php doLogout=ALL" -s /bin/sh www-data
         case $webbrowser in
             dwb)
-                /usr/bin/$webbrowser --execute=presentation_mode "$screensaver" &
+                # Start DWB in presentation mode
+                # without restoring windows from a previous session.
+                /usr/bin/dwb --execute=presentation_mode --override-restore "$screensaver" &
                 ;;
             midori)
                 /usr/bin/$webbrowser -e Fullscreen -a "$screensaver" &
