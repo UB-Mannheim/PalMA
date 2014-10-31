@@ -1,2 +1,18 @@
 Copy content of this directory to /var/www/.config or wherever
 the HOME directory of the www-data user is located.
+
+
+
+
+
+Some viewer programs requires
+ write access for www-data in directory `~www-data` (typically `/var/www`).
+
+
+
+
+Adding write access for www-data can be done by fixing the ownership:
+
+    
+
+chown -R www-data.www-data /var/www
