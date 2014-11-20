@@ -61,9 +61,6 @@ function select(name, url) {
             onclick="select('LC 02', 'http://lc02.bib.uni-mannheim.de/test')">
             <i class="fa fa-desktop fa-3x"></i>LC 02 (test)</button>
     <button class="pure-button pure-button-primary"
-            onclick="select('DWORK', 'http://dwork.bib.uni-mannheim.de/palma')">
-            <i class="fa fa-desktop fa-3x"></i>DWORK (test)</button>
-    <button class="pure-button pure-button-primary"
             disabled
             onclick="">
             <i class="fa fa-desktop fa-3x"></i><?=_('Mannheim table')?> 1</button>
