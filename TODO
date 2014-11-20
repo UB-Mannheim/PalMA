@@ -17,7 +17,7 @@
 
 * sysvinit-core durch systemd-sysv ersetzen (reduziert Boot-Zeit).
 * Anzahl der Linux-Konsolen in /etc/default/console-setup reduzieren (spart Speicher).
-
+* Reduce size of initrd by setting in /etc/initramfs-tools/initramfs.conf.
 
 
 == Offene Punkte ==
@@ -70,11 +70,6 @@ Probleme
 
 == Offene Punkte 2014-05-07 ==
 
-* uvnc/helpdesk.txt aktualisieren.
-
-* Code, der nur für Mannheim ist, nach examples/ub-mannheim verschieben?
-  Wird über theme/ub-mannheim realisiert.
-
 * Prüfen, welche Daten nicht per Browser abrufbar sein sollten:
   für niemand: palma.db.
   nur für angemelde Benutzer: control.php, uploads/.
@@ -113,3 +108,7 @@ $_REQUEST["json"] wird dabei nicht gesetzt. Eventuell ist das ein Problem der PH
   VNC servers for smartphones and tablet computers work with PalMA:
   * for iOS: Veency
   * for Android: VMLite
+
+2014-11-20
+
+* Test whether Debian package unoconv (docuement conversion based on LibreOffice) can be used for PalMA.
