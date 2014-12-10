@@ -284,7 +284,7 @@ function addNewWindow($db, $new) {
         }
     } while (!$new_window_id && $t_total++ <= 10 && !sleep(1));
 
-    if (!new_window_id) {
+    if (!$new_window_id) {
         trace('warning: no new window found');
         return;
     }
