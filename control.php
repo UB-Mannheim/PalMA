@@ -543,23 +543,6 @@ if (array_key_exists('closeAll', $_REQUEST)) {
     closeAll();
 }
 
-if (array_key_exists('isFile', $_REQUEST)) {
-    $section = $_REQUEST['isFile'];
-    // trace("get section ID $section");
-
-    $filename = $db->querySingle("SELECT file FROM window WHERE section=$section");
-    $file_exists = 0;
-    if (file_exists($filename)) {
-        $file_exists = 1;
-    }
-
-    trace("$filename - $file_exists");
-    // TODO: no longer print but send return value
-    print $file_exists;
-    // Return value not accepted by Javascript xmlhttprequest
-    return $file_exists;
-}
-
 } // processRequests
 
 processRequests($db);

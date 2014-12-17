@@ -180,18 +180,6 @@ function remoteControl(number, control) {
     appendTo.appendChild(overlay);
 
     document.body.appendChild(overlay);
-
-    var buttons = overlay.getElementsByClassName("controlbutton");
-        for (var i = 0; i < buttons.length; i++) {
-                // special case action=download
-                if (buttons[i].getAttribute('onmousedown').indexOf("download") > -1) {
-                    var isfile = sendToNuc("isFile="+number);
-                    // console.log("File: "+isfile);
-                    if (isfile < 1) {
-                        buttons[i].setAttribute('disabled', '');
-                    }
-                }
-        }
 }
 
 function restore() {
