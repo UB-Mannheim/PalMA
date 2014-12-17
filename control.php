@@ -543,42 +543,6 @@ if (array_key_exists('closeAll', $_REQUEST)) {
     closeAll();
 }
 
-if (array_key_exists('getHandler', $_REQUEST)) {
-    trace("getHandler from Section ID " . $_REQUEST['getHandler']);
-
-    if (isset($_REQUEST['getHandler'])) {
-        $section = $_REQUEST['getHandler'];
-        }
-
-    $fhandler = $db->querySingle("SELECT handler FROM window WHERE section=$section");
-
-    if (strpos($fhandler, 'eog') > -1) {
-        $fhandler = 'eog';
-    } else if (strpos($fhandler, 'libreoffice') > -1) {
-        if (strpos($fhandler, '--calc') > -1) {
-            $fhandler = 'libreoffice-calc';
-        } else if (strpos($fhandler, '--impress') > -1) {
-            $fhandler = 'libreoffice-impress';
-        } else if (strpos($fhandler, '--writer') > -1) {
-            $fhandler = 'libreoffice-writer';
-        }
-    } else if (strpos($fhandler, 'netsurf') > -1) {
-        $fhandler = 'netsurf';
-    } else if (strpos($fhandler, 'vlc') > -1) {
-        $fhandler = 'vlc';
-    } else if (strpos($fhandler, 'vnc') > -1) {
-        $fhandler = 'vnc';
-    } else if (strpos($fhandler, 'zathura') > -1) {
-        $fhandler = 'zathura';
-    }
-
-    trace("returning FileHandle $fhandler");
-    // TODO: no longer print but send return value
-    print $fhandler;
-    // Return value not accepted by Javascript xmlhttprequest
-    return $fhandler;
-}
-
 if (array_key_exists('isFile', $_REQUEST)) {
     $section = $_REQUEST['isFile'];
     // trace("get section ID $section");
