@@ -1,0 +1,6 @@
+<Files ~ "\.db$">
+  Order allow,deny
+  Deny from all
+</Files>
+RewriteEngine On
+RewriteRule uploads/ - [F,L]
