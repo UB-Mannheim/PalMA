@@ -95,16 +95,6 @@ if test -f /usr/bin/dwb; then
     webbrowser=dwb
 elif test -f /usr/bin/midori; then
     webbrowser=midori
-elif test -f /usr/bin/iceweasel; then
-    webbrowser=iceweasel
-    rm -rf /root/.mozilla/firefox
-    mkdir -p /root/.mozilla
-    cp -a settings/firefox /root/.mozilla/
-elif test -f /usr/bin/firefox; then
-    webbrowser=firefox
-    rm -rf /root/.mozilla/firefox
-    mkdir -p /root/.mozilla
-    cp -a settings/firefox /root/.mozilla/
 fi
 
 # 0=initial state
@@ -138,7 +128,7 @@ while true; do
                 /usr/bin/$webbrowser -e Fullscreen -a "$screensaver" &
                 ;;
             *)
-                /usr/bin/$webbrowser "$screensaver" &
+                $webbrowser "$screensaver" &
                 ;;
         esac
         state="1"
