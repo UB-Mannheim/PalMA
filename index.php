@@ -197,11 +197,8 @@ function downloadFile(screensection) {
    var file = document.getElementById("file" + screensection).innerHTML;
    var file = document.getElementById("file" + screensection).getAttribute("title");
 
-   // Download direkt
-   var download = url_path[0]+"/"+url_path[1]+"/"+url_path[2]+"/"+url_path[3]+"/uploads/"+file;
-
-   // alternatively with download area?
-   // var download = "download.php";
+   // Download with download.php
+   var download = url_path[0]+"/"+url_path[1]+"/"+url_path[2]+"/"+url_path[3]+"/download.php?file="+encodeURIComponent(file);
 
    var name = "Download";
 
