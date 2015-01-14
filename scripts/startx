@@ -12,8 +12,11 @@
 # Enable more log messages.
 set -x
 
-# Set timeout parameter (minutes).
+# Set session timeout parameter (minutes).
 TIMEOUT=15
+
+# User which is used for the PalMA desktop.
+user=www-data
 
 # Power saving recommendations from powertop.
 
@@ -46,6 +49,7 @@ cd "$basedir"
 
 inifile="$basedir/palma.ini"
 
+# Get some configuration parameters from ini file.
 export DISPLAY=`grep "^id[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
 start_url=`grep "^start_url[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
 theme=`grep "^theme[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
@@ -55,6 +59,11 @@ screensaver="${start_url}theme/${theme}/screensaver.php"
 if test -z "$HOME"; then
 export HOME=/root
 fi
+
+runx() {
+    # Run a shell command as a user without root privileges.
+    su -c "$@" -s /bin/sh $user
+}
 
 # Allow X server on display :0 to start.
 /bin/sleep 3
@@ -66,19 +75,19 @@ fi
 /bin/sleep 5
 
 # Start X window manager.
-/usr/bin/openbox --config-file "$basedir/settings/openbox/rc.xml" &
+runx "/usr/bin/openbox --config-file \"$basedir/settings/openbox/rc.xml\"" &
 
 # Allow window manager to start.
 /bin/sleep 2
 
 # Show background image.
-/usr/bin/feh --bg-scale --no-fehbg "$background"
+runx "/usr/bin/feh --bg-scale --no-fehbg \"$background\""
 
 # Disable DPMS.
-/usr/bin/xset -dpms
+runx "/usr/bin/xset -dpms"
 
 # Disable screensaver.
-/usr/bin/xset s off
+runx "/usr/bin/xset s off"
 
 # Show the DPMS and screensaver settings.
 # /usr/bin/xset q
@@ -102,39 +111,42 @@ fi
 # 2=vnc viewer running
 state=0
 
-# Disable too many log messages in loop.
+# Disable too many log messages while running in loop.
 set +x
 
 while true; do
 
     if test -f palma.db; then
-        users=`sqlite3 palma.db "select count(*) from user"`
+        usercount=`sqlite3 palma.db "select count(*) from user"`
     else
-        users=0
+        usercount=0
     fi
-    if test "$state" = "0"; then
+    if test -z "$user"; then
+        # sqlite3 failed - maybe the database table was locked.
+        date +"%F %T database was locked, will retry later"
+    elif test "$state" = "0"; then
         # Initial state. Start a webbrowser with the screensaver image.
         # Kill the VNC viewer if it was running.
         date +"%F %T start $webbrowser with screensaver"
         killall -q ssvncviewer
-        su -c "/usr/bin/php5 control.php doLogout=ALL" -s /bin/sh www-data
+        runx "/usr/bin/php5 control.php doLogout=ALL"
         case $webbrowser in
             dwb)
                 # Start DWB in presentation mode
                 # without restoring windows from a previous session.
-                /usr/bin/dwb --execute=presentation_mode --override-restore "$screensaver" &
+                runx "/usr/bin/dwb --execute=presentation_mode --override-restore \"$screensaver\"" &
                 ;;
             midori)
-                /usr/bin/$webbrowser -e Fullscreen -a "$screensaver" &
+                runx "/usr/bin/$webbrowser -e Fullscreen -a \"$screensaver\"" &
                 ;;
             *)
-                $webbrowser "$screensaver" &
+                runx "$webbrowser \"$screensaver\"" &
                 ;;
         esac
         state="1"
     elif test "$state" = "1"; then
         # Screen saver is running. Wait for the first user connection.
-        if test "$users" = '0'; then
+        if test "$usercount" = '0'; then
             # There is still no user connected.
             # The screensaver should be running. If not: restart it.
             if !(ps x|grep $webbrowser|grep -v --quiet grep); then
@@ -145,16 +157,16 @@ while true; do
             fi
         else
             # First user connected. Terminate the screensaver.
-            # Start the VNC viewer process, so users can share their desktop.
+            # Start the VNC viewer process, so usercount can share their desktop.
             date +"%F %T kill $webbrowser"
-            killall --user root --quiet $webbrowser
-            su -c "/usr/bin/php5 SSVNCDaemon.php" -s /bin/sh www-data &
-            su -c "/usr/bin/touch last_activity" -s /bin/sh www-data
+            killall --user $user --quiet $webbrowser
+            runx "/usr/bin/php5 SSVNCDaemon.php" &
+            runx "/usr/bin/touch last_activity"
             state="2"
         fi
     elif test "$state" = "2"; then
         # Users are connected. The VNC viewer process is running.
-        if test "$users" = '0'; then
+        if test "$usercount" = '0'; then
             # The last user disconnected. Start the screensaver.
             date +"%F %T last user disconnected"
             state="0"
