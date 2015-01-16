@@ -485,6 +485,18 @@ handler["default"] = new Object();
     handler["default"]["zoomin"] = "ctrl+plus";
     handler["default"]["zoomout"] = "ctrl+minus";
     handler["default"]["download"] = "download";
+handler["dwb"] = new Object();
+    handler["dwb"]["up"] = " Up";
+    handler["dwb"]["down"] = "Down";
+    handler["dwb"]["left"] = "Left";
+    handler["dwb"]["right"] = "Right";
+    handler["dwb"]["next"] = "Next";
+    handler["dwb"]["prior"] = "Prior";
+    handler["dwb"]["home"] = "Home";
+    handler["dwb"]["end"] = "End";
+    handler["dwb"]["zoomin"] = "plus";
+    handler["dwb"]["zoomout"] = "minus";
+    handler["dwb"]["download"] = "download";
 handler["eog"] = new Object();
     handler["eog"]["up"] = "alt+Up";
     handler["eog"]["down"] = "alt+Down";
@@ -852,6 +864,8 @@ function updateControlsBySection(window) {
                 if (handler.indexOf("--writer") > -1) {
                     control = new Array("libreoffice-writer", true, true, true, true, false, false, false, false, true, true, true);
                 }
+        } else if (handler.indexOf("dwb") > -1) {
+            control = new Array("dwb", true, true, true, true, true, true, true, true, true, true, true);
         } else if (handler.indexOf("netsurf") > -1) {
             control = new Array("netsurf", true, true, true, true, true, true, false, false, false, false, true);
         } else if (handler.indexOf("vlc") > -1) {

@@ -527,8 +527,9 @@ if (array_key_exists('openURL', $_REQUEST)) {
         "section" => "",
         "state" => "",
         "file" => $openURL,
-        // "handler" => "iceweasel --new-window ",
-        "handler" => "/usr/bin/nohup /usr/bin/netsurf ",
+        // "handler" => "iceweasel --new-window",
+        //~ "handler" => "/usr/bin/nohup /usr/bin/netsurf",
+        "handler" => "/usr/bin/nohup /usr/bin/dwb --override-restore",
         "userid" => "",
         "date" => $date
         );

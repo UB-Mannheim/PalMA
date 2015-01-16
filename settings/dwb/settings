@@ -1,0 +1,7 @@
+[default]
+file-sync-interval=3600
+sync-files=session
+enable-private-browsing=true
+cookies-store-policy=session
+save-session=false
+tabbed-browsing=false

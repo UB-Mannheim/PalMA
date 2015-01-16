@@ -7,8 +7,7 @@ Operating system
 The PalMA web application requires a web server (usually Apache 2) which
 supports PHP 2 and SQLite.
 
-User provided contents are shown using a simple web browser (currently still
-netsurf, will be replaced by dwb, midori or some other lightweight browser),
+User provided contents are shown using a simple web browser (dwb),
 an image viewer (eog, will be replaced by feh),
 a video player (vlc) and an office suite (libreoffice).
 
@@ -19,7 +18,7 @@ Just add some required Debian packages (these and all other installation
 commands must be run as root user):
 
     apt-get install apache2 dwb eog feh libapache2-mod-php5 libjs-jquery
-    apt-get install netsurf openbox php5-curl php5-gd php5-intl php5-sqlite
+    apt-get install openbox php5-curl php5-gd php5-intl php5-sqlite
     apt-get install ssvnc sqlite3 wmctrl xdotool zathura
 
 Some more packages are optional:

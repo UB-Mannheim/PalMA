@@ -102,6 +102,9 @@ rm palma.db
 webbrowser=/bin/false
 if test -f /usr/bin/dwb; then
     webbrowser=dwb
+    mkdir -p ~$user/.config
+    rm -r ~$user/.config/dwb
+    cp -a settings/dwb ~$user/.config
 elif test -f /usr/bin/midori; then
     webbrowser=midori
 fi
@@ -132,9 +135,8 @@ while true; do
         runx "/usr/bin/php5 control.php doLogout=ALL"
         case $webbrowser in
             dwb)
-                # Start DWB in presentation mode
-                # without restoring windows from a previous session.
-                runx "/usr/bin/dwb --execute=presentation_mode --override-restore \"$screensaver\"" &
+                # Start DWB in presentation mode.
+                runx "/usr/bin/dwb --execute=presentation_mode \"$screensaver\"" &
                 ;;
             midori)
                 runx "/usr/bin/$webbrowser -e Fullscreen -a \"$screensaver\"" &
