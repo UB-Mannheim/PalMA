@@ -65,6 +65,9 @@ runx() {
     su -c "$@" -s /bin/sh $user
 }
 
+# Get HOME directory of $user.
+userhome=`su -c pwd -s /bin/sh -l $user`
+
 # Allow X server on display :0 to start.
 /bin/sleep 3
 
@@ -97,17 +100,23 @@ runx "/usr/bin/xset s off"
 
 rm palma.db
 
+# Create directory for application settings if needed.
+mkdir -p $userhome/.config
+
 # Find a web browser which supports JavaScript.
 # TODO: try other lightweight browsers.
 webbrowser=/bin/false
 if test -f /usr/bin/dwb; then
     webbrowser=dwb
-    mkdir -p ~$user/.config
-    rm -r ~$user/.config/dwb
-    cp -a settings/dwb ~$user/.config
+    # Run dwb with PalMA compatible settings.
+    rm -rf $userhome/.config/dwb
+    cp -a settings/dwb $userhome/.config
 elif test -f /usr/bin/midori; then
     webbrowser=midori
 fi
+
+# Fix ownership of directory for application settings.
+chown -R $user:$user $userhome/.config
 
 # 0=initial state
 # 1=screen saver running
