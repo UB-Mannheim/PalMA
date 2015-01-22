@@ -814,12 +814,24 @@ function updateWindowList(window) {
             td = document.createElement('td');
             div = document.createElement('div');
             div.setAttribute('id', 'file' + screensection);
-                var fname = file.replace(/^.*[\/\\]/g, '');
-                var appendix = " ...";
-                if(fname.length<15)
-                    appendix = "";
-            div.setAttribute('title', fname);
-            div.appendChild(document.createTextNode(fname.substring(0, 15)+appendix));
+            // display only the last part of the URL or file name.
+            // Long names are truncated, and the truncation is indicated.
+            var fname = file;
+            if (fname.substring(0, 4) == 'http') {
+                // Remove a terminating slash from an URL.
+                // The full URL will be shown as a tooltip.
+                fname = fname.replace(/\/$/, '');
+                fname = fname.replace(/^.*\//, '');
+                div.setAttribute('title', file);
+            } else {
+                // For files only the full base name is shown as a tooltip.
+                fname = fname.replace(/^.*\//, '');
+                div.setAttribute('title', fname);
+            }
+            if (fname.length > 18) {
+                fname = fname.substring(0, 15) + '...';
+            }
+            div.appendChild(document.createTextNode(fname));
             td.appendChild(div);
             tr.appendChild(td);
             td = document.createElement('td');
