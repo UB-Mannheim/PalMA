@@ -516,8 +516,6 @@ if (array_key_exists('openURL', $_REQUEST)) {
     $openURL = $_REQUEST['openURL'];
     trace("openURL $openURL");
 
-    global $url;
-
     $dt = new DateTime();
     $date = $dt->format('Y-m-d H:i:s');
 
@@ -529,7 +527,7 @@ if (array_key_exists('openURL', $_REQUEST)) {
         "file" => $openURL,
         // "handler" => "iceweasel --new-window",
         //~ "handler" => "/usr/bin/nohup /usr/bin/netsurf",
-        "handler" => "/usr/bin/nohup /usr/bin/dwb --override-restore",
+        "handler" => "/usr/bin/nohup /usr/bin/dwb",
         "userid" => "",
         "date" => $date
         );
