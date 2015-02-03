@@ -103,6 +103,9 @@
 
     $username = '';
     $posted_pin = '';
+    if (isset($_REQUEST['pin'])) {
+        $posted_pin = $_REQUEST['pin'];
+    }
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     session_start();

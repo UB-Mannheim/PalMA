@@ -7,7 +7,12 @@
         if (isset($_SERVER['HTTP_REFERER'])) {
             error_log("auth.php referred by " . $_SERVER['HTTP_REFERER']);
         }
-        header('Location: login.php');
+        if (isset($_REQUEST['pin'])) {
+            header('Location: login.php?pin=' . $_REQUEST['pin']);
+        } else {
+            header('Location: login.php');
+        }
+
         // header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/login.php');
         exit;
     }
