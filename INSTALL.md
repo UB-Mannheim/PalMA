@@ -19,7 +19,7 @@ commands must be run as root user):
 
     apt-get install apache2 dwb eog feh libapache2-mod-php5 libjs-jquery
     apt-get install openbox php5-curl php5-gd php5-intl php5-sqlite
-    apt-get install ssvnc sqlite3 wmctrl xdotool zathura
+    apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
 
 Some more packages are optional:
 
@@ -129,3 +129,42 @@ Viewers
 
 PalMA uses external applications as viewers for the different document types.
 For HTML, a web browser is needed. midori, netsurf, dwb, surf, xombrero, uzbl.
+
+
+Raspberry PI
+------------
+
+A low cost (less than 50 EUR plus monitor) PalMA station can be built using
+the Raspberry PI. The following configuration which is based on the Rasbian
+distribution (http://www.raspbian.org/) was successfully tested with a
+Raspberry PI 1:
+
+    apt-get install dwb eog feh libjs-jquery nxinx-light openbox
+    apt-get install php5-cgi php5-cli php5-curl php5-fpm php5-gd php5-intl php5-sqlite
+    apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
+    mkdir -p /var/www/html
+    chown www-data:www-data /var/www/html
+
+We replaced the apache2 web server by nxinx because it uses much
+less ressources. Fix the server root and enable PHP5 in the configuration
+file `/etc/nginx/sites-enabled/default`:
+
+    server {
+        root /var/www/html;
+        index index.html index.htm index.php;
+        # ...
+        location ~ \.php$ {
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/var/run/php5-fpm.sock;
+                fastcgi_index index.php;
+                include fastcgi_params;
+        }
+    }
+
+Older versions of the Raspberry PI use a single core 700 MHz ARM CPU with only
+256 or 512 MB RAM. They won't be able to run LibreOffice, so PalMA won't be
+able to show Office documents.
+
+The latest version Raspberry PI 2 has a 900 MHz quad-core ARM Cortex-A7 CPU
+with 1 GB RAM. This is a good base for running PalMA without any software
+restrictions. It is still limited to full HD video resolution.
