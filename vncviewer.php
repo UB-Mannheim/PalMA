@@ -17,6 +17,7 @@ include('auth.php');
   </head>
   <body>
     <h1>Redirect</h1>
+    <p>
       <a href="<?=$url?>"><?=$url?></a>
     </p>
   </body>
