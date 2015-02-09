@@ -94,10 +94,6 @@ eod;
         }  */
     }
 
-    public function createTables() {
-        $this->exec($SQL_CREATE_TABLES);
-    }
-
     public function resetTables() {
         $this->exec(self::SQL_RESET_TABLES . self::SQL_CREATE_TABLES);
     }
@@ -113,7 +109,6 @@ eod;
         $window_db_ids = array();
 
         $window_keys = @$this->query('SELECT DISTINCT(id) FROM window');
-        $row = array();
         while ($row = $window_keys->fetchArray()) {
             array_push($window_db_ids, $row['id']);
         }
@@ -250,7 +245,7 @@ eod;
     }
 
     public function setState_Window($window_id, $state) {
-        $state = $this->exec('UPDATE window SET state="'.$state.'" WHERE win_id="'.$window_id.'"');
+        $this->exec('UPDATE window SET state="'.$state.'" WHERE win_id="'.$window_id.'"');
     }
 
     public function insertWindow($window) {
@@ -266,21 +261,21 @@ eod;
     }
 
     public function deleteWindow($window_id) {
-        $delete = $this->exec('DELETE FROM window WHERE win_id="'.$window_id.'"');
+        $this->exec('DELETE FROM window WHERE win_id="'.$window_id.'"');
     }
 
     /*
     public function deleteVNCWindow($vnc_id) {
-        $delete = $this->exec('DELETE FROM window WHERE file="'.$vnc_id.'"');
+        $this->exec('DELETE FROM window WHERE file="'.$vnc_id.'"');
     }
     */
 
     public function deleteDebug($table, $id, $gt) {
-        $delete = $this->exec('DELETE FROM '.$table.' WHERE '.$id.' >"'.$gt.'"');
+        $this->exec('DELETE FROM '.$table.' WHERE '.$id.' >"'.$gt.'"');
     }
 
     public function updateWindow($window_id, $field, $value) {
-        $update = $this->exec('UPDATE window SET '.$field.'="'.$value.'" WHERE win_id="'.$window_id.'"');
+        $this->exec('UPDATE window SET '.$field.'="'.$value.'" WHERE win_id="'.$window_id.'"');
     }
 
 }
