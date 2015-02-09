@@ -459,7 +459,7 @@ function processRequests($db) {
         // orphaned windows
         $orphan_ids = array_diff($screen_ids, $db_ids);
 
-        if (count($orphan_ids > 0)) {
+        if (count($orphan_ids) > 0) {
             // close windows on screen not existing in database
             foreach ($orphan_ids as $id) {
                 wmClose($id);
@@ -495,8 +495,6 @@ if (array_key_exists('switchWindows', $_REQUEST)) {
     $before = $_REQUEST['before'];
     $after = $_REQUEST['after'];
     trace("switching $before and $after");
-
-    $temp = "tmp";
 
     // exchange section
     $win_id1 = $db->getWindowIDBySection($before);
