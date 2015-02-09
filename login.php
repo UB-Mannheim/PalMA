@@ -14,10 +14,6 @@
 
     $errtext = false;
 
-    function getPin() {
-        $dbcon->querySingle("SELECT value FROM setting WHERE key = 'pin'");
-    }
-
     function getDevice() {
         // Try to determine the user's device type. The device which is
         // returned is used to select the matching icon for the user list.
