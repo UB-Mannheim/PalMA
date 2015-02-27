@@ -99,6 +99,7 @@ settings.
 
 Each setting includes files for the screensaver, several images and icons,
 and a preconfigured Windows executable (UltraVNC SC).
+See [theme/THEMES.md](theme/THEMES.md) for details.
 
 
 How to add existing and new translations
