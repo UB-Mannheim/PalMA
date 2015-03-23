@@ -162,23 +162,23 @@ function resetStation(urlBase) {
 
 var stations = new Array();
 
-stations.push(new Array('LC 02', 'http://lc02.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 03', 'http://lc03.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 04', 'http://lc04.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 05', 'http://lc05.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 06', 'http://lc06.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 07', 'http://lc07.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 08', 'http://lc08.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 09', 'http://lc09.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 10', 'http://lc10.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 11', 'http://lc11.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 12', 'http://lc12.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 13', 'http://lc13.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 14', 'http://lc14.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 15', 'http://lc15.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 16', 'http://lc16.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 17', 'http://lc17.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('LC 18', 'http://lc18.bib.uni-mannheim.de/palma/'));
+stations.push(new Array('LC 02', 'http://lc02.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 03', 'http://lc03.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 04', 'http://lc04.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 05', 'http://lc05.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 06', 'http://lc06.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 07', 'http://lc07.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 08', 'http://lc08.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 09', 'http://lc09.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 10', 'http://lc10.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 11', 'http://lc11.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 12', 'http://lc12.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 13', 'http://lc13.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 14', 'http://lc14.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 15', 'http://lc15.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 16', 'http://lc16.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 17', 'http://lc17.bib.uni-mannheim.de/'));
+stations.push(new Array('LC 18', 'http://lc18.bib.uni-mannheim.de/'));
 
 // Get the <div> element which contains the station entries.
 var list = document.getElementById('stations');

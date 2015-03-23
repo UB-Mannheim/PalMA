@@ -5,7 +5,7 @@ if [ -n "${1}" ]; then
     name=${1}
     name_uc=`echo "LC "${name:2:3}`
 
-    files=("/etc/hostname" "/etc/hosts" "/var/www/html/palma/palma.ini")
+    files=("/etc/hostname" "/etc/hosts" "/var/www/html/palma.ini")
 
     for i in "${files[@]}"
     do
