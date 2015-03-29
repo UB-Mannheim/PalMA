@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright (C) 2014 Universitätsbibliothek Mannheim
+Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
 See file LICENSE for license details.
 
 Authors: Alexander Wagner, Stefan Weil
@@ -153,23 +153,23 @@ function keyControl(number, image, key, handler, disabled, title) {
 function remoteControl(number, control) {
 
     var overlay = document.createElement('div');
-    overlay.setAttribute('id','overlay');
+    overlay.setAttribute('id', 'overlay');
     overlay.setAttribute('class', 'overlay');
 
     var container = document.createElement('div');
-    container.setAttribute('id','container');
+    container.setAttribute('id', 'container');
 
     var caption = document.createElement('div');
-    caption.setAttribute('id','caption');
+    caption.setAttribute('id', 'caption');
     caption.appendChild(document.createTextNode('<?=_("Screen section")?> '+ number));
 
     var close = document.createElement('div');
     var i = document.createElement('i');
     i.setAttribute('class', 'fa fa-times');
     i.setAttribute('title', '<?=_("Close the advanced control")?>');
-    close.setAttribute('id','close');
+    close.setAttribute('id', 'close');
     close.appendChild(i);
-    close.setAttribute('onclick','restore()');
+    close.setAttribute('onclick',       'restore()');
 
     container.appendChild(close);
     container.appendChild(caption);
@@ -189,7 +189,7 @@ function restore() {
 function downloadFile(screensection) {
 
     // wrong path if copied to /home/directory
-    // TODO : check file and path
+    // TODO: check file and path
 
    var url = document.URL;
    var url_path = url.split("/");
@@ -296,35 +296,35 @@ function addControls(number, control, is_overlay) {
 
 function addDetailedControlsDiv(number, control) {
 
-  var handler = control[0];
-  // up down left right zoomin zoomout home end prior next download
-  var up = control[1];
-  var down = control[2];
-  var left = control[3];
-  var right = control[4];
-  var zoomin = control[5];
-  var zoomout = control[6];
-  var home = control[7];
-  var end = control[8];
-  var prior = control[9];
-  var next = control[10];
-  var download = control[11];
+    var handler = control[0];
+    // up down left right zoomin zoomout home end prior next download
+    var up = control[1];
+    var down = control[2];
+    var left = control[3];
+    var right = control[4];
+    var zoomin = control[5];
+    var zoomout = control[6];
+    var home = control[7];
+    var end = control[8];
+    var prior = control[9];
+    var next = control[10];
+    var download = control[11];
 
-  var controlpanel;
-  var updown, zoom, bar;
+    var controlpanel;
+    var updown, zoom, bar;
 
-  var table, tr, td;
+    var table, tr, td;
 
-  controlpanel = document.createElement('div');
+    controlpanel = document.createElement('div');
     controlpanel.setAttribute('class', 'controlpanel');
 
-  updown = addControls(number, control, true);
+    updown = addControls(number, control, true);
     updown.setAttribute('class', 'updown');
 
-  controlpanel.appendChild(updown);
+    controlpanel.appendChild(updown);
 
-  zoom = document.createElement('div');
-  zoom.setAttribute('class', 'zoom');
+    zoom = document.createElement('div');
+    zoom.setAttribute('class', 'zoom');
     table = document.createElement('table');
 
     tr = document.createElement('tr');
@@ -339,15 +339,15 @@ function addDetailedControlsDiv(number, control) {
     tr.appendChild(td);
     table.appendChild(tr);
 
-        zoom.appendChild(table);
+    zoom.appendChild(table);
 
-  controlpanel.appendChild(zoom);
+    controlpanel.appendChild(zoom);
 
-  bar = document.createElement('div');
-  bar.setAttribute('class', 'bar');
+    bar = document.createElement('div');
+    bar.setAttribute('class', 'bar');
     table = document.createElement('table');
 
-        tr = document.createElement('tr');
+    tr = document.createElement('tr');
 
     td = keyControl(number, 'fa-step-backward', 'home',
                     handler, !home, "<?=_('Jump to start')?>");
@@ -366,13 +366,13 @@ function addDetailedControlsDiv(number, control) {
     td.setAttribute('onclick', 'downloadFile(' + number + ')');
     tr.appendChild(td);
 
-        table.appendChild(tr);
+    table.appendChild(tr);
 
     bar.appendChild(table);
 
-  controlpanel.appendChild(bar);
+    controlpanel.appendChild(bar);
 
-  return controlpanel;
+    return controlpanel;
 }
 
 function showLayout(layout, controls) {
@@ -390,6 +390,7 @@ function showLayout(layout, controls) {
   }
   switch (layout) {
   case 'g1x1':
+    // Show only one segment (full screen).
     tr = document.createElement('tr');
     td = document.createElement('td');
     td.appendChild(addControls('1', controls[1], false));
@@ -397,6 +398,7 @@ function showLayout(layout, controls) {
     md.appendChild(tr);
     break;
   case 'g2x1':
+    // Show two segments (side by side).
     tr = document.createElement('tr');
     td = document.createElement('td');
     td.appendChild(addControls('1', controls[1], false));
@@ -407,6 +409,7 @@ function showLayout(layout, controls) {
     md.appendChild(tr);
     break;
   case 'g1x2':
+    // Show two segments (one on top of the other).
     tr = document.createElement('tr');
     td = document.createElement('td');
     td.appendChild(addControls('1', controls[1], false));
@@ -419,6 +422,7 @@ function showLayout(layout, controls) {
     md.appendChild(tr);
     break;
   case 'g1a2':
+    // Show three segments (one on the left, two on the right).
     tr = document.createElement('tr');
     td = document.createElement('td');
     td.setAttribute('rowspan', '2');
@@ -435,6 +439,7 @@ function showLayout(layout, controls) {
     md.appendChild(tr);
     break;
   case 'g2x2':
+    // Show four segments (one in each quadrant).
     tr = document.createElement('tr');
     td = document.createElement('td');
     td.appendChild(addControls('1', controls[1], false));
@@ -453,6 +458,7 @@ function showLayout(layout, controls) {
     md.appendChild(tr);
     break;
   default:
+    // No supported screen layout selected. This should never happen.
     tr = document.createElement('tr');
     td = document.createElement('td');
     td.appendChild(document.createTextNode('Bitte Bildschirmaufteilung auswählen!'));
@@ -468,11 +474,12 @@ function miniDisplaySelect(element) {
 
 function getHandlerCommand(handle, task) {
 
-// console.log("getHandlerCommand "+handle+" - "+task);
-// to deactivate buttons just add 'undefined' as keystroke
+    // console.log("getHandlerCommand "+handle+" - "+task);
+    // to deactivate buttons just add 'undefined' as keystroke
 
-var handler = new Array();
-handler["default"] = new Object();
+    var handler = new Array();
+
+    handler["default"] = new Object();
     // handler["default"]["init"] = "";
     handler["default"]["up"] = "Up";
     handler["default"]["down"] = "Down";
@@ -485,7 +492,9 @@ handler["default"] = new Object();
     handler["default"]["zoomin"] = "ctrl+plus";
     handler["default"]["zoomout"] = "ctrl+minus";
     handler["default"]["download"] = "download";
-handler["dwb"] = new Object();
+
+    // Handler for web pages.
+    handler["dwb"] = new Object();
     handler["dwb"]["up"] = " Up";
     handler["dwb"]["down"] = "Down";
     handler["dwb"]["left"] = "Left";
@@ -497,7 +506,9 @@ handler["dwb"] = new Object();
     handler["dwb"]["zoomin"] = "plus";
     handler["dwb"]["zoomout"] = "minus";
     handler["dwb"]["download"] = "download";
-handler["eog"] = new Object();
+
+    // Handler for images.
+    handler["eog"] = new Object();
     handler["eog"]["up"] = "alt+Up";
     handler["eog"]["down"] = "alt+Down";
     handler["eog"]["left"] = "alt+Left";
@@ -509,7 +520,9 @@ handler["eog"] = new Object();
     handler["eog"]["zoomin"] = "ctrl+plus";
     handler["eog"]["zoomout"] = "ctrl+minus";
     handler["eog"]["download"] = "download";
-handler["netsurf"] = new Object();
+
+    // Alternate handler for web pages (not used by default).
+    handler["netsurf"] = new Object();
     handler["netsurf"]["up"] = " Tab+Up";
     handler["netsurf"]["down"] = "Tab+Down";
     handler["netsurf"]["left"] = "Tab+Left";
@@ -521,9 +534,10 @@ handler["netsurf"] = new Object();
     handler["netsurf"]["zoomin"] = "Tab+ctrl+plus";
     handler["netsurf"]["zoomout"] = "Tab+ctrl+minus";
     handler["netsurf"]["download"] = "download";
-// Controls in LibreOffice: no zoom in calc and writer, has to be activated first
-// by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
-handler["libreoffice"] = new Object();
+
+    // Controls in LibreOffice: no zoom in calc and writer, has to be activated first
+    // by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
+    handler["libreoffice"] = new Object();
     handler["libreoffice"]["up"] = "Up";
     handler["libreoffice"]["down"] = "Down";
     handler["libreoffice"]["left"] = "Left";
@@ -535,7 +549,9 @@ handler["libreoffice"] = new Object();
     handler["libreoffice"]["zoomin"] = "undefined";
     handler["libreoffice"]["zoomout"] = "undefined";
     handler["libreoffice"]["download"] = "download";
-handler["libreoffice-calc"] = new Object();
+
+    // Handler for MS Excel and LibreOffice Calc documents.
+    handler["libreoffice-calc"] = new Object();
     handler["libreoffice-calc"]["up"] = "Up";
     handler["libreoffice-calc"]["down"] = "Down";
     handler["libreoffice-calc"]["left"] = "Left";
@@ -547,7 +563,9 @@ handler["libreoffice-calc"] = new Object();
     handler["libreoffice-calc"]["zoomin"] = "undefined";
     handler["libreoffice-calc"]["zoomout"] = "undefined";
     handler["libreoffice-calc"]["download"] = "download";
-handler["libreoffice-impress"] = new Object();
+
+    // Handler for MS Powerpoint and LibreOffice Impress documents.
+    handler["libreoffice-impress"] = new Object();
     handler["libreoffice-impress"]["up"] = "Up";
     handler["libreoffice-impress"]["down"] = "Down";
     handler["libreoffice-impress"]["left"] = "Left";
@@ -559,7 +577,9 @@ handler["libreoffice-impress"] = new Object();
     handler["libreoffice-impress"]["zoomin"] = "plus";
     handler["libreoffice-impress"]["zoomout"] = "minus";
     handler["libreoffice-impress"]["download"] = "download";
-handler["libreoffice-writer"] = new Object();
+
+    // Handler for MS Word and LibreOffice Writer documents.
+    handler["libreoffice-writer"] = new Object();
     handler["libreoffice-writer"]["up"] = "Up";
     handler["libreoffice-writer"]["down"] = "Down";
     handler["libreoffice-writer"]["left"] = "Left";
@@ -571,7 +591,9 @@ handler["libreoffice-writer"] = new Object();
     handler["libreoffice-writer"]["zoomin"] = "undefined";
     handler["libreoffice-writer"]["zoomout"] = "undefined";
     handler["libreoffice-writer"]["download"] = "download";
-handler["vlc"] = new Object();
+
+    // Handler for videos.
+    handler["vlc"] = new Object();
     handler["vlc"]["up"] = "undefined";
     handler["vlc"]["down"] = "undefined";
     handler["vlc"]["left"] = "undefined";
@@ -583,7 +605,9 @@ handler["vlc"] = new Object();
     handler["vlc"]["zoomin"] = "undefined";
     handler["vlc"]["zoomout"] = "undefined";
     handler["vlc"]["download"] = "undefined";
-handler["vnc"] = new Object();
+
+    // Handler for shared desktops (VNC).
+    handler["vnc"] = new Object();
     handler["vnc"]["up"] = "Up";
     handler["vnc"]["down"] = "Down";
     handler["vnc"]["left"] = "Left";
@@ -595,7 +619,9 @@ handler["vnc"] = new Object();
     handler["vnc"]["zoomin"] = "plus";
     handler["vnc"]["zoomout"] = "minus";
     handler["vnc"]["download"] = "undefined";
-handler["zathura"] = new Object();
+
+    // Handler for PDF documents.
+    handler["zathura"] = new Object();
     handler["zathura"]["up"] = "Up";
     handler["zathura"]["down"] = "Down";
     handler["zathura"]["left"] = "Left";
