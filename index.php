@@ -294,6 +294,13 @@ function addControls(number, control, is_overlay) {
   return div;
 }
 
+function addSimpleControlsTd(number, controls) {
+    var td = document.createElement('td');
+    td.appendChild(addControls(number, controls[number], false));
+    td.setAttribute('id', 'section' + number);
+    return td;
+}
+
 function addDetailedControlsDiv(number, control) {
 
     var handler = control[0];
@@ -392,69 +399,47 @@ function showLayout(layout, controls) {
   case 'g1x1':
     // Show only one segment (full screen).
     tr = document.createElement('tr');
-    td = document.createElement('td');
-    td.appendChild(addControls('1', controls[1], false));
-    tr.appendChild(td);
+    tr.appendChild(addSimpleControlsTd(1, controls));
     md.appendChild(tr);
     break;
   case 'g2x1':
     // Show two segments (side by side).
     tr = document.createElement('tr');
-    td = document.createElement('td');
-    td.appendChild(addControls('1', controls[1], false));
-    tr.appendChild(td);
-    td = document.createElement('td');
-    td.appendChild(addControls('2', controls[2], false));
-    tr.appendChild(td);
+    tr.appendChild(addSimpleControlsTd(1, controls));
+    tr.appendChild(addSimpleControlsTd(2, controls));
     md.appendChild(tr);
     break;
   case 'g1x2':
     // Show two segments (one on top of the other).
     tr = document.createElement('tr');
-    td = document.createElement('td');
-    td.appendChild(addControls('1', controls[1], false));
-    tr.appendChild(td);
+    tr.appendChild(addSimpleControlsTd(1, controls));
     md.appendChild(tr);
     tr = document.createElement('tr');
-    td = document.createElement('td');
-    td.appendChild(addControls('2', controls[2], false));
-    tr.appendChild(td);
+    tr.appendChild(addSimpleControlsTd(2, controls));
     md.appendChild(tr);
     break;
   case 'g1a2':
     // Show three segments (one on the left, two on the right).
     tr = document.createElement('tr');
-    td = document.createElement('td');
+    td = addSimpleControlsTd(1, controls);
     td.setAttribute('rowspan', '2');
-    td.appendChild(addControls('1', controls[1], false));
     tr.appendChild(td);
-    td = document.createElement('td');
-    td.appendChild(addControls('2', controls[2], false));
-    tr.appendChild(td);
+    tr.appendChild(addSimpleControlsTd(2, controls));
     md.appendChild(tr);
     tr = document.createElement('tr');
-    td = document.createElement('td');
-    td.appendChild(addControls('3', controls[3], false));
-    tr.appendChild(td);
+    tr.appendChild(addSimpleControlsTd(3, controls));
     md.appendChild(tr);
     break;
   case 'g2x2':
     // Show four segments (one in each quadrant).
     tr = document.createElement('tr');
-    td = document.createElement('td');
-    td.appendChild(addControls('1', controls[1], false));
-    tr.appendChild(td);
-    td = document.createElement('td');
-    td.appendChild(addControls('2', controls[2], false));
-    tr.appendChild(td);
+    tr.appendChild(addSimpleControlsTd(1, controls));
+    tr.appendChild(addSimpleControlsTd(2, controls));
     md.appendChild(tr);
     tr = document.createElement('tr');
+    tr.appendChild(addSimpleControlsTd(3, controls));
     td = document.createElement('td');
-    td.appendChild(addControls('3', controls[3], false));
-    tr.appendChild(td);
-    td = document.createElement('td');
-    td.appendChild(addControls('4', controls[4], false));
-    tr.appendChild(td);
+    tr.appendChild(addSimpleControlsTd(4, controls));
     md.appendChild(tr);
     break;
   default:
