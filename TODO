@@ -107,7 +107,8 @@ $_REQUEST["json"] wird dabei nicht gesetzt. Eventuell ist das ein Problem der PH
 * We don't want to promote them (because they need rooted devices), but maybe
   these VNC servers for smartphones and tablet computers work with PalMA:
   * for iOS: Veency
-  * for Android: VMLite
+  * for Android: VMLite (commercial),
+    VNC Server Alternate (tested 2015-04-16 without success)
 
 2014-11-20
 
@@ -126,3 +127,7 @@ $_REQUEST["json"] wird dabei nicht gesetzt. Eventuell ist das ein Problem der PH
 * Test other image viewers: gpicview, qiv, sxiv, xloadimage.
 
 * Test other PDF viewers: atril, epdfview, gv, mupdf, xpdf.
+
+2015-04-16
+
+* Show QR code for connection in help page, too.
