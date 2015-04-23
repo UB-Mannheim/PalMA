@@ -15,7 +15,7 @@
 set -e
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/var/www/html/palma/scripts/startx
+DAEMON=/var/www/html/scripts/startx
 
 test -x $DAEMON || exit 0
 

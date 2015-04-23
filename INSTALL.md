@@ -49,12 +49,18 @@ post_max_size must also be increased by setting it to 10 MB.
 PalMA
 -----
 
+The following description assumes that the web server's root directory
+is /var/www/html (this is the default on newer versions of Debian)
+and that PalMA is directly installed there.
+
+Of course it is also possible to install PalMA in any other path.
+
 Get the latest version of PalMA from GitHub:
 
     # Get latest PalMA. Add --branch v1.1.0 to get that version.
-    git clone https://github.com/UB-Mannheim/PalMA.git /var/www/html/palma
+    git clone https://github.com/UB-Mannheim/PalMA.git /var/www/html
     # Create or update translations of PalMA user interface (optional).
-    make -C /var/www/html/palma
+    make -C /var/www/html
 
 The web server wants to create and modify a sqlite3 database `palma.db`,
 so www-data needs write access to the installation directory.
@@ -75,14 +81,14 @@ Adding write access for www-data can be done by fixing the ownership:
 Normally, PalMA should be started automatically. Activate autostart with
 these commands:
 
-    cp /var/www/html/palma/scripts/palma /etc/init.d
+    cp /var/www/html/scripts/palma /etc/init.d
     update-rc.d palma defaults
 
-Now a configuration file `/var/www/html/palma/palma.ini` must be added.
+Now a configuration file `/var/www/html/palma.ini` must be added.
 A template for this file is available from subdirectory `examples`, so run
 this command to get a preliminary file:
 
-    cp /var/www/html/palma/examples/palma.ini /var/www/html/palma/palma.ini
+    cp /var/www/html/examples/palma.ini /var/www/html/palma.ini
 
 Some entries in `palma.ini` still need to be fixed for your local installation.
 These include at least the entries stationname, theme, start_url and

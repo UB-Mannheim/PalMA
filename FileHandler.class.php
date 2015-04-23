@@ -99,7 +99,7 @@ abstract class FileHandler {
         } else if ($ftype==='doc' || $ftype==='docx' || $ftype==='odt' || $ftype==='txt') {
             $fhandler='/usr/bin/libreoffice --writer -o -n --nologo --norestore --view';
 
-        } else if ($ftype==='ppt' || $ftype==='pptx' || $ftype==='odp') {
+        } else if ($ftype==='ppt' || $ftype==='pptx' || $ftype==='pps' || $ftype==='ppsx' || $ftype==='odp') {
             // optional --show (presentation mode)
             $fhandler='/usr/bin/libreoffice --impress -o -n --nologo --norestore --view';
 

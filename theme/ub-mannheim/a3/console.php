@@ -143,7 +143,7 @@ function pollDatabase(lastJSON, urlBase, button) {
 $remote = $_SERVER['REMOTE_ADDR'];
 if ($remote == '::1' || $remote == '127.0.0.1' ||
     $remote == '134.155.59.177' ||
-    //Allow access for a346 
+    //Allow access for a346
     $remote == '134.155.59.179' ||
     //Allow access for a347
     $remote == '::1' || $remote == '127.0.0.1' ||
@@ -166,12 +166,12 @@ function resetStation(urlBase) {
 
 var stations = new Array();
 
-stations.push(new Array('A3 01', 'http://palma-a3-01.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A3 02', 'http://palma-a3-02.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A3 03', 'http://palma-a3-03.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A3 04', 'http://palma-a3-04.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A3 05', 'http://palma-a3-05.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A3 06', 'http://palma-a3-06.bib.uni-mannheim.de/palma/'));
+stations.push(new Array('A3 01', 'http://palma-a3-01.bib.uni-mannheim.de/'));
+stations.push(new Array('A3 02', 'http://palma-a3-02.bib.uni-mannheim.de/'));
+stations.push(new Array('A3 03', 'http://palma-a3-03.bib.uni-mannheim.de/'));
+stations.push(new Array('A3 04', 'http://palma-a3-04.bib.uni-mannheim.de/'));
+stations.push(new Array('A3 05', 'http://palma-a3-05.bib.uni-mannheim.de/'));
+stations.push(new Array('A3 06', 'http://palma-a3-06.bib.uni-mannheim.de/'));
 
 
 // Get the <div> element which contains the station entries.

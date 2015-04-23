@@ -166,24 +166,24 @@ function resetStation(urlBase) {
 
 var stations = new Array();
 
-stations.push(new Array('A5 01', 'http://palma-a5-01.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 02', 'http://palma-a5-02.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 03', 'http://palma-a5-03.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 04', 'http://palma-a5-04.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 05', 'http://palma-a5-05.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 06', 'http://palma-a5-06.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 07', 'http://palma-a5-07.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 08', 'http://palma-a5-08.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 09', 'http://palma-a5-09.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 10', 'http://palma-a5-10.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 11', 'http://palma-a5-11.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 12', 'http://palma-a5-12.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 13', 'http://palma-a5-13.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 14', 'http://palma-a5-14.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 15', 'http://palma-a5-15.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 16', 'http://palma-a5-16.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 17', 'http://palma-a5-17.bib.uni-mannheim.de/palma/'));
-stations.push(new Array('A5 18', 'http://palma-a5-18.bib.uni-mannheim.de/palma/'));
+stations.push(new Array('A5 01', 'http://palma-a5-01.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 02', 'http://palma-a5-02.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 03', 'http://palma-a5-03.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 04', 'http://palma-a5-04.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 05', 'http://palma-a5-05.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 06', 'http://palma-a5-06.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 07', 'http://palma-a5-07.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 08', 'http://palma-a5-08.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 09', 'http://palma-a5-09.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 10', 'http://palma-a5-10.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 11', 'http://palma-a5-11.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 12', 'http://palma-a5-12.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 13', 'http://palma-a5-13.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 14', 'http://palma-a5-14.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 15', 'http://palma-a5-15.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 16', 'http://palma-a5-16.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 17', 'http://palma-a5-17.bib.uni-mannheim.de/'));
+stations.push(new Array('A5 18', 'http://palma-a5-18.bib.uni-mannheim.de/'));
 
 
 
