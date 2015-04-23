@@ -1,7 +1,22 @@
 <?php
 
-// Copyright (C) 2014 Universitätsbibliothek Mannheim
+// Copyright (C) 2014, 2015 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
+
+// This file implements user authorization.
+
+// PalMA installation can authorize users by a PIN, by a
+// user name and by a password.
+
+// The PIN is a four digit random number which is changed for
+// every new session.
+
+// Authorization with a user name and a password requires code
+// which implements the authorization mechanism (for example
+// proxy based authorization, LDAP, Shibboleth, fixed password).
+// Password authorization can optionally be disabled.
+
+    // Enable or disable passwords. Set to true to enable passwords.
 
     // Connect to database.
     require_once('DBConnector.class.php');
@@ -11,6 +26,11 @@
 
     $conf = parse_ini_file("palma.ini", true);
     $theme = $conf['general']['theme'];
+    if (array_key_exists('password', $conf['general'])) {
+        define("CONFIG_PASSWORD", $conf['general']['password']);
+    } else {
+        define("CONFIG_PASSWORD", true);
+    }
 
     $errtext = false;
 
@@ -106,12 +126,15 @@
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     session_start();
     $username = escapeshellcmd($_POST['username']);
-    //~ $password = escapeshellcmd($_POST['userpassword']);
-    $password = $_POST['userpassword'];
+    $password = '';
+    if (CONFIG_PASSWORD) {
+        // The password must not be escaped.
+        $password = $_POST['userpassword'];
+    }
     $posted_pin = escapeshellcmd($_POST['pin']);
     $pin = $dbcon->querySingle("SELECT value FROM setting WHERE key = 'pin'");
 
-    if (!checkCredentials($username, $password)) {
+    if (CONFIG_PASSWORD && !checkCredentials($username, $password)) {
         // Invalid username or password.
     } else if ($pin != $posted_pin) {
         $errtext = _('Invalid PIN.');
@@ -180,10 +203,16 @@ TODO:
             <label for="username"><?=_("User name")?></label>
             <input id="username" name="username" type="text" value="<?=$username?>">
         </div>
+<?php
+        if (CONFIG_PASSWORD) {
+?>
         <div class="pure-control-group">
             <label for="userpassword"><?=_("Password")?></label>
             <input id="userpassword" name="userpassword" type="password">
         </div>
+<?php
+        }
+?>
         <div class="pure-control-group">
             <label for="pin"><?=_("PIN")?></label>
             <input id="pin" name="pin" type="text" value="<?=$posted_pin?>">
