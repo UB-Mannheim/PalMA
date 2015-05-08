@@ -40,17 +40,31 @@ Apache
 The PHP5 default configuration for the Apache2 webserver permits file uploads
 up to 2 MB. This limit is too low for typical documents (images,
 office documents, pdf). Change the setting upload_max_filesize in
-/etc/php5/apache2/php.ini. 10 MB is a good value. There is another limit
+`/etc/php5/apache2/php.ini`. 10 MB is a good value. There is another limit
 for the maximum size of HTML posts with a default value of 8 MB.
 As this is less than the 10 MB needed for file uploads, the setting
 post_max_size must also be increased by setting it to 10 MB.
 
+PalMA uses .htaccess to protect the database and the uploads directory.
+To enable this feature, Apache2 needs this section in file
+`/etc/apache2/sites-available/000-default.conf`:
+
+    <Directory /var/www/html>
+        # "RewriteEngine" needs "FileInfo".
+        # "Order" needs "Limit".
+        AllowOverride FileInfo Limit
+    </Directory>
+
+The Apache2 module `rewrite` must be enabled, too:
+
+    a2enmod rewrite
+    service apache2 restart
 
 PalMA
 -----
 
 The following description assumes that the web server's root directory
-is /var/www/html (this is the default on newer versions of Debian)
+is `/var/www/html` (this is the default since Debian Jessie)
 and that PalMA is directly installed there.
 
 Of course it is also possible to install PalMA in any other path.
@@ -175,3 +189,12 @@ able to show Office documents.
 The latest version Raspberry Pi 2 has a 900 MHz quad-core ARM Cortex-A7 CPU
 with 1 GB RAM. This is a good base for running PalMA without any software
 restrictions. It is still limited to full HD video resolution.
+
+
+Security
+--------
+
+We try to fix known security problems but also know that PalMA is not
+designed to be used with direct access from the Internet.
+
+PalMA should be operated in an intranet with limited access.
