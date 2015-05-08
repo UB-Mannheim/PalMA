@@ -138,13 +138,13 @@ PalMA uses external applications as viewers for the different document types.
 For HTML, a web browser is needed. midori, netsurf, dwb, surf, xombrero, uzbl.
 
 
-Raspberry PI
+Raspberry Pi
 ------------
 
 A low cost (less than 50 EUR plus monitor) PalMA station can be built using
-the Raspberry PI. The following configuration which is based on the Rasbian
+the Raspberry Pi. The following configuration which is based on the Rasbian
 distribution (http://www.raspbian.org/) was successfully tested with a
-Raspberry PI 1:
+Raspberry Pi 1:
 
     apt-get install dwb eog feh libjs-jquery nxinx-light openbox
     apt-get install php5-cgi php5-cli php5-curl php5-fpm php5-gd php5-intl php5-sqlite
@@ -168,10 +168,10 @@ file `/etc/nginx/sites-enabled/default`:
         }
     }
 
-Older versions of the Raspberry PI use a single core 700 MHz ARM CPU with only
+Older versions of the Raspberry Pi use a single core 700 MHz ARM CPU with only
 256 or 512 MB RAM. They won't be able to run LibreOffice, so PalMA won't be
 able to show Office documents.
 
-The latest version Raspberry PI 2 has a 900 MHz quad-core ARM Cortex-A7 CPU
+The latest version Raspberry Pi 2 has a 900 MHz quad-core ARM Cortex-A7 CPU
 with 1 GB RAM. This is a good base for running PalMA without any software
 restrictions. It is still limited to full HD video resolution.
