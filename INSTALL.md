@@ -139,10 +139,10 @@ locales, either by running `dpkg-reconfigure locales` manually or by enabling
 the locales in `/etc/locale.gen` and running `locale-gen`. Here is an
 example which enables the English locale in its US variant (`en_US.UTF-8`):
 
-    perl -pi -e s/^#.en_US.UTF-8/en_US.UTF-8/ /etc/locale.gen && locale-gen
+    perl -pi -e 's/^#.(en_US.UTF-8)/$1/' /etc/locale.gen && locale-gen
 
 PalMA currently includes translations for these locales:
-`de_DE.UTF-8`, `en_US.UTF-8`, `it_IT.UTF-8`, `ru_RU.UTF-8`.
+`de_DE.UTF-8`, `en_US.UTF-8`, `es_ES.UTF-8`, `it_IT.UTF-8`, `ru_RU.UTF-8`.
 
 
 Viewers

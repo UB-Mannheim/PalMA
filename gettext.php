@@ -29,6 +29,9 @@ $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
     case 'en':
         $locale = 'en_US.UTF-8';
         break;
+    case 'es':
+        $locale = 'es_ES.UTF-8';
+        break;
     case 'it':
         $locale = 'it_IT.UTF-8';
         break;
@@ -52,6 +55,8 @@ if ($unittest[__FILE__]) {
     error_log('de_DE.UTF-8: ' . _('Screen section'));
     setlocale(LC_ALL, 'en_US.UTF-8');
     error_log('en_US.UTF-8: ' . _('Screen section'));
+    setlocale(LC_ALL, 'es_ES.UTF-8');
+    error_log('es_ES.UTF-8: ' . _('Screen section'));
     setlocale(LC_ALL, 'it_IT.UTF-8');
     error_log('it_IT.UTF-8: ' . _('Screen section'));
     setlocale(LC_ALL, 'ru_RU.UTF-8');

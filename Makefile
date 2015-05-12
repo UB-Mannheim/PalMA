@@ -1,3 +1,7 @@
+# Makefile for PalMA
+
+# Compile all available translations for the PalMA web interface.
+
 .PHONY: all
 
 SRC=index.php
@@ -8,11 +12,7 @@ SRC+=examples/screensaver/tiles.php
 SRC+=selectplace/learningcenter.php
 SRC+=selectplace/monitor.php
 
-PO=
-PO+=locale/de_DE.UTF-8/LC_MESSAGES/palma.po
-PO+=locale/en_US.UTF-8/LC_MESSAGES/palma.po
-PO+=locale/it_IT.UTF-8/LC_MESSAGES/palma.po
-PO+=locale/ru_RU.UTF-8/LC_MESSAGES/palma.po
+PO=$(wildcard locale/*.UTF-8/LC_MESSAGES/palma.po)
 
 all: $(patsubst %.po, %.mo, $(PO))
 
