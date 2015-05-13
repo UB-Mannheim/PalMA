@@ -16,8 +16,6 @@
 // proxy based authorization, LDAP, Shibboleth, fixed password).
 // Password authorization can optionally be disabled.
 
-    // Enable or disable passwords. Set to true to enable passwords.
-
     // Connect to database.
     require_once('DBConnector.class.php');
     $dbcon = new DBConnector();
@@ -27,9 +25,14 @@
     $conf = parse_ini_file("palma.ini", true);
     $theme = $conf['general']['theme'];
     if (array_key_exists('password', $conf['general'])) {
-        define("CONFIG_PASSWORD", $conf['general']['password']);
+        define('CONFIG_PASSWORD', $conf['general']['password']);
     } else {
-        define("CONFIG_PASSWORD", true);
+        define('CONFIG_PASSWORD', true);
+    }
+    if (array_key_exists('pin', $conf['general'])) {
+        define('CONFIG_PIN', $conf['general']['pin']);
+    } else {
+        define('CONFIG_PIN', true);
     }
 
     $errtext = false;
@@ -136,7 +139,7 @@
 
     if (CONFIG_PASSWORD && !checkCredentials($username, $password)) {
         // Invalid username or password.
-    } else if ($pin != $posted_pin) {
+    } else if (CONFIG_PIN && ($pin != $posted_pin)) {
         $errtext = _('Invalid PIN.');
     } else {
         // Successfully checked username, password and PIN.
@@ -212,11 +215,15 @@ TODO:
         </div>
 <?php
         }
+        if (CONFIG_PIN) {
 ?>
         <div class="pure-control-group">
             <label for="pin"><?=_("PIN")?></label>
             <input id="pin" name="pin" type="text" value="<?=$posted_pin?>">
         </div>
+<?php
+        }
+?>
         <div class="pure-controls">
             <button type="submit" class="pure-button pure-button-primary"><?=_("Log in")?><i class="fa fa-sign-in"></i></button>
         </div>
