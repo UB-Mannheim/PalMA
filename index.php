@@ -24,6 +24,13 @@ Websockets:
 * http://code.google.com/p/phpwebsocket/
 * http://dharman.eu/?menu=phpWebSocketsTutorial
 
+Keyboard input
+
+* http://jsfiddle.net/angusgrant/E3tE6/
+* http://stackoverflow.com/questions/3181648/how-can-i-handle-arrowkeys-and-greater-than-in-a-javascript-function-which
+* http://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
+* http://www.quirksmode.org/js/keys.html
+
 Key symbols
 
 * http://www.tcl.tk/man/tcl8.4/TkCmd/keysyms.htm
@@ -40,9 +47,6 @@ Overlays
 
 * http://answers.oreilly.com/topic/1823-adding-a-page-overlay-in-javascript/
 
-Todo
-
-* Anzeige von fa-mobile, fa-tablet oder fa-laptop je nach Gerät.
 */
 
     session_start();
@@ -95,6 +99,9 @@ Todo
 <script type="text/javascript" src="dropzone.js"></script>
 
 <script type="text/javascript">
+
+// Screen section which responds to keyboard input.
+var focus_section = '1';
 
 function sendToNuc(command) {
   var xmlHttp = new XMLHttpRequest();
@@ -384,10 +391,78 @@ function addDetailedControlsDiv(number, control) {
 
 function showLayout(layout, controls) {
 
-  // console.log("Layout : " + layout);
-  // for (i = 0; i < controls.length; i++) {
-  //   console.log("SL " +i + ": " + controls[i]);
-  // }
+    //~ console.log("Layout: " + layout);
+    //~ for (i = 0; i < controls.length; i++) {
+    //~     console.log("SL " + i + ": " + controls[i]);
+    //~ }
+
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        var section = focus_section;
+        var handler = controls[focus_section][0];
+        var keyHandler;
+        //~ console.log("Key down: " + evt.keyCode);
+        switch (evt.keyCode) {
+        case 33: // page up
+            keyHandler = encodeURIComponent(getHandlerCommand(handler, 'prior'));
+            sendToNuc('window=' + section + '&key=' + keyHandler);
+            break;
+        case 34: // page down
+            keyHandler = encodeURIComponent(getHandlerCommand(handler, 'next'));
+            sendToNuc('window=' + section + '&key=' + keyHandler);
+            break;
+        case 35: // end
+            keyHandler = encodeURIComponent(getHandlerCommand(handler, 'end'));
+            sendToNuc('window=' + section + '&key=' + keyHandler);
+            break;
+        case 36: // home
+            keyHandler = encodeURIComponent(getHandlerCommand(handler, 'home'));
+            sendToNuc('window=' + section + '&key=' + keyHandler);
+            break;
+        case 37: // left
+            keyHandler = encodeURIComponent(getHandlerCommand(handler, 'left'));
+            sendToNuc('window=' + section + '&key=' + keyHandler);
+            break;
+        case 38: // up
+            keyHandler = encodeURIComponent(getHandlerCommand(handler, 'up'));
+            sendToNuc('window=' + section + '&key=' + keyHandler);
+            break;
+        case 39: // right
+            keyHandler = encodeURIComponent(getHandlerCommand(handler, 'right'));
+            sendToNuc('window=' + section + '&key=' + keyHandler);
+            break;
+        case 40: // down
+            keyHandler = encodeURIComponent(getHandlerCommand(handler, 'down'));
+            sendToNuc('window=' + section + '&key=' + keyHandler);
+            break;
+        }
+    };
+
+    document.onkeypress = function(evt) {
+        evt = evt || window.event;
+        //~ console.log("Key press: " + evt.keyCode);
+        var charCode = evt.which || evt.keyCode;
+        var charStr = String.fromCharCode(charCode);
+        var section = focus_section;
+        var handler = controls[focus_section][0];
+        var keyHandler;
+        switch (charStr) {
+        case "1": // select section 1
+        case "2": // select section 2
+        case "3": // select section 3
+        case "4": // select section 4
+            focus_section = charStr;
+            break;
+        case "+": // zoom in
+            keyHandler = encodeURIComponent(getHandlerCommand(handler, 'zoomin'));
+            sendToNuc('window=' + section + '&key=' + keyHandler);
+            break;
+        case "-": // zoom out
+            keyHandler = encodeURIComponent(getHandlerCommand(handler, 'zoomout'));
+            sendToNuc('window=' + section + '&key=' + keyHandler);
+            break;
+        }
+    };
 
   var md = document.getElementById('maindisplay');
   var tr;
