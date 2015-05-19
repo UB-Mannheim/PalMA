@@ -129,7 +129,6 @@ function doLogout($username) {
     if ($username == 'ALL') {
         // Terminate all user connections and reset system.
         closeAll();
-        //restartVNCDaemon();
         $db->resetTables();
     }
 }
@@ -219,35 +218,6 @@ function activateControls($windowhex) {
     global $db;
     $fhandler = $db->querySingle("SELECT handler FROM window WHERE win_id='$windowhex'");
     error_log("activateControls for handler $fhandler");
-}
-
-function restartVNCDaemon() {
-    global $display;
-
-    trace("+++ Restart SSVNC Daemon +++ ");
-
-    $pinfo = shell_exec("ps -ef | grep SSVNC | nawk '{ print $2 }'");
-
-    $pid = preg_split("/\n/", $pinfo);
-    $kill = "";
-
-    for ($i = 0; $i < count($pid) - 1; $i++) {
-        $kill = shell_exec("kill " . $pid[$i]);
-        trace("proc with procid " . $pid[$i] . " killed ");
-    }
-
-    $webroot = $_SERVER['DOCUMENT_ROOT'];
-    $subdir = $_SERVER['PHP_SELF'];
-    $path = $webroot . substr($subdir, 0, (strlen($subdir) - (strrpos($subdir, '/') + 4)));
-
-    $startup = shell_exec("export DISPLAY=$display; cd $path; php SSVNCDaemon.php");
-    // $user = shell_exec("whoami");
-
-    // trace("Execute task as user $user");
-    trace("Return value for kill command: $kill");
-    // trace("Return value for startup command: $startup");
-
-    trace("+++ SSVNC Daemon restarted +++");
 }
 
 function addNewWindow($db, $new) {
