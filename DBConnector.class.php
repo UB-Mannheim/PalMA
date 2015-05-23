@@ -312,6 +312,9 @@ function set_constants() {
     if (array_key_exists('control_file', $conf)) {
         define('CONFIG_CONTROL_FILE', $conf['control_file']);
     }
+    if (array_key_exists('policy', $conf)) {
+        define('CONFIG_POLICY', $conf['policy']);
+    }
     if (array_key_exists('start_url', $conf)) {
         define('CONFIG_START_URL', $conf['start_url']);
     }
@@ -333,6 +336,7 @@ function set_constants() {
         // Enable PIN authentisation by default.
         define('CONFIG_PIN', true);
     }
+    // There is no default value for CONFIG_POLICY.
     // There is no default value for CONFIG_SSH.
     // There is no default value for CONFIG_START_URL.
     if (!defined('CONFIG_STATIONNAME')) {

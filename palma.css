@@ -36,6 +36,15 @@ legend {
 #login_mask p {
     text-align: center;
 }
+#login_mask .policy {
+    font-size: 75%;
+    margin-top: 10px;
+    text-align: center;
+}
+#login_mask .policy a {
+    color: #900;
+    text-decoration: none;
+}
 
 /* Workplace selection (monitor.php) */
 

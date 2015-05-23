@@ -222,6 +222,9 @@ TODO:
 if ($errtext) {
     echo("<p>$errtext</p>");
 }
+if (defined('CONFIG_POLICY')) {
+    echo('<div class="policy">' . CONFIG_POLICY . '</div>');
+}
 ?>
 
 </div>
