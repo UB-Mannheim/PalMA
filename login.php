@@ -16,24 +16,11 @@
 // proxy based authorization, LDAP, Shibboleth, fixed password).
 // Password authorization can optionally be disabled.
 
-    // Connect to database.
+    // Connect to database and get configuration constants.
     require_once('DBConnector.class.php');
     $dbcon = new DBConnector();
 
     require_once('gettext.php');
-
-    $conf = parse_ini_file("palma.ini", true);
-    $theme = $conf['general']['theme'];
-    if (array_key_exists('password', $conf['general'])) {
-        define('CONFIG_PASSWORD', $conf['general']['password']);
-    } else {
-        define('CONFIG_PASSWORD', true);
-    }
-    if (array_key_exists('pin', $conf['general'])) {
-        define('CONFIG_PIN', $conf['general']['pin']);
-    } else {
-        define('CONFIG_PIN', true);
-    }
 
     $errtext = false;
 
@@ -146,8 +133,8 @@
         $_SESSION['username'] = $username;
         $_SESSION['address'] = $dbcon->ipAddress();
         $_SESSION['pin'] = $pin;
-        $_SESSION['starturl'] = $conf['path']['start_url'];
-        $_SESSION['monitor'] = $conf['general']['stationname'];
+        $_SESSION['starturl'] = CONFIG_START_URL;
+        $_SESSION['monitor'] = CONFIG_STATIONNAME;
         $dbcon->addUser($username, $dbcon->ipAddress(), getDevice());
 
        // Weiterleitung zur geschützten Startseite
@@ -160,7 +147,7 @@
          }
         }
 
-        header('Location: ' . $conf['path']['start_url']);
+        header('Location: ' . CONFIG_START_URL);
         exit;
     }
   }
@@ -175,7 +162,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><?=_("PalMA &ndash; Login")?></title>
 
-<link rel="icon" href="theme/<?=$theme?>/favicon.ico" type="image/x-icon">
+<link rel="icon" href="theme/<?=CONFIG_THEME?>/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="pure-min.css">
 <link rel="stylesheet" href="palma.css">
@@ -199,7 +186,7 @@ TODO:
 
 <fieldset class="login">
     <legend>
-        <img src="theme/<?=$theme?>/palma-logo-67x25.png" alt="PalMA" height="25"/>
+        <img src="theme/<?=CONFIG_THEME?>/palma-logo-67x25.png" alt="PalMA" height="25"/>
         &ndash; <?=_("Login")?>
     </legend>
         <div class="pure-control-group">

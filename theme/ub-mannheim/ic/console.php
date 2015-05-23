@@ -3,11 +3,10 @@
 
 Librarian console for UB Mannheim Learning Center
 
-Copyright (C) 2014 Universitätsbibliothek Mannheim
+Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
 See file LICENSE for license details.
 
-Authors: Alexander Wagner, Stefan Weil
-Edited for InfoCenter: Sarah Krieg
+Authors: Alexander Wagner, Stefan Weil, Sarah Krieg
 
 This web application shows all PalMA stations of the InfoCenter.
 The status of each station is displayed. It is also possible to reset
@@ -19,13 +18,9 @@ TODO:
 
 */
 
-    // Initialise database connection.
+    // Connect to database and get configuration constants.
     require_once('../../../DBConnector.class.php');
     $dbcon = new DBConnector();
-
-    // Get theme from palma.ini configuration.
-    $conf = parse_ini_file("palma.ini", true);
-    $theme = $conf['general']['theme'];
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
@@ -153,7 +148,7 @@ if ($remote == '::1' || $remote == '127.0.0.1' ||
     // Allow access for localhost and library staff, but not for the proxy host.
 ?>
 
-    <h2>Übersicht InfoCenter&ndash; PalMA-Stationen</h2>
+    <h2>Übersicht InfoCenter &ndash; PalMA-Stationen</h2>
     <h4>Station anklicken zum Rücksetzen</h4>
     <div id="stationlist">
     <div id="stations" class="pure-u">

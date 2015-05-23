@@ -18,13 +18,9 @@ TODO:
 
 */
 
-    // Initialise database connection.
+    // Connect to database and get configuration constants.
     require_once('../../../DBConnector.class.php');
     $dbcon = new DBConnector();
-
-    // Get theme from palma.ini configuration.
-    $conf = parse_ini_file("palma.ini", true);
-    $theme = $conf['general']['theme'];
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"

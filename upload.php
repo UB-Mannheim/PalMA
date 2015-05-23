@@ -1,25 +1,10 @@
 <?php
 
-// Copyright (C) 2014 Universitätsbibliothek Mannheim
+// Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
-function trace($text) {
-    error_log("palma: $text");
-}
-
-if (file_exists('palma.ini')) {
-    // Get configuration from ini file.
-    $conf = parse_ini_file("palma.ini", true);
-    $url = $conf['path']['control_file'];
-    $targetPath = $conf['path']['upload_dir'];
-} else {
-    // Guess configuration from global PHP variables.
-    // TODO: There is no HTTP_REFERER, basename is wrong, so ini file is still needed.
-    $url = dirname($_SERVER['HTTP_REFERER']) . '/' .
-           basename($_SERVER['PHP_SELF']);
-    $targetPath = dirname(__FILE__) . '/uploads';
-    trace("url=$url");
-}
+// Connect to database and get configuration constants.
+require_once('DBConnector.class.php');
 
 if (empty($_FILES)) {
     $error = 99;
@@ -29,16 +14,16 @@ if (empty($_FILES)) {
     $filename = $_FILES['file']['name'];
 }
 
-if (!is_dir($targetPath)) {
+if (!is_dir(CONFIG_UPLOAD_DIR)) {
     /* Target directory is missing, so create it now. */
-    mkdir($targetPath, 0755);
+    mkdir(CONFIG_UPLOAD_DIR, 0755);
 }
 
 if ($error == UPLOAD_ERR_OK) {
     # All uploaded files are collected in the upload directory.
     # If necessary, an index is added to get a unique filename.
     $tempFile = $_FILES['file']['tmp_name'];
-    $targetFile = "$targetPath/$filename";
+    $targetFile = CONFIG_UPLOAD_DIR . "/$filename";
     $index = 0;
     $fparts = pathinfo($filename);
     $fname = $fparts['filename'];
@@ -49,9 +34,9 @@ if ($error == UPLOAD_ERR_OK) {
     while (file_exists($targetFile)) {
         $index++;
         if ($ftype) {
-            $targetFile = "$targetPath/$fname-$index.$ftype";
+            $targetFile = CONFIG_UPLOAD_DIR . "/$fname-$index.$ftype";
         } else {
-            $targetFile = "$targetPath/$fname-$index";
+            $targetFile = CONFIG_UPLOAD_DIR . "/$fname-$index";
         }
     }
     trace("upload '$tempFile' to '$targetFile'");
@@ -60,7 +45,7 @@ if ($error == UPLOAD_ERR_OK) {
     // Support localisation.
     require_once('gettext.php');
 
-    $targetFile = "$targetPath/error.html";
+    $targetFile = CONFIG_UPLOAD_DIR . "/error.html";
     $f = fopen($targetFile, 'w');
     if ($f) {
         switch ($error) {
@@ -126,7 +111,7 @@ if ($error == UPLOAD_ERR_OK) {
     // Set some options - we are passing in a useragent too here
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => $url . '?newWindow=' . $sw,
+        CURLOPT_URL => CONFIG_START_URL . '?newWindow=' . $sw,
         CURLOPT_USERAGENT => 'PalMA cURL Request'
     ));
     // Send the request & save response to $resp

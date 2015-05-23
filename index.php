@@ -59,7 +59,7 @@ Overlays
     $_SESSION['referer'] = 'index.php';
     require('auth.php');
 
-    // Initialise database connection.
+    // Connect to database and get configuration constants.
     require_once('DBConnector.class.php');
     $dbcon = new DBConnector();
 
@@ -77,10 +77,7 @@ Overlays
         $user = $_SERVER['PHP_AUTH_USER'];
     }
 
-    $conf = parse_ini_file("palma.ini", true);
-    $url = $conf['path']['start_url'];
-    $theme = $conf['general']['theme'];
-    $winvnc = "$url/theme/$theme/winvnc-palma.exe";
+    $winvnc = CONFIG_START_URL . "/theme/" . CONFIG_THEME . "/winvnc-palma.exe";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
        "http://www.w3.org/TR/html4/strict.dtd">
@@ -91,7 +88,7 @@ Overlays
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>PalMA</title>
 
-<link rel="icon" href="theme/<?=$theme?>/favicon.ico" type="image/x-icon">
+<link rel="icon" href="theme/<?=CONFIG_THEME?>/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="pure-min.css">
 <link rel="stylesheet" href="palma.css" type="text/css">
@@ -1103,7 +1100,7 @@ pollDatabase();
 <div id="workbench_left">
     <table class="maindisplay" summary="<?=_('Team display')?>">
         <caption>
-            <img id="palma_logo" src="theme/<?=$theme?>/palma-logo-49x18.png"
+            <img id="palma_logo" src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
                  alt="PalMA Logo"> <?=_('Team display')?>
         <?php
               if (isset($_SESSION['monitor'])) {

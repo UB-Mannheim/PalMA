@@ -15,7 +15,7 @@ if (isset($unittest)) {
 }
 $unittest[__FILE__] = !isset($_SERVER['SERVER_NAME']);
 
-// initialize database
+// Connect to database and get configuration constants.
 require_once('DBConnector.class.php');
 $db = new DBConnector();
 
@@ -23,35 +23,11 @@ if (!$unittest[__FILE__]) {
     trace("QUERY_STRING=" . $_SERVER['QUERY_STRING']);
 }
 
-if (file_exists('palma.ini') && !$unittest[__FILE__]) {
-    // Get configuration from ini file.
-    if (isset($_SERVER['HTTP_REFERER'])) {
-        $url = dirname($_SERVER['HTTP_REFERER']) . '/' . basename($_SERVER['PHP_SELF']);
-        trace("alt = $url");
-    }
-    $conf = parse_ini_file("palma.ini", true);
-    $display = $conf['display']['id'];
-    if (isset($conf['display']['ssh'])) {
-        $ssh = $conf['display']['ssh'];
-    }
-    $url = $conf['path']['control_file'];
-    trace("url = $url");
-} else {
-    // Guess configuration.
-    $display = ':1';
-    if (!$unittest[__FILE__]) {
-        $url = dirname($_SERVER['HTTP_REFERER']) . '/' . basename($_SERVER['PHP_SELF']);
-        trace("url = $url");
-    }
-}
-
 function displayCommand($cmd) {
-    global $display;
-    global $ssh;
-    if (isset($ssh)) {
-        $cmd = "$ssh 'DISPLAY=$display $cmd'";
+    if (defined('CONFIG_SSH')) {
+        $cmd = CONFIG_SSH . " 'DISPLAY=" . CONFIG_DISPLAY . " $cmd'";
     } else {
-        $cmd = "DISPLAY=$display HOME=/var/www $cmd";
+        $cmd = "DISPLAY=" . CONFIG_DISPLAY . " HOME=/var/www $cmd";
     }
     $result = shell_exec($cmd);
     trace("cmd=$cmd, result=$result");
@@ -134,14 +110,12 @@ function doLogout($username) {
 }
 
 function clearUploadDir() {
-    global $conf;
-    $upload_dir = $conf['path']['upload_dir'];
-
-    if (is_dir($upload_dir)) {
-        if ($dh = opendir($upload_dir)) {
+    # Remove all files in the upload directory.
+    if (is_dir(CONFIG_UPLOAD_DIR)) {
+        if ($dh = opendir(CONFIG_UPLOAD_DIR)) {
             while (($file = readdir($dh)) !== false) {
                 if ($file != "." AND $file != "..") {
-                    unlink("$upload_dir/$file");
+                    unlink(CONFIG_UPLOAD_DIR . "/$file");
                 }
             }
             closedir($dh);
@@ -519,16 +493,6 @@ if ($unittest[__FILE__]) {
     // Experimental: Get function call from startx.
     parse_str(implode('&', array_slice($argv, 1)), $_GET);
     if (isset($_GET) && count($_GET) > 0) {
-
-        if (file_exists('palma.ini')) {
-            // Get configuration from ini file.
-            $conf = parse_ini_file("palma.ini", true);
-            $display = $conf['display']['id'];
-        } else {
-            // Guess configuration from global PHP variables.
-            $display = ':0';
-        }
-
         foreach ($_GET as $key=>$value) {
             // Only defined actions allowed.
             if ($key == "doLogout") {

@@ -7,8 +7,6 @@ require_once("DBConnector.class.php");
 
 class SSVNCDaemon {
 
-private $_URL;
-
 // all during session connected VNC Clients
 private $_VNC_CLIENTS;
 
@@ -38,28 +36,9 @@ public function __construct() {
 
 protected function startVNCViewer() {
 
-    $display=":0";
-
-    if (file_exists('palma.ini')) {
-
-        // Get configuration from ini file.
-        $conf = parse_ini_file("palma.ini", true);
-        $this->_URL = $conf['path']['control_file'];
-
-        $display = $conf['display']['id'];
-        if (isset($conf['display']['ssh'])) {
-            $ssh = $conf['display']['ssh'];
-        }
-
-    } else {
-
-        // Guess configuration from global PHP variables.
-        $this->_URL = dirname($_SERVER['HTTP_REFERER']) . '/' .
-                        basename($_SERVER['PHP_SELF'] . '/control.php');
-    }
-
     // Startup SSVNC-Viewer in Multilisten-Mode
-    $cmd = "export DISPLAY=".$display."; killall -q ssvncviewer; ssvncviewer -viewonly -multilisten 0 2>&1";
+    $cmd = "export DISPLAY=" . CONFIG_DISPLAY .
+        "; killall -q ssvncviewer; ssvncviewer -viewonly -multilisten 0 2>&1";
     $handle = popen($cmd, 'r');
     print("[Daemon]: vnc_viewer started");
 
@@ -283,7 +262,7 @@ protected function sendVncWindowToNuc($id, $vncclient) {
         // Set some options - we are passing in a useragent too here
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => $this->_URL.'?newVncWindow='.$sw,
+            CURLOPT_URL => CONFIG_CONTROL_FILE . '?newVncWindow=' . $sw,
             CURLOPT_USERAGENT => 'PalMA cURL Request'
             ));
         // Send the request & save response to $resp
@@ -338,7 +317,8 @@ protected function deleteInactiveVncWindow() {
 
             curl_setopt_array($curl, array(
                 CURLOPT_RETURNTRANSFER => 1,
-                CURLOPT_URL => $this->_URL.'?window=vncwin&delete=VNC&vncid='.$inactive_win_id,
+                CURLOPT_URL => CONFIG_CONTROL_FILE_URL .
+                    '?window=vncwin&delete=VNC&vncid=' . $inactive_win_id,
                 CURLOPT_USERAGENT => 'PalMA cURL Request'
                 ));
 

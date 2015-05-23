@@ -1,6 +1,9 @@
 <?php
-// this action requires an authorized user
-require_once "auth.php";
+// Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
+// See file LICENSE for license details.
+
+// This action requires an authorized user.
+require_once('auth.php');
 
 // a valid request has to contain a file to be downloaded
 if (!isset($_GET['file']) || empty($_GET['file'])) {
@@ -11,10 +14,10 @@ if (!isset($_GET['file']) || empty($_GET['file'])) {
 // avoid directory traversal vulnerability
 $filename = basename($_GET['file']);
 
-// load location of upload-directory from config
-$conf = parse_ini_file("palma.ini", true);
+// Connect to database and get configuration constants.
+require_once('DBConnector.class.php');
 
-$filepath = $conf['path']['upload_dir'].'/'.$filename;
+$filepath = CONFIG_UPLOAD_DIR . '/' . $filename;
 
 if (file_exists($filepath)) {
   // file exists: return file for download

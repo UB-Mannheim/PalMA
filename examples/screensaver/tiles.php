@@ -2,7 +2,7 @@
 
 /*
 
-Copyright (C) 2014 Universitätsbibliothek Mannheim
+Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
 See file LICENSE for license details.
 
 Author: Stefan Weil, Universitätsbibliothek Mannheim
@@ -14,19 +14,6 @@ http://www.java2s.com/Code/JavaScript/GUI-Components/AnimationRandomMovement.htm
 http://www.tutorialspoint.com/javascript/javascript_animation.htm
 
 */
-
-$servername = $_SERVER["SERVER_NAME"];
-//~ $serveraddress = $_SERVER["SERVER_ADDR"];
-$serveruri = dirname($_SERVER["REQUEST_URI"]);
-$url = "http://${servername}${serveruri}";
-
-if (file_exists('../../palma.ini')) {
-    // Get configuration from ini file.
-    $conf = parse_ini_file("../../palma.ini", true);
-    if (isset($conf['path']['start_url'])) {
-        $url = $conf['path']['start_url'];
-    }
-}
 
 $pin = sprintf("%04u", rand(0, 9999));
 
@@ -144,9 +131,9 @@ UB Mannheim
 
 <div id="RightSide">
     <span>
-    <img src="../../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
+    <img src="../../qrcode/php/qr_img.php?d=<?=CONFIG_START_URL?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
     <h2>maTeam &ndash; Mannheim Team Monitor / Share your desktop.</h2>
-    <p>Just go to <?=$url?> and enter the PIN.</p>
+    <p>Just go to <?=CONFIG_START_URL?> and enter the PIN.</p>
     <p id="Pin">PIN: <?= $pin ?></p>
     </span>
 </div>
