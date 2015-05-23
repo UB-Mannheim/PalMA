@@ -1100,8 +1100,9 @@ pollDatabase();
 <div id="workbench_left">
     <table class="maindisplay" summary="<?=_('Team display')?>">
         <caption>
-            <img id="palma_logo" src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
-                 alt="PalMA Logo"> <?=_('Team display')?>
+            <img id="palma_logo"
+                 src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
+                 alt="PalMA"> <?=_('Team display')?>
         <?php
               if (isset($_SESSION['monitor'])) {
                   echo('(' . $_SESSION['monitor'] . ')');
