@@ -108,6 +108,7 @@
   }
 
     $username = '';
+    $pin = '';
     $posted_pin = '';
     if (isset($_REQUEST['pin'])) {
         $posted_pin = $_REQUEST['pin'];
@@ -121,8 +122,10 @@
         // The password must not be escaped.
         $password = $_POST['userpassword'];
     }
-    $posted_pin = escapeshellcmd($_POST['pin']);
-    $pin = $dbcon->querySingle("SELECT value FROM setting WHERE key = 'pin'");
+    if (CONFIG_PIN) {
+        $posted_pin = escapeshellcmd($_POST['pin']);
+        $pin = $dbcon->querySingle("SELECT value FROM setting WHERE key = 'pin'");
+    }
 
     if (CONFIG_PASSWORD && !checkCredentials($username, $password)) {
         // Invalid username or password.
