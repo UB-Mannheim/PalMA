@@ -323,7 +323,10 @@ function set_constants() {
     }
 
     // Set default values for constants missing in the configuration file.
-    // There is no default value for CONFIG_CONTROL_FILE.
+    if (!defined('CONFIG_CONTROL_FILE')) {
+        // By default we use control.php.
+        define('CONFIG_CONTROL_FILE', CONFIG_START_URL . 'control.php');
+    }
     if (!defined('CONFIG_DISPLAY')) {
         // By default we use X display :0.
         define('CONFIG_DISPLAY', ':0');

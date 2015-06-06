@@ -105,8 +105,7 @@ this command to get a preliminary file:
     cp /var/www/html/examples/palma.ini /var/www/html/palma.ini
 
 Some entries in `palma.ini` still need to be fixed for your local installation.
-These include at least the entries stationname, theme, start_url and
-control_file.
+These include at least the entries theme and start_url.
 
 
 Customize an installation
