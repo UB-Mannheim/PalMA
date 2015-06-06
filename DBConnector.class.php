@@ -358,7 +358,18 @@ set_constants();
 if ($unittest[__FILE__]) {
     // Run unit test.
 
+    print('CONFIG_CONTROL_FILE = ' . CONFIG_CONTROL_FILE . "\n");
+    print('CONFIG_DISPLAY = ' . CONFIG_DISPLAY . "\n");
+    print('CONFIG_PASSWORD = ' . CONFIG_PASSWORD . "\n");
+    print('CONFIG_PIN = ' . CONFIG_PIN . "\n");
+    print('CONFIG_POLICY = ' . CONFIG_POLICY . "\n");
+    if (defined('CONFIG_SSH')) {
+        print('CONFIG_SSH = ' . CONFIG_SSH . "\n");
+    }
+    print('CONFIG_START_URL = ' . CONFIG_START_URL . "\n");
+    print('CONFIG_STATIONNAME = ' . CONFIG_STATIONNAME . "\n");
     print('CONFIG_THEME = ' . CONFIG_THEME . "\n");
+    print('CONFIG_UPLOAD_DIR = ' . CONFIG_UPLOAD_DIR . "\n");
 
     function dbModifiedCallback() {
         echo("Triggered callback\n");
