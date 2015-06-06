@@ -111,7 +111,7 @@ if ($error == UPLOAD_ERR_OK) {
     // Set some options - we are passing in a useragent too here
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => CONFIG_START_URL . '?newWindow=' . $sw,
+        CURLOPT_URL => CONFIG_CONTROL_FILE . '?newWindow=' . $sw,
         CURLOPT_USERAGENT => 'PalMA cURL Request'
     ));
     // Send the request & save response to $resp
