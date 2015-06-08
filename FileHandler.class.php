@@ -29,7 +29,7 @@ class LibreOfficeHandler extends FileHandler {
     }
 }
 
-class NetsurfHandler extends FileHandler {
+class DwbHandler extends FileHandler {
     function getControls() {
         return FileHandler::CURSOR | FileHandler::ZOOM;
     }
@@ -107,7 +107,7 @@ abstract class FileHandler {
             $fhandler='/usr/bin/libreoffice --calc -o -n --nologo --norestore --view';
 
         } else if ($ftype==='html' || $ftype==='url') {
-            $fhandler='/usr/bin/netsurf';
+            $fhandler='/usr/bin/dwb --override-restore';
 
         } else if ($ftype==='mpg' || $ftype==='mpeg' || $ftype==='avi' ||
                    $ftype==='mp3' || $ftype=="mp4") {
@@ -132,11 +132,11 @@ abstract class FileHandler {
 
 if ($unittest[__FILE__]) {
     // Run unit test.
-    $netsurfHandler = new NetsurfHandler;
+    $dwbHandler = new DwbHandler;
     $zathuraHandler = new ZathuraHandler;
     echo("DOWNLOAD   =" . FileHandler::DOWNLOAD . "\n");
     echo("filehandler=" . FileHandler::getFileHandler("test.txt") . "\n");
-    $handler = ${'netsurf' . 'Handler'};
+    $handler = ${'dwb' . 'Handler'};
     echo("controls   =" . $handler->getControls() . "\n");
 }
 

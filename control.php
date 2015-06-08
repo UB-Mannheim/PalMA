@@ -468,7 +468,6 @@ if (array_key_exists('openURL', $_REQUEST)) {
         "state" => "",
         "file" => $openURL,
         // "handler" => "iceweasel --new-window",
-        //~ "handler" => "/usr/bin/nohup /usr/bin/netsurf",
         "handler" => "/usr/bin/nohup /usr/bin/dwb",
         "userid" => "",
         "date" => $date

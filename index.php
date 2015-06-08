@@ -578,20 +578,6 @@ function getHandlerCommand(handle, task) {
     handler["eog"]["zoomout"] = "ctrl+minus";
     handler["eog"]["download"] = "download";
 
-    // Alternate handler for web pages (not used by default).
-    handler["netsurf"] = new Object();
-    handler["netsurf"]["up"] = " Tab+Up";
-    handler["netsurf"]["down"] = "Tab+Down";
-    handler["netsurf"]["left"] = "Tab+Left";
-    handler["netsurf"]["right"] = "Tab+Right";
-    handler["netsurf"]["next"] = "Tab+Next";
-    handler["netsurf"]["prior"] = "Tab+Prior";
-    handler["netsurf"]["home"] = "Tab+Home";
-    handler["netsurf"]["end"] = "Tab+End";
-    handler["netsurf"]["zoomin"] = "Tab+ctrl+plus";
-    handler["netsurf"]["zoomout"] = "Tab+ctrl+minus";
-    handler["netsurf"]["download"] = "download";
-
     // Controls in LibreOffice: no zoom in calc and writer, has to be activated first
     // by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
     handler["libreoffice"] = new Object();
@@ -961,8 +947,6 @@ function updateControlsBySection(window) {
                 }
         } else if (handler.indexOf("dwb") > -1) {
             control = new Array("dwb", true, true, true, true, true, true, true, true, true, true, true);
-        } else if (handler.indexOf("netsurf") > -1) {
-            control = new Array("netsurf", true, true, true, true, true, true, false, false, false, false, true);
         } else if (handler.indexOf("vlc") > -1) {
             control = new Array("vlc", false, false, false, true, false, false, false, false, false, false, false);
         } else if (handler.indexOf("vnc") > -1) {
