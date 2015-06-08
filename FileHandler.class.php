@@ -86,7 +86,7 @@ abstract class FileHandler {
 
     public static function getFileHandler($file) {
 
-        $ftype = pathinfo($file, PATHINFO_EXTENSION);
+        $ftype = strtolower(pathinfo($file, PATHINFO_EXTENSION));
         $fhandler = "";
         // $params;
         // echo $ftype;
