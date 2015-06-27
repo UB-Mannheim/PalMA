@@ -92,7 +92,6 @@
         trace("curl failed for user '$username'");
         $errtext = _('Invalid credentials!');
     } else if (preg_match('/404 Not Found/', $out)) {
-        trace("access granted for user '$username'");
         return true;
     } else if (preg_match('/Could not resolve proxy/', $out)) {
         trace('proxy authentisation was not possible');
@@ -130,9 +129,11 @@
     if (CONFIG_PASSWORD && !checkCredentials($username, $password)) {
         // Invalid username or password.
     } else if (CONFIG_PIN && ($pin != $posted_pin)) {
+        trace("access denied for user '$username', wrong pin $posted_pin");
         $errtext = _('Invalid PIN.');
     } else {
         // Successfully checked username, password and PIN.
+        trace("access granted for user '$username'");
         $_SESSION['username'] = $username;
         $_SESSION['address'] = $dbcon->ipAddress();
         $_SESSION['pin'] = $pin;
