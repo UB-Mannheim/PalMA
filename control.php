@@ -309,7 +309,7 @@ function processRequests($db) {
 
         if (count($windowlist) == 0) {
             trace("no window found for command");
-            $windowname = 0;
+            $windowname = false;
             $windowhex = 0;
         } else {
             $windowname = $windowlist[$window];
@@ -317,7 +317,7 @@ function processRequests($db) {
         }
     }
 
-    if (array_key_exists('key', $_REQUEST)) {
+    if ($windowname && array_key_exists('key', $_REQUEST)) {
         $key = $_REQUEST['key'];
         trace("key '$key' in window '$windownumber'");
         wmShow($windowname);
@@ -329,7 +329,7 @@ function processRequests($db) {
                        "key $key");
     }
 
-    if (array_key_exists('keydown', $_REQUEST)) {
+    if ($windowname && array_key_exists('keydown', $_REQUEST)) {
         // TODO: keydown is currently mapped to key because we had problems
         // with sticking keys (no keyup seen). This should be fixed by a
         // better event handling.
@@ -345,7 +345,7 @@ function processRequests($db) {
         //~ displayCommand("xdotool windowfocus $windowhex keydown $key");
     }
 
-    if (array_key_exists('keyup', $_REQUEST)) {
+    if ($windowname && array_key_exists('keyup', $_REQUEST)) {
         // TODO: keyup is currently ignored, see comment above.
         $key = $_REQUEST['keyup'];
         trace("keyup '$key' in window '$windownumber'");
