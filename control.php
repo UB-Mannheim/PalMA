@@ -68,7 +68,8 @@ function windowList() {
     $list = array();
     global $db;
 
-    $windows = $db->getWindowsOrderBy('section', 'ASC');
+    // Get ordered list of all windows from the database.
+    $windows = $db->getWindows();
     foreach ($windows as $w) {
 // trace("w = " . serialize($w));
         $id = $w['win_id'];
@@ -170,10 +171,18 @@ function setLayout($layout) {
     $screenWidth = $geom[0];
     $screenHeight = $geom[1];
 
-    $wi = 0;
-    foreach (windowList() as $id) {
-        if ($wi < count($dim)) {
+    // Show all windows for the current layout which are not disabled.
+
+    $maxSection = count($dim);
+    // Get ordered list of all windows from the database.
+    $windows = $db->getWindows();
+    foreach ($windows as $w) {
+        $id = $w['win_id'];
+        $enabled = $w['state'] == 'active';
+        $section = $w['section'];
+        if ($section >= 1 && $section <= $maxSection && $enabled) {
             // Show window, set size and position.
+            $wi = $section - 1;
             $dx = $screenWidth / $dim[$wi][2];
             $dy = $screenHeight / $dim[$wi][3];
             $x = $dim[$wi][0] * $dx;
@@ -184,7 +193,6 @@ function setLayout($layout) {
             // Hide window.
             wmHide($id);
         }
-        $wi += 1;
     }
 }
 
@@ -312,6 +320,7 @@ function processRequests($db) {
             $windowname = false;
             $windowhex = 0;
         } else {
+            // TODO: improve test whether window exists.
             $windowname = $windowlist[$window];
             $windowhex = hexdec($windowname);
         }

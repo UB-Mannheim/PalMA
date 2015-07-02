@@ -187,21 +187,9 @@ eod;
     }
 
     public function getWindows() {
-
+        // Get list of all windows, ordered by their section.
         $window_objs = array();
-        $windows = @$this->query('SELECT * FROM window');
-        while ($row = $windows->fetchArray()) {
-            array_push($window_objs, $row);
-        }
-        $windows->finalize();
-
-        return $window_objs;
-    }
-
-    public function getWindowsOrderBy($field, $order) {
-
-        $window_objs = array();
-        $windows = @$this->query("SELECT * FROM window ORDER BY $field $order");
+        $windows = @$this->query('SELECT * FROM window ORDER BY section ASC');
         while ($row = $windows->fetchArray()) {
             array_push($window_objs, $row);
         }
