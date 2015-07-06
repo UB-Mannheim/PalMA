@@ -85,13 +85,6 @@ eod;
 
         // Create any missing tables.
         $this->exec(self::SQL_CREATE_TABLES);
-
-        $q_init = $this->query('SELECT MAX(id) FROM window WHERE state="active"');
-
-        /* if($q_init == true) {
-            $this->_WINDOW_COUNT = $this->countWindows();
-            $this->_WINDOWS = $this->getWindows();
-        }  */
     }
 
     public function resetTables() {
@@ -215,6 +208,7 @@ eod;
 
         return $info;
     }
+
     /*
     public function getVNC_ClientWindowIDs() {
         $ids = array();
