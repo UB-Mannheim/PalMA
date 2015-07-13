@@ -23,7 +23,7 @@ commands must be run as root user):
 
 Some more packages are optional:
 
-    apt-get install gettext git libavcodec-extra unattended-upgrades
+    apt-get install gettext git libavcodec-extra make unattended-upgrades
 
 The last one must be configured:
 
