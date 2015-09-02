@@ -164,24 +164,32 @@ msgid ""
 "With PalMA, you can share your documents and your desktop\n"
 "            with your learning group."
 msgstr ""
+"Mit PalMA können Sie Ihre Dokumente und Ihren Desktop\n"
+"            mit Ihrer Lerngruppe teilen."
 
 #: index.php:1113
 msgid ""
 "Team members can join the group at any time. All they need\n"
 "            is URL and PIN."
 msgstr ""
+"Teammitglieder können der Gruppe jederzeit beitreten. Sie\n"
+"            brauchen dazu nur die URL und die PIN."
 
 #: index.php:1117
 msgid ""
 "The PalMA team monitor shows up to 4 contributions\n"
 "            simultaneously."
 msgstr ""
+"Der PalMA-Team-Monitor zeigt bis zu 4 Beiträge\n"
+"            gleichzeitig an."
 
 #: index.php:1119
 msgid ""
 "Just upload PDF files, images, OpenDocument or\n"
 "            MS Office files or enter a URL &ndash; PalMA will show them."
 msgstr ""
+"PDF-Dateien, Bilder, OpenDocument- oder MS-Office-Dateien\n"
+"            können einfach hochgeladen werden oder eine Webseite per URL angezeigt werden."
 
 #: index.php:1121
 msgid ""
@@ -200,7 +208,7 @@ msgstr ""
 
 #: index.php:1129
 msgid "Linux users can share their X display like this:"
-msgstr ""
+msgstr "Linux-Benutzer können ihr X Display wie folgt teilen:"
 
 #: index.php:1135
 msgid "Share desktop (free UltraVNC / Windows only)"
