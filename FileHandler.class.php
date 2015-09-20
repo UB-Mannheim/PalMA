@@ -13,50 +13,66 @@ $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
 
 
 
-class EogHandler extends FileHandler {
-    function getControls() {
+class EogHandler extends FileHandler
+{
+    function getControls()
+    {
         return FileHandler::CURSOR | FileHandler::ZOOM;
     }
-    function show($path) {
+    function show($path)
+    {
     }
 }
 
-class LibreOfficeHandler extends FileHandler {
-    function getControls() {
+class LibreOfficeHandler extends FileHandler
+{
+    function getControls()
+    {
         return FileHandler::CURSOR | FileHandler::ZOOM;
     }
-    function show($path) {
+    function show($path)
+    {
     }
 }
 
-class DwbHandler extends FileHandler {
-    function getControls() {
+class DwbHandler extends FileHandler
+{
+    function getControls()
+    {
         return FileHandler::CURSOR | FileHandler::ZOOM;
     }
-    function show($path) {
+    function show($path)
+    {
     }
 }
 
-class VlcHandler extends FileHandler {
-    function getControls() {
+class VlcHandler extends FileHandler
+{
+    function getControls()
+    {
         return FileHandler::CURSOR | FileHandler::ZOOM;
     }
-    function show($path) {
+    function show($path)
+    {
     }
 }
 
-class ZathuraHandler extends FileHandler {
-    function getControls() {
+class ZathuraHandler extends FileHandler
+{
+    function getControls()
+    {
         return FileHandler::CURSOR | FileHandler::ZOOM |
                FileHandler::HOME | FileHandler::END |
                FileHandler::PRIOR | FileHandler::NEXT |
                FileHandler::DOWNLOAD;
     }
-    function show($path) {
+    function show($path)
+    {
     }
 }
 
-abstract class FileHandler {
+abstract class FileHandler
+{
 
     // Constants for allowed controls.
     const UP = 1;
@@ -84,33 +100,34 @@ abstract class FileHandler {
     abstract protected function getControls();
     abstract protected function show($path);
 
-    public static function getFileHandler($file) {
+    public static function getFileHandler($file)
+    {
 
         $ftype = strtolower(pathinfo($file, PATHINFO_EXTENSION));
         $fhandler = "";
         // $params;
         // echo $ftype;
-        if($ftype==='pdf') {
+        if ($ftype === 'pdf') {
             $fhandler='/usr/bin/zathura';
 
-        } else if ($ftype==='gif' || $ftype==='jpg' || $ftype==='png') {
+        } elseif ($ftype === 'gif' || $ftype === 'jpg' || $ftype === 'png') {
             $fhandler='/usr/bin/eog';
 
-        } else if ($ftype==='doc' || $ftype==='docx' || $ftype==='odt' || $ftype==='txt') {
+        } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
             $fhandler='/usr/bin/libreoffice --writer -o -n --nologo --norestore --view';
 
-        } else if ($ftype==='ppt' || $ftype==='pptx' || $ftype==='pps' || $ftype==='ppsx' || $ftype==='odp') {
+        } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
             // optional --show (presentation mode)
             $fhandler='/usr/bin/libreoffice --impress -o -n --nologo --norestore --view';
 
-        } else if ($ftype==='xls' || $ftype==='xlsx' || $ftype==='ods') {
+        } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
             $fhandler='/usr/bin/libreoffice --calc -o -n --nologo --norestore --view';
 
-        } else if ($ftype==='html' || $ftype==='url') {
+        } elseif ($ftype === 'html' || $ftype === 'url') {
             $fhandler='/usr/bin/dwb --override-restore';
 
-        } else if ($ftype==='mpg' || $ftype==='mpeg' || $ftype==='avi' ||
-                   $ftype==='mp3' || $ftype=="mp4") {
+        } elseif ($ftype === 'mpg' || $ftype === 'mpeg' || $ftype === 'avi' ||
+                  $ftype === 'mp3' || $ftype === 'mp4') {
             $fhandler='/usr/bin/vlc --no-audio';
 
         }
