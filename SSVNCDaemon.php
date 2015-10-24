@@ -306,7 +306,7 @@ protected function deleteInactiveVncWindow() {
 
             curl_setopt_array($curl, array(
                 CURLOPT_RETURNTRANSFER => 1,
-                CURLOPT_URL => CONFIG_CONTROL_FILE_URL .
+                CURLOPT_URL => CONFIG_CONTROL_FILE .
                     '?window=vncwin&delete=VNC&vncid=' . $inactive_win_id,
                 CURLOPT_USERAGENT => 'PalMA cURL Request'
                 ));
