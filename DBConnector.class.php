@@ -17,9 +17,6 @@ function trace($text) {
 
 class DBConnector extends SQLite3
 {
-    private $_WINDOWS = array();
-    private $_WINDOW_COUNT;
-
     const SQL_CREATE_TABLES = <<< eod
 
 PRAGMA foreign_keys = ON;
