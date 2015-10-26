@@ -48,15 +48,7 @@ protected function startVNCViewer() {
 protected function readLog($handle) {
     print("\n[Daemon]: +++ readLog() +++");
 
-    $halt = 0;
-
-    // local resultset & vncclients
-    $resultset = array();
-    $vncclients = array();
-
     // local SSVNC-Client info
-    $ip = "";
-    $hostname = "";
     $client = array(
                     "ip" => "",
                     "hostname" => "",
@@ -156,13 +148,11 @@ protected function parseHostname($buffer) {
     return $hostname;
 }
 
-protected function parseExit($buffer) {
+protected function parseExit($line) {
     $exit = 0;
-        $line = $buffer;
-            if (strpos($line, "VNC Viewer exiting")) {
-                $line=trim($line);
-                $exit = 1;
-            }
+    if (strpos($line, "VNC Viewer exiting")) {
+        $exit = 1;
+    }
 
     if ($exit!=0) {
         print("\nCLIENT HAS DISCONNECTED ".$exit."\n");
@@ -179,7 +169,6 @@ protected function addClient($ip, $hostname) {
                         "active" => 1,
                         "exit" => 0
                         );
-    $id = 0;
     if (count($this->_VNC_CLIENTS)==0) {
         $id=1;
     } else {
@@ -193,7 +182,7 @@ protected function addClient($ip, $hostname) {
             . $vncclient["active"] . " | " . $vncclient["exit"] . "\n");
     print($this->_CONNECTIONS+1 . " CLIENT(S) CONNECTED ...");
 
-    $response = $this->sendVncWindowToNuc($id, $vncclient);
+    $this->sendVncWindowToNuc($id, $vncclient);
 
     $this->_CONNECTIONS++;
 
@@ -229,7 +218,7 @@ protected function sendVncWindowToNuc($id, $vncclient) {
 
         // print("\n[Daemon]: USERNAME : " . $name);
 
-    $vncClientCount = $db->querySingle('SELECT count(id) FROM window WHERE handler = "vnc"');
+    // $vncClientCount = $db->querySingle('SELECT count(id) FROM window WHERE handler = "vnc"');
     // $vncClientsAll = $db->query("SELECT user.name FROM address");
 
         // print("\n[Daemon]: clients in db = " . $vncClientCount);
@@ -265,8 +254,8 @@ protected function sendVncWindowToNuc($id, $vncclient) {
             CURLOPT_URL => CONFIG_CONTROL_FILE . '?newVncWindow=' . $sw,
             CURLOPT_USERAGENT => 'PalMA cURL Request'
             ));
-        // Send the request & save response to $resp
-        $resp = curl_exec($curl);
+        // Send the request
+        curl_exec($curl);
         // Close request to clear up some resources
         curl_close($curl);
 
@@ -322,7 +311,7 @@ protected function deleteInactiveVncWindow() {
                 CURLOPT_USERAGENT => 'PalMA cURL Request'
                 ));
 
-            $resp = curl_exec($curl);
+            curl_exec($curl);
             curl_close($curl);
 
             // print("[Daemon]: inactive vnc_id = $inactive_vnc_id >> add to list: " .serialize($this->_IGNORE_LIST));
