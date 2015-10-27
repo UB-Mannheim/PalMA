@@ -188,7 +188,7 @@ function setLayout($layout) {
             $x = $dim[$wi][0] * $dx;
             $y = $dim[$wi][1] * $dy;
             wmShow($id);
-            $ret = displayCommand("wmctrl -i -r $id -e 0,$x,$y,$dx,$dy");
+            displayCommand("wmctrl -i -r $id -e 0,$x,$y,$dx,$dy");
         } else {
             // Hide window.
             wmHide($id);
@@ -427,10 +427,10 @@ function processRequests($db) {
             trace("toggle window $windownumber, id=$win_id, state=$state");
             if ($state == "active") {
                 wmHide($win_id);
-                $new_state = $db->setState_Window($win_id, "inactive");
+                $db->setState_Window($win_id, "inactive");
             } else {
                 wmShow($win_id);
-                $new_state = $db->setState_Window($win_id, "active");
+                $db->setState_Window($win_id, "active");
             }
         }
     } else if (array_key_exists('layout', $_REQUEST)) {
@@ -453,8 +453,8 @@ if (array_key_exists('switchWindows', $_REQUEST)) {
     $win_id1 = $db->getWindowIDBySection($before);
     $win_id2 = $db->getWindowIDBySection($after);
 
-    $update1 = $db->updateWindow($win_id1, 'section', $after);
-    $update2 = $db->updateWindow($win_id2, 'section', $before);
+    $db->updateWindow($win_id1, 'section', $after);
+    $db->updateWindow($win_id2, 'section', $before);
 
     trace("++updating database $win_id1 section=$after");
     trace("++updating database $win_id2 section=$before");
