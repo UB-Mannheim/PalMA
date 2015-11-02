@@ -119,8 +119,7 @@ function sendToNuc(command) {
           // Server is answering.
       } else if (xmlHttp.readyState == 4) {
           // Received all data from server.
-          var text = xmlHttp.responseText;
-          return text;
+          return xmlHttp.responseText;
       } else {
           alert("Got xmlHttp.readyState " + xmlHttp.readyState);
       }
