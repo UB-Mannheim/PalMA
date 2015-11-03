@@ -400,5 +400,3 @@ if ($unittest[__FILE__]) {
     //~ var_dump($users);
     //~ $db->close();
 }
-
-?>

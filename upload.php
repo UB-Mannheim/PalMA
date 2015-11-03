@@ -120,5 +120,3 @@ if ($error == UPLOAD_ERR_OK) {
     curl_close($curl);
 
     trace("upload closed, result='$resp'");
-
-?>

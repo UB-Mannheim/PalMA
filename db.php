@@ -76,5 +76,3 @@ for ($t = 0; $t < 300; $t++) {
 touch("last_activity");
 
 echo($newJSON);
-
-?>

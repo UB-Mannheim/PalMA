@@ -333,5 +333,3 @@ protected function deleteInactiveVncWindow() {
 }
 
 $vnc = new SSVNCDaemon();
-
-?>

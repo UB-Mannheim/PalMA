@@ -139,5 +139,3 @@ if ($unittest[__FILE__]) {
     $handler = ${'dwb' . 'Handler'};
     echo("controls   =" . $handler->getControls() . "\n");
 }
-
-?>

@@ -62,5 +62,3 @@ if ($unittest[__FILE__]) {
     setlocale(LC_ALL, 'ru_RU.UTF-8');
     error_log('ru_RU.UTF-8: ' . _('Screen section'));
 }
-
-?>
