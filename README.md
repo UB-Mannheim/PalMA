@@ -93,7 +93,7 @@ Bug fixes, new functions, suggestions for new features and
 other user feedback are appreciated.
 
 The source code is available from https://github.com/UB-Mannheim/PalMA.
-Please prepare your code contributions also on github.
+Please prepare your code contributions also on GitHub.
 
 
 Acknowledgments
