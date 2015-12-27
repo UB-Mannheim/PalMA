@@ -164,12 +164,16 @@ msgid ""
 "With PalMA, you can share your documents and your desktop\n"
 "            with your learning group."
 msgstr ""
+"Mit PalMA kanst du deine Dokumente und deinen Desktop\n"
+"			mit deiner Lerngruppe teilen."
 
 #: index.php:1113
 msgid ""
 "Team members can join the group at any time. All they need\n"
 "            is URL and PIN."
 msgstr ""
+"Temmitglieder können der Gruppe jederzeit beitreten. Sie\n"
+"			brauchen nur die URL und den PIN."
 
 #: index.php:1117
 msgid ""
