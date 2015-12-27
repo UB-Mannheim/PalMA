@@ -157,10 +157,10 @@ function resetStation(urlBase) {
     sendToNuc(urlBase, 'logout=ALL');
 }
 
-var stations = new Array();
+var stations = [];
 
-stations.push(new Array('BE 01', 'http://palma-be-01.bib.uni-mannheim.de/'));
-stations.push(new Array('BE 02', 'http://palma-be-02.bib.uni-mannheim.de/'));
+stations.push(['BE 01', 'http://palma-be-01.bib.uni-mannheim.de/']);
+stations.push(['BE 02', 'http://palma-be-02.bib.uni-mannheim.de/']);
 
 
 // Get the <div> element which contains the station entries.

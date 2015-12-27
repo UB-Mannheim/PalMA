@@ -240,8 +240,8 @@ function addControls(number, control, is_overlay) {
   var button;
 
   if (typeof control == "undefined") {
-    control = new Array("default", false, false, false, false,
-                        false, false, false, false, false, false, false);
+    control = ["default", false, false, false, false,
+               false, false, false, false, false, false, false];
   }
 
   // get handler
@@ -534,9 +534,9 @@ function getHandlerCommand(handle, task) {
     // console.log("getHandlerCommand "+handle+" - "+task);
     // to deactivate buttons just add 'undefined' as keystroke
 
-    var handler = new Array();
+    var handler = [];
 
-    handler["default"] = new Object();
+    handler["default"] = {};
     // handler["default"]["init"] = "";
     handler["default"]["up"] = "Up";
     handler["default"]["down"] = "Down";
@@ -551,7 +551,7 @@ function getHandlerCommand(handle, task) {
     handler["default"]["download"] = "download";
 
     // Handler for web pages.
-    handler["dwb"] = new Object();
+    handler["dwb"] = {};
     handler["dwb"]["up"] = " Up";
     handler["dwb"]["down"] = "Down";
     handler["dwb"]["left"] = "Left";
@@ -565,7 +565,7 @@ function getHandlerCommand(handle, task) {
     handler["dwb"]["download"] = "download";
 
     // Handler for images.
-    handler["eog"] = new Object();
+    handler["eog"] = {};
     handler["eog"]["up"] = "alt+Up";
     handler["eog"]["down"] = "alt+Down";
     handler["eog"]["left"] = "alt+Left";
@@ -580,7 +580,7 @@ function getHandlerCommand(handle, task) {
 
     // Controls in LibreOffice: no zoom in calc and writer, has to be activated first
     // by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
-    handler["libreoffice"] = new Object();
+    handler["libreoffice"] = {};
     handler["libreoffice"]["up"] = "Up";
     handler["libreoffice"]["down"] = "Down";
     handler["libreoffice"]["left"] = "Left";
@@ -594,7 +594,7 @@ function getHandlerCommand(handle, task) {
     handler["libreoffice"]["download"] = "download";
 
     // Handler for MS Excel and LibreOffice Calc documents.
-    handler["libreoffice-calc"] = new Object();
+    handler["libreoffice-calc"] = {};
     handler["libreoffice-calc"]["up"] = "Up";
     handler["libreoffice-calc"]["down"] = "Down";
     handler["libreoffice-calc"]["left"] = "Left";
@@ -608,7 +608,7 @@ function getHandlerCommand(handle, task) {
     handler["libreoffice-calc"]["download"] = "download";
 
     // Handler for MS Powerpoint and LibreOffice Impress documents.
-    handler["libreoffice-impress"] = new Object();
+    handler["libreoffice-impress"] = {};
     handler["libreoffice-impress"]["up"] = "Up";
     handler["libreoffice-impress"]["down"] = "Down";
     handler["libreoffice-impress"]["left"] = "Left";
@@ -622,7 +622,7 @@ function getHandlerCommand(handle, task) {
     handler["libreoffice-impress"]["download"] = "download";
 
     // Handler for MS Word and LibreOffice Writer documents.
-    handler["libreoffice-writer"] = new Object();
+    handler["libreoffice-writer"] = {};
     handler["libreoffice-writer"]["up"] = "Up";
     handler["libreoffice-writer"]["down"] = "Down";
     handler["libreoffice-writer"]["left"] = "Left";
@@ -636,7 +636,7 @@ function getHandlerCommand(handle, task) {
     handler["libreoffice-writer"]["download"] = "download";
 
     // Handler for videos.
-    handler["vlc"] = new Object();
+    handler["vlc"] = {};
     handler["vlc"]["up"] = "undefined";
     handler["vlc"]["down"] = "undefined";
     handler["vlc"]["left"] = "undefined";
@@ -650,7 +650,7 @@ function getHandlerCommand(handle, task) {
     handler["vlc"]["download"] = "undefined";
 
     // Handler for shared desktops (VNC).
-    handler["vnc"] = new Object();
+    handler["vnc"] = {};
     handler["vnc"]["up"] = "Up";
     handler["vnc"]["down"] = "Down";
     handler["vnc"]["left"] = "Left";
@@ -664,7 +664,7 @@ function getHandlerCommand(handle, task) {
     handler["vnc"]["download"] = "undefined";
 
     // Handler for PDF documents.
-    handler["zathura"] = new Object();
+    handler["zathura"] = {};
     handler["zathura"]["up"] = "Up";
     handler["zathura"]["down"] = "Down";
     handler["zathura"]["left"] = "Left";
@@ -919,7 +919,7 @@ function updateWindowList(window) {
 function updateControlsBySection(window) {
 
     // get section and handler for each window
-    var sectionControls = new Array();
+    var sectionControls = [];
 
     for (n = 0; n < window.length; n++) {
         var win_id = window[n].win_id;
@@ -931,30 +931,30 @@ function updateControlsBySection(window) {
 
         if (handler.indexOf("eog") > -1) {
             // up down left right zoomin zoomout home end prior next download
-            control = new Array("eog", true, true, true, true, true, true, false, false, true, true, true);
+            control = ["eog", true, true, true, true, true, true, false, false, true, true, true];
         } else if (handler.indexOf("libreoffice") > -1) {
             // Controls in LibreOffice: no zoom in calc and writer, has to be activated first
             // by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
-            control = new Array("libreoffice", true, true, true, true, false, false, false, false, true, true, true);
+            control = ["libreoffice", true, true, true, true, false, false, false, false, true, true, true];
                 if (handler.indexOf("--calc") > -1) {
-                    control = new Array("libreoffice-calc", true, true, true, true, false, false, true, true, true, true, true);
+                    control = ["libreoffice-calc", true, true, true, true, false, false, true, true, true, true, true];
                 }
                 if (handler.indexOf("--impress") > -1) {
-                    control = new Array("libreoffice-impress", true, true, true, true, true, true, true, true, true, true, true);
+                    control = ["libreoffice-impress", true, true, true, true, true, true, true, true, true, true, true];
                 }
                 if (handler.indexOf("--writer") > -1) {
-                    control = new Array("libreoffice-writer", true, true, true, true, false, false, false, false, true, true, true);
+                    control = ["libreoffice-writer", true, true, true, true, false, false, false, false, true, true, true];
                 }
         } else if (handler.indexOf("dwb") > -1) {
-            control = new Array("dwb", true, true, true, true, true, true, true, true, true, true, true);
+            control = ["dwb", true, true, true, true, true, true, true, true, true, true, true];
         } else if (handler.indexOf("vlc") > -1) {
-            control = new Array("vlc", false, false, false, true, false, false, false, false, false, false, false);
+            control = ["vlc", false, false, false, true, false, false, false, false, false, false, false];
         } else if (handler.indexOf("vnc") > -1) {
-            control = new Array("vnc", true, true, true, true, true, true, false, false, false, false, false);
+            control = ["vnc", true, true, true, true, true, true, false, false, false, false, false];
         } else if (handler.indexOf("zathura") > -1) {
-            control = new Array("zathura", true, true, true, true, true, true, true, true, true, true, true);
+            control = ["zathura", true, true, true, true, true, true, true, true, true, true, true];
         } else {
-            control = new Array("undefined", false, false, false, false, false, false, false, false, false, false, false);
+            control = ["undefined", false, false, false, false, false, false, false, false, false, false, false];
         }
 
         sectionControls[section] = control;
@@ -962,10 +962,10 @@ function updateControlsBySection(window) {
 
     // Fill empty sections with default values.
     for (i = sectionControls.length; i < 5; i++) {
-        sectionControls[i] = new Array("default",
-                                       false, false, false, false,
-                                       false, false, false, false,
-                                       false, false, false);
+        sectionControls[i] = ["default",
+                              false, false, false, false,
+                              false, false, false, false,
+                              false, false, false];
     }
 
     return sectionControls;

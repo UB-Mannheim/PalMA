@@ -159,14 +159,14 @@ function resetStation(urlBase) {
     sendToNuc(urlBase, 'logout=ALL');
 }
 
-var stations = new Array();
+var stations = [];
 
-stations.push(new Array('A3 01', 'http://palma-a3-01.bib.uni-mannheim.de/'));
-stations.push(new Array('A3 02', 'http://palma-a3-02.bib.uni-mannheim.de/'));
-stations.push(new Array('A3 03', 'http://palma-a3-03.bib.uni-mannheim.de/'));
-stations.push(new Array('A3 04', 'http://palma-a3-04.bib.uni-mannheim.de/'));
-stations.push(new Array('A3 05', 'http://palma-a3-05.bib.uni-mannheim.de/'));
-stations.push(new Array('A3 06', 'http://palma-a3-06.bib.uni-mannheim.de/'));
+stations.push(['A3 01', 'http://palma-a3-01.bib.uni-mannheim.de/']);
+stations.push(['A3 02', 'http://palma-a3-02.bib.uni-mannheim.de/']);
+stations.push(['A3 03', 'http://palma-a3-03.bib.uni-mannheim.de/']);
+stations.push(['A3 04', 'http://palma-a3-04.bib.uni-mannheim.de/']);
+stations.push(['A3 05', 'http://palma-a3-05.bib.uni-mannheim.de/']);
+stations.push(['A3 06', 'http://palma-a3-06.bib.uni-mannheim.de/']);
 
 
 // Get the <div> element which contains the station entries.

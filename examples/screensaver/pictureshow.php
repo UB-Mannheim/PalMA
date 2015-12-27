@@ -148,10 +148,10 @@ var y = 2;
 var x = 2;
 var dir = 45;   //direction.
 var acc = 1;    //acceleration.
-var newacc = new Array(1,0,1);
+var newacc = [1, 0, 1];
 var vel = 1;    //initial speed.
 var sev = 0;
-var newsev = new Array(1,-1,2,-2,0,0,1,-1,2,-2);
+var newsev = [1, -1, 2, -2, 0, 0, 1, -1, 2, -2];
 
 //counters.
 var c1 = 0;    //time between changes.
