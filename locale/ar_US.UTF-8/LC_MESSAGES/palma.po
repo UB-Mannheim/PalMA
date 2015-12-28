@@ -1,17 +1,17 @@
 # PalMA translation.
-# Copyright (C) 2014 Universitätsbibliothek Mannheim
+# Copyright (C) 2015 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
-# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
+# mahmoudHussein <m.hussein0793@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-08 17:57+0200\n"
-"PO-Revision-Date: 2014-04-09 21:31+0200\n"
-"Last-Translator: Stefan Weil <stefan.weil@bib.uni-mannheim.de>\n"
-"Language-Team: English <en@li.org>\n"
-"Language: en\n"
+"POT-Creation-Date: 2015-10-19 12:00+0200\n"
+"PO-Revision-Date: 2015-10-19 12:00+0200\n"
+"Last-Translator: mahmoudHussein <m.hussein0793@gmail.com>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
