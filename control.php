@@ -23,7 +23,8 @@ if (!$unittest[__FILE__]) {
     trace("QUERY_STRING=" . $_SERVER['QUERY_STRING']);
 }
 
-function displayCommand($cmd) {
+function displayCommand($cmd)
+{
     if (defined('CONFIG_SSH')) {
         $cmd = CONFIG_SSH . " 'DISPLAY=" . CONFIG_DISPLAY . " $cmd'";
     } else {
@@ -34,22 +35,26 @@ function displayCommand($cmd) {
     return $result;
 }
 
-function wmClose($id) {
+function wmClose($id)
+{
     // Close window gracefully.
     displayCommand("wmctrl -i -c $id");
 }
 
-function wmHide($id) {
+function wmHide($id)
+{
     // Hide window. This is done by moving it to desktop 1.
     displayCommand("wmctrl -i -r $id -t 1");
 }
 
-function wmShow($id) {
+function wmShow($id)
+{
     // Show window on current desktop.
     displayCommand("wmctrl -i -R $id");
 }
 
-function windowListOnScreen() {
+function windowListOnScreen()
+{
     $list = array();
     $windows = explode("\n", displayCommand('wmctrl -l'));
     foreach ($windows as $w) {
@@ -64,7 +69,8 @@ function windowListOnScreen() {
 
 // simple list with content from database
 
-function windowList() {
+function windowList()
+{
     $list = array();
     global $db;
 
@@ -81,7 +87,8 @@ function windowList() {
     return $list;
 }
 
-function closeAll() {
+function closeAll()
+{
     global $db;
 
     $windows_on_screen = windowListOnScreen();
@@ -101,7 +108,8 @@ function closeAll() {
     clearUploadDir();
 }
 
-function doLogout($username) {
+function doLogout($username)
+{
     global $db;
     if ($username == 'ALL') {
         // Terminate all user connections and reset system.
@@ -110,12 +118,13 @@ function doLogout($username) {
     }
 }
 
-function clearUploadDir() {
+function clearUploadDir()
+{
     # Remove all files in the upload directory.
     if (is_dir(CONFIG_UPLOAD_DIR)) {
         if ($dh = opendir(CONFIG_UPLOAD_DIR)) {
             while (($file = readdir($dh)) !== false) {
-                if ($file != "." AND $file != "..") {
+                if ($file != "." and $file != "..") {
                     unlink(CONFIG_UPLOAD_DIR . "/$file");
                 }
             }
@@ -124,7 +133,8 @@ function clearUploadDir() {
     }
 }
 
-function setLayout($layout) {
+function setLayout($layout)
+{
     // Set layout of team display. Layouts are specified by their name.
     // We use names like g1x1, g2x1, g1x2, ...
     // Restore the last layout if the function is called with a null argument.
@@ -140,22 +150,22 @@ function setLayout($layout) {
     trace("layout $layout");
 
     $geom['g1x1'] = array(
-                    array(0, 0, 1, 1)
-                  );
+                        array(0, 0, 1, 1)
+                    );
     $geom['g2x1'] = array(
-                    array(0, 0, 2, 1), array(1, 0, 2, 1)
-                  );
+                        array(0, 0, 2, 1), array(1, 0, 2, 1)
+                    );
     $geom['g1x2'] = array(
-                    array(0, 0, 1, 2), array(0, 1, 1, 2)
-                  );
+                        array(0, 0, 1, 2), array(0, 1, 1, 2)
+                    );
     $geom['g1a2'] = array(
-                    array(0, 0, 2, 1), array(1, 0, 2, 2),
-                    array(1, 1, 2, 2)
-                  );
+                        array(0, 0, 2, 1), array(1, 0, 2, 2),
+                        array(1, 1, 2, 2)
+                    );
     $geom['g2x2'] = array(
-                    array(0, 0, 2, 2), array(1, 0, 2, 2),
-                    array(0, 1, 2, 2), array(1, 1, 2, 2)
-                  );
+                        array(0, 0, 2, 2), array(1, 0, 2, 2),
+                        array(0, 1, 2, 2), array(1, 1, 2, 2)
+                    );
 
     $dim = $geom[$layout];
 
@@ -196,13 +206,15 @@ function setLayout($layout) {
     }
 }
 
-function activateControls($windowhex) {
+function activateControls($windowhex)
+{
     global $db;
     $fhandler = $db->querySingle("SELECT handler FROM window WHERE win_id='$windowhex'");
     error_log("activateControls for handler $fhandler");
 }
 
-function addNewWindow($db, $new) {
+function addNewWindow($db, $new)
+{
     // Add a new window to the monitor. This window either uses the first
     // unused section or it will be hidden.
 
@@ -227,11 +239,11 @@ function addNewWindow($db, $new) {
 
             $new_window = array_diff($window_ids_on_screen, $existing_ids);
             foreach ($new_window as $win_id) {
-                if($win_id != "") {
+                if ($win_id != "") {
                     $new_window_id = $win_id;
                 }
             }
-        } else if (!empty($window_ids_on_screen)) {
+        } elseif (!empty($window_ids_on_screen)) {
             $new_window_id = $window_ids_on_screen[0];
         }
     } while (!$new_window_id && $t_total++ <= 10 && !sleep(1));
@@ -286,7 +298,8 @@ function addNewWindow($db, $new) {
     $db->insertWindow($myWindow);
 }
 
-function createNewWindow($db, $w) {
+function createNewWindow($db, $w)
+{
     // '$w' already contains 'file', 'handler' and 'date'.
     // 'win_id', 'section' have to be defined afterwards.
 
@@ -300,126 +313,126 @@ function createNewWindow($db, $w) {
     addNewWindow($db, $w);
 }
 
-function processRequests($db) {
-
+function processRequests($db)
+{
     if (array_key_exists('window', $_REQUEST)) {
         // All windows related commands must start with window=.
 
-    $windownumber = $_REQUEST['window'];
-    if ($windownumber != 'vncwin') {
-        // This is the normal case.
-        // Special handling is needed when called with window=vncwin, see below.
-        $window = $windownumber - 1;
+        $windownumber = $_REQUEST['window'];
+        if ($windownumber != 'vncwin') {
+            // This is the normal case.
+            // Special handling is needed when called with window=vncwin, see below.
+            $window = $windownumber - 1;
 
-        // TODO: $win_id und $windowname können vermutlich zusammengefasst werden.
-        $win_id = $db->getWindowIDBySection($windownumber);
-        $windowlist = windowList();
+            // TODO: $win_id und $windowname können vermutlich zusammengefasst werden.
+            $win_id = $db->getWindowIDBySection($windownumber);
+            $windowlist = windowList();
 
-        if (count($windowlist) == 0) {
-            trace("no window found for command");
-            $windowname = false;
-            $windowhex = 0;
-        } else {
-            // TODO: improve test whether window exists.
-            $windowname = $windowlist[$window];
-            $windowhex = hexdec($windowname);
+            if (count($windowlist) == 0) {
+                trace("no window found for command");
+                $windowname = false;
+                $windowhex = 0;
+            } else {
+                // TODO: improve test whether window exists.
+                $windowname = $windowlist[$window];
+                $windowhex = hexdec($windowname);
+            }
         }
-    }
 
-    if ($windowname && array_key_exists('key', $_REQUEST)) {
-        $key = $_REQUEST['key'];
-        trace("key '$key' in window '$windownumber'");
-        wmShow($windowname);
+        if ($windowname && array_key_exists('key', $_REQUEST)) {
+            $key = $_REQUEST['key'];
+            trace("key '$key' in window '$windownumber'");
+            wmShow($windowname);
             // activateControls($windowhex);
-        // displayCommand("xdotool windowfocus $windowhex key $key");
+            // displayCommand("xdotool windowfocus $windowhex key $key");
 
-        // trying mousemove and click for better vnc control
-        displayCommand("xdotool mousemove --window $windowhex 100 100 " .
+            // trying mousemove and click for better vnc control
+            displayCommand("xdotool mousemove --window $windowhex 100 100 " .
                        "key $key");
-    }
+        }
 
-    if ($windowname && array_key_exists('keydown', $_REQUEST)) {
-        // TODO: keydown is currently mapped to key because we had problems
-        // with sticking keys (no keyup seen). This should be fixed by a
-        // better event handling.
-        $key = $_REQUEST['keydown'];
-        trace("keydown '$key' in window '$windownumber'");
-        wmShow($windowname);
-        // activateControls($windowhex);
-        // displayCommand("xdotool windowfocus $windowhex key $key");
-
-        // trying mousemove and click for better vnc control
-        displayCommand("xdotool mousemove --window $windowhex 100 100 " .
-                       "key $key");
-        //~ displayCommand("xdotool windowfocus $windowhex keydown $key");
-    }
-
-    if ($windowname && array_key_exists('keyup', $_REQUEST)) {
-        // TODO: keyup is currently ignored, see comment above.
-        $key = $_REQUEST['keyup'];
-        trace("keyup '$key' in window '$windownumber'");
+        if ($windowname && array_key_exists('keydown', $_REQUEST)) {
+            // TODO: keydown is currently mapped to key because we had problems
+            // with sticking keys (no keyup seen). This should be fixed by a
+            // better event handling.
+            $key = $_REQUEST['keydown'];
+            trace("keydown '$key' in window '$windownumber'");
+            wmShow($windowname);
             // activateControls($windowhex);
-        //~ wmShow($windowname);
-        //~ displayCommand("xdotool windowfocus $windowhex keyup $key");
-    }
+            // displayCommand("xdotool windowfocus $windowhex key $key");
 
-    if (array_key_exists('delete', $_REQUEST)) {
+            // trying mousemove and click for better vnc control
+            displayCommand("xdotool mousemove --window $windowhex 100 100 " .
+                       "key $key");
+            //~ displayCommand("xdotool windowfocus $windowhex keydown $key");
+        }
 
-        $delete = str_replace(" ","\ ", addslashes($_REQUEST['delete']));
-        trace("delete=$delete, close window $windownumber");
+        if ($windowname && array_key_exists('keyup', $_REQUEST)) {
+            // TODO: keyup is currently ignored, see comment above.
+            $key = $_REQUEST['keyup'];
+            trace("keyup '$key' in window '$windownumber'");
+            // activateControls($windowhex);
+            //~ wmShow($windowname);
+            //~ displayCommand("xdotool windowfocus $windowhex keyup $key");
+        }
 
-        if (file_exists($delete)) {
-            trace("+++ DELETE FILE FROM WEBINTERFACE +++");
-            unlink($delete);
-        } else if ($delete == "VNC")  {
-            trace("+++ DELETE VNC Client FROM DAEMON +++");
-            // call via daemon: ?window=vncwin&delete=VNC&vncid=123
-            trace("vnc delete in control");
-            $win_id = $_REQUEST['vncid'];   // = hexWindow in database, but not on screen
-            trace("VNC cia Daemon ... id=$win_id");
+        if (array_key_exists('delete', $_REQUEST)) {
 
-        } else if (strstr($delete, "http")) {
-            trace("+++ DELETE Browserwindow +++");
-        } else if (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
-            trace("+++ DELETE VNC Client FROM WEBINTERFACE +++");
-            // call via webinterface
-            $win_id = $db->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
-            trace("DELETE VNC Window with ID=$win_id FROM Database ::
+            $delete = str_replace(" ", "\ ", addslashes($_REQUEST['delete']));
+            trace("delete=$delete, close window $windownumber");
+
+            if (file_exists($delete)) {
+                trace("+++ DELETE FILE FROM WEBINTERFACE +++");
+                unlink($delete);
+            } elseif ($delete == "VNC") {
+                trace("+++ DELETE VNC Client FROM DAEMON +++");
+                // call via daemon: ?window=vncwin&delete=VNC&vncid=123
+                trace("vnc delete in control");
+                $win_id = $_REQUEST['vncid'];   // = hexWindow in database, but not on screen
+                trace("VNC cia Daemon ... id=$win_id");
+
+            } elseif (strstr($delete, "http")) {
+                trace("+++ DELETE Browserwindow +++");
+            } elseif (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
+                trace("+++ DELETE VNC Client FROM WEBINTERFACE +++");
+                // call via webinterface
+                $win_id = $db->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
+                trace("DELETE VNC Window with ID=$win_id FROM Database ::
                 SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
-        } else {
-            trace("Unhandled delete for '$delete'");
-        }
-
-        wmClose($win_id);
-        $db->deleteWindow($win_id);
-    }
-
-    if (array_key_exists('closeOrphans', $_REQUEST)) {
-
-        // win_ids in db
-        $windows_in_db = $db->getWindows();
-        $db_ids = array();
-
-        if (count($windows_in_db) > 0) {
-            foreach ($windows_in_db as $win) {
-                array_push($db_ids, $win['win_id']);
+            } else {
+                trace("Unhandled delete for '$delete'");
             }
+
+            wmClose($win_id);
+            $db->deleteWindow($win_id);
         }
 
-        // win_ids on screen
-        $screen_ids = windowListOnScreen();
+        if (array_key_exists('closeOrphans', $_REQUEST)) {
 
-        // orphaned windows
-        $orphan_ids = array_diff($screen_ids, $db_ids);
+            // win_ids in db
+            $windows_in_db = $db->getWindows();
+            $db_ids = array();
 
-        if (count($orphan_ids) > 0) {
-            // close windows on screen not existing in database
-            foreach ($orphan_ids as $id) {
-                wmClose($id);
+            if (count($windows_in_db) > 0) {
+                foreach ($windows_in_db as $win) {
+                    array_push($db_ids, $win['win_id']);
+                }
             }
-        }
 
-    }
+            // win_ids on screen
+            $screen_ids = windowListOnScreen();
+
+            // orphaned windows
+            $orphan_ids = array_diff($screen_ids, $db_ids);
+
+            if (count($orphan_ids) > 0) {
+                // close windows on screen not existing in database
+                foreach ($orphan_ids as $id) {
+                    wmClose($id);
+                }
+            }
+
+        }
 
         if (array_key_exists('toggle', $_REQUEST)) {
             // Change window state from visible to invisible and vice versa.
@@ -433,75 +446,74 @@ function processRequests($db) {
                 $db->setState_Window($win_id, "active");
             }
         }
-    } else if (array_key_exists('layout', $_REQUEST)) {
+    } elseif (array_key_exists('layout', $_REQUEST)) {
         setLayout($_REQUEST['layout']);
-    } else if (array_key_exists('logout', $_REQUEST)) {
+    } elseif (array_key_exists('logout', $_REQUEST)) {
         doLogout($_REQUEST['logout']);
-    } else if (array_key_exists('newVncWindow', $_REQUEST)) {
+    } elseif (array_key_exists('newVncWindow', $_REQUEST)) {
         // TODO: Better write new code for VNC window.
         addNewWindow($db, unserialize(urldecode($_REQUEST['newVncWindow'])));
-    } else if (array_key_exists('newWindow', $_REQUEST)) {
+    } elseif (array_key_exists('newWindow', $_REQUEST)) {
         createNewWindow($db, unserialize(urldecode($_REQUEST['newWindow'])));
     }
 
-if (array_key_exists('switchWindows', $_REQUEST)) {
-    $before = $_REQUEST['before'];
-    $after = $_REQUEST['after'];
-    trace("switching $before and $after");
+    if (array_key_exists('switchWindows', $_REQUEST)) {
+        $before = $_REQUEST['before'];
+        $after = $_REQUEST['after'];
+        trace("switching $before and $after");
 
-    // exchange section
-    $win_id1 = $db->getWindowIDBySection($before);
-    $win_id2 = $db->getWindowIDBySection($after);
+        // exchange section
+        $win_id1 = $db->getWindowIDBySection($before);
+        $win_id2 = $db->getWindowIDBySection($after);
 
-    $db->updateWindow($win_id1, 'section', $after);
-    $db->updateWindow($win_id2, 'section', $before);
+        $db->updateWindow($win_id1, 'section', $after);
+        $db->updateWindow($win_id2, 'section', $before);
 
-    trace("++updating database $win_id1 section=$after");
-    trace("++updating database $win_id2 section=$before");
+        trace("++updating database $win_id1 section=$after");
+        trace("++updating database $win_id2 section=$before");
 
-    // Update display (no layout change).
-    setLayout(null);
-}
+        // Update display (no layout change).
+        setLayout(null);
+    }
 
-if (array_key_exists('openURL', $_REQUEST)) {
-    $openURL = $_REQUEST['openURL'];
-    trace("openURL $openURL");
+    if (array_key_exists('openURL', $_REQUEST)) {
+        $openURL = $_REQUEST['openURL'];
+        trace("openURL $openURL");
 
-    $dt = new DateTime();
-    $date = $dt->format('Y-m-d H:i:s');
+        $dt = new DateTime();
+        $date = $dt->format('Y-m-d H:i:s');
 
-    $window = array(
-        "id" => "",
-        "win_id" => "",
-        "section" => "",
-        "state" => "",
-        "file" => $openURL,
-        // "handler" => "iceweasel --new-window",
-        "handler" => "/usr/bin/nohup /usr/bin/dwb",
-        "userid" => "",
-        "date" => $date
+        $window = array(
+            "id" => "",
+            "win_id" => "",
+            "section" => "",
+            "state" => "",
+            "file" => $openURL,
+            // "handler" => "iceweasel --new-window",
+            "handler" => "/usr/bin/nohup /usr/bin/dwb",
+            "userid" => "",
+            "date" => $date
         );
 
-    createNewWindow($db, $window);
-}
+        createNewWindow($db, $window);
+    }
 
-// TODO: chef if query redundant?
-if (array_key_exists('closeAll', $_REQUEST)) {
-    $close = $_REQUEST['closeAll'];
-    trace("close all windows $close");
-    closeAll();
-}
+    // TODO: chef if query redundant?
+    if (array_key_exists('closeAll', $_REQUEST)) {
+        $close = $_REQUEST['closeAll'];
+        trace("close all windows $close");
+        closeAll();
+    }
 
 } // processRequests
 
 processRequests($db);
 
 if ($unittest[__FILE__]) {
-
     // Experimental: Get function call from startx.
     parse_str(implode('&', array_slice($argv, 1)), $_GET);
     if (isset($_GET) && count($_GET) > 0) {
-        foreach ($_GET as $key=>$value) {
+        foreach ($_GET as $key => $value) {
             // Only defined actions allowed.
             if ($key == "doLogout") {
                 doLogout($value);
