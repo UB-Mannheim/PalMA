@@ -7,10 +7,9 @@
 SRC=index.php
 SRC+=login.php
 SRC+=upload.php
-SRC+=examples/screensaver/pictureshow.php
-SRC+=examples/screensaver/tiles.php
-SRC+=selectplace/learningcenter.php
-SRC+=selectplace/monitor.php
+SRC+=$(wildcard examples/screensaver/*.php)
+SRC+=$(wildcard selectplace/*.php)
+SRC+=$(wildcard theme/*/*/*.php)
 
 PO=$(wildcard locale/*.UTF-8/LC_MESSAGES/palma.po)
 

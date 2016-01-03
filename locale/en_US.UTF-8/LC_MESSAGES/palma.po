@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-08 17:57+0200\n"
+"POT-Creation-Date: 2016-01-04 15:25+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Stefan Weil <stefan.weil@bib.uni-mannheim.de>\n"
 "Language-Team: English <en@li.org>\n"
@@ -16,23 +16,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:159
+#: index.php:167
 msgid "Screen section"
 msgstr ""
 
-#: index.php:164
+#: index.php:172
 msgid "Close the advanced control"
 msgstr ""
 
-#: index.php:236
+#: index.php:229
 msgid "Enter valid URL"
 msgstr "Please enter valid URL"
 
-#: index.php:274 index.php:279 index.php:294 index.php:299
+#: index.php:267 index.php:272 index.php:287 index.php:292
 msgid "Cursor control"
 msgstr ""
 
-#: index.php:289
+#: index.php:282
 msgid "Advanced control"
 msgstr ""
 
@@ -64,123 +64,123 @@ msgstr ""
 msgid "Download this file"
 msgstr ""
 
-#: index.php:683
+#: index.php:753
 msgid "You were disconnected!"
 msgstr ""
 
-#: index.php:766
+#: index.php:836
 msgid "Toggle visibility"
 msgstr ""
 
-#: index.php:774
+#: index.php:844
 msgid "Select screen section for display"
 msgstr ""
 
-#: index.php:828
+#: index.php:910
 msgid "Remove this object"
 msgstr ""
 
-#: index.php:962
+#: index.php:1044
 msgid "Disconnect the current user"
 msgstr ""
 
-#: index.php:967 index.php:968
+#: index.php:1049 index.php:1050
 msgid "User list"
 msgstr ""
 
-#: index.php:967
+#: index.php:1049
 msgid "List of connected users"
 msgstr ""
 
-#: index.php:975
+#: index.php:1057
 msgid "Disconnect all users and reset the work place"
 msgstr ""
 
-#: index.php:976
+#: index.php:1058
 msgid "Disconnect all users"
 msgstr ""
 
-#: index.php:979 index.php:981
+#: index.php:1061 index.php:1063
 msgid "Display list"
 msgstr ""
 
-#: index.php:980
+#: index.php:1062
 msgid "List of files, URLs and shared displays"
 msgstr ""
 
-#: index.php:988
+#: index.php:1070
 msgid "Close all windows and remove uploaded files"
 msgstr ""
 
-#: index.php:989
+#: index.php:1071
 msgid "Close all windows"
 msgstr ""
 
-#: index.php:994
+#: index.php:1076
 msgid "Show help and offer some extras"
 msgstr ""
 
-#: index.php:995 index.php:1108
+#: index.php:1077 index.php:1191
 msgid "Help + Extras"
 msgstr ""
 
-#: index.php:1002 index.php:1005
+#: index.php:1084 index.php:1088
 msgid "Team display"
 msgstr ""
 
-#: index.php:1016 index.php:1017
+#: index.php:1099 index.php:1100
 msgid "Screen layout"
 msgstr ""
 
-#: index.php:1022 index.php:1029 index.php:1036 index.php:1043 index.php:1050
+#: index.php:1105 index.php:1112 index.php:1119 index.php:1126 index.php:1133
 msgid "Choose screen layout"
 msgstr ""
 
-#: index.php:1059 index.php:1062
+#: index.php:1142 index.php:1145
 msgid "Enter URL"
 msgstr "Please enter URL"
 
-#: index.php:1065
+#: index.php:1148
 msgid "Show this URL in a new browser window"
 msgstr ""
 
-#: index.php:1075
+#: index.php:1158
 msgid "Drop documents here (or click) to load them up"
 msgstr ""
 
-#: index.php:1079
+#: index.php:1162
 msgid "Drop documents here (or click)"
 msgstr ""
 
-#: index.php:1105
+#: index.php:1188
 msgid "Close the help window"
 msgstr ""
 
-#: index.php:1111
+#: index.php:1194
 msgid ""
 "With PalMA, you can share your documents and your desktop\n"
 "            with your learning group."
 msgstr ""
 
-#: index.php:1113
+#: index.php:1196
 msgid ""
 "Team members can join the group at any time. All they need\n"
 "            is URL and PIN."
 msgstr ""
 
-#: index.php:1117
+#: index.php:1200
 msgid ""
 "The PalMA team monitor shows up to 4 contributions\n"
 "            simultaneously."
 msgstr ""
 
-#: index.php:1119
+#: index.php:1202
 msgid ""
 "Just upload PDF files, images, OpenDocument or\n"
 "            MS Office files or enter a URL &ndash; PalMA will show them."
 msgstr ""
 
-#: index.php:1121
+#: index.php:1204
 msgid ""
 "Share the desktop of your notebook with others. PalMA uses\n"
 "            VNC for screen sharing. Download the VNC software once for your\n"
@@ -195,76 +195,76 @@ msgid ""
 "            (RealVNC)."
 msgstr ""
 
-#: index.php:1129
+#: index.php:1212
 msgid "Linux users can share their X display like this:"
 msgstr ""
 
-#: index.php:1135
+#: index.php:1218
 msgid "Share desktop (free UltraVNC / Windows only)"
 msgstr ""
 
-#: index.php:1142
+#: index.php:1225
 msgid "Share desktop (non free RealVNC)"
 msgstr ""
 
-#: index.php:1150
+#: index.php:1233
 msgid "Show team display"
 msgstr ""
 
-#: login.php:84 login.php:93 login.php:96
+#: login.php:93 login.php:101 login.php:104
 msgid "Invalid credentials!"
 msgstr ""
 
-#: login.php:90
+#: login.php:98
 msgid "Cannot check credentials, sorry!"
 msgstr ""
 
-#: login.php:115
+#: login.php:133
 msgid "Invalid PIN."
 msgstr ""
 
-#: login.php:148
+#: login.php:167
 msgid "PalMA &ndash; Login"
 msgstr ""
 
-#: login.php:175
+#: login.php:194
 msgid "Login"
 msgstr ""
 
-#: login.php:178
+#: login.php:197
 msgid "User name"
 msgstr ""
 
-#: login.php:182
+#: login.php:204
 msgid "Password"
 msgstr ""
 
-#: login.php:186
+#: login.php:212
 msgid "PIN"
 msgstr ""
 
-#: login.php:190
+#: login.php:219
 msgid "Log in"
 msgstr ""
 
-#: upload.php:68
+#: upload.php:53
 msgid "This file is too large."
 msgstr ""
 
-#: upload.php:71
+#: upload.php:56
 msgid "Large files are not supported."
 msgstr ""
 
-#: upload.php:74
+#: upload.php:59
 msgid "File was only partially uploaded."
 msgstr ""
 
-#: upload.php:77
+#: upload.php:62
 #, php-format
 msgid "Error code %s."
 msgstr ""
 
-#: upload.php:89
+#: upload.php:74
 #, php-format
 msgid "File '%s' cannot be shown."
 msgstr ""
@@ -273,7 +273,7 @@ msgstr ""
 msgid "Picture Show"
 msgstr ""
 
-#: examples/screensaver/tiles.php:46
+#: examples/screensaver/tiles.php:33
 msgid "Tiles"
 msgstr ""
 
@@ -286,10 +286,10 @@ msgstr ""
 msgid "Conference room"
 msgstr ""
 
-#: selectplace/learningcenter.php:45 selectplace/monitor.php:76
+#: selectplace/learningcenter.php:45 selectplace/monitor.php:73
 msgid "Test monitor"
 msgstr ""
 
-#: selectplace/learningcenter.php:46 selectplace/monitor.php:69
+#: selectplace/learningcenter.php:46 selectplace/monitor.php:66
 msgid "Mannheim table"
 msgstr ""
