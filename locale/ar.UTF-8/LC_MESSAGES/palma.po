@@ -1,0 +1,295 @@
+﻿# PalMA translation.
+# Copyright (C) 2015 Universitätsbibliothek Mannheim
+# This file is distributed under the same license as the PalMA package.
+# mahmoudHussein <m.hussein0793@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PalMA 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-19 12:00+0200\n"
+"PO-Revision-Date: 2015-10-19 12:00+0200\n"
+"Last-Translator: mahmoudHussein <m.hussein0793@gmail.com>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:159
+msgid "Screen section"
+msgstr "جزء من الشاشة"
+
+#: index.php:164
+msgid "Close the advanced control"
+msgstr "أغلق شاشة التحكم المتقدمه"
+
+#: index.php:236
+msgid "Enter valid URL"
+msgstr "من فضلك أدخل URL صحيح"
+
+#: index.php:274 index.php:279 index.php:294 index.php:299
+msgid "Cursor control"
+msgstr "التحكم بالمؤشر"
+
+#: index.php:289
+msgid "Advanced control"
+msgstr "إعدادات متقدمة"
+
+#: index.php:342
+msgid "Zoom in"
+msgstr "تكبير الصورة"
+
+#: index.php:348
+msgid "Zoom out"
+msgstr "تصغير الصورة"
+
+#: index.php:363
+msgid "Jump to start"
+msgstr "الرجوع إلى البداية"
+
+#: index.php:366
+msgid "Page up"
+msgstr "صفحة للأعلى"
+
+#: index.php:369
+msgid "Page down"
+msgstr "صفحة للأسفل"
+
+#: index.php:372
+msgid "Jump to end"
+msgstr "الذهاب إلى نقطة النهاية"
+
+#: index.php:375
+msgid "Download this file"
+msgstr "تنزيل الملف"
+
+#: index.php:683
+msgid "You were disconnected!"
+msgstr "لقد تم قطع الاتصال"
+
+#: index.php:766
+msgid "Toggle visibility"
+msgstr "تبديل الرؤية"
+
+#: index.php:774
+msgid "Select screen section for display"
+msgstr "إختيار جزء من الشاشة للرؤية"
+
+#: index.php:828
+msgid "Remove this object"
+msgstr "أزل هذا الملف"
+
+#: index.php:962
+msgid "Disconnect the current user"
+msgstr "افصل المستخدم الحالي"
+
+#: index.php:967 index.php:968
+msgid "User list"
+msgstr "لأئحة المستخدمين"
+
+#: index.php:967
+msgid "List of connected users"
+msgstr "أئحة المستخدمين الحاليين"
+
+#: index.php:975
+msgid "Disconnect all users and reset the work place"
+msgstr "حذف جميع المستخدمين وإعادة الوضع قبل الإستخدم"
+
+#: index.php:976
+msgid "Disconnect all users"
+msgstr "افصل جميع المستخدمين"
+
+#: index.php:979 index.php:981
+msgid "Display list"
+msgstr "أظهر اللائحة"
+
+#: index.php:980
+msgid "List of files, URLs and shared displays"
+msgstr ""
+
+#: index.php:988
+msgid "Close all windows and remove uploaded files"
+msgstr "أغلق جميع الشاشات وحذف الملفات"
+
+#: index.php:989
+msgid "Close all windows"
+msgstr "أغلق جميع الشاشات"
+
+#: index.php:994
+msgid "Show help and offer some extras"
+msgstr "مساعدة"
+
+#: index.php:995 index.php:1108
+msgid "Help + Extras"
+msgstr "مساعدة"
+
+#: index.php:1002 index.php:1005
+msgid "Team display"
+msgstr ""
+
+#: index.php:1016 index.php:1017
+msgid "Screen layout"
+msgstr ""
+
+#: index.php:1022 index.php:1029 index.php:1036 index.php:1043 index.php:1050
+msgid "Choose screen layout"
+msgstr ""
+
+#: index.php:1059 index.php:1062
+msgid "Enter URL"
+msgstr "من فضلك أدخل ال-URL"
+
+#: index.php:1065
+msgid "Show this URL in a new browser window"
+msgstr ""
+
+#: index.php:1075
+msgid "Drop documents here (or click) to load them up"
+msgstr ""
+
+#: index.php:1079
+msgid "Drop documents here (or click)"
+msgstr ""
+
+#: index.php:1105
+msgid "Close the help window"
+msgstr ""
+
+#: index.php:1111
+msgid ""
+"With PalMA, you can share your documents and your desktop\n"
+"            with your learning group."
+msgstr ""
+
+#: index.php:1113
+msgid ""
+"Team members can join the group at any time. All they need\n"
+"            is URL and PIN."
+msgstr ""
+
+#: index.php:1117
+msgid ""
+"The PalMA team monitor shows up to 4 contributions\n"
+"            simultaneously."
+msgstr ""
+
+#: index.php:1119
+msgid ""
+"Just upload PDF files, images, OpenDocument or\n"
+"            MS Office files or enter a URL &ndash; PalMA will show them."
+msgstr ""
+
+#: index.php:1121
+msgid ""
+"Share the desktop of your notebook with others. PalMA uses\n"
+"            VNC for screen sharing. Download the VNC software once for your\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-kurzanleitung.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">Windows PC</"
+"a>\n"
+"            (preconfigured UltraVNC) or\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-anleitung-mac.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">MacBook</a>\n"
+"            (RealVNC)."
+msgstr ""
+
+#: index.php:1129
+msgid "Linux users can share their X display like this:"
+msgstr ""
+
+#: index.php:1135
+msgid "Share desktop (free UltraVNC / Windows only)"
+msgstr ""
+
+#: index.php:1142
+msgid "Share desktop (non free RealVNC)"
+msgstr ""
+
+#: index.php:1150
+msgid "Show team display"
+msgstr ""
+
+#: login.php:84 login.php:93 login.php:96
+msgid "Invalid credentials!"
+msgstr ""
+
+#: login.php:90
+msgid "Cannot check credentials, sorry!"
+msgstr ""
+
+#: login.php:115
+msgid "Invalid PIN."
+msgstr ""
+
+#: login.php:148
+msgid "PalMA &ndash; Login"
+msgstr ""
+
+#: login.php:175
+msgid "Login"
+msgstr ""
+
+#: login.php:178
+msgid "User name"
+msgstr ""
+
+#: login.php:182
+msgid "Password"
+msgstr ""
+
+#: login.php:186
+msgid "PIN"
+msgstr ""
+
+#: login.php:190
+msgid "Log in"
+msgstr ""
+
+#: upload.php:68
+msgid "This file is too large."
+msgstr ""
+
+#: upload.php:71
+msgid "Large files are not supported."
+msgstr ""
+
+#: upload.php:74
+msgid "File was only partially uploaded."
+msgstr ""
+
+#: upload.php:77
+#, php-format
+msgid "Error code %s."
+msgstr ""
+
+#: upload.php:89
+#, php-format
+msgid "File '%s' cannot be shown."
+msgstr ""
+
+#: examples/screensaver/pictureshow.php:35
+msgid "Picture Show"
+msgstr ""
+
+#: examples/screensaver/tiles.php:46
+msgid "Tiles"
+msgstr ""
+
+#: selectplace/learningcenter.php:25 selectplace/learningcenter.php:39
+#: selectplace/monitor.php:25 selectplace/monitor.php:51
+msgid "Select workplace"
+msgstr ""
+
+#: selectplace/learningcenter.php:45
+msgid "Conference room"
+msgstr ""
+
+#: selectplace/learningcenter.php:45 selectplace/monitor.php:76
+msgid "Test monitor"
+msgstr ""
+
+#: selectplace/learningcenter.php:46 selectplace/monitor.php:69
+msgid "Mannheim table"
+msgstr ""
