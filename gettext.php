@@ -23,19 +23,28 @@ $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
         $locale = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
     }
     switch (substr($locale, 0, 2)) {
+    case 'ar':
+        // Arabic.
+        $locale = 'ar.UTF-8';
+        break;
     case 'de':
+        // German.
         $locale = 'de_DE.UTF-8';
         break;
     case 'en':
+        // English.
         $locale = 'en_US.UTF-8';
         break;
     case 'es':
+        // Spanish.
         $locale = 'es_ES.UTF-8';
         break;
     case 'it':
+        // Italian.
         $locale = 'it_IT.UTF-8';
         break;
     case 'ru':
+        // Russian.
         $locale = 'ru_RU.UTF-8';
         break;
     default:
