@@ -18,55 +18,55 @@ msgstr ""
 
 #: index.php:167
 msgid "Screen section"
-msgstr "Screen section"
+msgstr "Seksioni i ekranit"
 
 #: index.php:172
 msgid "Close the advanced control"
-msgstr "Close the advanced control"
+msgstr "Mbyll kontrollin e avancuar"
 
 #: index.php:229
 msgid "Enter valid URL"
-msgstr "Please enter valid URL"
+msgstr "Fut nje URL te vlefshme"
 
 #: index.php:267 index.php:272 index.php:287 index.php:292
 msgid "Cursor control"
-msgstr "Cursor control"
+msgstr "Kontroll i kursorit"
 
 #: index.php:282
 msgid "Advanced control"
-msgstr "Advanced control"
+msgstr "Kontroll i avancuar"
 
 #: index.php:342
 msgid "Zoom in"
-msgstr "Zoom in"
+msgstr "Zmadho"
 
 #: index.php:348
 msgid "Zoom out"
-msgstr "Zoom out"
+msgstr "Zvogelo"
 
 #: index.php:363
 msgid "Jump to start"
-msgstr "Jump to start"
+msgstr "Shko ne start"
 
 #: index.php:366
 msgid "Page up"
-msgstr "Page up"
+msgstr "Shko lart"
 
 #: index.php:369
 msgid "Page down"
-msgstr "Page down"
+msgstr "Shko poshte"
 
 #: index.php:372
 msgid "Jump to end"
-msgstr "Jump to end"
+msgstr "Shko ne fund"
 
 #: index.php:375
 msgid "Download this file"
-msgstr ""
+msgstr "Shkarko kete file"
 
 #: index.php:753
 msgid "You were disconnected!"
-msgstr ""
+msgstr "U shkepute"
 
 #: index.php:836
 msgid "Toggle visibility"
@@ -74,105 +74,106 @@ msgstr ""
 
 #: index.php:844
 msgid "Select screen section for display"
-msgstr ""
+msgstr "Zgjidh seksionin e ekranit per t'u paraqitur"
 
 #: index.php:910
 msgid "Remove this object"
-msgstr ""
+msgstr "Hiq kete objekt"
 
 #: index.php:1044
 msgid "Disconnect the current user"
-msgstr ""
+msgstr "Shkeput perdoruesin aktual"
 
 #: index.php:1049 index.php:1050
 msgid "User list"
-msgstr ""
+msgstr "Lisa e perdoruesve"
 
 #: index.php:1049
 msgid "List of connected users"
-msgstr ""
+msgstr "Lista u perdoruesve te lidhur"
 
 #: index.php:1057
 msgid "Disconnect all users and reset the work place"
-msgstr ""
+msgstr "Shkeput gjithe perdoruesit dhe reseto mjedisin e punes"
 
 #: index.php:1058
 msgid "Disconnect all users"
-msgstr ""
+msgstr "Shkeput gjithe perdoruesit"
 
 #: index.php:1061 index.php:1063
 msgid "Display list"
-msgstr ""
+msgstr "Paraqit listen"
 
 #: index.php:1062
 msgid "List of files, URLs and shared displays"
-msgstr ""
+msgstr "Lista e fileve, URLve dhe ekranet e paraqitura"
 
 #: index.php:1070
 msgid "Close all windows and remove uploaded files"
-msgstr ""
+msgstr "Mbyll gjithe dritaret dhe fshi filet e ngarkuara"
 
 #: index.php:1071
 msgid "Close all windows"
-msgstr ""
+msgstr "Mbyll te gjitha dritaret"
 
 #: index.php:1076
 msgid "Show help and offer some extras"
-msgstr ""
+msgstr "Trego ndihme dhe ofro ekstra"
 
 #: index.php:1077 index.php:1191
 msgid "Help + Extras"
-msgstr ""
+msgstr "Ndihme + Ekstra"
 
 #: index.php:1084 index.php:1088
 msgid "Team display"
-msgstr ""
+msgstr "Ekrani i grupit"
 
 #: index.php:1099 index.php:1100
 msgid "Screen layout"
-msgstr ""
+msgstr "Korniza e ekranit"
 
 #: index.php:1105 index.php:1112 index.php:1119 index.php:1126 index.php:1133
 msgid "Choose screen layout"
-msgstr ""
+msgstr "Zgjidh kornizen e ekranit"
 
 #: index.php:1142 index.php:1145
 msgid "Enter URL"
-msgstr "Please enter URL"
+msgstr "Fut URL"
 
 #: index.php:1148
 msgid "Show this URL in a new browser window"
-msgstr ""
+msgstr "Trego kete URL ne nje web browser"
 
 #: index.php:1158
 msgid "Drop documents here (or click) to load them up"
-msgstr ""
+msgstr "Hidh dokumentat ketu (ose kliko) per t'i ngarkuar"
 
 #: index.php:1162
 msgid "Drop documents here (or click)"
-msgstr ""
+msgstr "Hidh dokumentat ketu (ose kliko)"
 
 #: index.php:1188
 msgid "Close the help window"
-msgstr ""
+msgstr "Mbyll faqen ndihmese"
 
 #: index.php:1194
 msgid ""
 "With PalMA, you can share your documents and your desktop\n"
 "            with your learning group."
-msgstr ""
+msgstr "Me PalMa, mund te shperndani dokumentat dhe desktopin tuaj me grupin e studimit tuaj"
 
 #: index.php:1196
 msgid ""
 "Team members can join the group at any time. All they need\n"
 "            is URL and PIN."
-msgstr ""
+msgstr "Pjesetaret e grupit mund t'i bashkohen grupit ne cdo kohe. Gjithcka
+				qe duhet eshte nje URL dhe nje PIN"
 
 #: index.php:1200
 msgid ""
 "The PalMA team monitor shows up to 4 contributions\n"
 "            simultaneously."
-msgstr ""
+msgstr "Monitori i grupit PalMA tregon 4 pjesemarres ne te njejten kohe"
 
 #: index.php:1202
 msgid ""
