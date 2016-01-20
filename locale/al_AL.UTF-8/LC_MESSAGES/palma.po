@@ -1,7 +1,7 @@
 # PalMA translation.
 # Copyright (C) 2014 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
-# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
+# Gert Pere <gpere@mail.uni-mannheim.de>, 2016.
 #
 msgid ""
 msgstr ""
@@ -9,9 +9,9 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-04 15:25+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
-"Last-Translator: Stefan Weil <stefan.weil@bib.uni-mannheim.de>\n"
-"Language-Team: English <en@li.org>\n"
-"Language: en\n"
+"Last-Translator: Gert Pere <gpere@mail.uni-mannheim.de>"
+"Language-Team: Albanian <en@li.org>\n"
+"Language: al\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
