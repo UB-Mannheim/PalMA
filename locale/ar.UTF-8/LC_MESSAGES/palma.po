@@ -146,11 +146,11 @@ msgstr ""
 
 #: index.php:1158
 msgid "Drop documents here (or click) to load them up"
-msgstr ""
+msgstr "ضع المستندات هنا أو إضغط لتحميل المستندات "
 
 #: index.php:1162
 msgid "Drop documents here (or click)"
-msgstr ""
+msgstr "أو إضغط لتحميل المستندات"
 
 #: index.php:1188
 msgid "Close the help window"
