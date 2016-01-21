@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 
 use strict; use warnings;
-use Data::Dumper;
 
 # Checks last n commits for Signed-off-by
 # Prints a list of contributors
@@ -26,5 +25,7 @@ for (sort { $contributors{$b} <=> $contributors{$a} } keys %contributors) {
 }
 if (scalar @signed < scalar @logentries) {
     my @unsigned = grep { ! defined $_->{signedoff} } @logentries;
-    die sprintf("These commits are unsigned: %s", Dumper [map { $_->{hash} } @unsigned]);
+    printf "These commits are unsigned:\n";
+    system "git show -s --format=format:'%C(auto)%h%d %cr [%aN] %s ' " . join ' ', map { $_->{hash} } @unsigned;
+    exit 1
 }
