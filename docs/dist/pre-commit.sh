@@ -19,7 +19,7 @@ if [[ -z "$CODE_SNIFFER" ]];then
     fi
 fi
 
-changed=$(git diff --cached --name-only --diff-filter=ACM)
+changed=$(git diff --cached --name-only --diff-filter=ACM|grep -o '\.php')
 if [[ -z "$changed" ]];then
     changed=$(find . -type f -name '*.php')
 fi
