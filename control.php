@@ -96,7 +96,7 @@ function closeAll()
     foreach ($windows_on_screen as $id) {
         wmClose($id);
         // trace("closeAllWindows: $id");
-        if ($db->getState_Window($id) != null) {
+        if ($db->getWindowState($id) != null) {
             $db->deleteWindow($id);
         }
     }
@@ -436,14 +436,14 @@ function processRequests($db)
 
         if (array_key_exists('toggle', $_REQUEST)) {
             // Change window state from visible to invisible and vice versa.
-            $state = $db->getState_Window($win_id);
+            $state = $db->getWindowState($win_id);
             trace("toggle window $windownumber, id=$win_id, state=$state");
             if ($state == "active") {
                 wmHide($win_id);
-                $db->setState_Window($win_id, "inactive");
+                $db->setWindowState($win_id, "inactive");
             } else {
                 wmShow($win_id);
-                $db->setState_Window($win_id, "active");
+                $db->setWindowState($win_id, "active");
             }
         }
     } elseif (array_key_exists('layout', $_REQUEST)) {
