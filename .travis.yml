@@ -1,0 +1,4 @@
+language: php
+
+script:
+      - perl docs/dist/check-signed-off.pl
