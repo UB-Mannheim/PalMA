@@ -1,21 +1,28 @@
 #!/bin/bash
 
-changed=$*
-if [[ "$changed" = "." ]];then
+CODE_SNIFFER=$(which phpcs)
+if [[ -z "$CODE_SNIFFER" ]];then
+    if cat /etc/*-release|grep -q '^ID=\(debian\|ubuntu\)';then
+        sudo apt-get install php-codesniffer
+        CODE_SNIFFER=$(which phpcs)
+    fi
+    if [[ -z "$CODE_SNIFFER" ]];then
+        CS_PHAR="docs/dist/phpcs.phar"
+        if [[ ! -e "$CS_PHAR" ]];then
+            curl -o "$CS_PHAR" 'https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar'
+        fi
+        if [[ ! -e "$CS_PHAR" ]];then
+            echo "PHP_CodeSniffer not available"
+            exit
+        fi
+        CODE_SNIFFER="php $CS_PHAR"
+    fi
+fi
+
+changed=$(git diff --cached --name-only --diff-filter=ACM)
+if [[ -z "$changed" ]];then
     changed=$(find . -type f -name '*.php')
 fi
-if [[ -z "$changed" ]];then
-    changed=$(git diff --cached --name-only --diff-filter=ACM)
-fi
 if echo "$changed"|grep "\.php";then
-    CS_PHAR="docs/dist/phpcs.phar"
-    if [[ ! -e "$CS_PHAR" ]];then
-        curl -s https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar > $CS_PHAR
-    fi
-    if [[ ! -e "$CS_PHAR" ]];then
-        echo "PHP_CodeSniffer not available"
-        exit
-    fi
-
-    php $CS_PHAR --standard=PSR2 $changed
+    $CODE_SNIFFER --standard=PSR2 $changed
 fi
