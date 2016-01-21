@@ -1,4 +1,5 @@
-#!env perl
+#!/usr/bin/env perl
+
 use strict; use warnings;
 use Data::Dumper;
 use Term::ANSIColor;
@@ -8,9 +9,9 @@ my %flags = map {($_=>1)} grep { /^-/ } @ARGV;
 if ($flags{'-h'} || $flags{'--help'}) {
     printf "Usage: $0 [--color] [--markdown] [locales...]\n";
     printf "\n";
-    printf "Options:";
-    printf "  --color     Colorize percentages";
-    printf "  --markdown  Produce extensive Markdown-formatted output";
+    printf "Options:\n";
+    printf "  --color     Colorize percentages\n";
+    printf "  --markdown  Produce extensive Markdown-formatted output\n";
     exit 0;
 }
 my @locales = grep { ! /^-/ } @ARGV;
