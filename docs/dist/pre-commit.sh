@@ -2,7 +2,7 @@
 
 #------------------------------------------------------------------------------
 # NAME
-#         pre-commit.sh
+#         pre-commit.sh [basedir]
 #
 # SYNOPSIS
 #         make .git/hooks/pre-commit
@@ -19,15 +19,21 @@
 #        Runs perlcritic on Perl files
 #        Runs shellcheck on Shell files
 #
+#        If basedir is passed, run the checks on all files below basedir instead
+#        of git staged files.
+#
 # SEE ALSO
 #        perlcritic(1), shellcheck(1), phpcs(1), git-diff(1)
 #------------------------------------------------------------------------------
 
 # git-diff command
-git_diff="git diff --cached --name-only --diff-filter=ACM"
+if [[ -z "$1" ]];then
+  git_diff="git diff --cached --name-only --diff-filter=ACM"
+else
+  git_diff="find $1 -type f"
+fi
 
 # If there are any added or modified files staged for commit
-
 staged=$($git_diff)
 if [[ -z "$staged" ]];then
     echo "Nothing staged"
@@ -38,6 +44,7 @@ fi
 staged_php=($($git_diff|grep '\.php$'))
 if [[ "${#staged_php[@]}" -ne 0 ]];then
     # Run PHP_CodeSniffer
+    # echo "${staged_php[@]}"
     docs/dist/php-codesniffer.sh "${staged_php[@]}" || exit $?
     echo "PHP sources OK"
 fi

@@ -29,14 +29,11 @@ PHP_CODE_STANDARD=${PHP_CODE_STANDARD:-PSR2}
 CS_PHAR="$DIR/phpcs.phar"
 CS_URL='https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar'
 
-which () {
-    command which "$@" 2>/dev/null || { echo "Please install $*."; exit 0; }
-}
-
 [[ -z "$*" ]] && { echo "No arguments given"; exit 0; }
 CODE_SNIFFER=$(which phpcs)
 if [[ -z "$CODE_SNIFFER" ]];then
-    which 'curl' 'php'
+    which 'curl' >/dev/null || { echo "Please install curl."; exit 0; }
+    which 'php' >/dev/null || { echo "Please install php."; exit 0; }
     [[ ! -e "$CS_PHAR" ]] && { curl -o "$CS_PHAR" "$CS_URL"; }
     [[ ! -e "$CS_PHAR" ]] && { echo "PHP_CodeSniffer not available"; exit 0; }
     CODE_SNIFFER="php $CS_PHAR"

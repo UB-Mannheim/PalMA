@@ -9,6 +9,8 @@ addons:
   apt:
     packages:
       - php-codesniffer
+      - libperl-critic-perl
+      - shellcheck
 
 script:
       - bash docs/dist/pre-commit.sh .
