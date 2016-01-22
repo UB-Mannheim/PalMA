@@ -2,21 +2,15 @@
 
 CODE_SNIFFER=$(which phpcs)
 if [[ -z "$CODE_SNIFFER" ]];then
-    if cat /etc/*-release|grep -q '^ID=\(debian\|ubuntu\)';then
-        sudo apt-get install php-codesniffer
-        CODE_SNIFFER=$(which phpcs)
+    CS_PHAR="docs/dist/phpcs.phar"
+    if [[ ! -e "$CS_PHAR" ]];then
+        curl -o "$CS_PHAR" 'https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar'
     fi
-    if [[ -z "$CODE_SNIFFER" ]];then
-        CS_PHAR="docs/dist/phpcs.phar"
-        if [[ ! -e "$CS_PHAR" ]];then
-            curl -o "$CS_PHAR" 'https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar'
-        fi
-        if [[ ! -e "$CS_PHAR" ]];then
-            echo "PHP_CodeSniffer not available"
-            exit
-        fi
-        CODE_SNIFFER="php $CS_PHAR"
+    if [[ ! -e "$CS_PHAR" ]];then
+        echo "PHP_CodeSniffer not available"
+        exit
     fi
+    CODE_SNIFFER="php $CS_PHAR"
 fi
 
 changed=$(git diff --cached --name-only --diff-filter=ACM|grep -o '\.php')
