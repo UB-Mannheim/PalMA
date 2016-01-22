@@ -231,13 +231,13 @@ eod;
     }
     */
 
-    public function getState_Window($window_id)
+    public function getWindowState($window_id)
     {
         $state = @$this->querySingle('SELECT state FROM window WHERE win_id="'.$window_id.'"');
         return $state;
     }
 
-    public function setState_Window($window_id, $state)
+    public function setWindowState($window_id, $state)
     {
         $this->exec('UPDATE window SET state="'.$state.'" WHERE win_id="'.$window_id.'"');
     }
