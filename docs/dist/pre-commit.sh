@@ -74,4 +74,3 @@ if [[ "${#staged_perl[@]}" -ne 0 ]];then
         echo "perlcritic not installed (In Debian/Ubuntu libperl-critic-perl)"
     fi
 fi
-
