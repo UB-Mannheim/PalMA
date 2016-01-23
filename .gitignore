@@ -5,3 +5,4 @@
 /last_activity
 /locale/*/LC_MESSAGES/*.mo
 /locale/*/LC_MESSAGES/*.po~
+/docs/dist/phpcs.phar

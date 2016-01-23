@@ -9,6 +9,9 @@ addons:
   apt:
     packages:
       - php-codesniffer
+      - libperl-critic-perl
+      - shellcheck
 
 script:
-      - perl docs/dist/check-signed-off.pl
+      - bash docs/dist/pre-commit.sh .
+      - bash docs/dist/pre-push.sh

@@ -4,6 +4,8 @@
 
 .PHONY: all
 
+DISTDIR=docs/dist
+
 SRC=index.php
 SRC+=login.php
 SRC+=upload.php
@@ -25,3 +27,11 @@ palma.po: $(SRC)
 $(PO): palma.po
 	msgmerge --update $@ palma.po
 	touch $@
+
+TRANSLATIONS.md: $(PO)
+	perl $(DISTDIR)/find-untranslated.pl --markdown > $@
+
+.git/hooks: .git/hooks/pre-push .git/hooks/pre-commit
+
+.git/hooks/%: $(DISTDIR)/%.sh
+	ln -sf ../../$< $@
