@@ -46,15 +46,15 @@ msgstr "Zvogelo"
 
 #: index.php:363
 msgid "Jump to start"
-msgstr "Shko ne start"
+msgstr "Shko ne fillim"
 
 #: index.php:366
 msgid "Page up"
-msgstr "Shko lart"
+msgstr "Faqe lart"
 
 #: index.php:369
 msgid "Page down"
-msgstr "Shko poshte"
+msgstr "Faqe poshte"
 
 #: index.php:372
 msgid "Jump to end"
@@ -62,7 +62,7 @@ msgstr "Shko ne fund"
 
 #: index.php:375
 msgid "Download this file"
-msgstr "Shkarko kete file"
+msgstr "Shkarko kete skedar"
 
 #: index.php:753
 msgid "You were disconnected!"
@@ -70,7 +70,7 @@ msgstr "U shkepute"
 
 #: index.php:836
 msgid "Toggle visibility"
-msgstr ""
+msgstr "Ndrysho paraqitje"
 
 #: index.php:844
 msgid "Select screen section for display"
@@ -78,7 +78,7 @@ msgstr "Zgjidh seksionin e ekranit per t'u paraqitur"
 
 #: index.php:910
 msgid "Remove this object"
-msgstr "Hiq kete objekt"
+msgstr "Fshi kete objekt"
 
 #: index.php:1044
 msgid "Disconnect the current user"
@@ -90,15 +90,15 @@ msgstr "Lisa e perdoruesve"
 
 #: index.php:1049
 msgid "List of connected users"
-msgstr "Lista u perdoruesve te lidhur"
+msgstr "Lista e perdoruesve te lidhur"
 
 #: index.php:1057
 msgid "Disconnect all users and reset the work place"
-msgstr "Shkeput gjithe perdoruesit dhe reseto mjedisin e punes"
+msgstr "Shkeput te gjithe perdoruesit dhe reseto mjedisin e punes"
 
 #: index.php:1058
 msgid "Disconnect all users"
-msgstr "Shkeput gjithe perdoruesit"
+msgstr "Shkeput te gjithe perdoruesit"
 
 #: index.php:1061 index.php:1063
 msgid "Display list"
@@ -142,7 +142,7 @@ msgstr "Fut URL"
 
 #: index.php:1148
 msgid "Show this URL in a new browser window"
-msgstr "Trego kete URL ne nje web browser"
+msgstr "Trego kete URL ne nje web browser te ri"
 
 #: index.php:1158
 msgid "Drop documents here (or click) to load them up"
@@ -160,26 +160,33 @@ msgstr "Mbyll faqen ndihmese"
 msgid ""
 "With PalMA, you can share your documents and your desktop\n"
 "            with your learning group."
-msgstr "Me PalMa, mund te shperndani dokumentat dhe desktopin tuaj me grupin e studimit tuaj"
+msgstr ""
+"Me PalMa, mund te shperndani dokumentat dhe desktopin tuaj\n"
+"			me grupin e studimit tuaj."
 
 #: index.php:1196
 msgid ""
 "Team members can join the group at any time. All they need\n"
 "            is URL and PIN."
-msgstr "Pjesetaret e grupit mund t'i bashkohen grupit ne cdo kohe. Gjithcka
-				qe duhet eshte nje URL dhe nje PIN"
+msgstr ""
+"Pjesetaret e grupit mund t'i bashkohen grupit ne cdo kohe.\n"
+"			  Gjithcka qe duhet eshte nje URL dhe nje PIN"
 
 #: index.php:1200
 msgid ""
 "The PalMA team monitor shows up to 4 contributions\n"
 "            simultaneously."
-msgstr "Monitori i grupit PalMA tregon 4 pjesemarres ne te njejten kohe"
+msgstr ""
+"Monitori i grupit PalMA tregon 4 pjesemarres\n"
+"			ne te njejten kohe"
 
 #: index.php:1202
 msgid ""
 "Just upload PDF files, images, OpenDocument or\n"
 "            MS Office files or enter a URL &ndash; PalMA will show them."
 msgstr ""
+"Thjesht ngarko skedare PDF, figura, OpenDocument ose\n"
+"            skedare MS Office ose fut nje URL &dash; PalMA do ta shfaqe ate."
 
 #: index.php:1204
 msgid ""
@@ -195,102 +202,113 @@ msgid ""
 "            onclick=\"window.open(this.href); return false;\">MacBook</a>\n"
 "            (RealVNC)."
 msgstr ""
+"Shpernda desktopin e notebook-ut me te tjeret. PalMA perdor\n"
+"            VNC per te shperndare ekranin. Shkarko software-in VNC per\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-kurzanleitung.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">Windows PC</"
+"a>\n"
+"            (preconfigured UltraVNC) ose\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-anleitung-mac.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">MacBook</a>\n"
+"            (RealVNC)."
 
 #: index.php:1212
 msgid "Linux users can share their X display like this:"
-msgstr ""
+msgstr "Perdoruesit Linux mund te ndajne ekranin e tyre X keshtu:"
 
 #: index.php:1218
 msgid "Share desktop (free UltraVNC / Windows only)"
-msgstr ""
+msgstr "Shpernda desktopin (pa pagese UltraVNC / vetem Windows)"
 
 #: index.php:1225
 msgid "Share desktop (non free RealVNC)"
-msgstr ""
+msgstr "Shpernda desktopin (RealVNC me pagese)"
 
 #: index.php:1233
 msgid "Show team display"
-msgstr ""
+msgstr "Shfaq ekranin e grupit"
 
 #: login.php:93 login.php:101 login.php:104
 msgid "Invalid credentials!"
-msgstr ""
+msgstr "Kredenciale jo te sakta"
 
 #: login.php:98
 msgid "Cannot check credentials, sorry!"
-msgstr ""
+msgstr "Kredencialet nuk mund te kontrollohen, kerkojme ndjese"
 
 #: login.php:133
 msgid "Invalid PIN."
-msgstr ""
+msgstr "PIN jo i sakte"
 
 #: login.php:167
 msgid "PalMA &ndash; Login"
-msgstr ""
+msgstr "PalMA &ndash; Login"
 
 #: login.php:194
 msgid "Login"
-msgstr ""
+msgstr "Login"
 
 #: login.php:197
 msgid "User name"
-msgstr ""
+msgstr "Emri i perdoruesit"
 
 #: login.php:204
 msgid "Password"
-msgstr ""
+msgstr "Passwordi"
 
 #: login.php:212
 msgid "PIN"
-msgstr ""
+msgstr "PIN"
 
 #: login.php:219
 msgid "Log in"
-msgstr ""
+msgstr "Log in"
 
 #: upload.php:53
 msgid "This file is too large."
-msgstr ""
+msgstr "Ky skedar eshte shume i madh"
 
 #: upload.php:56
 msgid "Large files are not supported."
-msgstr ""
+msgstr "Skedare te medha nuk jane te suportuara"
 
 #: upload.php:59
 msgid "File was only partially uploaded."
-msgstr ""
+msgstr "Skedari u ngarkua jo i plote"
 
 #: upload.php:62
 #, php-format
 msgid "Error code %s."
-msgstr ""
+msgstr "Error code %s"
 
 #: upload.php:74
 #, php-format
 msgid "File '%s' cannot be shown."
-msgstr ""
+msgstr "Skedari '%s' nuk mund te shfaqet"
 
 #: examples/screensaver/pictureshow.php:35
 msgid "Picture Show"
-msgstr ""
+msgstr "Shfaq Figure"
 
 #: examples/screensaver/tiles.php:33
 msgid "Tiles"
-msgstr ""
+msgstr "Pjeset"
 
 #: selectplace/learningcenter.php:25 selectplace/learningcenter.php:39
 #: selectplace/monitor.php:25 selectplace/monitor.php:51
 msgid "Select workplace"
-msgstr ""
+msgstr "Zgjidh mjedisin e punes"
 
 #: selectplace/learningcenter.php:45
 msgid "Conference room"
-msgstr ""
+msgstr "Dhoma e konferencave"
 
 #: selectplace/learningcenter.php:45 selectplace/monitor.php:73
 msgid "Test monitor"
-msgstr ""
+msgstr "Testo monitorin"
 
 #: selectplace/learningcenter.php:46 selectplace/monitor.php:66
 msgid "Mannheim table"
-msgstr ""
+msgstr "Tabela Mannheim"
