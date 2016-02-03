@@ -42,17 +42,17 @@ if test -d /sys/bus/pci; then
     echo auto >/sys/bus/pci/devices/0000:00:1d.0/power/control
 fi
 
-basedir=`dirname $0`
-basedir=`cd "$basedir" && cd .. && pwd`
+basedir=$(dirname "$0")
+basedir=$(cd "$basedir" && cd .. && pwd)
 
 cd "$basedir"
 
 inifile="$basedir/palma.ini"
 
 # Get some configuration parameters from ini file.
-export DISPLAY=`grep "^id[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
-start_url=`grep "^start_url[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
-theme=`grep "^theme[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/'`
+export DISPLAY=$(grep "^id[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/')
+start_url=$(grep "^start_url[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/')
+theme=$(grep "^theme[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/')
 background="${start_url}theme/${theme}/background.png"
 screensaver="${start_url}theme/${theme}/screensaver.php"
 
@@ -66,13 +66,13 @@ runx() {
 }
 
 # Get HOME directory of $user.
-userhome=`su -c pwd -s /bin/sh -l $user`
+userhome=$(su -c pwd -s /bin/sh -l "$user")
 
 # Allow X server on display :0 to start.
 /bin/sleep 3
 
 # Start X server.
-/usr/bin/Xorg $DISPLAY -verbose 0 -nolisten tcp vt8 &
+/usr/bin/Xorg "$DISPLAY" -verbose 0 -nolisten tcp vt8 &
 
 # Allow X server to start before continuing.
 /bin/sleep 5
@@ -101,7 +101,7 @@ runx "/usr/bin/xset s off"
 rm palma.db
 
 # Create directory for application settings if needed.
-mkdir -p $userhome/.config
+mkdir -p "$userhome/.config"
 
 # Find a web browser which supports JavaScript.
 # TODO: try other lightweight browsers.
@@ -109,14 +109,14 @@ webbrowser=/bin/false
 if test -f /usr/bin/dwb; then
     webbrowser=dwb
     # Run dwb with PalMA compatible settings.
-    rm -rf $userhome/.config/dwb
-    cp -a settings/dwb $userhome/.config
+    rm -rf "$userhome/.config/dwb"
+    cp -a settings/dwb "$userhome/.config"
 elif test -f /usr/bin/midori; then
     webbrowser=midori
 fi
 
 # Fix ownership of directory for application settings.
-chown -R $user:$user $userhome/.config
+chown -R "$user:$user" "$userhome/.config"
 
 # 0=initial state
 # 1=screen saver running
@@ -129,7 +129,7 @@ set +x
 while true; do
 
     if test -f palma.db; then
-        usercount=`sqlite3 palma.db "select count(*) from user"`
+        usercount=$(sqlite3 palma.db "select count(*) from user")
     else
         usercount=0
     fi
@@ -160,7 +160,7 @@ while true; do
         if test "$usercount" = '0'; then
             # There is still no user connected.
             # The screensaver should be running. If not: restart it.
-            if !(ps x|grep $webbrowser|grep -v --quiet grep); then
+            if ! pgrep "$webbrowser" >/dev/null; then
                 # Webbrowser was killed (software bug). Restart it.
                 date +"%F %T $webbrowser was killed"
                 state="0"
@@ -183,8 +183,8 @@ while true; do
             state="0"
             continue
         else
-            ACTIVITY=`date -r last_activity '+%s'`
-            NOW=`date '+%s'`
+            ACTIVITY=$(date -r last_activity '+%s')
+            NOW=$(date '+%s')
             DIFF=$((NOW - ACTIVITY))
             if test $((DIFF / 60)) -ge "$TIMEOUT"; then
                 # Users are still connected but for some time no longer active.
