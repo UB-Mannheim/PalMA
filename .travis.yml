@@ -1,17 +1,17 @@
 # Travis configuration for PalMA
 
-sudo: false
-
 language: php
 
+sudo: required
+dist: trusty
+
 # php-codesniffer is used for the PSR-2 conformance test.
-addons:
-  apt:
-    packages:
-      - php-codesniffer
-      - libperl-critic-perl
-      - shellcheck
+# Need the wily repos for shellcheck
+before_install:
+  - echo "deb http://archive.ubuntu.com/ubuntu/ wily universe" | sudo tee -a /etc/apt/sources.list
+  - sudo apt-get update -qq
+  - sudo apt-get install -yq php-codesniffer libperl-critic-perl shellcheck
 
 script:
-      - bash docs/dist/pre-commit.sh .
-      - bash docs/dist/pre-push.sh
+  - bash docs/dist/pre-commit.sh .
+  - bash docs/dist/pre-push.sh
