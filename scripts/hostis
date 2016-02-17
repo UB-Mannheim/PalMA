@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Updates the hostname of this PalMA station to the first argument of this script
-# Resets the host in /etc/hostname and /etc/hosts
-# Resets the station name in /var/www/html/palma.ini
+# Updates the hostname of a PalMA station to the first argument of this script.
+# Resets the host in /etc/hostname and /etc/hosts.
+# Resets the station name in /var/www/html/palma.ini.
 #
 # NOTE: Expects hostnames of the form "lc00" and expects station names to begin with "LC "
+
+# TODO:
+# - Replace the SSH keys.
 
 usage() {
     echo "Updates the hostname of this PalMA station"
@@ -30,11 +33,11 @@ name_uc="LC ${name:2:3}"
 
 for file in "${files[@]}"
 do
-    if [ -f $file ]
+    if [ -f "$file" ]
     then
-        sed -i "s/lc[0-9][0-9]/$name/g" $file
-        sed -i "s/LC [0-9][0-9]/$name_uc/g" $file
+        sed -i "s/lc[0-9][0-9]/$name/g" "$file"
+        sed -i "s/LC [0-9][0-9]/$name_uc/g" "$file"
     else
-        echo "File with filename $file does not exist."
+        echo "File with filename '$file' does not exist."
     fi
 done
