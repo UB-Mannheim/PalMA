@@ -128,8 +128,7 @@ abstract class FileHandler
 
         } elseif ($ftype === 'mpg' || $ftype === 'mpeg' || $ftype === 'avi' ||
                   $ftype === 'mp3' || $ftype === 'mp4') {
-            $fhandler='/usr/bin/vlc --no-audio';
-
+            $fhandler='/usr/bin/cvlc --no-audio';
         }
 
         /*
