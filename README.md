@@ -22,6 +22,7 @@ sections.
 Users authorize to the team monitor and control it by using a web application
 which runs on their mobile device or on their notebook.
 
+![PalMA in use](https://raw.githubusercontent.com/UB-Mannheim/ubma-screenshots/master/IMG_5965.JPG)
 
 Hardware requirements
 ---------------------
