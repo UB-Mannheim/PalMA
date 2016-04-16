@@ -23,6 +23,10 @@ $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
         $locale = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
     }
     switch (substr($locale, 0, 2)) {
+    case 'al':
+        // Albanian.
+        $locale = 'al_AL.UTF-8';
+        break;
     case 'ar':
         // Arabic.
         $locale = 'ar.UTF-8';
