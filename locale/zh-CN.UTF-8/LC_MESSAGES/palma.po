@@ -50,11 +50,11 @@ msgstr "回到开头"
 
 #: index.php:366
 msgid "Page up"
-msgstr "上翻页"
+msgstr "向上翻页"
 
 #: index.php:369
 msgid "Page down"
-msgstr "下翻页"
+msgstr "向下翻页"
 
 #: index.php:372
 msgid "Jump to end"
