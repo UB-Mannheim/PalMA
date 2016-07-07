@@ -131,7 +131,7 @@ More translations can be added on demand.
 All translated texts are under subdirectory `locale`.
 
 Newly added languages also need modifications in `Makefile`
-and in `gettext.php`.
+and in `i12n.php`.
 
 In a Debian GNU Linux installation, it is also necessary to add matching
 locales, either by running `dpkg-reconfigure locales` manually or by enabling

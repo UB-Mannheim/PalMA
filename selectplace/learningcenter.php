@@ -12,7 +12,7 @@ Todo:
 */
 
 // Support localisation.
-require_once('../gettext.php');
+require_once('../i12n.php');
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"

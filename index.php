@@ -64,7 +64,7 @@ Overlays
     $dbcon = new DBConnector();
 
     // Support localisation.
-    require_once('gettext.php');
+    require_once('i12n.php');
 
     $user = false;
     if (isset($_SESSION['username'])) {

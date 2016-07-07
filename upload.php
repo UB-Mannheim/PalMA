@@ -43,7 +43,7 @@ if ($error == UPLOAD_ERR_OK) {
     move_uploaded_file($tempFile, $targetFile);
 } else {
     // Support localisation.
-    require_once('gettext.php');
+    require_once('i12n.php');
 
     $targetFile = CONFIG_UPLOAD_DIR . "/error.html";
     $f = fopen($targetFile, 'w');
