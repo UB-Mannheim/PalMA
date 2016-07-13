@@ -1,4 +1,3 @@
-
 # Translation Stats
 
 > **DO NOT EDIT!**
@@ -7,12 +6,28 @@
 
 |Locale|Completion|
 |---|---|
+|[al_AL](#al_al)|93.75|
 |[ar](#ar)|42.19|
 |[de_DE](#de_de)|96.88|
 |[es_ES](#es_es)|92.19|
 |[it_IT](#it_it)|93.75|
 |[ru_RU](#ru_ru)|95.31|
-|[zh-CN](#zh-cn)|100.00|
+|[ur_PK](#ur_pk)|20.31|
+|[zh_CN](#zh_cn)|100.00|
+
+## al_AL
+
+Completion: **93.75** (60 / 64 strings)
+
+Contributors:
+
+  * Gert Pere
+
+Missing:
+  * `Log in`
+  * `Login`
+  * `PIN`
+  * `PalMA &ndash; Login`
 
 ## ar
 
@@ -122,7 +137,69 @@ Missing:
   * `Test monitor`
   * `Tiles`
 
-## zh-CN
+## ur_PK
+
+Completion: **20.31** (13 / 64 strings)
+
+Contributors:
+
+  * Stefan Weil
+  * Taimur
+
+Missing:
+  * `Cannot check credentials, sorry!`
+  * `Choose screen layout`
+  * `Close all windows`
+  * `Close all windows and remove uploaded files`
+  * `Close the help window`
+  * `Conference room`
+  * `Disconnect all users`
+  * `Disconnect all users and reset the work place`
+  * `Disconnect the current user`
+  * `Display list`
+  * `Drop documents here (or click)`
+  * `Drop documents here (or click) to load them up`
+  * `Error code %s.`
+  * `File '%s' cannot be shown.`
+  * `File was only partially uploaded.`
+  * `Help + Extras`
+  * `Invalid PIN.`
+  * `Invalid credentials!`
+  * `Just upload PDF files, images, OpenDocument or\n            MS Office files or enter a URL &ndash; PalMA will show them.`
+  * `Large files are not supported.`
+  * `Linux users can share their X display like this:`
+  * `List of connected users`
+  * `List of files, URLs and shared displays`
+  * `Log in`
+  * `Login`
+  * `Mannheim table`
+  * `PIN`
+  * `PalMA &ndash; Login`
+  * `Password`
+  * `Picture Show`
+  * `Remove this object`
+  * `Screen layout`
+  * `Select screen section for display`
+  * `Select workplace`
+  * `Share desktop (free UltraVNC / Windows only)`
+  * `Share desktop (non free RealVNC)`
+  * `Share the desktop of your notebook with others. PalMA uses\n            VNC for screen sharing. Download the VNC software once for your\n            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf\"\n            onclick=\"window.open(this.href); return false;\">Windows PC</a>\n            (preconfigured UltraVNC) or\n            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf\"\n            onclick=\"window.open(this.href); return false;\">MacBook</a>\n            (RealVNC).`
+  * `Show help and offer some extras`
+  * `Show team display`
+  * `Show this URL in a new browser window`
+  * `Team display`
+  * `Team members can join the group at any time. All they need\n            is URL and PIN.`
+  * `Test monitor`
+  * `The PalMA team monitor shows up to 4 contributions\n            simultaneously.`
+  * `This file is too large.`
+  * `Tiles`
+  * `Toggle visibility`
+  * `User list`
+  * `User name`
+  * `With PalMA, you can share your documents and your desktop\n            with your learning group.`
+  * `You were disconnected!`
+
+## zh_CN
 
 Completion: **100.00** (64 / 64 strings)
 
