@@ -57,7 +57,7 @@ $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
         break;
     case 'zh':
         // Chinese.
-        $locale = 'zh-CN.UTF-8';
+        $locale = 'zh_CN.UTF-8';
         break;
     default:
         $locale = 'en_US.UTF-8';
