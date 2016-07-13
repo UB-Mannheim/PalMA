@@ -1,4 +1,4 @@
-PalMA - share a team monitor
+PalMA – share a team monitor
 ============================
 
 Copyright (C) 2014 Universitätsbibliothek Mannheim
@@ -63,16 +63,16 @@ Microsoft Windows and Mac OS X clients need additional software if users
 want to share their desktop. These products were tested successfully
 with desktop computers and notebooks:
 
-* UltraVNC - http://www.uvnc.com/ (GNU General Public License)
+* UltraVNC – http://www.uvnc.com/ (GNU General Public License)
   This is a free VNC server for Windows.
   Using the Single Click version UltraVNC SC, it is possible
   to address preconfigured displays without any installation.
 
-* RealVNC - http://realvnc.com/ (commercial)
+* RealVNC – http://realvnc.com/ (commercial)
   This VNC server is needed for MacBooks with retina display.
   There is a free VNC server for individual private use.
 
-* x11vnc - http://www.karlrunge.com/x11vnc/ (free)
+* x11vnc – http://www.karlrunge.com/x11vnc/ (free)
   This VNC server is included in most Linux distributions.
 
 It is currently not possible to share the desktop of mobile
@@ -102,8 +102,8 @@ Acknowledgments
 
 This project uses other free software:
 
-* DropzoneJS - http://www.dropzonejs.com/ (MIT License)
-* Font Awesome by Dave Gandy - http://fontawesome.io/ (SIL OFL 1.1, MIT License)
-* Pure CSS modules - http://purecss.io/ (Yahoo BSD License)
-* QRcode - http://www.swetake.com/qrcode/index-e.html (BSD License)
-* UltraVNC - http://www.uvnc.com/ (GPL)
+* DropzoneJS – http://www.dropzonejs.com/ (MIT License)
+* Font Awesome by Dave Gandy – http://fontawesome.io/ (SIL OFL 1.1, MIT License)
+* Pure CSS modules – http://purecss.io/ (Yahoo BSD License)
+* QRcode – http://www.swetake.com/qrcode/index-e.html (BSD License)
+* UltraVNC – http://www.uvnc.com/ (GPL)
