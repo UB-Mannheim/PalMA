@@ -104,6 +104,7 @@ This project uses other free software:
 
 * DropzoneJS – http://www.dropzonejs.com/ (MIT License)
 * Font Awesome by Dave Gandy – http://fontawesome.io/ (SIL OFL 1.1, MIT License)
+* php-gettext 1.0 – https://launchpad.net/php-gettext (GPL v2 or later)
 * Pure CSS modules – http://purecss.io/ (Yahoo BSD License)
 * QRcode – http://www.swetake.com/qrcode/index-e.html (BSD License)
 * UltraVNC – http://www.uvnc.com/ (GPL)
