@@ -51,6 +51,14 @@ $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
         // Russian.
         $locale = 'ru_RU.UTF-8';
         break;
+    case 'ur':
+        // Urdu.
+        $locale = 'ur_PK.UTF-8';
+        break;
+    case 'zh':
+        // Chinese.
+        $locale = 'zh-CN.UTF-8';
+        break;
     default:
         $locale = 'en_US.UTF-8';
         break;
