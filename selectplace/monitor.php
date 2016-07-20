@@ -22,7 +22,7 @@ require_once('../i12n.php');
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>PalMA &ndash; <?=_('Select workplace')?></title>
+<title>PalMA &ndash; <?=__('Select workplace')?></title>
 
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 
@@ -48,7 +48,7 @@ function select(name, url) {
 
 <div id="monitor_selection">
 
-<h2>PalMA &ndash; <?=_('Select workplace')?></h2>
+<h2>PalMA &ndash; <?=__('Select workplace')?></h2>
 
 <div class="pure-u">
     <button class="pure-button pure-button-primary"
@@ -63,14 +63,14 @@ function select(name, url) {
     <button class="pure-button pure-button-primary"
             disabled
             onclick="">
-            <i class="fa fa-desktop fa-3x"></i><?=_('Mannheim table')?> 1</button>
+            <i class="fa fa-desktop fa-3x"></i><?=__('Mannheim table')?> 1</button>
     <button class="pure-button pure-button-primary"
             disabled
             onclick="">
             <i class="fa fa-desktop fa-3x"></i>Leselounge 2</button>
     <button class="pure-button pure-button-primary"
             onclick="select('Testmonitor', '..')">
-            <i class="fa fa-desktop fa-3x"></i><?=_('Test monitor')?></button>
+            <i class="fa fa-desktop fa-3x"></i><?=__('Test monitor')?></button>
     <button class="pure-button pure-button-primary"
             onclick="select('EDV32', 'http://edv32/~stefan/nuc')">
             <i class="fa fa-desktop fa-3x"></i>EDV32</button>

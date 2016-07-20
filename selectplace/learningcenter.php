@@ -22,7 +22,7 @@ require_once('../i12n.php');
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>PalMA &ndash; <?=_('Select workplace')?></title>
+<title>PalMA &ndash; <?=__('Select workplace')?></title>
 
 <!-- @http://purecss.io/forms/ -->
 <link rel="stylesheet" href="../pure-min.css">
@@ -36,14 +36,14 @@ require_once('../i12n.php');
 
 <div id="monitor_mask">
 
-<h2>PalMA &ndash; <?=_('Select workplace')?></h2>
+<h2>PalMA &ndash; <?=__('Select workplace')?></h2>
 
 <form class="pure-form pure-form-aligned" name="form" action="../index.php" method="post">
 <table class="monitorchoice">
     <tr><td><input name="monitor" type="hidden" value=""></td></tr>
     <tr>
-        <td align="center"><div class="selectdisplay"></div><button class="pure-button pure-button-primary pure-input-rounded" onclick="document.form.monitor.value='<?=_('Conference room')?>'"><?=_('Test monitor')?></button></td>
-        <td align="center"><div class="selectdisplay"></div><button class="pure-button pure-button-primary pure-input-rounded" onclick="document.form.monitor.value='Monitor 2'" disabled><?=_('Mannheim table')?> 1</button></td>
+        <td align="center"><div class="selectdisplay"></div><button class="pure-button pure-button-primary pure-input-rounded" onclick="document.form.monitor.value='<?=__('Conference room')?>'"><?=__('Test monitor')?></button></td>
+        <td align="center"><div class="selectdisplay"></div><button class="pure-button pure-button-primary pure-input-rounded" onclick="document.form.monitor.value='Monitor 2'" disabled><?=__('Mannheim table')?> 1</button></td>
         <td align="center"><div class="selectdisplay"></div><button class="pure-button pure-button-primary pure-input-rounded" onclick="document.form.monitor.value='3'" disabled>Leselounge 2</button></td>
     </tr>
     <tr>

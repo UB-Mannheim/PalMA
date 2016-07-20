@@ -50,16 +50,16 @@ if ($error == UPLOAD_ERR_OK) {
     if ($f) {
         switch ($error) {
             case UPLOAD_ERR_INI_SIZE:
-                $message = _("This file is too large.");
+                $message = __("This file is too large.");
                 break;
             case UPLOAD_ERR_FORM_SIZE:
-                $message = _("Large files are not supported.");
+                $message = __("Large files are not supported.");
                 break;
             case UPLOAD_ERR_PARTIAL:
-                $message = _("File was only partially uploaded.");
+                $message = __("File was only partially uploaded.");
                 break;
             default:
-                $message = sprintf(_("Error code %s."), $error);
+                $message = sprintf(__("Error code %s."), $error);
                 break;
         }
         fprintf($f, "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\"");
@@ -71,7 +71,7 @@ if ($error == UPLOAD_ERR_OK) {
         fprintf($f, "</head>\n");
         fprintf($f, "<body>\n");
         fprintf($f, "<p>\n");
-        fprintf($f, _("File '%s' cannot be shown.") . "<br>\n%s\n",
+        fprintf($f, __("File '%s' cannot be shown.") . "<br>\n%s\n",
                 $filename, $message);
         fprintf($f, "</p>\n");
         fprintf($f, "</body>\n");

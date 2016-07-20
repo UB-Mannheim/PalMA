@@ -136,5 +136,3 @@ $_REQUEST["json"] wird dabei nicht gesetzt. Eventuell ist das ein Problem der PH
 
 * i12n.php should find all available translations automatically.
   Currently it must be updated for new translations.
-  New translations also need an update of the Linux locales.
-  Is this really needed, or is there a better way?

@@ -164,12 +164,12 @@ function remoteControl(number, control) {
 
     var caption = document.createElement('div');
     caption.setAttribute('id', 'caption');
-    caption.appendChild(document.createTextNode('<?=_("Screen section")?> '+ number));
+    caption.appendChild(document.createTextNode('<?=__("Screen section")?> '+ number));
 
     var close = document.createElement('div');
     var i = document.createElement('i');
     i.setAttribute('class', 'fa fa-times');
-    i.setAttribute('title', '<?=_("Close the advanced control")?>');
+    i.setAttribute('title', '<?=__("Close the advanced control")?>');
     close.setAttribute('id', 'close');
     close.appendChild(i);
     close.setAttribute('onclick',       'restore()');
@@ -226,7 +226,7 @@ function urlToNuc() {
         sendToNuc('openURL='+url);
     } else {
         var urlfield = document.getElementById('url_field');
-        urlfield.setAttribute('value', '<?=_("Enter valid URL")?>');
+        urlfield.setAttribute('value', '<?=__("Enter valid URL")?>');
     }
 
     setTimeout(function(){location.reload()}, 1000);
@@ -264,12 +264,12 @@ function addControls(number, control, is_overlay) {
   tr.appendChild(document.createElement('td'));
   // TODO: try fa-arrow-up, fa-carret-up, fa-long-arrow-up, fa-angle-up, fa-play
   tr.appendChild(keyControl(number, 'fa-play fa-rotate-270', 'up',
-                            handler, !up, '<?=_("Cursor control")?>'));
+                            handler, !up, '<?=__("Cursor control")?>'));
   tr.appendChild(document.createElement('td'));
   table.appendChild(tr);
   tr = document.createElement('tr');
   tr.appendChild(keyControl(number, 'fa-play fa-rotate-180', 'left',
-                            handler, !left, '<?=_("Cursor control")?>'));
+                            handler, !left, '<?=__("Cursor control")?>'));
   td = document.createElement('td');
   button = document.createElement('button');
   button.appendChild(document.createTextNode(number));
@@ -279,17 +279,17 @@ function addControls(number, control, is_overlay) {
   } else {
       button.setAttribute('id', 'more');
       button.setAttribute('onclick', 'remoteControl(' + number + ', ' + JSON.stringify(control) + ')');
-      button.setAttribute('title', '<?=_("Advanced control")?>');
+      button.setAttribute('title', '<?=__("Advanced control")?>');
   }
   td.appendChild(button);
   tr.appendChild(td);
   tr.appendChild(keyControl(number, 'fa-play', 'right',
-                            handler, !right, '<?=_("Cursor control")?>'));
+                            handler, !right, '<?=__("Cursor control")?>'));
   table.appendChild(tr);
   tr = document.createElement('tr');
   tr.appendChild(document.createElement('td'));
   tr.appendChild(keyControl(number, 'fa-play fa-rotate-90', 'down',
-                            handler, !down, '<?=_("Cursor control")?>'));
+                            handler, !down, '<?=__("Cursor control")?>'));
   tr.appendChild(document.createElement('td'));
   table.appendChild(tr);
   div.appendChild(table);
@@ -339,13 +339,13 @@ function addDetailedControlsDiv(number, control) {
 
     tr = document.createElement('tr');
     td = keyControl(number, 'fa-search-plus', 'zoomin',
-                    handler, !zoomin, '<?=_("Zoom in")?>');
+                    handler, !zoomin, '<?=__("Zoom in")?>');
     tr.appendChild(td);
     table.appendChild(tr);
 
     tr = document.createElement('tr');
     td = keyControl(number, 'fa-search-minus', 'zoomout',
-                    handler, !zoomout, '<?=_("Zoom out")?>');
+                    handler, !zoomout, '<?=__("Zoom out")?>');
     tr.appendChild(td);
     table.appendChild(tr);
 
@@ -360,19 +360,19 @@ function addDetailedControlsDiv(number, control) {
     tr = document.createElement('tr');
 
     td = keyControl(number, 'fa-step-backward', 'home',
-                    handler, !home, "<?=_('Jump to start')?>");
+                    handler, !home, "<?=__('Jump to start')?>");
     tr.appendChild(td);
     td = keyControl(number, 'fa-backward', 'prior',
-                    handler, !prior, "<?=_('Page up')?>");
+                    handler, !prior, "<?=__('Page up')?>");
     tr.appendChild(td);
     td = keyControl(number, 'fa-forward', 'next',
-                    handler, !next, "<?=_('Page down')?>");
+                    handler, !next, "<?=__('Page down')?>");
     tr.appendChild(td);
     td = keyControl(number, 'fa-step-forward', 'end',
-                    handler, !end, "<?=_('Jump to end')?>");
+                    handler, !end, "<?=__('Jump to end')?>");
     tr.appendChild(td);
     td = keyControl(number, 'fa-download', 'download',
-                    handler, !download, '<?=_("Download this file")?>');
+                    handler, !download, '<?=__("Download this file")?>');
     td.setAttribute('onclick', 'downloadFile(' + number + ')');
     tr.appendChild(td);
 
@@ -750,7 +750,7 @@ function updateUserList(address, user) {
     if ($user) {
 ?>
         // All users were disconnected.
-        alert("<?=_('You were disconnected!')?>");
+        alert("<?=__('You were disconnected!')?>");
         window.location = 'logout.php';
 <?php
     } else {
@@ -833,7 +833,7 @@ function updateWindowList(window) {
                 i.setAttribute('class', 'fa fa-ban');
             }
             i.setAttribute('id', 'status_' + screensection);
-            i.setAttribute('title', '<?=_("Toggle visibility")?>');
+            i.setAttribute('title', '<?=__("Toggle visibility")?>');
             i.setAttribute('onclick',
                 "sendToNuc('window=" + screensection + "&toggle=TRUE')");
             td.appendChild(i);
@@ -841,7 +841,7 @@ function updateWindowList(window) {
             var select = document.createElement('select');
             select.setAttribute('onchange', "sendToNuc('switchWindows=TRUE&before=" + screensection + "&after='+(this.value))");
             select.setAttribute('name', 'window');
-            select.setAttribute('title', '<?=_("Select screen section for display")?>');
+            select.setAttribute('title', '<?=str_replace("'", "\\'", __("Select screen section for display"))?>');
             option = document.createElement('option');
             option.setAttribute('value', '0');
             if (s0) {
@@ -907,7 +907,7 @@ function updateWindowList(window) {
             i = document.createElement('i');
             i.setAttribute('class', 'fa fa-trash-o');
             i.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
-            i.setAttribute('title', '<?=_("Remove this object")?>');
+            i.setAttribute('title', '<?=__("Remove this object")?>');
             td.appendChild(i);
             tr.appendChild(td);
             list.appendChild(tr);
@@ -1041,51 +1041,51 @@ pollDatabase();
       # Show authorized user name (and address) and allow logout.
       if ($user) {
         echo("<p><a href=\"logout.php\" title=\"" .
-            _('Disconnect the current user') .
+            __('Disconnect the current user') .
             "\">$user<i class=\"fa fa-sign-out\"></i></a></p>");
       }
     ?>
 
-    <table class="userlist" summary="<?=_('User list')?>" title="<?=_('List of connected users')?>">
-        <caption><?=_('User list')?><i class="fa fa-users"></i></caption>
+    <table class="userlist" summary="<?=__('User list')?>" title="<?=__('List of connected users')?>">
+        <caption><?=__('User list')?><i class="fa fa-users"></i></caption>
         <tbody id="userlist">
             <tr><td><!-- filled by function updateUserList() --></td></tr>
         </tbody>
     </table>
     <button class="pure-button pure-button-primary pure-input-rounded"
             onClick="sendToNuc('logout=ALL')"
-            title="<?=_('Disconnect all users and reset the work place')?>">
-        <?=_('Disconnect all users')?>
+            title="<?=__('Disconnect all users and reset the work place')?>">
+        <?=__('Disconnect all users')?>
     </button>
 
-        <table class="itemlist" summary="<?=_('Display list')?>"
-               title="<?=_('List of files, URLs and shared displays')?>">
-            <caption><?=_('Display list')?><i class="fa fa-desktop"></i></caption>
+        <table class="itemlist" summary="<?=__('Display list')?>"
+               title="<?=__('List of files, URLs and shared displays')?>">
+            <caption><?=__('Display list')?><i class="fa fa-desktop"></i></caption>
             <tbody id="windowlist">
                 <tr><td><!-- filled by function updateWindowList() --></td></tr>
             </tbody>
         </table>
     <button class="pure-button pure-button-primary pure-input-rounded"
             onClick="sendToNuc('closeAll=TRUE')"
-            title="<?=_('Close all windows and remove uploaded files')?>">
-        <?=_('Close all windows')?>
+            title="<?=__('Close all windows and remove uploaded files')?>">
+        <?=__('Close all windows')?>
     </button>
     <button
         class="pure-button pure-button-primary pure-input-rounded"
         onclick="showHelp(true)"
-        title="<?=_('Show help and offer some extras')?>">
-        <?=_('Help + Extras')?>
+        title="<?=__('Show help and offer some extras')?>">
+        <?=__('Help + Extras')?>
         <i class="fa fa-question-circle"></i>
     </button>
 
 </div> <!-- workbench_right -->
 
 <div id="workbench_left">
-    <table class="maindisplay" summary="<?=_('Team display')?>">
+    <table class="maindisplay" summary="<?=__('Team display')?>">
         <caption>
             <img id="palma_logo"
                  src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
-                 alt="PalMA"> <?=_('Team display')?>
+                 alt="PalMA"> <?=__('Team display')?>
         <?php
               if (isset($_SESSION['monitor'])) {
                   echo('(' . $_SESSION['monitor'] . ')');
@@ -1096,41 +1096,41 @@ pollDatabase();
             <tr><td><!-- filled by function showLayout() --></td></tr>
         </tbody>
     </table>
-    <table class="minidisplaylist" summary="<?=_('Screen layout')?>">
-        <caption><?=_('Screen layout')?></caption>
+    <table class="minidisplaylist" summary="<?=__('Screen layout')?>">
+        <caption><?=__('Screen layout')?></caption>
         <tr>
           <td><div>
             <button class="pure-button pure-button-primary pure-input-rounded"
                     id="g1x1" onclick="miniDisplaySelect(this)"
-                    title="<?=_('Choose screen layout')?>">
+                    title="<?=__('Choose screen layout')?>">
               <table><tr><td>1</td></tr></table>
             </button>
           </div></td>
           <td><div>
             <button class="pure-button pure-button-primary pure-input-rounded"
                     id="g1x2" onclick="miniDisplaySelect(this)"
-                    title="<?=_('Choose screen layout')?>">
+                    title="<?=__('Choose screen layout')?>">
               <table><tr><td>1</td></tr><tr><td>2</td></tr></table>
             </button>
           </div></td>
           <td><div>
             <button class="pure-button pure-button-primary pure-input-rounded"
                     id="g2x1" onclick="miniDisplaySelect(this)"
-                    title="<?=_('Choose screen layout')?>">
+                    title="<?=__('Choose screen layout')?>">
               <table><tr><td>1</td><td>2</td></tr></table>
             </button>
           </div></td>
           <td><div>
             <button class="pure-button pure-button-primary pure-input-rounded"
                     id="g1a2" onclick="miniDisplaySelect(this)"
-                    title="<?=_('Choose screen layout')?>">
+                    title="<?=__('Choose screen layout')?>">
               <table><tr><td rowspan="2">1</td><td>2</td></tr><tr><td>3</td></tr></table>
             </button>
           </div></td>
           <td><div>
             <button class="pure-button pure-button-primary pure-input-rounded"
                     id="g2x2" onclick="miniDisplaySelect(this)"
-                    title="<?=_('Choose screen layout')?>">
+                    title="<?=__('Choose screen layout')?>">
               <table><tr><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td></tr></table>
             </button>
           </div></td>
@@ -1139,13 +1139,13 @@ pollDatabase();
     <table>
   <tr>
   <td>
-    <input type="text" value="<?=_('Enter URL')?>"
+    <input type="text" value="<?=__('Enter URL')?>"
            id="url_field" maxlength="256" size="46"
            onkeydown="if (event.keyCode == 13) document.getElementById('url_button').click()"
-           onfocus="clearURLField('<?=_('Enter URL')?>')">
+           onfocus="clearURLField('<?=__('Enter URL')?>')">
     <button class="pure-button pure-button-primary pure-input-rounded"
             id="url_button"
-            onClick="urlToNuc()" title="<?=_('Show this URL in a new browser window')?>">
+            onClick="urlToNuc()" title="<?=__('Show this URL in a new browser window')?>">
          URL
             <i class="fa fa-folder-open"></i>
      </button>
@@ -1155,11 +1155,11 @@ pollDatabase();
       <form action="upload.php"
             class="dropzone"
             id="palma-dropzone"
-            title="<?=_('Drop documents here (or click) to load them up')?>">
+            title="<?=__('Drop documents here (or click) to load them up')?>">
           <div class="dz-default dz-message">
               <i class="fa fa-upload fa-1x"></i>
               <div>
-                  <?=_('Drop documents here (or click)')?>
+                  <?=__('Drop documents here (or click)')?>
               </div>
           </div>
       </form>
@@ -1185,23 +1185,23 @@ pollDatabase();
 <div id="helpwindow">
     <div id="helpcontainer">
         <div id="helpclose" onclick="showHelp(false)">
-            <i class="fa fa-times" title="<?=_('Close the help window')?>"></i>
+            <i class="fa fa-times" title="<?=__('Close the help window')?>"></i>
         </div>
         <h3>
-            <?=_('Help + Extras')?>
+            <?=__('Help + Extras')?>
         </h3>
         <div>
-            <p><?=_('With PalMA, you can share your documents and your desktop
+            <p><?=__('With PalMA, you can share your documents and your desktop
             with your learning group.')?></p>
-            <p><?=_('Team members can join the group at any time. All they need
+            <p><?=__('Team members can join the group at any time. All they need
             is URL and PIN.')?>
             URL: <?=$_SESSION['starturl']?>,
             PIN: <?=$_SESSION['pin']?>.</p>
-            <p><?=_('The PalMA team monitor shows up to 4 contributions
+            <p><?=__('The PalMA team monitor shows up to 4 contributions
             simultaneously.')?></p>
-            <p><?=_('Just upload PDF files, images, OpenDocument or
+            <p><?=__('Just upload PDF files, images, OpenDocument or
             MS Office files or enter a URL &ndash; PalMA will show them.')?></p>
-            <p><?=_('Share the desktop of your notebook with others. PalMA uses
+            <p><?=__('Share the desktop of your notebook with others. PalMA uses
             VNC for screen sharing. Download the VNC software once for your
             <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf"
             onclick="window.open(this.href); return false;">Windows PC</a>
@@ -1209,20 +1209,20 @@ pollDatabase();
             <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf"
             onclick="window.open(this.href); return false;">MacBook</a>
             (RealVNC).')?></p>
-            <p><?=_('Linux users can share their X display like this:')?><br>
+            <p><?=__('Linux users can share their X display like this:')?><br>
             <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>
         </div>
     <button
         class="pure-button pure-button-primary pure-input-rounded"
         onclick="window.open('<?=$winvnc?>'); return false;">
-        <?=_('Share desktop (free UltraVNC / Windows only)')?>
+        <?=__('Share desktop (free UltraVNC / Windows only)')?>
         <i class="fa fa-download"></i>
     </button>
     <br>
     <button
         class="pure-button pure-button-primary pure-input-rounded"
         onclick="window.open('http://realvnc.com/download/vnc/'); return false;">
-        <?=_('Share desktop (non free RealVNC)')?>
+        <?=__('Share desktop (non free RealVNC)')?>
         <i class="fa fa-download"></i>
     </button>
 
@@ -1230,7 +1230,7 @@ pollDatabase();
     <button
         class="pure-button pure-button-primary pure-input-rounded"
         onclick="window.open('vncviewer.php'); return false;">
-        <?=_('Show team display')?>
+        <?=__('Show team display')?>
     </button>
 -->
     <!-- TODO test code, remove for production. -->
