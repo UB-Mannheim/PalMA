@@ -21,7 +21,8 @@ all: $(patsubst %.po, %.mo, $(PO))
 	msgfmt --output-file=$@ $?
 
 palma.po: $(SRC)
-	xgettext --default-domain=palma --output-dir=. --from-code=UTF-8 $(SRC)
+	xgettext --default-domain=palma --keyword=__ --package-name=palma \
+		 --output-dir=. --from-code=UTF-8 $(SRC)
 	perl -pi -e s/charset=CHARSET/charset=UTF-8/ $@
 
 $(PO): palma.po
