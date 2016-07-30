@@ -1,5 +1,5 @@
 <?php
-// Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
+// Copyright (C) 2014-2016 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
 // This action requires an authorized user.
@@ -22,7 +22,8 @@ $filepath = CONFIG_UPLOAD_DIR . '/' . $filename;
 if (file_exists($filepath)) {
     // file exists: return file for download
     header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="'.addslashes($filename).'"');
+    header('Content-Disposition: attachment; filename="' .
+           addslashes($filename) . '"');
     readfile($filepath);
 } else {
     // file does not exist: 404 Not Found
