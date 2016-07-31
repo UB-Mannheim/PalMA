@@ -319,19 +319,21 @@ function processRequests($db)
         // All windows related commands must start with window=.
 
         $windownumber = $_REQUEST['window'];
+        $windowname = false;
+        $windowhex = 0;
+        // TODO: $win_id und $windowname können vermutlich zusammengefasst werden.
+        $win_id = 0;
+
         if ($windownumber != 'vncwin') {
             // This is the normal case.
             // Special handling is needed when called with window=vncwin, see below.
             $window = $windownumber - 1;
 
-            // TODO: $win_id und $windowname können vermutlich zusammengefasst werden.
             $win_id = $db->getWindowIDBySection($windownumber);
             $windowlist = windowList();
 
             if (count($windowlist) == 0) {
                 trace("no window found for command");
-                $windowname = false;
-                $windowhex = 0;
             } else {
                 // TODO: improve test whether window exists.
                 $windowname = $windowlist[$window];
