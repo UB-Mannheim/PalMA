@@ -77,9 +77,7 @@ function windowList()
     // Get ordered list of all windows from the database.
     $windows = $db->getWindows();
     foreach ($windows as $w) {
-// trace("w = " . serialize($w));
         $id = $w['win_id'];
-// trace("id = $id");
         if ($id != '') {
             array_push($list, $id);
         }
@@ -95,7 +93,6 @@ function closeAll()
 
     foreach ($windows_on_screen as $id) {
         wmClose($id);
-        // trace("closeAllWindows: $id");
         if ($db->getWindowState($id) != null) {
             $db->deleteWindow($id);
         }
@@ -149,6 +146,7 @@ function setLayout($layout)
 
     trace("layout $layout");
 
+    $geom = array();
     $geom['g1x1'] = array(
                         array(0, 0, 1, 1)
                     );
