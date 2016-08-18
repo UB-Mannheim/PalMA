@@ -197,7 +197,7 @@ TODO:
 	<div id="login_fields">
         <div class="pure-control-group">
             <label for="username"><?=_("User name")?></label>
-            <input id="username" name="username" type="text" value="<?=$username?>" placeholder="Ihre Kennung">
+            <input id="username" name="username" type="text" value="<?=$username?>" placeholder="Ihr Name">
         </div>
 <?php
         if (CONFIG_PASSWORD) {
