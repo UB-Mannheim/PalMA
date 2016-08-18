@@ -20,7 +20,7 @@
     require_once('DBConnector.class.php');
     $dbcon = new DBConnector();
 
-    require_once('i12n.php');
+    require_once('gettext.php');
 
     $errtext = false;
 
@@ -90,18 +90,18 @@
 
     if (!$out) {
         trace("curl failed for user '$username'");
-        $errtext = __('Invalid credentials!');
+        $errtext = _('Invalid credentials!');
     } else if (preg_match('/404 Not Found/', $out)) {
         return true;
     } else if (preg_match('/Could not resolve proxy/', $out)) {
         trace('proxy authentisation was not possible');
-        $errtext = __('Cannot check credentials, sorry!');
+        $errtext = _('Cannot check credentials, sorry!');
     } else if (preg_match('/Cache Access Denied/', $out)) {
         trace("access denied for user '$username'");
-        $errtext = __('Invalid credentials!');
+        $errtext = _('Invalid credentials!');
     } else {
         trace("access not possible for user '$username'");
-        $errtext = __('Invalid credentials!');
+        $errtext = _('Invalid credentials!');
     }
     return false;
   }
@@ -130,7 +130,7 @@
         // Invalid username or password.
     } else if (CONFIG_PIN && ($pin != $posted_pin)) {
         trace("access denied for user '$username', wrong pin $posted_pin");
-        $errtext = __('Invalid PIN.');
+        $errtext = _('Invalid PIN.');
     } else {
         // Successfully checked username, password and PIN.
         trace("access granted for user '$username'");
@@ -164,7 +164,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title><?=__("PalMA &ndash; Login")?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><?=_("PalMA &ndash; Login")?></title>
 
 <link rel="icon" href="theme/<?=CONFIG_THEME?>/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -183,7 +184,7 @@ TODO:
 -->
 
 <body onLoad="document.forms.auth.username.focus()">
-
+<div id="login_outer">
 <div id="login_mask">
 
 <form name="auth" class="pure-form pure-form-aligned" action="login.php" method="post">
@@ -191,32 +192,34 @@ TODO:
 <fieldset class="login">
     <legend>
         <img src="theme/<?=CONFIG_THEME?>/palma-logo-67x25.png" alt="PalMA" height="25"/>
-        &ndash; <?=__("Login")?>
+        &ndash; <?=_("Login")?>
     </legend>
+	<div id="login_fields">
         <div class="pure-control-group">
-            <label for="username"><?=__("User name")?></label>
-            <input id="username" name="username" type="text" value="<?=$username?>">
+            <label for="username"><?=_("User name")?></label>
+            <input id="username" name="username" type="text" value="<?=$username?>" placeholder="Ihre Kennung">
         </div>
 <?php
         if (CONFIG_PASSWORD) {
 ?>
         <div class="pure-control-group">
-            <label for="userpassword"><?=__("Password")?></label>
-            <input id="userpassword" name="userpassword" type="password">
+            <label for="userpassword"><?=_("Password")?></label>
+            <input id="userpassword" name="userpassword" type="password" placeholder="Ihr Passwort">
         </div>
 <?php
         }
         if (CONFIG_PIN) {
 ?>
         <div class="pure-control-group">
-            <label for="pin"><?=__("PIN")?></label>
-            <input id="pin" name="pin" type="text" value="<?=$posted_pin?>">
+            <label for="pin"><?=_("PIN")?></label>
+            <input id="pin" name="pin" type="text" value="<?=$posted_pin?>" placeholder="Angezeigte PIN">
         </div>
 <?php
         }
 ?>
+	</div>
         <div class="pure-controls">
-            <button type="submit" class="pure-button pure-button-primary"><?=__("Log in")?><i class="fa fa-sign-in"></i></button>
+            <button type="submit" class="pure-button pure-button-primary"><?=_("Log in")?><i class="fa fa-sign-in"></i></button>
         </div>
 </fieldset>
 
@@ -231,6 +234,7 @@ if (defined('CONFIG_POLICY')) {
 }
 ?>
 
+</div>
 </div>
 
 </body>
