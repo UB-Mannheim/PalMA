@@ -184,7 +184,7 @@ TODO:
 -->
 
 <body onLoad="document.forms.auth.username.focus()">
-<div id="login_outer">
+<div id="login_mask_outer">
 <div id="login_mask">
 
 <form name="auth" class="pure-form pure-form-aligned" action="login.php" method="post">
