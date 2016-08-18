@@ -20,7 +20,7 @@
     require_once('DBConnector.class.php');
     $dbcon = new DBConnector();
 
-    require_once('gettext.php');
+    require_once('i12n.php');
 
     $errtext = false;
 
