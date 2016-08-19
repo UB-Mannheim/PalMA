@@ -197,14 +197,14 @@ TODO:
 	<div id="login_fields">
         <div class="pure-control-group">
             <label for="username"><?=_("User name")?></label>
-            <input id="username" name="username" type="text" value="<?=$username?>" placeholder="Ihr Name">
+            <input id="username" name="username" type="text" value="<?=$username?>">
         </div>
 <?php
         if (CONFIG_PASSWORD) {
 ?>
         <div class="pure-control-group">
             <label for="userpassword"><?=_("Password")?></label>
-            <input id="userpassword" name="userpassword" type="password" placeholder="Ihr Passwort">
+            <input id="userpassword" name="userpassword" type="password">
         </div>
 <?php
         }
@@ -212,7 +212,7 @@ TODO:
 ?>
         <div class="pure-control-group">
             <label for="pin"><?=_("PIN")?></label>
-            <input id="pin" name="pin" type="text" value="<?=$posted_pin?>" placeholder="Angezeigte PIN">
+            <input id="pin" name="pin" type="text" value="<?=$posted_pin?>">
         </div>
 <?php
         }
