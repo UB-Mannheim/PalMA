@@ -5,7 +5,7 @@ Operating system
 ----------------
 
 The PalMA web application requires a web server (usually Apache 2) which
-supports PHP 2 and SQLite.
+supports PHP 5 and SQLite.
 
 User provided contents are shown using a simple web browser (dwb),
 an image viewer (eog, will be replaced by feh),
@@ -39,13 +39,13 @@ Apache
 
 The PHP5 default configuration for the Apache2 webserver permits file uploads
 up to 2 MB. This limit is too low for typical documents (images,
-office documents, pdf). Change the setting upload_max_filesize in
+office documents, pdf). Change the setting `upload_max_filesize` in
 `/etc/php5/apache2/php.ini`. 10 MB is a good value. There is another limit
 for the maximum size of HTML posts with a default value of 8 MB.
 As this is less than the 10 MB needed for file uploads, the setting
-post_max_size must also be increased by setting it to 10 MB.
+`post_max_size` must also be increased by setting it to 10 MB.
 
-PalMA uses .htaccess to protect the database and the uploads directory.
+PalMA uses `.htaccess` to protect the database and the uploads directory.
 To enable this feature, Apache2 needs this section in file
 `/etc/apache2/sites-available/000-default.conf`:
 
@@ -105,7 +105,7 @@ this command to get a preliminary file:
     cp /var/www/html/examples/palma.ini /var/www/html/palma.ini
 
 Some entries in `palma.ini` still need to be fixed for your local installation.
-These include at least the entries theme and start_url.
+These include at least the entries `theme` and `start_url`.
 
 
 Customize an installation
@@ -148,7 +148,8 @@ Viewers
 -------
 
 PalMA uses external applications as viewers for the different document types.
-For HTML, a web browser is needed. midori, netsurf, dwb, surf, xombrero, uzbl.
+For HTML, a web browser is needed. Some light-weight browsers are midori,
+netsurf, dwb, surf, xombrero, uzbl.
 
 
 Raspberry Pi
@@ -165,8 +166,8 @@ Raspberry Pi 1:
     mkdir -p /var/www/html
     chown www-data:www-data /var/www/html
 
-We replaced the apache2 web server by nxinx because it uses much
-less ressources. Fix the server root and enable PHP5 in the configuration
+We replaced the apache2 web server with nginx because it uses much
+less resources. Fix the server root and enable PHP5 in the configuration
 file `/etc/nginx/sites-enabled/default`:
 
     server {
