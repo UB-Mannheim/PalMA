@@ -131,8 +131,8 @@ legend {
 
 /* Main display. */
 #workbench_left .maindisplay {
-    width: 600px;
-    height: 300px;
+    width: 60%;
+    height: 30%;
     margin-right: 20px;
     margin-bottom: 20px;
 }
