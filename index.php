@@ -1035,7 +1035,9 @@ pollDatabase();
 
 </head>
 
-<body id="workbench">
+<body id="workbench_outer">
+
+<div id="workbench">
 
 <div id="workbench_right">
     <?php
@@ -1043,7 +1045,7 @@ pollDatabase();
       if ($user) {
         echo("<p><a href=\"logout.php\" title=\"" .
             __('Disconnect the current user') .
-            "\">$user<i class=\"fa fa-sign-out\"></i></a></p>");
+            "\">Abmelden<i class=\"fa fa-sign-out\"></i></a></p>");
       }
     ?>
 
@@ -1097,7 +1099,14 @@ pollDatabase();
             <tr><td><!-- filled by function showLayout() --></td></tr>
         </tbody>
     </table>
-    <table class="minidisplaylist" summary="<?=__('Screen layout')?>">
+	
+	<div id="show_hide">
+	<button class="pure-button pure-button-primary pure-input-rounded" onclick='$("#displaylist").toggle(500);'><?=__('Screen layout')?></button>
+	<button class="pure-button pure-button-primary pure-input-rounded" onclick='$("#url_doc").toggle(500);'><?=__('Enter URL')?></button>	
+	<button class="pure-button pure-button-primary pure-input-rounded" onclick='$("#workbench_right").toggle(500);'>Sidebar</button>	
+	</div>
+	
+    <table class="minidisplaylist" id="displaylist" summary="<?=__('Screen layout')?>">
         <caption><?=__('Screen layout')?></caption>
         <tr>
           <td><div>
@@ -1137,7 +1146,7 @@ pollDatabase();
           </div></td>
         </tr>
     </table>
-    <table>
+    <table id="url_doc">
   <tr>
   <td>
     <input type="text" value="<?=__('Enter URL')?>"
@@ -1245,6 +1254,7 @@ pollDatabase();
     </div>
 </div>
 
+</div>
 </body> <!-- workbench -->
 
 </html>

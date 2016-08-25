@@ -111,28 +111,35 @@ legend {
     margin: 10px 0px 5px 10px;
 }
 
+#workbench_outer {
+	padding: 1% 5% 1% 5%;
+	min-width: 220px;
+}
+
 #workbench {
     background-color: #F1F1F1;
     border: 1px solid;
     border-radius: 5px;
     box-shadow: 8px 8px 4px #666666;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    padding: 10px 10px 10px 10px;
-    width: 880px;
+	margin: 1% auto;
+    padding: .5% 1.5% 1% 1.5%;
+	min-width: 220px;
+	width: auto;
+    max-width: 880px;
 }
+
 
 /* Left part of workbench */
 
 #workbench_left {
-    width: 600px;
+	width: 80%;
+    max-width: 600px;
 }
 
 /* Main display. */
 #workbench_left .maindisplay {
-    width: 60%;
-    height: 30%;
+    width: 600px;
+	height: 300px;
     margin-right: 20px;
     margin-bottom: 20px;
 }
@@ -179,6 +186,8 @@ legend {
     cursor: pointer;
     font-size: 120%;
 }
+
+#show_hide {margin: 5px;}
 
 /* Online help. */
 
@@ -250,7 +259,8 @@ legend {
 
 #workbench_right {
     float: right;
-    width: 260px;
+    max-width: 250px;
+	width: 30%;
 }
 
 /* Logout link. */
@@ -345,7 +355,7 @@ legend {
 }
 .dz-default {
     margin-top: 10px;
-    width: 580px;
+    max-width: 580px;
     padding: 10px;
 }
 
@@ -510,4 +520,29 @@ td:hover {
   div.slide { page-break-before: always }
   /* :first-child isn't reliable for print media */
   div.slide.first-slide { page-break-before: avoid }
+}
+
+
+@media only screen and (max-width:480px){
+	#workbench_right, #url_doc, #displaylist {display: none;}
+	#workbench_left .maindisplay {
+    max-width: 600px;
+	width: 100%;
+	height: 80%;
+    max-height: 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+}
+
+@media only screen and (min-width:480px) and (max-width:640px){
+	#workbench_right, #url_doc, #displaylist {display: none;}
+	#workbench_left .maindisplay {
+    max-width: 600px;
+	width: 100%;
+	height: 80%;
+    max-height: 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
 }
