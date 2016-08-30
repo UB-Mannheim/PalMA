@@ -1047,7 +1047,7 @@ pollDatabase();
       if ($user) {
         echo("<p><a href=\"logout.php\" title=\"" .
             __('Disconnect the current user') .
-            "\">Abmelden<i class=\"fa fa-sign-out\"></i></a></p>");
+            "\">Log Out<i class=\"fa fa-sign-out\"></i></a></p>");
       }
     ?>
 
@@ -1104,7 +1104,7 @@ pollDatabase();
 	
 	<div id="show_hide">
 	<button class="pure-button pure-button-primary pure-input-rounded" onclick='$("#displaylist").toggle(500);'><?=__('Screen layout')?></button>
-	<button class="pure-button pure-button-primary pure-input-rounded" onclick='$("#url_doc").toggle(500);'><?=__('Enter URL')?></button>	
+	<button class="pure-button pure-button-primary pure-input-rounded" onclick='$("#url_doc").toggle(500);'>URL / Dokument</button>	
 	<button class="pure-button pure-button-primary pure-input-rounded" onclick='$("#workbench_right").toggle(500);'>Sidebar</button>	
 	</div>
 	

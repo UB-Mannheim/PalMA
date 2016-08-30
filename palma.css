@@ -112,7 +112,7 @@ legend {
 }
 
 #workbench_outer {
-	padding: 1% 5% 1% 5%;
+	padding: 1% 1.5%;
 	min-width: 220px;
 }
 
@@ -126,6 +126,7 @@ legend {
 	min-width: 220px;
 	width: auto;
     max-width: 880px;
+	height: auto;
 }
 
 
@@ -187,7 +188,18 @@ legend {
     font-size: 120%;
 }
 
-#show_hide {margin: 5px;}
+#show_hide {display: none;}
+
+
+#url_doc {width: 100%;}
+#url_field {
+    width: 80%;
+}
+#url_button {width: 15%;}
+
+#displaylist {
+	width: 100%;
+}
 
 /* Online help. */
 
@@ -283,9 +295,9 @@ legend {
     clear:both;
 }
 
-#url_field {
-    width: 30em;
-}
+
+
+
 .fa-upload {
     float: right;
 }
@@ -523,26 +535,112 @@ td:hover {
 }
 
 
-@media only screen and (max-width:480px){
-	#workbench_right, #url_doc, #displaylist {display: none;}
-	#workbench_left .maindisplay {
-    max-width: 600px;
-	width: 100%;
-	height: 80%;
-    max-height: 300px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+
+@media only screen and (max-width:360px){
+#show_hide button {margin: 5px; display: block;}
+}
+
+@media only screen and (max-width:800px){
+.minidisplaylist div {
+    width: 80px;
+}
+.minidisplaylist button {
+    width: 75px;
+}
+.minidisplaylist button table {
+width: 60px;
 }
 }
 
-@media only screen and (min-width:480px) and (max-width:640px){
+
+@media only screen and (max-width:1280px){
+	#workbench_left {
+	width: 65%;
+}
+
+	#workbench_left .maindisplay {
+		max-width: 600px;
+		width: 100%;
+		height: 100%;
+		max-height: 300px;
+		margin-right: 20px;
+		margin-bottom: 10px;
+	}
+
+
+	
+#workbench_right {
+	padding: 5px;
+}	
+
+
+.itemlist, .userlist {
+    width: 80%;
+}
+
+}
+
+
+
+
+@media only screen and (max-width:480px){
+	#workbench_outer {
+	padding: 1% 1.5%;
+	min-width: 220px;
+}
+	
 	#workbench_right, #url_doc, #displaylist {display: none;}
 	#workbench_left .maindisplay {
-    max-width: 600px;
+		max-width: 600px;
+		width: 100%;
+		height: 80%;
+		max-height: 300px;
+		margin-right: 20px;
+		margin-bottom: 10px;
+	}
+	
+
+	
+	#workbench_left {
 	width: 100%;
-	height: 80%;
-    max-height: 300px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    max-width: 600px;
 }
+
+#show_hide {display: block; margin: 2px;}
+
+.control button {height: 40px; width: 40px;}
+
+#workbench {margin: .5px;}
+}
+
+@media only screen and (min-width:480px) and (max-width:640px){
+	
+	#workbench_outer {
+	padding: 1% 2.5%;
+	min-width: 220px;
+}
+
+#workbench_left {
+	width: 100%;
+    max-width: 600px;
+}
+
+	#workbench_right, #url_doc, #displaylist {display: none;}
+	#workbench_left .maindisplay {
+		max-width: 600px;
+		width: 100%;
+		height: 80%;
+		max-height: 300px;
+		margin-right: 20px;
+		margin-bottom: 10px;
+	}
+	
+
+	
+	
+	#show_hide {display: block; margin: 2px;}
+	
+	.control button {height: 40px; width: 40px;}
+	
+	#workbench {margin: .5px;}
 }
