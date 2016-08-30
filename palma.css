@@ -552,13 +552,11 @@ width: 60px;
 }
 }
 
-
 @media only screen and (max-width:1280px){
-	#workbench_left {
+#workbench_left {
 	width: 65%;
 }
-
-	#workbench_left .maindisplay {
+#workbench_left .maindisplay {
 		max-width: 600px;
 		width: 100%;
 		height: 100%;
@@ -566,31 +564,21 @@ width: 60px;
 		margin-right: 20px;
 		margin-bottom: 10px;
 	}
-
-
-	
 #workbench_right {
 	padding: 5px;
 }	
-
-
 .itemlist, .userlist {
     width: 80%;
 }
-
 }
 
-
-
-
 @media only screen and (max-width:480px){
-	#workbench_outer {
+#workbench_outer {
 	padding: 1% 1.5%;
 	min-width: 220px;
 }
-	
-	#workbench_right, #url_doc, #displaylist {display: none;}
-	#workbench_left .maindisplay {
+#workbench_right, #url_doc, #displaylist {display: none;}
+#workbench_left .maindisplay {
 		max-width: 600px;
 		width: 100%;
 		height: 80%;
@@ -598,35 +586,39 @@ width: 60px;
 		margin-right: 20px;
 		margin-bottom: 10px;
 	}
-	
-
-	
-	#workbench_left {
-	width: 100%;
-    max-width: 600px;
+#url_field {
+    width: 70%;
 }
-
-#show_hide {display: block; margin: 2px;}
-
-.control button {height: 40px; width: 40px;}
-
-#workbench {margin: .5px;}
+#url_button {width: 25%;}
+.minidisplaylist div {
+    width: 55px;
 }
-
-@media only screen and (min-width:480px) and (max-width:640px){
-	
-	#workbench_outer {
-	padding: 1% 2.5%;
-	min-width: 220px;
+.minidisplaylist button {
+    width: 50px;
 }
-
+.minidisplaylist button table {
+width: 35px;
+}
 #workbench_left {
 	width: 100%;
     max-width: 600px;
 }
+#show_hide {display: block; margin: 2px;}
+.control button {height: 40px; width: 40px;}
+#workbench {margin: .5px;}
+}
 
-	#workbench_right, #url_doc, #displaylist {display: none;}
-	#workbench_left .maindisplay {
+@media only screen and (min-width:480px) and (max-width:640px){
+#workbench_outer {
+	padding: 1% 2.5%;
+	min-width: 220px;
+}
+#workbench_left {
+	width: 100%;
+    max-width: 600px;
+}
+#workbench_right, #url_doc, #displaylist {display: none;}
+#workbench_left .maindisplay {
 		max-width: 600px;
 		width: 100%;
 		height: 80%;
@@ -634,13 +626,7 @@ width: 60px;
 		margin-right: 20px;
 		margin-bottom: 10px;
 	}
-	
-
-	
-	
-	#show_hide {display: block; margin: 2px;}
-	
-	.control button {height: 40px; width: 40px;}
-	
+#show_hide {display: block; margin: 2px;}
+.control button {height: 40px; width: 40px;}
 	#workbench {margin: .5px;}
 }
