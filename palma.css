@@ -269,35 +269,6 @@ legend {
 
 
 
-@media only screen and (max-width:640px){
-#overlay {
-    background-color: #000000;
-    background: rgba(0, 0, 0, 0.7);
-    font-size: 100%;
-    position: absolute; top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 5;
-}
-
-#container {
-    background: rgba(255, 255, 255, 1);
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    padding: 10px 10px 20px 10px;
-    display: block;
-    width: 100%;
-	max-width: 600px;
-}
-	
-.overlay button {
-    height: 50px;
-    width: 50px;
-}
-
-}
-
 /* Right part of workbench */
 
 #workbench_right {
@@ -603,6 +574,8 @@ width: 60px;
 }
 }
 
+
+
 @media only screen and (max-width:480px){
 #workbench_outer {
 	padding: 1% 1.5%;
@@ -638,6 +611,49 @@ width: 35px;
 .control button {height: 40px; width: 40px;}
 #workbench {margin: .5px;}
 }
+
+
+@media only screen and (max-width:640px){
+#overlay {
+    background-color: #000000;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 100%;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 5;
+}
+
+#container {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding: 10px 10px 20px 10px;
+    display: block;
+    width: 100%;
+	max-width: 600px;
+}
+	
+.overlay button {
+    height: 50px;
+    width: 50px;
+}
+
+.updown {
+    margin: 0 0 20px;
+    padding: 2.5px 2.5px 0 35px;
+    max-width: 300px;
+	width: 80%;
+}
+
+.controlpanel {
+    margin: 10px 10px 0;
+    padding: 10px;
+}
+
+}
+
 
 @media only screen and (min-width:480px) and (max-width:640px){
 #workbench_outer {
