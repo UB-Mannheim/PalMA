@@ -380,7 +380,12 @@ table{
 		font-size:.75em;
 		padding:.2em 0 .8em}
 	}
-		
+
+
+@media only screen and (max-width:480px) {
+	.controlbutton {40px;}
+}
+	
 @media only screen and (min-width:480px) and (max-width:640px){
 	.pure-form button[type=submit]{margin:.7em 0 0}
 	.pure-form input:not([type]),.pure-form input[type=text],.pure-form input[type=password],.pure-form input[type=email],.pure-form input[type=url],.pure-form input[type=date],.pure-form input[type=month],.pure-form input[type=time],.pure-form input[type=datetime],.pure-form input[type=datetime-local],.pure-form input[type=week],.pure-form input[type=number],.pure-form input[type=search],.pure-form input[type=tel],.pure-form input[type=color],.pure-form label{
