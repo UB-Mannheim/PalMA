@@ -137,6 +137,10 @@ legend {
     max-width: 600px;
 }
 
+#workbench div {
+    text-align: center;
+}
+
 /* Main display. */
 #workbench_left .maindisplay {
     width: 600px;
@@ -144,9 +148,11 @@ legend {
     margin-right: 20px;
     margin-bottom: 20px;
 }
+
 #workbench_left .maindisplay caption {
     caption-side: top;
 }
+
 .maindisplay td, .maindisplay tr {
     border: 2px solid #EFEFEF;
 }
@@ -189,7 +195,6 @@ legend {
 }
 
 #show_hide {display: none;}
-
 
 #url_doc {width: 100%;}
 #url_field {
@@ -275,6 +280,15 @@ legend {
     float: right;
     max-width: 250px;
 	width: 30%;
+}
+
+#workbench_right p, #workbench_right table, #workbench_right button {
+	margin-right: auto;
+	margin-left: auto;
+	} 
+
+#workbench_right button {
+   margin-top: 10px;
 }
 
 /* Logout link. */
@@ -364,9 +378,7 @@ legend {
     margin: 2px;
     padding: 2px;
 }
-#workbench_right button {
-    margin-top: 10px;
-}
+
 .dz-default {
     margin-top: 10px;
     max-width: 580px;
@@ -517,12 +529,6 @@ table, tr, td {
     border: 1px solid red;
 }
 
-/* Test feature. */
-td:hover {
-/*
-    border: 1px solid yellow;
-*/
-}
 
 @media print {
   .hidden { display: block; visibility: visible }
@@ -538,10 +544,6 @@ td:hover {
 
 
 
-@media only screen and (max-width:360px){
-#show_hide button {margin: 5px; display: block;}
-}
-
 @media only screen and (max-width:800px){
 .minidisplaylist div {
     width: 80px;
@@ -553,6 +555,8 @@ td:hover {
 width: 60px;
 }
 }
+
+
 
 @media only screen and (max-width:1280px){
 #workbench_left {
@@ -574,6 +578,10 @@ width: 60px;
 }
 }
 
+
+@media only screen and (max-width:360px) {
+	#show_hide button {width: 48%;}
+}
 
 
 @media only screen and (max-width:480px){
@@ -607,7 +615,14 @@ width: 35px;
 	width: 100%;
     max-width: 600px;
 }
+#maindisplay{display: none;}
 #show_hide {display: block; margin: 2px;}
+#show_hide button {
+	margin: 2px;
+	display: inline;
+	float: left;
+	font-size:0.8em;
+	}
 .control button {height: 40px; width: 40px;}
 #workbench {margin: .5px;}
 }
@@ -651,6 +666,11 @@ width: 35px;
     padding: 10px;
 }
 
+#workbench_right {
+    max-width: 600px;
+	width: 100%;
+}
+	
 }
 
 
@@ -672,7 +692,42 @@ width: 35px;
 		margin-right: 20px;
 		margin-bottom: 10px;
 	}
+#maindisplay{display: none;}
+
+.minidisplaylist div {
+    width: 80px;
+}
+.minidisplaylist button {
+    width: 75px;
+}
+.minidisplaylist button table {
+width: 60px;
+}
+
 #show_hide {display: block; margin: 2px;}
+#show_hide button {margin: 2px; display: inline;}
 .control button {height: 40px; width: 40px;}
-	#workbench {margin: .5px;}
+#workbench {margin: .5px;}
+
+
+.list_container {
+	margin: 0px 15px;
+	width: 100%;
+	min-height: 75px;
+}
+
+.list_container button {
+	width: 45%;
+	max-width: 300px;
+	margin: 5px;
+	vertical-align: top;
+}
+
+.userlist, .itemlist {
+	float: left;
+	width: 50%;
+	max-width: 300px;
+	margin: 5px;
+
+	}
 }

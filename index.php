@@ -1033,6 +1033,31 @@ function pollDatabase() {
 // Start polling the database.
 pollDatabase();
 
+//Show different content on small devices
+function showToggleDisplay(source) {
+	if (source == "#workbench_right") {
+		document.getElementById("maindisplay").style.display = "none";
+		document.getElementById("displaylist").style.display = "none";
+		document.getElementById("url_doc").style.display = "none";
+		$( source ).toggle(250);
+	} else {
+		if (source == "#maindisplay") {
+			document.getElementById("displaylist").style.display = "none";
+			document.getElementById("url_doc").style.display = "none";
+		} else if (source == "#displaylist") {
+		document.getElementById("maindisplay").style.display = "none";
+		document.getElementById("url_doc").style.display = "none";
+		} else if (source == "#url_doc") {
+		document.getElementById("maindisplay").style.display = "none";
+		document.getElementById("displaylist").style.display = "none";
+		} else {
+		}
+		document.getElementById("workbench_right").style.display = "none";
+		document.getElementById("workbench_left").style.display = "block";
+		$( source ).toggle(250);
+	}
+}
+
 </script>
 
 </head>
@@ -1040,6 +1065,15 @@ pollDatabase();
 <body id="workbench_outer">
 
 <div id="workbench">
+
+<div><img id="palma_logo" src="PalMA-Dateien/palma-logo-49x18.png" alt="PalMA"> Team-Monitor        (palma-a3-06)        </div>
+
+<div id="show_hide">
+		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#maindisplay')">Navigation</button>
+		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#displaylist')">Bildschirmaufteilung</button>
+		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#url_doc')">URL / Dokument</button>	
+		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#workbench_right')">Menue</button>
+		</div>  
 
 <div id="workbench_right">
     <?php
@@ -1102,11 +1136,6 @@ pollDatabase();
         </tbody>
     </table>
 	
-	<div id="show_hide">
-	<button class="pure-button pure-button-primary pure-input-rounded" onclick='$("#displaylist").toggle(500);'><?=__('Screen layout')?></button>
-	<button class="pure-button pure-button-primary pure-input-rounded" onclick='$("#url_doc").toggle(500);'>URL / Dokument</button>	
-	<button class="pure-button pure-button-primary pure-input-rounded" onclick='$("#workbench_right").toggle(500);'>Sidebar</button>	
-	</div>
 	
     <table class="minidisplaylist" id="displaylist" summary="<?=__('Screen layout')?>">
         <caption><?=__('Screen layout')?></caption>
