@@ -1066,7 +1066,18 @@ function showToggleDisplay(source) {
 
 <div id="workbench">
 
-<div><img id="palma_logo" src="PalMA-Dateien/palma-logo-49x18.png" alt="PalMA"> Team-Monitor        (palma-a3-06)        </div>
+<div>
+            <img id="palma_logo"
+                 src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
+                 alt="PalMA"> <?=__('Team display')?>
+        <?php
+              if (isset($_SESSION['monitor'])) {
+                  echo('(' . $_SESSION['monitor'] . ')');
+              }
+        ?>
+        </div>
+
+
 
 <div id="show_hide">
 		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#maindisplay')">Navigation</button>
@@ -1084,7 +1095,7 @@ function showToggleDisplay(source) {
             "\">Log Out<i class=\"fa fa-sign-out\"></i></a></p>");
       }
     ?>
-
+<div class="list_container">
     <table class="userlist" summary="<?=__('User list')?>" title="<?=__('List of connected users')?>">
         <caption><?=__('User list')?><i class="fa fa-users"></i></caption>
         <tbody id="userlist">
@@ -1096,7 +1107,8 @@ function showToggleDisplay(source) {
             title="<?=__('Disconnect all users and reset the work place')?>">
         <?=__('Disconnect all users')?>
     </button>
-
+</div>
+<div class="list_container">
         <table class="itemlist" summary="<?=__('Display list')?>"
                title="<?=__('List of files, URLs and shared displays')?>">
             <caption><?=__('Display list')?><i class="fa fa-desktop"></i></caption>
@@ -1116,21 +1128,11 @@ function showToggleDisplay(source) {
         <?=__('Help + Extras')?>
         <i class="fa fa-question-circle"></i>
     </button>
-
+</div>
 </div> <!-- workbench_right -->
 
 <div id="workbench_left">
     <table class="maindisplay" summary="<?=__('Team display')?>">
-        <caption>
-            <img id="palma_logo"
-                 src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
-                 alt="PalMA"> <?=__('Team display')?>
-        <?php
-              if (isset($_SESSION['monitor'])) {
-                  echo('(' . $_SESSION['monitor'] . ')');
-              }
-        ?>
-        </caption>
         <tbody id='maindisplay'>
             <tr><td><!-- filled by function showLayout() --></td></tr>
         </tbody>
