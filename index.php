@@ -1102,12 +1102,14 @@ function showToggleDisplay(source) {
             <tr><td><!-- filled by function updateUserList() --></td></tr>
         </tbody>
     </table>
+	</div>
+	
     <button class="pure-button pure-button-primary pure-input-rounded"
             onClick="sendToNuc('logout=ALL')"
             title="<?=__('Disconnect all users and reset the work place')?>">
         <?=__('Disconnect all users')?>
     </button>
-</div>
+
 <div class="list_container">
         <table class="itemlist" summary="<?=__('Display list')?>"
                title="<?=__('List of files, URLs and shared displays')?>">

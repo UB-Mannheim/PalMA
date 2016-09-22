@@ -287,10 +287,6 @@ legend {
 	margin-left: auto;
 	} 
 
-#workbench_right button {
-   margin-top: 10px;
-}
-
 /* Logout link. */
 #workbench_right a {
     background-color: #990000;
@@ -629,12 +625,6 @@ width: 35px;
 }
 
 
-@media only screen and (min-width:640px){
-#workbench_right, #workbench_left, #displaylist, #maindisplay, #url_doc {
-	display: block;
-}
-}
-
 @media only screen and (max-width:640px){
 #overlay {
     background-color: #000000;
@@ -677,7 +667,8 @@ width: 35px;
     max-width: 600px;
 	width: 100%;
 }
-	
+
+#workbench_right button {margin: 5px;}	
 }
 
 
@@ -719,7 +710,8 @@ width: 60px;
 
 .list_container {
 	display: block;
-	margin: 0px 15px;
+	margin-top: 0px;
+	margin-left: 15px;
 	width: 100%;
 	height: auto;
 	min-height: 75px;
@@ -727,16 +719,15 @@ width: 60px;
 
 .list_container button {
 	width: 45%;
-	max-width: 300px;
-	margin: 5px;
+	max-width: 250px;
+	margin: 0px;
 	vertical-align: top;
 }
 
 .userlist, .itemlist {
 	float: left;
-	width: 50%;
-	max-width: 300px;
-	margin: 5px;
-
+	width: 45%;
+	max-width: 250px;
+	margin: 0px;
 	}
 }
