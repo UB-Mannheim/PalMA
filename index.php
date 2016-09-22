@@ -1102,13 +1102,14 @@ function showToggleDisplay(source) {
             <tr><td><!-- filled by function updateUserList() --></td></tr>
         </tbody>
     </table>
-	</div>
+	
 	
     <button class="pure-button pure-button-primary pure-input-rounded"
             onClick="sendToNuc('logout=ALL')"
             title="<?=__('Disconnect all users and reset the work place')?>">
         <?=__('Disconnect all users')?>
     </button>
+</div>
 
 <div class="list_container">
         <table class="itemlist" summary="<?=__('Display list')?>"
@@ -1123,6 +1124,8 @@ function showToggleDisplay(source) {
             title="<?=__('Close all windows and remove uploaded files')?>">
         <?=__('Close all windows')?>
     </button>
+	</div>
+	
     <button
         class="pure-button pure-button-primary pure-input-rounded"
         onclick="showHelp(true)"
@@ -1130,7 +1133,7 @@ function showToggleDisplay(source) {
         <?=__('Help + Extras')?>
         <i class="fa fa-question-circle"></i>
     </button>
-</div>
+
 </div> <!-- workbench_right -->
 
 <div id="workbench_left">
