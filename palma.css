@@ -287,6 +287,8 @@ legend {
 	margin-left: auto;
 	} 
 
+#workbench_right button {margin-top: 10px;}
+	
 /* Logout link. */
 #workbench_right a {
     background-color: #990000;
@@ -714,7 +716,7 @@ width: 60px;
 	margin-left: 15px;
 	width: 100%;
 	height: auto;
-	min-height: 75px;
+	/*min-height: 75px;*/
 }
 
 .list_container button {
