@@ -323,6 +323,7 @@ legend {
 .itemlist, .userlist {
     margin-top: 20px;
     width: 100%;
+	text-align: left;
 }
 .itemlist caption, .userlist caption {
     caption-side: top;
@@ -628,6 +629,12 @@ width: 35px;
 }
 
 
+@media only screen and (min-width:640px){
+#workbench_right, #workbench_left, #displaylist, #maindisplay, #url_doc {
+	display: block;
+}
+}
+
 @media only screen and (max-width:640px){
 #overlay {
     background-color: #000000;
@@ -711,8 +718,10 @@ width: 60px;
 
 
 .list_container {
+	display: block;
 	margin: 0px 15px;
 	width: 100%;
+	height: auto;
 	min-height: 75px;
 }
 
