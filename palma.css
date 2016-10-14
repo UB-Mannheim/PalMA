@@ -18,17 +18,20 @@ legend {
     text-align: center;
 }
 
-#login_mask {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
+#login_mask_outer {
+	padding: 1% 5% 1% 5%;
+	min-width: 220px;
+}
 
-    padding: 0px 0px 20px 0px;
-    background-color: #F1F1F1;
+#login_mask {
+	margin: 1% auto;
+    padding: 0px 5% 1.5% 5%;
+    width: auto;
+	max-width: 460px;
+	background-color: #F1F1F1;
     border: 1px solid;
     border-radius: 5px;
     box-shadow: 8px 8px 4px #666666;
-    width: 460px;
 }
 #login_mask i {
     margin: 5px 5px 5px 10px;
@@ -38,12 +41,16 @@ legend {
 }
 #login_mask .policy {
     font-size: 75%;
-    margin-top: 10px;
+    margin: .5%;
     text-align: center;
 }
 #login_mask .policy a {
     color: #900;
     text-decoration: none;
+}
+#login_fields {
+	float: left;
+	margin-right: 15%;
 }
 
 /* Workplace selection (monitor.php) */
@@ -104,34 +111,48 @@ legend {
     margin: 10px 0px 5px 10px;
 }
 
+#workbench_outer {
+	padding: 1% 1.5%;
+	min-width: 220px;
+}
+
 #workbench {
     background-color: #F1F1F1;
     border: 1px solid;
     border-radius: 5px;
     box-shadow: 8px 8px 4px #666666;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    padding: 10px 10px 10px 10px;
-    width: 880px;
+	margin: 1% auto;
+    padding: .5% 1.5% 1% 1.5%;
+	min-width: 220px;
+	width: auto;
+    max-width: 880px;
+	height: auto;
 }
+
 
 /* Left part of workbench */
 
 #workbench_left {
-    width: 600px;
+	width: 80%;
+    max-width: 600px;
+}
+
+#workbench div {
+    text-align: center;
 }
 
 /* Main display. */
 #workbench_left .maindisplay {
     width: 600px;
-    height: 300px;
+	height: 300px;
     margin-right: 20px;
     margin-bottom: 20px;
 }
+
 #workbench_left .maindisplay caption {
     caption-side: top;
 }
+
 .maindisplay td, .maindisplay tr {
     border: 2px solid #EFEFEF;
 }
@@ -171,6 +192,18 @@ legend {
 .maindisplay #more {
     cursor: pointer;
     font-size: 120%;
+}
+
+#show_hide {display: none;}
+
+#url_doc {width: 100%;}
+#url_field {
+    width: 80%;
+}
+#url_button {width: 15%;}
+
+#displaylist {
+	width: 100%;
 }
 
 /* Online help. */
@@ -239,13 +272,23 @@ legend {
     float:right;
 }
 
+
+
 /* Right part of workbench */
 
 #workbench_right {
     float: right;
-    width: 260px;
+    max-width: 250px;
+	width: 30%;
 }
 
+#workbench_right p, #workbench_right table, #workbench_right button {
+	margin-right: auto;
+	margin-left: auto;
+	} 
+
+#workbench_right button {margin-top: 10px;}
+	
 /* Logout link. */
 #workbench_right a {
     background-color: #990000;
@@ -266,9 +309,9 @@ legend {
     clear:both;
 }
 
-#url_field {
-    width: 30em;
-}
+
+
+
 .fa-upload {
     float: right;
 }
@@ -278,6 +321,7 @@ legend {
 .itemlist, .userlist {
     margin-top: 20px;
     width: 100%;
+	text-align: left;
 }
 .itemlist caption, .userlist caption {
     caption-side: top;
@@ -333,12 +377,10 @@ legend {
     margin: 2px;
     padding: 2px;
 }
-#workbench_right button {
-    margin-top: 10px;
-}
+
 .dz-default {
     margin-top: 10px;
-    width: 580px;
+    max-width: 580px;
     padding: 10px;
 }
 
@@ -486,12 +528,6 @@ table, tr, td {
     border: 1px solid red;
 }
 
-/* Test feature. */
-td:hover {
-/*
-    border: 1px solid yellow;
-*/
-}
 
 @media print {
   .hidden { display: block; visibility: visible }
@@ -503,4 +539,197 @@ td:hover {
   div.slide { page-break-before: always }
   /* :first-child isn't reliable for print media */
   div.slide.first-slide { page-break-before: avoid }
+}
+
+
+
+@media only screen and (max-width:800px){
+.minidisplaylist div {
+    width: 80px;
+}
+.minidisplaylist button {
+    width: 75px;
+}
+.minidisplaylist button table {
+width: 60px;
+}
+}
+
+
+
+@media only screen and (max-width:1280px){
+#workbench_left {
+	width: 65%;
+}
+#workbench_left .maindisplay {
+		max-width: 600px;
+		width: 100%;
+		height: 100%;
+		max-height: 300px;
+		margin-right: 20px;
+		margin-bottom: 10px;
+	}
+#workbench_right {
+	padding: 5px;
+}	
+.itemlist, .userlist {
+    width: 80%;
+}
+}
+
+
+@media only screen and (max-width:360px) {
+	#show_hide button {width: 48%;}
+}
+
+
+@media only screen and (max-width:480px){
+#workbench_outer {
+	padding: 1% 1.5%;
+	min-width: 220px;
+}
+#workbench_right, #url_doc, #displaylist {display: none;}
+#workbench_left .maindisplay {
+		max-width: 600px;
+		width: 100%;
+		height: 80%;
+		max-height: 300px;
+		margin-right: 20px;
+		margin-bottom: 10px;
+	}
+#url_field {
+    width: 70%;
+}
+#url_button {width: 25%;}
+.minidisplaylist div {
+    width: 55px;
+}
+.minidisplaylist button {
+    width: 50px;
+}
+.minidisplaylist button table {
+width: 35px;
+}
+#workbench_left {
+	width: 100%;
+    max-width: 600px;
+}
+#maindisplay{display: none;}
+#show_hide {display: block; margin: 2px;}
+#show_hide button {
+	margin: 2px;
+	display: inline;
+	float: left;
+	font-size:0.8em;
+	}
+.control button {height: 40px; width: 40px;}
+#workbench {margin: .5px;}
+}
+
+
+@media only screen and (max-width:640px){
+#overlay {
+    background-color: #000000;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 100%;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 5;
+}
+
+#container {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    padding: 10px 10px 20px 10px;
+    display: block;
+    width: 90%;
+	max-width: 400px;
+}
+	
+.overlay button {
+    height: 40px;
+    width: 40px;
+}
+
+.updown {
+    margin: 0 0 20px;
+    padding: 2.5px 2.5px 0 35px;
+    width: 150px;
+}
+
+.controlpanel {
+    margin: 10px 10px 0;
+    padding: 10px;
+}
+
+#workbench_right {
+    max-width: 600px;
+	width: 100%;
+}
+
+#workbench_right button {margin: 5px;}	
+}
+
+
+@media only screen and (min-width:480px) and (max-width:640px){
+#workbench_outer {
+	padding: 1% 2.5%;
+	min-width: 220px;
+}
+#workbench_left {
+	width: 100%;
+    max-width: 600px;
+}
+#workbench_right, #url_doc, #displaylist {display: none;}
+#workbench_left .maindisplay {
+		max-width: 600px;
+		width: 100%;
+		height: 80%;
+		max-height: 300px;
+		margin-right: 20px;
+		margin-bottom: 10px;
+	}
+#maindisplay{display: none;}
+
+.minidisplaylist div {
+    width: 80px;
+}
+.minidisplaylist button {
+    width: 75px;
+}
+.minidisplaylist button table {
+width: 60px;
+}
+
+#show_hide {display: block; margin: 2px;}
+#show_hide button {margin: 2px; display: inline;}
+.control button {height: 40px; width: 40px;}
+#workbench {margin: .5px;}
+
+
+.list_container {
+	display: block;
+	margin-top: 0px;
+	margin-left: 15px;
+	width: 100%;
+	height: auto;
+	/*min-height: 75px;*/
+}
+
+.list_container button {
+	width: 45%;
+	max-width: 250px;
+	margin: 0px;
+	vertical-align: top;
+}
+
+.userlist, .itemlist {
+	float: left;
+	width: 45%;
+	max-width: 250px;
+	margin: 0px;
+	}
 }
