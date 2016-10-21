@@ -112,7 +112,10 @@ legend {
     margin: 10px 0px 5px 10px;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c86d37bd0f39ab28717edbff86b2273728233521
 #workbench_outer {
 	padding: 1% 1.5%;
 	min-width: 220px;
@@ -313,6 +316,11 @@ legend {
 }
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c86d37bd0f39ab28717edbff86b2273728233521
 .fa-upload {
     float: right;
 }
@@ -674,6 +682,7 @@ width: 35px;
 }
 
 #workbench_right button {margin: 5px;}	
+<<<<<<< HEAD
 
 
 #helpwindow {
@@ -703,6 +712,8 @@ width: 35px;
     font-size: 3em;
 }
 
+=======
+>>>>>>> c86d37bd0f39ab28717edbff86b2273728233521
 }
 
 
@@ -744,21 +755,35 @@ width: 60px;
 
 .list_container {
 	display: block;
+<<<<<<< HEAD
 	margin-top: 1em;
 	margin-left: 15px;
 	width: 100%;
 	height: auto;
 	min-height: 175px;
+=======
+	margin-top: 0px;
+	margin-left: 15px;
+	width: 100%;
+	height: auto;
+	/*min-height: 75px;*/
+>>>>>>> c86d37bd0f39ab28717edbff86b2273728233521
 }
 
 .list_container button {
 	width: 45%;
 	max-width: 250px;
+<<<<<<< HEAD
 	margin-top: 0px;
+=======
+	margin: 0px;
+	vertical-align: top;
+>>>>>>> c86d37bd0f39ab28717edbff86b2273728233521
 }
 
 .userlist, .itemlist {
 	float: left;
+<<<<<<< HEAD
 	width: 50%;
 	max-width: 250px;
 	margin: 0px;
@@ -770,4 +795,10 @@ width: 60px;
 	height: auto;
 
 }
+=======
+	width: 45%;
+	max-width: 250px;
+	margin: 0px;
+	}
+>>>>>>> c86d37bd0f39ab28717edbff86b2273728233521
 }
