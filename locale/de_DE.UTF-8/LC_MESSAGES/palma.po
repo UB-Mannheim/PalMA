@@ -131,6 +131,18 @@ msgstr "Hilfe + Extras"
 msgid "Team display"
 msgstr "Team-Monitor"
 
+#: index.php:1090
+msgid "Navigation"
+msgstr "Navigation"
+
+#: index.php:1091
+msgid "URL / Document"
+msgstr "URL / Dokument"
+
+#: index.php:1092
+msgid "Menue"
+msgstr "Menü"
+
 #: index.php:1099 index.php:1100
 msgid "Screen layout"
 msgstr "Bildschirmaufteilung"
