@@ -132,15 +132,15 @@ msgid "Team display"
 msgstr "Team-Monitor"
 
 #: index.php:1090
-msgid "Navigation"
-msgstr "Navigation"
+msgid "Controls"
+msgstr "Steuerung"
 
 #: index.php:1091
 msgid "URL / Document"
 msgstr "URL / Dokument"
 
 #: index.php:1092
-msgid "Menue"
+msgid "Menu"
 msgstr "Menü"
 
 #: index.php:1099 index.php:1100
