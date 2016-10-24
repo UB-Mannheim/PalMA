@@ -748,7 +748,7 @@ width: 60px;
 	margin-left: 15px;
 	width: 100%;
 	height: auto;
-	min-height: 175px;
+	min-height: 100px;
 }
 
 .list_container button {
@@ -760,7 +760,7 @@ width: 60px;
 .userlist, .itemlist {
 	float: left;
 	width: 50%;
-	max-width: 250px;
+	max-width: 210px;
 	margin: 0px;
 	}
 	
