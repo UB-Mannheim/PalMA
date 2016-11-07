@@ -91,7 +91,7 @@ msgstr "Список пользователей"
 
 #: index.php:1049
 msgid "List of connected users"
-msgstr "Список подключенных"
+msgstr "Список подключенных пользователей"
 
 #: index.php:1057
 msgid "Disconnect all users and reset the work place"
@@ -99,7 +99,7 @@ msgstr "Отключить всех пользователей и очистит
 
 #: index.php:1058
 msgid "Disconnect all users"
-msgstr "Отключить всех"
+msgstr "Отключить всех пользователей"
 
 #: index.php:1061 index.php:1063
 msgid "Display list"
