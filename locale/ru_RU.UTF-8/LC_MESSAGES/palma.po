@@ -303,7 +303,7 @@ msgstr "Выбрать рабочую область"
 
 #: selectplace/learningcenter.php:45
 msgid "Conference room"
-msgstr "Конференцзал"
+msgstr "Конференц-зал"
 
 #: selectplace/learningcenter.php:45 selectplace/monitor.php:73
 msgid "Test monitor"
