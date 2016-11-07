@@ -294,7 +294,7 @@ msgstr "Показать изображения"
 
 #: examples/screensaver/tiles.php:33
 msgid "Tiles"
-msgstr ""
+msgstr "Названия"
 
 #: selectplace/learningcenter.php:25 selectplace/learningcenter.php:39
 #: selectplace/monitor.php:25 selectplace/monitor.php:51
@@ -307,7 +307,7 @@ msgstr "Конференцзал"
 
 #: selectplace/learningcenter.php:45 selectplace/monitor.php:73
 msgid "Test monitor"
-msgstr ""
+msgstr "Тестовый монитор"
 
 #: selectplace/learningcenter.php:46 selectplace/monitor.php:66
 msgid "Mannheim table"
