@@ -1,0 +1,20 @@
+# CircleCI configuration for PalMA
+
+dependencies:
+  pre:
+    # Need backports for shellcheck
+    - sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
+    - sudo apt-get update
+    # php-codesniffer is used for the PSR-2 conformance test.
+    # libperl-critic-perl is used for perl checks
+    # shellcheck checks shell code
+    - sudo apt-get install php-codesniffer libperl-critic-perl shellcheck
+
+test:
+  override:
+    # Errors from docs/dist/pre-commit.sh are currently ignored
+    # because there are too many coding violations in PHP code.
+    - ./docs/dist/pre-commit.sh . || echo "Ignore codesniffer errors"
+    # Errors from docs/dist/pre-push.sh are currently ignored
+    # because merge commits from github aren't signed
+    - ./docs/dist/pre-push.sh || echo "Ignore non-signed commits"
