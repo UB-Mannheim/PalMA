@@ -11,6 +11,8 @@ GNU General Public License (GPL). See [docs/gpl.txt](docs/gpl.txt) for details.
 Parts of the software use different licenses which are listed
 in file [LICENSE](LICENSE).
 
+[![CircleCI](https://circleci.com/gh/UB-Mannheim/PalMA/tree/master.svg?style=svg)](https://circleci.com/gh/UB-Mannheim/PalMA/tree/master)
+[![Build Status](https://travis-ci.org/UB-Mannheim/PalMA.svg?branch=master)](https://travis-ci.org/UB-Mannheim/PalMA)
 
 Summary
 -------
