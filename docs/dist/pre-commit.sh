@@ -7,7 +7,7 @@
 # SYNOPSIS
 #         make .git/hooks/pre-commit
 #         # or
-#         ln -s ../../pre-commit.sh .git/hooks
+#         ln -s ../../docs/dist/pre-commit.sh .git/hooks/pre-commit
 #
 #         git add ... && git commit;
 #
@@ -50,10 +50,12 @@ if [[ "${#staged_php[@]}" -ne 0 ]];then
 fi
 
 # If any Shell (bash) scripts are staged
-staged_shell=($($git_diff|grep '\.sh$'))
+staged_shell=()
+staged_shell+=($($git_diff|grep '\.sh$'))
+staged_shell+=($($git_diff|grep '^\(./\)\?scripts/'))
 if [[ "${#staged_shell[@]}" -ne 0 ]];then
     if which shellcheck >/dev/null; then
-        out=$(shellcheck --shell bash "${staged_shell[@]}")
+        out=$(shellcheck --shell=bash "${staged_shell[@]}")
         if [[ ! -z "$out" ]];then
             echo "$out";
             exit 1;
