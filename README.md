@@ -1,7 +1,7 @@
 PalMA – share a team monitor
 ============================
 
-Copyright (C) 2014 Universitätsbibliothek Mannheim
+Copyright (C) 2014–2017 Universitätsbibliothek Mannheim
 
 Authors: Alexander Wagner, Stefan Weil (UB Mannheim)
 
