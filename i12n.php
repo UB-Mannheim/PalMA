@@ -77,7 +77,7 @@ if ($unittest[__FILE__]) {
     function testlocale($locale = false)
     {
         if ($locale) {
-            _setlocale(LC_messages, $locale);
+            _setlocale(LC_MESSAGES, $locale);
         }
         error_log(sprintf('%-12s ', ($locale ? $locale : 'default') . ':') . __('Screen section'));
     }
