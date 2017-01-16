@@ -8,7 +8,7 @@ dependencies:
     # php-codesniffer is used for the PSR-2 conformance test.
     # libperl-critic-perl is used for perl checks
     # shellcheck checks shell code
-    - sudo apt-get install php-codesniffer libperl-critic-perl shellcheck
+    - sudo apt-get install libperl-critic-perl php5-sqlite php-codesniffer shellcheck
 
 test:
   override:
