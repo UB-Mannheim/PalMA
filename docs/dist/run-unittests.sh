@@ -5,7 +5,7 @@ declare -a failed
 for testable in $(grep -rl "\$unittest.__FILE__." .);do
     [[ "$testable" == *.php ]] || continue;
     printf "\n#\n# Testing %s\n#\n" "$testable"
-    php "$testable";
+    php5 "$testable";
     (( $? > 0 )) && failed+=("$testable")
 done
 (( ${#failed[@]} > 0 )) && printf "\n#!!!\n#!!! Failed %d tests: %s\n#!!!\n" "${#failed[@]}" "${failed[*]}"
