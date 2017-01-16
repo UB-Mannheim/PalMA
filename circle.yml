@@ -14,9 +14,9 @@ test:
   override:
     # Errors from docs/dist/pre-commit.sh are currently ignored
     # because there are too many coding violations in PHP code.
-    - ./docs/dist/pre-commit.sh . || echo "Ignore codesniffer errors"
+    - docs/dist/pre-commit.sh . || echo "Ignore codesniffer errors"
     # Errors from docs/dist/pre-push.sh are currently ignored
     # because merge commits from github aren't signed
-    - ./docs/dist/pre-push.sh || echo "Ignore non-signed commits"
+    - docs/dist/pre-push.sh || echo "Ignore non-signed commits"
     # Unit test the PHP scripts
-    - ./docs/dist/run-unittests.sh
+    - docs/dist/run-unittests.sh
