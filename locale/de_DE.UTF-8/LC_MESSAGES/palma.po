@@ -229,7 +229,7 @@ msgstr "Desktopfreigabe (Windows)"
 
 #: index.php:1225
 msgid "Share desktop (non free RealVNC)"
-msgstr "Desktopfreigabe (OS X)"
+msgstr "Desktopfreigabe (Mac)"
 
 #: index.php:1233
 msgid "Show team display"
