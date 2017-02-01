@@ -163,7 +163,7 @@ legend {
     padding: 0px;
     text-align: center;
     vertical-align: middle;
-	
+
 }
 .maindisplay button {
     height: 45px;
@@ -288,10 +288,10 @@ legend {
 #workbench_right p, #workbench_right table, #workbench_right button {
 	margin-right: auto;
 	margin-left: auto;
-	} 
+	}
 
 #workbench_right button {margin-top: 10px;}
-	
+
 /* Logout link. */
 #workbench_right a {
     background-color: #990000;
@@ -574,7 +574,7 @@ width: 60px;
 	}
 #workbench_right {
 	padding: 5px;
-}	
+}
 .itemlist, .userlist {
     width: 80%;
 }
@@ -651,7 +651,7 @@ width: 35px;
     width: 90%;
 	max-width: 400px;
 }
-	
+
 .overlay button {
     height: 40px;
     width: 40px;
@@ -673,7 +673,7 @@ width: 35px;
 	width: 100%;
 }
 
-#workbench_right button {margin: 5px;}	
+#workbench_right button {margin: 5px;}
 
 
 #helpwindow {
@@ -763,7 +763,7 @@ width: 60px;
 	max-width: 210px;
 	margin: 0px;
 	}
-	
+
 #helpwindow {
     width: 100%;
 	min-height: 640px;
