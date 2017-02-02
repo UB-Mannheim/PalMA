@@ -583,9 +583,7 @@ width: 60px;
 }
 
 
-@media only screen and (max-width:360px) {
-	#show_hide button {width: 48%;}
-}
+
 
 
 @media only screen and (max-width:480px){
@@ -775,4 +773,9 @@ width: 60px;
 	height: auto;
 
 }
+}
+
+@media only screen and (max-width:360px) {
+	#show_hide button {width: 48%;}
+    .itemlist, .userlist {width: 80%;}
 }
