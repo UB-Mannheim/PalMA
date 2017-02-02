@@ -216,7 +216,10 @@ legend {
     background: rgba(0, 0, 0, 0.7);
     position: absolute; top: 0; left: 0;
     visibility: hidden;
+<<<<<<< HEAD
     display: none;
+=======
+>>>>>>> 80523e3267ea023c8d676e64f1068fd6508a95ea
     width: 100%;
     z-index: 10;
     height: 100%;
