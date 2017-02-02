@@ -710,8 +710,10 @@ function showHelp(visible) {
     var element = document.getElementById('helpwindow');
     if (visible) {
         element.style.visibility = "visible";
+        element.style.display = "block";
     } else {
         element.style.visibility = "hidden";
+        element.style.display = "none";
     }
 }
 
@@ -1082,9 +1084,9 @@ function showToggleDisplay(source) {
 <div id="show_hide">
 		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#maindisplay')"><?=__('Controls')?></button>
 		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#displaylist')"><?=__('Screen layout')?></button>
-		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#url_doc')"><?=__('URL / Document')?></button>	
+		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#url_doc')"><?=__('URL / Document')?></button>
 		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#workbench_right')"><?=__('Menu')?></button>
-		</div>  
+		</div>
 
 <div id="workbench_right">
     <?php
@@ -1102,8 +1104,8 @@ function showToggleDisplay(source) {
             <tr><td><!-- filled by function updateUserList() --></td></tr>
         </tbody>
     </table>
-	
-	
+
+
     <button class="pure-button pure-button-primary pure-input-rounded"
             onClick="sendToNuc('logout=ALL')"
             title="<?=__('Disconnect all users and reset the work place')?>">
@@ -1125,7 +1127,7 @@ function showToggleDisplay(source) {
         <?=__('Close all windows')?>
     </button>
 	</div>
-	
+
     <button
         class="pure-button pure-button-primary pure-input-rounded"
         onclick="showHelp(true)"
@@ -1142,8 +1144,8 @@ function showToggleDisplay(source) {
             <tr><td><!-- filled by function showLayout() --></td></tr>
         </tbody>
     </table>
-	
-	
+
+
     <table class="minidisplaylist" id="displaylist" summary="<?=__('Screen layout')?>">
         <caption><?=__('Screen layout')?></caption>
         <tr>
