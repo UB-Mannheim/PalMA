@@ -588,6 +588,9 @@ width: 60px;
 
 
 @media only screen and (max-width:480px){
+.userlist, .itemlist {
+    width: 50%;
+}
 #workbench_outer {
 	padding: 1% 1.5%;
 	min-width: 220px;
