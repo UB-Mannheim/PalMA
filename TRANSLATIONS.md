@@ -7,13 +7,14 @@
 |Locale|Completion|
 |---|---|
 |[al_AL](#al_al)|93.75|
-|[ar](#ar)|42.19|
-|[de_DE](#de_de)|96.88|
+|[ar](#ar)|45.31|
+|[de_DE](#de_de)|98.44|
 |[es_ES](#es_es)|92.19|
 |[it_IT](#it_it)|93.75|
-|[ru_RU](#ru_ru)|95.31|
+|[ru_RU](#ru_ru)|98.44|
 |[ur_PK](#ur_pk)|20.31|
 |[zh_CN](#zh_cn)|100.00|
+|[zh_TW](#zh_tw)|100.00|
 
 ## al_AL
 
@@ -21,7 +22,10 @@ Completion: **93.75** (60 / 64 strings)
 
 Contributors:
 
+  * Alexander Wagner
   * Gert Pere
+  * Piero Divasto
+  * Stefan Weil
 
 Missing:
   * `Log in`
@@ -31,10 +35,13 @@ Missing:
 
 ## ar
 
-Completion: **42.19** (27 / 64 strings)
+Completion: **45.31** (29 / 64 strings)
 
 Contributors:
 
+  * Alexander Wagner
+  * driad91
+  * Mahmoud Osman
   * Philipp Zumstein
   * Stefan Weil
 
@@ -43,8 +50,6 @@ Missing:
   * `Choose screen layout`
   * `Close the help window`
   * `Conference room`
-  * `Drop documents here (or click)`
-  * `Drop documents here (or click) to load them up`
   * `Error code %s.`
   * `File '%s' cannot be shown.`
   * `File was only partially uploaded.`
@@ -79,7 +84,7 @@ Missing:
 
 ## de_DE
 
-Completion: **96.88** (62 / 64 strings)
+Completion: **98.44** (63 / 64 strings)
 
 Contributors:
 
@@ -89,7 +94,6 @@ Contributors:
 
 Missing:
   * `PIN`
-  * `Share the desktop of your notebook with others. PalMA uses\n            VNC for screen sharing. Download the VNC software once for your\n            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf\"\n            onclick=\"window.open(this.href); return false;\">Windows PC</a>\n            (preconfigured UltraVNC) or\n            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf\"\n            onclick=\"window.open(this.href); return false;\">MacBook</a>\n            (RealVNC).`
 
 ## es_ES
 
@@ -97,6 +101,7 @@ Completion: **92.19** (59 / 64 strings)
 
 Contributors:
 
+  * Alexander Wagner
   * Piero Divasto
   * Stefan Weil
 
@@ -113,6 +118,7 @@ Completion: **93.75** (60 / 64 strings)
 
 Contributors:
 
+  * Alexander Wagner
   * Stefano Leccese
   * Stefan Weil
 
@@ -124,18 +130,19 @@ Missing:
 
 ## ru_RU
 
-Completion: **95.31** (61 / 64 strings)
+Completion: **98.44** (63 / 64 strings)
 
 Contributors:
 
+  * Aleksandra Irtikeeva
   * Alexander Egurnov
+  * Alexander Wagner
   * Mariia Zrianina
+  * Stefano Leccese
   * Stefan Weil
 
 Missing:
   * `Mannheim table`
-  * `Test monitor`
-  * `Tiles`
 
 ## ur_PK
 
@@ -143,6 +150,7 @@ Completion: **20.31** (13 / 64 strings)
 
 Contributors:
 
+  * Alexander Wagner
   * Stefan Weil
   * Taimur
 
@@ -205,4 +213,21 @@ Completion: **100.00** (64 / 64 strings)
 
 Contributors:
 
+  * Alexander Wagner
   * Caipei Song
+  * Piero Divasto
+  * Stefan Weil
+  * Yang
+
+## zh_TW
+
+Completion: **100.00** (64 / 64 strings)
+
+Contributors:
+
+  * Aimee C. Chen
+  * Alexander Wagner
+  * Caipei Song
+  * Piero Divasto
+  * Stefan Weil
+  * Yang
