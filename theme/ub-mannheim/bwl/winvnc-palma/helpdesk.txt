@@ -1,0 +1,67 @@
+[TITLE]
+Universitätsbibliothek Mannheim Desktop-Freigabe
+
+
+[HOST]
+PalMA BWL 01
+-connect palma-bwl-01.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA BWL 02
+-connect palma-bwl-02.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA BWL 03
+-connect palma-bwl-03.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA BWL 04
+-connect palma-bwl-04.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA BWL 05
+-connect palma-bwl-05.bib.uni-mannheim.de:5500 -noregistry
+
+
+[TEXTERROR]
+Bitte klicken Sie genau auf die Textzeile oben.
+
+[TEXTTOP]
+Bitte gewünschte Station mit Doppelklick öffnen.
+[TEXTMIDDLE]
+Ihr Desktop wird an der 
+[TEXTBOTTOM]
+ausgewählten Station angezeigt.
+
+[TEXTRTOP]
+PalMA   -   (C) 2014
+[TEXTRMIDDLE]
+Universitätsbibliothek Mannheim
+[TEXTRBOTTOM]
+Basiert auf UltraVNC (www.uvnc.com)
+
+[TEXTBUTTON]
+Online-Informationen
+[WEBPAGE]
+http://www.bib.uni-mannheim.de/
+
+[TEXTCLOSEBUTTON]
+Beenden
+
+
+[BALLOON1TITLE]
+Verbindungsaufbau ...
+[BALLOON1A]
+Falls innerhalb von 5 Minuten keine
+[BALLOON1B]
+Verbindung zu Stande kommt, beendet
+[BALLOON1C]
+sich das Programm automatisch.
+
+[BALLOON2TITLE]
+Ihr Desktop wird beobachtet
+[BALLOON2A]
+ Um die Verbindung zu beenden,
+[BALLOON2B]
+ klicken Sie rechts auf dieses
+[BALLOON2C]
+ Symbol und wählen Sie "Close".
+
+[WEBPAGE]
+http://www.bib.uni-mannheim.de
