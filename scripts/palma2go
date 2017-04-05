@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Name: palma2go
+# Purpose: configuring ip in palma.ini and starting portable palma station
+# Author: Mannheim University Library
+# Date: 28.03.2017
+
+ip=$(ifconfig eth0 | grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" | head -1)
+#ip_nat=$(ifconfig eth1 | grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" | head -1)
+ip_nat=$(wget -O - -q icanhazip.com)
+
+if [ "$ip" == "" ]; then ip="$ip_nat" ; fi
+
+starturl='start_url = "http://'$ip'/"'
+destfile=/var/www/html/palma.ini
+
+cp /var/www/html/examples/p2g.ini "$destfile"
+
+echo "$starturl" >> "$destfile"
+chown -R www-data:www-data "/var/www"
+
+/var/www/html/scripts/palma start 2>&1 &
