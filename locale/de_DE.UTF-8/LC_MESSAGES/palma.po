@@ -131,6 +131,18 @@ msgstr "Hilfe + Extras"
 msgid "Team display"
 msgstr "Team-Monitor"
 
+#: index.php:1090
+msgid "Controls"
+msgstr "Steuerung"
+
+#: index.php:1091
+msgid "URL / Document"
+msgstr "URL / Dokument"
+
+#: index.php:1092
+msgid "Menu"
+msgstr "Menü"
+
 #: index.php:1099 index.php:1100
 msgid "Screen layout"
 msgstr "Bildschirmaufteilung"
@@ -224,11 +236,11 @@ msgstr "Linux-Benutzer können ihr X Display wie folgt teilen:"
 
 #: index.php:1218
 msgid "Share desktop (free UltraVNC / Windows only)"
-msgstr "Desktopfreigabe (UltraVNC (freie Software) / Windows)"
+msgstr "Desktopfreigabe (Windows)"
 
 #: index.php:1225
 msgid "Share desktop (non free RealVNC)"
-msgstr "Desktopfreigabe (RealVNC (kommerziell) / OS X)"
+msgstr "Desktopfreigabe (Mac)"
 
 #: index.php:1233
 msgid "Show team display"

@@ -86,12 +86,15 @@ Overlays
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PalMA</title>
 
 <link rel="icon" href="theme/<?=CONFIG_THEME?>/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="pure-min.css">
 <link rel="stylesheet" href="palma.css" type="text/css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script type="text/javascript" src="dropzone.js"></script>
 
@@ -707,8 +710,10 @@ function showHelp(visible) {
     var element = document.getElementById('helpwindow');
     if (visible) {
         element.style.visibility = "visible";
+        element.style.display = "block";
     } else {
         element.style.visibility = "hidden";
+        element.style.display = "none";
     }
 }
 
@@ -1030,11 +1035,58 @@ function pollDatabase() {
 // Start polling the database.
 pollDatabase();
 
+//Show different content on small devices
+function showToggleDisplay(source) {
+	if (source == "#workbench_right") {
+		document.getElementById("maindisplay").style.display = "none";
+		document.getElementById("displaylist").style.display = "none";
+		document.getElementById("url_doc").style.display = "none";
+		$( source ).toggle(250);
+	} else {
+		if (source == "#maindisplay") {
+			document.getElementById("displaylist").style.display = "none";
+			document.getElementById("url_doc").style.display = "none";
+		} else if (source == "#displaylist") {
+		document.getElementById("maindisplay").style.display = "none";
+		document.getElementById("url_doc").style.display = "none";
+		} else if (source == "#url_doc") {
+		document.getElementById("maindisplay").style.display = "none";
+		document.getElementById("displaylist").style.display = "none";
+		} else {
+		}
+		document.getElementById("workbench_right").style.display = "none";
+		document.getElementById("workbench_left").style.display = "block";
+		$( source ).toggle(250);
+	}
+}
+
 </script>
 
 </head>
 
-<body id="workbench">
+<body id="workbench_outer">
+
+<div id="workbench">
+
+<div>
+            <img id="palma_logo"
+                 src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
+                 alt="PalMA"> <?=__('Team display')?>
+        <?php
+              if (isset($_SESSION['monitor'])) {
+                  echo('(' . $_SESSION['monitor'] . ')');
+              }
+        ?>
+        </div>
+
+
+
+<div id="show_hide">
+		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#maindisplay')"><?=__('Controls')?></button>
+		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#displaylist')"><?=__('Screen layout')?></button>
+		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#url_doc')"><?=__('URL / Document')?></button>
+		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#workbench_right')"><?=__('Menu')?></button>
+		</div>
 
 <div id="workbench_right">
     <?php
@@ -1042,22 +1094,26 @@ pollDatabase();
       if ($user) {
         echo("<p><a href=\"logout.php\" title=\"" .
             __('Disconnect the current user') .
-            "\">$user<i class=\"fa fa-sign-out\"></i></a></p>");
+            "\">Log Out<i class=\"fa fa-sign-out\"></i></a></p>");
       }
     ?>
-
+<div class="list_container">
     <table class="userlist" summary="<?=__('User list')?>" title="<?=__('List of connected users')?>">
         <caption><?=__('User list')?><i class="fa fa-users"></i></caption>
         <tbody id="userlist">
             <tr><td><!-- filled by function updateUserList() --></td></tr>
         </tbody>
     </table>
+
+
     <button class="pure-button pure-button-primary pure-input-rounded"
             onClick="sendToNuc('logout=ALL')"
             title="<?=__('Disconnect all users and reset the work place')?>">
         <?=__('Disconnect all users')?>
     </button>
+</div>
 
+<div class="list_container">
         <table class="itemlist" summary="<?=__('Display list')?>"
                title="<?=__('List of files, URLs and shared displays')?>">
             <caption><?=__('Display list')?><i class="fa fa-desktop"></i></caption>
@@ -1070,6 +1126,8 @@ pollDatabase();
             title="<?=__('Close all windows and remove uploaded files')?>">
         <?=__('Close all windows')?>
     </button>
+	</div>
+
     <button
         class="pure-button pure-button-primary pure-input-rounded"
         onclick="showHelp(true)"
@@ -1082,21 +1140,13 @@ pollDatabase();
 
 <div id="workbench_left">
     <table class="maindisplay" summary="<?=__('Team display')?>">
-        <caption>
-            <img id="palma_logo"
-                 src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
-                 alt="PalMA"> <?=__('Team display')?>
-        <?php
-              if (isset($_SESSION['monitor'])) {
-                  echo('(' . $_SESSION['monitor'] . ')');
-              }
-        ?>
-        </caption>
         <tbody id='maindisplay'>
             <tr><td><!-- filled by function showLayout() --></td></tr>
         </tbody>
     </table>
-    <table class="minidisplaylist" summary="<?=__('Screen layout')?>">
+
+
+    <table class="minidisplaylist" id="displaylist" summary="<?=__('Screen layout')?>">
         <caption><?=__('Screen layout')?></caption>
         <tr>
           <td><div>
@@ -1136,7 +1186,7 @@ pollDatabase();
           </div></td>
         </tr>
     </table>
-    <table>
+    <table id="url_doc">
   <tr>
   <td>
     <input type="text" value="<?=__('Enter URL')?>"
@@ -1244,6 +1294,7 @@ pollDatabase();
     </div>
 </div>
 
+</div>
 </body> <!-- workbench -->
 
 </html>
