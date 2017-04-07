@@ -11,6 +11,7 @@ GNU General Public License (GPL). See [docs/gpl.txt](docs/gpl.txt) for details.
 Parts of the software use different licenses which are listed
 in file [LICENSE](LICENSE).
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e5750c1e19fc4ecf9257a9a4d4418e0c)](https://www.codacy.com/app/UB-Mannheim/PalMA?utm_source=github.com&utm_medium=referral&utm_content=UB-Mannheim/PalMA&utm_campaign=badger)
 [![CircleCI](https://circleci.com/gh/UB-Mannheim/PalMA/tree/master.svg?style=svg)](https://circleci.com/gh/UB-Mannheim/PalMA/tree/master)
 [![Build Status](https://travis-ci.org/UB-Mannheim/PalMA.svg?branch=master)](https://travis-ci.org/UB-Mannheim/PalMA)
 
