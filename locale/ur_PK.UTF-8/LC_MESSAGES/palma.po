@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-04 15:25+0100\n"
+"POT-Creation-Date: 2017-04-07 20:30+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Taimur Ali Khan <takhan@mail.uni-mannheim.de>\n"
 "Language-Team: Urdu\n"
@@ -16,171 +16,184 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:167
+#: index.php:170
 msgid "Screen section"
 msgstr "سکرین کے حصے"
 
-#: index.php:172
+#: index.php:175
 msgid "Close the advanced control"
 msgstr "اعلی درجے کی کنٹرول بند"
 
-#: index.php:229
+#: index.php:232
 msgid "Enter valid URL"
 msgstr "درست یو آر ایل درج کریں"
 
-#: index.php:267 index.php:272 index.php:287 index.php:292
+#: index.php:270 index.php:275 index.php:290 index.php:295
 msgid "Cursor control"
 msgstr "کرسر کنٹرول"
 
-#: index.php:282
+#: index.php:285
 msgid "Advanced control"
 msgstr "اعلی درجے کی کنٹرول"
 
-#: index.php:342
+#: index.php:345
 msgid "Zoom in"
 msgstr "زوم اندر"
 
-#: index.php:348
+#: index.php:351
 msgid "Zoom out"
 msgstr "زوم باہر"
 
-#: index.php:363
+#: index.php:366
 msgid "Jump to start"
 msgstr "شروع کرنے کے لئے کود"
 
-#: index.php:366
+#: index.php:369
 msgid "Page up"
 msgstr "صفحہ اپ"
 
-#: index.php:369
+#: index.php:372
 msgid "Page down"
 msgstr "صفحے پر نیچے"
 
-#: index.php:372
+#: index.php:375
 msgid "Jump to end"
 msgstr "آخر پر جائیں"
 
-#: index.php:375
+#: index.php:378
 msgid "Download this file"
 msgstr "اس فائل کی اتار"
 
-#: index.php:753
+#: index.php:758
 msgid "You were disconnected!"
 msgstr ""
 
-#: index.php:836
+#: index.php:841
 msgid "Toggle visibility"
 msgstr ""
 
-#: index.php:844
+#: index.php:849
 msgid "Select screen section for display"
 msgstr ""
 
-#: index.php:910
+#: index.php:915
 msgid "Remove this object"
 msgstr ""
 
-#: index.php:1044
-msgid "Disconnect the current user"
-msgstr ""
-
-#: index.php:1049 index.php:1050
-msgid "User list"
-msgstr ""
-
-#: index.php:1049
-msgid "List of connected users"
-msgstr ""
-
-#: index.php:1057
-msgid "Disconnect all users and reset the work place"
-msgstr ""
-
-#: index.php:1058
-msgid "Disconnect all users"
-msgstr ""
-
-#: index.php:1061 index.php:1063
-msgid "Display list"
-msgstr ""
-
-#: index.php:1062
-msgid "List of files, URLs and shared displays"
-msgstr ""
-
-#: index.php:1070
-msgid "Close all windows and remove uploaded files"
-msgstr ""
-
-#: index.php:1071
-msgid "Close all windows"
-msgstr ""
-
-#: index.php:1076
-msgid "Show help and offer some extras"
-msgstr ""
-
-#: index.php:1077 index.php:1191
-msgid "Help + Extras"
-msgstr ""
-
-#: index.php:1084 index.php:1088
+#: index.php:1074 index.php:1142
 msgid "Team display"
 msgstr ""
 
-#: index.php:1099 index.php:1100
+#: index.php:1085
+#, fuzzy
+msgid "Controls"
+msgstr "کرسر کنٹرول"
+
+#: index.php:1086 index.php:1149 index.php:1150
 msgid "Screen layout"
 msgstr ""
 
-#: index.php:1105 index.php:1112 index.php:1119 index.php:1126 index.php:1133
+#: index.php:1087
+msgid "URL / Document"
+msgstr ""
+
+#: index.php:1088
+msgid "Menu"
+msgstr ""
+
+#: index.php:1096
+msgid "Disconnect the current user"
+msgstr ""
+
+#: index.php:1101 index.php:1102
+msgid "User list"
+msgstr ""
+
+#: index.php:1101
+msgid "List of connected users"
+msgstr ""
+
+#: index.php:1111
+msgid "Disconnect all users and reset the work place"
+msgstr ""
+
+#: index.php:1112
+msgid "Disconnect all users"
+msgstr ""
+
+#: index.php:1117 index.php:1119
+msgid "Display list"
+msgstr ""
+
+#: index.php:1118
+msgid "List of files, URLs and shared displays"
+msgstr ""
+
+#: index.php:1126
+msgid "Close all windows and remove uploaded files"
+msgstr ""
+
+#: index.php:1127
+msgid "Close all windows"
+msgstr ""
+
+#: index.php:1134
+msgid "Show help and offer some extras"
+msgstr ""
+
+#: index.php:1135 index.php:1241
+msgid "Help + Extras"
+msgstr ""
+
+#: index.php:1155 index.php:1162 index.php:1169 index.php:1176 index.php:1183
 msgid "Choose screen layout"
 msgstr ""
 
-#: index.php:1142 index.php:1145
+#: index.php:1192 index.php:1195
 msgid "Enter URL"
 msgstr "Please enter URL"
 
-#: index.php:1148
+#: index.php:1198
 msgid "Show this URL in a new browser window"
 msgstr ""
 
-#: index.php:1158
+#: index.php:1208
 msgid "Drop documents here (or click) to load them up"
 msgstr ""
 
-#: index.php:1162
+#: index.php:1212
 msgid "Drop documents here (or click)"
 msgstr ""
 
-#: index.php:1188
+#: index.php:1238
 msgid "Close the help window"
 msgstr ""
 
-#: index.php:1194
+#: index.php:1244
 msgid ""
 "With PalMA, you can share your documents and your desktop\n"
 "            with your learning group."
 msgstr ""
 
-#: index.php:1196
+#: index.php:1246
 msgid ""
 "Team members can join the group at any time. All they need\n"
 "            is URL and PIN."
 msgstr ""
 
-#: index.php:1200
+#: index.php:1250
 msgid ""
 "The PalMA team monitor shows up to 4 contributions\n"
 "            simultaneously."
 msgstr ""
 
-#: index.php:1202
+#: index.php:1252
 msgid ""
 "Just upload PDF files, images, OpenDocument or\n"
 "            MS Office files or enter a URL &ndash; PalMA will show them."
 msgstr ""
 
-#: index.php:1204
+#: index.php:1254
 msgid ""
 "Share the desktop of your notebook with others. PalMA uses\n"
 "            VNC for screen sharing. Download the VNC software once for your\n"
@@ -195,19 +208,19 @@ msgid ""
 "            (RealVNC)."
 msgstr ""
 
-#: index.php:1212
+#: index.php:1262
 msgid "Linux users can share their X display like this:"
 msgstr ""
 
-#: index.php:1218
+#: index.php:1268
 msgid "Share desktop (free UltraVNC / Windows only)"
 msgstr ""
 
-#: index.php:1225
+#: index.php:1275
 msgid "Share desktop (non free RealVNC)"
 msgstr ""
 
-#: index.php:1233
+#: index.php:1283
 msgid "Show team display"
 msgstr ""
 
@@ -223,27 +236,27 @@ msgstr ""
 msgid "Invalid PIN."
 msgstr ""
 
-#: login.php:167
+#: login.php:168
 msgid "PalMA &ndash; Login"
 msgstr ""
 
-#: login.php:194
+#: login.php:195
 msgid "Login"
 msgstr ""
 
-#: login.php:197
+#: login.php:199
 msgid "User name"
 msgstr ""
 
-#: login.php:204
+#: login.php:206
 msgid "Password"
 msgstr ""
 
-#: login.php:212
+#: login.php:214
 msgid "PIN"
 msgstr ""
 
-#: login.php:219
+#: login.php:222
 msgid "Log in"
 msgstr ""
 

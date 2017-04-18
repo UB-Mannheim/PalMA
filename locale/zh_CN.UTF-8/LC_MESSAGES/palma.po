@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-04 15:25+0100\n"
+"POT-Creation-Date: 2017-04-07 20:30+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Caipei Song <csong@mail.uni-mannheim.de>\n"
 "Language-Team: Chinese <zh@li.org>\n"
@@ -16,165 +16,178 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:167
+#: index.php:170
 msgid "Screen section"
 msgstr "屏幕部分"
 
-#: index.php:172
+#: index.php:175
 msgid "Close the advanced control"
 msgstr "关闭高级控制"
 
-#: index.php:229
+#: index.php:232
 msgid "Enter valid URL"
 msgstr "请输入合法的URL"
 
-#: index.php:267 index.php:272 index.php:287 index.php:292
+#: index.php:270 index.php:275 index.php:290 index.php:295
 msgid "Cursor control"
 msgstr "鼠标指针控制"
 
-#: index.php:282
+#: index.php:285
 msgid "Advanced control"
 msgstr "高级控制"
 
-#: index.php:342
+#: index.php:345
 msgid "Zoom in"
 msgstr "放大"
 
-#: index.php:348
+#: index.php:351
 msgid "Zoom out"
 msgstr "缩小"
 
-#: index.php:363
+#: index.php:366
 msgid "Jump to start"
 msgstr "回到开头"
 
-#: index.php:366
+#: index.php:369
 msgid "Page up"
 msgstr "向上翻页"
 
-#: index.php:369
+#: index.php:372
 msgid "Page down"
 msgstr "向下翻页"
 
-#: index.php:372
+#: index.php:375
 msgid "Jump to end"
 msgstr "跳到结尾"
 
-#: index.php:375
+#: index.php:378
 msgid "Download this file"
 msgstr "下载文件"
 
-#: index.php:753
+#: index.php:758
 msgid "You were disconnected!"
 msgstr "您已断开连接"
 
-#: index.php:836
+#: index.php:841
 msgid "Toggle visibility"
 msgstr "切换可见"
 
-#: index.php:844
+#: index.php:849
 msgid "Select screen section for display"
 msgstr "选取需要显示的屏幕部分"
 
-#: index.php:910
+#: index.php:915
 msgid "Remove this object"
 msgstr "移除物件"
 
-#: index.php:1044
-msgid "Disconnect the current user"
-msgstr "断开当前用户连接"
-
-#: index.php:1049 index.php:1050
-msgid "User list"
-msgstr "用户列表"
-
-#: index.php:1049
-msgid "List of connected users"
-msgstr "已连接用户列表"
-
-#: index.php:1057
-msgid "Disconnect all users and reset the work place"
-msgstr "断开所有用户并重置工作地点"
-
-#: index.php:1058
-msgid "Disconnect all users"
-msgstr "断开所有用户"
-
-#: index.php:1061 index.php:1063
-msgid "Display list"
-msgstr "显示列表"
-
-#: index.php:1062
-msgid "List of files, URLs and shared displays"
-msgstr "文件列表，URL列表以及屏幕共享列表"
-
-#: index.php:1070
-msgid "Close all windows and remove uploaded files"
-msgstr "关闭所有窗口并移除已上传文件"
-
-#: index.php:1071
-msgid "Close all windows"
-msgstr "关闭所有窗口"
-
-#: index.php:1076
-msgid "Show help and offer some extras"
-msgstr "显示帮助以及其它"
-
-#: index.php:1077 index.php:1191
-msgid "Help + Extras"
-msgstr "帮助 + 其它"
-
-#: index.php:1084 index.php:1088
+#: index.php:1074 index.php:1142
 msgid "Team display"
 msgstr "显示小组"
 
-#: index.php:1099 index.php:1100
+#: index.php:1085
+#, fuzzy
+msgid "Controls"
+msgstr "鼠标指针控制"
+
+#: index.php:1086 index.php:1149 index.php:1150
 msgid "Screen layout"
 msgstr "屏幕布局"
 
-#: index.php:1105 index.php:1112 index.php:1119 index.php:1126 index.php:1133
+#: index.php:1087
+msgid "URL / Document"
+msgstr ""
+
+#: index.php:1088
+msgid "Menu"
+msgstr ""
+
+#: index.php:1096
+msgid "Disconnect the current user"
+msgstr "断开当前用户连接"
+
+#: index.php:1101 index.php:1102
+msgid "User list"
+msgstr "用户列表"
+
+#: index.php:1101
+msgid "List of connected users"
+msgstr "已连接用户列表"
+
+#: index.php:1111
+msgid "Disconnect all users and reset the work place"
+msgstr "断开所有用户并重置工作地点"
+
+#: index.php:1112
+msgid "Disconnect all users"
+msgstr "断开所有用户"
+
+#: index.php:1117 index.php:1119
+msgid "Display list"
+msgstr "显示列表"
+
+#: index.php:1118
+msgid "List of files, URLs and shared displays"
+msgstr "文件列表，URL列表以及屏幕共享列表"
+
+#: index.php:1126
+msgid "Close all windows and remove uploaded files"
+msgstr "关闭所有窗口并移除已上传文件"
+
+#: index.php:1127
+msgid "Close all windows"
+msgstr "关闭所有窗口"
+
+#: index.php:1134
+msgid "Show help and offer some extras"
+msgstr "显示帮助以及其它"
+
+#: index.php:1135 index.php:1241
+msgid "Help + Extras"
+msgstr "帮助 + 其它"
+
+#: index.php:1155 index.php:1162 index.php:1169 index.php:1176 index.php:1183
 msgid "Choose screen layout"
 msgstr "选择屏幕布局"
 
-#: index.php:1142 index.php:1145
+#: index.php:1192 index.php:1195
 msgid "Enter URL"
 msgstr "输入URL"
 
-#: index.php:1148
+#: index.php:1198
 msgid "Show this URL in a new browser window"
 msgstr "在新浏览窗口中显示URL"
 
-#: index.php:1158
+#: index.php:1208
 msgid "Drop documents here (or click) to load them up"
 msgstr "拖拽文件（或点击）以添加"
 
-#: index.php:1162
+#: index.php:1212
 msgid "Drop documents here (or click)"
 msgstr "拖拽文件（或点击）"
 
-#: index.php:1188
+#: index.php:1238
 msgid "Close the help window"
 msgstr "关闭帮助窗口"
 
-#: index.php:1194
+#: index.php:1244
 msgid ""
 "With PalMA, you can share your documents and your desktop\n"
 "            with your learning group."
 msgstr "用PalMA，你可以和你的学习小组分享你的文件和屏幕"
 
-#: index.php:1196
+#: index.php:1246
 msgid ""
 "Team members can join the group at any time. All they need\n"
 "            is URL and PIN."
 msgstr "组员可以随时用URL和PIN加入小组。"
 
-#: index.php:1200
+#: index.php:1250
 msgid ""
 "The PalMA team monitor shows up to 4 contributions\n"
 "            simultaneously."
 msgstr "PalMA小组组长同时展示最多4个贡献"
 
-#: index.php:1202
+#: index.php:1252
 msgid ""
 "Just upload PDF files, images, OpenDocument or\n"
 "            MS Office files or enter a URL &ndash; PalMA will show them."
@@ -182,7 +195,7 @@ msgstr ""
 "上传PDF文件，图片，开放文档格式(ODF)以及\n"
 "            MS Office文件或者输入URL &ndash; PalMA会显示它们."
 
-#: index.php:1204
+#: index.php:1254
 msgid ""
 "Share the desktop of your notebook with others. PalMA uses\n"
 "            VNC for screen sharing. Download the VNC software once for your\n"
@@ -200,27 +213,27 @@ msgstr ""
 "            VNC来实现屏幕共享. 下载 VNC 软件以拓展你的\n"
 "            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
 "LearningCenter/palma-kurzanleitung.pdf\"\n"
-"            onclick=\"window.open(this.href); return false;\">Windows 个人电脑</"
-"a>\n"
+"            onclick=\"window.open(this.href); return false;\">Windows 个人电"
+"脑</a>\n"
 "            (已配置的 UltraVNC) 或者\n"
 "            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
 "LearningCenter/palma-anleitung-mac.pdf\"\n"
 "            onclick=\"window.open(this.href); return false;\">Mac电脑</a>\n"
 "            (RealVNC)."
 
-#: index.php:1212
+#: index.php:1262
 msgid "Linux users can share their X display like this:"
 msgstr "Linux 用户可以这样共享 X display:"
 
-#: index.php:1218
+#: index.php:1268
 msgid "Share desktop (free UltraVNC / Windows only)"
 msgstr "共享桌面 (免费 UltraVNC / 仅支持Windows)"
 
-#: index.php:1225
+#: index.php:1275
 msgid "Share desktop (non free RealVNC)"
 msgstr "共享桌面 (付费 RealVNC)"
 
-#: index.php:1233
+#: index.php:1283
 msgid "Show team display"
 msgstr "展示小组"
 
@@ -236,27 +249,27 @@ msgstr "抱歉，无法检查证书。"
 msgid "Invalid PIN."
 msgstr "PIN码无效"
 
-#: login.php:167
+#: login.php:168
 msgid "PalMA &ndash; Login"
 msgstr "PalMA &ndash; 登入"
 
-#: login.php:194
+#: login.php:195
 msgid "Login"
 msgstr "登入"
 
-#: login.php:197
+#: login.php:199
 msgid "User name"
 msgstr "用户名"
 
-#: login.php:204
+#: login.php:206
 msgid "Password"
 msgstr "密码"
 
-#: login.php:212
+#: login.php:214
 msgid "PIN"
 msgstr "PIN码"
 
-#: login.php:219
+#: login.php:222
 msgid "Log in"
 msgstr "登入"
 

@@ -5,6 +5,7 @@
 .PHONY: all
 
 DISTDIR=docs/dist
+LANGUAGES=al_AL ar de_DE en_US es_ES it_IT ru_RU ur_PK zh_CN zh_TW
 
 SRC=index.php
 SRC+=login.php
@@ -15,7 +16,7 @@ SRC+=$(wildcard theme/*/*/*.php)
 
 PO=$(wildcard locale/*.UTF-8/LC_MESSAGES/palma.po)
 
-all: $(patsubst %.po, %.mo, $(PO))
+all: $(patsubst %.po, %.mo, $(PO)) locale/README.md
 
 %.mo: %.po
 	msgfmt --output-file=$@ $?
@@ -29,8 +30,8 @@ $(PO): palma.po
 	msgmerge --update $@ palma.po
 	touch $@
 
-TRANSLATIONS.md: $(PO)
-	perl $(DISTDIR)/find-untranslated.pl --markdown > $@
+locale/README.md: $(PO)
+	perl $(DISTDIR)/find-untranslated.pl --markdown $(LANGUAGES) >$@
 
 .git/hooks: .git/hooks/pre-push .git/hooks/pre-commit
 

@@ -6,19 +6,19 @@
 
 |Locale|Completion|
 |---|---|
-|[al_AL](#al_al)|93.75|
-|[ar](#ar)|45.31|
-|[de_DE](#de_de)|98.44|
-|[es_ES](#es_es)|92.19|
-|[it_IT](#it_it)|93.75|
-|[ru_RU](#ru_ru)|98.44|
-|[ur_PK](#ur_pk)|20.31|
-|[zh_CN](#zh_cn)|100.00|
-|[zh_TW](#zh_tw)|100.00|
+|[al_AL](#al_al)|91.04|
+|[ar](#ar)|44.78|
+|[de_DE](#de_de)|98.51|
+|[es_ES](#es_es)|89.55|
+|[it_IT](#it_it)|91.04|
+|[ru_RU](#ru_ru)|95.52|
+|[ur_PK](#ur_pk)|20.90|
+|[zh_CN](#zh_cn)|97.01|
+|[zh_TW](#zh_tw)|97.01|
 
 ## al_AL
 
-Completion: **93.75** (60 / 64 strings)
+Completion: **91.04** (61 / 67 strings)
 
 Contributors:
 
@@ -30,12 +30,14 @@ Contributors:
 Missing:
   * `Log in`
   * `Login`
+  * `Menu`
   * `PIN`
   * `PalMA &ndash; Login`
+  * `URL / Document`
 
 ## ar
 
-Completion: **45.31** (29 / 64 strings)
+Completion: **44.78** (30 / 67 strings)
 
 Contributors:
 
@@ -62,6 +64,7 @@ Missing:
   * `Log in`
   * `Login`
   * `Mannheim table`
+  * `Menu`
   * `PIN`
   * `PalMA &ndash; Login`
   * `Password`
@@ -79,16 +82,18 @@ Missing:
   * `The PalMA team monitor shows up to 4 contributions\n            simultaneously.`
   * `This file is too large.`
   * `Tiles`
+  * `URL / Document`
   * `User name`
   * `With PalMA, you can share your documents and your desktop\n            with your learning group.`
 
 ## de_DE
 
-Completion: **98.44** (63 / 64 strings)
+Completion: **98.51** (66 / 67 strings)
 
 Contributors:
 
   * Alexander Wagner
+  * Dennis Müller
   * Philipp Zumstein
   * Stefan Weil
 
@@ -97,7 +102,7 @@ Missing:
 
 ## es_ES
 
-Completion: **92.19** (59 / 64 strings)
+Completion: **89.55** (60 / 67 strings)
 
 Contributors:
 
@@ -107,14 +112,16 @@ Contributors:
 
 Missing:
   * `Log in`
+  * `Menu`
   * `PIN`
   * `Password`
   * `Picture Show`
   * `Tiles`
+  * `URL / Document`
 
 ## it_IT
 
-Completion: **93.75** (60 / 64 strings)
+Completion: **91.04** (61 / 67 strings)
 
 Contributors:
 
@@ -124,13 +131,15 @@ Contributors:
 
 Missing:
   * `Login`
+  * `Menu`
   * `PIN`
   * `PalMA &ndash; Login`
   * `Password`
+  * `URL / Document`
 
 ## ru_RU
 
-Completion: **98.44** (63 / 64 strings)
+Completion: **95.52** (64 / 67 strings)
 
 Contributors:
 
@@ -143,10 +152,12 @@ Contributors:
 
 Missing:
   * `Mannheim table`
+  * `Menu`
+  * `URL / Document`
 
 ## ur_PK
 
-Completion: **20.31** (13 / 64 strings)
+Completion: **20.90** (14 / 67 strings)
 
 Contributors:
 
@@ -181,6 +192,7 @@ Missing:
   * `Log in`
   * `Login`
   * `Mannheim table`
+  * `Menu`
   * `PIN`
   * `PalMA &ndash; Login`
   * `Password`
@@ -202,6 +214,7 @@ Missing:
   * `This file is too large.`
   * `Tiles`
   * `Toggle visibility`
+  * `URL / Document`
   * `User list`
   * `User name`
   * `With PalMA, you can share your documents and your desktop\n            with your learning group.`
@@ -209,7 +222,7 @@ Missing:
 
 ## zh_CN
 
-Completion: **100.00** (64 / 64 strings)
+Completion: **97.01** (65 / 67 strings)
 
 Contributors:
 
@@ -219,9 +232,13 @@ Contributors:
   * Stefan Weil
   * Yang
 
+Missing:
+  * `Menu`
+  * `URL / Document`
+
 ## zh_TW
 
-Completion: **100.00** (64 / 64 strings)
+Completion: **97.01** (65 / 67 strings)
 
 Contributors:
 
@@ -231,3 +248,7 @@ Contributors:
   * Piero Divasto
   * Stefan Weil
   * Yang
+
+Missing:
+  * `Menu`
+  * `URL / Document`
