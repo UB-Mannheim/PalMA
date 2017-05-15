@@ -95,11 +95,11 @@ msgstr "屏幕布局"
 
 #: index.php:1087
 msgid "URL / Document"
-msgstr ""
+msgstr "网址/文件"
 
 #: index.php:1088
 msgid "Menu"
-msgstr ""
+msgstr "菜单"
 
 #: index.php:1096
 msgid "Disconnect the current user"
