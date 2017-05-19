@@ -209,7 +209,7 @@ function downloadFile(screensection) {
    var name = "Download";
 
    if(file.indexOf("www.") > -1) {
-        window.open("http://"+file, name);
+        window.open(file, name);
    } else {
         window.open(download, name);
     }
