@@ -1244,9 +1244,9 @@ function showToggleDisplay(source) {
             <p><?=__('With PalMA, you can share your documents and your desktop
             with your learning group.')?></p>
             <p><?=__('Team members can join the group at any time. All they need
-            is URL and PIN.')?>
-            URL: <?=$_SESSION['starturl']?>,
-            PIN: <?=$_SESSION['pin']?>.</p>
+            is <b>URL</b> and <b>PIN</b>.')?><br />
+            <h4>URL: <?=$_SESSION['starturl']?></h4>
+            <h4>PIN: <?=$_SESSION['pin']?></h4>
             <p><?=__('The PalMA team monitor shows up to 4 contributions
             simultaneously.')?></p>
             <p><?=__('Just upload PDF files, images, OpenDocument or
