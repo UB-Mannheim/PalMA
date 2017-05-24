@@ -114,14 +114,14 @@ abstract class FileHandler
             $fhandler='/usr/bin/eog';
 
         } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
-            $fhandler='/usr/bin/libreoffice --writer --nologo --norestore';
+            $fhandler='/usr/bin/libreoffice --writer --nologo --norestore --view';
 
         } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
             // optional --show (presentation mode)
-            $fhandler='/usr/bin/libreoffice --impress --nologo --norestore --show';
+            $fhandler='/usr/bin/libreoffice --impress --nologo --norestore --view';
 
         } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
-            $fhandler='/usr/bin/libreoffice --calc --nologo --norestore';
+            $fhandler='/usr/bin/libreoffice --calc --nologo --norestore --view';
 
         } elseif ($ftype === 'html' || $ftype === 'url') {
             $fhandler='/usr/bin/dwb --override-restore';
