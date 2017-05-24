@@ -107,30 +107,42 @@ abstract class FileHandler
         $fhandler = "";
         // $params;
         // echo $ftype;
-        if ($ftype === 'pdf') {
+        switch ($ftype) {
+        case 'pdf':
             $fhandler='/usr/bin/zathura';
-
-        } elseif ($ftype === 'gif' || $ftype === 'jpg' || $ftype === 'png') {
+            break;
+        case 'gif':
+        case 'jpg':
+        case 'png':
             $fhandler='/usr/bin/eog';
-
-        } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
-            $fhandler='/usr/bin/libreoffice --writer -o -n --nologo --norestore --view';
-
-        } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
-            // optional --show (presentation mode)
-            $fhandler='/usr/bin/libreoffice --impress -o -n --nologo --norestore --view';
-
-        } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
-            $fhandler='/usr/bin/libreoffice --calc -o -n --nologo --norestore --view';
-
-        } elseif ($ftype === 'html' || $ftype === 'url') {
+            break;
+        case 'doc':
+        case 'docx':
+        case 'odt':
+        case 'txt':
+        case 'ppt':
+        case 'pps':
+        case 'ppsx':
+        case 'odp':
+        case 'xls':
+        case 'xlsx':
+        case 'ods':
+            $fhandler='/usr/bin/libreoffice --nologo --norestore --show';
+            break;
+        case 'html':
+        case 'url':
             $fhandler='/usr/bin/dwb --override-restore';
-
-        } elseif ($ftype === 'mpg' || $ftype === 'mpeg' || $ftype === 'avi' ||
-                  $ftype === 'mp3' || $ftype === 'mp4') {
-            $fhandler='/usr/bin/cvlc --no-audio';
+            break;
+        case 'mpg':
+        case 'mpeg':
+        case 'avi':
+        case 'mp3':
+        case 'mp4':
+            $fhandler?'/usr/bin/cvlc --no-audio';
+            break;
+        default:
+            $fhandler='Unknown';
         }
-
         /*
         alternatively with mime-types
 
