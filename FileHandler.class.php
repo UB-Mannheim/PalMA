@@ -147,7 +147,7 @@ abstract class FileHandler
             // (...)
 
         */
-        return array($fhandler, $file);
+        return array ($fhandler, $file);
     }
 }
 
