@@ -103,7 +103,8 @@ abstract class FileHandler
     public static function getFileHandler($file)
     {
 
-        $ftype = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+        $pathParts = pathinfo($file)
+        $ftype = strtolower($pathParts['extension']);
         $fhandler = "";
         // $params;
         // echo $ftype;
@@ -114,13 +115,19 @@ abstract class FileHandler
             $fhandler='/usr/bin/eog';
 
         } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
-            $fhandler='/usr/bin/libreoffice --writer --nologo --norestore -o';
+            shell_exec(/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export $file);
+            $file=$pathParts['dirname'] + $pathParts['filename'] + ".pdf";
+            $fhandler='/usr/bin/zathura';
 
         } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
-            $fhandler='/usr/bin/libreoffice --impress --nologo --norestore -o';
+            shell_exec(/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export $file);
+            $file=$pathParts['dirname'] + $pathParts['filename'] + ".pdf";
+            $fhandler='/usr/bin/zathura';
 
         } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
-            $fhandler='/usr/bin/libreoffice --calc --nologo --norestore -o';
+            shell_exec(/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export $file);
+            $file=$pathParts['dirname'] + $pathParts['filename'] + ".pdf";
+            $fhandler='/usr/bin/zathura';
 
         } elseif ($ftype === 'html' || $ftype === 'url') {
             $fhandler='/usr/bin/dwb --override-restore';
@@ -140,8 +147,7 @@ abstract class FileHandler
             // (...)
 
         */
-
-        return $fhandler;
+        return array($fhandler, $file);
     }
 }
 

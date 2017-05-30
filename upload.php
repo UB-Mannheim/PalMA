@@ -83,7 +83,8 @@ if ($error == UPLOAD_ERR_OK) {
 
   // Get information of application for uploaded file.
   require_once ('FileHandler.class.php');
-  $handler = FileHandler::getFileHandler($targetFile);
+  $handler = FileHandler::getFileHandler($targetFile)[0];
+  $targetFile = FileHandler::getFileHandler($targetFile)[1];
 
   // create window object and send to nuc
 
