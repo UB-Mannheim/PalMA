@@ -116,36 +116,33 @@ abstract class FileHandler
             $fhandler='/usr/bin/eog';
 
         } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
-            exec('/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir "$fdir"  "$file"' , &$output , &$return_var);
+            shell_exec('/usr/bin/libreoffice -env:UserInstallation=file:///$HOME/.libreoffice-headless/ \--headless --convert-to pdf:writer_pdf_Export --outdir "$fdir"  "$file" >>/dev/null');
             $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
             if (file_exists($newFile)) {
                 $file=$newfile;
                 $fhandler='/usr/bin/zathura';
             } else {
-                //$fhandler='/usr/bin/libreoffice --writer --nologo --norestore -o';
-                $fhandler=$return_var;
+                $fhandler='/usr/bin/libreoffice --writer --nologo --norestore -o';
             }
 
         } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
-            exec('/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir "$fdir" "$file"' , &$output , &$return_var);
+            shell_exec('/usr/bin/libreoffice -env:UserInstallation=file:///$HOME/.libreoffice-headless/ \--headless --convert-to pdf:impress_pdf_Export --outdir "$fdir" "$file" >>/dev/null');
             $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
             if (file_exists($newFile)) {
                 $file=$newfile;
                 $fhandler='/usr/bin/zathura';
             } else {
-                //$fhandler='/usr/bin/libreoffice --impress --nologo --norestore -o';
-                $fhandler=$return_var;
+                $fhandler='/usr/bin/libreoffice --impress --nologo --norestore -o';
             }
 
         } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
-            exec('/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir "$fdir" "$file"' , &$output , &$return_var);
+            shell_exec('/usr/bin/libreoffice -env:UserInstallation=file:///$HOME/.libreoffice-headless/ \--headless --convert-to pdf:calc_pdf_Export --outdir "$fdir" "$file" >>/dev/null');
             $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
             if (file_exists($newFile)) {
                 $file=$newfile;
                 $fhandler='/usr/bin/zathura';
             } else {
-                //$fhandler='/usr/bin/libreoffice --calc --nologo --norestore -o';
-                $fhandler=$return_var;
+                $fhandler='/usr/bin/libreoffice --calc --nologo --norestore -o';
             }
 
         } elseif ($ftype === 'html' || $ftype === 'url') {
