@@ -105,8 +105,7 @@ abstract class FileHandler
 
         $pathParts = pathinfo($file);
         $ftype = strtolower($pathParts['extension']);
-        //$fdir = $pathParts['dirname'];
-        $fdir = '/home/palma/Desktop';
+        $fdir = $pathParts['dirname'];
         $fhandler = "";
         // $params;
         // echo $ftype;
@@ -118,18 +117,33 @@ abstract class FileHandler
 
         } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
             shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir "$fdir"  "$file"');
-            $file=$fdir . '/' . $pathParts['filename'] . '.pdf';
-            $fhandler='/usr/bin/zathura';
+            $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
+            if ($file_exists($newFile)) {
+                $file=$newfile;
+                $fhandler='/usr/bin/zathura';
+            } else {
+                $fhandler='/usr/bin/libreoffice --writer --nologo --norestore -o';
+            }
 
         } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
             shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir "$fdir" "$file"');
-            $file=$fdir . '/' . $pathParts['filename'] . '.pdf';
-            $fhandler='/usr/bin/zathura';
+            $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
+            if ($file_exists($newFile)) {
+                $file=$newfile;
+                $fhandler='/usr/bin/zathura';
+            } else {
+                $fhandler='/usr/bin/libreoffice --impress --nologo --norestore -o';
+            }
 
         } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
             shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir "$fdir" "$file"');
-            $file=$fdir . '/' . $pathParts['filename'] . '.pdf';
-            $fhandler='/usr/bin/zathura';
+            $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
+            if ($file_exists($newFile)) {
+                $file=$newfile;
+                $fhandler='/usr/bin/zathura';
+            } else {
+                $fhandler='/usr/bin/libreoffice --calc --nologo --norestore -o';
+            }
 
         } elseif ($ftype === 'html' || $ftype === 'url') {
             $fhandler='/usr/bin/dwb --override-restore';
