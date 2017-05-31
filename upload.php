@@ -16,7 +16,7 @@ if (empty($_FILES)) {
 
 if (!is_dir(CONFIG_UPLOAD_DIR)) {
     /* Target directory is missing, so create it now. */
-    mkdir(CONFIG_UPLOAD_DIR, 0755);
+    mkdir(CONFIG_UPLOAD_DIR, 0775);
 }
 
 if ($error == UPLOAD_ERR_OK) {

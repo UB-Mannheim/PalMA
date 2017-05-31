@@ -116,7 +116,7 @@ abstract class FileHandler
             $fhandler='/usr/bin/eog';
 
         } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
-            shell_exec('/usr/bin/libreoffice -env:UserInstallation=file:///$HOME/.libreoffice-headless/ \--headless --convert-to pdf:writer_pdf_Export --outdir "$fdir"  "$file" >>/dev/null');
+            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir "$fdir" "$file" >>/dev/null');
             $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
             if (file_exists($newFile)) {
                 $file=$newfile;
@@ -126,7 +126,7 @@ abstract class FileHandler
             }
 
         } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
-            shell_exec('/usr/bin/libreoffice -env:UserInstallation=file:///$HOME/.libreoffice-headless/ \--headless --convert-to pdf:impress_pdf_Export --outdir "$fdir" "$file" >>/dev/null');
+            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir "$fdir" "$file" >>/dev/null');
             $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
             if (file_exists($newFile)) {
                 $file=$newfile;
@@ -136,7 +136,7 @@ abstract class FileHandler
             }
 
         } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
-            shell_exec('/usr/bin/libreoffice -env:UserInstallation=file:///$HOME/.libreoffice-headless/ \--headless --convert-to pdf:calc_pdf_Export --outdir "$fdir" "$file" >>/dev/null');
+            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir "$fdir" "$file" >>/dev/null');
             $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
             if (file_exists($newFile)) {
                 $file=$newfile;
