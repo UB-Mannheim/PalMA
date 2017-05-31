@@ -120,7 +120,7 @@ abstract class FileHandler
             shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir '$fdir' '$file' >/dev/null 2>&1");
             $newFile=$fdir . '/' . $fname . '.pdf';
             if (file_exists($newFile)) {
-                $file=$newfile;
+                $file=$newFile;
                 $fhandler='/usr/bin/zathura';
             } else {
                 $fhandler='/usr/bin/libreoffice --writer --nologo --norestore -o';
@@ -130,7 +130,7 @@ abstract class FileHandler
             shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir '$fdir' '$file' >/dev/null 2>&1");
             $newFile=$fdir . '/' . $fname . '.pdf';
             if (file_exists($newFile)) {
-                $file=$newfile;
+                $file=$newFile;
                 $fhandler='/usr/bin/zathura';
             } else {
                 $fhandler='/usr/bin/libreoffice --impress --nologo --norestore -o';
@@ -140,7 +140,7 @@ abstract class FileHandler
             shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir '$fdir' '$file' >/dev/null 2>&1");
             $newFile=$fdir . '/' . $fname . '.pdf';
             if (file_exists($newFile)) {
-                $file=$newfile;
+                $file=$newFile;
                 $fhandler='/usr/bin/zathura';
             } else {
                 $fhandler='/usr/bin/libreoffice --calc --nologo --norestore -o';
