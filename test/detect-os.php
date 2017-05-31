@@ -43,14 +43,18 @@ Branch:     testing
         return OSName;
     }
 
+    // function getFilePathByOS(themepath) {
     function getFilePathByOS() {
 
         var OSName = getOS();
 
         // alert(OSName);
 
-        var fileWindows = 'winvnc-palma.exe';
-        var fileMacOS = 'vncserver.dmg'
+        // var fileWindows = 'winvnc-palma.exe';
+        // var fileMacOS = 'VineServer.dmg.dmg'
+
+        var fileWindows = 'download-winvnc';
+        var fileMacOS = 'download-macvnc';
         var fileLinux = 'x11.sh';
 
         var file = '';
@@ -67,10 +71,15 @@ Branch:     testing
             default: file = null;
         }
 
-        alert(file);
+        // With Path Parameter
+        // alert("VNC Download: " + themepath+file);
+
+        document.getElementById(file).click();
+
         return file;
 
     }
+
     /*
     // http://learning04.bib.uni-mannheim.de//theme/ub-mannheim/lc/winvnc-palma.exe
     // http://realvnc.com/download/vnc/
@@ -111,8 +120,19 @@ Branch:     testing
     </script>
 </div>
 
-<div id="vnc-button" onclick="getFilePathByOS();">
+<?php
+    // With Path Parameter
+    $theme = CONFIG_START_URL . "/theme/" . CONFIG_THEME . "/";
 
+    // Already exisiting in index.php
+    $winvnc = CONFIG_START_URL . "/theme/" . CONFIG_THEME . "/winvnc-palma.exe";
+    $macvnc = CONFIG_START_URL . "/theme/" . CONFIG_THEME . "/VineServer.dmg";
+    // Test Cases
+    $winvnc = "http://localhost/projects/palma-github/theme/demo/simple/winvnc-palma.exe";
+?>
+
+<!-- div id="vnc-button" onclick="javascript:getFilePathByOS('<?php echo $theme; ?>')" -->
+<div id="vnc-button" onclick="javascript:getFilePathByOS()">
     <!-- local test with img -->
     <!-- img src="eye.png" width="50" / -->
     <div id="vnc-button-eye"><i class="fa fa-eye fa-3x" aria-hidden="true"></i> </div>
@@ -121,6 +141,9 @@ Branch:     testing
         <div id="vnc-button-label">Download VNC</div>
         <div id="vnc-button-label-subtext">screensharing for win / mac os</div>
     </div>
+
+    <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
+    <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
 
 </div>
 

@@ -78,6 +78,7 @@ Overlays
     }
 
     $winvnc = CONFIG_START_URL . "/theme/" . CONFIG_THEME . "/winvnc-palma.exe";
+    $macvnc = CONFIG_START_URL . "/theme/" . CONFIG_THEME . "/VineServer.dmg";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
        "http://www.w3.org/TR/html4/strict.dtd">
@@ -738,7 +739,7 @@ Dropzone.options.palmaDropzone = {
           // File finished uploading, and there aren't any left in the queue.
           // console.log("File(s) uploaded");
           setTimeout(function() {
-            location.reload()
+             location.reload();
           }, 1);
           // location.reload(); // verlangt Eingabe von Enter zum wiederholten Schicken der Daten
         }
@@ -1232,9 +1233,9 @@ function showToggleDisplay(source) {
    <!-- saf: https://stackoverflow.com/questions/1027663/how-do-i-make-a-tabbed-view-in-html -->
    <script type="text/javascript">
 
-      function activateTab(pageId) {
+      function activateTab(tabId) {
           var tabCtrl = document.getElementById('tabCtrl');
-          var pageToActivate = document.getElementById(pageId);
+          var pageToActivate = document.getElementById(tabId);
           for (var i = 0; i < tabCtrl.childNodes.length; i++) {
               var node = tabCtrl.childNodes[i];
               if (node.nodeType == 1) { /* Element */
@@ -1265,12 +1266,75 @@ function showToggleDisplay(source) {
           </div>
           <div id="vnc-download">
           <?php
-            include "test/detect-os.html";
+            // include "test/detect-os.php";
           ?>
+          <script>
+
+            function getOS() {
+
+                var OSName="Unknown OS";
+
+                if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+                if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+                if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+                if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+
+                return OSName;
+            }
+
+            function getFilePathByOS() {
+
+                var OSName = getOS();
+
+                var fileWindows = 'download-winvnc';
+                var fileMacOS = 'download-macvnc';
+                var fileLinux = 'download-linux';
+
+                var download = '';
+
+                switch(OSName) {
+                    case 'Windows': download = fileWindows;
+                        break;
+                    case 'MacOS': download = fileMacOS;
+                        break;
+                    case 'Linux': download = fileLinux;
+                        break;
+                    case 'UNIX': download = fileLinux;
+                        break;
+                    default: download = null;
+                }
+
+                document.getElementById(download).click();
+
+            }
+
+            </script>
+
+            <?php
+                $winvnc = "http://localhost/projects/palma-github/theme/demo/simple/winvnc-palma.exe";
+                $linuxsh = "http://localhost/projects/palma-github/theme/demo/simple/x11.sh";
+            ?>
+
+            <br />
+
+            <div id="vnc-button" onclick="javascript:getFilePathByOS()">
+                <div id="vnc-button-eye"><i class="fa fa-eye fa-3x" aria-hidden="true"></i> </div>
+
+                <div id="vnc-button-container">
+                    <div id="vnc-button-label">Download VNC</div>
+                    <div id="vnc-button-label-subtext">screensharing for win / mac os</div>
+                </div>
+
+                <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
+                <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
+                <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
+
+            </div>
+
           </div>
           <br />
           <div class="description">
-          _Linux users can use the built in function of their device and share the X display like this_
+          _Linux users can also use the built in function of their device and share the X display like this_
           </div>
           <code>x11vnc -connect <?php echo $_SERVER['HTTP_HOST'] ?></code>
       </div>

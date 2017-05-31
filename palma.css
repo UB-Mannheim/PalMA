@@ -782,3 +782,10 @@ div.slide.first-slide { page-break-before: avoid }
 #show_hide button {width: 48%;}
 .itemlist, .userlist {width: 80%;}
 }
+
+/* VNC Download Button */
+#vnc-button { border:1px solid #990000; padding:10px; border-radius: 7px; width:260px; height:50px; color: #990000; cursor:pointer; cursor: hand; }
+#vnc-button-eye { float:left; }
+#vnc-button-container { float:left; margin-left: 5px; }
+#vnc-button-label { font-size: 25px; font-weight:bold; font-family: Tahoma, Sans-Serif; }
+#vnc-button-label-subtext { font-size: 12px; font-family: Tahoma, Sans-Serif; }
