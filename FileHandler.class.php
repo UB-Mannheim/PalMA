@@ -106,6 +106,7 @@ abstract class FileHandler
         $pathParts = pathinfo($file);
         $ftype = strtolower($pathParts['extension']);
         $fdir = $pathParts['dirname'];
+        $fname = $pathParts['filename'];
         $fhandler = "";
         // $params;
         // echo $ftype;
@@ -116,8 +117,8 @@ abstract class FileHandler
             $fhandler='/usr/bin/eog';
 
         } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
-            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir "$fdir" "$file" >>/dev/null');
-            $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
+            shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir '$fdir' '$file' >/dev/null 2>&1");
+            $newFile=$fdir . '/' . $fname . '.pdf';
             if (file_exists($newFile)) {
                 $file=$newfile;
                 $fhandler='/usr/bin/zathura';
@@ -126,8 +127,8 @@ abstract class FileHandler
             }
 
         } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
-            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir "$fdir" "$file" >>/dev/null');
-            $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
+            shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir '$fdir' '$file' >/dev/null 2>&1");
+            $newFile=$fdir . '/' . $fname . '.pdf';
             if (file_exists($newFile)) {
                 $file=$newfile;
                 $fhandler='/usr/bin/zathura';
@@ -136,8 +137,8 @@ abstract class FileHandler
             }
 
         } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
-            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir "$fdir" "$file" >>/dev/null');
-            $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
+            shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir '$fdir' '$file' >/dev/null 2>&1");
+            $newFile=$fdir . '/' . $fname . '.pdf';
             if (file_exists($newFile)) {
                 $file=$newfile;
                 $fhandler='/usr/bin/zathura';
