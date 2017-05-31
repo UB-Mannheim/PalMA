@@ -105,7 +105,8 @@ abstract class FileHandler
 
         $pathParts = pathinfo($file);
         $ftype = strtolower($pathParts['extension']);
-        $fdir = $pathParts['dirname'];
+        //$fdir = $pathParts['dirname'];
+        $fdir = '/home/palma/Desktop';
         $fhandler = "";
         // $params;
         // echo $ftype;
@@ -116,17 +117,17 @@ abstract class FileHandler
             $fhandler='/usr/bin/eog';
 
         } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
-            shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir $fdir  $file");
+            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir "$fdir"  "$file"');
             $file=$fdir . '/' . $pathParts['filename'] . '.pdf';
             $fhandler='/usr/bin/zathura';
 
         } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
-            shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir $fdir $file");
+            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir "$fdir" "$file"');
             $file=$fdir . '/' . $pathParts['filename'] . '.pdf';
             $fhandler='/usr/bin/zathura';
 
         } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
-            shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir $fdir $file");
+            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir "$fdir" "$file"');
             $file=$fdir . '/' . $pathParts['filename'] . '.pdf';
             $fhandler='/usr/bin/zathura';
 
