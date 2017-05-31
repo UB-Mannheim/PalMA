@@ -1265,9 +1265,7 @@ function showToggleDisplay(source) {
             _Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button below_
           </div>
           <div id="vnc-download">
-          <?php
-            // include "test/detect-os.php";
-          ?>
+
           <script>
 
             function getOS() {
@@ -1286,20 +1284,20 @@ function showToggleDisplay(source) {
 
                 var OSName = getOS();
 
-                var fileWindows = 'download-winvnc';
-                var fileMacOS = 'download-macvnc';
-                var fileLinux = 'download-linux';
+                var windows = 'download-winvnc';
+                var macOS = 'download-macvnc';
+                var linux = 'download-linux';
 
                 var download = '';
 
                 switch(OSName) {
-                    case 'Windows': download = fileWindows;
+                    case 'Windows': download = windows;
                         break;
-                    case 'MacOS': download = fileMacOS;
+                    case 'MacOS': download = macOS;
                         break;
-                    case 'Linux': download = fileLinux;
+                    case 'Linux': download = linux;
                         break;
-                    case 'UNIX': download = fileLinux;
+                    case 'UNIX': download = linux;
                         break;
                     default: download = null;
                 }
@@ -1311,6 +1309,7 @@ function showToggleDisplay(source) {
             </script>
 
             <?php
+                // Test Cases
                 $winvnc = "http://localhost/projects/palma-github/theme/demo/simple/winvnc-palma.exe";
                 $linuxsh = "http://localhost/projects/palma-github/theme/demo/simple/x11.sh";
             ?>
