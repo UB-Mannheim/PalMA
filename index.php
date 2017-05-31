@@ -101,29 +101,42 @@ Overlays
 <style "text/css">
 #tabcontainer ul
 {
-margin: 0;
-padding: 0;
-list-style-type: none;
-text-align: left;
-}
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+    }
 
-#tabcontainer ul li { display: inline; }
+#tabcontainer ul li {
+    display: inline;
+    }
 
 #tabcontainer ul li a
 {
-text-decoration: none;
-padding: .4em 2em;
-color: #fff;
-background-color: #990000;
-border-radius: 5px 5px 0px 0px;
-line-height:2em;
-}
+    text-decoration: none;
+    padding: .4em 2em;
+    color: #fff;
+    background-color: #990000;
+    border-radius: 5px 5px 0px 0px;
+    line-height:2em;
+    }
 
 #tabcontainer ul li a:hover
 {
 color: #fff;
-background-color: #992930;
-}
+    background-color: #992930;
+    }
+
+#tabcontainer {
+    margin-top:1em;
+    }
+
+#tabCtrl {
+    padding:1em;
+    border: 1px solid #990000;
+    border-radius: 0px 10px 10px 10px;
+    background-color:#FFFFFF;"
+    }
 </style>
 
 <script type="text/javascript">
@@ -1181,55 +1194,39 @@ function showToggleDisplay(source) {
             <button class="pure-button pure-button-primary pure-input-rounded"
                     id="g1x1" onclick="miniDisplaySelect(this)"
                     title="<?=__('Choose screen layout')?>">
-              <table><tr><td>1</td></tr></table>
+              <table><tr><td><i alt="1" class="fa fa-desktop fa-2x" aria-hidden="true"></i></td></tr></table>
             </button>
           </div></td>
           <td><div>
             <button class="pure-button pure-button-primary pure-input-rounded"
                     id="g1x2" onclick="miniDisplaySelect(this)"
                     title="<?=__('Choose screen layout')?>">
-              <table><tr><td>1</td></tr><tr><td>2</td></tr></table>
+              <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
             </button>
           </div></td>
           <td><div>
             <button class="pure-button pure-button-primary pure-input-rounded"
                     id="g2x1" onclick="miniDisplaySelect(this)"
                     title="<?=__('Choose screen layout')?>">
-              <table><tr><td>1</td><td>2</td></tr></table>
+              <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
             </button>
           </div></td>
           <td><div>
             <button class="pure-button pure-button-primary pure-input-rounded"
                     id="g1a2" onclick="miniDisplaySelect(this)"
                     title="<?=__('Choose screen layout')?>">
-              <table><tr><td rowspan="2">1</td><td>2</td></tr><tr><td>3</td></tr></table>
+              <table><tr><td rowspan="2"><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
             </button>
           </div></td>
           <td><div>
             <button class="pure-button pure-button-primary pure-input-rounded"
                     id="g2x2" onclick="miniDisplaySelect(this)"
                     title="<?=__('Choose screen layout')?>">
-              <table><tr><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td></tr></table>
+              <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="4" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
             </button>
           </div></td>
         </tr>
     </table>
-
-
-
-<!--
-      <div class="dz-preview dz-file-preview">
-        <div class="dz-details">
-          <div class="dz-filename"><span data-dz-name></span></div>
-          <div class="dz-size" data-dz-size></div>
-          <img data-dz-thumbnail src="" alt="">
-        </div>
-        <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-        <div class="dz-success-mark"><span>?</span></div>
-        <div class="dz-error-mark"><span>?</span></div>
-        <div class="dz-error-message"><span data-dz-errormessage></span></div>
-      </div>
--->
 
    <!-- Tabbed View Test -->
    <!-- saf: https://stackoverflow.com/questions/1027663/how-do-i-make-a-tabbed-view-in-html -->
@@ -1248,7 +1245,8 @@ function showToggleDisplay(source) {
 
     </script>
 
-   <div id="tabcontainer" style="margin-top:1em;">
+   <div id="tabcontainer_heading">Actions</div>
+   <div id="tabcontainer">
    <ul>
       <li>
         <a href="javascript:activateTab('tab1')">_Share_</a>
@@ -1260,10 +1258,10 @@ function showToggleDisplay(source) {
         <a href="javascript:activateTab('tab3')">_URL_</a>
       </li>
     </ul>
-    <div id="tabCtrl" style="padding-top:1em;padding-bottom:1em;border: 1px solid #990000; border-radius: 0px 10px 10px 10px; background-color:#FFFFFF;">
+    <div id="tabCtrl">
       <div id="tab1" style="display: block;">
           <div class="description">
-            _Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Download the VNC software once for your Windows PC (preconfigured UltraVNC) or MacBook (RealVNC)_
+            _Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button below_
           </div>
           <div id="vnc-download">
           <?php
@@ -1281,7 +1279,7 @@ function showToggleDisplay(source) {
             _Just upload PDF files, images, OpenDocument or MS Office files – PalMA will show them._
           </div>
           <div id="file_upload">
-          <form action="upload.php"
+            <form action="upload.php"
                         class="dropzone"
                         id="palma-dropzone"
                         title="<?=__('Drop documents here (or click) to load them up')?>">
@@ -1291,16 +1289,28 @@ function showToggleDisplay(source) {
                               <?=__('Drop documents here (or click)')?>
                           </div>
                       </div>
-                  </form>
+            </form>
+
+              <div class="dz-preview dz-file-preview">
+                <div class="dz-details">
+                  <div class="dz-filename"><span data-dz-name></span></div>
+                  <div class="dz-size" data-dz-size></div>
+                  <img data-dz-thumbnail src="" alt="">
+                </div>
+                <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+                <div class="dz-success-mark"><span>?</span></div>
+                <div class="dz-error-mark"><span>?</span></div>
+                <div class="dz-error-message"><span data-dz-errormessage></span></div>
+              </div>
+
           </div>
       </div>
       <div id="tab3" style="display: none;">
       <div class="description">
         _Just enter a URL – PalMA will show it._
       </div>
-        <div id="url_doc">
-          <tr>
-          <td>
+      <br />
+      <div id="url_doc">
             <input type="text" value="<?=__('Enter URL')?>"
                    id="url_field" maxlength="256" size="46"
                    onkeydown="if (event.keyCode == 13) document.getElementById('url_button').click()"
@@ -1311,8 +1321,6 @@ function showToggleDisplay(source) {
                  URL
                     <i class="fa fa-folder-open"></i>
              </button>
-          </tr>
-        </table>
       </div>
     </div>
 

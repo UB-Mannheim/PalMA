@@ -10,6 +10,9 @@ get rid of large white-space in the background on smaller screens
     background-color: #990000;
     border-radius: 6px;
 }
+.pure-button {
+    padding: 0.5em;
+}
 
 /* Login form (login.php) */
 
