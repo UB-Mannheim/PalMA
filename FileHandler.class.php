@@ -116,33 +116,36 @@ abstract class FileHandler
             $fhandler='/usr/bin/eog';
 
         } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
-            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir "$fdir"  "$file"');
+            exec('/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir "$fdir"  "$file"' , &$output , &$return_var);
             $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
-            if ($file_exists($newFile)) {
+            if (file_exists($newFile)) {
                 $file=$newfile;
                 $fhandler='/usr/bin/zathura';
             } else {
-                $fhandler='/usr/bin/libreoffice --writer --nologo --norestore -o';
+                //$fhandler='/usr/bin/libreoffice --writer --nologo --norestore -o';
+                $fhandler=$return_var;
             }
 
         } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
-            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir "$fdir" "$file"');
+            exec('/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir "$fdir" "$file"' , &$output , &$return_var);
             $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
-            if ($file_exists($newFile)) {
+            if (file_exists($newFile)) {
                 $file=$newfile;
                 $fhandler='/usr/bin/zathura';
             } else {
-                $fhandler='/usr/bin/libreoffice --impress --nologo --norestore -o';
+                //$fhandler='/usr/bin/libreoffice --impress --nologo --norestore -o';
+                $fhandler=$return_var;
             }
 
         } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
-            shell_exec('/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir "$fdir" "$file"');
+            exec('/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir "$fdir" "$file"' , &$output , &$return_var);
             $newFile=$fdir . '/' . $pathParts['filename'] . '.pdf';
-            if ($file_exists($newFile)) {
+            if (file_exists($newFile)) {
                 $file=$newfile;
                 $fhandler='/usr/bin/zathura';
             } else {
-                $fhandler='/usr/bin/libreoffice --calc --nologo --norestore -o';
+                //$fhandler='/usr/bin/libreoffice --calc --nologo --norestore -o';
+                $fhandler=$return_var;
             }
 
         } elseif ($ftype === 'html' || $ftype === 'url') {
