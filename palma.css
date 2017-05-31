@@ -407,11 +407,13 @@ legend {
 #windowlist div {text-align: left; margin-left: 2px;}
 
 #palma-dropzone {
-    background-color: #990000;
+    background-color: #EFEFEF;
     border-radius: 6px;
-    color: white;
+    color: #990000;
     cursor: pointer;
     text-align: center;
+    border: 1px dotted #990000;
+    padding: 1em;
 }
 
 /* --- */

@@ -1246,23 +1246,23 @@ function showToggleDisplay(source) {
 
     </script>
 
-   <div id="tabcontainer_heading">Actions</div>
+   <div id="tabcontainer_heading"><?=__('Actions')?></div>
    <div id="tabcontainer">
    <ul>
       <li>
-        <a href="javascript:activateTab('tab1')">_Share_</a>
+        <a href="javascript:activateTab('tab1')"><?=__('Share')?></a>
       </li>
       <li>
-        <a href="javascript:activateTab('tab2')">_Upload_</a>
+        <a href="javascript:activateTab('tab2')"><?=__('Upload')?></a>
       </li>
       <li>
-        <a href="javascript:activateTab('tab3')">_URL_</a>
+        <a href="javascript:activateTab('tab3')"><?=__('URL')?></a>
       </li>
     </ul>
     <div id="tabCtrl">
       <div id="tab1" style="display: block;">
           <div class="description">
-            _Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button below_
+            <?=__('Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button below.')?>
           </div>
           <div id="vnc-download">
 
@@ -1333,21 +1333,21 @@ function showToggleDisplay(source) {
           </div>
           <br />
           <div class="description">
-          _Linux users can also use the built in function of their device and share the X display like this_
+          <?=__('Linux users can also use the built in function of their device and share the X display like this: ')?>
           </div>
           <code>x11vnc -connect <?php echo $_SERVER['HTTP_HOST'] ?></code>
       </div>
       <div id="tab2" style="display: none;">
           <div class="description">
-            _Just upload PDF files, images, OpenDocument or MS Office files – PalMA will show them._
-          </div>
+            <?=__('Just upload PDF files, images, OpenDocument or MS Office files – PalMA will show them.')?>
+          </div><br />
           <div id="file_upload">
             <form action="upload.php"
                         class="dropzone"
                         id="palma-dropzone"
                         title="<?=__('Drop documents here (or click) to load them up')?>">
                       <div class="dz-default dz-message">
-                          <i class="fa fa-upload fa-1x"></i>
+                          <i class="fa fa-upload fa-2x"></i>
                           <div>
                               <?=__('Drop documents here (or click)')?>
                           </div>
@@ -1361,8 +1361,8 @@ function showToggleDisplay(source) {
                   <img data-dz-thumbnail src="" alt="">
                 </div>
                 <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-                <div class="dz-success-mark"><span>?</span></div>
-                <div class="dz-error-mark"><span>?</span></div>
+                <div class="dz-success-mark"><span> </span></div>
+                <div class="dz-error-mark"><span> </span></div>
                 <div class="dz-error-message"><span data-dz-errormessage></span></div>
               </div>
 
@@ -1370,7 +1370,7 @@ function showToggleDisplay(source) {
       </div>
       <div id="tab3" style="display: none;">
       <div class="description">
-        _Just enter a URL – PalMA will show it._
+        <?=__('Just enter a URL – PalMA will show it.')?>
       </div>
       <br />
       <div id="url_doc">
