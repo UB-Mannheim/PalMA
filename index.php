@@ -98,6 +98,34 @@ Overlays
 
 <script type="text/javascript" src="dropzone.js"></script>
 
+<style "text/css">
+#tabcontainer ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+text-align: left;
+}
+
+#tabcontainer ul li { display: inline; }
+
+#tabcontainer ul li a
+{
+text-decoration: none;
+padding: .4em 2em;
+color: #fff;
+background-color: #990000;
+border-radius: 5px 5px 0px 0px;
+line-height:2em;
+}
+
+#tabcontainer ul li a:hover
+{
+color: #fff;
+background-color: #992930;
+}
+</style>
+
 <script type="text/javascript">
 
 // Screen section which responds to keyboard input.
@@ -1186,33 +1214,9 @@ function showToggleDisplay(source) {
           </div></td>
         </tr>
     </table>
-    <table id="url_doc">
-  <tr>
-  <td>
-    <input type="text" value="<?=__('Enter URL')?>"
-           id="url_field" maxlength="256" size="46"
-           onkeydown="if (event.keyCode == 13) document.getElementById('url_button').click()"
-           onfocus="clearURLField('<?=__('Enter URL')?>')">
-    <button class="pure-button pure-button-primary pure-input-rounded"
-            id="url_button"
-            onClick="urlToNuc()" title="<?=__('Show this URL in a new browser window')?>">
-         URL
-            <i class="fa fa-folder-open"></i>
-     </button>
-  </tr>
-  <tr>
-    <td>
-      <form action="upload.php"
-            class="dropzone"
-            id="palma-dropzone"
-            title="<?=__('Drop documents here (or click) to load them up')?>">
-          <div class="dz-default dz-message">
-              <i class="fa fa-upload fa-1x"></i>
-              <div>
-                  <?=__('Drop documents here (or click)')?>
-              </div>
-          </div>
-      </form>
+
+
+
 <!--
       <div class="dz-preview dz-file-preview">
         <div class="dz-details">
@@ -1226,9 +1230,95 @@ function showToggleDisplay(source) {
         <div class="dz-error-message"><span data-dz-errormessage></span></div>
       </div>
 -->
-    </td>
-  </tr>
-  </table>
+
+   <!-- Tabbed View Test -->
+   <!-- saf: https://stackoverflow.com/questions/1027663/how-do-i-make-a-tabbed-view-in-html -->
+   <script type="text/javascript">
+
+      function activateTab(pageId) {
+          var tabCtrl = document.getElementById('tabCtrl');
+          var pageToActivate = document.getElementById(pageId);
+          for (var i = 0; i < tabCtrl.childNodes.length; i++) {
+              var node = tabCtrl.childNodes[i];
+              if (node.nodeType == 1) { /* Element */
+                  node.style.display = (node == pageToActivate) ? 'block' : 'none';
+              }
+          }
+      }
+
+    </script>
+
+   <div id="tabcontainer" style="margin-top:1em;">
+   <ul>
+      <li>
+        <a href="javascript:activateTab('tab1')">_Share_</a>
+      </li>
+      <li>
+        <a href="javascript:activateTab('tab2')">_Upload_</a>
+      </li>
+      <li>
+        <a href="javascript:activateTab('tab3')">_URL_</a>
+      </li>
+    </ul>
+    <div id="tabCtrl" style="padding-top:1em;padding-bottom:1em;border: 1px solid #990000; border-radius: 0px 10px 10px 10px; background-color:#FFFFFF;">
+      <div id="tab1" style="display: block;">
+          <div class="description">
+            _Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Download the VNC software once for your Windows PC (preconfigured UltraVNC) or MacBook (RealVNC)_
+          </div>
+          <div id="vnc-download">
+          <?php
+            include "test/detect-os.html";
+          ?>
+          </div>
+          <br />
+          <div class="description">
+          _Linux users can use the built in function of their device and share the X display like this_
+          </div>
+          <code>x11vnc -connect <?php echo $_SERVER['HTTP_HOST'] ?></code>
+      </div>
+      <div id="tab2" style="display: none;">
+          <div class="description">
+            _Just upload PDF files, images, OpenDocument or MS Office files – PalMA will show them._
+          </div>
+          <div id="file_upload">
+          <form action="upload.php"
+                        class="dropzone"
+                        id="palma-dropzone"
+                        title="<?=__('Drop documents here (or click) to load them up')?>">
+                      <div class="dz-default dz-message">
+                          <i class="fa fa-upload fa-1x"></i>
+                          <div>
+                              <?=__('Drop documents here (or click)')?>
+                          </div>
+                      </div>
+                  </form>
+          </div>
+      </div>
+      <div id="tab3" style="display: none;">
+      <div class="description">
+        _Just enter a URL – PalMA will show it._
+      </div>
+        <div id="url_doc">
+          <tr>
+          <td>
+            <input type="text" value="<?=__('Enter URL')?>"
+                   id="url_field" maxlength="256" size="46"
+                   onkeydown="if (event.keyCode == 13) document.getElementById('url_button').click()"
+                   onfocus="clearURLField('<?=__('Enter URL')?>')">
+            <button class="pure-button pure-button-primary pure-input-rounded"
+                    id="url_button"
+                    onClick="urlToNuc()" title="<?=__('Show this URL in a new browser window')?>">
+                 URL
+                    <i class="fa fa-folder-open"></i>
+             </button>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+
 </div> <!-- workbench_left -->
 <div id="workbench_end"></div>
 
