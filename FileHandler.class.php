@@ -100,58 +100,66 @@ abstract class FileHandler
     abstract protected function getControls();
     abstract protected function show($path);
 
+    public static function convertOffice($inputFile, $office, $outputDir, $fileName)
+    {
+        shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:'$office'_pdf_Export --outdir '$outputDir' '$inputFile' >/dev/null 2>&1");
+        $newFile=$outputDir . '/' . $fileName . '.pdf';
+        if (file_exists($newFile)) {
+            return $newFile;
+        } else {
+            return false;
+        }
+    }
+
     public static function getFileHandler($file)
     {
 
+        // Get get directory, name and file extension
         $pathParts = pathinfo($file);
         $ftype = strtolower($pathParts['extension']);
         $fdir = $pathParts['dirname'];
         $fname = $pathParts['filename'];
         $fhandler = "";
+
+        // Define filehandlers
+        $pdfHandler = '/usr/bin/zathura';
+        $imageHandler = '/usr/bin/eog';
+        $webHandler = '/usr/bin/dwb --override-restore';
+        $avHandler = '/usr/bin/cvlc --no-audio';
+        $officeApp = "";
+
         // $params;
         // echo $ftype;
         if ($ftype === 'pdf') {
-            $fhandler='/usr/bin/zathura';
+            $fhandler=$pdfHandler;
 
         } elseif ($ftype === 'gif' || $ftype === 'jpg' || $ftype === 'png') {
-            $fhandler='/usr/bin/eog';
-
-        } elseif ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
-            shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir '$fdir' '$file' >/dev/null 2>&1");
-            $newFile=$fdir . '/' . $fname . '.pdf';
-            if (file_exists($newFile)) {
-                $file=$newFile;
-                $fhandler='/usr/bin/zathura';
-            } else {
-                $fhandler='/usr/bin/libreoffice --writer --nologo --norestore -o';
-            }
-
-        } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
-            shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:impress_pdf_Export --outdir '$fdir' '$file' >/dev/null 2>&1");
-            $newFile=$fdir . '/' . $fname . '.pdf';
-            if (file_exists($newFile)) {
-                $file=$newFile;
-                $fhandler='/usr/bin/zathura';
-            } else {
-                $fhandler='/usr/bin/libreoffice --impress --nologo --norestore -o';
-            }
-
-        } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
-            shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:calc_pdf_Export --outdir '$fdir' '$file' >/dev/null 2>&1");
-            $newFile=$fdir . '/' . $fname . '.pdf';
-            if (file_exists($newFile)) {
-                $file=$newFile;
-                $fhandler='/usr/bin/zathura';
-            } else {
-                $fhandler='/usr/bin/libreoffice --calc --nologo --norestore -o';
-            }
+            $fhandler=$imageHandler;
 
         } elseif ($ftype === 'html' || $ftype === 'url') {
-            $fhandler='/usr/bin/dwb --override-restore';
+            $fhandler=$webHandler;
 
         } elseif ($ftype === 'mpg' || $ftype === 'mpeg' || $ftype === 'avi' ||
                   $ftype === 'mp3' || $ftype === 'mp4') {
-            $fhandler='/usr/bin/cvlc --no-audio';
+            $fhandler=$avHandler;
+
+        } else {
+            if ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
+                $officeApp = "writer";
+
+            } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
+                $officeApp = "impress";
+
+            } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
+                $officeApp = "calc";
+            }
+            $convertedFile = convertOffice($file, $officeApp, $fdir, $fname);
+            if ($convertedFile) {
+                $file = $convertedFile;
+                $fhandler = $pdfHandler;
+            } else {
+                $fhandler = "/usr/bin/libreoffice --'$officeApp' --nologo --norestore -o";
+            }
         }
 
         /*
