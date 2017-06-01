@@ -100,17 +100,6 @@ abstract class FileHandler
     abstract protected function getControls();
     abstract protected function show($path);
 
-    public static function convertOffice($inputFile, $office, $outputDir, $fileName)
-    {
-        shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:'$office'_pdf_Export --outdir '$outputDir' '$inputFile' >/dev/null 2>&1");
-        $newFile=$outputDir . '/' . $fileName . '.pdf';
-        if (file_exists($newFile)) {
-            return $newFile;
-        } else {
-            return false;
-        }
-    }
-
     public static function getFileHandler($file)
     {
 
@@ -174,6 +163,17 @@ abstract class FileHandler
         */
 
         return array($fhandler, $file);
+    }
+}
+
+function convertOffice($inputFile, $office, $outputDir, $fileName)
+{
+    shell_exec("/usr/bin/libreoffice --headless --convert-to pdf:'$office'_pdf_Export --outdir '$outputDir' '$inputFile' >/dev/null 2>&1");
+    $newFile=$outputDir . '/' . $fileName . '.pdf';
+    if (file_exists($newFile)) {
+        return $newFile;
+    } else {
+        return false;
     }
 }
 
