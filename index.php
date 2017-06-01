@@ -759,6 +759,18 @@ function showHelp(visible) {
     }
 }
 
+function showContact(visible) {
+    // Hide or show an overlay window with help text and some extra functions.
+    var element = document.getElementById('contactwindow');
+    if (visible) {
+        element.style.visibility = "visible";
+        element.style.display = "block";
+    } else {
+        element.style.visibility = "hidden";
+        element.style.display = "none";
+    }
+}
+
 function updateUserList(address, user) {
     // Update the user list on screen from the table in the database.
 
@@ -1178,6 +1190,29 @@ function showToggleDisplay(source) {
         <i class="fa fa-question-circle"></i>
     </button>
 
+    <div id="feedback_share" style="margin-top:17em;">
+
+    <button style="background-color:transparent;border:2px solid #333333; color: #333333"
+        class="pure-button pure-button-primary pure-input-rounded"
+        onclick="showContact(true)"
+        title="<?=__('Give us some Feedback')?>">
+        <i class="fa fa-bullhorn fa-2x" aria-hidden="true"></i>
+        <?=__('Give Feedback')?>
+    </button>
+
+    <br />
+
+    <button style="background-color:transparent;border:2px solid #333333; color: #333333"
+        class="pure-button pure-button-primary pure-input-rounded"
+        onclick="alert('open social media toolbox')"
+        title="<?=__('Recommend us')?>">
+        <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
+        <?=__('Recommend us')?>
+        <? /* =__('Like and share!') */ ?>
+    </button>
+
+    </div>
+
 </div> <!-- workbench_right -->
 
 <div id="workbench_left">
@@ -1454,6 +1489,40 @@ function showToggleDisplay(source) {
 -->
     </div>
 </div>
+
+<div id="contactwindow">
+    <div id="contactcontainer">
+        <div id="contactclose" onclick="showContact(false)">
+            <i class="fa fa-times" title="<?=__('Close the contact window')?>"></i>
+        </div>
+        <h3>
+            <?=__('Provide Feedback')?>
+        </h3>
+        <div>
+            <p><?=__('Please let us know, if something went wrong. Perhaps you have some good ideas as well? Of course want to know ... Let us make PalMA great again!')?></p>
+
+            <form id="contact">
+              <div class="container">
+                <div class="head">
+                  <h2><?=__('Tell us what you think')?></h2>
+                </div>
+                <input type="text" name="name" placeholder="Name" /><br />
+                <input type="email" name="email" placeholder="Email" /><br />
+                <textarea type="text" name="message" placeholder="Message"></textarea><br />
+                <div class="message">Message Sent</div>
+            </div>
+
+                <button id="submit" type="submit"
+                    class="pure-button pure-button-primary pure-input-rounded"
+                    onclick="alert('Send')">
+                    <?=__('Send')?>
+                    <i class="fa fa-download"></i>
+                </button>
+
+                </div>
+            </form>
+
+    </div>
 
 </div>
 </body> <!-- workbench -->
