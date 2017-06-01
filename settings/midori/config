@@ -9,7 +9,7 @@ show-menubar=false
 show-navigationbar=false
 show-bookmarkbar=false
 show-panel=false
-show-statusbar=true
+show-statusbar=false
 show-crash-dialog=true
 always-show-tabbar=false
 

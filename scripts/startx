@@ -105,16 +105,14 @@ rm palma.db
 mkdir -p "$userhome/.config"
 
 # Find a web browser which supports JavaScript.
-# TODO: try other lightweight browsers.
+# Run browser with PalMA compatible settings.
 webbrowser=/bin/false
-
 if test -f /usr/bin/midori; then
     webbrowser=midori
     rm -f "$userhome/.config/midori/config"
-    cp settings/midori "$userhome/.config/midori/config"
+    cp settings/midori/config "$userhome/.config/midori/config"
 elif test -f /usr/bin/dwb; then
     webbrowser=dwb
-    # Run dwb with PalMA compatible settings.
     rm -rf "$userhome/.config/dwb"
     cp -a settings/dwb "$userhome/.config"
 fi
