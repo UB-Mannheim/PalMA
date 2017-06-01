@@ -1,0 +1,17 @@
+[settings]
+enable-private-browsing=true
+enable-file-access-from-file-uris=true
+enable-media-stream=true
+remember-last-window-size=false
+enable-javascript=true
+
+show-menubar=false
+show-navigationbar=false
+show-bookmarkbar=false
+show-panel=false
+show-statusbar=true
+show-crash-dialog=true
+always-show-tabbar=false
+
+enable-fullscreen=false
+enable-plugins=true
