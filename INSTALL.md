@@ -7,7 +7,7 @@ Operating system
 The PalMA web application requires a web server (usually Apache 2) which
 supports PHP 5 and SQLite.
 
-User provided contents are shown using a simple web browser (midori),
+User provided contents are shown using a simple web browser (uzbl),
 an image viewer (eog, will be replaced by feh),
 a video player (vlc) and an office suite (libreoffice).
 
@@ -17,9 +17,9 @@ So a complete PalMA installation can be based on Debian GNU Linux (Jessie).
 Just add some required Debian packages (these and all other installation
 commands must be run as root user):
 
-    apt-get install apache2 midori eog feh libapache2-mod-php5 libjs-jquery
+    apt-get install apache2 eog feh libapache2-mod-php5 libjs-jquery
     apt-get install openbox php5-curl php5-gd php5-intl php5-sqlite
-    apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
+    apt-get install ssvnc sqlite3 uzbl vlc wmctrl xdotool zathura
 
 Some more packages are optional:
 
