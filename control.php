@@ -490,7 +490,7 @@ function processRequests($db)
             "state" => "",
             "file" => $openURL,
             // "handler" => "iceweasel --new-window",
-            "handler" => "/usr/bin/nohup /usr/bin/midori -p",
+            "handler" => "/usr/bin/nohup /usr/bin/midori -p --plain",
             "userid" => "",
             "date" => $date
         );

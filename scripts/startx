@@ -109,8 +109,7 @@ mkdir -p "$userhome/.config"
 webbrowser=/bin/false
 if test -f /usr/bin/midori; then
     webbrowser=midori
-    rm -f "$userhome/.config/midori/config"
-    cp settings/midori/config "$userhome/.config/midori/config"
+    cp -f settings/midori/config $userhome/.config/midori/config
 elif test -f /usr/bin/dwb; then
     webbrowser=dwb
     rm -rf "$userhome/.config/dwb"
