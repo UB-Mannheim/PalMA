@@ -553,18 +553,18 @@ function getHandlerCommand(handle, task) {
     handler["default"]["download"] = "download";
 
     // Handler for web pages.
-    handler["uzbl"] = {};
-    handler["uzbl"]["up"] = "Up";
-    handler["uzbl"]["down"] = "Down";
-    handler["uzbl"]["left"] = "Left";
-    handler["uzbl"]["right"] = "Right";
-    handler["uzbl"]["next"] = "Next";
-    handler["uzbl"]["prior"] = "Prior";
-    handler["uzbl"]["home"] = "Home";
-    handler["uzbl"]["end"] = "End";
-    handler["uzbl"]["zoomin"] = "plus";
-    handler["uzbl"]["zoomout"] = "minus";
-    handler["uzbl"]["download"] = "download";
+    handler["midori"] = {};
+    handler["midori"]["up"] = "Up";
+    handler["midori"]["down"] = "Down";
+    handler["midori"]["left"] = "Left";
+    handler["midori"]["right"] = "Right";
+    handler["midori"]["next"] = "Next";
+    handler["midori"]["prior"] = "Prior";
+    handler["midori"]["home"] = "Home";
+    handler["midori"]["end"] = "End";
+    handler["midori"]["zoomin"] = "plus";
+    handler["midori"]["zoomout"] = "minus";
+    handler["midori"]["download"] = "download";
 
     // Handler for images.
     handler["eog"] = {};
@@ -949,8 +949,8 @@ function updateControlsBySection(window) {
                 if (handler.indexOf("--writer") > -1) {
                     control = ["libreoffice-writer", true, true, true, true, false, false, false, false, true, true, true];
                 }
-        } else if (handler.indexOf("uzbl") > -1) {
-            control = ["uzbl", true, true, true, true, true, true, true, true, true, true, true];
+        } else if (handler.indexOf("midori") > -1) {
+            control = ["midori", true, true, true, true, true, true, true, true, true, true, true];
         } else if (handler.indexOf("vlc") > -1) {
             control = ["vlc", false, false, false, true, false, false, false, false, false, false, false];
         } else if (handler.indexOf("vnc") > -1) {

@@ -107,11 +107,7 @@ mkdir -p "$userhome/.config"
 # Find a web browser which supports JavaScript.
 # Run browser with PalMA compatible settings.
 webbrowser=/bin/false
-if test -f /usr/bin/uzbl; then
-    webbrowser=uzbl
-    rm -rf "$userhome/.config/uzbl"
-    cp -a settings/uzbl "$userhome/.config"
-elif test -f /usr/bin/midori; then
+if test -f /usr/bin/midori; then
     webbrowser=midori
     rm -f "$userhome/.config/midori/config"
     cp settings/midori/config "$userhome/.config/midori/config"
