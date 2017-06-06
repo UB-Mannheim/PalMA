@@ -214,7 +214,7 @@ legend {
 
 /* Online help. */
 
-#helpwindow, #contactwindow {
+#helpwindow, #contactwindow, #recommendwindow {
     background-color: #000000;
     background: rgba(0, 0, 0, 0.7);
     position: absolute; top: 0; left: 0;
@@ -224,7 +224,7 @@ legend {
     z-index: 10;
     height: 100%;
 }
-#helpcontainer, #contactcontainer {
+#helpcontainer, #contactcontainer, #recommendcontainer {
     background: rgba(255, 255, 255, 1);
     border-radius: 5px;
     margin-left: auto;
@@ -234,13 +234,13 @@ legend {
     display: block;
     width: 720px;
 }
-#helpcontainer h3, #contactcontainer h3 {
+#helpcontainer h3, #contactcontainer h3, #recommendcontainer h3 {
     font-size: 2em;
 }
-#helpcontainer button, #contactcontainer button {
+#helpcontainer button, #contactcontainer button, #recommendcontainer button {
     margin-top: 10px;
 }
-#helpclose, #contactclose {
+#helpclose, #contactclose, #recommendclose {
     color: #990000;
     cursor: pointer;
     float:right;
@@ -684,27 +684,27 @@ div.slide.first-slide { page-break-before: avoid }
 #workbench_right button {margin: 5px;}
 
 
-#helpwindow, #contactwindow {
+#helpwindow, #contactwindow, #recommendwindow {
     width: 100%;
     height: auto;
 
 }
-#helpcontainer, #contactcontainer {
+#helpcontainer, #contactcontainer, #recommendwindow {
     margin-top: 10px;
     padding: 10px 10px 20px 10px;
     width: 80%;
     max-width: 600px;
 }
-#helpcontainer h3, #contactcontainer h3 {
+#helpcontainer h3, #contactcontainer h3, #recommendwindow h3 {
     font-size: 1em;
 }
-#helpcontainer button, #contactcontainer button {
+#helpcontainer button, #contactcontainer button, #recommendwindow h3 {
     margin-top: 5px;
     width: 90%;
     font-size: .8em;
 
 }
-#helpclose, #contactclose {
+#helpclose, #contactclose, #recommendwindow {
     color: #990000;
     cursor: pointer;
     float:right;
@@ -772,7 +772,7 @@ div.slide.first-slide { page-break-before: avoid }
     margin: 0px;
 }
 
-#helpwindow, #contactwindow {
+#helpwindow, #contactwindow, #recommendwindow {
     width: 100%;
     min-height: 640px;
     height: auto;
