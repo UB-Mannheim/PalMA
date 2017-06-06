@@ -8,7 +8,7 @@ The PalMA web application requires a web server (usually Apache 2) which
 supports PHP 5 and SQLite.
 
 User provided contents are shown using a simple web browser (midori),
-an image viewer (eog, will be replaced by feh),
+an image viewer (eog, will be replaced by feh), a PDF viewer (zathura),
 a video player (vlc) and an office suite (libreoffice).
 
 PalMA controls running viewers using wmctrl and xdotool.
@@ -20,6 +20,9 @@ commands must be run as root user):
     apt-get install apache2 midori eog feh libapache2-mod-php5 libjs-jquery
     apt-get install openbox php5-curl php5-gd php5-intl php5-sqlite
     apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
+
+Warning: In order to install Midori on Debian 8 (Jessie) you must add the
+backport or the testing repository.
 
 Some more packages are optional:
 

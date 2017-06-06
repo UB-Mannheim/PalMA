@@ -113,7 +113,7 @@ abstract class FileHandler
         // Define filehandlers
         $pdfHandler = '/usr/bin/zathura';
         $imageHandler = '/usr/bin/eog';
-        $webHandler = '/usr/bin/midori -p -a';
+        $webHandler = '/usr/bin/midori -p --plain';
         $avHandler = '/usr/bin/cvlc --no-audio';
         $officeApp = "";
 
