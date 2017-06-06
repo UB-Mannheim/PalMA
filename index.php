@@ -79,6 +79,8 @@ Overlays
 
     $winvnc = CONFIG_START_URL . "/theme/" . CONFIG_THEME . "/winvnc-palma.exe";
     $macvnc = CONFIG_START_URL . "/theme/" . CONFIG_THEME . "/VineServer.dmg";
+    $linuxsh = "http://localhost/projects/palma-github/theme/demo/simple/x11.sh";
+
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
        "http://www.w3.org/TR/html4/strict.dtd">
@@ -1345,8 +1347,7 @@ function showToggleDisplay(source) {
 
             <?php
                 // Test Cases
-                $winvnc = "http://localhost/projects/palma-github/theme/demo/simple/winvnc-palma.exe";
-                $linuxsh = "http://localhost/projects/palma-github/theme/demo/simple/x11.sh";
+                // $winvnc = "http://localhost/projects/palma-github/theme/demo/simple/winvnc-palma.exe";
             ?>
 
             <br />
