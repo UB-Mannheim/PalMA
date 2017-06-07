@@ -30,6 +30,11 @@ function displayCommand($cmd)
     } else {
         $cmd = "DISPLAY=" . CONFIG_DISPLAY . " HOME=/var/www $cmd";
     }
+    // Tab out of address bar, otherwise controls won't work
+    if $cmd.match(/ midori /) {
+        $cmd = "$cmd & sleep 3 && xdotool getactiveWindow key Tab";
+    }
+
     $result = shell_exec($cmd);
     trace("cmd=$cmd, result=$result");
     return $result;
@@ -490,7 +495,7 @@ function processRequests($db)
             "state" => "",
             "file" => $openURL,
             // "handler" => "iceweasel --new-window",
-            "handler" => "/usr/bin/nohup /usr/bin/midori -p --plain",
+            "handler" => "/usr/bin/nohup /usr/bin/midori -p",
             "userid" => "",
             "date" => $date
         );

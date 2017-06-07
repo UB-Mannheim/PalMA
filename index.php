@@ -562,8 +562,8 @@ function getHandlerCommand(handle, task) {
     handler["midori"]["prior"] = "Prior";
     handler["midori"]["home"] = "Home";
     handler["midori"]["end"] = "End";
-    handler["midori"]["zoomin"] = "plus";
-    handler["midori"]["zoomout"] = "minus";
+    handler["midori"]["zoomin"] = "ctrl+plus";
+    handler["midori"]["zoomout"] = "ctrl+minus";
     handler["midori"]["download"] = "download";
 
     // Handler for images.
