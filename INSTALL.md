@@ -23,6 +23,7 @@ commands must be run as root user):
 
 Attention (Debian 8 Jessie only): Before you can install Midori on Jessie you must add the
 backport repository to `/etc/apt/sources.list`:
+
     cp /etc/apt/sources.list /etc/apt/sources.list.backup
     echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
     apt-get update
