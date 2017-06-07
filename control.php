@@ -308,7 +308,7 @@ function createNewWindow($db, $w)
 
     $cmd = "$handler '$filename'";
     // Tab out of address bar, otherwise controls won't work
-    if ($handler = midori) {
+    if (pregmatch("/ midori /", $handler)) {
         $cmd = "$cmd & sleep 3 && xdotool getactiveWindow key Down";
     }
 
@@ -496,7 +496,7 @@ function processRequests($db)
             "state" => "",
             "file" => $openURL,
             // "handler" => "iceweasel --new-window",
-            "handler" => "/usr/bin/nohup /usr/bin/midori -p",
+            "handler" => "/usr/bin/midori -p",
             "userid" => "",
             "date" => $date
         );
