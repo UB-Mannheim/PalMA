@@ -2,7 +2,7 @@
 enable-private-browsing=true
 enable-file-access-from-file-uris=true
 enable-media-stream=true
-remember-last-window-size=false
+remember-last-window-size=true
 enable-javascript=true
 zoom-text-and-images=true
 
@@ -14,5 +14,5 @@ show-statusbar=false
 show-crash-dialog=true
 always-show-tabbar=false
 
-enable-fullscreen=false
+enable-fullscreen=true
 enable-plugins=true

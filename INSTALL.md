@@ -21,8 +21,12 @@ commands must be run as root user):
     apt-get install openbox php5-curl php5-gd php5-intl php5-sqlite
     apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
 
-Warning: In order to install Midori on Debian 8 (Jessie) you must add the
-backport or the testing repository.
+Attention (Debian 8 Jessie only): Before you can install Midori on Jessie you must add the
+backport repository to `/etc/apt/sources.list`:
+    cp /etc/apt/sources.list /etc/apt/sources.list.backup
+    echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+    apt-get update
+    apt-get install midori
 
 Some more packages are optional:
 
