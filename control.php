@@ -31,7 +31,7 @@ function displayCommand($cmd)
         $cmd = "DISPLAY=" . CONFIG_DISPLAY . " HOME=/var/www $cmd";
     }
     // Tab out of address bar, otherwise controls won't work
-    if $cmd.match(/ midori /) {
+    if ($cmd.match(/ midori /)) {
         $cmd = "$cmd & sleep 3 && xdotool getactiveWindow key Tab";
     }
 
