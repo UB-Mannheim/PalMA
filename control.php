@@ -30,10 +30,6 @@ function displayCommand($cmd)
     } else {
         $cmd = "DISPLAY=" . CONFIG_DISPLAY . " HOME=/var/www $cmd";
     }
-    // Tab out of address bar, otherwise controls won't work
-    if (preg_match("/ midori /", $cmd)) {
-        $cmd = "$cmd & sleep 3 && xdotool getactiveWindow key Tab";
-    }
 
     $result = shell_exec($cmd);
     trace("cmd=$cmd, result=$result");
@@ -311,6 +307,11 @@ function createNewWindow($db, $w)
     $filename = $w['file'];
 
     $cmd = "$handler '$filename'";
+    // Tab out of address bar, otherwise controls won't work
+    if ($handler = midori) {
+        $cmd = "$cmd & sleep 3 && xdotool getactiveWindow key Down";
+    }
+
     displayCommand("/usr/bin/nohup $cmd >/dev/null 2>&1 &");
 
     addNewWindow($db, $w);
