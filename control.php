@@ -487,22 +487,37 @@ function processRequests($db)
         $openURL = $_REQUEST['openURL'];
         trace("openURL $openURL");
 
-        $dt = new DateTime();
-        $date = $dt->format('Y-m-d H:i:s');
+        // If URL leads to pdf file, download it and treat as upload
+        if (pregmatch("/.(pdf|PDF)$/", $openURL)) {
+            trace("openURL $openURL is a pdf file. Downloading it.");
+            $date = $dt->format('Y-m-d H:i:s');
+            $temp_name = basename($openURL);
+            shell_exec("mkdir /tmp/$date && wget $openURL /tmp/$date/");
 
-        $window = array(
-            "id" => "",
-            "win_id" => "",
-            "section" => "",
-            "state" => "",
-            "file" => $openURL,
-            // "handler" => "iceweasel --new-window",
-            "handler" => "/usr/bin/midori -p",
-            "userid" => "",
-            "date" => $date
-        );
+            $_FILES['file'] (
+                'name' => "$temp_name",
+                'tmp_name' => "/tmp/$date/$temp_name",
+                'error' => UPLOAD_ERR_OK
+                )
 
-        createNewWindow($db, $window);
+            trace("Handing it over to upload.php");
+            include 'upload.php';
+        } else {
+            $dt = new DateTime();
+            $date = $dt->format('Y-m-d H:i:s');
+            $window = array(
+                "id" => "",
+                "win_id" => "",
+                "section" => "",
+                "state" => "",
+                "file" => $openURL,
+                // "handler" => "iceweasel --new-window",
+                "handler" => "/usr/bin/midori -p",
+                "userid" => "",
+                "date" => $date
+            );
+            createNewWindow($db, $window);
+        }
     }
 
     // TODO: chef if query redundant?
