@@ -307,10 +307,10 @@ function createNewWindow($db, $w)
     $filename = $w['file'];
 
     $cmd = "$handler '$filename'";
-    // Tab out of address bar, otherwise controls won't work
-    if (pregmatch("/ midori /", $handler)) {
-        $cmd = "$cmd & sleep 3 && xdotool getactiveWindow key Down";
-    }
+    // Tab out of browser address bar, otherwise controls won't work
+    //if ($handler = "/usr/bin/midori -p") {
+    //    $cmd = "$cmd & sleep 3 && xdotool getactiveWindow key Down";
+    //}
 
     displayCommand("/usr/bin/nohup $cmd >/dev/null 2>&1 &");
 

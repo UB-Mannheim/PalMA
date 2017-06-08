@@ -1,4 +1,5 @@
 [settings]
+default-encoding=UTF-8
 enable-private-browsing=true
 enable-file-access-from-file-uris=true
 enable-media-stream=true
