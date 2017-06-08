@@ -295,6 +295,12 @@ function addNewWindow($db, $new)
 
     // Save window in database.
     $db->insertWindow($myWindow);
+
+    // Tab out of browser address bar, otherwise controls won't work
+    if ($new['handler'] = "/usr/bin/midori -p") {
+        displayCommand("xdotool getactiveWindow key Down");
+    }
+
 }
 
 function createNewWindow($db, $w)
@@ -307,11 +313,6 @@ function createNewWindow($db, $w)
     $filename = $w['file'];
 
     $cmd = "$handler '$filename'";
-    // Tab out of browser address bar, otherwise controls won't work
-    //if ($handler = "/usr/bin/midori -p") {
-    //    $cmd = "$cmd & sleep 3 && xdotool getactiveWindow key Down";
-    //}
-
     displayCommand("/usr/bin/nohup $cmd >/dev/null 2>&1 &");
 
     addNewWindow($db, $w);
