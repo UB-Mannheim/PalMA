@@ -494,11 +494,9 @@ function processRequests($db)
             $temp_name = basename($openURL);
             shell_exec("mkdir /tmp/$date && wget $openURL /tmp/$date/");
 
-            $_FILES['file'] (
-                'name' => "$temp_name",
-                'tmp_name' => "/tmp/$date/$temp_name",
-                'error' => UPLOAD_ERR_OK
-                )
+            $_FILES['file']['name'] = "$temp_name";
+            $_FILES['file']['tmp_name'] = "/tmp/$date/$temp_name";
+            $_FILES['file']['name'] = UPLOAD_ERR_OK;
 
             trace("Handing it over to upload.php");
             include 'upload.php';
