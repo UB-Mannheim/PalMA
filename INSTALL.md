@@ -8,7 +8,7 @@ The PalMA web application requires a web server (usually Apache 2) which
 supports PHP 5 and SQLite.
 
 User provided contents are shown using a simple web browser (dwb),
-an image viewer (eog, will be replaced by feh),
+an image viewer (feh),
 a video player (vlc) and an office suite (libreoffice).
 
 PalMA controls running viewers using wmctrl and xdotool.
@@ -17,7 +17,7 @@ So a complete PalMA installation can be based on Debian GNU Linux (Jessie).
 Just add some required Debian packages (these and all other installation
 commands must be run as root user):
 
-    apt-get install apache2 dwb eog feh libapache2-mod-php5 libjs-jquery
+    apt-get install apache2 dwb feh libapache2-mod-php5 libjs-jquery
     apt-get install openbox php5-curl php5-gd php5-intl php5-sqlite
     apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
 
@@ -160,7 +160,7 @@ the Raspberry Pi. The following configuration which is based on the Rasbian
 distribution (http://www.raspbian.org/) was successfully tested with a
 Raspberry Pi 1:
 
-    apt-get install dwb eog feh libjs-jquery nginx-light openbox
+    apt-get install dwb feh libjs-jquery nginx-light openbox
     apt-get install php5-cgi php5-cli php5-curl php5-fpm php5-gd php5-intl php5-sqlite
     apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
     mkdir -p /var/www/html
