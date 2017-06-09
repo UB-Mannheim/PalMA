@@ -576,8 +576,8 @@ function getHandlerCommand(handle, task) {
     handler["feh"]["prior"] = "alt+Prior";
     handler["feh"]["home"] = "undefined";
     handler["feh"]["end"] = "undefined";
-    handler["feh"]["zoomin"] = "plus";
-    handler["feh"]["zoomout"] = "minus";
+    handler["feh"]["zoomin"] = "KP_Add";
+    handler["feh"]["zoomout"] = "KP_Subtract";
     handler["feh"]["download"] = "download";
 
     // Controls in LibreOffice: no zoom in calc and writer, has to be activated first

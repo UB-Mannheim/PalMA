@@ -112,7 +112,7 @@ abstract class FileHandler
 
         // Define filehandlers
         $pdfHandler = '/usr/bin/zathura';
-        $imageHandler = '/usr/bin/feh';
+        $imageHandler = '/usr/bin/feh --scale-down';
         $webHandler = '/usr/bin/dwb --override-restore';
         $avHandler = '/usr/bin/cvlc --no-audio';
         $officeApp = "";
