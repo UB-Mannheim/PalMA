@@ -488,17 +488,18 @@ function processRequests($db)
         trace("openURL $openURL");
 
         // If URL leads to pdf file, download it and treat as upload
-        if (pregmatch("/.(pdf|PDF)$/", $openURL)) {
+        if (preg_match("/.(pdf|PDF)$/", $openURL)) {
             trace("openURL $openURL is a pdf file. Downloading it.");
-            $date = $dt->format('Y-m-d H:i:s');
+            $date = time();
             $temp_name = basename($openURL);
-            shell_exec("mkdir /tmp/$date && wget $openURL /tmp/$date/");
+            $temp_dir = "/tmp/palma_$date";
+            shell_exec("mkdir $temp_dir && wget $openURL -P $temp_dir/");
 
             $_FILES['file']['name'] = "$temp_name";
-            $_FILES['file']['tmp_name'] = "/tmp/$date/$temp_name";
-            $_FILES['file']['name'] = UPLOAD_ERR_OK;
+            $_FILES['file']['tmp_name'] = "$temp_dir/$temp_name";
+            $_FILES['file']['error'] = "downloaded_from_url";
 
-            trace("Handing it over to upload.php");
+            trace("Handing over to upload.php");
             include 'upload.php';
         } else {
             $dt = new DateTime();
