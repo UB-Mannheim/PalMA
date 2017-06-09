@@ -77,10 +77,18 @@ Overlays
         $user = $_SERVER['PHP_AUTH_USER'];
     }
 
+    /*
+     * file paths for vnc downloads
+     */
     $winvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/winvnc-palma.exe";
     $macvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/VineServer.dmg";
     $linuxsh = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/x11.sh";
 
+
+    /* 
+     * contact form elements
+     * might be sourced out and included
+     */
     if(isset($_POST['submit'])){
         $to = "alexander.wagner@bib.uni-mannheim.de";
         $from = $_POST['email'];
@@ -90,9 +98,7 @@ Overlays
 
         $headers = "From:" . $from;
         mail($to,$subject,$message,$headers);
-        echo "Mail Sent. Thank you for your feedback " . $name . ", we will get in touch with you shortly.";
-        // Or redirect by
-        // header('Location: thankyou.php');
+        // echo "Mail Sent. Thank you for your feedback " . $name . ", we will get in touch with you shortly.";
     }
 
 ?>
@@ -155,7 +161,10 @@ color: #fff;
     background-color:#FFFFFF;"
     }
 
-/* 2do: source out*/
+/* 
+ * contact form elements
+ * 2do: source out to css file
+ */
 #contactwindow div#contactcontainer div form#contact div.container input, textarea {
     line-height: normal;
     margin: 0.2em;
@@ -1384,8 +1393,12 @@ function showToggleDisplay(source) {
             </script>
 
             <?php
-                // Test Cases
-                // $winvnc = "http://localhost/projects/palma-github/theme/demo/simple/winvnc-palma.exe";
+                /*
+                 * path for local test cases
+                 * 2do: must be removed before release
+                 *
+                 * $winvnc = "http://localhost/projects/palma-github/theme/demo/simple/winvnc-palma.exe";
+                 */
             ?>
 
             <br />
@@ -1496,7 +1509,11 @@ function showToggleDisplay(source) {
             <p><?=__('Linux users can share their X display like this:')?><br>
             <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>
         </div>
-    <table align="center">
+
+<!-- testing table layout for buttons to have a better overview -->
+<!-- may be removed again, if not necessary -->
+
+<table align="center">
 <tr>
 <td>
     <button
@@ -1517,6 +1534,7 @@ function showToggleDisplay(source) {
 </tr>
 </table>
 
+<!-- was already commented out -->
 <!--
     <button
         class="pure-button pure-button-primary pure-input-rounded"
@@ -1524,7 +1542,7 @@ function showToggleDisplay(source) {
         <?=__('Show team display')?>
     </button>
 -->
-    <!-- TODO test code, remove for production. -->
+<!-- TODO test code, remove for production. -->
 <!--
     <button
         class="pure-button pure-button-primary pure-input-rounded"
@@ -1534,6 +1552,7 @@ function showToggleDisplay(source) {
 -->
     </div>
 </div>
+
 
 <div id="contactwindow">
     <div id="contactcontainer">
@@ -1583,8 +1602,10 @@ function showToggleDisplay(source) {
         <div>
             <p><?=__('If you want to recommend us and share PalMA on common social networks or send your link by using one of the following communities, feel free to do so.<br />Enjoy PalMA!')?></p>
 
-<!-- http://sharingbuttons.io/ -->
 
+<!-- Social Media Buttons from http://sharingbuttons.io/ -->
+
+<!-- 2do: source out css -->
 <style>
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
@@ -1786,6 +1807,8 @@ background-color: #FF6600
 
 
 </style>
+
+<!-- 2do: load hrefs dynamically, url as php var -->
 
 <!-- Sharingbutton Facebook -->
 <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgithub.com/UB-Mannheim/PalMA/blob/master/README.md" target="_blank" aria-label="">
