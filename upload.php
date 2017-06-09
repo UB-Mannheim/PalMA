@@ -19,7 +19,7 @@ if (!is_dir(CONFIG_UPLOAD_DIR)) {
     mkdir(CONFIG_UPLOAD_DIR, 0755);
 }
 
-if ($error == UPLOAD_ERR_OK) {
+if ($error == UPLOAD_ERR_OK || "downloaded_from_url") {
     # All uploaded files are collected in the upload directory.
     # If necessary, an index is added to get a unique filename.
     $tempFile = $_FILES['file']['tmp_name'];
@@ -40,7 +40,14 @@ if ($error == UPLOAD_ERR_OK) {
         }
     }
     trace("upload '$tempFile' to '$targetFile'");
-    move_uploaded_file($tempFile, $targetFile);
+    if (is_uploaded_file($tempFile)) {
+        move_uploaded_file($tempFile, $targetFile);
+    } elseif ($error == "downloaded_from_url") {
+        rename($tempFile, $targetFile);
+    } else {
+        trace("upload failed!");
+    }
+
 } else {
     // Support localisation.
     require_once('i12n.php');
