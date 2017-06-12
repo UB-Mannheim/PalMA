@@ -1,0 +1,1 @@
+x11vnc -connect [palma hostname]

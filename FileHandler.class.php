@@ -35,7 +35,7 @@ class LibreOfficeHandler extends FileHandler
     }
 }
 
-class DwbHandler extends FileHandler
+class MidoriHandler extends FileHandler
 {
     function getControls()
     {
@@ -113,7 +113,8 @@ abstract class FileHandler
         // Define filehandlers
         $pdfHandler = '/usr/bin/zathura';
         $imageHandler = '/usr/bin/feh --scale-down';
-        $webHandler = '/usr/bin/dwb --override-restore';
+        $webHandler = '/usr/bin/midori -p';
+
         $avHandler = '/usr/bin/cvlc --no-audio';
         $officeApp = "";
 
@@ -179,10 +180,10 @@ function convertOffice($inputFile, $office, $outputDir, $fileName)
 
 if ($unittest[__FILE__]) {
     // Run unit test.
-    $dwbHandler = new DwbHandler;
+    $midoriHandler = new MidoriHandler;
     $zathuraHandler = new ZathuraHandler;
     echo("DOWNLOAD   =" . FileHandler::DOWNLOAD . "\n");
     echo("filehandler=" . FileHandler::getFileHandler("test.txt") . "\n");
-    $handler = ${'dwb' . 'Handler'};
+    $handler = ${'midori' . 'Handler'};
     echo("controls   =" . $handler->getControls() . "\n");
 }
