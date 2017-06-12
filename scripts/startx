@@ -109,8 +109,14 @@ mkdir -p "$userhome/.config"
 webbrowser=/bin/false
 if test -f /usr/bin/midori; then
     webbrowser=midori
+    # Need to start midori as $user to create config directory and files
+    if [ ! -d "$userhome/.config/midori" ]; then
+        runx "midori https://raw.githubusercontent.com/UB-Mannheim/ubma-screenshots/master/IMG_5965.JPG -e Fullscreen &"
+        sleep 3
+        pkill midori
+    fi
     rm -f "$userhome/.config/midori/config"
-    cp "settings/midori/config" "$userhome/.config/midori/config"
+    cp settings/midori/config "$userhome/.config/midori/"
 # elif test -f /usr/bin/dwb; then
     # webbrowser=dwb
     # rm -rf "$userhome/.config/dwb"
