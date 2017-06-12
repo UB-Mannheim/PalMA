@@ -632,18 +632,18 @@ function getHandlerCommand(handle, task) {
     handler["default"]["download"] = "download";
 
     // Handler for web pages.
-    handler["dwb"] = {};
-    handler["dwb"]["up"] = " Up";
-    handler["dwb"]["down"] = "Down";
-    handler["dwb"]["left"] = "Left";
-    handler["dwb"]["right"] = "Right";
-    handler["dwb"]["next"] = "Next";
-    handler["dwb"]["prior"] = "Prior";
-    handler["dwb"]["home"] = "Home";
-    handler["dwb"]["end"] = "End";
-    handler["dwb"]["zoomin"] = "plus";
-    handler["dwb"]["zoomout"] = "minus";
-    handler["dwb"]["download"] = "download";
+    handler["midori"] = {};
+    handler["midori"]["up"] = "Up";
+    handler["midori"]["down"] = "Down";
+    handler["midori"]["left"] = "Left";
+    handler["midori"]["right"] = "Right";
+    handler["midori"]["next"] = "Next";
+    handler["midori"]["prior"] = "Prior";
+    handler["midori"]["home"] = "Home";
+    handler["midori"]["end"] = "End";
+    handler["midori"]["zoomin"] = "ctrl+plus";
+    handler["midori"]["zoomout"] = "ctrl+minus";
+    handler["midori"]["download"] = "download";
 
     // Handler for images.
     handler["eog"] = {};
@@ -1052,8 +1052,8 @@ function updateControlsBySection(window) {
                 if (handler.indexOf("--writer") > -1) {
                     control = ["libreoffice-writer", true, true, true, true, false, false, false, false, true, true, true];
                 }
-        } else if (handler.indexOf("dwb") > -1) {
-            control = ["dwb", true, true, true, true, true, true, true, true, true, true, true];
+        } else if (handler.indexOf("midori") > -1) {
+            control = ["midori", true, true, true, true, true, true, true, true, true, true, true];
         } else if (handler.indexOf("vlc") > -1) {
             control = ["vlc", false, false, false, true, false, false, false, false, false, false, false];
         } else if (handler.indexOf("vnc") > -1) {
