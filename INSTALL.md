@@ -8,8 +8,7 @@ The PalMA web application requires a web server (usually Apache 2) which
 supports PHP 5 and SQLite.
 
 User provided contents are shown using a simple web browser (midori),
-an image viewer (eog, will be replaced by feh), a PDF viewer (zathura),
-a video player (vlc) and an office suite (libreoffice).
+an image viewer (feh), a PDF viewer (zathura), a video player (vlc) and an office suite (libreoffice).
 
 PalMA controls running viewers using wmctrl and xdotool.
 

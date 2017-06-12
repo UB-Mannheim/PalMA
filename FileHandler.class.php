@@ -13,7 +13,7 @@ $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
 
 
 
-class EogHandler extends FileHandler
+class FehHandler extends FileHandler
 {
     function getControls()
     {
@@ -112,8 +112,9 @@ abstract class FileHandler
 
         // Define filehandlers
         $pdfHandler = '/usr/bin/zathura';
-        $imageHandler = '/usr/bin/eog';
+        $imageHandler = '/usr/bin/feh --scale-down';
         $webHandler = '/usr/bin/midori -p';
+
         $avHandler = '/usr/bin/cvlc --no-audio';
         $officeApp = "";
 

@@ -646,18 +646,18 @@ function getHandlerCommand(handle, task) {
     handler["midori"]["download"] = "download";
 
     // Handler for images.
-    handler["eog"] = {};
-    handler["eog"]["up"] = "alt+Up";
-    handler["eog"]["down"] = "alt+Down";
-    handler["eog"]["left"] = "alt+Left";
-    handler["eog"]["right"] = "alt+Right";
-    handler["eog"]["next"] = "alt+Next";
-    handler["eog"]["prior"] = "alt+Prior";
-    handler["eog"]["home"] = "undefined";
-    handler["eog"]["end"] = "undefined";
-    handler["eog"]["zoomin"] = "ctrl+plus";
-    handler["eog"]["zoomout"] = "ctrl+minus";
-    handler["eog"]["download"] = "download";
+    handler["feh"] = {};
+    handler["feh"]["up"] = "alt+Up";
+    handler["feh"]["down"] = "alt+Down";
+    handler["feh"]["left"] = "alt+Left";
+    handler["feh"]["right"] = "alt+Right";
+    handler["feh"]["next"] = "alt+Next";
+    handler["feh"]["prior"] = "alt+Prior";
+    handler["feh"]["home"] = "undefined";
+    handler["feh"]["end"] = "undefined";
+    handler["feh"]["zoomin"] = "KP_Add";
+    handler["feh"]["zoomout"] = "KP_Subtract";
+    handler["feh"]["download"] = "download";
 
     // Controls in LibreOffice: no zoom in calc and writer, has to be activated first
     // by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
@@ -1036,9 +1036,9 @@ function updateControlsBySection(window) {
 
         // alert("Section: " + section + " - Handler: " + handler);
 
-        if (handler.indexOf("eog") > -1) {
+        if (handler.indexOf("feh") > -1) {
             // up down left right zoomin zoomout home end prior next download
-            control = ["eog", true, true, true, true, true, true, false, false, true, true, true];
+            control = ["feh", true, true, true, true, true, true, false, false, true, true, true];
         } else if (handler.indexOf("libreoffice") > -1) {
             // Controls in LibreOffice: no zoom in calc and writer, has to be activated first
             // by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
