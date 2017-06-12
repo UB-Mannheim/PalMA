@@ -114,7 +114,6 @@ abstract class FileHandler
         $pdfHandler = '/usr/bin/zathura';
         $imageHandler = '/usr/bin/feh --scale-down';
         $webHandler = '/usr/bin/midori -p';
-
         $avHandler = '/usr/bin/cvlc --no-audio';
         $officeApp = "";
 

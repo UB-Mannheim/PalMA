@@ -85,7 +85,7 @@ Overlays
     $linuxsh = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/x11.sh";
 
 
-    /* 
+    /*
      * contact form elements
      * might be sourced out and included
      */
@@ -161,7 +161,7 @@ color: #fff;
     background-color:#FFFFFF;"
     }
 
-/* 
+/*
  * contact form elements
  * 2do: source out to css file
  */
@@ -303,8 +303,9 @@ function urlToNuc() {
 
     var url = document.getElementById('url_field').value;
     //~ alert(url);
-
     if (is_valid_url(url)) {
+        // Convert URL to UTF-8
+        url = encodeURI(url);
         sendToNuc('openURL='+url);
     } else {
         var urlfield = document.getElementById('url_field');
