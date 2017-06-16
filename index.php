@@ -304,8 +304,8 @@ function urlToNuc() {
     var url = document.getElementById('url_field').value;
     //~ alert(url);
     if (is_valid_url(url)) {
-        // Convert URL to UTF-8
-        url = encodeURI(url);
+        // Convert URL to UTF-8 because of special characters
+        url = encodeURIComponent(url);
         sendToNuc('openURL='+url);
     } else {
         var urlfield = document.getElementById('url_field');
