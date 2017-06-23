@@ -164,7 +164,7 @@ Raspberry Pi
 
 A low cost (less than 50 EUR plus monitor) PalMA station can be built using
 the Raspberry Pi. The following configuration which is based on the Rasbian
-distribution (http://www.raspbian.org/) was successfully tested with a
+distribution (<http://www.raspbian.org/>) was successfully tested with a
 Raspberry Pi 1:
 
     apt-get install midori eog feh libjs-jquery nginx-light openbox
