@@ -121,62 +121,6 @@ Overlays
 
 <script type="text/javascript" src="dropzone.js"></script>
 
-<style "text/css">
-#tabcontainer ul
-{
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    text-align: left;
-    }
-
-#tabcontainer ul li {
-    display: inline;
-    }
-
-#tabcontainer ul li a
-{
-    text-decoration: none;
-    padding: .4em 2em;
-    color: #fff;
-    background-color: #990000;
-    border-radius: 5px 5px 0px 0px;
-    line-height:2em;
-    }
-
-#tabcontainer ul li a:hover
-{
-color: #fff;
-    background-color: #992930;
-    }
-
-#tabcontainer {
-    margin-top:1em;
-    }
-
-#tabCtrl {
-    padding:1em;
-    border: 1px solid #990000;
-    border-radius: 0px 10px 10px 10px;
-    background-color:#FFFFFF;"
-    }
-
-/*
- * contact form elements
- * 2do: source out to css file
- */
-#contactwindow div#contactcontainer div form#contact div.container input, textarea {
-    line-height: normal;
-    margin: 0.2em;
-    padding: 0.7em;
-    width: 80%;
-}
-#contactwindow div#contactcontainer div form#contact div.container textarea {
-    height: 200px;
-}
-
-</style>
-
 <script type="text/javascript">
 
 // Screen section which responds to keyboard input.

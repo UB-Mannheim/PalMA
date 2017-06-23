@@ -785,6 +785,57 @@ div.slide.first-slide { page-break-before: avoid }
 .itemlist, .userlist {width: 80%;}
 }
 
+/* Tab Control */
+#tabcontainer ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+    }
+
+#tabcontainer ul li {
+    display: inline;
+    }
+
+#tabcontainer ul li a
+{
+    text-decoration: none;
+    padding: .4em 2em;
+    color: #fff;
+    background-color: #990000;
+    border-radius: 5px 5px 0px 0px;
+    line-height:2em;
+    }
+
+#tabcontainer ul li a:hover
+{
+color: #fff;
+    background-color: #992930;
+    }
+
+#tabcontainer {
+    margin-top:1em;
+    }
+
+#tabCtrl {
+    padding:1em;
+    border: 1px solid #990000;
+    border-radius: 0px 10px 10px 10px;
+    background-color:#FFFFFF;"
+    }
+
+/* Contact Form Elements */
+#contactwindow div#contactcontainer div form#contact div.container input, textarea {
+    line-height: normal;
+    margin: 0.2em;
+    padding: 0.7em;
+    width: 80%;
+}
+#contactwindow div#contactcontainer div form#contact div.container textarea {
+    height: 200px;
+}
+
 
 /* VNC Download Button */
 #vnc-button { border:1px solid #990000; padding:10px; border-radius: 7px; width:260px; height:50px; color: #990000; cursor:pointer; cursor: hand; }
