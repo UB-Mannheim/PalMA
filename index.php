@@ -90,7 +90,7 @@ Overlays
      * might be sourced out and included
      */
     if(isset($_POST['submit'])){
-        $to = "alexander.wagner@bib.uni-mannheim.de";
+        $to = "infol@bib.uni-mannheim.de";
         $from = $_POST['email'];
         $name = $_POST['name'];
         $subject = "Feedback for PalMA";
