@@ -937,7 +937,7 @@ function updateWindowList(window) {
             div.setAttribute('id', 'file' + screensection);
             // display only the last part of the URL or file name.
             // Long names are truncated, and the truncation is indicated.
-            var fname = decodeURIComponent(file);
+            var fname = decodeURI(decodeURIComponent(file));
             if (fname.substring(0, 4) == 'http') {
                 // Remove a terminating slash from an URL.
                 // The full URL will be shown as a tooltip.
