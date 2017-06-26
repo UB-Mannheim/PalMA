@@ -304,7 +304,7 @@ function urlToNuc() {
     var url = document.getElementById('url_field').value;
     //~ alert(url);
     if (is_valid_url(url)) {
-        // Convert URL to UTF-8 because of special characters
+        // Encode special characters
         url = encodeURIComponent(url);
         sendToNuc('openURL='+url);
     } else {
@@ -993,7 +993,7 @@ function updateWindowList(window) {
             div.setAttribute('id', 'file' + screensection);
             // display only the last part of the URL or file name.
             // Long names are truncated, and the truncation is indicated.
-            var fname = file;
+            var fname = decodeURIComponent(file);
             if (fname.substring(0, 4) == 'http') {
                 // Remove a terminating slash from an URL.
                 // The full URL will be shown as a tooltip.
