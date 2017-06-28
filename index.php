@@ -730,7 +730,7 @@ Dropzone.options.palmaDropzone = {
 };
 
 function showHelp(visible) {
-    // Hide or show an overlay window with help text and some extra functions.
+    // Hide or show an overlay window with help text.
     var element = document.getElementById('helpwindow');
     if (visible) {
         element.style.visibility = "visible";
@@ -742,7 +742,7 @@ function showHelp(visible) {
 }
 
 function showContact(visible) {
-    // Hide or show an overlay window with help text and some extra functions.
+    // Hide or show an overlay window with contact form.
     var element = document.getElementById('contactwindow');
     if (visible) {
         element.style.visibility = "visible";
@@ -754,7 +754,7 @@ function showContact(visible) {
 }
 
 function showRecommendation(visible) {
-    // Hide or show an overlay window with help text and some extra functions.
+    // Hide or show an overlay window with social media buttons.
     var element = document.getElementById('recommendwindow');
     if (visible) {
         element.style.visibility = "visible";
@@ -1083,357 +1083,243 @@ function pollDatabase() {
 // Start polling the database.
 pollDatabase();
 
-//Show different content on small devices
-function showToggleDisplay(source) {
-	if (source == "#workbench_right") {
-		document.getElementById("maindisplay").style.display = "none";
-		document.getElementById("displaylist").style.display = "none";
-		document.getElementById("url_doc").style.display = "none";
-		$( source ).toggle(250);
-	} else {
-		if (source == "#maindisplay") {
-			document.getElementById("displaylist").style.display = "none";
-			document.getElementById("url_doc").style.display = "none";
-		} else if (source == "#displaylist") {
-		document.getElementById("maindisplay").style.display = "none";
-		document.getElementById("url_doc").style.display = "none";
-		} else if (source == "#url_doc") {
-		document.getElementById("maindisplay").style.display = "none";
-		document.getElementById("displaylist").style.display = "none";
-		} else {
-		}
-		document.getElementById("workbench_right").style.display = "none";
-		document.getElementById("workbench_left").style.display = "block";
-		$( source ).toggle(250);
-	}
+
+function getOS() {
+    var OSName="Unknown OS";
+    if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+    if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+    if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+    if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+    return OSName;
+}
+
+function getFilePathByOS() {
+    var OSName = getOS();
+    var windows = 'download-winvnc';
+    var macOS = 'download-macvnc';
+    var linux = 'download-linux';
+    var download = '';
+    switch(OSName) {
+        case 'Windows': download = windows;
+            break;
+        case 'MacOS': download = macOS;
+            break;
+        case 'Linux': download = linux;
+            break;
+        case 'UNIX': download = linux;
+            break;
+        default: download = null;
+    }
+  document.getElementById(download).click();
+}
+
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    // Hide all elements with class="tabcontent"
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Remove "active" class from all elements with class="tablinks"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show current tab and add "active" class to the opening button
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function openSubtab(evt, subtabName) {
+    var i, subtabcontent, subtablinks;
+    // Hide all elements with class="subtabcontent"
+    subtabcontent = document.getElementsByClassName("subtabcontent");
+    for (i = 0; i < subtabcontent.length; i++) {
+        subtabcontent[i].style.display = "none";
+    }
+
+    // Remove "active" class from all elements with class="subtablinks"
+    subtablinks = document.getElementsByClassName("subtablinks");
+    for (i = 0; i < subtablinks.length; i++) {
+        subtablinks[i].className = subtablinks[i].className.replace(" active", "");
+    }
+
+    // Show current subtab and add "active" class to the opening button
+    document.getElementById(subtabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 
 </script>
-
 </head>
 
-<body id="workbench_outer">
-
-<div id="workbench">
-
-<div>
-            <img id="palma_logo"
-                 src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
-                 alt="PalMA"> <?=__('Team display')?>
-        <?php
-              if (isset($_SESSION['monitor'])) {
-                  echo('(' . $_SESSION['monitor'] . ')');
-              }
-        ?>
-        </div>
-
-
-
-<div id="show_hide">
-		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#maindisplay')"><?=__('Controls')?></button>
-		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#displaylist')"><?=__('Screen layout')?></button>
-		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#url_doc')"><?=__('URL / Document')?></button>
-		<button class="pure-button pure-button-primary pure-input-rounded" onclick="showToggleDisplay('#workbench_right')"><?=__('Menu')?></button>
-		</div>
-
-<div id="workbench_right">
+<body>
+<div id="header">
+        <img id="palma_logo"
+             src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
+             alt="PalMA"> <?=__('Team display')?>
     <?php
-      # Show authorized user name (and address) and allow logout.
-      if ($user) {
-        echo("<p><a href=\"logout.php\" title=\"" .
-            __('Disconnect the current user') .
-            "\">Log Out<i class=\"fa fa-sign-out\"></i></a></p>");
-      }
+          if (isset($_SESSION['monitor'])) {
+              echo('(' . $_SESSION['monitor'] . ')');
+          }
     ?>
-<div class="list_container">
-    <table class="userlist" summary="<?=__('User list')?>" title="<?=__('List of connected users')?>">
-        <caption><?=__('User list')?><i class="fa fa-users"></i></caption>
-        <tbody id="userlist">
-            <tr><td><!-- filled by function updateUserList() --></td></tr>
-        </tbody>
-    </table>
-
-
-    <button class="pure-button pure-button-primary pure-input-rounded"
-            onClick="sendToNuc('logout=ALL')"
-            title="<?=__('Disconnect all users and reset the work place')?>">
-        <?=__('Disconnect all users')?>
-    </button>
 </div>
 
-<div class="list_container">
-        <table class="itemlist" summary="<?=__('Display list')?>"
-               title="<?=__('List of files, URLs and shared displays')?>">
-            <caption><?=__('Display list')?><i class="fa fa-desktop"></i></caption>
-            <tbody id="windowlist">
-                <tr><td><!-- filled by function updateWindowList() --></td></tr>
-            </tbody>
-        </table>
-    <button class="pure-button pure-button-primary pure-input-rounded"
-            onClick="sendToNuc('closeAll=TRUE')"
-            title="<?=__('Close all windows and remove uploaded files')?>">
-        <?=__('Close all windows')?>
-    </button>
-	</div>
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Add')">Add</button>
+    <button class="tablinks" onclick="openTab(event, 'Control')">Control</button>
+    <button class="tablinks" onclick="openTab(event, 'Extras')">Extras</button>
+</div>
 
-    <button
-        class="pure-button pure-button-primary pure-input-rounded"
-        onclick="showHelp(true)"
-        title="<?=__('Show help and offer some extras')?>">
-        <?=__('Help + Extras')?>
-        <i class="fa fa-question-circle"></i>
-    </button>
-
-    <div id="feedback_share" style="margin-top:17em;">
-
-    <button style="background-color:transparent;border:2px solid #333333; color: #333333"
-        class="pure-button pure-button-primary pure-input-rounded"
-        onclick="showContact(true)"
-        title="<?=__('Give us some Feedback')?>">
-        <i class="fa fa-bullhorn fa-2x" aria-hidden="true"></i>
-        <?=__('Give Feedback')?>
-    </button>
-
-    <br />
-
-    <button style="background-color:transparent;border:2px solid #333333; color: #333333"
-        class="pure-button pure-button-primary pure-input-rounded"
-        onclick="showRecommendation(true)"
-        title="<?=__('Recommend us')?>">
-        <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
-        <?=__('Recommend us')?>
-        <? /* =__('Like and share!') */ ?>
-    </button>
-
-    </div>
-
-</div> <!-- workbench_right -->
-
-<div id="workbench_left">
-    <table class="maindisplay" summary="<?=__('Team display')?>">
-        <tbody id='maindisplay'>
-            <tr><td><!-- filled by function showLayout() --></td></tr>
-        </tbody>
-    </table>
-
-
-    <table class="minidisplaylist" id="displaylist" summary="<?=__('Screen layout')?>">
-        <caption><?=__('Screen layout')?></caption>
-        <tr>
-          <td><div>
-            <button class="pure-button pure-button-primary pure-input-rounded"
-                    id="g1x1" onclick="miniDisplaySelect(this)"
-                    title="<?=__('Choose screen layout')?>">
-              <table><tr><td><i alt="1" class="fa fa-desktop fa-2x" aria-hidden="true"></i></td></tr></table>
-            </button>
-          </div></td>
-          <td><div>
-            <button class="pure-button pure-button-primary pure-input-rounded"
-                    id="g1x2" onclick="miniDisplaySelect(this)"
-                    title="<?=__('Choose screen layout')?>">
-              <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
-            </button>
-          </div></td>
-          <td><div>
-            <button class="pure-button pure-button-primary pure-input-rounded"
-                    id="g2x1" onclick="miniDisplaySelect(this)"
-                    title="<?=__('Choose screen layout')?>">
-              <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
-            </button>
-          </div></td>
-          <td><div>
-            <button class="pure-button pure-button-primary pure-input-rounded"
-                    id="g1a2" onclick="miniDisplaySelect(this)"
-                    title="<?=__('Choose screen layout')?>">
-              <table><tr><td rowspan="2"><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
-            </button>
-          </div></td>
-          <td><div>
-            <button class="pure-button pure-button-primary pure-input-rounded"
-                    id="g2x2" onclick="miniDisplaySelect(this)"
-                    title="<?=__('Choose screen layout')?>">
-              <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="4" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
-            </button>
-          </div></td>
-        </tr>
-    </table>
-
-   <!-- Tabbed View Test -->
-   <!-- saf: https://stackoverflow.com/questions/1027663/how-do-i-make-a-tabbed-view-in-html -->
-   <script type="text/javascript">
-
-      function activateTab(tabId) {
-          var tabCtrl = document.getElementById('tabCtrl');
-          var pageToActivate = document.getElementById(tabId);
-          for (var i = 0; i < tabCtrl.childNodes.length; i++) {
-              var node = tabCtrl.childNodes[i];
-              if (node.nodeType == 1) { /* Element */
-                  node.style.display = (node == pageToActivate) ? 'block' : 'none';
-              }
-          }
-      }
-
-    </script>
-
-   <div id="tabcontainer_heading"><?=__('Actions')?></div>
-   <div id="tabcontainer">
-   <ul>
-      <li>
-        <a href="javascript:activateTab('tab1')"><?=__('Share')?></a>
-      </li>
-      <li>
-        <a href="javascript:activateTab('tab2')"><?=__('Upload')?></a>
-      </li>
-      <li>
-        <a href="javascript:activateTab('tab3')"><?=__('URL')?></a>
-      </li>
-    </ul>
-    <div id="tabCtrl">
-      <div id="tab1" style="display: block;">
-          <div class="description">
-            <?=__('Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button below.')?>
-          </div>
-          <div id="vnc-download">
-
-          <script>
-
-            function getOS() {
-
-                var OSName="Unknown OS";
-
-                if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
-                if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
-                if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
-                if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
-
-                return OSName;
-            }
-
-            function getFilePathByOS() {
-
-                var OSName = getOS();
-
-                var windows = 'download-winvnc';
-                var macOS = 'download-macvnc';
-                var linux = 'download-linux';
-
-                var download = '';
-
-                switch(OSName) {
-                    case 'Windows': download = windows;
-                        break;
-                    case 'MacOS': download = macOS;
-                        break;
-                    case 'Linux': download = linux;
-                        break;
-                    case 'UNIX': download = linux;
-                        break;
-                    default: download = null;
-                }
-
-                document.getElementById(download).click();
-
-            }
-
-            </script>
-
-            <?php
-                /*
-                 * path for local test cases
-                 * 2do: must be removed before release
-                 *
-                 * $winvnc = "http://localhost/projects/palma-github/theme/demo/simple/winvnc-palma.exe";
-                 */
-            ?>
-
-            <br />
-
-            <div id="vnc-button" onclick="javascript:getFilePathByOS()">
-                <div id="vnc-button-eye"><i class="fa fa-eye fa-3x" aria-hidden="true"></i> </div>
-
-                <div id="vnc-button-container">
-                    <div id="vnc-button-label">Download VNC</div>
-                    <div id="vnc-button-label-subtext">screensharing for win / mac os</div>
-                </div>
-
-                <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
-                <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
-                <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
-
+<div id="workbench">
+    <div id="Add" class="tabcontent">
+        <div class="subtab">
+            <button class="subtablinks" onclick="openSubtab(event, 'File')">File</button>
+            <button class="subtablinks" onclick="openSubtab(event, 'URL')">URL</button>
+            <button class="subtablinks" onclick="openSubtab(event, 'Screen')">Screen</button>
+        </div>
+        <div id="File" class="subtabcontent">
+            <div class="description">
+              <?=__('Just upload PDF files, images, OpenDocument or MS Office files – PalMA will show them.')?>
             </div>
-
-          </div>
-          <br />
-          <div class="description">
-          <?=__('Linux users can also use the built in function of their device and share the X display like this: ')?>
-          </div>
-          <code>x11vnc -connect <?php echo $_SERVER['HTTP_HOST'] ?></code>
-      </div>
-      <div id="tab2" style="display: none;">
-          <div class="description">
-            <?=__('Just upload PDF files, images, OpenDocument or MS Office files – PalMA will show them.')?>
-          </div><br />
-          <div id="file_upload">
-            <form action="upload.php"
-                        class="dropzone"
-                        id="palma-dropzone"
-                        title="<?=__('Drop documents here (or click) to load them up')?>">
-                      <div class="dz-default dz-message">
-                          <i class="fa fa-upload fa-2x"></i>
-                          <div>
-                              <?=__('Drop documents here (or click)')?>
-                          </div>
-                      </div>
-            </form>
-
-              <div class="dz-preview dz-file-preview">
-                <div class="dz-details">
-                  <div class="dz-filename"><span data-dz-name></span></div>
-                  <div class="dz-size" data-dz-size></div>
-                  <img data-dz-thumbnail src="" alt="">
+            <div id="file_upload">
+                <form action="upload.php"
+                    class="dropzone"
+                    id="palma-dropzone"
+                    title="<?=__('Drop documents here (or click) to load them up')?>">
+                    <div class="dz-default dz-message">
+                        <i class="fa fa-upload fa-2x"></i>
+                        <div><?=__('Drop documents here (or click)')?>
+                        </div>
+                    </div>
+                </form>
+                <div class="dz-preview dz-file-preview">
+                    <div class="dz-details">
+                        <div class="dz-filename"><span data-dz-name></span></div>
+                        <div class="dz-size" data-dz-size></div>
+                        <img data-dz-thumbnail src="" alt="">
+                    </div>
+                  <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+                  <div class="dz-success-mark"><span> </span></div>
+                  <div class="dz-error-mark"><span> </span></div>
+                  <div class="dz-error-message"><span data-dz-errormessage></span></div>
                 </div>
-                <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-                <div class="dz-success-mark"><span> </span></div>
-                <div class="dz-error-mark"><span> </span></div>
-                <div class="dz-error-message"><span data-dz-errormessage></span></div>
-              </div>
-
-          </div>
-      </div>
-      <div id="tab3" style="display: none;">
-      <div class="description">
-        <?=__('Just enter a URL – PalMA will show it.')?>
-      </div>
-      <br />
-      <div id="url_doc">
-            <input type="text" value="<?=__('Enter URL')?>"
-                   id="url_field" maxlength="256" size="46"
-                   onkeydown="if (event.keyCode == 13) document.getElementById('url_button').click()"
-                   onfocus="clearURLField('<?=__('Enter URL')?>')">
-            <button class="pure-button pure-button-primary pure-input-rounded"
+            </div>
+        </div>
+        <div id="URL" class="subtabcontent">
+            <div class="description">
+              <?=__('Just enter a URL – PalMA will show it.')?>
+            </div>
+            <br />
+            <div>
+                <input type="text" value="<?=__('Enter URL')?>"
+                    id="url_field" maxlength="256" size="46"
+                    onkeydown="if (event.keyCode == 13) document.getElementById('url_button').click()"
+                    onfocus="clearURLField('<?=__('Enter URL')?>')">
+                <button class="pure-button pure-button-primary pure-input-rounded"
                     id="url_button"
                     onClick="urlToNuc()" title="<?=__('Show this URL in a new browser window')?>">
-                 URL
+                    URL
                     <i class="fa fa-folder-open"></i>
-             </button>
-      </div>
-    </div>
-
-
-  </div>
-
-</div> <!-- workbench_left -->
-<div id="workbench_end"></div>
-
-<div id="helpwindow">
-    <div id="helpcontainer">
-        <div id="helpclose" onclick="showHelp(false)">
-            <i class="fa fa-times" title="<?=__('Close the help window')?>"></i>
+                </button>
+            </div>
         </div>
-        <h3>
-            <?=__('Help + Extras')?>
-        </h3>
-        <div>
+        <div id="Screen" class="subtabcontent">
+            <div class="description">
+                <?=__('Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button below.')?>
+            </div>
+            <div id="vnc-download">
+                <div id="vnc-button" onclick="javascript:getFilePathByOS()">
+                    <div id="vnc-button-eye"><i class="fa fa-eye fa-3x" aria-hidden="true"></i> </div>
+                    <div id="vnc-button-container">
+                        <div id="vnc-button-label">Download VNC</div>
+                        <div id="vnc-button-label-subtext">screensharing for win / mac os</div>
+                    </div>
+                    <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
+                    <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
+                    <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
+                </div>
+            </div>
+            <br />
+            <div class="description">
+            <?=__('Linux users can also use the built in function of their device and share the X display like this: ')?>
+            </div>
+            <code>x11vnc -connect <?php echo $_SERVER['HTTP_HOST'] ?></code>
+        </div>
+    </div>
+    <div id="Control" class="tabcontent">
+        <div class="subtab">
+            <button class="subtablinks" onclick="openSubtab(event, 'Layout')">Layout</button>
+            <button class="subtablinks" onclick="openSubtab(event, 'Navigate')">Navigate</button>
+            <button class="subtablinks" onclick="openSubtab(event, 'Windowlist')">Windowlist</button>
+        </div>
+        <div id="Layout" class="subtabcontent">
+            <table class="minidisplaylist" id="displaylist" summary="<?=__('Screen layout')?>">
+                <caption><?=__('Screen layout')?></caption>
+                <tr>
+                  <td><div>
+                    <button class="pure-button pure-button-primary pure-input-rounded"
+                            id="g1x1" onclick="miniDisplaySelect(this)"
+                            title="<?=__('Choose screen layout')?>">
+                      <table><tr><td><i alt="1" class="fa fa-desktop fa-2x" aria-hidden="true"></i></td></tr></table>
+                    </button>
+                  </div></td>
+                  <td><div>
+                    <button class="pure-button pure-button-primary pure-input-rounded"
+                            id="g1x2" onclick="miniDisplaySelect(this)"
+                            title="<?=__('Choose screen layout')?>">
+                      <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
+                    </button>
+                  </div></td>
+                  <td><div>
+                    <button class="pure-button pure-button-primary pure-input-rounded"
+                            id="g2x1" onclick="miniDisplaySelect(this)"
+                            title="<?=__('Choose screen layout')?>">
+                      <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
+                    </button>
+                  </div></td>
+                  <td><div>
+                    <button class="pure-button pure-button-primary pure-input-rounded"
+                            id="g1a2" onclick="miniDisplaySelect(this)"
+                            title="<?=__('Choose screen layout')?>">
+                      <table><tr><td rowspan="2"><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
+                    </button>
+                  </div></td>
+                  <td><div>
+                    <button class="pure-button pure-button-primary pure-input-rounded"
+                            id="g2x2" onclick="miniDisplaySelect(this)"
+                            title="<?=__('Choose screen layout')?>">
+                      <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="4" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
+                    </button>
+                  </div></td>
+                </tr>
+            </table>
+        </div>
+        <div id="Navigate" class="subtabcontent">
+            <table class="maindisplay" summary="<?=__('Team display')?>">
+                <tbody id='maindisplay'>
+                    <tr><td><!-- filled by showlayout() --></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Windowlist" class="subtabcontent">
+            <table class="itemlist" summary="<?=__('Display list')?>"
+                   title="<?=__('List of files, URLs and shared displays')?>">
+                <caption><?=__('Display list')?><i class="fa fa-desktop"></i></caption>
+                <tbody id="windowlist">
+                    <tr><td><!-- filled by updateWindowList() --></td></tr>
+                </tbody>
+            </table>
+            <button class="pure-button pure-button-primary pure-input-rounded"
+                onClick="sendToNuc('closeAll=TRUE')"
+                title="<?=__('Close all windows and remove uploaded files')?>">
+                <?=__('Close all windows')?>
+            </button>
+        </div>
+    </div>
+    <div id="Extras" class="tabcontent">
+        <div id="helpcontainer">
             <p><?=__('With PalMA, you can share your documents and your desktop
             with your learning group.')?></p>
             <p><?=__('Team members can join the group at any time. All they need
@@ -1454,51 +1340,41 @@ function showToggleDisplay(source) {
             <p><?=__('Linux users can share their X display like this:')?><br>
             <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>
         </div>
-
-<!-- testing table layout for buttons to have a better overview -->
-<!-- may be removed again, if not necessary -->
-
-<table align="center">
-<tr>
-<td>
-    <button
-        class="pure-button pure-button-primary pure-input-rounded"
-        onclick="window.open('<?=$winvnc?>'); return false;">
-        <?=__('VNC Viewer for Windows')?>
-        <i class="fa fa-download"></i>
-    </button>
-</td>
-<td>
-    <button
-        class="pure-button pure-button-primary pure-input-rounded"
-        onclick="window.open('<?=$macvnc?>'); return false;">
-        <?=__('Viewer for MacOS')?>
-        <i class="fa fa-download"></i>
-    </button>
-</td>
-</tr>
-</table>
-
-<!-- was already commented out -->
-<!--
-    <button
-        class="pure-button pure-button-primary pure-input-rounded"
-        onclick="window.open('vncviewer.php'); return false;">
-        <?=__('Show team display')?>
-    </button>
--->
-<!-- TODO test code, remove for production. -->
-<!--
-    <button
-        class="pure-button pure-button-primary pure-input-rounded"
-        onclick="window.open('phpinfo.php'); return false;">
-        Test
-    </button>
--->
+        <div id="feedback_share" style="margin-top:17em;">
+            <button style="background-color:transparent;border:2px solid #333333; color: #333333"
+                class="pure-button pure-button-primary pure-input-rounded"
+                onclick="showContact(true)"
+                title="<?=__('Give us some Feedback')?>">
+                <i class="fa fa-bullhorn fa-2x" aria-hidden="true"></i>
+                <?=__('Give Feedback')?>
+            </button>
+            <br />
+            <button style="background-color:transparent;border:2px solid #333333; color: #333333"
+                class="pure-button pure-button-primary pure-input-rounded"
+                onclick="showRecommendation(true)"
+                title="<?=__('Recommend us')?>">
+                <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
+                <?=__('Recommend us')?>
+                <? /* =__('Like and share!') */ ?>
+            </button>
+        </div>
+        <div class="list_container">
+            <table class="userlist" summary="<?=__('User list')?>" title="<?=__('List of connected users')?>">
+                <caption><?=__('User list')?><i class="fa fa-users"></i></caption>
+                <tbody id="userlist">
+                    <tr><td><!-- filled by updateUserList() --></td></tr>
+                </tbody>
+            </table>
+            <button class="pure-button pure-button-primary pure-input-rounded"
+                    onClick="sendToNuc('logout=ALL')"
+                    title="<?=__('Disconnect all users and reset the work place')?>">
+                <?=__('Disconnect all users')?>
+            </button>
+        </div>
     </div>
-</div>
+</div> <!-- workbench -->
 
-
+<!-- Overlay Windows for Feedback and Recommendation -->
 <div id="contactwindow">
     <div id="contactcontainer">
         <div id="contactclose" onclick="showContact(false)">
@@ -1509,7 +1385,6 @@ function showToggleDisplay(source) {
         </h3>
         <div>
             <p><?=__('Please let us know, if something went wrong. Perhaps you have some good ideas as well? Of course we want to know ... Help us to improve PalMA by sending crash reports or contributing on Github.<br />Thank you.')?></p>
-
             <form id="contact" action="index.php" method="post" >
               <div class="container">
                 <div class="head">
@@ -1520,21 +1395,16 @@ function showToggleDisplay(source) {
                 <textarea type="text" name="message" placeholder="Message"></textarea><br />
                 <div class="message" hidden>Message Sent</div>
             </div>
-
                 <button id="submit" type="submit"
                     class="pure-button pure-button-primary pure-input-rounded"
                     onclick="alert('Send')">
                     <?=__('Send')?>
                     <i class="fa fa-download"></i>
                 </button>
-
                 </div>
             </form>
-
     </div>
-
 </div>
-
 
 <div id="recommendwindow">
     <div id="recommendcontainer">
@@ -1546,8 +1416,6 @@ function showToggleDisplay(source) {
         </h3>
         <div>
             <p><?=__('If you want to recommend us and share PalMA on common social networks or send your link by using one of the following communities, feel free to do so.<br />Enjoy PalMA!')?></p>
-
-
 <!-- Social Media Button Integration, Source: http://sharingbuttons.io/ -->
 <?php $github_url = "https%3A%2F%2Fgithub.com/UB-Mannheim/PalMA/blob/master/README.md"; ?>
 
@@ -1598,12 +1466,20 @@ function showToggleDisplay(source) {
     </div>
   </div>
 </a>
-
-
-    </div>
-
 </div>
+</div> <!-- Recommend Container -->
+</div> <!-- Recommend Window -->
 
-</body> <!-- workbench -->
+<div id="footer">
+    <?php
+      # Show authorized user name (and address) and allow logout.
+      if ($user) {
+        echo("<a href=\"logout.php\" title=\"" .
+            __('Disconnect the current user') .
+            "\">Log Out<i class=\"fa fa-sign-out\"></i></a>");
+      }
+    ?>
+</div> <!-- Footer -->
 
+</body>
 </html>
