@@ -2,6 +2,11 @@
 
 /* General settings (login.php, learningcenter.php, index.php) */
 
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;
     border-radius: 6px;
@@ -105,7 +110,7 @@ legend {
     margin: 10px 10px 0 0;
 }
 
-/* Workplace (index.php) */
+/* Main User Interface (index.php) */
 
 div#header {
     margin: .3em 0;
@@ -127,7 +132,6 @@ div.subtab {
     border-top: none;
 }
 
-/* Style the buttons inside the tab */
 div.tab button, div.subtab button {
     background-color: inherit;
     border: none;
@@ -143,8 +147,6 @@ div.subtab button {
     color: black;
 }
 
-
-/* Change background color of buttons on hover */
 div.tab button:hover {
     background-color: #995555;
 }
@@ -153,7 +155,6 @@ div.subtab button:hover {
     background-color: #d1d1d1;
 }
 
-/* Create an active/current tablink class */
 div.tab button.active {
     background-color: #998888;
 }
@@ -162,17 +163,17 @@ div.subtab button.active {
     background-color: #c0c0c0;
 }
 
-/* Style the tab content */
 .tabcontent, .subtabcontent {
     display: none;
     text-align: center;
 }
 .subtabcontent {
-    padding: .4em;
+    padding: .8em .4em;
 }
 
 .tabcontent, .subtabcontent {
     -webkit-animation: fadeEffect 1s;
+    -moz-animation: fadeEffect 1s;
     animation: fadeEffect 1s;
 }
 
@@ -186,6 +187,21 @@ div.subtab button.active {
     to {opacity: 1;}
 }
 
+/* Workbench */
+#workbench {
+    background-color: #f1f1f1;
+    margin-bottom: 2em;
+}
+
+div.description {
+    margin-bottom: .8em;
+}
+
+/* Add */
+
+/* Control */
+
+/* Extras */
 
 /* Navigate */
 .maindisplay {
@@ -744,11 +760,11 @@ background-color: #FF6600
 /* Footer & Logout Link*/
 #footer {
     text-align: center;
-    padding: .3em 0;
     background-color: #c0c0c0;
     position: fixed;
     bottom: 0;
     width: 100%;
+    max-width: inherit;
 }
 
 #footer a {
@@ -758,8 +774,9 @@ background-color: #FF6600
     cursor: pointer;
     padding: .3em .8em;
     transition: 0.3s;
-
+    display: block;
 }
+
 #footer a:hover, #footer a:active {
     background-color: #990000;
     color: white;
@@ -768,6 +785,7 @@ background-color: #FF6600
 #footer a:link {
     text-decoration: none;
 }
+
 #footer a:visited {
     text-decoration: none;
 }
