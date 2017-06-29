@@ -1212,7 +1212,6 @@ function openSubtab(evt, subtabName) {
             <div class="description">
               <?=__('Just enter a URL – PalMA will show it.')?>
             </div>
-            <br />
             <div>
                 <input type="text" value="<?=__('Enter URL')?>"
                     id="url_field" maxlength="256" size="46"
@@ -1230,19 +1229,16 @@ function openSubtab(evt, subtabName) {
             <div class="description">
                 <?=__('Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button below.')?>
             </div>
-            <div id="vnc-download">
-                <div id="vnc-button" onclick="javascript:getFilePathByOS()">
-                    <div id="vnc-button-eye"><i class="fa fa-eye fa-3x" aria-hidden="true"></i> </div>
-                    <div id="vnc-button-container">
-                        <div id="vnc-button-label">Download VNC</div>
-                        <div id="vnc-button-label-subtext">screensharing for win / mac os</div>
-                    </div>
-                    <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
-                    <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
-                    <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
+            <div id="vnc-button" onclick="javascript:getFilePathByOS()">
+                <div id="vnc-button-eye"><i class="fa fa-eye fa-3x" aria-hidden="true"></i> </div>
+                <div id="vnc-button-container">
+                    <div id="vnc-button-label">Download VNC</div>
+                    <div id="vnc-button-label-subtext">screensharing for win / mac os</div>
                 </div>
+                <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
+                <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
+                <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
             </div>
-            <br />
             <div class="description">
             <?=__('Linux users can also use the built in function of their device and share the X display like this: ')?>
             </div>
@@ -1301,7 +1297,7 @@ function openSubtab(evt, subtabName) {
         </div>
         <div id="Navigate" class="subtabcontent">
             <div class="description">
-                Navigate through the shared contents. You can activate an enhanced control by clicking at the number.
+                Navigate through shared contents by clicking the arrows. You can use enhanced controls by clicking on the number in the middle.
             </div>
             <table class="maindisplay" summary="<?=__('Team display')?>">
                 <tbody id='maindisplay'>
@@ -1311,7 +1307,7 @@ function openSubtab(evt, subtabName) {
         </div>
         <div id="Windowlist" class="subtabcontent">
             <div class="description">
-                Control the order of displays by changing the number in this <?=__('Display list')?>.
+                Control the order of displays by changing the number in this <?=__('Display list')?>. You can also show and hide contents here.
             </div>
             <table class="itemlist" summary="<?=__('Display list')?>"
                    title="<?=__('List of files, URLs and shared displays')?>">

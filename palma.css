@@ -197,13 +197,58 @@ div.description {
     margin-bottom: .8em;
 }
 
-/* Add */
+/* Add File */
 
-/* Control */
+#palma-dropzone {
+    background-color: #EFEFEF;
+    border-radius: 6px;
+    color: #990000;
+    cursor: pointer;
+    text-align: center;
+    border: 1px dotted #990000;
+}
 
-/* Extras */
+.fa-upload {
+    float: right;
+}
 
-/* Navigate */
+/* Add URL */
+#url_field {
+    width: 65%;
+}
+#url_button {width: 25%;}
+
+/* Add Screen */
+#vnc-button {
+    border:1px solid #990000;
+    border-radius: 7px;
+    min-width:260px;
+    min-height:50px;
+    width: 20%;
+    margin: .5em auto;
+    padding: 1em;
+    color: #990000;
+    cursor:pointer;
+    cursor: hand;
+}
+#vnc-button-eye { float:left; }
+#vnc-button-container {
+    float:right;
+    margin-left: 1em;
+}
+#vnc-button-label {
+    font-size: 25px;
+    font-weight:bold;
+    font-family: Tahoma, Sans-Serif;
+}
+#vnc-button-label-subtext {
+    font-size: 12px;
+    font-family: Tahoma, Sans-Serif;
+}
+
+/* Control Layout */
+
+/* Control Navigate */
 .maindisplay {
     /*width: 600px;
     height: 300px;
@@ -234,7 +279,6 @@ div.description {
     vertical-align: middle;
 }
 
-/* Cursor controls. */
 .maindisplay .control {
     margin-left: auto;
     margin-right: auto;
@@ -252,17 +296,61 @@ div.description {
     font-size: 120%;
 }
 
-#url_field {
-    width: 80%;
+/* Control windowlist */
+
+.minidisplaylist {
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 0;
 }
-#url_button {width: 15%;}
-
-#displaylist {
-    width: 100%;
+.minidisplaylist caption {
+    caption-side: top;
+}
+.minidisplaylist td, .minidisplaylist tr {
+    padding: 0;
 }
 
-/* Overlays */
+.minidisplaylist div {
+    cursor: pointer;
+    display: block;
+}
 
+
+.minidisplay {
+    border: 1px solid orange;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: 0;
+    margin-right: 5px;
+}
+.minidisplay td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+}
+.minidisplay tr {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    padding: 0;
+}
+.minidisplay, .minidisplay td, .minidisplay tr {
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 0;
+}
+.minidisplay:hover {
+    border: 1px solid red;
+}
+
+/* Extras Help */
+
+/* Extras Feedback & Recommend */
 #contactwindow, #recommendwindow {
     background-color: #000000;
     background: rgba(0, 0, 0, 0.7);
@@ -289,12 +377,16 @@ div.description {
 #contactcontainer button, #recommendcontainer button {
     margin-top: 10px;
 }
-#contactclose, #recommendclose {
-    color: #990000;
-    cursor: pointer;
-    float:right;
-    font-size: 3em;
-}
+
+/* Extras User */
+
+
+
+
+
+
+
+
 
 /* Extended control panel (overlay) */
 
@@ -329,9 +421,7 @@ div.description {
     float:right;
 }
 
-.fa-upload {
-    float: right;
-}
+
 
 /* File list, user list. */
 
@@ -396,9 +486,7 @@ div.description {
 }
 
 .dz-default {
-    margin-top: 10px;
-    max-width: 580px;
-    padding: 10px;
+    padding: 1.5em;
 }
 
 .minidisplaylist table {
@@ -417,15 +505,7 @@ div.description {
 
 #windowlist div {text-align: left; margin-left: 2px;}
 
-#palma-dropzone {
-    background-color: #EFEFEF;
-    border-radius: 6px;
-    color: #990000;
-    cursor: pointer;
-    text-align: center;
-    border: 1px dotted #990000;
-    padding: 1em;
-}
+
 
 /* --- */
 
@@ -433,30 +513,11 @@ h2 {
     text-align: center;
 }
 
-/*
-table, tr, th, td {
-    border: 1px solid Gray;
-    text-align: left;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-*/
+
 table, tr, td {
     border-collapse: collapse;
     border-spacing: 0;
-/*
-    padding: 0px;
-    empty-cells: show;
-    table-layout: fixed;
-*/
 }
-/*
-#zeit {
-    margin-top: 8px;
-    border: 2px solid darkred;
-    border: 1px solid magenta;
-}
-*/
 
 .controlpanel {
     background-color: #EFEFEF;
@@ -488,74 +549,11 @@ table, tr, td {
     clear: left;
 }
 
-/* List of display variants. */
-.minidisplaylist {
-    border-collapse: collapse;
-    border-spacing: 0;
-    padding: 0;
-    width: 600px;
-    height: 90px;
-}
-.minidisplaylist caption {
-    caption-side: top;
-}
-.minidisplaylist td, .minidisplaylist tr {
-    padding: 0;
-}
-.minidisplaylist, .minidisplaylist td, .minidisplaylist tr {
-}
-
-.minidisplaylist div {
-    cursor: pointer;
-    display: block;
-    height: 80px;
-    width: 100px;
-}
-
-/* Display variant. */
-.minidisplay {
-    border: 1px solid orange;
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 120px;
-    height: 80px;
-    margin-left: 0;
-    margin-right: 5px;
-}
-.minidisplay td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    border-spacing: 0;
-    text-align: center;
-    vertical-align: middle;
-    width: 50%;
-    height: 50%;
-    padding: 0;
-}
-.minidisplay tr {
-    border-collapse: collapse;
-    border-spacing: 0;
-    text-align: center;
-    width: 50%;
-    height: 50%;
-    padding: 0;
-}
-.minidisplay, .minidisplay td, .minidisplay tr {
-    border-collapse: collapse;
-    border-spacing: 0;
-    padding: 0;
-}
-.minidisplay:hover {
-    border: 1px solid red;
-}
 
 
-/* VNC Download Button */
-#vnc-button { border:1px solid #990000; padding:10px; border-radius: 7px; width:260px; height:50px; color: #990000; cursor:pointer; cursor: hand; }
-#vnc-button-eye { float:left; }
-#vnc-button-container { float:left; margin-left: 5px; }
-#vnc-button-label { font-size: 25px; font-weight:bold; font-family: Tahoma, Sans-Serif; }
-#vnc-button-label-subtext { font-size: 12px; font-family: Tahoma, Sans-Serif; }
+
+
+
 
 
 /* Socical Media Buttons */
