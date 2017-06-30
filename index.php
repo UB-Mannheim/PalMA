@@ -1178,12 +1178,9 @@ function openSubtab(evt, subtabName) {
         <div class="subtab"
         ><button class="subtablinks" onclick="openSubtab(event, 'File')">File <i class="fa fa-file"></i></button
         ><button class="subtablinks" onclick="openSubtab(event, 'URL')">URL <i class="fa fa-globe"></i></button
-        ><button class="subtablinks" onclick="openSubtab(event, 'Screen')">Screen <i class="fa fa-desktop"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Screen')">Screen <i class="fa fa-eye"></i></button
     ></div>
         <div id="File" class="subtabcontent">
-            <div class="description">
-              <?=__('Just upload PDF files, images, OpenDocument or MS Office files – PalMA will show them.')?>
-            </div>
             <div id="file_upload">
                 <form action="upload.php"
                     class="dropzone"
@@ -1207,11 +1204,11 @@ function openSubtab(evt, subtabName) {
                   <div class="dz-error-message"><span data-dz-errormessage></span></div>
                 </div>
             </div>
+            <div class="description">
+              <?=__('Just upload PDF files, images, OpenDocument or MS Office files – PalMA will show them.')?>
+            </div>
         </div>
         <div id="URL" class="subtabcontent">
-            <div class="description">
-              <?=__('Just enter a URL – PalMA will show it.')?>
-            </div>
             <div>
                 <input type="text" value="<?=__('Enter URL')?>"
                     id="url_field" maxlength="256" size="46"
@@ -1221,14 +1218,14 @@ function openSubtab(evt, subtabName) {
                     id="url_button"
                     onClick="urlToNuc()" title="<?=__('Show this URL in a new browser window')?>">
                     URL
-                    <i class="fa fa-folder-open"></i>
+                    <i class="fa fa-globe"></i>
                 </button>
+            </div>
+            <div class="description">
+              <?=__('Just enter a URL – PalMA will show it.')?>
             </div>
         </div>
         <div id="Screen" class="subtabcontent">
-            <div class="description">
-                <?=__('Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button below.')?>
-            </div>
             <div id="vnc-button" onclick="javascript:getFilePathByOS()">
                 <div id="vnc-button-eye"><i class="fa fa-eye fa-3x" aria-hidden="true"></i> </div>
                 <div id="vnc-button-container">
@@ -1240,6 +1237,9 @@ function openSubtab(evt, subtabName) {
                 <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
             </div>
             <div class="description">
+            <?=__('Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button above.')?>
+            </div>
+            <div class="description">
             <?=__('Linux users can also use the built in function of their device and share the X display like this: ')?>
             </div>
             <code>x11vnc -connect <?php echo $_SERVER['HTTP_HOST'] ?></code>
@@ -1249,12 +1249,9 @@ function openSubtab(evt, subtabName) {
         <div class="subtab"
             ><button class="subtablinks" onclick="openSubtab(event, 'Layout')">Layout <i class="fa fa-table"></i></button
             ><button class="subtablinks" onclick="openSubtab(event, 'Navigate')">Navigate <i class="fa fa-arrows"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Windowlist')">Windowlist <i class="fa fa-list"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Windowlist')">Windowlist <i class="fa fa-desktop"></i></button
         ></div>
         <div id="Layout" class="subtabcontent">
-            <div class="description">
-                Control how many windows are displayed by choosing a <?=__('Screen layout')?>
-            </div>
             <table class="minidisplaylist" id="displaylist" summary="<?=__('Screen layout')?>">
                 <tr>
                   <td><div>
@@ -1294,21 +1291,21 @@ function openSubtab(evt, subtabName) {
                   </div></td>
                 </tr>
             </table>
+            <div class="description">
+                Control how many windows are displayed by choosing a <?=__('Screen layout')?>.
+            </div>
         </div>
         <div id="Navigate" class="subtabcontent">
-            <div class="description">
-                Navigate through shared contents by clicking the arrows. You can use enhanced controls by clicking on the number in the middle.
-            </div>
             <table class="maindisplay" summary="<?=__('Team display')?>">
                 <tbody id='maindisplay'>
                     <tr><td><!-- filled by showlayout() --></td></tr>
                 </tbody>
             </table>
+            <div class="description">
+                Navigate through shared contents by clicking the arrows. You can use enhanced controls by clicking on the number in the middle.
+            </div>
         </div>
         <div id="Windowlist" class="subtabcontent">
-            <div class="description">
-                Control the order of displays by changing the number in this <?=__('Display list')?>. You can also show and hide contents here.
-            </div>
             <table class="itemlist" summary="<?=__('Display list')?>"
                    title="<?=__('List of files, URLs and shared displays')?>">
                 <tbody id="windowlist">
@@ -1320,6 +1317,9 @@ function openSubtab(evt, subtabName) {
                 title="<?=__('Close all windows and remove uploaded files')?>">
                 <?=__('Close all windows')?>
             </button>
+            <div class="description">
+                Control the order of displays by changing the number in this <?=__('Display list')?>. You can also show and hide contents here.
+            </div>
         </div>
     </div>
     <div id="Extras" class="tabcontent">
@@ -1370,7 +1370,7 @@ function openSubtab(evt, subtabName) {
                         class="pure-button pure-button-primary pure-input-rounded"
                         onclick="alert('Send')">
                         <?=__('Send')?>
-                        <i class="fa fa-download"></i>
+                        <i class="fa fa-mail-forward"></i>
                     </button>
                 </form>
             </div>
