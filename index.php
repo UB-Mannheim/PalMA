@@ -1249,7 +1249,7 @@ function openSubtab(evt, subtabName) {
         <div class="subtab"
             ><button class="subtablinks" onclick="openSubtab(event, 'Layout')">Layout <i class="fa fa-table"></i></button
             ><button class="subtablinks" onclick="openSubtab(event, 'Navigate')">Navigate <i class="fa fa-arrows"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Windowlist')">Windowlist <i class="fa fa-desktop"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Displaylist')">Displaylist <i class="fa fa-desktop"></i></button
         ></div>
         <div id="Layout" class="subtabcontent">
             <table class="minidisplaylist" id="displaylist" summary="<?=__('Screen layout')?>">
@@ -1305,7 +1305,7 @@ function openSubtab(evt, subtabName) {
                 Navigate through shared contents by clicking the arrows. You can use enhanced controls by clicking on the number in the middle.
             </div>
         </div>
-        <div id="Windowlist" class="subtabcontent">
+        <div id="Displaylist" class="subtabcontent">
             <table class="itemlist" summary="<?=__('Display list')?>"
                    title="<?=__('List of files, URLs and shared displays')?>">
                 <tbody id="windowlist">
@@ -1411,7 +1411,7 @@ function openSubtab(evt, subtabName) {
             <div id="contactcontainer">
                 <h3><?=__('Tell us what you think')?></h3>
                 <div>
-                    <p><?=__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on <a href="https://github.com/UB-Mannheim/PalMA">Github</a>.<br />Thank you!')?></p>
+                    <p><?=__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on <a href="https://github.com/UB-Mannheim/PalMA" target="_blank">Github</a>.<br />Thank you!')?></p>
                     <form id="contact" action="index.php" method="post" >
                         <div class="container">
                             <input type="text" name="name" placeholder="Name" /><br />

@@ -15,6 +15,16 @@ body {
     padding: 0.5em;
 }
 
+a {
+    color: #990000;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #990000;
+    text-decoration: underline;
+}
+
 /* Login form (login.php) */
 
 legend {
@@ -40,10 +50,6 @@ legend {
     font-size: .8em;
     margin: .5em;
     text-align: center;
-}
-#login_mask .policy a {
-    color: #990000;
-    text-decoration: none;
 }
 #login_fields {
     float: left;
@@ -187,6 +193,8 @@ div.subtab button.active {
 
 div.description {
     margin-top: .8em;
+    font-size: .8em;
+    font-style: italic;
 }
 
 /* Add File */
@@ -240,56 +248,6 @@ div.description {
 
 /* Control Layout */
 
-/* Control Navigate */
-.maindisplay {
-    /*width: 600px;
-    height: 300px;
-    margin-right: 20px;
-    margin-bottom: 20px;*/
-}
-
-.maindisplay td, .maindisplay tr {
-    border: 2px solid #EFEFEF;
-}
-.maindisplay {
-    background-color: LightGray;
-    padding: 0;
-    text-align: center;
-    vertical-align: middle;
-}
-.maindisplay button {
-    height: 45px;
-    width: 45px;
-    text-align: center;
-    vertical-align: middle;
-}
-.maindisplay i {
-    background-color: #990000;
-    border-radius: 6px;
-    cursor: pointer;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.maindisplay .control {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
-}
-
-.maindisplay .control td, .maindisplay .control tr {
-    border: 0 solid green;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-.maindisplay #more {
-    cursor: pointer;
-    font-size: 120%;
-}
-
-/* Control windowlist */
-
 .minidisplaylist {
     border-collapse: collapse;
     border-spacing: 0;
@@ -340,61 +298,92 @@ div.description {
     border: 1px solid red;
 }
 
+.minidisplaylist table {
+    background-color: LightGray;
+    width: 85px;
+    height: 45px;
+}
+.minidisplaylist tr, .minidisplaylist td {
+    border: 1px solid #EFEFEF;
+}
+.minidisplaylist button {
+    color: #990000;
+    width: 100px;
+    height: 60px;
+}
+
+/* Control Navigate */
+.maindisplay {
+    /*width: 600px;
+    height: 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;*/
+}
+
+.maindisplay td, .maindisplay tr {
+    border: 2px solid #EFEFEF;
+}
+.maindisplay {
+    background-color: LightGray;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+.maindisplay button {
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    vertical-align: middle;
+}
+.maindisplay i {
+    background-color: #990000;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.maindisplay .control {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+.maindisplay .control td, .maindisplay .control tr {
+    border: 0 solid green;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.maindisplay #more {
+    cursor: pointer;
+    font-size: 120%;
+}
+
+/* Control displaylist - see also lists */
+
+#windowlist div {text-align: left; margin-left: 2px;}
+
 /* Extras Help */
 
 /* Extras Feedback & Recommend */
 
-/* Extras User */
-
-
-
-
-
-
-
-
-
-/* Extended control panel (overlay) */
-
-.overlay button {
-    height: 70px;
-    width: 70px;
-}
-.overlay .fa-times {
-    color: #990000;
-    cursor: pointer;
-    font-size: 1.5em;
-}
-#overlay {
-    background-color: #000000;
-    background: rgba(0, 0, 0, 0.7);
-    font-size: 200%;
-    position: absolute; top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 10;
-}
-#container {
-    background: rgba(255, 255, 255, 1);
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    padding: 20px 20px 40px 20px;
-    display: block;
-    width: 600px;
-}
-#close {
-    float:right;
+#contact input, #contact textarea {
+    width: 75%;
+    max-width: 300px;
+    margin-bottom: .8em;
 }
 
+/* Extras User - see also lists */
 
 
-/* File list, user list. */
+/* lists - item list, user list. */
 
 .itemlist, .userlist {
-    margin-top: 20px;
-    width: 100%;
+    width: 75%;
+    max-width: 500px;
     text-align: left;
+    margin: 0 auto 1em auto;
 }
 .itemlist caption, .userlist caption {
     caption-side: top;
@@ -455,30 +444,40 @@ div.description {
     padding: 1.5em;
 }
 
-.minidisplaylist table {
-    background-color: LightGray;
-    width: 85px;
-    height: 45px;
+
+
+/* Extended control panel (overlay) */
+
+.overlay button {
+    height: 70px;
+    width: 70px;
 }
-.minidisplaylist tr, .minidisplaylist td {
-    border: 1px solid #EFEFEF;
-}
-.minidisplaylist button {
+.overlay .fa-times {
     color: #990000;
-    width: 100px;
-    height: 60px;
+    cursor: pointer;
+    font-size: 1.5em;
 }
-
-#windowlist div {text-align: left; margin-left: 2px;}
-
-
-
-/* --- */
-
-h2 {
-    text-align: center;
+#overlay {
+    background-color: #000000;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 200%;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 10;
 }
-
+#container {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 20px 20px 40px 20px;
+    display: block;
+    width: 600px;
+}
+#close {
+    float:right;
+}
 
 table, tr, td {
     border-collapse: collapse;
