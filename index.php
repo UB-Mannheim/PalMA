@@ -1120,7 +1120,7 @@ function openTab(evt, tabName) {
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
-
+    document.getElementById("default_subtab").style.display = "none";
     // Remove "active" class from all elements with class="tablinks"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
@@ -1139,6 +1139,7 @@ function openSubtab(evt, subtabName) {
     for (i = 0; i < subtabcontent.length; i++) {
         subtabcontent[i].style.display = "none";
     }
+    document.getElementById("greeting").style.display = "none";
 
     // Remove "active" class from all elements with class="subtablinks"
     subtablinks = document.getElementsByClassName("subtablinks");
@@ -1155,16 +1156,6 @@ function openSubtab(evt, subtabName) {
 </head>
 
 <body>
-<div id="header">
-        <img id="palma_logo"
-             src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
-             alt="PalMA"> <?=__('Team display')?>
-    <?php
-          if (isset($_SESSION['monitor'])) {
-              echo('(' . $_SESSION['monitor'] . ')');
-          }
-    ?>
-</div>
 
 <!-- This formating is used to prevent empty textnodes that interfere with the design -->
 <div class="tab"
@@ -1174,6 +1165,8 @@ function openSubtab(evt, subtabName) {
 ></div>
 
 <div id="workbench">
+    <div class="subtab" id="default_subtab">
+    </div>
     <div id="Add" class="tabcontent">
         <div class="subtab"
         ><button class="subtablinks" onclick="openSubtab(event, 'File')">File <i class="fa fa-file"></i></button
@@ -1443,6 +1436,21 @@ function openSubtab(evt, subtabName) {
                 </button>
             </div>
         </div>
+    </div>
+    <div id="greeting">
+        <?php
+            if ($user) {
+                echo("<p>Hello $user, Welcome to");
+            }
+        ?>
+        <img id="palma_logo"
+             src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
+             alt="PalMA"> <?=__('Team display')?>!</p>
+        <?php
+            if (isset($_SESSION['monitor'])) {
+                echo('(' . $_SESSION['monitor'] . ')');
+            }
+        ?>
     </div>
 </div> <!-- workbench -->
 

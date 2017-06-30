@@ -1,12 +1,10 @@
 /* Styles for PalMA. */
 
 /* General settings (login.php, learningcenter.php, index.php) */
-
 body {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;
     border-radius: 6px;
@@ -14,31 +12,28 @@ body {
 .pure-button {
     padding: 0.5em;
 }
-
 a {
     color: #990000;
     text-decoration: none;
 }
-
 a:hover, a:active {
     color: #990000;
     text-decoration: underline;
 }
 
 /* Login form (login.php) */
-
 legend {
     font-family: sans-serif;
     font-size: 1.3em;
     text-align: center;
 }
-
 #login_mask {
-    margin: 0 auto;
+    margin: 5em auto;
     padding: .5em 1.5em;
     width: auto;
     max-width: 460px;
     background-color: #F1F1F1;
+    border: 1px solid #c0c0c0;
 }
 #login_mask i {
     margin: .2em .6em;
@@ -57,18 +52,15 @@ legend {
 }
 
 /* Workplace selection (monitor.php) */
-
 #monitor_selection button {
     margin: 10px 10px 10px 10px;
     text-align: left;
     width: 240px;
 }
-
 #monitor_selection .fa-desktop {
     float: right;
     padding: 0 10px 0 10px;
 }
-
 #monitor_selection {
     margin-left: auto;
     margin-right: auto;
@@ -81,12 +73,10 @@ legend {
 }
 
 /* Workplace selection (learningcenter.php) */
-
 #monitor_mask {
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
-
     padding: 0 0 20px 0;
     background-color: #F1F1F1;
     border: 1px solid;
@@ -94,11 +84,9 @@ legend {
     box-shadow: 8px 8px 4px #666666;
     width: 560px;
 }
-
 .monitorchoice {
     margin-left: 40px;
 }
-
 .selectdisplay {
     background:url("images/main-klein.png");
     width:100px;
@@ -109,12 +97,14 @@ legend {
 }
 
 /* Main User Interface (index.php) */
-
-div#header {
-    margin: .3em 0;
+#greeting {
+    padding: 5em 0;
+    height: 100%;
 }
-
-div#header, div.tab, div.subtab {
+#greeting p {
+    margin: 0;
+}
+#greeting, div.tab, div.subtab {
     text-align:center;
 }
 
@@ -123,13 +113,13 @@ div.tab, div.subtab {
     overflow: hidden;
     background-color: #990000;
 }
-
 div.subtab {
     background-color: #e2e2e2;
-    /*border: 1px solid #998888;*/
     border-top: none;
 }
-
+#default_subtab {
+    padding: 1.2em 0;
+}
 div.tab button, div.subtab button {
     background-color: inherit;
     border: none;
@@ -140,46 +130,35 @@ div.tab button, div.subtab button {
     color: #f1f1f1;
     width:auto;
 }
-
 div.subtab button {
     color: black;
 }
-
 div.tab button:hover {
     background-color: #995555;
 }
-
 div.subtab button:hover {
     background-color: #d1d1d1;
 }
-
 div.tab button.active {
     background-color: #998888;
 }
-
 div.subtab button.active {
     background-color: #c0c0c0;
 }
-
 .tabcontent, .subtabcontent {
     display: none;
     text-align: center;
-}
-.subtabcontent {
-    padding: .8em .4em;
-}
-
-.tabcontent, .subtabcontent {
     -webkit-animation: fadeEffect 1s;
     -moz-animation: fadeEffect 1s;
     animation: fadeEffect 1s;
 }
-
+.subtabcontent {
+    padding: .8em .4em;
+}
 @-webkit-keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
 }
-
 @keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
@@ -190,7 +169,6 @@ div.subtab button.active {
     background-color: #f1f1f1;
     margin-bottom: 2em;
 }
-
 div.description {
     margin-top: .8em;
     font-size: .8em;
@@ -198,7 +176,6 @@ div.description {
 }
 
 /* Add File */
-
 #palma-dropzone {
     background-color: #EFEFEF;
     border-radius: 6px;
@@ -207,7 +184,6 @@ div.description {
     text-align: center;
     border: 1px dotted #990000;
 }
-
 .fa-upload {
     float: right;
 }
@@ -247,7 +223,6 @@ div.description {
 }
 
 /* Control Layout */
-
 .minidisplaylist {
     border-collapse: collapse;
     border-spacing: 0;
@@ -259,13 +234,10 @@ div.description {
 .minidisplaylist td, .minidisplaylist tr {
     padding: 0;
 }
-
 .minidisplaylist div {
     cursor: pointer;
     display: block;
 }
-
-
 .minidisplay {
     border: 1px solid orange;
     border-collapse: collapse;
@@ -297,7 +269,6 @@ div.description {
 .minidisplay:hover {
     border: 1px solid red;
 }
-
 .minidisplaylist table {
     background-color: LightGray;
     width: 85px;
@@ -319,7 +290,6 @@ div.description {
     margin-right: 20px;
     margin-bottom: 20px;*/
 }
-
 .maindisplay td, .maindisplay tr {
     border: 2px solid #EFEFEF;
 }
@@ -342,32 +312,27 @@ div.description {
     text-align: center;
     vertical-align: middle;
 }
-
 .maindisplay .control {
     margin-left: auto;
     margin-right: auto;
     padding: 0;
 }
-
 .maindisplay .control td, .maindisplay .control tr {
     border: 0 solid green;
     border-collapse: collapse;
     border-spacing: 0;
 }
-
 .maindisplay #more {
     cursor: pointer;
     font-size: 120%;
 }
 
 /* Control displaylist - see also lists */
-
 #windowlist div {text-align: left; margin-left: 2px;}
 
 /* Extras Help */
 
 /* Extras Feedback & Recommend */
-
 #contact input, #contact textarea {
     width: 75%;
     max-width: 300px;
@@ -376,9 +341,7 @@ div.description {
 
 /* Extras User - see also lists */
 
-
 /* lists - item list, user list. */
-
 .itemlist, .userlist {
     width: 75%;
     max-width: 500px;
@@ -439,15 +402,11 @@ div.description {
     margin: 2px;
     padding: 2px;
 }
-
 .dz-default {
     padding: 1.5em;
 }
 
-
-
 /* Extended control panel (overlay) */
-
 .overlay button {
     height: 70px;
     width: 70px;
@@ -478,12 +437,10 @@ div.description {
 #close {
     float:right;
 }
-
 table, tr, td {
     border-collapse: collapse;
     border-spacing: 0;
 }
-
 .controlpanel {
     background-color: #EFEFEF;
     border: 1px solid #696969;
@@ -491,11 +448,9 @@ table, tr, td {
     margin: 20px 20px 0;
     padding: 20px;
 }
-
 .controlbutton {
     cursor: pointer;
 }
-
 .updown {
     background-color: LightGray;
     border-radius: 5px;
@@ -505,218 +460,168 @@ table, tr, td {
     text-align: center;
     width: 300px;
 }
-
 .zoom {
     float: right;
 }
-
 .bar {
     clear: left;
 }
-
-
-
-
-
-
-
 
 /* Socical Media Buttons */
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
   display: inline-block
 }
-
 .resp-sharing-button__link {
   text-decoration: none;
   color: #fff;
   margin: 0.5em
 }
-
 .resp-sharing-button {
   border-radius: 5px;
   transition: 25ms ease-out;
   padding: 0.5em 0.75em;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif
 }
-
 .resp-sharing-button__icon svg {
   width: 1em;
   height: 1em;
   margin-right: 0.4em;
   vertical-align: top
 }
-
 .resp-sharing-button--small svg {
   margin: 0;
   vertical-align: middle
 }
-
 /* Non solid icons get a stroke */
 .resp-sharing-button__icon {
   stroke: #fff;
   fill: none
 }
-
 /* Solid icons get a fill */
 .resp-sharing-button__icon--solid,
 .resp-sharing-button__icon--solidcircle {
   fill: #fff;
   stroke: none
 }
-
 .resp-sharing-button--twitter {
   background-color: #55acee
 }
-
 .resp-sharing-button--twitter:hover {
   background-color: #2795e9
 }
-
 .resp-sharing-button--pinterest {
   background-color: #bd081c
 }
-
 .resp-sharing-button--pinterest:hover {
   background-color: #8c0615
 }
-
 .resp-sharing-button--facebook {
   background-color: #3b5998
 }
-
 .resp-sharing-button--facebook:hover {
   background-color: #2d4373
 }
-
 .resp-sharing-button--tumblr {
   background-color: #35465C
 }
-
 .resp-sharing-button--tumblr:hover {
   background-color: #222d3c
 }
-
 .resp-sharing-button--reddit {
   background-color: #5f99cf
 }
-
 .resp-sharing-button--reddit:hover {
   background-color: #3a80c1
 }
-
 .resp-sharing-button--google {
   background-color: #dd4b39
 }
-
 .resp-sharing-button--google:hover {
   background-color: #c23321
 }
-
 .resp-sharing-button--linkedin {
   background-color: #0077b5
 }
-
 .resp-sharing-button--linkedin:hover {
   background-color: #046293
 }
-
 .resp-sharing-button--email {
   background-color: #777
 }
-
 .resp-sharing-button--email:hover {
   background-color: #5e5e5e
 }
-
 .resp-sharing-button--xing {
   background-color: #1a7576
 }
-
 .resp-sharing-button--xing:hover {
   background-color: #114c4c
 }
-
 .resp-sharing-button--whatsapp {
   background-color: #25D366
 }
-
 .resp-sharing-button--whatsapp:hover {
   background-color: #1da851
 }
-
 .resp-sharing-button--hackernews {
 background-color: #FF6600
 }
 .resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
-
 .resp-sharing-button--vk {
   background-color: #507299
 }
-
 .resp-sharing-button--vk:hover {
   background-color: #43648c
 }
-
 .resp-sharing-button--facebook {
   background-color: #3b5998;
   border-color: #3b5998;
 }
-
 .resp-sharing-button--facebook:hover,
 .resp-sharing-button--facebook:active {
   background-color: #2d4373;
   border-color: #2d4373;
 }
-
 .resp-sharing-button--twitter {
   background-color: #55acee;
   border-color: #55acee;
 }
-
 .resp-sharing-button--twitter:hover,
 .resp-sharing-button--twitter:active {
   background-color: #2795e9;
   border-color: #2795e9;
 }
-
 .resp-sharing-button--google {
   background-color: #dd4b39;
   border-color: #dd4b39;
 }
-
 .resp-sharing-button--google:hover,
 .resp-sharing-button--google:active {
   background-color: #c23321;
   border-color: #c23321;
 }
-
 .resp-sharing-button--email {
   background-color: #777777;
   border-color: #777777;
 }
-
 .resp-sharing-button--email:hover,
 .resp-sharing-button--email:active {
   background-color: #5e5e5e;
   border-color: #5e5e5e;
 }
-
 .resp-sharing-button--whatsapp {
   background-color: #25D366;
   border-color: #25D366;
 }
-
 .resp-sharing-button--whatsapp:hover,
 .resp-sharing-button--whatsapp:active {
   background-color: #1DA851;
   border-color: #1DA851;
 }
-
 .resp-sharing-button--telegram {
   background-color: #54A9EB;
 }
-
 .resp-sharing-button--telegram:hover {
   background-color: #4B97D1;}
 
@@ -729,7 +634,6 @@ background-color: #FF6600
     width: 100%;
     max-width: inherit;
 }
-
 #footer a {
     color: black;
     border: none;
@@ -739,28 +643,45 @@ background-color: #FF6600
     transition: 0.3s;
     display: block;
 }
-
 #footer a:hover, #footer a:active {
     background-color: #990000;
     color: white;
 }
-
 #footer a:link {
     text-decoration: none;
 }
-
 #footer a:visited {
     text-decoration: none;
 }
-
 .fa-sign-out {
     margin-left: .5em;
+}
+
+/* Modifications for larger screens */
+@media only screen and (min-width:640px){
+    div.subtab {
+        float: left;
+        position: fixed;
+        width: 10%;
+        min-width: 120px;
+        max-width: 150px;
+        height: 100%;
+    }
+    div.subtab button {
+        width: 100%;
+        display: block;
+    }
+    div.subtabcontent, #greeting {
+        width: 78%;
+        float: right;
+    }
+    div.tab {
+    }
 }
 
 /* Print Layout */
 @media print {
 .hidden { display: block; visibility: visible }
-
 div.slide pre { font-size: 60%; padding-left: 0.5em; }
 div.toolbar { display: none; visibility: hidden; }
 div.slidy_toc { display: none; visibility: hidden; }
