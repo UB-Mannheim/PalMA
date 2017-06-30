@@ -343,32 +343,6 @@ div.description {
 /* Extras Help */
 
 /* Extras Feedback & Recommend */
-#contactwindow, #recommendwindow {
-    background-color: #000000;
-    background: rgba(0, 0, 0, 0.7);
-    position: absolute; top: 0; left: 0;
-    visibility: hidden;
-    display: none;
-    width: 100%;
-    z-index: 10;
-    height: 100%;
-}
-#contactcontainer, #recommendcontainer {
-    background: rgba(255, 255, 255, 1);
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    padding: 20px 20px 40px 20px;
-    display: block;
-    width: 720px;
-}
-#contactcontainer h3, #recommendcontainer h3 {
-    font-size: 2em;
-}
-#contactcontainer button, #recommendcontainer button {
-    margin-top: 10px;
-}
 
 /* Extras User */
 
