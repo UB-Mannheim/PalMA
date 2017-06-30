@@ -19,43 +19,35 @@ body {
 
 legend {
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 1.3em;
     text-align: center;
 }
 
-#login_mask_outer {
-    padding: 1% 5% 1% 5%;
-    min-width: 220px;
-}
-
 #login_mask {
-    margin: 1% auto;
-    padding: 0 5% 1.5% 5%;
+    margin: 0 auto;
+    padding: .5em 1.5em;
     width: auto;
     max-width: 460px;
     background-color: #F1F1F1;
-    border: 1px solid;
-    border-radius: 5px;
-    box-shadow: 8px 8px 4px #666666;
 }
 #login_mask i {
-    margin: 5px 5px 5px 10px;
+    margin: .2em .6em;
 }
 #login_mask p {
     text-align: center;
 }
 #login_mask .policy {
-    font-size: 75%;
-    margin: .5%;
+    font-size: .8em;
+    margin: .5em;
     text-align: center;
 }
 #login_mask .policy a {
-    color: #900;
+    color: #990000;
     text-decoration: none;
 }
 #login_fields {
     float: left;
-    margin-right: 15%;
+    margin-right: .5em;
 }
 
 /* Workplace selection (monitor.php) */
