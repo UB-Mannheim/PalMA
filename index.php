@@ -1168,17 +1168,17 @@ function openSubtab(evt, subtabName) {
 
 <!-- This formating is used to prevent empty textnodes that interfere with the design -->
 <div class="tab"
-    ><button class="tablinks" onclick="openTab(event, 'Add')">Add</button
-    ><button class="tablinks" onclick="openTab(event, 'Control')">Control</button
-    ><button class="tablinks" onclick="openTab(event, 'Extras')">Extras</button
+    ><button class="tablinks" onclick="openTab(event, 'Add')">Add <i class="fa fa-plus"></i></button
+    ><button class="tablinks" onclick="openTab(event, 'Control')">Control <i class="fa fa-arrows"></i></button
+    ><button class="tablinks" onclick="openTab(event, 'Extras')">Extras <i class="fa fa-info-circle"></i></button
 ></div>
 
 <div id="workbench">
     <div id="Add" class="tabcontent">
         <div class="subtab"
-        ><button class="subtablinks" onclick="openSubtab(event, 'File')">File</button
-        ><button class="subtablinks" onclick="openSubtab(event, 'URL')">URL</button
-        ><button class="subtablinks" onclick="openSubtab(event, 'Screen')">Screen</button
+        ><button class="subtablinks" onclick="openSubtab(event, 'File')">File <i class="fa fa-file"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'URL')">URL <i class="fa fa-globe"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Screen')">Screen <i class="fa fa-desktop"></i></button
     ></div>
         <div id="File" class="subtabcontent">
             <div class="description">
@@ -1247,9 +1247,9 @@ function openSubtab(evt, subtabName) {
     </div>
     <div id="Control" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Layout')">Layout</button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Navigate')">Navigate</button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Windowlist')">Windowlist</button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Layout')">Layout <i class="fa fa-table"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Navigate')">Navigate <i class="fa fa-arrows"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Windowlist')">Windowlist <i class="fa fa-list"></i></button
         ></div>
         <div id="Layout" class="subtabcontent">
             <div class="description">
@@ -1311,7 +1311,6 @@ function openSubtab(evt, subtabName) {
             </div>
             <table class="itemlist" summary="<?=__('Display list')?>"
                    title="<?=__('List of files, URLs and shared displays')?>">
-                <caption><i class="fa fa-desktop"></i></caption>
                 <tbody id="windowlist">
                     <tr><td><!-- filled by updateWindowList() --></td></tr>
                 </tbody>
@@ -1325,10 +1324,10 @@ function openSubtab(evt, subtabName) {
     </div>
     <div id="Extras" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Help')">Help</button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Feedback')">Feedback</button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Recommend')">Recommend</button
-            ><button class="subtablinks" onclick="openSubtab(event, 'User')">User</button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Help')">Help <i class="fa fa-question-circle"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Feedback')">Feedback <i class="fa fa-bullhorn"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Recommend')">Recommend <i class="fa fa-thumbs-o-up"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Users')">Users <i class="fa fa-users"></i></button
         ></div>
         <div id="Help" class="subtabcontent">
             <p><?=__('With PalMA, you can share your documents and your desktop
@@ -1434,10 +1433,9 @@ function openSubtab(evt, subtabName) {
     </a>
     </div>
         </div>
-        <div id="User" class="subtabcontent">
+        <div id="Users" class="subtabcontent">
             <div class="list_container">
                 <table class="userlist" summary="<?=__('User list')?>" title="<?=__('List of connected users')?>">
-                    <caption><?=__('User list')?><i class="fa fa-users"></i></caption>
                     <tbody id="userlist">
                         <tr><td><!-- filled by updateUserList() --></td></tr>
                     </tbody>
