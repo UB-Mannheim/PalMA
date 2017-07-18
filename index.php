@@ -1120,7 +1120,7 @@ function openTab(evt, tabName) {
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
-    document.getElementById("default_subtab").style.display = "none";
+    document.getElementById("greeting").style.display = "none";
     // Remove "active" class from all elements with class="tablinks"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
@@ -1165,7 +1165,21 @@ function openSubtab(evt, subtabName) {
 ></div>
 
 <div id="workbench">
-    <div class="subtab" id="default_subtab">
+    <div class="subtab" id="greeting">
+        <p>Welcome to
+            <img id="palma_logo"
+                 src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
+                 alt="PalMA"> <?=__('Team display')?>!
+            <br/>
+            <?php
+                if (isset($_SESSION['monitor'])) {
+                    echo('(' . $_SESSION['monitor'] . ')');
+                }
+            ?>
+        </p>
+        <div class="description">
+            Use the tabs above to add content and control how it is displayed on the monitor.
+        </div>
     </div>
     <div id="Add" class="tabcontent">
         <div class="subtab"
@@ -1245,45 +1259,55 @@ function openSubtab(evt, subtabName) {
             ><button class="subtablinks" onclick="openSubtab(event, 'Displaylist')">Displaylist <i class="fa fa-desktop"></i></button
         ></div>
         <div id="Layout" class="subtabcontent">
-            <table class="minidisplaylist" id="displaylist" summary="<?=__('Screen layout')?>">
-                <tr>
-                  <td><div>
-                    <button class="pure-button pure-button-primary pure-input-rounded"
-                            id="g1x1" onclick="miniDisplaySelect(this)"
-                            title="<?=__('Choose screen layout')?>">
-                      <table><tr><td><i alt="1" class="fa fa-desktop fa-2x" aria-hidden="true"></i></td></tr></table>
-                    </button>
-                  </div></td>
-                  <td><div>
-                    <button class="pure-button pure-button-primary pure-input-rounded"
-                            id="g1x2" onclick="miniDisplaySelect(this)"
-                            title="<?=__('Choose screen layout')?>">
-                      <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
-                    </button>
-                  </div></td>
-                  <td><div>
-                    <button class="pure-button pure-button-primary pure-input-rounded"
-                            id="g2x1" onclick="miniDisplaySelect(this)"
-                            title="<?=__('Choose screen layout')?>">
-                      <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
-                    </button>
-                  </div></td>
-                  <td><div>
-                    <button class="pure-button pure-button-primary pure-input-rounded"
-                            id="g1a2" onclick="miniDisplaySelect(this)"
-                            title="<?=__('Choose screen layout')?>">
-                      <table><tr><td rowspan="2"><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
-                    </button>
-                  </div></td>
-                  <td><div>
-                    <button class="pure-button pure-button-primary pure-input-rounded"
-                            id="g2x2" onclick="miniDisplaySelect(this)"
-                            title="<?=__('Choose screen layout')?>">
-                      <table><tr><td><i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr><tr><td><i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></td><td><i alt="4" class="fa fa-desktop fa-1x" aria-hidden="true"></td></tr></table>
-                    </button>
-                  </div></td>
-                </tr>
-            </table>
+            <div class="screenlayout">
+                <button class="pure-button pure-button-primary pure-input-rounded"
+                        id="g1x1" onclick="miniDisplaySelect(this)"
+                        title="<?=__('Choose screen layout')?>">
+                    <i alt="1" class="fa fa-desktop fa-2x" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="screenlayout">
+                <button class="pure-button pure-button-primary pure-input-rounded"
+                        id="g1x2" onclick="miniDisplaySelect(this)"
+                        title="<?=__('Choose screen layout')?>">
+                    <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                    <br />
+                    <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="screenlayout">
+                <button class="pure-button pure-button-primary pure-input-rounded"
+                        id="g2x1" onclick="miniDisplaySelect(this)"
+                        title="<?=__('Choose screen layout')?>">
+                    <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                    <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="screenlayout">
+                <button class="pure-button pure-button-primary pure-input-rounded"
+                        id="g1a2" onclick="miniDisplaySelect(this)"
+                        title="<?=__('Choose screen layout')?>">
+                    <div class="layout_left">
+                    <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                    </div>
+                    <div class="layout_right">
+                    <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                    <br />
+                    <i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                    </div>
+                </button>
+            </div>
+            <div class="screenlayout">
+                <button class="pure-button pure-button-primary pure-input-rounded"
+                        id="g2x2" onclick="miniDisplaySelect(this)"
+                        title="<?=__('Choose screen layout')?>">
+                    <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                    <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                    <br />
+                    <i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                    <i alt="4" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
+                </button>
+            </div>
             <div class="description">
                 Control how many windows are displayed by choosing a <?=__('Screen layout')?>.
             </div>
@@ -1436,21 +1460,6 @@ function openSubtab(evt, subtabName) {
                 </button>
             </div>
         </div>
-    </div>
-    <div id="greeting">
-        <?php
-            if ($user) {
-                echo("<p>Hello $user, Welcome to");
-            }
-        ?>
-        <img id="palma_logo"
-             src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
-             alt="PalMA"> <?=__('Team display')?>!</p>
-        <?php
-            if (isset($_SESSION['monitor'])) {
-                echo('(' . $_SESSION['monitor'] . ')');
-            }
-        ?>
     </div>
 </div> <!-- workbench -->
 

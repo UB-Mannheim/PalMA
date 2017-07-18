@@ -3,7 +3,7 @@
 /* General settings (login.php, learningcenter.php, index.php) */
 body {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 1em auto;
 }
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;
@@ -98,8 +98,9 @@ legend {
 
 /* Main User Interface (index.php) */
 #greeting {
-    padding: 5em 0;
+    padding: 5em 1em;
     height: 100%;
+    background-color: white;
 }
 #greeting p {
     margin: 0;
@@ -116,9 +117,6 @@ div.tab, div.subtab {
 div.subtab {
     background-color: #e2e2e2;
     border-top: none;
-}
-#default_subtab {
-    padding: 1.2em 0;
 }
 div.tab button, div.subtab button {
     background-color: inherit;
@@ -153,7 +151,7 @@ div.subtab button.active {
     animation: fadeEffect 1s;
 }
 .subtabcontent {
-    padding: .8em .4em;
+    padding: 1.5em 1em;
 }
 @-webkit-keyframes fadeEffect {
     from {opacity: 0;}
@@ -166,7 +164,6 @@ div.subtab button.active {
 
 /* Workbench */
 #workbench {
-    background-color: #f1f1f1;
     margin-bottom: 2em;
 }
 div.description {
@@ -223,64 +220,22 @@ div.description {
 }
 
 /* Control Layout */
-.minidisplaylist {
-    border-collapse: collapse;
-    border-spacing: 0;
-    padding: 0;
-}
-.minidisplaylist caption {
-    caption-side: top;
-}
-.minidisplaylist td, .minidisplaylist tr {
-    padding: 0;
-}
-.minidisplaylist div {
-    cursor: pointer;
-    display: block;
-}
-.minidisplay {
-    border: 1px solid orange;
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin-left: 0;
-    margin-right: 5px;
-}
-.minidisplay td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    border-spacing: 0;
-    text-align: center;
+div.screenlayout {
+    display: inline-block;
+    margin: .5em;
     vertical-align: middle;
-    padding: 0;
 }
-.minidisplay tr {
-    border-collapse: collapse;
-    border-spacing: 0;
-    text-align: center;
-    width: 50%;
-    height: 50%;
-    padding: 0;
+div.screenlayout button {
+    width: 4em;
+    height: 4em;
+    background-color: #b1b1b1;
 }
-.minidisplay, .minidisplay td, .minidisplay tr {
-    border-collapse: collapse;
-    border-spacing: 0;
-    padding: 0;
+div.screenlayout button:hover, .screenlayout button:active {
+    background-color: #990000;
 }
-.minidisplay:hover {
-    border: 1px solid red;
-}
-.minidisplaylist table {
-    background-color: LightGray;
-    width: 85px;
-    height: 45px;
-}
-.minidisplaylist tr, .minidisplaylist td {
-    border: 1px solid #EFEFEF;
-}
-.minidisplaylist button {
-    color: #990000;
-    width: 100px;
-    height: 60px;
+div.layout_left, div.layout_right {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Control Navigate */
@@ -658,7 +613,7 @@ background-color: #FF6600
 }
 
 /* Modifications for larger screens */
-@media only screen and (min-width:640px){
+/*@media only screen and (min-width:640px){
     div.subtab {
         float: left;
         position: fixed;
@@ -677,7 +632,7 @@ background-color: #FF6600
     }
     div.tab {
     }
-}
+}*/
 
 /* Print Layout */
 @media print {
