@@ -729,42 +729,6 @@ Dropzone.options.palmaDropzone = {
     }
 };
 
-function showHelp(visible) {
-    // Hide or show an overlay window with help text.
-    var element = document.getElementById('helpwindow');
-    if (visible) {
-        element.style.visibility = "visible";
-        element.style.display = "block";
-    } else {
-        element.style.visibility = "hidden";
-        element.style.display = "none";
-    }
-}
-
-function showContact(visible) {
-    // Hide or show an overlay window with contact form.
-    var element = document.getElementById('contactwindow');
-    if (visible) {
-        element.style.visibility = "visible";
-        element.style.display = "block";
-    } else {
-        element.style.visibility = "hidden";
-        element.style.display = "none";
-    }
-}
-
-function showRecommendation(visible) {
-    // Hide or show an overlay window with social media buttons.
-    var element = document.getElementById('recommendwindow');
-    if (visible) {
-        element.style.visibility = "visible";
-        element.style.display = "block";
-    } else {
-        element.style.visibility = "hidden";
-        element.style.display = "none";
-    }
-}
-
 function updateUserList(address, user) {
     // Update the user list on screen from the table in the database.
 
@@ -1178,7 +1142,7 @@ function openSubtab(evt, subtabName) {
             ?>
         </p>
         <div class="description">
-            Use the tabs above to add content and control how it is displayed on the monitor.
+            Use the tabs above to add content and then control how it is displayed on the monitor.
         </div>
     </div>
     <div id="Add" class="tabcontent">

@@ -3,7 +3,6 @@
 /* General settings (login.php, learningcenter.php, index.php) */
 body {
     max-width: 1200px;
-    margin: 1em auto;
 }
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;
@@ -222,12 +221,12 @@ div.description {
 /* Control Layout */
 div.screenlayout {
     display: inline-block;
-    margin: .5em;
+    margin: .1em;
     vertical-align: middle;
 }
 div.screenlayout button {
-    width: 4em;
-    height: 4em;
+    width: 3.5em;
+    height: 3.5em;
     background-color: #b1b1b1;
 }
 div.screenlayout button:hover, .screenlayout button:active {
