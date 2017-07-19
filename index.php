@@ -1096,17 +1096,18 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-function openSubtab(evt, subtabName) {
-    var i, subtabcontent, subtablinks;
+function openSubtab(evt, tabName, subtabName) {
+    var i, tab, subtabcontent, subtablinks;
     // Hide all elements with class="subtabcontent"
-    subtabcontent = document.getElementsByClassName("subtabcontent");
+    tab = document.getElementById(tabName);
+    subtabcontent = tab.getElementsByClassName("subtabcontent");
     for (i = 0; i < subtabcontent.length; i++) {
         subtabcontent[i].style.display = "none";
     }
     document.getElementById("greeting").style.display = "none";
 
     // Remove "active" class from all elements with class="subtablinks"
-    subtablinks = document.getElementsByClassName("subtablinks");
+    subtablinks = tab.getElementsByClassName("subtablinks");
     for (i = 0; i < subtablinks.length; i++) {
         subtablinks[i].className = subtablinks[i].className.replace(" active", "");
     }
@@ -1147,9 +1148,9 @@ function openSubtab(evt, subtabName) {
     </div>
     <div id="Add" class="tabcontent">
         <div class="subtab"
-        ><button class="subtablinks" onclick="openSubtab(event, 'File')">File <i class="fa fa-file"></i></button
-        ><button class="subtablinks" onclick="openSubtab(event, 'URL')">URL <i class="fa fa-globe"></i></button
-        ><button class="subtablinks" onclick="openSubtab(event, 'Screen')">Screen <i class="fa fa-eye"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'File')">File <i class="fa fa-file"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'URL')">URL <i class="fa fa-globe"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'Screen')">Screen <i class="fa fa-eye"></i></button
     ></div>
         <div id="File" class="subtabcontent">
             <div id="file_upload">
@@ -1218,9 +1219,9 @@ function openSubtab(evt, subtabName) {
     </div>
     <div id="Control" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Layout')">Layout <i class="fa fa-table"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Navigate')">Navigate <i class="fa fa-arrows"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Displaylist')">Displaylist <i class="fa fa-desktop"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Layout')">Layout <i class="fa fa-table"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Navigate')">Navigate <i class="fa fa-arrows"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Displaylist')">Displaylist <i class="fa fa-desktop"></i></button
         ></div>
         <div id="Layout" class="subtabcontent">
             <div class="screenlayout">
@@ -1305,9 +1306,9 @@ function openSubtab(evt, subtabName) {
     </div>
     <div id="Extras" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Help')">Help <i class="fa fa-question-circle"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Feedback')">Feedback <i class="fa fa-thumbs-o-up"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Users')">Users <i class="fa fa-users"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Help')">Help <i class="fa fa-question-circle"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Feedback')">Feedback <i class="fa fa-thumbs-o-up"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Users')">Users <i class="fa fa-users"></i></button
         ></div>
         <div id="Help" class="subtabcontent">
             <p><?=__('With PalMA, you can share your documents and your desktop

@@ -613,26 +613,17 @@ background-color: #FF6600
 }
 
 /* Modifications for larger screens */
-/*@media only screen and (min-width:640px){
-    div.subtab {
-        float: left;
-        position: fixed;
-        width: 10%;
-        min-width: 120px;
-        max-width: 150px;
-        height: 100%;
+@media only screen and (min-height:640px){
+    #Add div.subtab, #Control div.subtab {
+        display: none !important;
     }
-    div.subtab button {
-        width: 100%;
+   #Add div.subtabcontent, #Control div.subtabcontent {
+        display: block !important;
+    }
+    #greeting {
         display: block;
     }
-    div.subtabcontent, #greeting {
-        width: 78%;
-        float: right;
-    }
-    div.tab {
-    }
-}*/
+}
 
 /* Print Layout */
 @media print {
