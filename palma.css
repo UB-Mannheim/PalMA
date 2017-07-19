@@ -3,6 +3,8 @@
 /* General settings (login.php, learningcenter.php, index.php) */
 body {
     max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 .5em;
 }
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;

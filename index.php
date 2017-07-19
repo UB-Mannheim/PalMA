@@ -845,7 +845,7 @@ function updateWindowList(window) {
             td.setAttribute('id', 'itemstatus');
             i = document.createElement('i');
             if (status == 'active') {
-                i.setAttribute('class', 'fa fa-eye');
+                i.setAttribute('class', 'fa fa-desktop');
             } else {
                 i.setAttribute('class', 'fa fa-ban');
             }
