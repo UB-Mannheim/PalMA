@@ -296,12 +296,12 @@ function showLayout(layout, controls, window) {
 
     var windowlist = document.getElementById('windowlist');
     var entries = windowlist.getElementsByClassName('window_entry');
-    var screensection;
-    var file;
+    var screensection, file, status;
     for (var n = 0; n < window.length; n++) {
         screensection = window[n].section;
         file = window[n].file;
-        entries[n].appendChild(addWindowControls(layout, controls, screensection, file));
+        status = window[n].state;
+        entries[n].appendChild(addWindowControls(layout, controls, screensection, file, status));
     }
 }
 
@@ -583,7 +583,7 @@ function addWindowPosition(layout, screensection) {
 }
 
 
-function addWindowControls(layout, controls, screensection, file) {
+function addWindowControls(layout, controls, screensection, file, status) {
 
     if (typeof control == "undefined") {
     control = ["default", false, false, false, false,
@@ -653,7 +653,7 @@ function addWindowControls(layout, controls, screensection, file) {
 
     var misc = document.createElement("div");
     misc.setAttribute("class", "misc");
-    var downloadbutton = keyControl(screensection, 'fa-download', 'download', handler, !download, '<?=__("Download this file")?>');
+    var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', handler, !download, '<?=__("Download this file")?>');
     downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
     misc.appendChild(downloadbutton);
     button = document.createElement('button');
