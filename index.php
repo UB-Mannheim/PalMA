@@ -655,8 +655,8 @@ function addWindowControls(layout, controls, screensection, file) {
 
     var misc = document.createElement("div");
     misc.setAttribute("class", "misc");
-    var downloadbutton = keyControl(number, 'fa-download', 'download', handler, !download, '<?=__("Download this file")?>');
-    downloadbutton.setAttribute('onclick', 'downloadFile(' + number + ')');
+    var downloadbutton = keyControl(screensection, 'fa-download', 'download', handler, !download, '<?=__("Download this file")?>');
+    downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
     misc.appendChild(downloadbutton);
     button = document.createElement('button');
     button.setAttribute("class", "trash");
