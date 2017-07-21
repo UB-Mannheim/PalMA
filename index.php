@@ -154,8 +154,8 @@ function sendToNuc(command) {
   //~ alert("sendToNuc " + url);
 }
 
-function keyControl(number, image, key, handler, disabled, title) {
-  var td = document.createElement('td');
+function keyControl(number, image, controlClass, key, handler, disabled, title) {
+    // "number" refers to the slected screensection
 
   var keyHandler = getHandlerCommand(handler, key);
   if ( (keyHandler == "") || (keyHandler == null) ) {
@@ -163,56 +163,17 @@ function keyControl(number, image, key, handler, disabled, title) {
   }
 
   var button = document.createElement('button');
-  var i = document.createElement('i');
-  i.setAttribute('class', 'fa fa-fw ' + image);
-  button.setAttribute('class', 'controlbutton pure-button pure-button-primary pure-input-rounded');
-  button.appendChild(i);
+  var icon = document.createElement('i');
+  icon.setAttribute('class', image);
+  button.appendChild(icon);
+  button.setAttribute('class', controlClass);
   button.setAttribute('onmousedown',
                      'sendToNuc("window=' + number + '&keydown=' + encodeURIComponent(keyHandler) + '")');
   button.setAttribute('onmouseup',
                      'sendToNuc("window=' + number + '&keyup=' + encodeURIComponent(keyHandler) + '")');
   button.setAttribute('title', title);
-  if (disabled) {
-    button.setAttribute('disabled', '');
-  }
-  td.appendChild(button);
-  return td;
-}
 
-function remoteControl(number, control) {
-
-    var overlay = document.createElement('div');
-    overlay.setAttribute('id', 'overlay');
-    overlay.setAttribute('class', 'overlay');
-
-    var container = document.createElement('div');
-    container.setAttribute('id', 'container');
-
-    var caption = document.createElement('div');
-    caption.setAttribute('id', 'caption');
-    caption.appendChild(document.createTextNode('<?=__("Screen section")?> '+ number));
-
-    var close = document.createElement('div');
-    var i = document.createElement('i');
-    i.setAttribute('class', 'fa fa-times');
-    i.setAttribute('title', '<?=__("Close the advanced control")?>');
-    close.setAttribute('id', 'close');
-    close.appendChild(i);
-    close.setAttribute('onclick',       'restore()');
-
-    container.appendChild(close);
-    container.appendChild(caption);
-    var table = addDetailedControlsDiv(number, control);
-    container.appendChild(table);
-    overlay.appendChild(container);
-    var appendTo = document.getElementById('maindisplay');
-    appendTo.appendChild(overlay);
-
-    document.body.appendChild(overlay);
-}
-
-function restore() {
-    document.body.removeChild(document.getElementById('overlay'));
+  return button;
 }
 
 function downloadFile(screensection) {
@@ -259,77 +220,6 @@ function urlToNuc() {
     setTimeout(function(){location.reload()}, 1000);
 }
 
-function addControls(number, control, is_overlay) {
-  // Add the basic controls up, down, left, right.
-  var tr;
-  var td;
-  var button;
-
-  if (typeof control == "undefined") {
-    control = ["default", false, false, false, false,
-               false, false, false, false, false, false, false];
-  }
-
-  // get handler
-  var handler = control[0];
-
-  var up = control[1];
-  var down = control[2];
-  var left = control[3];
-  var right = control[4];
-
-  // Show the overlay button only if extended controls are supported
-  // (zoomin, zoomout, home, end, prior, next, download).
-  var disableOverlayButton = is_overlay ||
-    !(control[5] || control[6] || control[7] || control[8] ||
-      control[9] || control[10] || control[11]);
-
-  var div = document.createElement('div');
-  var table = document.createElement('table');
-  table.setAttribute('class', 'control');
-  tr = document.createElement('tr');
-  tr.appendChild(document.createElement('td'));
-  // TODO: try fa-arrow-up, fa-carret-up, fa-long-arrow-up, fa-angle-up, fa-play
-  tr.appendChild(keyControl(number, 'fa-play fa-rotate-270', 'up',
-                            handler, !up, '<?=__("Cursor control")?>'));
-  tr.appendChild(document.createElement('td'));
-  table.appendChild(tr);
-  tr = document.createElement('tr');
-  tr.appendChild(keyControl(number, 'fa-play fa-rotate-180', 'left',
-                            handler, !left, '<?=__("Cursor control")?>'));
-  td = document.createElement('td');
-  button = document.createElement('button');
-  button.appendChild(document.createTextNode(number));
-  button.setAttribute('class', 'pure-button pure-button-primary pure-input-rounded');
-  if (disableOverlayButton) {
-      button.setAttribute('disabled', '');
-  } else {
-      button.setAttribute('id', 'more');
-      button.setAttribute('onclick', 'remoteControl(' + number + ', ' + JSON.stringify(control) + ')');
-      button.setAttribute('title', '<?=__("Advanced control")?>');
-  }
-  td.appendChild(button);
-  tr.appendChild(td);
-  tr.appendChild(keyControl(number, 'fa-play', 'right',
-                            handler, !right, '<?=__("Cursor control")?>'));
-  table.appendChild(tr);
-  tr = document.createElement('tr');
-  tr.appendChild(document.createElement('td'));
-  tr.appendChild(keyControl(number, 'fa-play fa-rotate-90', 'down',
-                            handler, !down, '<?=__("Cursor control")?>'));
-  tr.appendChild(document.createElement('td'));
-  table.appendChild(tr);
-  div.appendChild(table);
-
-  return div;
-}
-
-function addSimpleControlsTd(number, controls) {
-    var td = document.createElement('td');
-    td.appendChild(addControls(number, controls[number], false));
-    td.setAttribute('id', 'section' + number);
-    return td;
-}
 
 function addDetailedControlsDiv(number, control) {
 
@@ -776,6 +666,30 @@ function addWindowPosition(layout, screensection) {
 
 
 function addWindowControls(layout, controls, screensection, file) {
+
+    if (typeof control == "undefined") {
+    control = ["default", false, false, false, false,
+               false, false, false, false, false, false, false];
+    }
+
+    // get handler
+    var handler = control[0];
+    // up down left right zoomin zoomout home end prior next download
+    var up = control[1];
+    var down = control[2];
+    var left = control[3];
+    var right = control[4];
+    var zoomin = control[5];
+    var zoomout = control[6];
+    var home = control[7];
+    var end = control[8];
+    var prior = control[9];
+    var next = control[10];
+    var download = control[11];
+
+    // TODO: try fa-arrow-up, fa-carret-up, fa-long-arrow-up, fa-angle-up, fa-play
+    //appendChild(keyControl(screensection, 'fa-play fa-rotate-270', controlClass, 'up', handler, !up, '<?=__("Cursor control")?>'));
+
     var windowcontrols = document.createElement("div");
     windowcontrols.setAttribute("class", "windowcontrols");
 
@@ -784,33 +698,12 @@ function addWindowControls(layout, controls, screensection, file) {
 
     var arrows = document.createElement("div");
     arrows.setAttribute("class", "arrows");
-
-    button = document.createElement('button');
-    button.setAttribute("class", "arrowup");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-arrow-up");
-    button.appendChild(icon);
-    arrows.appendChild(button);
+    arrows.appendChild(keyControl(screensection, 'fa fa-arrow-up', 'arrowup', 'up', handler, !up, '<?=__("Cursor control")?>'));
     arrows.appendChild(document.createElement("br"));
-    button = document.createElement('button');
-    button.setAttribute("class", "arrowleft");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-arrow-left");
-    button.appendChild(icon);
-    arrows.appendChild(button);
-    button = document.createElement('button');
-    button.setAttribute("class", "arrowright");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-arrow-right");
-    button.appendChild(icon);
-    arrows.appendChild(button);
+    arrows.appendChild(keyControl(screensection, 'fa fa-arrow-left', 'arrowleft', 'left', handler, !left, '<?=__("Cursor control")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-arrow-right', 'arrowright', 'right', handler, !right, '<?=__("Cursor control")?>'));
     arrows.appendChild(document.createElement("br"));
-    button = document.createElement('button');
-    button.setAttribute("class", "arrowdown");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-arrow-down");
-    button.appendChild(icon);
-    arrows.appendChild(button);
+    arrows.appendChild(keyControl(screensection, 'fa fa-arrow-down', 'arrowdown', 'down', handler, !down, '<?=__("Cursor control")?>'));
 
     var jump = document.createElement("div");
     jump.setAttribute("class", "jump");
@@ -903,15 +796,13 @@ function addWindowControls(layout, controls, screensection, file) {
 
 function updateWindowList(window){
     var windowlist = document.getElementById('windowlist');
-    var entry = document.createElement('div');
-    entry.setAttribute("class", "window_entry");
-
     // remove old entries
     while (windowlist.firstChild) {
         windowlist.removeChild(windowlist.firstChild);
     }
 
     if (window.length == 0) {
+        var entry = document.createElement('div');
         entry.appendChild(document.createTextNode("There are no shared contents."));
         windowlist.appendChild(entry);
     } else {
@@ -921,6 +812,8 @@ function updateWindowList(window){
             var file = window[n].file;
             var handler = window[n].handler;
             var screensection = window[n].section;
+            var entry = document.createElement('div');
+            entry.setAttribute("class", "window_entry");
             entry.setAttribute('id', 'file' + screensection);
 
             // Create button to open and close accordion
@@ -946,6 +839,7 @@ function updateWindowList(window){
                 entry.setAttribute('title', file);
             } else {
                 // For files only the full base name is shown as a tooltip.
+                var fname = file;
                 title = title.replace(/^.*\//, '');
                 entry.setAttribute('title', fname);
             }
