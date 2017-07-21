@@ -872,7 +872,7 @@ function addWindowControls(layout, controls, screensection, file) {
     button.appendChild(icon);
     visibility.appendChild(button);
 
-    addWindowPosition(layout, screensection);
+    var position = addWindowPosition(layout, screensection);
 
     var misc = document.createElement("div");
     misc.setAttribute("class", "misc");
