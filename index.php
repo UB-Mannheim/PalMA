@@ -489,9 +489,11 @@ function showLayout(layout, controls, window) {
     var windowlist = document.getElementById('windowlist');
     var entries = windowlist.getElementsByClassName('window_entry');
     var screensection;
+    var file;
     for (var n = 0; n < window.length; n++) {
         screensection = window[n].section;
-        entries[n].appendChild(addWindowControls(layout, controls, screensection));
+        file = window[n].file;
+        entries[n].appendChild(addWindowControls(layout, controls, screensection, file));
     }
 }
 
@@ -773,7 +775,7 @@ function addWindowPosition(layout, screensection) {
 }
 
 
-function addWindowControls(layout, controls, screensection) {
+function addWindowControls(layout, controls, screensection, file) {
     var windowcontrols = document.createElement("div");
     windowcontrols.setAttribute("class", "windowcontrols");
 
@@ -941,11 +943,11 @@ function updateWindowList(window){
                 // The full URL will be shown as a tooltip.
                 title = title.replace(/\/$/, '');
                 title = title.replace(/^.*\//, '');
-                div.setAttribute('title', file);
+                entry.setAttribute('title', file);
             } else {
                 // For files only the full base name is shown as a tooltip.
                 title = title.replace(/^.*\//, '');
-                div.setAttribute('title', fname);
+                entry.setAttribute('title', fname);
             }
             if (title.length > 25) {
                 title = title.substring(0, 15) + '...';
@@ -965,7 +967,6 @@ function updateControlsBySection(window) {
     for (n = 0; n < window.length; n++) {
         var win_id = window[n].win_id;
         var section = window[n].section;
-        var file = window[n].file;
         var handler = window[n].handler;
 
         // alert("Section: " + section + " - Handler: " + handler);
