@@ -220,88 +220,6 @@ function urlToNuc() {
     setTimeout(function(){location.reload()}, 1000);
 }
 
-
-function addDetailedControlsDiv(number, control) {
-
-    var handler = control[0];
-    // up down left right zoomin zoomout home end prior next download
-    var up = control[1];
-    var down = control[2];
-    var left = control[3];
-    var right = control[4];
-    var zoomin = control[5];
-    var zoomout = control[6];
-    var home = control[7];
-    var end = control[8];
-    var prior = control[9];
-    var next = control[10];
-    var download = control[11];
-
-    var controlpanel;
-    var updown, zoom, bar;
-
-    var table, tr, td;
-
-    controlpanel = document.createElement('div');
-    controlpanel.setAttribute('class', 'controlpanel');
-
-    updown = addControls(number, control, true);
-    updown.setAttribute('class', 'updown');
-
-    controlpanel.appendChild(updown);
-
-    zoom = document.createElement('div');
-    zoom.setAttribute('class', 'zoom');
-    table = document.createElement('table');
-
-    tr = document.createElement('tr');
-    td = keyControl(number, 'fa-search-plus', 'zoomin',
-                    handler, !zoomin, '<?=__("Zoom in")?>');
-    tr.appendChild(td);
-    table.appendChild(tr);
-
-    tr = document.createElement('tr');
-    td = keyControl(number, 'fa-search-minus', 'zoomout',
-                    handler, !zoomout, '<?=__("Zoom out")?>');
-    tr.appendChild(td);
-    table.appendChild(tr);
-
-    zoom.appendChild(table);
-
-    controlpanel.appendChild(zoom);
-
-    bar = document.createElement('div');
-    bar.setAttribute('class', 'bar');
-    table = document.createElement('table');
-
-    tr = document.createElement('tr');
-
-    td = keyControl(number, 'fa-step-backward', 'home',
-                    handler, !home, "<?=__('Jump to start')?>");
-    tr.appendChild(td);
-    td = keyControl(number, 'fa-backward', 'prior',
-                    handler, !prior, "<?=__('Page up')?>");
-    tr.appendChild(td);
-    td = keyControl(number, 'fa-forward', 'next',
-                    handler, !next, "<?=__('Page down')?>");
-    tr.appendChild(td);
-    td = keyControl(number, 'fa-step-forward', 'end',
-                    handler, !end, "<?=__('Jump to end')?>");
-    tr.appendChild(td);
-    td = keyControl(number, 'fa-download', 'download',
-                    handler, !download, '<?=__("Download this file")?>');
-    td.setAttribute('onclick', 'downloadFile(' + number + ')');
-    tr.appendChild(td);
-
-    table.appendChild(tr);
-
-    bar.appendChild(table);
-
-    controlpanel.appendChild(bar);
-
-    return controlpanel;
-}
-
 function showLayout(layout, controls, window) {
     //~ console.log("Layout: " + layout);
     //~ for (i = 0; i < controls.length; i++) {
@@ -707,50 +625,19 @@ function addWindowControls(layout, controls, screensection, file) {
 
     var jump = document.createElement("div");
     jump.setAttribute("class", "jump");
-
-    button = document.createElement('button');
-    button.setAttribute("class", "jumpbeginning");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-step-backward");
-    button.appendChild(icon);
-    jump.appendChild(button);
-    button = document.createElement('button');
-    button.setAttribute("class", "pageback");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-backward");
-    button.appendChild(icon);
-    jump.appendChild(button);
-    button = document.createElement('button');
-    button.setAttribute("class", "packeforward");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-forward");
-    button.appendChild(icon);
-    jump.appendChild(button);
-    button = document.createElement('button');
-    button.setAttribute("class", "jumpend");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-step-forward");
-    button.appendChild(icon);
-    jump.appendChild(button);
+    jump.appendChild(keyControl(screensection, 'fa fa-step-backward', 'jumpbeginning', 'home', handler, !down, '<?=__("Jump to start")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-backward', 'pageback', 'prior', handler, !prior, '<?=__("Page up")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-forward', 'pageforward', 'next', handler, !next, '<?=__("Page down")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-step-forward', 'jumpend', 'end', handler, !end, '<?=__("Jump to end")?>'));
 
     movement.appendChild(arrows);
     movement.appendChild(jump);
 
     var visibility = document.createElement("div");
     visibility.setAttribute("class", "visibility");
-    button = document.createElement('button');
-    button.setAttribute("class", "zoomin");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-search-plus");
-    button.appendChild(icon);
-    visibility.appendChild(button);
-    button = document.createElement('button');
-    button.setAttribute("class", "zoomout");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-search-minus");
-    button.appendChild(icon);
-    visibility.appendChild(button);
-    button = document.createElement('button');
+    visibility.appendChild(keyControl(screensection, 'fa fa-search-plus', 'zoomin', 'zoomin', handler, !zoomin, '<?=__("Zoom in")?>'));
+    visibility.appendChild(keyControl(screensection, 'fa fa-search-minus', 'zoomout', 'zoomout', handler, !zoomout, '<?=__("Zoom out")?>'));
+    var button = document.createElement('button');
     button.setAttribute("class", "toogle");
     icon = document.createElement('i');
     if (status == 'active') {
@@ -760,8 +647,7 @@ function addWindowControls(layout, controls, screensection, file) {
     }
     icon.setAttribute('id', 'status_' + screensection);
     icon.setAttribute('title', '<?=__("Toggle visibility")?>');
-
-    icon.setAttribute('onclick', "sendToNuc('window=" + screensection + "&toggle=TRUE')");
+    button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&toggle=TRUE')");
     button.appendChild(icon);
     visibility.appendChild(button);
 
@@ -769,12 +655,9 @@ function addWindowControls(layout, controls, screensection, file) {
 
     var misc = document.createElement("div");
     misc.setAttribute("class", "misc");
-    button = document.createElement('button');
-    button.setAttribute("class", "download");
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-download");
-    button.appendChild(icon);
-    misc.appendChild(button);
+    var downloadbutton = keyControl(number, 'fa-download', 'download', handler, !download, '<?=__("Download this file")?>');
+    downloadbutton.setAttribute('onclick', 'downloadFile(' + number + ')');
+    misc.appendChild(downloadbutton);
     button = document.createElement('button');
     button.setAttribute("class", "trash");
     icon = document.createElement('i');
@@ -783,7 +666,6 @@ function addWindowControls(layout, controls, screensection, file) {
     icon.setAttribute('title', '<?=__("Remove this object")?>');
     button.appendChild(icon);
     misc.appendChild(button);
-
 
     // Putting it all together
     windowcontrols.appendChild(movement);
@@ -1064,48 +946,6 @@ function openSubtab(evt, tabName, subtabName) {
         <div class="description">
             Use the tabs above to add content and then control how it is displayed on the monitor.
         </div>
-<div class="window_entry">
-    <button class="window_entry_button">
-        <i class="fa fa-file"></i>
-        Filename
-    </button>
-    <div class="windowcontrols">
-        <div class="movement">
-            <div class="arrows">
-                <button class="arrowup"><i class="fa fa-arrow-up"></i></button>
-                <br />
-                <button class="arrowleft"><i class="fa fa-arrow-left"></i></button>
-                <button class="arrowright"><i class="fa fa-arrow-right"></i></button>
-                <br />
-                <button class="arrowdown"><i class="fa fa-arrow-down"></i></button>
-            </div>
-            <div class="jump">
-                <button class="jumpbeginning"><i class="fa fa-step-backward"></i></button>
-                <button class="pageback"><i class="fa fa-backward"></i></button>
-                <button class="pageforward"><i class="fa fa-forward"></i></button>
-                <button class="jumpend"><i class="fa fa-step-forward"></i></button>
-            </div>
-        </div>
-        <div class="visibility">
-            <button class="zoomin"><i class="fa fa-search-plus"></i></button>
-            <button class="zoomout"><i class="fa fa-search-minus"></i></button>
-            <button class="toggle"><i class="fa fa-desktop"></i></button>
-        </div>
-        <div class="position">
-            <i class="fa fa-desktop"></i>
-            <i class="fa fa-desktop"></i>
-            <br />
-            <i class="fa fa-desktop"></i>
-            <i class="fa fa-desktop"></i>
-            <br />
-            Select position.
-        </div>
-        <div class="misc">
-            <button class="download"><i class="fa fa-download"></i></button>
-            <button class="trash" title='<?=__("Remove this object")?>' onclick="sendToNuc('window=" + screensection + "&delete=" + file + "')"><i class="fa fa-trash-o"></i></button>
-        </div>
-    </div>
-</div>
     </div>
     <div id="Add" class="tabcontent">
         <div class="subtab"
