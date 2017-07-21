@@ -605,9 +605,6 @@ function addWindowControls(layout, controls, screensection, file) {
     var next = control[10];
     var download = control[11];
 
-    // TODO: try fa-arrow-up, fa-carret-up, fa-long-arrow-up, fa-angle-up, fa-play
-    //appendChild(keyControl(screensection, 'fa-play fa-rotate-270', controlClass, 'up', handler, !up, '<?=__("Cursor control")?>'));
-
     var windowcontrols = document.createElement("div");
     windowcontrols.setAttribute("class", "windowcontrols");
 
@@ -616,6 +613,7 @@ function addWindowControls(layout, controls, screensection, file) {
 
     var arrows = document.createElement("div");
     arrows.setAttribute("class", "arrows");
+    // TODO: try fa-arrow-up, fa-carret-up, fa-long-arrow-up, fa-angle-up, fa-play
     arrows.appendChild(keyControl(screensection, 'fa fa-arrow-up', 'arrowup', 'up', handler, !up, '<?=__("Cursor control")?>'));
     arrows.appendChild(document.createElement("br"));
     arrows.appendChild(keyControl(screensection, 'fa fa-arrow-left', 'arrowleft', 'left', handler, !left, '<?=__("Cursor control")?>'));
@@ -655,15 +653,15 @@ function addWindowControls(layout, controls, screensection, file) {
 
     var misc = document.createElement("div");
     misc.setAttribute("class", "misc");
-    var downloadbutton = keyControl(number, 'fa-download', 'download', handler, !download, '<?=__("Download this file")?>');
-    downloadbutton.setAttribute('onclick', 'downloadFile(' + number + ')');
+    var downloadbutton = keyControl(screensection, 'fa-download', 'download', handler, !download, '<?=__("Download this file")?>');
+    downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
     misc.appendChild(downloadbutton);
     button = document.createElement('button');
     button.setAttribute("class", "trash");
+    button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
+    button.setAttribute('title', '<?=__("Remove this object")?>');
     icon = document.createElement('i');
     icon.setAttribute("class", "fa fa-trash-o");
-    icon.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
-    icon.setAttribute('title', '<?=__("Remove this object")?>');
     button.appendChild(icon);
     misc.appendChild(button);
 
@@ -702,9 +700,9 @@ function updateWindowList(window){
             var button = document.createElement('button');
             button.setAttribute("class", "window_entry_button");
             var icon = document.createElement('i');
-            if (handler.indexOf("midori")) {
+            if (handler.indexOf("midori") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
-            } else if (handler.indexOf("vnc")) {
+            } else if (handler.indexOf("vnc") > -1) {
                 icon.setAttribute("class", "fa fa-eye");
             } else {
                 icon.setAttribute("class", "fa fa-file");
