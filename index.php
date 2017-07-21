@@ -925,11 +925,11 @@ function updateWindowList(window){
 
             // Create button to open and close accordion
             var button = document.createElement('button');
-            button.setAttribute("class", "window_entry");
+            button.setAttribute("class", "window_entry_button");
             var icon = document.createElement('i');
-            if (handler == 'midori') {
+            if (handler.indexOf("midori")) {
                 icon.setAttribute("class", "fa fa-globe");
-            } else if (handler == 'vnc') {
+            } else if (handler.indexOf("vnc")) {
                 icon.setAttribute("class", "fa fa-eye");
             } else {
                 icon.setAttribute("class", "fa fa-file");
@@ -1171,7 +1171,7 @@ function openSubtab(evt, tabName, subtabName) {
             Use the tabs above to add content and then control how it is displayed on the monitor.
         </div>
 <div class="window_entry">
-    <button class="window_entry">
+    <button class="window_entry_button">
         <i class="fa fa-file"></i>
         Filename
     </button>
