@@ -941,11 +941,11 @@ function updateWindowList(window){
                 // The full URL will be shown as a tooltip.
                 title = title.replace(/\/$/, '');
                 title = title.replace(/^.*\//, '');
-                div.setAttribute('title', file);
+                entry.setAttribute('title', file);
             } else {
                 // For files only the full base name is shown as a tooltip.
                 title = title.replace(/^.*\//, '');
-                div.setAttribute('title', fname);
+                entry.setAttribute('title', fname);
             }
             if (title.length > 25) {
                 title = title.substring(0, 15) + '...';
