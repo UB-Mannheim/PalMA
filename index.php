@@ -3,7 +3,7 @@
 Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
 See file LICENSE for license details.
 
-Authors: Alexander Wagner, Stefan Weil
+Authors: Alexander Wagner, Stefan Weil, Dennis Müller
 
 References:
 
@@ -412,8 +412,7 @@ function addDetailedControlsDiv(number, control) {
     return controlpanel;
 }
 
-function showLayout(layout, controls) {
-
+function showLayout(layout, controls, window) {
     //~ console.log("Layout: " + layout);
     //~ for (i = 0; i < controls.length; i++) {
     //~     console.log("SL " + i + ": " + controls[i]);
@@ -487,68 +486,13 @@ function showLayout(layout, controls) {
         }
     };
 
-  var md = document.getElementById('maindisplay');
-  var tr;
-  var td;
-  while (md.firstChild) {
-    md.removeChild(md.firstChild);
-  }
-  switch (layout) {
-  case 'g1x1':
-    // Show only one segment (full screen).
-    tr = document.createElement('tr');
-    tr.appendChild(addSimpleControlsTd(1, controls));
-    md.appendChild(tr);
-    break;
-  case 'g2x1':
-    // Show two segments (side by side).
-    tr = document.createElement('tr');
-    tr.appendChild(addSimpleControlsTd(1, controls));
-    tr.appendChild(addSimpleControlsTd(2, controls));
-    md.appendChild(tr);
-    break;
-  case 'g1x2':
-    // Show two segments (one on top of the other).
-    tr = document.createElement('tr');
-    tr.appendChild(addSimpleControlsTd(1, controls));
-    md.appendChild(tr);
-    tr = document.createElement('tr');
-    tr.appendChild(addSimpleControlsTd(2, controls));
-    md.appendChild(tr);
-    break;
-  case 'g1a2':
-    // Show three segments (one on the left, two on the right).
-    tr = document.createElement('tr');
-    td = addSimpleControlsTd(1, controls);
-    td.setAttribute('rowspan', '2');
-    tr.appendChild(td);
-    tr.appendChild(addSimpleControlsTd(2, controls));
-    md.appendChild(tr);
-    tr = document.createElement('tr');
-    tr.appendChild(addSimpleControlsTd(3, controls));
-    md.appendChild(tr);
-    break;
-  case 'g2x2':
-    // Show four segments (one in each quadrant).
-    tr = document.createElement('tr');
-    tr.appendChild(addSimpleControlsTd(1, controls));
-    tr.appendChild(addSimpleControlsTd(2, controls));
-    md.appendChild(tr);
-    tr = document.createElement('tr');
-    tr.appendChild(addSimpleControlsTd(3, controls));
-    td = document.createElement('td');
-    tr.appendChild(addSimpleControlsTd(4, controls));
-    md.appendChild(tr);
-    break;
-  default:
-    // No supported screen layout selected. This should never happen.
-    tr = document.createElement('tr');
-    td = document.createElement('td');
-    td.appendChild(document.createTextNode('Bitte Bildschirmaufteilung auswählen!'));
-    tr.appendChild(td);
-    md.appendChild(tr);
-    break;
-  }
+    var windowlist = document.getElementById('windowlist');
+    var entries = windowlist.getElementsByClassName('window_entry');
+    var screensection;
+    for (var n = 0; n < window.length; n++) {
+        screensection = window[n].section;
+        entries[n].appendChild(addWindowControls(layout, controls, screensection));
+    }
 }
 
 function miniDisplaySelect(element) {
@@ -784,150 +728,231 @@ function updateUserList(address, user) {
     }
 }
 
-function updateWindowList(window) {
-    // Update the window list on screen from the table in the database.
 
-    // Get the <tbody> element which contains the window entries.
-    var list = document.getElementById('windowlist');
+function addWindowPosition(layout, screensection) {
+    var position = document.createElement("div");
+    position.setAttribute("class", "position");
+    position.setAttribute('title', '<?=str_replace("'", "\\'", __("Select screen section for display"))?>');
 
-    // First we remove all existing <tr> elements.
-    while (list.firstChild) {
-        list.removeChild(list.firstChild);
+    var s;
+    var button;
+    var icon;
+
+    switch (layout) {
+        case 'g1x1':
+            s = 1;
+            break;
+        case 'g2x1':
+            s = 2;
+            break;
+        case 'g1x2':
+            s = 2;
+            break;
+        case 'g1a2':
+            s = 3;
+            break;
+        case 'g2x2':
+            s = 4;
+            break;
     }
 
-    var tr;
-    var td;
+    for (var n = 1; n <= s; n++) {
+        button = document.createElement("button");
+        button.setAttribute('value', n);
+        if (n == screensection) {
+            button.setAttribute("class", "selected");
+        }
+        button.setAttribute('onclick', "sendToNuc('switchWindows=TRUE&before=" + screensection + "&after='+(this.value))");
+        icon = document.createElement("i");
+        icon.setAttribute("class", "fa fa-desktop");
+        button.appendChild(icon);
+        position.appendChild(button);
+    }
+
+    return position;
+}
+
+
+function addWindowControls(layout, controls, screensection) {
+    var windowcontrols = document.createElement("div");
+    windowcontrols.setAttribute("class", "windowcontrols");
+
+    var movement = document.createElement("div");
+    movement.setAttribute("class", "movement");
+
+    var arrows = document.createElement("div");
+    arrows.setAttribute("class", "arrows");
+
+    button = document.createElement('button');
+    button.setAttribute("class", "arrowup");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-arrow-up");
+    button.appendChild(icon);
+    arrows.appendChild(button);
+    arrows.appendChild(document.createElement("br"));
+    button = document.createElement('button');
+    button.setAttribute("class", "arrowleft");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-arrow-left");
+    button.appendChild(icon);
+    arrows.appendChild(button);
+    button = document.createElement('button');
+    button.setAttribute("class", "arrowright");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-arrow-right");
+    button.appendChild(icon);
+    arrows.appendChild(button);
+    arrows.appendChild(document.createElement("br"));
+    button = document.createElement('button');
+    button.setAttribute("class", "arrowdown");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-arrow-down");
+    button.appendChild(icon);
+    arrows.appendChild(button);
+
+    var jump = document.createElement("div");
+    jump.setAttribute("class", "jump");
+
+    button = document.createElement('button');
+    button.setAttribute("class", "jumpbeginning");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-step-backward");
+    button.appendChild(icon);
+    jump.appendChild(button);
+    button = document.createElement('button');
+    button.setAttribute("class", "pageback");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-backward");
+    button.appendChild(icon);
+    jump.appendChild(button);
+    button = document.createElement('button');
+    button.setAttribute("class", "packeforward");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-forward");
+    button.appendChild(icon);
+    jump.appendChild(button);
+    button = document.createElement('button');
+    button.setAttribute("class", "jumpend");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-step-forward");
+    button.appendChild(icon);
+    jump.appendChild(button);
+
+    movement.appendChild(arrows);
+    movement.appendChild(jump);
+
+    var visibility = document.createElement("div");
+    visibility.setAttribute("class", "visibility");
+    button = document.createElement('button');
+    button.setAttribute("class", "zoomin");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-search-plus");
+    button.appendChild(icon);
+    visibility.appendChild(button);
+    button = document.createElement('button');
+    button.setAttribute("class", "zoomout");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-search-minus");
+    button.appendChild(icon);
+    visibility.appendChild(button);
+    button = document.createElement('button');
+    button.setAttribute("class", "toogle");
+    icon = document.createElement('i');
+    if (status == 'active') {
+        icon.setAttribute("class", "fa fa-desktop");
+    } else {
+        icon.setAttribute("class", "fa fa-ban");
+    }
+    icon.setAttribute('id', 'status_' + screensection);
+    icon.setAttribute('title', '<?=__("Toggle visibility")?>');
+
+    icon.setAttribute('onclick', "sendToNuc('window=" + screensection + "&toggle=TRUE')");
+    button.appendChild(icon);
+    visibility.appendChild(button);
+
+    addWindowPosition(layout, screensection);
+
+    var misc = document.createElement("div");
+    misc.setAttribute("class", "misc");
+    button = document.createElement('button');
+    button.setAttribute("class", "download");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-download");
+    button.appendChild(icon);
+    misc.appendChild(button);
+    button = document.createElement('button');
+    button.setAttribute("class", "trash");
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-trash-o");
+    icon.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
+    icon.setAttribute('title', '<?=__("Remove this object")?>');
+    button.appendChild(icon);
+    misc.appendChild(button);
+
+
+    // Putting it all together
+    windowcontrols.appendChild(movement);
+    windowcontrols.appendChild(visibility);
+    windowcontrols.appendChild(position);
+    windowcontrols.appendChild(misc);
+    return windowcontrols;
+}
+
+
+function updateWindowList(window){
+    var windowlist = document.getElementById('windowlist');
+    var entry = document.createElement('div');
+    entry.setAttribute("class", "window_entry");
+
+    // remove old entries
+    while (windowlist.firstChild) {
+        windowlist.removeChild(windowlist.firstChild);
+    }
 
     if (window.length == 0) {
-        // If there is no window, we display an empty entry.
-        tr = document.createElement('tr');
-        td = document.createElement('td');
-        td.appendChild(document.createTextNode("\u00a0"));
-        tr.appendChild(td);
-        list.appendChild(tr);
+        entry.appendChild(document.createTextNode("There are no shared contents."));
+        windowlist.appendChild(entry);
     } else {
         // Add an entry for each window.
         var n;
         for (n = 0; n < window.length; n++) {
-            var screensection = window[n].section;
             var file = window[n].file;
             var handler = window[n].handler;
-            var s0 = false;
-            var s1 = false;
-            var s2 = null;
-            var s3 = null;
-            var s4 = null;
-            var status = window[n].state;
-            switch (screensection) {
-                case 1:
-                    s1 = 'selected';
-                    break;
-                case 2:
-                    s2 = 'selected';
-                    break;
-                case 3:
-                    s3 = 'selected';
-                    break;
-                case 4:
-                    s4 = 'selected';
-                    break;
-                default:
-                    s0 = 'selected';
-                    status = 'inactive';
-                    break;
-            }
-            var tr = document.createElement('tr');
-            var td;
-            var i;
-            var div;
-            var option;
-            td = document.createElement('td');
-            td.setAttribute('id', 'itemstatus');
-            i = document.createElement('i');
-            if (status == 'active') {
-                i.setAttribute('class', 'fa fa-desktop');
+            var screensection = window[n].section;
+            entry.setAttribute('id', 'file' + screensection);
+
+            // Create button to open and close accordion
+            var button = document.createElement('button');
+            button.setAttribute("class", "window_entry");
+            var icon = document.createElement('i');
+            if (handler == 'midori') {
+                icon.setAttribute("class", "fa fa-globe");
+            } else if (handler == 'vnc') {
+                icon.setAttribute("class", "fa fa-eye");
             } else {
-                i.setAttribute('class', 'fa fa-ban');
+                icon.setAttribute("class", "fa fa-file");
             }
-            i.setAttribute('id', 'status_' + screensection);
-            i.setAttribute('title', '<?=__("Toggle visibility")?>');
-            i.setAttribute('onclick',
-                "sendToNuc('window=" + screensection + "&toggle=TRUE')");
-            td.appendChild(i);
-            tr.appendChild(td);
-            var select = document.createElement('select');
-            select.setAttribute('onchange', "sendToNuc('switchWindows=TRUE&before=" + screensection + "&after='+(this.value))");
-            select.setAttribute('name', 'window');
-            select.setAttribute('title', '<?=str_replace("'", "\\'", __("Select screen section for display"))?>');
-            option = document.createElement('option');
-            option.setAttribute('value', '0');
-            if (s0) {
-                option.setAttribute(s0, '');
-            }
-            option.appendChild(document.createTextNode('-'));
-            select.appendChild(option);
-            option = document.createElement('option');
-            option.setAttribute('value', '1');
-            if (s1) {
-                option.setAttribute(s1, '');
-            }
-            option.appendChild(document.createTextNode('1'));
-            select.appendChild(option);
-            option = document.createElement('option');
-            option.setAttribute('value', '2');
-            if (s2) {
-                option.setAttribute(s2, '');
-            }
-            option.appendChild(document.createTextNode('2'));
-            select.appendChild(option);
-            option = document.createElement('option');
-            option.setAttribute('value', '3');
-            if (s3) {
-                option.setAttribute(s3, '');
-            }
-            option.appendChild(document.createTextNode('3'));
-            select.appendChild(option);
-            option = document.createElement('option');
-            option.setAttribute('value', '4');
-            if (s4) {
-                option.setAttribute(s4, '');
-            }
-            option.appendChild(document.createTextNode('4'));
-            select.appendChild(option);
-            td.appendChild(select);
-            tr.appendChild(td);
-            td = document.createElement('td');
-            div = document.createElement('div');
-            div.setAttribute('id', 'file' + screensection);
+            button.appendChild(icon);
+            var title = decodeURI(decodeURIComponent(file));
             // display only the last part of the URL or file name.
             // Long names are truncated, and the truncation is indicated.
-            var fname = decodeURI(decodeURIComponent(file));
-            if (fname.substring(0, 4) == 'http') {
+            if (title.substring(0, 4) == 'http') {
                 // Remove a terminating slash from an URL.
                 // The full URL will be shown as a tooltip.
-                fname = fname.replace(/\/$/, '');
-                fname = fname.replace(/^.*\//, '');
+                title = title.replace(/\/$/, '');
+                title = title.replace(/^.*\//, '');
                 div.setAttribute('title', file);
             } else {
                 // For files only the full base name is shown as a tooltip.
-                fname = fname.replace(/^.*\//, '');
+                title = title.replace(/^.*\//, '');
                 div.setAttribute('title', fname);
             }
-            if (fname.length > 18) {
-                fname = fname.substring(0, 15) + '...';
+            if (title.length > 25) {
+                title = title.substring(0, 15) + '...';
             }
-            div.appendChild(document.createTextNode(fname));
-            td.appendChild(div);
-            tr.appendChild(td);
-            td = document.createElement('td');
-            td.setAttribute('id', 'itemtrash');
-            i = document.createElement('i');
-            i.setAttribute('class', 'fa fa-trash-o');
-            i.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
-            i.setAttribute('title', '<?=__("Remove this object")?>');
-            td.appendChild(i);
-            tr.appendChild(td);
-            list.appendChild(tr);
+            button.appendChild(document.createTextNode(title));
+            entry.appendChild(button);
+            windowlist.appendChild(entry);
         }
     }
 }
@@ -1028,9 +1053,9 @@ function pollDatabase() {
                     // for (i = 0; i < controls.length; i++) {
                     //    console.log(i + ": " + controls[i]);
                     //    }
-                    showLayout(layout, controls);
                     updateUserList(db.address, db.user);
                     updateWindowList(db.window);
+                    showLayout(layout, controls, db.window);
                     // updateScreen(db.window);
                     setTimeout("pollDatabase()", 1);
                 } else {
@@ -1116,7 +1141,6 @@ function openSubtab(evt, tabName, subtabName) {
     document.getElementById(subtabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
 </script>
 </head>
 
@@ -1145,6 +1169,48 @@ function openSubtab(evt, tabName, subtabName) {
         <div class="description">
             Use the tabs above to add content and then control how it is displayed on the monitor.
         </div>
+<div class="window_entry">
+    <button class="window_entry">
+        <i class="fa fa-file"></i>
+        Filename
+    </button>
+    <div class="windowcontrols">
+        <div class="movement">
+            <div class="arrows">
+                <button class="arrowup"><i class="fa fa-arrow-up"></i></button>
+                <br />
+                <button class="arrowleft"><i class="fa fa-arrow-left"></i></button>
+                <button class="arrowright"><i class="fa fa-arrow-right"></i></button>
+                <br />
+                <button class="arrowdown"><i class="fa fa-arrow-down"></i></button>
+            </div>
+            <div class="jump">
+                <button class="jumpbeginning"><i class="fa fa-step-backward"></i></button>
+                <button class="pageback"><i class="fa fa-backward"></i></button>
+                <button class="pageforward"><i class="fa fa-forward"></i></button>
+                <button class="jumpend"><i class="fa fa-step-forward"></i></button>
+            </div>
+        </div>
+        <div class="visibility">
+            <button class="zoomin"><i class="fa fa-search-plus"></i></button>
+            <button class="zoomout"><i class="fa fa-search-minus"></i></button>
+            <button class="toggle"><i class="fa fa-desktop"></i></button>
+        </div>
+        <div class="position">
+            <i class="fa fa-desktop"></i>
+            <i class="fa fa-desktop"></i>
+            <br />
+            <i class="fa fa-desktop"></i>
+            <i class="fa fa-desktop"></i>
+            <br />
+            Select position.
+        </div>
+        <div class="misc">
+            <button class="download"><i class="fa fa-download"></i></button>
+            <button class="trash" title='<?=__("Remove this object")?>' onclick="sendToNuc('window=" + screensection + "&delete=" + file + "')"><i class="fa fa-trash-o"></i></button>
+        </div>
+    </div>
+</div>
     </div>
     <div id="Add" class="tabcontent">
         <div class="subtab"
@@ -1219,9 +1285,8 @@ function openSubtab(evt, tabName, subtabName) {
     </div>
     <div id="Control" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Layout')">Layout <i class="fa fa-table"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Layout')">Layout <i class="fa fa-desktop"></i></button
             ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Navigate')">Navigate <i class="fa fa-arrows"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Displaylist')">Displaylist <i class="fa fa-desktop"></i></button
         ></div>
         <div id="Layout" class="subtabcontent">
             <div class="screenlayout">
@@ -1278,29 +1343,16 @@ function openSubtab(evt, tabName, subtabName) {
             </div>
         </div>
         <div id="Navigate" class="subtabcontent">
-            <table class="maindisplay" summary="<?=__('Team display')?>">
-                <tbody id='maindisplay'>
-                    <tr><td><!-- filled by showlayout() --></td></tr>
-                </tbody>
-            </table>
-            <div class="description">
-                Navigate through shared contents by clicking the arrows. You can use enhanced controls by clicking on the number in the middle.
+            <div id="windowlist">
+            <!-- filled by updateWindowList and showLayout -->
             </div>
-        </div>
-        <div id="Displaylist" class="subtabcontent">
-            <table class="itemlist" summary="<?=__('Display list')?>"
-                   title="<?=__('List of files, URLs and shared displays')?>">
-                <tbody id="windowlist">
-                    <tr><td><!-- filled by updateWindowList() --></td></tr>
-                </tbody>
-            </table>
             <button class="pure-button pure-button-primary pure-input-rounded"
                 onClick="sendToNuc('closeAll=TRUE')"
                 title="<?=__('Close all windows and remove uploaded files')?>">
                 <?=__('Close all windows')?>
             </button>
             <div class="description">
-                Control the order of displays by changing the number in this <?=__('Display list')?>. You can also show and hide contents here.
+                Click on the item in the <?=__('Display list')?> that you would like to control.
             </div>
         </div>
     </div>

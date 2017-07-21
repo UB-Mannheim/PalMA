@@ -1,6 +1,6 @@
 /* Styles for PalMA. */
 
-/* General settings (login.php, learningcenter.php, index.php) */
+/* General settings */
 body {
     max-width: 1200px;
     margin: 0 auto;
@@ -239,6 +239,23 @@ div.layout_left, div.layout_right {
 }
 
 /* Control Navigate */
+div.windowcontrols {
+    width: 30em;
+    margin: 1em auto;
+}
+div.windowcontrols button {
+    margin: .2em;
+}
+div.windowcontrols div.movement {
+    float: left;
+}
+div.arrows button {
+    margin: .2em .5em 0 .5em;
+}
+div.arrows {
+    margin-bottom: 1em;
+}
+
 .maindisplay {
     /*width: 600px;
     height: 300px;
@@ -282,86 +299,7 @@ div.layout_left, div.layout_right {
     font-size: 120%;
 }
 
-/* Control displaylist - see also lists */
-#windowlist div {text-align: left; margin-left: 2px;}
-
-/* Extras Help */
-
-/* Extras Feedback & Recommend */
-#contact input, #contact textarea {
-    width: 75%;
-    max-width: 300px;
-    margin-bottom: .8em;
-}
-
-/* Extras User - see also lists */
-
-/* lists - item list, user list. */
-.itemlist, .userlist {
-    width: 75%;
-    max-width: 500px;
-    text-align: left;
-    margin: 0 auto 1em auto;
-}
-.itemlist caption, .userlist caption {
-    caption-side: top;
-}
-.itemlist caption i {
-    margin-left: 10px;
-    text-align: center;
-}
-.itemlist i {
-    text-align: center;
-}
-.itemlist .fa-ban, .itemlist .fa-eye, .itemlist .fa-trash-o {
-    background-color: #990000;
-    border-radius: 3px;
-    color: white;
-    cursor: pointer;
-    margin: 2px;
-    width: 15px;
-    padding: 2px;
-}
-.itemlist #itemstatus {
-    width: 4em;
-}
-.itemlist #itemtrash {
-    width: 1em;
-}
-.itemlist, .itemlist td, .itemlist tr, .userlist, .userlist td, .userlist tr {
-    background-color: white;
-    border: 1px solid #666666;
-    border-collapse: collapse;
-    border-spacing: 0;
-    padding: 1px;
-    vertical-align: top;
-}
-.userlist caption i {
-    background-color: inherit;
-    color: black;
-    margin-left: 10px;
-}
-.userlist i {
-    background-color: LightGray;
-    border-radius: 3px;
-    color: black;
-    margin: 2px 5px 2px 0;
-    width: 15px;
-    padding: 2px;
-    text-align: center;
-}
-.userlist .fa-user {
-    background-color: black;
-    border-radius: 3px;
-    color: white;
-    margin: 2px;
-    padding: 2px;
-}
-.dz-default {
-    padding: 1.5em;
-}
-
-/* Extended control panel (overlay) */
+/* Extended controls (overlay to be removed!) */
 .overlay button {
     height: 70px;
     width: 70px;
@@ -420,6 +358,15 @@ table, tr, td {
 }
 .bar {
     clear: left;
+}
+
+/* Extras Help */
+
+/* Extras Feedback & Recommend */
+#contact input, #contact textarea {
+    width: 75%;
+    max-width: 300px;
+    margin-bottom: .8em;
 }
 
 /* Socical Media Buttons */
@@ -579,6 +526,49 @@ background-color: #FF6600
 }
 .resp-sharing-button--telegram:hover {
   background-color: #4B97D1;}
+
+/* Extras User */
+.userlist {
+    width: 75%;
+    max-width: 500px;
+    text-align: left;
+    margin: 0 auto 1em auto;
+}
+.userlist caption {
+    caption-side: top;
+}
+.userlist, .userlist td, .userlist tr {
+    background-color: white;
+    border: 1px solid #666666;
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 1px;
+    vertical-align: top;
+}
+.userlist caption i {
+    background-color: inherit;
+    color: black;
+    margin-left: 10px;
+}
+.userlist i {
+    background-color: LightGray;
+    border-radius: 3px;
+    color: black;
+    margin: 2px 5px 2px 0;
+    width: 15px;
+    padding: 2px;
+    text-align: center;
+}
+.userlist .fa-user {
+    background-color: black;
+    border-radius: 3px;
+    color: white;
+    margin: 2px;
+    padding: 2px;
+}
+.dz-default {
+    padding: 1.5em;
+}
 
 /* Footer & Logout Link*/
 #footer {
