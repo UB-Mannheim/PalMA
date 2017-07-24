@@ -236,7 +236,7 @@ div.screenlayout button:hover, .screenlayout button:active {
 div.layout_left, div.layout_right {
     display: inline-block;
     vertical-align: middle;
-}
+} /* This is also relevant for the controls section! */
 
 /* Control Navigate */
 div.window_entry {
@@ -281,6 +281,22 @@ div.arrows {
 }
 div.non_movement {
     float: right;
+}
+div.position {
+    width: 3.5em;
+    height: 3.5em;
+    background-color: #c0c0c0;
+    border-radius: 6px;
+    margin: .5em auto;
+}
+div.position i {
+    color: white;
+}
+div.position button:hover i {
+    color: #995555;
+}
+div.position button.selected i {
+    color: #990000;
 }
 /* Extras Help */
 /* No styling yet */

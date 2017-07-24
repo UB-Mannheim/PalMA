@@ -547,6 +547,7 @@ function addWindowPosition(layout, screensection) {
     var s;
     var button;
     var icon;
+    var br;
 
     switch (layout) {
         case 'g1x1':
@@ -560,6 +561,12 @@ function addWindowPosition(layout, screensection) {
             break;
         case 'g1a2':
             s = 3;
+            var layout_left = document.createElement('div');
+            layout_left.setAttribute("class", "layout_left");
+            layout_left.appendChild(button);
+            var layout_right = document.createElement('div');
+            layout_right.setAttribute("class", "layout_right");
+            layout_right.appendChild(button);
             break;
         case 'g2x2':
             s = 4;
@@ -567,6 +574,7 @@ function addWindowPosition(layout, screensection) {
     }
 
     for (var n = 1; n <= s; n++) {
+        br = '';
         button = document.createElement("button");
         button.setAttribute('value', n);
         if (n == screensection) {
@@ -576,9 +584,30 @@ function addWindowPosition(layout, screensection) {
         icon = document.createElement("i");
         icon.setAttribute("class", "fa fa-desktop");
         button.appendChild(icon);
-        position.appendChild(button);
+
+        if ((layout == 'g2x1' && n == 1) || ((layout == 'g1a2' || layout = 'g2x2') && n ==2 )) {
+            br = document.createElement("br");
+        }
+
+        if (layout == 'g1a2' && n == 1) {
+            layout_left.appendChild(button);
+        } else if (layout == 'g1a2' && n > 1) {
+            layout_right.appendChild(button);
+            if (br) {
+                layout_right.appendChild(br);
+            }
+        } else {
+            position.appendChild(button);
+            if (br) {
+                position.appendChild(br);
+            }
+        }
     }
 
+    if (layout == 'g1a2') {
+        position.appendChild(layout_left);
+        position.appendChild(layout_right);
+    }
     return position;
 }
 
