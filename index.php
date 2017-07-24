@@ -632,6 +632,7 @@ function addWindowControls(layout, controls, screensection, file, status) {
     movement.appendChild(jump);
 
     var non_movement = document.createElement("div");
+    non_movement.setAttribute("class", "non_movement");
 
     var visibility = document.createElement("div");
     visibility.setAttribute("class", "visibility");
