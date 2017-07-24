@@ -563,10 +563,8 @@ function addWindowPosition(layout, screensection) {
             s = 3;
             var layout_left = document.createElement('div');
             layout_left.setAttribute("class", "layout_left");
-            layout_left.appendChild(button);
             var layout_right = document.createElement('div');
             layout_right.setAttribute("class", "layout_right");
-            layout_right.appendChild(button);
             break;
         case 'g2x2':
             s = 4;
