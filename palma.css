@@ -285,20 +285,27 @@ div.position {
     border-radius: 6px;
     width: 3.5em;
     height: 3.5em;
+    margin: .5em auto;
+    display: inline-block;
+    text-align: center;
 }
 div.position div.layout_left, div.position div.layout_right {
     display: inline-block;
     vertical-align: middle;
 }
 div.position i {
+    color: #fff;
 }
 div.position button {
-    width: auto;
-    height: auto;
     color: inherit;
     background-color: inherit;
-    padding: 0.2em;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 0 auto 0 auto;
+    text-align: center;
     vertical-align: middle;
+    background-color: green;
 }
 div.position button:hover {
     background-color: inherit;
