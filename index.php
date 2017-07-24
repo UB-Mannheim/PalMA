@@ -553,10 +553,10 @@ function addWindowPosition(layout, screensection) {
         case 'g1x1':
             s = 1;
             break;
-        case 'g2x1':
+        case 'g1x2':
             s = 2;
             break;
-        case 'g1x2':
+        case 'g2x1':
             s = 2;
             break;
         case 'g1a2':
@@ -577,15 +577,16 @@ function addWindowPosition(layout, screensection) {
         br = '';
         button = document.createElement("button");
         button.setAttribute('value', n);
+        button.setAttribute("class", "pure-button pure-button-primary pure-input-rounded")
         if (n == screensection) {
-            button.setAttribute("class", "selected");
+            button.setAttribute("class", " selected");
         }
         button.setAttribute('onclick', "sendToNuc('switchWindows=TRUE&before=" + screensection + "&after='+(this.value))");
         icon = document.createElement("i");
         icon.setAttribute("class", "fa fa-desktop");
         button.appendChild(icon);
 
-        if ((layout == 'g2x1' && n == 1) || ((layout == 'g1a2' || layout = 'g2x2') && n ==2 )) {
+        if ((layout == 'g1x2' && n == 1) || ((layout == 'g1a2' || layout = 'g2x2') && n ==2 )) {
             br = document.createElement("br");
         }
 

@@ -4,6 +4,7 @@
 body {
     max-width: 1200px;
     margin: 0 auto;
+    white-space: nowrap;
 }
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;
@@ -233,10 +234,10 @@ div.screenlayout button {
 div.screenlayout button:hover, .screenlayout button:active {
     background-color: #990000;
 }
-div.layout_left, div.layout_right {
+div.screenlayout div.layout_left, div.screenlayout div.layout_right {
     display: inline-block;
     vertical-align: middle;
-} /* This is also relevant for the controls section! */
+}
 
 /* Control Navigate */
 div.window_entry {
@@ -267,9 +268,6 @@ button.window_entry_button:active {
 div.windowcontrols {
     margin: 0 auto;
 }
-div.windowcontrols button {
-    margin: .2em;
-}
 div.movement {
     float: left;
 }
@@ -283,14 +281,22 @@ div.non_movement {
     float: right;
 }
 div.position {
-    width: 3.5em;
-    height: 3.5em;
     background-color: #c0c0c0;
     border-radius: 6px;
     margin: .5em auto;
+    width: 3.5em;
+    height: 3.5em;
+}
+div.position div.layout_left, div.position div.layout_right {
+    display: inline-block;
+    vertical-align: middle;
 }
 div.position i {
-    color: white;
+    color: #fff;
+    vertical-align: middle;
+}
+div.position button {
+    padding: 0;
 }
 div.position button:hover i {
     color: #995555;
