@@ -4,7 +4,6 @@
 body {
     max-width: 1200px;
     margin: 0 auto;
-    white-space: nowrap;
 }
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;
@@ -268,22 +267,22 @@ button.window_entry_button:active {
 div.windowcontrols {
     margin: 0 auto;
 }
-div.movement {
-    float: left;
+div.movement, div.non_movement {
+    margin: .5em auto 0 auto;
+    display: inline-block;
+}
+div.windowcontrols button:active, div.windowcontrols button:hover {
+    color: #990000;
 }
 div.arrows button {
-    margin: 0 .5em .2em .5em;
+    margin: .5em .8em 0 .8em;
 }
-div.arrows {
-    margin-bottom: 1em;
-}
-div.non_movement {
-    float: right;
+div.jump {
+    margin-top: .75em;
 }
 div.position {
-    background-color: #c0c0c0;
+    background-color: #b1b1b1;
     border-radius: 6px;
-    margin: .5em auto;
     width: 3.5em;
     height: 3.5em;
 }
@@ -292,14 +291,22 @@ div.position div.layout_left, div.position div.layout_right {
     vertical-align: middle;
 }
 div.position i {
-    color: #fff;
-    vertical-align: middle;
 }
 div.position button {
-    padding: 0;
+    width: auto;
+    height: auto;
+    color: inherit;
+    background-color: inherit;
+    padding: 0.2em;
+    vertical-align: middle;
+}
+div.position button:hover {
+    background-color: inherit;
+    background-image: none;
 }
 div.position button:hover i {
     color: #995555;
+    background-color: inherit;
 }
 div.position button.selected i {
     color: #990000;
