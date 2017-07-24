@@ -631,6 +631,9 @@ function addWindowControls(layout, controls, screensection, file, status) {
     movement.appendChild(arrows);
     movement.appendChild(jump);
 
+    var non_movement = document.createElement("div");
+    non_movement.setAttribute("class", "non_movement");
+
     var visibility = document.createElement("div");
     visibility.setAttribute("class", "visibility");
     visibility.appendChild(keyControl(screensection, 'fa fa-search-plus', 'zoomin', 'zoomin', handler, !zoomin, '<?=__("Zoom in")?>'));
@@ -667,9 +670,10 @@ function addWindowControls(layout, controls, screensection, file, status) {
 
     // Putting it all together
     windowcontrols.appendChild(movement);
-    windowcontrols.appendChild(visibility);
-    windowcontrols.appendChild(position);
-    windowcontrols.appendChild(misc);
+    non_movement.appendChild(visibility);
+    non_movement.appendChild(position);
+    non_movement.appendChild(misc);
+    windowcontrols.appendChild(non_movement)
     return windowcontrols;
 }
 

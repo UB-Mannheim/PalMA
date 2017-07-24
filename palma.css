@@ -239,128 +239,51 @@ div.layout_left, div.layout_right {
 }
 
 /* Control Navigate */
+div.window_entry {
+    display: block;
+    border: 1px solid #c0c0c0;
+    height: 12em;
+    margin: 0 auto;
+}
+div.window_entry button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: inherit;
+}
+button.window_entry_button {
+    background-color: #e2e2e2;
+    padding: .6em .8em;
+    transition: 0.3s;
+    color: black;
+    width: 100%;
+}
+button.window_entry_button:hover {
+    background-color: #c0c0c0;
+}
+button.window_entry_button:active {
+    background-color: #b1b1b1;
+}
 div.windowcontrols {
-    width: 30em;
-    margin: 1em auto;
+    margin: 0 auto;
 }
 div.windowcontrols button {
     margin: .2em;
 }
-div.windowcontrols div.movement {
+div.movement {
     float: left;
 }
 div.arrows button {
-    margin: .2em .5em 0 .5em;
+    margin: 0 .5em .2em .5em;
 }
 div.arrows {
     margin-bottom: 1em;
 }
-
-.maindisplay {
-    /*width: 600px;
-    height: 300px;
-    margin-right: 20px;
-    margin-bottom: 20px;*/
-}
-.maindisplay td, .maindisplay tr {
-    border: 2px solid #EFEFEF;
-}
-.maindisplay {
-    background-color: LightGray;
-    padding: 0;
-    text-align: center;
-    vertical-align: middle;
-}
-.maindisplay button {
-    height: 45px;
-    width: 45px;
-    text-align: center;
-    vertical-align: middle;
-}
-.maindisplay i {
-    background-color: #990000;
-    border-radius: 6px;
-    cursor: pointer;
-    text-align: center;
-    vertical-align: middle;
-}
-.maindisplay .control {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
-}
-.maindisplay .control td, .maindisplay .control tr {
-    border: 0 solid green;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-.maindisplay #more {
-    cursor: pointer;
-    font-size: 120%;
-}
-
-/* Extended controls (overlay to be removed!) */
-.overlay button {
-    height: 70px;
-    width: 70px;
-}
-.overlay .fa-times {
-    color: #990000;
-    cursor: pointer;
-    font-size: 1.5em;
-}
-#overlay {
-    background-color: #000000;
-    background: rgba(0, 0, 0, 0.7);
-    font-size: 200%;
-    position: absolute; top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 10;
-}
-#container {
-    background: rgba(255, 255, 255, 1);
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    padding: 20px 20px 40px 20px;
-    display: block;
-    width: 600px;
-}
-#close {
-    float:right;
-}
-table, tr, td {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-.controlpanel {
-    background-color: #EFEFEF;
-    border: 1px solid #696969;
-    border-radius: 10px;
-    margin: 20px 20px 0;
-    padding: 20px;
-}
-.controlbutton {
-    cursor: pointer;
-}
-.updown {
-    background-color: LightGray;
-    border-radius: 5px;
-    float: left;
-    margin: 0 0 20px;
-    padding: 5px 5px 0 75px;
-    text-align: center;
-    width: 300px;
-}
-.zoom {
+div.non_movement {
     float: right;
 }
-.bar {
-    clear: left;
-}
-
 /* Extras Help */
+/* No styling yet */
 
 /* Extras Feedback & Recommend */
 #contact input, #contact textarea {
