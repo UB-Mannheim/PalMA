@@ -265,6 +265,7 @@ button.window_entry_button:active {
     background-color: #b1b1b1;
 }
 div.windowcontrols {
+    display: none;
     margin: 0 auto;
 }
 div.movement, div.non_movement {
