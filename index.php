@@ -729,11 +729,13 @@ function updateWindowList(window){
             var screensection = window[n].section;
             var entry = document.createElement('div');
             entry.setAttribute("class", "window_entry");
-            entry.setAttribute('id', 'file' + screensection);
+            var divID = 'file' + screensection;
+            entry.setAttribute('id', divID);
 
             // Create button to open and close accordion
             var button = document.createElement('button');
             button.setAttribute("class", "window_entry_button");
+            button.setAttribute('onclick', 'openAccordion(' + divID + ')')
             var icon = document.createElement('i');
             if (handler.indexOf("midori") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
@@ -950,6 +952,16 @@ function openSubtab(evt, tabName, subtabName) {
     // Show current subtab and add "active" class to the opening button
     document.getElementById(subtabName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+function openAccordion(parentID) {
+    var parent = document.getElementById(parentID);
+    var button = parent.first-child;
+    var panel = parent.last-child;
+    if (panel.style.display === "block") {
+        panel.style.display = "none";
+    } else {
+        panel.style.display = "block";
+    }
 }
 </script>
 </head>
@@ -1259,27 +1271,6 @@ function openSubtab(evt, tabName, subtabName) {
       }
     ?>
 </div> <!-- Footer -->
-
-<script>
-    var acc = document.getElementsByClassName("window_entry_button");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function(){
-            /* Toggle between adding and removing the "active" class,
-            to highlight the button that controls the panel */
-            this.classList.toggle("active");
-
-            /* Toggle between hiding and showing the active panel */
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        }
-    }
-</script>
 </body>
 <script>
     var acc = document.getElementsByClassName("window_entry_button");
