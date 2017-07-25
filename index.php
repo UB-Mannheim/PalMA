@@ -954,9 +954,6 @@ function openSubtab(evt, tabName, subtabName) {
 }
 
 function openAccordion() {
-    this.classList.toggle("active");
-
-    /* Toggle between hiding and showing the active panel */
     var panel = this.nextElementSibling;
     if (panel.style.display === "block") {
         panel.style.display = "none";

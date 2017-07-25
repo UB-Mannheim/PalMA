@@ -242,7 +242,7 @@ div.screenlayout div.layout_left, div.screenlayout div.layout_right {
 div.window_entry {
     display: block;
     border: 1px solid #c0c0c0;
-    height: 12em;
+    max-height: 12em;
     margin: 0 auto;
 }
 div.window_entry button {
