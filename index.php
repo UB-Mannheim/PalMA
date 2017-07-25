@@ -952,7 +952,7 @@ function openSubtab(evt, tabName, subtabName) {
     document.getElementById(subtabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-document.ready = function() {
+window.onload = function() {
     var acc = document.getElementsByClassName("window_entry_button");
     var i;
 
