@@ -305,7 +305,6 @@ div.position button {
     margin: 0 auto 0 auto;
     text-align: center;
     vertical-align: middle;
-    background-color: green;
 }
 div.position button:hover {
     background-color: inherit;

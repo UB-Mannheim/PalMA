@@ -574,9 +574,10 @@ function addWindowPosition(layout, screensection) {
     for (var n = 1; n <= s; n++) {
         br = '';
         button = document.createElement("button");
+        button.setAttribute("class", "minilayout " + n)
         button.setAttribute('value', n);
         if (n == screensection) {
-            button.setAttribute("class", "selected");
+            button.setAttribute("class", "minilayout" + n + " selected");
         }
         button.setAttribute('onclick', "sendToNuc('switchWindows=TRUE&before=" + screensection + "&after='+(this.value))");
         icon = document.createElement("i");
