@@ -230,6 +230,9 @@ div.screenlayout button {
     height: 3.5em;
     background-color: #b1b1b1;
 }
+div.screenlayout button i {
+    vertical-align: bottom;
+}
 div.screenlayout button:hover, .screenlayout button:active {
     background-color: #990000;
 }
@@ -281,22 +284,25 @@ div.jump {
     margin-top: .75em;
 }
 div.position {
-    display: inline-block;
     margin: .2em auto;
     border-radius: 6px;
+    background-color: #b1b1b1;
     width: 3.5em;
     height: 3.5em;
-    background-color: #b1b1b1;
+    vertical-align: middle;
+    text-align: center;
+}
+div.position div.wrapper {
+    vertical-align: bottom;
 }
 div.position div.layout_left, div.position div.layout_right {
     display: inline-block;
     vertical-align: middle;
 }
 div.position button {
+    padding: 0;
     display: inline-block;
     vertical-align: middle;
-    width: 100%;
-    height: 100%;
 }
 div.position button:hover {
     background-color: inherit;
@@ -304,6 +310,7 @@ div.position button:hover {
 }
 div.position i {
     color: #fff;
+    vertical-align: bottom;
 }
 div.position button:hover i {
     color: #995555;

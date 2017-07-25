@@ -543,6 +543,8 @@ function addWindowPosition(layout, screensection) {
     var position = document.createElement("div");
     position.setAttribute("class", "position");
     position.setAttribute('title', '<?=str_replace("'", "\\'", __("Select screen section for display"))?>');
+    var wrapper = document.createElement("div");
+    wrapper.setAttribute("class", "wrapper");
 
     var s;
     var button;
@@ -599,17 +601,18 @@ function addWindowPosition(layout, screensection) {
                 layout_right.appendChild(br);
             }
         } else {
-            position.appendChild(button);
+            wrapper.appendChild(button);
             if (br) {
-                position.appendChild(br);
+                wrapper.appendChild(br);
             }
         }
     }
 
     if (layout == 'g1a2') {
-        position.appendChild(layout_left);
-        position.appendChild(layout_right);
+        wrapper.appendChild(layout_left);
+        wrapper.appendChild(layout_right);
     }
+    position.appendChild(wrapper);
     return position;
 }
 
@@ -1261,24 +1264,4 @@ function openSubtab(evt, tabName, subtabName) {
 </div> <!-- Footer -->
 
 </body>
-<script>
-var acc = document.getElementsByClassName("window_entry_button");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
-        /* Toggle between adding and removing the "active" class,
-        to highlight the button that controls the panel */
-        this.classList.toggle("active");
-
-        /* Toggle between hiding and showing the active panel */
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    }
-}
-</script>
 </html>
