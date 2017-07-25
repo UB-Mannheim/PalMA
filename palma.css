@@ -246,7 +246,8 @@ div.window_entry {
     display: block;
     border: 1px solid #c0c0c0;
     max-height: 12em;
-    margin: 0 auto;
+    margin: 0 auto .5em auto;
+    font-size: 1.1em;
 }
 div.window_entry button {
     border: none;
@@ -268,10 +269,10 @@ button.window_entry_button:active {
     background-color: #b1b1b1;
 }
 div.windowcontrols {
-    margin: 0 auto;
+    margin: .5em auto;
 }
 div.movement, div.non_movement {
-    margin: .5em auto 0 auto;
+    margin: 0 auto;
     display: inline-block;
 }
 div.windowcontrols button:active, div.windowcontrols button:hover {
@@ -284,23 +285,33 @@ div.jump {
     margin-top: .75em;
 }
 div.position {
-    margin: .2em auto;
+    margin: .5em auto;
     border-radius: 6px;
     background-color: #b1b1b1;
     width: 3.5em;
     height: 3.5em;
 }
-div.g1x1 {}
-div.g1x2 {}
-div.g2x1 {}
-div.g1a2 {}
-div.g2x2 {}
+div.g1x1 {
+    line-height: 3.5em;
+}
+div.g1x2 {
+    line-height: 1.5em;
+}
+div.g2x1 {
+    line-height: 3.5em;
+}
+div.g1a2 {
+    line-height: 1.5em;
+}
+div.g2x2 {
+    line-height: 1.5em;
+}
 div.position div.layout_left, div.position div.layout_right {
     display: inline-block;
     vertical-align: middle;
 }
 div.position button {
-    padding: 0;
+    padding: .2em;
     display: inline-block;
     vertical-align: middle;
 }
