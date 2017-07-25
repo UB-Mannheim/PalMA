@@ -734,7 +734,8 @@ function updateWindowList(window){
             // Create button to open and close accordion
             var button = document.createElement('button');
             button.setAttribute("class", "window_entry_button");
-            button.setAttribute('onclick', "openAccordion(file" + screensection")");
+            button.setAttribute("value", 'file' + screensection)
+            button.setAttribute('onclick', "openAccordion(this.value)");
             var icon = document.createElement('i');
             if (handler.indexOf("midori") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
