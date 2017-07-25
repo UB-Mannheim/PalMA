@@ -541,7 +541,7 @@ function updateUserList(address, user) {
 
 function addWindowPosition(layout, screensection) {
     var position = document.createElement("div");
-    position.setAttribute("class", "position");
+    position.setAttribute("class", "position pure-button");
     position.setAttribute('title', '<?=str_replace("'", "\\'", __("Select screen section for display"))?>');
 
     var s;
@@ -574,10 +574,9 @@ function addWindowPosition(layout, screensection) {
     for (var n = 1; n <= s; n++) {
         br = '';
         button = document.createElement("button");
-        button.setAttribute("class", "minilayout " + n)
         button.setAttribute('value', n);
         if (n == screensection) {
-            button.setAttribute("class", "minilayout" + n + " selected");
+            button.setAttribute("class", "selected");
         }
         button.setAttribute('onclick', "sendToNuc('switchWindows=TRUE&before=" + screensection + "&after='+(this.value))");
         icon = document.createElement("i");

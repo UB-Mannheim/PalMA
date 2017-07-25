@@ -283,32 +283,28 @@ div.jump {
 div.position {
     background-color: #b1b1b1;
     border-radius: 6px;
-    width: 3.5em;
-    height: 3.5em;
     margin: .5em auto;
+    padding: .5em;
     display: inline-block;
-    text-align: center;
 }
 div.position div.layout_left, div.position div.layout_right {
     display: inline-block;
     vertical-align: middle;
 }
-div.position i {
-    color: #fff;
-}
 div.position button {
+    display: inline-block;
     color: inherit;
     background-color: inherit;
-    display: inline-block;
-    width: auto;
-    height: auto;
-    margin: 0 auto 0 auto;
+    line-height: 1;
+    font-weight: normal;
     text-align: center;
-    vertical-align: middle;
 }
 div.position button:hover {
     background-color: inherit;
     background-image: none;
+}
+div.position i {
+    color: #fff;
 }
 div.position button:hover i {
     color: #995555;
