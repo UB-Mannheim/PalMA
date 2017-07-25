@@ -955,8 +955,8 @@ function openSubtab(evt, tabName, subtabName) {
 }
 function openAccordion(divID) {
     var div = document.getElementById(divID);
-    var button = div.getElementsByClassName(window_entry_button);
-    var panel = div.getElementsByClassName(windowcontrols);
+    var button = div.getElementsByClassName("window_entry_button");
+    var panel = div.getElementsByClassName("windowcontrols");
     button.classList.toggle("active");
     if (panel.style.display === "block") {
         panel.style.display = "none";
