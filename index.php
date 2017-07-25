@@ -952,10 +952,10 @@ function openSubtab(evt, tabName, subtabName) {
     document.getElementById(subtabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
 window.onload = function() {
     var acc = document.getElementsByClassName("window_entry_button");
     var i;
-
     for (i = 0; i < acc.length; i++) {
         acc[i].onclick = function(){
             /* Toggle between adding and removing the "active" class,
