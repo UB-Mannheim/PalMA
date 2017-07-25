@@ -541,7 +541,7 @@ function updateUserList(address, user) {
 
 function addWindowPosition(layout, screensection) {
     var position = document.createElement("div");
-    position.setAttribute("class", "position pure-button");
+    position.setAttribute("class", "position");
     position.setAttribute('title', '<?=str_replace("'", "\\'", __("Select screen section for display"))?>');
 
     var s;
@@ -734,6 +734,8 @@ function updateWindowList(window){
             // Create button to open and close accordion
             var button = document.createElement('button');
             button.setAttribute("class", "window_entry_button");
+            button.setAttribute("value", 'file' + screensection);
+            button.setAttribute('onclick', "openAccordion(this.value)");
             var icon = document.createElement('i');
             if (handler.indexOf("midori") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
@@ -950,6 +952,17 @@ function openSubtab(evt, tabName, subtabName) {
     // Show current subtab and add "active" class to the opening button
     document.getElementById(subtabName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+function openAccordion(divID) {
+    var div = document.getElementById(divID);
+    var button = div.getElementsByClassName(window_entry_button);
+    var panel = div.getElementsByClassName(windowcontrols);
+    button.classList.toggle("active");
+    if (panel.style.display === "block") {
+        panel.style.display = "none";
+    } else {
+        panel.style.display = "block";
+    }
 }
 </script>
 </head>
