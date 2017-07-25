@@ -541,10 +541,8 @@ function updateUserList(address, user) {
 
 function addWindowPosition(layout, screensection) {
     var position = document.createElement("div");
-    position.setAttribute("class", "position");
+    position.setAttribute("class", "position " + layout);
     position.setAttribute('title', '<?=str_replace("'", "\\'", __("Select screen section for display"))?>');
-    var wrapper = document.createElement("div");
-    wrapper.setAttribute("class", "wrapper");
 
     var s;
     var button;
@@ -601,18 +599,17 @@ function addWindowPosition(layout, screensection) {
                 layout_right.appendChild(br);
             }
         } else {
-            wrapper.appendChild(button);
+            position.appendChild(button);
             if (br) {
-                wrapper.appendChild(br);
+                position.appendChild(br);
             }
         }
     }
 
     if (layout == 'g1a2') {
-        wrapper.appendChild(layout_left);
-        wrapper.appendChild(layout_right);
+        position.appendChild(layout_left);
+        position.appendChild(layout_right);
     }
-    position.appendChild(wrapper);
     return position;
 }
 

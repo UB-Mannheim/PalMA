@@ -289,12 +289,12 @@ div.position {
     background-color: #b1b1b1;
     width: 3.5em;
     height: 3.5em;
-    vertical-align: middle;
-    text-align: center;
 }
-div.position div.wrapper {
-    vertical-align: bottom;
-}
+div.g1x1 {}
+div.g1x2 {}
+div.g2x1 {}
+div.g1a2 {}
+div.g2x2 {}
 div.position div.layout_left, div.position div.layout_right {
     display: inline-block;
     vertical-align: middle;
