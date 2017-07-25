@@ -734,8 +734,7 @@ function updateWindowList(window){
             // Create button to open and close accordion
             var button = document.createElement('button');
             button.setAttribute("class", "window_entry_button");
-            button.setAttribute("value", 'file' + screensection);
-            button.setAttribute('onclick', "openAccordion(this.value)");
+            button.setAttribute('onclick', "openAccordion(file" + screensection")");
             var icon = document.createElement('i');
             if (handler.indexOf("midori") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
@@ -957,7 +956,6 @@ function openAccordion(divID) {
     var div = document.getElementById(divID);
     var button = div.getElementsByClassName("window_entry_button");
     var panel = div.getElementsByClassName("windowcontrols");
-    button.classList.toggle("active");
     if (panel.style.display === "block") {
         panel.style.display = "none";
     } else {
