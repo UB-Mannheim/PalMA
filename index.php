@@ -307,7 +307,6 @@ function showLayout(layout, controls, window) {
 
 function miniDisplaySelect(element) {
     sendToNuc('layout=' + element.id);
-    document.getElementById(element.id).setAttribute("class", "screenlayout selected");
 }
 
 function getHandlerCommand(handle, task) {
@@ -719,7 +718,7 @@ function updateWindowList(window){
 
     if (window.length == 0) {
         var entry = document.createElement('div');
-        entry.appendChild(document.createTextNode("There are no shared contents."));
+        entry.appendChild(document.createTextNode('There are no shared contents. Click "Add" to get started.'));
         windowlist.appendChild(entry);
     } else {
         // Add an entry for each window.
@@ -1212,7 +1211,7 @@ window.onload = function() {
                             class="pure-button pure-button-primary pure-input-rounded"
                             onclick="alert('Send')">
                             <?=__('Send')?>
-                            <i class="fa fa-mail-forward"></i>
+                            <i class="fa fa-envelope"></i>
                         </button>
                     </form>
                 </div>

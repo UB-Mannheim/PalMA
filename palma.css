@@ -234,9 +234,9 @@ div.screenlayout button {
     background-color: #b1b1b1;
 }
 div.screenlayout button i {
-    vertical-align: bottom;
+    vertical-align: middle;
 }
-div.screenlayout button:hover, div.screenlayout button:active, div.screenlayout.selected {
+div.screenlayout button:hover, div.screenlayout button:active {
     background-color: #990000;
 }
 div.screenlayout div.layout_left, div.screenlayout div.layout_right {
@@ -273,7 +273,7 @@ button.window_entry_button i {
 button.window_entry_button:hover {
     background-color: #c0c0c0;
 }
-button.window_entry_button:active, button.window_entry_button.selected {
+button.window_entry_button:active {
     background-color: #b1b1b1;
 }
 div.windowcontrols {
@@ -574,7 +574,7 @@ background-color: #FF6600
 }
 
 /* Modifications for larger screens */
-@media only screen and (min-height:360px){
+@media only screen and (min-height:300px){
     #Add div.subtab, #Control div.subtab {
         display: none !important;
     }
