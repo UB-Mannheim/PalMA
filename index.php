@@ -921,7 +921,6 @@ function openTab(evt, tabName) {
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
-    document.getElementById("greeting").style.display = "none";
     // Remove "active" class from all elements with class="tablinks"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
@@ -941,7 +940,6 @@ function openSubtab(evt, tabName, subtabName) {
     for (i = 0; i < subtabcontent.length; i++) {
         subtabcontent[i].style.display = "none";
     }
-    document.getElementById("greeting").style.display = "none";
 
     // Remove "active" class from all elements with class="subtablinks"
     subtablinks = tab.getElementsByClassName("subtablinks");
@@ -981,22 +979,6 @@ window.onload = function() {
 ></div>
 
 <div id="workbench">
-    <div class="subtab" id="greeting">
-        <p>Welcome to
-            <img id="palma_logo"
-                 src="theme/<?=CONFIG_THEME?>/palma-logo-49x18.png"
-                 alt="PalMA"> <?=__('Team display')?>!
-            <br/>
-            <?php
-                if (isset($_SESSION['monitor'])) {
-                    echo('(' . $_SESSION['monitor'] . ')');
-                }
-            ?>
-        </p>
-        <div class="description">
-            Use the tabs above to add content and then control how it is displayed on the monitor.
-        </div>
-    </div>
     <div id="Add" class="tabcontent">
         <div class="subtab"
         ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'File')">File <i class="fa fa-file"></i></button
@@ -1027,9 +1009,6 @@ window.onload = function() {
                   <div class="dz-error-message"><span data-dz-errormessage></span></div>
                 </div>
             </div>
-            <div class="description">
-              <?=__('Just upload PDF files, images, OpenDocument or MS Office files – PalMA will show them.')?>
-            </div>
         </div>
         <div id="URL" class="subtabcontent">
             <div>
@@ -1043,9 +1022,6 @@ window.onload = function() {
                     Enter
                     <i class="fa fa-globe"></i>
                 </button>
-            </div>
-            <div class="description">
-              <?=__('Just enter a URL – PalMA will show it.')?>
             </div>
         </div>
         <div id="Screen" class="subtabcontent">
@@ -1123,9 +1099,6 @@ window.onload = function() {
                     <i alt="4" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                 </button>
             </div>
-            <div class="description">
-                Control how many windows are displayed by choosing a <?=__('Screen layout')?>.
-            </div>
         </div>
         <div id="Navigate" class="subtabcontent">
             <div id="windowlist">
@@ -1136,9 +1109,6 @@ window.onload = function() {
                 title="<?=__('Close all windows and remove uploaded files')?>">
                 <?=__('Close all windows')?>
             </button>
-            <div class="description">
-                Click on the item in the <?=__('Display list')?> that you would like to control.
-            </div>
         </div>
     </div>
     <div id="Extras" class="tabcontent">

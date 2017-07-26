@@ -97,22 +97,11 @@ legend {
 }
 
 /* Main User Interface (index.php) */
-#greeting {
-    padding: 5em 1em;
-    height: 100%;
-    background-color: white;
-}
-#greeting p {
-    margin: 0;
-}
-#greeting, div.tab, div.subtab {
-    text-align:center;
-}
-
 /* Tabs and Subtabs */
 div.tab, div.subtab {
     overflow: hidden;
     background-color: #990000;
+    text-align: center;
 }
 div.subtab {
     background-color: #e2e2e2;
@@ -151,7 +140,7 @@ div.subtab button.active {
     animation: fadeEffect 1s;
 }
 .subtabcontent {
-    padding: 1.5em 1em;
+    padding: .5em;
 }
 @-webkit-keyframes fadeEffect {
     from {opacity: 0;}
@@ -234,9 +223,9 @@ div.description {
 }
 
 /* Control Layout */
+#Control {display: block;}
 div.screenlayout {
     display: inline-block;
-    margin: .1em;
     vertical-align: middle;
 }
 div.screenlayout button {
@@ -591,9 +580,6 @@ background-color: #FF6600
     }
     #Add div.subtabcontent, #Control div.subtabcontent {
         display: block !important;
-    }
-    #greeting {
-        display: block;
     }
 }
 
