@@ -307,6 +307,7 @@ function showLayout(layout, controls, window) {
 
 function miniDisplaySelect(element) {
     sendToNuc('layout=' + element.id);
+    document.getElementById(element.id).setAttribute("class", "screenlayout selected");
 }
 
 function getHandlerCommand(handle, task) {
@@ -957,12 +958,7 @@ window.onload = function() {
     var acc = document.getElementsByClassName("window_entry_button");
     var i;
     for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function(){
-            /* Toggle between adding and removing the "active" class,
-            to highlight the button that controls the panel */
-            this.classList.toggle("active");
-
-            /* Toggle between hiding and showing the active panel */
+        acc[i].onclick = function() {
             var panel = this.nextElementSibling;
             if (panel.style.display === "block") {
                 panel.style.display = "none";
@@ -1014,7 +1010,7 @@ window.onload = function() {
                     id="palma-dropzone"
                     title="<?=__('Drop documents here (or click) to load them up')?>">
                     <div class="dz-default dz-message">
-                        <i class="fa fa-upload fa-2x"></i>
+                        <i class="fa fa-file fa-2x"></i>
                         <div><?=__('Drop documents here (or click)')?>
                         </div>
                     </div>
@@ -1044,7 +1040,7 @@ window.onload = function() {
                 <button class="pure-button pure-button-primary pure-input-rounded"
                     id="url_button"
                     onClick="urlToNuc()" title="<?=__('Show this URL in a new browser window')?>">
-                    URL
+                    Enter
                     <i class="fa fa-globe"></i>
                 </button>
             </div>

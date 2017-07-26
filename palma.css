@@ -172,14 +172,24 @@ div.description {
     font-style: italic;
 }
 
+/* Add */
+#Add div.subtabcontent {
+    background-color: #f1f1f1;
+    max-width: 400px;
+    margin: .5em auto;
+    border: 1px solid #c0c0c0;
+    border-radius: 6px;
+    text-align: center;
+}
 /* Add File */
 #palma-dropzone {
-    background-color: #EFEFEF;
+    border: 1px dotted #990000;
     border-radius: 6px;
-    color: #990000;
     cursor: pointer;
     text-align: center;
-    border: 1px dotted #990000;
+}
+#palma-dropzone i {
+    color: #990000;
 }
 .fa-upload {
     float: right;
@@ -189,15 +199,19 @@ div.description {
 #url_field {
     width: 65%;
 }
-#url_button {width: 25%;}
+#url_button {
+    width: 25%;
+}
 
 /* Add Screen */
 #vnc-button {
     border:1px solid #990000;
     border-radius: 7px;
+    background-color: #f1f1f1;
     min-width:260px;
     min-height:50px;
     width: 20%;
+    max-width: 400px;
     margin: .5em auto;
     padding: 1em;
     color: #990000;
@@ -233,7 +247,7 @@ div.screenlayout button {
 div.screenlayout button i {
     vertical-align: bottom;
 }
-div.screenlayout button:hover, .screenlayout button:active {
+div.screenlayout button:hover, div.screenlayout button:active, div.screenlayout.selected {
     background-color: #990000;
 }
 div.screenlayout div.layout_left, div.screenlayout div.layout_right {
@@ -244,10 +258,11 @@ div.screenlayout div.layout_left, div.screenlayout div.layout_right {
 /* Control Navigate */
 div.window_entry {
     display: block;
-    border: 1px solid #c0c0c0;
+    border: 1px solid #b1b1b1;
     max-height: 12em;
     margin: 0 auto .5em auto;
     font-size: 1.1em;
+    max-width: 400px;
 }
 div.window_entry button {
     border: none;
@@ -255,17 +270,21 @@ div.window_entry button {
     cursor: pointer;
     background-color: inherit;
 }
-button.window_entry_button {
-    background-color: #e2e2e2;
+div.window_entry button.window_entry_button {
+    background-color: #f1f1f1;
     padding: .6em .8em;
     transition: 0.3s;
     color: black;
     width: 100%;
+    text-align: left;
+}
+button.window_entry_button i {
+    margin-right: .5em;
 }
 button.window_entry_button:hover {
     background-color: #c0c0c0;
 }
-button.window_entry_button:active {
+button.window_entry_button:active, button.window_entry_button.selected {
     background-color: #b1b1b1;
 }
 div.windowcontrols {
@@ -292,19 +311,10 @@ div.position {
     width: 3.5em;
     height: 3.5em;
 }
-div.g1x1 {
+div.g1x1, div.g2x1{
     line-height: 3.5em;
 }
-div.g1x2 {
-    line-height: 1.5em;
-}
-div.g2x1 {
-    line-height: 3.5em;
-}
-div.g1a2 {
-    line-height: 1.5em;
-}
-div.g2x2 {
+div.g1x2, div.g1a2, div.g2x2 {
     line-height: 1.5em;
 }
 div.position div.layout_left, div.position div.layout_right {
@@ -322,7 +332,7 @@ div.position button:hover {
 }
 div.position i {
     color: #fff;
-    vertical-align: bottom;
+    vertical-align: middle;
 }
 div.position button:hover i {
     color: #995555;
@@ -575,11 +585,11 @@ background-color: #FF6600
 }
 
 /* Modifications for larger screens */
-@media only screen and (min-height:640px){
+@media only screen and (min-height:360px){
     #Add div.subtab, #Control div.subtab {
         display: none !important;
     }
-   #Add div.subtabcontent, #Control div.subtabcontent {
+    #Add div.subtabcontent, #Control div.subtabcontent {
         display: block !important;
     }
     #greeting {
