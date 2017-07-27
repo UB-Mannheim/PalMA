@@ -279,7 +279,6 @@ button.window_entry_button:active {
 }
 div.windowcontrols {
     margin: .5em auto;
-    display: none;
 }
 div.movement, div.non_movement {
     margin: 0 auto;

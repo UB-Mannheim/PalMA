@@ -738,7 +738,6 @@ function updateWindowList(window){
             // Create button to open and close accordion
             var button = document.createElement('button');
             button.setAttribute("class", "window_entry_button");
-            button.setAttribute('onclick', 'openAccordion(' + divID + ')');
             var icon = document.createElement('i');
             if (handler.indexOf("midori") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
@@ -954,16 +953,6 @@ function openSubtab(evt, tabName, subtabName) {
     document.getElementById(subtabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
-window.onload = function openAccordion(parentID) {
-    var i, windowcontrols, parent;
-    windowcontrols = document.getElementsByClassName("windowcontrols");
-    for (i = 0; i < windowcontrols.length; i++) {
-        windowcontrols[i].style.display = "none";
-    }
-    parent = document.getElementById(parentID);
-    parent.getElementsByClassName("windowcontrols").style.display = "block";
-}
 </script>
 </head>
 
@@ -1016,7 +1005,6 @@ window.onload = function openAccordion(parentID) {
                 <button class="pure-button pure-button-primary pure-input-rounded"
                     id="url_button"
                     onClick="urlToNuc()" title="<?=__('Show this URL in a new browser window')?>">
-                    Enter
                     <i class="fa fa-globe"></i>
                 </button>
             </div>
