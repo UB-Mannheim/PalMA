@@ -764,7 +764,7 @@ function updateWindowList(window){
                 entry.setAttribute('title', fname);
             }
             if (title.length > 25) {
-                title = title.substring(0, 15) + '...';
+                title = title.substring(0, 25) + '...';
             }
             button.appendChild(document.createTextNode(title));
             entry.appendChild(button);
@@ -955,7 +955,7 @@ function openSubtab(evt, tabName, subtabName) {
     evt.currentTarget.className += " active";
 }
 
-function openAccordion(parentID) {
+window.onload = function openAccordion(parentID) {
     var i, windowcontrols, parent;
     windowcontrols = document.getElementsByClassName("windowcontrols");
     for (i = 0; i < windowcontrols.length; i++) {
