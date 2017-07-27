@@ -718,8 +718,11 @@ function updateWindowList(window){
 
     if (window.length == 0) {
         var entry = document.createElement('div');
-        entry.appendChild(document.createTextNode('There are no shared contents. Click "Add" to get started.'));
+        entry.setAttribute("class", "description");
+        entry.appendChild(document.createTextNode('There is no shared content yet. Click "Add" to get started!'));
         windowlist.appendChild(entry);
+        document.getElementById("closeWindows").style.display = "none";
+        document.getElementById("Layout").style.display = "none";
     } else {
         // Add an entry for each window.
         var n;
@@ -991,9 +994,8 @@ window.onload = function() {
                     id="palma-dropzone"
                     title="<?=__('Drop documents here (or click) to load them up')?>">
                     <div class="dz-default dz-message">
+                        Add file (click or drop here)
                         <i class="fa fa-file fa-2x"></i>
-                        <div><?=__('Drop documents here (or click)')?>
-                        </div>
                     </div>
                 </form>
                 <div class="dz-preview dz-file-preview">
@@ -1011,7 +1013,7 @@ window.onload = function() {
         </div>
         <div id="URL" class="subtabcontent">
             <div>
-                <input type="text" value="<?=__('Enter URL')?>"
+                <input type="text" value="Add webpage"
                     id="url_field" maxlength="256" size="46"
                     onkeydown="if (event.keyCode == 13) document.getElementById('url_button').click()"
                     onfocus="clearURLField('<?=__('Enter URL')?>')">
@@ -1025,17 +1027,18 @@ window.onload = function() {
         </div>
         <div id="Screen" class="subtabcontent">
             <div id="vnc-button" onclick="javascript:getFilePathByOS()">
-                <div id="vnc-button-eye"><i class="fa fa-eye fa-3x" aria-hidden="true"></i> </div>
                 <div id="vnc-button-container">
-                    <div id="vnc-button-label">Download VNC</div>
-                    <div id="vnc-button-label-subtext">screensharing for win / mac os</div>
+                    <div id="vnc-button-label">Add your screen</div>
+                    <div id="vnc-button-label-subtext">Download screensharing tool</div>
                 </div>
+                <div id="vnc-button-eye"><i class="fa fa-eye fa-2x" aria-hidden="true"></i> </div>
                 <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
                 <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
                 <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
             </div>
             <div class="description">
-            <?=__('Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button above.')?>
+            Download and install screensharing tool (notebooks only). See the help section for further information.
+            <!--<?=__('Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button above.')?>-->
             </div>
             <div class="description">
             <?=__('Linux users can also use the built in function of their device and share the X display like this: ')?>
@@ -1103,7 +1106,7 @@ window.onload = function() {
             <div id="windowlist">
             <!-- filled by updateWindowList and showLayout -->
             </div>
-            <button class="pure-button pure-button-primary pure-input-rounded"
+            <button id="closeWindows" class="pure-button pure-button-primary pure-input-rounded"
                 onClick="sendToNuc('closeAll=TRUE')"
                 title="<?=__('Close all windows and remove uploaded files')?>">
                 <?=__('Close all windows')?>
@@ -1224,6 +1227,11 @@ window.onload = function() {
                         <tr><td><!-- filled by updateUserList() --></td></tr>
                     </tbody>
                 </table>
+                <div class="description">
+                    New users can join with this URL and PIN:<br />
+                    URL: <?=$_SESSION['starturl']?><br />
+                    PIN: <?=$_SESSION['pin']?>
+                </div>
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         onClick="sendToNuc('logout=ALL')"
                         title="<?=__('Disconnect all users and reset the work place')?>">

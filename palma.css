@@ -156,7 +156,7 @@ div.subtab button.active {
     margin-bottom: 2em;
 }
 div.description {
-    margin-top: .8em;
+    margin: .5em auto;
     font-size: .8em;
     font-style: italic;
 }
@@ -179,9 +179,10 @@ div.description {
 }
 #palma-dropzone i {
     color: #990000;
+    vertical-align: middle;
 }
-.fa-upload {
-    float: right;
+.dz-default {
+    padding: .5em;
 }
 
 /* Add URL */
@@ -207,9 +208,9 @@ div.description {
     cursor:pointer;
     cursor: hand;
 }
-#vnc-button-eye { float:left; }
+#vnc-button-eye { float:right; }
 #vnc-button-container {
-    float:right;
+    float:left;
     margin-left: 1em;
 }
 #vnc-button-label {
@@ -536,9 +537,6 @@ background-color: #FF6600
     color: white;
     margin: 2px;
     padding: 2px;
-}
-.dz-default {
-    padding: 1.5em;
 }
 
 /* Footer & Logout Link*/
