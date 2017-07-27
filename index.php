@@ -722,7 +722,7 @@ function updateWindowList(window){
         entry.appendChild(document.createTextNode('There is no shared content yet. Click "Add" to get started!'));
         windowlist.appendChild(entry);
         document.getElementById("closeWindows").style.display = "none";
-        document.getElementById("Layout").style.display = "none";
+        document.getElementById("Layout").style.display = "none !important";
     } else {
         // Add an entry for each window.
         var n;
@@ -738,6 +738,7 @@ function updateWindowList(window){
             // Create button to open and close accordion
             var button = document.createElement('button');
             button.setAttribute("class", "window_entry_button");
+            button.setAttribute('onclick', 'openAccordion(' + divID + ')');
             var icon = document.createElement('i');
             if (handler.indexOf("midori") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
@@ -954,19 +955,14 @@ function openSubtab(evt, tabName, subtabName) {
     evt.currentTarget.className += " active";
 }
 
-window.onload = function() {
-    var acc = document.getElementsByClassName("window_entry_button");
-    var i;
-    for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function() {
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        }
+function openAccordion(parentID) {
+    var i, windowcontrols, parent;
+    windowcontrols = document.getElementsByClassName("windowcontrols");
+    for (i = 0; i < windowcontrols.length; i++) {
+        windowcontrols[i].style.display = "none";
     }
+    parent = document.getElementById(parentID);
+    parent.getElementsByClassName("windowcontrols").style.display = "block";
 }
 </script>
 </head>
