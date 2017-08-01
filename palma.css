@@ -4,13 +4,14 @@
 body {
     max-width: 1200px;
     margin: 0 auto;
+    font-size: 1.1em;
 }
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;
     border-radius: 6px;
 }
 .pure-button {
-    padding: 0.5em;
+    padding: 0.4em;
 }
 a {
     color: #990000;
@@ -141,6 +142,8 @@ div.subtab button.active {
 }
 .subtabcontent {
     padding: .5em;
+    margin: 0 auto;
+    max-width: 500px;
 }
 @-webkit-keyframes fadeEffect {
     from {opacity: 0;}
@@ -164,7 +167,6 @@ div.description {
 /* Add */
 #Add div.subtabcontent {
     background-color: #f1f1f1;
-    max-width: 400px;
     margin: .5em auto;
     border: 1px solid #c0c0c0;
     border-radius: 6px;
@@ -198,28 +200,24 @@ div.description {
     border:1px solid #990000;
     border-radius: 7px;
     background-color: #f1f1f1;
-    min-width:260px;
-    min-height:50px;
-    width: 20%;
-    max-width: 400px;
-    margin: .5em auto;
-    padding: 1em;
+    width: 15em;
+    height: 2.5em;
+    margin: .3em auto;
+    padding: .6em;
     color: #990000;
     cursor:pointer;
     cursor: hand;
 }
-#vnc-button-eye { float:right; }
+#vnc-button-icon { float:right; }
 #vnc-button-container {
     float:left;
-    margin-left: 1em;
+    margin-left: 0;
 }
 #vnc-button-label {
-    font-size: 25px;
     font-weight:bold;
     font-family: Tahoma, Sans-Serif;
 }
 #vnc-button-label-subtext {
-    font-size: 12px;
     font-family: Tahoma, Sans-Serif;
 }
 
@@ -230,8 +228,8 @@ div.screenlayout {
     vertical-align: middle;
 }
 div.screenlayout button {
-    width: 3.5em;
-    height: 3.5em;
+    width: 3.2em;
+    height: 3.2em;
     background-color: #b1b1b1;
 }
 div.screenlayout button i {
@@ -249,9 +247,8 @@ div.screenlayout div.layout_left, div.screenlayout div.layout_right {
 div.window_entry {
     display: block;
     border: 1px solid #b1b1b1;
-    max-height: 12em;
+    max-height: 15em;
     margin: 0 auto .5em auto;
-    font-size: 1.1em;
     max-width: 400px;
 }
 div.window_entry button {
@@ -278,20 +275,22 @@ button.window_entry_button:active {
     background-color: #b1b1b1;
 }
 div.windowcontrols {
-    margin: .5em auto;
+    margin: .3em auto;
 }
 div.movement, div.non_movement {
     margin: 0 auto;
+    padding: 0 1em 0 1em;
     display: inline-block;
 }
 div.windowcontrols button:active, div.windowcontrols button:hover {
     color: #990000;
 }
 div.arrows button {
-    margin: .5em .8em 0 .8em;
+    margin: 0 .5em 0 .5em;
+    padding: .2em .5em .2em .5em;
 }
-div.jump {
-    margin-top: .75em;
+div.jump button {
+    padding: .5em;
 }
 div.position {
     margin: .5em auto;
@@ -331,15 +330,20 @@ div.position button.selected i {
     color: #990000;
 }
 /* Extras Help */
-/* No styling yet */
+#Help, #Feedback {
+    text-align: left;
+}
 
 /* Extras Feedback & Recommend */
+#contact {text-align: center;}
 #contact input, #contact textarea {
     width: 75%;
     max-width: 300px;
     margin-bottom: .8em;
 }
-
+#recommendcontainer a {
+    text-align: center;
+}
 /* Socical Media Buttons */
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
@@ -571,7 +575,8 @@ background-color: #FF6600
 }
 
 /* Modifications for larger screens */
-@media only screen and (min-height:300px){
+@media only screen and (min-height:600px) and (min-width: 480px){
+    body {font-size: 1.3em;}
     #Add div.subtab, #Control div.subtab {
         display: none !important;
     }
@@ -579,7 +584,14 @@ background-color: #FF6600
         display: block !important;
     }
 }
-
+@media only screen and (min-height: 300px) {
+    #Control div.subtab {
+        display: none !important;
+    }
+    #Control div.subtabcontent {
+        display: block !important;
+    }
+}
 /* Print Layout */
 @media print {
 .hidden { display: block; visibility: visible }

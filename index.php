@@ -644,20 +644,19 @@ function addWindowControls(layout, controls, screensection, file, status) {
 
     var arrows = document.createElement("div");
     arrows.setAttribute("class", "arrows");
-    // TODO: try fa-arrow-up, fa-carret-up, fa-long-arrow-up, fa-angle-up, fa-play
-    arrows.appendChild(keyControl(screensection, 'fa fa-arrow-up', 'arrowup', 'up', handler, !up, '<?=__("Cursor control")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-up', 'arrowup', 'up', handler, !up, '<?=__("Cursor control")?>'));
     arrows.appendChild(document.createElement("br"));
-    arrows.appendChild(keyControl(screensection, 'fa fa-arrow-left', 'arrowleft', 'left', handler, !left, '<?=__("Cursor control")?>'));
-    arrows.appendChild(keyControl(screensection, 'fa fa-arrow-right', 'arrowright', 'right', handler, !right, '<?=__("Cursor control")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-left', 'arrowleft', 'left', handler, !left, '<?=__("Cursor control")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-right', 'arrowright', 'right', handler, !right, '<?=__("Cursor control")?>'));
     arrows.appendChild(document.createElement("br"));
-    arrows.appendChild(keyControl(screensection, 'fa fa-arrow-down', 'arrowdown', 'down', handler, !down, '<?=__("Cursor control")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-down', 'arrowdown', 'down', handler, !down, '<?=__("Cursor control")?>'));
 
     var jump = document.createElement("div");
     jump.setAttribute("class", "jump");
-    jump.appendChild(keyControl(screensection, 'fa fa-step-backward', 'jumpbeginning', 'home', handler, !down, '<?=__("Jump to start")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-backward', 'pageback', 'prior', handler, !prior, '<?=__("Page up")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-forward', 'pageforward', 'next', handler, !next, '<?=__("Page down")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-step-forward', 'jumpend', 'end', handler, !end, '<?=__("Jump to end")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-ange-double-left', 'jumpbeginning', 'home', handler, !down, '<?=__("Jump to start")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-ange-left', 'pageback', 'prior', handler, !prior, '<?=__("Page up")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-right', 'pageforward', 'next', handler, !next, '<?=__("Page down")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-ange-double-right', 'jumpend', 'end', handler, !end, '<?=__("Jump to end")?>'));
 
     movement.appendChild(arrows);
     movement.appendChild(jump);
@@ -673,9 +672,9 @@ function addWindowControls(layout, controls, screensection, file, status) {
     button.setAttribute("class", "toogle");
     icon = document.createElement('i');
     if (status == 'active') {
-        icon.setAttribute("class", "fa fa-desktop");
+        icon.setAttribute("class", "fa fa-eye");
     } else {
-        icon.setAttribute("class", "fa fa-ban");
+        icon.setAttribute("class", "fa fa-eye-slash");
     }
     icon.setAttribute('id', 'status_' + screensection);
     icon.setAttribute('title', '<?=__("Toggle visibility")?>');
@@ -742,7 +741,7 @@ function updateWindowList(window){
             if (handler.indexOf("midori") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
             } else if (handler.indexOf("vnc") > -1) {
-                icon.setAttribute("class", "fa fa-eye");
+                icon.setAttribute("class", "fa fa-video-camera");
             } else {
                 icon.setAttribute("class", "fa fa-file");
             }
@@ -893,6 +892,8 @@ function getOS() {
     if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
     if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
     if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+    if (navigator.appVersion.indexOf("android")!=-1) OSName="Android";
+    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) OSName="iOS";
     return OSName;
 }
 
@@ -910,6 +911,10 @@ function getFilePathByOS() {
         case 'Linux': download = linux;
             break;
         case 'UNIX': download = linux;
+            break;
+        case 'Android':
+        case 'iOS':
+            download = null;
             break;
         default: download = null;
     }
@@ -970,7 +975,7 @@ function openSubtab(evt, tabName, subtabName) {
         <div class="subtab"
         ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'File')">File <i class="fa fa-file"></i></button
         ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'URL')">URL <i class="fa fa-globe"></i></button
-        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'Screen')">Screen <i class="fa fa-eye"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'Screen')">Screen <i class="fa fa-video-camera"></i></button
     ></div>
         <div id="File" class="subtabcontent">
             <div id="file_upload">
@@ -1005,7 +1010,7 @@ function openSubtab(evt, tabName, subtabName) {
                 <button class="pure-button pure-button-primary pure-input-rounded"
                     id="url_button"
                     onClick="urlToNuc()" title="<?=__('Show this URL in a new browser window')?>">
-                    <i class="fa fa-globe"></i>
+                    Enter <i class="fa fa-globe"></i>
                 </button>
             </div>
         </div>
@@ -1015,7 +1020,7 @@ function openSubtab(evt, tabName, subtabName) {
                     <div id="vnc-button-label">Add your screen</div>
                     <div id="vnc-button-label-subtext">Download screensharing tool</div>
                 </div>
-                <div id="vnc-button-eye"><i class="fa fa-eye fa-2x" aria-hidden="true"></i> </div>
+                <div id="vnc-button-icon"><i class="fa fa-video-camera fa-2x" aria-hidden="true"></i> </div>
                 <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
                 <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
                 <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
@@ -1212,9 +1217,8 @@ function openSubtab(evt, tabName, subtabName) {
                     </tbody>
                 </table>
                 <div class="description">
-                    New users can join with this URL and PIN:<br />
-                    URL: <?=$_SESSION['starturl']?><br />
-                    PIN: <?=$_SESSION['pin']?>
+                    New users can join at:<br />
+                    URL: <?=$_SESSION['starturl']?><?=$_SESSION['pin']?>
                 </div>
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         onClick="sendToNuc('logout=ALL')"
@@ -1225,7 +1229,6 @@ function openSubtab(evt, tabName, subtabName) {
         </div>
     </div>
 </div> <!-- workbench -->
-
 
 <div id="footer">
     <?php
