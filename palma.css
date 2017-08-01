@@ -37,15 +37,12 @@ legend {
     font-size: 1.3em;
     text-align: center;
 }
-#login_fields {
-    text-align: center;
-    margin: .5em;
-}
 #login_mask button i {
     margin-left: .3em;
 }
 div.policy {
     text-align: center;
+    font-size: .8em;
 }
 /* Workplace selection (monitor.php) */
 #monitor_selection button {

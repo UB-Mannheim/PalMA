@@ -195,23 +195,23 @@ TODO:
     </legend>
 	<div id="login_fields">
         <div class="pure-control-group">
-            <label for="username"><?=_("User name")?></label>
-            <input id="username" name="username" type="text" value="<?=$username?>">
+            <label for="username"><?=_("User name")?></label
+            ><input id="username" name="username" type="text" value="<?=$username?>">
         </div>
 <?php
         if (CONFIG_PASSWORD) {
 ?>
         <div class="pure-control-group">
-            <label for="userpassword"><?=_("Password")?></label>
-            <input id="userpassword" name="userpassword" type="password">
+            <label for="userpassword"><?=_("Password")?></label
+            ><input id="userpassword" name="userpassword" type="password">
         </div>
 <?php
         }
         if (CONFIG_PIN) {
 ?>
         <div class="pure-control-group">
-            <label for="pin"><?=_("PIN")?></label>
-            <input id="pin" name="pin" type="text" value="<?=$posted_pin?>">
+            <label for="pin"><?=_("PIN")?></label
+            ><input id="pin" name="pin" type="text" value="<?=$posted_pin?>">
         </div>
 <?php
         }
