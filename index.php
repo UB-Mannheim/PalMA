@@ -653,10 +653,10 @@ function addWindowControls(layout, controls, screensection, file, status) {
 
     var jump = document.createElement("div");
     jump.setAttribute("class", "jump");
-    jump.appendChild(keyControl(screensection, 'fa fa-ange-double-left', 'jumpbeginning', 'home', handler, !down, '<?=__("Jump to start")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-ange-left', 'pageback', 'prior', handler, !prior, '<?=__("Page up")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-left', 'jumpbeginning', 'home', handler, !down, '<?=__("Jump to start")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-left', 'pageback', 'prior', handler, !prior, '<?=__("Page up")?>'));
     jump.appendChild(keyControl(screensection, 'fa fa-angle-right', 'pageforward', 'next', handler, !next, '<?=__("Page down")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-ange-double-right', 'jumpend', 'end', handler, !end, '<?=__("Jump to end")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-right', 'jumpend', 'end', handler, !end, '<?=__("Jump to end")?>'));
 
     movement.appendChild(arrows);
     movement.appendChild(jump);

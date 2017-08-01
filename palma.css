@@ -23,35 +23,30 @@ a:hover, a:active {
 }
 
 /* Login form (login.php) */
+#login_mask {
+    margin: 1em auto;
+    background-color: #f1f1f1;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    padding: .5em;
+    width: auto;
+    max-width: 800px;
+}
 legend {
     font-family: sans-serif;
     font-size: 1.3em;
     text-align: center;
 }
-#login_mask {
-    margin: 5em auto;
-    padding: .5em 1.5em;
-    width: auto;
-    max-width: 460px;
-    background-color: #F1F1F1;
-    border: 1px solid #c0c0c0;
-}
-#login_mask i {
-    margin: .2em .6em;
-}
-#login_mask p {
-    text-align: center;
-}
-#login_mask .policy {
-    font-size: .8em;
-    margin: .5em;
-    text-align: center;
-}
 #login_fields {
-    float: left;
-    margin-right: .5em;
+    text-align: center;
+    margin: .5em;
 }
-
+#login_mask button i {
+    margin-left: .3em;
+}
+div.policy {
+    text-align: center;
+}
 /* Workplace selection (monitor.php) */
 #monitor_selection button {
     margin: 10px 10px 10px 10px;
