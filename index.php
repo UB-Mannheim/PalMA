@@ -1018,9 +1018,9 @@ function openSubtab(evt, tabName, subtabName) {
             <div id="vnc-button" onclick="javascript:getFilePathByOS()">
                 <div id="vnc-button-container">
                     <div id="vnc-button-label">Add your screen</div>
+                    <div id="vnc-button-icon"><i class="fa fa-video-camera fa-2x" aria-hidden="true"></i></div>
                     <div id="vnc-button-label-subtext">Download screensharing tool</div>
                 </div>
-                <div id="vnc-button-icon"><i class="fa fa-video-camera fa-2x" aria-hidden="true"></i> </div>
                 <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
                 <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
                 <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
@@ -1047,8 +1047,8 @@ function openSubtab(evt, tabName, subtabName) {
                         title="<?=__('Choose screen layout')?>">
                     <i alt="1" class="fa fa-desktop fa-2x" aria-hidden="true"></i>
                 </button>
-            </div>
-            <div class="screenlayout">
+            </div
+            ><div class="screenlayout">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         id="g1x2" onclick="miniDisplaySelect(this)"
                         title="<?=__('Choose screen layout')?>">
@@ -1056,16 +1056,16 @@ function openSubtab(evt, tabName, subtabName) {
                     <br />
                     <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                 </button>
-            </div>
-            <div class="screenlayout">
+            </div
+            ><div class="screenlayout">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         id="g2x1" onclick="miniDisplaySelect(this)"
                         title="<?=__('Choose screen layout')?>">
                     <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                     <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                 </button>
-            </div>
-            <div class="screenlayout">
+            </div
+            ><div class="screenlayout">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         id="g1a2" onclick="miniDisplaySelect(this)"
                         title="<?=__('Choose screen layout')?>">
@@ -1078,8 +1078,8 @@ function openSubtab(evt, tabName, subtabName) {
                     <i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                     </div>
                 </button>
-            </div>
-            <div class="screenlayout">
+            </div
+            ><div class="screenlayout">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         id="g2x2" onclick="miniDisplaySelect(this)"
                         title="<?=__('Choose screen layout')?>">
@@ -1217,8 +1217,8 @@ function openSubtab(evt, tabName, subtabName) {
                     </tbody>
                 </table>
                 <div class="description">
-                    New users can join at:<br />
-                    URL: <?=$_SESSION['starturl']?><?=$_SESSION['pin']?>
+                    New users can join at<br />
+                    <?=$_SESSION['starturl']?><?=$_SESSION['pin']?>
                 </div>
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         onClick="sendToNuc('logout=ALL')"
@@ -1241,24 +1241,4 @@ function openSubtab(evt, tabName, subtabName) {
     ?>
 </div> <!-- Footer -->
 </body>
-<script>
-    var acc = document.getElementsByClassName("window_entry_button");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function(){
-            /* Toggle between adding and removing the "active" class,
-            to highlight the button that controls the panel */
-            this.classList.toggle("active");
-
-            /* Toggle between hiding and showing the active panel */
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        }
-    }
-</script>
 </html>

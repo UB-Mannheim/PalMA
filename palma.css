@@ -4,7 +4,7 @@
 body {
     max-width: 1200px;
     margin: 0 auto;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;
@@ -105,7 +105,7 @@ div.tab button, div.subtab button {
     border: none;
     outline: none;
     cursor: pointer;
-    padding: .6em .8em;
+    padding: .4em .5em;
     transition: 0.3s;
     color: #f1f1f1;
     width:auto;
@@ -181,10 +181,10 @@ div.description {
 
 /* Add URL */
 #url_field {
-    width: 65%;
+    width: 60%;
 }
 #url_button {
-    width: 25%;
+    width: 30%;
 }
 
 /* Add Screen */
@@ -192,7 +192,7 @@ div.description {
     border:1px solid #990000;
     border-radius: 7px;
     background-color: #f1f1f1;
-    width: 15em;
+    width: 13em;
     height: 2.5em;
     margin: .3em auto;
     padding: .6em;
@@ -220,9 +220,10 @@ div.screenlayout {
     vertical-align: middle;
 }
 div.screenlayout button {
-    width: 3.2em;
-    height: 3.2em;
+    width: 3em;
+    height: 3em;
     background-color: #b1b1b1;
+    padding: .2em;
 }
 div.screenlayout button i {
     vertical-align: middle;
@@ -241,7 +242,7 @@ div.window_entry {
     border: 1px solid #b1b1b1;
     max-height: 15em;
     margin: 0 auto .5em auto;
-    max-width: 400px;
+    max-width: 500px;
 }
 div.window_entry button {
     border: none;
@@ -268,6 +269,7 @@ button.window_entry_button:active {
 }
 div.windowcontrols {
     margin: .3em auto;
+    font-size: 1.4em;
 }
 div.movement, div.non_movement {
     margin: 0 auto;
@@ -288,8 +290,8 @@ div.position {
     margin: .5em auto;
     border-radius: 6px;
     background-color: #b1b1b1;
-    width: 3.5em;
-    height: 3.5em;
+    width: 4em;
+    height: 4em;
 }
 div.g1x1, div.g2x1{
     line-height: 3.5em;
@@ -576,7 +578,7 @@ background-color: #FF6600
         display: block !important;
     }
 }
-@media only screen and (min-height: 300px) {
+@media only screen and (min-height: 200px) {
     #Control div.subtab {
         display: none !important;
     }
