@@ -236,6 +236,10 @@ div.screenlayout div.layout_left, div.screenlayout div.layout_right {
     display: inline-block;
     vertical-align: middle;
 }
+div.vertical i {
+    display: block;
+    margin-top: .1em;
+}
 
 /* Control Navigate */
 div.window_entry {

@@ -1047,12 +1047,11 @@ function openSubtab(evt, tabName, subtabName) {
                     <i alt="1" class="fa fa-desktop fa-2x" aria-hidden="true"></i>
                 </button>
             </div
-            ><div class="screenlayout">
+            ><div class="screenlayout vertical">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         id="g1x2" onclick="miniDisplaySelect(this)"
                         title="<?=__('Choose screen layout')?>">
                     <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
-                    <br />
                     <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                 </button>
             </div
@@ -1071,9 +1070,8 @@ function openSubtab(evt, tabName, subtabName) {
                     <div class="layout_left">
                     <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                     </div>
-                    <div class="layout_right">
+                    <div class="layout_right vertical">
                     <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
-                    <br />
                     <i alt="3" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                     </div>
                 </button>
