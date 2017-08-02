@@ -101,7 +101,7 @@ div.subtab {
     border-top: none;
 }
 div.tab button, div.subtab button {
-    background-color: inherit;
+    background-color: transparent;
     border: none;
     outline: none;
     cursor: pointer;
@@ -249,7 +249,7 @@ div.window_entry button {
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: inherit;
+    background-color: transparent;
 }
 div.window_entry button.window_entry_button {
     background-color: #f1f1f1;
@@ -310,7 +310,7 @@ div.position button {
     vertical-align: middle;
 }
 div.position button:hover {
-    background-color: inherit;
+    background-color: transparent;
     background-image: none;
 }
 div.position i {
@@ -319,7 +319,7 @@ div.position i {
 }
 div.position button:hover i {
     color: #995555;
-    background-color: inherit;
+    background-color: transparent;
 }
 div.position button.selected i {
     color: #990000;
@@ -516,7 +516,7 @@ background-color: #FF6600
     vertical-align: top;
 }
 .userlist caption i {
-    background-color: inherit;
+    background-color: transparent;
     color: black;
     margin-left: 10px;
 }
