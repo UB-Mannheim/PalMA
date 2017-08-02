@@ -1017,8 +1017,7 @@ function openSubtab(evt, tabName, subtabName) {
         <div id="Screen" class="subtabcontent">
             <div id="vnc-button" onclick="javascript:getFilePathByOS()">
                 <div id="vnc-button-container">
-                    <div id="vnc-button-label">Add your screen</div>
-                    <div id="vnc-button-icon"><i class="fa fa-video-camera fa-2x" aria-hidden="true"></i></div>
+                    <div id="vnc-button-label">Add your screen <i class="fa fa-video-camera fa-2x" aria-hidden="true"></i></div>
                     <div id="vnc-button-label-subtext">Download screensharing tool</div>
                 </div>
                 <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>

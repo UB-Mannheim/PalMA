@@ -4,7 +4,7 @@
 body {
     max-width: 1200px;
     margin: 0 auto;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;
@@ -200,7 +200,7 @@ div.description {
     cursor:pointer;
     cursor: hand;
 }
-#vnc-button-icon { float:right; }
+#vnc-button i { float:right; }
 #vnc-button-container {
     float:left;
     margin-left: 0;
@@ -218,6 +218,7 @@ div.description {
 div.screenlayout {
     display: inline-block;
     vertical-align: middle;
+    margin: 0 .05em;
 }
 div.screenlayout button {
     width: 3em;
@@ -269,11 +270,11 @@ button.window_entry_button:active {
 }
 div.windowcontrols {
     margin: .3em auto;
-    font-size: 1.4em;
+    font-size: 1.3em;
 }
 div.movement, div.non_movement {
     margin: 0 auto;
-    padding: 0 1em 0 1em;
+    padding: 0 .5em;
     display: inline-block;
 }
 div.windowcontrols button:active, div.windowcontrols button:hover {
@@ -570,7 +571,7 @@ background-color: #FF6600
 
 /* Modifications for larger screens */
 @media only screen and (min-height:600px) and (min-width: 480px){
-    body {font-size: 1.3em;}
+    body {font-size: 1.4em;}
     #Add div.subtab, #Control div.subtab {
         display: none !important;
     }
