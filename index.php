@@ -892,8 +892,12 @@ function getOS() {
     if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
     if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
     if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
-    if (navigator.appVersion.indexOf("android")!=-1) OSName="Android";
-    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) OSName="iOS";
+    if (navigator.userAgent.indexOf("Android")!=-1) OSName="Android";
+    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) OSName="iOS";
+    /* Source for Android and iOS:
+    https://davidwalsh.name/detect-android
+    https://davidwalsh.name/detect-iphone
+    https://davidwalsh.name/detect-ipad */
     return OSName;
 }
 
@@ -914,7 +918,7 @@ function getFilePathByOS() {
             break;
         case 'Android':
         case 'iOS':
-            download = null;
+            document.getElementById("Screen").innerHTML = '<div class="description">Sorry! Screensharing for your device is currently not supported.</div>';
             break;
         default: download = null;
     }
