@@ -217,6 +217,7 @@ div.description {
 
 /* Control Layout */
 #Control {display: block;}
+#Layout {display: none;}
 div.screenlayout {
     display: inline-block;
     vertical-align: middle;
@@ -330,6 +331,7 @@ div.position button:hover i {
 div.position button.selected i {
     color: #990000;
 }
+#closeWindows {display: none;}
 /* Extras Help */
 #Help, #Feedback {
     text-align: left;
@@ -581,7 +583,7 @@ background-color: #FF6600
     #Add div.subtab, #Control div.subtab {
         display: none !important;
     }
-    #Add div.subtabcontent, #Control div.subtabcontent {
+    #Add div.subtabcontent, #Navigate {
         display: block !important;
     }
     div.subtabcontent {
@@ -599,7 +601,7 @@ background-color: #FF6600
     #Control div.subtab {
         display: none !important;
     }
-    #Control div.subtabcontent {
+    #Navigate {
         display: block !important;
     }
 }

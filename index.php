@@ -721,8 +721,10 @@ function updateWindowList(window){
         entry.appendChild(document.createTextNode('There is no shared content yet. Click "Add" to get started!'));
         windowlist.appendChild(entry);
         document.getElementById("closeWindows").style.display = "none";
-        document.getElementById("Layout").style.display = "none !important";
+        document.getElementById("Layout").style.display = "none";
     } else {
+        document.getElementById("closeWindows").style.display = "inline-block";
+        document.getElementById("Layout").style.display = "block";
         // Add an entry for each window.
         var n;
         for (n = 0; n < window.length; n++) {
