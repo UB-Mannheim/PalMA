@@ -135,7 +135,6 @@ div.subtab button.active {
 .subtabcontent {
     padding: .5em;
     margin: 0 auto;
-    max-width: 500px;
 }
 @-webkit-keyframes fadeEffect {
     from {opacity: 0;}
@@ -584,6 +583,16 @@ background-color: #FF6600
     }
     #Add div.subtabcontent, #Control div.subtabcontent {
         display: block !important;
+    }
+    div.subtabcontent {
+        width: 85%;
+    }
+    div.window_entry {
+        display: inline-block;
+        width: 45%;
+        min-width: 380px;
+        margin-left: .25em;
+        margin-right: .25em;
     }
 }
 @media only screen and (min-height: 200px) {
