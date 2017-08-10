@@ -615,7 +615,7 @@ function addWindowPosition(layout, screensection) {
 
 
 function addWindowControls(layout, controls, screensection, file, status) {
-
+    var control = controls[screensection];
     if (typeof control == "undefined") {
     control = ["default", false, false, false, false,
                false, false, false, false, false, false, false];
