@@ -1130,7 +1130,7 @@ function openSubtab(evt, tabName, subtabName) {
                 <ul>
                 <li><i class="fa fa-file"></i> For PDF files, office files, images or videos use the file section.</li>
                 <li><i class="fa fa-globe"></i> To display a website use the URL field.</li>
-                <li><i class="fa fa-video-camera"></i> To share your destkop in real time, download the VNC screen sharing software and follow <a href="theme/<?=_(CONFIG_THEME)?>/palma_d.png">these instructions</a>. (Testlink)</li>
+                <li><i class="fa fa-video-camera"></i> To share your desktop in real time, download the VNC screen sharing software and follow <a href="theme/<?=_(CONFIG_THEME)?>/palma_d.png">these instructions</a>. (Testlink)</li>
                 </ul>
                 <!-- <p><?=__('Share the desktop of your notebook with others. PalMA uses
                 VNC for screen sharing. Download the VNC software once for your
@@ -1256,6 +1256,7 @@ function openSubtab(evt, tabName, subtabName) {
                     </tbody>
                 </table>
                 <div class="description">
+                    <!-- Question: Why ist the pin appended to the url? -->
                     New users can join at<br />
                     <?=$_SESSION['starturl']?><?=$_SESSION['pin']?>
                 </div>
