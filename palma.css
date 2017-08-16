@@ -336,12 +336,16 @@ div.position button.selected i {
 #Help, #Feedback {
     text-align: left;
 }
-
+p.url_hint {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
+}
 /* Extras Feedback & Recommend */
 #contact {text-align: center;}
 #contact input, #contact textarea {
     width: 75%;
-    max-width: 300px;
+    min-width: 200px;
     margin-bottom: .8em;
 }
 #recommendcontainer a {

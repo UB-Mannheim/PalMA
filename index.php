@@ -736,7 +736,6 @@ function updateWindowList(window){
             var divID = 'file' + screensection;
             entry.setAttribute('id', divID);
 
-            // Create button to open and close accordion
             var button = document.createElement('button');
             button.setAttribute("class", "window_entry_button");
             var icon = document.createElement('i');
@@ -1113,24 +1112,48 @@ function openSubtab(evt, tabName, subtabName) {
         ></div>
         <div id="Help" class="subtabcontent">
             <p><?=__('With PalMA, you can share your documents and your desktop
-            with your learning group.')?></p>
-            <p><?=__('Team members can join the group at any time. All they need
-            is <b>URL</b> and <b>PIN</b>.')?><br />
-            <h4>URL: <?=$_SESSION['starturl']?></h4>
-            <h4>PIN: <?=$_SESSION['pin']?></h4>
-            <p><?=__('The PalMA team monitor shows up to 4 contributions
+            with your learning group.')?> <?=__('The PalMA team monitor shows up to 4 contributions
             simultaneously.')?></p>
-            <p><?=__('Just upload PDF files, images, OpenDocument or
-            MS Office files or enter a URL &ndash; PalMA will show them.')?></p>
-            <p><?=__('Share the desktop of your notebook with others. PalMA uses
-            VNC for screen sharing. Download the VNC software once for your
-            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf"
-            onclick="window.open(this.href); return false;">Windows PC</a>
-            (preconfigured UltraVNC) or
-            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf"
-            onclick="window.open(this.href); return false;">MacBook</a>.')?></p>
-            <p><?=__('Linux users can share their X display like this:')?><br>
-            <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>
+            <p>Team members can join the group at any time with this URL:</p>
+            <p class="url_hint"><?=$_SESSION['starturl']?><?=$_SESSION['pin']?></p>
+            <h4>Add</h4>
+                <p>Use the "Add"-Section to share content on the PalMA monitor.</p>
+                <ul>
+                <li>For PDF files, office files, images or videos use the file section.</li>
+                <li>To display a website use the URL field.</li>
+                <li>To share your destkop in real time, download the VNC screen sharing software and follow <a href="theme/<?=_(CONFIG_THEME)?>/palma_d.png">these instructions</a>. (Testlink)</li>
+                </ul>
+                <!-- <p><?=__('Share the desktop of your notebook with others. PalMA uses
+                VNC for screen sharing. Download the VNC software once for your
+                <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf"
+                onclick="window.open(this.href); return false;">Windows PC</a>
+                (preconfigured UltraVNC) or
+                <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf"
+                onclick="window.open(this.href); return false;">MacBook</a>.')?></p>
+                <p><?=__('Linux users can share their X display like this:')?><br>
+                <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>-->
+            <h4>Control</h4>
+                <p>On the left you find the navigation controls.
+                <ul>
+                <li>Arrow buttons navigate gradually.</li>
+                <li>Buttons below jump a page back/forth or jump to start/end.</li>
+                </ul>
+                On the right you can
+                <ul>
+                <li>Zoom in and out,</li>
+                <li>Hide and show content,</li>
+                <li>Choose the position on the PalMA monitor,</li>
+                <li>Download an item,</li>
+                <li>Delete an item.</li>
+                </ul>
+                </p>
+            <h4>Extras</h4>
+                <p>Some additional features are:</p>
+                <ul>
+                <li>This help,</li>
+                <li>Your chance to recommend us or give us your thoughts in the "Feedback" section,</li>
+                <li>A list of all logged-in users and a button to kill the session.</li>
+                </ul>
         </div>
         <div id="Feedback" class="subtabcontent">
             <div id="recommendcontainer">
