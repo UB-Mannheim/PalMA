@@ -349,6 +349,13 @@ p.url_hint {
     text-align: center;
     font-size: 1.2em;
 }
+#Help h4 {
+    margin: 1em 0 .5em 0;
+}
+#Help p {
+    margin: .25em 0;
+}
+
 /* Extras Feedback & Recommend */
 #contact {text-align: center;}
 #contact input, #contact textarea {

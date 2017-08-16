@@ -1125,12 +1125,12 @@ function openSubtab(evt, tabName, subtabName) {
             simultaneously.')?></p>
             <p>Team members can join the group at any time with this URL:</p>
             <p class="url_hint"><?=$_SESSION['starturl']?><?=$_SESSION['pin']?></p>
-            <h4>Add</h4>
+            <h4>Add <i class="fa fa-plus"></i></h4>
                 <p>Use the "Add"-Section to share content on the PalMA monitor.</p>
                 <ul>
-                <li>For PDF files, office files, images or videos use the file section.</li>
-                <li>To display a website use the URL field.</li>
-                <li>To share your destkop in real time, download the VNC screen sharing software and follow <a href="theme/<?=_(CONFIG_THEME)?>/palma_d.png">these instructions</a>. (Testlink)</li>
+                <li><i class="fa fa-file"></i> For PDF files, office files, images or videos use the file section.</li>
+                <li><i class="fa fa-globe"></i> To display a website use the URL field.</li>
+                <li><i class="fa fa-video-camera"></i> To share your destkop in real time, download the VNC screen sharing software and follow <a href="theme/<?=_(CONFIG_THEME)?>/palma_d.png">these instructions</a>. (Testlink)</li>
                 </ul>
                 <!-- <p><?=__('Share the desktop of your notebook with others. PalMA uses
                 VNC for screen sharing. Download the VNC software once for your
@@ -1141,27 +1141,31 @@ function openSubtab(evt, tabName, subtabName) {
                 onclick="window.open(this.href); return false;">MacBook</a>.')?></p>
                 <p><?=__('Linux users can share their X display like this:')?><br>
                 <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>-->
-            <h4>Control</h4>
-                <p>On the left you find the navigation controls.
+            <h4>Control <i class="fa fa-arrows"></i></h4>
+                <p>With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.</p>
+                <p>Below that you find the controls for each content:</p>
                 <ul>
-                <li>Arrow buttons navigate gradually.</li>
-                <li>Buttons below jump a page back/forth or jump to start/end.</li>
-                </ul>
-                On the right you can
+                <li>On the left you find the navigation controls.</li>
                 <ul>
-                <li>Zoom in and out,</li>
-                <li>Hide and show content,</li>
-                <li>Choose the position on the PalMA monitor,</li>
-                <li>Download an item,</li>
-                <li>Delete an item.</li>
+                <li>Arrow buttons navigate gradually <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
+                <li>Buttons below jump a page back/forth or jump to start/end <i class="fa fa-angle-double-left"></i> <i class="fa fa-angle-left"></i> <i class="fa fa-angle-right"></i> <i class="fa fa-angle-double-right"></i>.</li>
                 </ul>
-                </p>
-            <h4>Extras</h4>
+                </li>
+                <li>On the right you can</li>
+                <ul>
+                <li>Zoom in and out <i class="fa fa-search-plus"></i> <i class="fa fa-search-minus"></i>,</li>
+                <li>Hide and show content <i class="fa fa-eye"></i>,</li>
+                <li>Choose the position on the PalMA monitor <i class="fa fa-desktop"></i>,</li>
+                <li>Download an item <i class="fa fa-download"></i>,</li>
+                <li>Delete an item <i class="fa fa-trash-o"></i>.</li>
+                </ul>
+                </ul>
+            <h4>Extras <i class="fa fa-info-circle"></i></h4>
                 <p>Some additional features are:</p>
                 <ul>
-                <li>This help,</li>
-                <li>Your chance to recommend us or give us your thoughts in the "Feedback" section,</li>
-                <li>A list of all logged-in users and a button to kill the session.</li>
+                <li><i class="fa fa-question-circle"></i> This help,</li>
+                <li><i class="fa fa-thumbs-o-up"></i> Your chance to recommend us or give us your thoughts in the "Feedback" section,</li>
+                <li><i class="fa fa-users"></i> A list of all logged-in users and a button to kill the session.</li>
                 </ul>
         </div>
         <div id="Feedback" class="subtabcontent">
