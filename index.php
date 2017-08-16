@@ -1123,50 +1123,56 @@ function openSubtab(evt, tabName, subtabName) {
             <p><?=__('With PalMA, you can share your documents and your desktop
             with your learning group.')?> <?=__('The PalMA team monitor shows up to 4 contributions
             simultaneously.')?></p>
+
+            <h4>Connect</h4>
             <p>Team members can join the group at any time with this URL:</p>
             <p class="url_hint"><?=$_SESSION['starturl']?><?=$_SESSION['pin']?></p>
+            <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?><?=$_SESSION['pin']?>" alt="QR Code">
+
             <h4>Add <i class="fa fa-plus"></i></h4>
-                <p>Use the "Add"-Section to share content on the PalMA monitor.</p>
-                <ul>
-                <li><i class="fa fa-file"></i> For PDF files, office files, images or videos use the file section.</li>
-                <li><i class="fa fa-globe"></i> To display a website use the URL field.</li>
-                <li><i class="fa fa-video-camera"></i> To share your destkop in real time, download the VNC screen sharing software and follow <a href="theme/<?=_(CONFIG_THEME)?>/palma_d.png">these instructions</a>. (Testlink)</li>
-                </ul>
-                <!-- <p><?=__('Share the desktop of your notebook with others. PalMA uses
-                VNC for screen sharing. Download the VNC software once for your
-                <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf"
-                onclick="window.open(this.href); return false;">Windows PC</a>
-                (preconfigured UltraVNC) or
-                <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf"
-                onclick="window.open(this.href); return false;">MacBook</a>.')?></p>
-                <p><?=__('Linux users can share their X display like this:')?><br>
-                <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>-->
+            <p>Use the "Add"-Section to share content on the PalMA monitor.</p>
+            <ul>
+            <li><i class="fa fa-file"></i> For PDF files, office files, images or videos use the file section.</li>
+            <li><i class="fa fa-globe"></i> To display a website use the URL field.</li>
+            <li><i class="fa fa-video-camera"></i> To share your destkop in real time, download the VNC screen sharing software and follow <a href="theme/<?=_(CONFIG_THEME)?>/palma_d.png">these instructions</a>. (Testlink)</li>
+            </ul>
+            <!-- <p><?=__('Share the desktop of your notebook with others. PalMA uses
+            VNC for screen sharing. Download the VNC software once for your
+            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf"
+            onclick="window.open(this.href); return false;">Windows PC</a>
+            (preconfigured UltraVNC) or
+            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf"
+            onclick="window.open(this.href); return false;">MacBook</a>.')?></p>
+            <p><?=__('Linux users can share their X display like this:')?><br>
+            <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>-->
+
             <h4>Control <i class="fa fa-arrows"></i></h4>
-                <p>With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.</p>
-                <p>Below that you find the controls for each content:</p>
-                <ul>
-                <li>On the left you find the navigation controls.</li>
-                <ul>
-                <li>Arrow buttons navigate gradually <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
-                <li>Buttons below jump a page back/forth or jump to start/end <i class="fa fa-angle-double-left"></i> <i class="fa fa-angle-left"></i> <i class="fa fa-angle-right"></i> <i class="fa fa-angle-double-right"></i>.</li>
-                </ul>
-                </li>
-                <li>On the right you can</li>
-                <ul>
-                <li>Zoom in and out <i class="fa fa-search-plus"></i> <i class="fa fa-search-minus"></i>,</li>
-                <li>Hide and show content <i class="fa fa-eye"></i>,</li>
-                <li>Choose the position on the PalMA monitor <i class="fa fa-desktop"></i>,</li>
-                <li>Download an item <i class="fa fa-download"></i>,</li>
-                <li>Delete an item <i class="fa fa-trash-o"></i>.</li>
-                </ul>
-                </ul>
+            <p>With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.</p>
+            <p>Below that you find the controls for each content:</p>
+            <ul>
+            <li>On the left you find the navigation controls.</li>
+            <ul>
+            <li>Arrow buttons navigate gradually <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
+            <li>Buttons below jump a page back/forth or jump to start/end <i class="fa fa-angle-double-left"></i> <i class="fa fa-angle-left"></i> <i class="fa fa-angle-right"></i> <i class="fa fa-angle-double-right"></i>.</li>
+            </ul>
+            </li>
+            <li>On the right you can</li>
+            <ul>
+            <li>Zoom in and out <i class="fa fa-search-plus"></i> <i class="fa fa-search-minus"></i>,</li>
+            <li>Hide and show content <i class="fa fa-eye"></i>,</li>
+            <li>Choose the position on the PalMA monitor <i class="fa fa-desktop"></i>,</li>
+            <li>Download an item <i class="fa fa-download"></i>,</li>
+            <li>Delete an item <i class="fa fa-trash-o"></i>.</li>
+            </ul>
+            </ul>
+
             <h4>Extras <i class="fa fa-info-circle"></i></h4>
-                <p>Some additional features are:</p>
-                <ul>
-                <li><i class="fa fa-question-circle"></i> This help,</li>
-                <li><i class="fa fa-thumbs-o-up"></i> Your chance to recommend us or give us your thoughts in the "Feedback" section,</li>
-                <li><i class="fa fa-users"></i> A list of all logged-in users and a button to kill the session.</li>
-                </ul>
+            <p>Some additional features are:</p>
+            <ul>
+            <li><i class="fa fa-question-circle"></i> This help,</li>
+            <li><i class="fa fa-thumbs-o-up"></i> Your chance to recommend us or give us your thoughts in the "Feedback" section,</li>
+            <li><i class="fa fa-users"></i> A list of all logged-in users and a button to kill the session.</li>
+            </ul>
         </div>
         <div id="Feedback" class="subtabcontent">
             <div id="recommendcontainer">
@@ -1258,6 +1264,7 @@ function openSubtab(evt, tabName, subtabName) {
                 <div class="description">
                     New users can join at<br />
                     <?=$_SESSION['starturl']?><?=$_SESSION['pin']?>
+                    <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?><?=$_SESSION['pin']?>" alt="QR Code">
                 </div>
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         onClick="sendToNuc('logout=ALL')"

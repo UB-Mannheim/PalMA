@@ -350,12 +350,17 @@ p.url_hint {
     font-size: 1.2em;
 }
 #Help h4 {
-    margin: 1em 0 .5em 0;
+    margin: 1.5em 0 .5em 0;
 }
 #Help p {
     margin: .25em 0;
 }
-
+img.qr-code {
+    width: 6em;
+    height: 6em;
+    margin: 0 auto;
+    display: block;
+}
 /* Extras Feedback & Recommend */
 #contact {text-align: center;}
 #contact input, #contact textarea {
