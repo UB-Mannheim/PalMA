@@ -216,6 +216,14 @@ div.description {
 }
 
 /* Control Layout */
+button.splash_add {
+    height: 3em;
+    background-color: #990000;
+    color: white;
+    border-radius: 6px;
+    font-size: 1.5em;
+    margin-top: 1em;
+}
 #Control {display: block;}
 #Layout {display: none;}
 div.screenlayout {

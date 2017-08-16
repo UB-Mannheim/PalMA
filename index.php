@@ -719,7 +719,16 @@ function updateWindowList(window){
         var entry = document.createElement('div');
         entry.setAttribute("class", "description");
         entry.appendChild(document.createTextNode('There is no shared content yet. Click "Add" to get started!'));
+        var addbutton = document.createElement('button');
+        addbutton.setAttribute("class", "splash_add pure-button");
+        addbutton.setAttribute("onclick", "openTab(event, 'Add')");
+        var addtext = document.createTextNode("Add ");
+        addbutton.appendChild(addtext);
+        var addicon = document.createElement("i");
+        addicon.setAttribute("class", "fa fa-plus");
+        addbutton.appendChild(addicon);
         windowlist.appendChild(entry);
+        windowlist.appendChild(addbutton);
         document.getElementById("closeWindows").style.display = "none";
         document.getElementById("Layout").style.display = "none";
     } else {
