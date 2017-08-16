@@ -207,7 +207,7 @@ function is_valid_url(url)
 function urlToNuc() {
 
     var url = document.getElementById('url_field').value;
-    //~ alert(url);
+    url = url.toLowerCase();
     if (is_valid_url(url)) {
         // Encode special characters
         url = encodeURIComponent(url);
