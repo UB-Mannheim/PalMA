@@ -1,6 +1,10 @@
 /* Styles for PalMA. */
 
 /* General settings */
+html {
+    /* This keeps appearing scrollbars from repositioning the webpage */
+    margin-left: calc(100vw - 100%);
+}
 body {
     max-width: 1200px;
     margin: 0 auto;
@@ -546,7 +550,7 @@ background-color: #FF6600
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #d1d1d1;
     z-index: 1;
     text-align: center;
     width: 25%;
