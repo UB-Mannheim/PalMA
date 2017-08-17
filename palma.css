@@ -537,6 +537,37 @@ background-color: #FF6600
   background-color: #4B97D1;}
 
 /* Extras User */
+/* Language Selection */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1em;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    z-index: 1;
+    text-align: center;
+    width: 25%;
+    right: 0;
+    border-radius: 6px;
+}
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    border-radius: 6px;
+}
+.dropdown-content a:hover {
+    background-color: #995555;
+    color: white;
+}
+.dropdown-content a:active {
+    background-color: #990000;
+    color: white;
+}
+.show {display:block;}
 .userlist {
     width: 75%;
     max-width: 500px;

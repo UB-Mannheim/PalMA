@@ -1001,6 +1001,24 @@ function openAccordion(divID) {
         button.setAttribute("class", "window_entry_button active");
     }
 }
+
+function showDropdown() {
+    document.getElementById("languageSelection").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbutton')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 </script>
 </head>
 
@@ -1284,6 +1302,23 @@ function openAccordion(divID) {
             </div> <!-- contactcontainer -->
         </div> <!-- feedback -->
         <div id="Users" class="subtabcontent">
+            <div class="dropdown">
+                <button onclick="showDropdown()" class="dropbutton pure-button pure-button-primary">Select language: <?=substr($locale, 0, 2)?> <i class="fa fa-caret-down"></i></button>
+                <div id="languageSelection" class="dropdown-content">
+                <?php
+                $dirs = array_slice(scandir('locale'), 2);
+                $langs = [];
+                for ($n = 0; $n < count($dirs); $n++) {
+                    if (is_dir("locale/$dirs[$n]")) {
+                        array_push($langs, substr($dirs[$n], 0, 2));
+                    }
+                }
+                for ($i = 0; $i < count($langs); $i++) {
+                    echo "<a href=$_SERVER[PHP_SELF]?lang=$langs[$i]>$langs[$i]</a>";
+                }
+                ?>
+                </div>
+            </div>
             <div class="list_container">
                 <table class="userlist" summary="<?=__('User list')?>" title="<?=__('List of connected users')?>">
                     <tbody id="userlist">
