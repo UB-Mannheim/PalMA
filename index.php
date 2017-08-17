@@ -1143,22 +1143,21 @@ function openAccordion(divID) {
             <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?><?=$_SESSION['pin']?>" alt="QR Code">
 
             <h4>Add <i class="fa fa-plus"></i></h4>
-            <p>Use the "Add"-Section to share content on the PalMA monitor.</p>
-            <ul>
-            <li><i class="fa fa-file"></i> For PDF files, office files, images or videos use the file section.</li>
-            <li><i class="fa fa-globe"></i> To display a website use the URL field.</li>
-            <li><i class="fa fa-video-camera"></i> To share your destkop in real time, download the VNC screen sharing software and follow <a href="theme/<?=_(CONFIG_THEME)?>/palma_d.png">these instructions</a>. (Testlink)</li>
-            </ul>
-            <!-- <p><?=__('Share the desktop of your notebook with others. PalMA uses
-            VNC for screen sharing. Download the VNC software once for your
-            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf"
-            onclick="window.open(this.href); return false;">Windows PC</a>
-            (preconfigured UltraVNC) or
-            <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf"
-            onclick="window.open(this.href); return false;">MacBook</a>.')?></p>
-            <p><?=__('Linux users can share their X display like this:')?><br>
-            <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>-->
-
+                <p>Use the "Add"-Section to share content on the PalMA monitor.</p>
+                <ul>
+                <li><i class="fa fa-file"></i> For PDF files, office files, images or videos use the file section.</li>
+                <li><i class="fa fa-globe"></i> To display a website use the URL field.</li>
+                <li><i class="fa fa-video-camera"></i> To share your desktop in real time, download the VNC screen sharing software and follow <a href="theme/<?=_(CONFIG_THEME)?>/palma_d.png">these instructions</a>. (Testlink)</li>
+                </ul>
+                <!-- <p><?=__('Share the desktop of your notebook with others. PalMA uses
+                VNC for screen sharing. Download the VNC software once for your
+                <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf"
+                onclick="window.open(this.href); return false;">Windows PC</a>
+                (preconfigured UltraVNC) or
+                <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf"
+                onclick="window.open(this.href); return false;">MacBook</a>.')?></p>
+                <p><?=__('Linux users can share their X display like this:')?><br>
+                <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>-->
             <h4>Control <i class="fa fa-arrows"></i></h4>
             <p>With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.</p>
             <p>Below that you find the controls for each content:</p>
@@ -1275,6 +1274,7 @@ function openAccordion(divID) {
                     </tbody>
                 </table>
                 <div class="description">
+                    <!-- Question: Why ist the pin appended to the url? -->
                     New users can join at<br />
                     <?=$_SESSION['starturl']?><?=$_SESSION['pin']?>
                     <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?><?=$_SESSION['pin']?>" alt="QR Code">
