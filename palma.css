@@ -240,7 +240,10 @@ div.screenlayout button {
 div.screenlayout button i {
     vertical-align: middle;
 }
-div.screenlayout button:hover, div.screenlayout button:active {
+div.screenlayout button:hover {
+    background-color: #995555;
+}
+div.screenlayout button:active {
     background-color: #990000;
 }
 div.screenlayout div.layout_left, div.screenlayout div.layout_right {
@@ -287,7 +290,7 @@ button.window_entry_button.active {
 div.windowcontrols {
     margin: .3em auto;
     font-size: 1.3em;
-    display: block;
+    display: none;
 }
 div.movement, div.non_movement {
     margin: 0 auto;
@@ -623,6 +626,9 @@ background-color: #FF6600
         min-width: 380px;
         margin-left: .25em;
         margin-right: .25em;
+    }
+    div.windowcontrols {
+        display: block !important;
     }
 }
 @media only screen and (min-height: 200px) {

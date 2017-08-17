@@ -297,6 +297,7 @@ function showLayout(layout, controls, window) {
     var windowlist = document.getElementById('windowlist');
     var entries = windowlist.getElementsByClassName('window_entry');
     var screensection, file, status;
+    markCurrentLayout(layout);
     for (var n = 0; n < window.length; n++) {
         screensection = window[n].section;
         file = window[n].file;
@@ -305,8 +306,20 @@ function showLayout(layout, controls, window) {
     }
 }
 
+function markCurrentLayout(layout) {
+    var layoutDivs = document.getElementsByClassName("screenlayout");
+    for (var i = 0 ; i < layoutDivs.length ; i++) {
+        var children = layoutDivs[i].getElementsByClassName("pure-button");
+        for (var k = 0 ; k < children.length ; k++) {
+            children[k].style.backgroundColor = "";
+        }
+    }
+    document.getElementById(layout).style.backgroundColor = "#990000";
+}
+
 function miniDisplaySelect(element) {
     sendToNuc('layout=' + element.id);
+    markCurrentLayout(element.id);
 }
 
 function getHandlerCommand(handle, task) {
@@ -975,14 +988,17 @@ function openSubtab(evt, tabName, subtabName) {
 }
 
 function openAccordion(divID) {
-    var panel = document.getElementById(divID).lastChild;
     var button = document.getElementById(divID).firstChild;
-    if (panel.style.display == "none") {
-        panel.style.display = "block";
+    var windowcontrols = document.getElementById(divID).lastChild;
+    if (windowcontrols.style.display == "block") {
+        windowcontrols.style.display = "none";
+        button.setAttribute("class", "window_entry_button");
+    } else if (windowcontrols.style.display == "none") {
+        windowcontrols.style.display = "block";
         button.setAttribute("class", "window_entry_button active");
     } else {
-        panel.style.display = "none";
-        button.setAttribute("class", "window_entry_button");
+        windowcontrols.style.display = "block";
+        button.setAttribute("class", "window_entry_button active");
     }
 }
 </script>
