@@ -259,6 +259,7 @@ div.window_entry {
     max-height: 15em;
     margin: 0 auto .5em auto;
     max-width: 500px;
+    vertical-align: top;
 }
 div.window_entry button {
     border: none;
@@ -341,6 +342,7 @@ div.position button.selected i {
     color: #990000;
 }
 #closeWindows {display: none;}
+
 /* Extras Help */
 #Help, #Feedback {
     text-align: left;
@@ -362,6 +364,7 @@ img.qr-code {
     margin: 0 auto;
     display: block;
 }
+
 /* Extras Feedback & Recommend */
 #contact {text-align: center;}
 #contact input, #contact textarea {
