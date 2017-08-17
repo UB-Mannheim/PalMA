@@ -1154,9 +1154,10 @@ function openAccordion(divID) {
             simultaneously.')?></p>
 
             <h4>Connect</h4>
-            <p>Team members can join the group at any time with this URL:</p>
-            <p class="url_hint"><?=$_SESSION['starturl']?><?=$_SESSION['pin']?></p>
-            <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?><?=$_SESSION['pin']?>" alt="QR Code">
+            <p>Team members can join the group at any time with this URL or QR-Code:</p>
+            <p class="url_hint"><?=$_SESSION['starturl']?><br />
+            PIN: <?=$_SESSION['pin']?></p>
+            <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?>?pin=<?=$_SESSION['pin']?>" alt="QR Code">
 
             <h4>Add <i class="fa fa-plus"></i></h4>
                 <p>Use the "Add"-Section to share content on the PalMA monitor.</p>
@@ -1290,10 +1291,9 @@ function openAccordion(divID) {
                     </tbody>
                 </table>
                 <div class="description">
-                    <!-- Question: Why ist the pin appended to the url? -->
-                    New users can join at<br />
-                    <?=$_SESSION['starturl']?><?=$_SESSION['pin']?>
-                    <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?><?=$_SESSION['pin']?>" alt="QR Code">
+                    New users can join at<br /><?=$_SESSION['starturl']?><br />
+                    PIN: <?=$_SESSION['pin']?>
+                    <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?>?pin=<?=$_SESSION['pin']?>" alt="QR Code">
                 </div>
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         onClick="sendToNuc('logout=ALL')"
