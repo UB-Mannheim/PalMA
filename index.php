@@ -747,6 +747,7 @@ function updateWindowList(window){
 
             var button = document.createElement('button');
             button.setAttribute("class", "window_entry_button");
+            button.setAttribute('onclick', "openAccordion('" + divID + "')");
             var icon = document.createElement('i');
             if (handler.indexOf("midori") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
@@ -971,6 +972,18 @@ function openSubtab(evt, tabName, subtabName) {
     // Show current subtab and add "active" class to the opening button
     document.getElementById(subtabName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+
+function openAccordion(divID) {
+    var panel = document.getElementById(divID).lastChild;
+    var button = document.getElementById(divID).firstChild;
+    if (panel.style.display == "none") {
+        panel.style.display = "block";
+        button.setAttribute("class", "window_entry_button active");
+    } else {
+        panel.style.display = "none";
+        button.setAttribute("class", "window_entry_button");
+    }
 }
 </script>
 </head>

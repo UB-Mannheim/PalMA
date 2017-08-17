@@ -280,12 +280,13 @@ button.window_entry_button i {
 button.window_entry_button:hover {
     background-color: #c0c0c0;
 }
-button.window_entry_button:active {
+button.window_entry_button.active {
     background-color: #b1b1b1;
 }
 div.windowcontrols {
     margin: .3em auto;
     font-size: 1.3em;
+    display: block;
 }
 div.movement, div.non_movement {
     margin: 0 auto;
