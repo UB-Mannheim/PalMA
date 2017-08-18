@@ -342,6 +342,8 @@ function getHandlerCommand(handle, task) {
     handler["default"]["zoomin"] = "ctrl+plus";
     handler["default"]["zoomout"] = "ctrl+minus";
     handler["default"]["download"] = "download";
+    handler["default"]["counterclockwise"] = "undefined";
+    handler["default"]["clockwise"] = "undefined";
 
     // Handler for web pages.
     handler["midori"] = {};
@@ -356,6 +358,8 @@ function getHandlerCommand(handle, task) {
     handler["midori"]["zoomin"] = "ctrl+plus";
     handler["midori"]["zoomout"] = "ctrl+minus";
     handler["midori"]["download"] = "download";
+    handler["midori"]["counterclockwise"] = "undefined";
+    handler["midori"]["clockwise"] = "undefined";
 
     // Handler for images.
     handler["feh"] = {};
@@ -370,6 +374,8 @@ function getHandlerCommand(handle, task) {
     handler["feh"]["zoomin"] = "KP_Add";
     handler["feh"]["zoomout"] = "KP_Subtract";
     handler["feh"]["download"] = "download";
+    handler["feh"]["counterclockwise"] = "<";
+    handler["feh"]["clockwise"] = ">";
 
     // Controls in LibreOffice: no zoom in calc and writer, has to be activated first
     // by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
@@ -385,6 +391,8 @@ function getHandlerCommand(handle, task) {
     handler["libreoffice"]["zoomin"] = "undefined";
     handler["libreoffice"]["zoomout"] = "undefined";
     handler["libreoffice"]["download"] = "download";
+    handler["libreoffice"]["counterclockwise"] = "undefined";
+    handler["libreoffice"]["clockwise"] = "undefined";
 
     // Handler for MS Excel and LibreOffice Calc documents.
     handler["libreoffice-calc"] = {};
@@ -399,6 +407,8 @@ function getHandlerCommand(handle, task) {
     handler["libreoffice-calc"]["zoomin"] = "undefined";
     handler["libreoffice-calc"]["zoomout"] = "undefined";
     handler["libreoffice-calc"]["download"] = "download";
+    handler["libreoffice-calc"]["counterclockwise"] = "undefined";
+    handler["libreoffice-calc"]["clockwise"] = "undefined";
 
     // Handler for MS Powerpoint and LibreOffice Impress documents.
     handler["libreoffice-impress"] = {};
@@ -413,6 +423,8 @@ function getHandlerCommand(handle, task) {
     handler["libreoffice-impress"]["zoomin"] = "plus";
     handler["libreoffice-impress"]["zoomout"] = "minus";
     handler["libreoffice-impress"]["download"] = "download";
+    handler["libreoffice-impress"]["counterclockwise"] = "undefined";
+    handler["libreoffice-impress"]["clockwise"] = "undefined";
 
     // Handler for MS Word and LibreOffice Writer documents.
     handler["libreoffice-writer"] = {};
@@ -427,6 +439,8 @@ function getHandlerCommand(handle, task) {
     handler["libreoffice-writer"]["zoomin"] = "undefined";
     handler["libreoffice-writer"]["zoomout"] = "undefined";
     handler["libreoffice-writer"]["download"] = "download";
+    handler["libreoffice-writer"]["counterclockwise"] = "undefined";
+    handler["libreoffice-writer"]["clockwise"] = "undefined";
 
     // Handler for videos.
     handler["vlc"] = {};
@@ -441,6 +455,8 @@ function getHandlerCommand(handle, task) {
     handler["vlc"]["zoomin"] = "undefined";
     handler["vlc"]["zoomout"] = "undefined";
     handler["vlc"]["download"] = "undefined";
+    handler["vlc"]["counterclockwise"] = "undefined";
+    handler["vlc"]["clockwise"] = "undefined";
 
     // Handler for shared desktops (VNC).
     handler["vnc"] = {};
@@ -455,6 +471,8 @@ function getHandlerCommand(handle, task) {
     handler["vnc"]["zoomin"] = "plus";
     handler["vnc"]["zoomout"] = "minus";
     handler["vnc"]["download"] = "undefined";
+    handler["vnc"]["counterclockwise"] = "undefined";
+    handler["vnc"]["clockwise"] = "undefined";
 
     // Handler for PDF documents.
     handler["zathura"] = {};
@@ -469,6 +487,8 @@ function getHandlerCommand(handle, task) {
     handler["zathura"]["zoomin"] = "plus";
     handler["zathura"]["zoomout"] = "minus";
     handler["zathura"]["download"] = "download";
+    handler["zathura"]["counterclockwise"] = "undefined";
+    handler["zathura"]["clockwise"] = "undefined";
 
     var send_keys = handler["default"]["up"];
 
@@ -648,6 +668,8 @@ function addWindowControls(layout, controls, screensection, file, status) {
     var prior = control[9];
     var next = control[10];
     var download = control[11];
+    var counterclockwise = control[12];
+    var clockwise = control[13];
 
     var windowcontrols = document.createElement("div");
     windowcontrols.setAttribute("class", "windowcontrols");
@@ -681,6 +703,17 @@ function addWindowControls(layout, controls, screensection, file, status) {
     visibility.setAttribute("class", "visibility");
     visibility.appendChild(keyControl(screensection, 'fa fa-search-plus', 'zoomin', 'zoomin', handler, !zoomin, '<?=__("Zoom in")?>'));
     visibility.appendChild(keyControl(screensection, 'fa fa-search-minus', 'zoomout', 'zoomout', handler, !zoomout, '<?=__("Zoom out")?>'));
+    visibility.appendChild(document.createElement("br"));
+    visibility.appendChild(keyControl(screensection, 'fa fa-rotate-left', 'counterclockwise', 'counterclockwise', handler, !counterclockwise, '<?=__("Rotate counterclockwise")?>'));
+    visibility.appendChild(keyControl(screensection, 'fa fa-rotate-right', 'clockwise', 'clockwise', handler, !clockwise, '<?=__("Rotate clockwise")?>'));
+
+    var position = addWindowPosition(layout, screensection);
+
+    var misc = document.createElement("div");
+    misc.setAttribute("class", "misc");
+    var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', handler, !download, '<?=__("Download this file")?>');
+    downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
+    misc.appendChild(downloadbutton);
     var button = document.createElement('button');
     button.setAttribute("class", "toogle");
     icon = document.createElement('i');
@@ -693,15 +726,8 @@ function addWindowControls(layout, controls, screensection, file, status) {
     icon.setAttribute('title', '<?=__("Toggle visibility")?>');
     button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&toggle=TRUE')");
     button.appendChild(icon);
-    visibility.appendChild(button);
+    misc.appendChild(button);
 
-    var position = addWindowPosition(layout, screensection);
-
-    var misc = document.createElement("div");
-    misc.setAttribute("class", "misc");
-    var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', handler, !download, '<?=__("Download this file")?>');
-    downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
-    misc.appendChild(downloadbutton);
     button = document.createElement('button');
     button.setAttribute("class", "trash");
     button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
@@ -808,31 +834,31 @@ function updateControlsBySection(window) {
         // alert("Section: " + section + " - Handler: " + handler);
 
         if (handler.indexOf("feh") > -1) {
-            // up down left right zoomin zoomout home end prior next download
-            control = ["feh", true, true, true, true, true, true, false, false, true, true, true];
+            // up down left right zoomin zoomout home end prior next download rotateleft rotateright
+            control = ["feh", true, true, true, true, true, true, false, false, true, true, true, true, true];
         } else if (handler.indexOf("libreoffice") > -1) {
             // Controls in LibreOffice: no zoom in calc and writer, has to be activated first
             // by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
-            control = ["libreoffice", true, true, true, true, false, false, false, false, true, true, true];
+            control = ["libreoffice", true, true, true, true, false, false, false, false, true, true, true, false, false];
                 if (handler.indexOf("--calc") > -1) {
-                    control = ["libreoffice-calc", true, true, true, true, false, false, true, true, true, true, true];
+                    control = ["libreoffice-calc", true, true, true, true, false, false, true, true, true, true, true, false, false];
                 }
                 if (handler.indexOf("--impress") > -1) {
-                    control = ["libreoffice-impress", true, true, true, true, true, true, true, true, true, true, true];
+                    control = ["libreoffice-impress", true, true, true, true, true, true, true, true, true, true, true, false, false];
                 }
                 if (handler.indexOf("--writer") > -1) {
-                    control = ["libreoffice-writer", true, true, true, true, false, false, false, false, true, true, true];
+                    control = ["libreoffice-writer", true, true, true, true, false, false, false, false, true, true, true, false, false];
                 }
         } else if (handler.indexOf("midori") > -1) {
-            control = ["midori", true, true, true, true, true, true, true, true, true, true, true];
+            control = ["midori", true, true, true, true, true, true, true, true, true, true, true, false, false];
         } else if (handler.indexOf("vlc") > -1) {
-            control = ["vlc", false, false, false, true, false, false, false, false, false, false, false];
+            control = ["vlc", false, false, false, true, false, false, false, false, false, false, false, false, false];
         } else if (handler.indexOf("vnc") > -1) {
-            control = ["vnc", true, true, true, true, true, true, false, false, false, false, false];
+            control = ["vnc", true, true, true, true, true, true, false, false, false, false, false, false, false];
         } else if (handler.indexOf("zathura") > -1) {
-            control = ["zathura", true, true, true, true, true, true, true, true, true, true, true];
+            control = ["zathura", true, true, true, true, true, true, true, true, true, true, true, false, false];
         } else {
-            control = ["undefined", false, false, false, false, false, false, false, false, false, false, false];
+            control = ["undefined", false, false, false, false, false, false, false, false, false, false, false, false, false];
         }
 
         sectionControls[section] = control;
@@ -843,7 +869,7 @@ function updateControlsBySection(window) {
         sectionControls[i] = ["default",
                               false, false, false, false,
                               false, false, false, false,
-                              false, false, false];
+                              false, false, false, false, false];
     }
 
     return sectionControls;
@@ -1174,7 +1200,12 @@ window.onclick = function(event) {
             <h4>Connect</h4>
             <p>Team members can join the group at any time with this URL or QR-Code:</p>
             <p class="url_hint"><?=$_SESSION['starturl']?><br />
-            PIN: <?=$_SESSION['pin']?></p>
+            <?php if (!empty($_SESSION['pin'])) {
+                echo "PIN: ";
+                echo $_SESSION['pin'];
+            }
+            ?>
+            </p>
             <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?>?pin=<?=$_SESSION['pin']?>" alt="QR Code">
 
             <h4>Add <i class="fa fa-plus"></i></h4>
@@ -1327,7 +1358,11 @@ window.onclick = function(event) {
                 </table>
                 <div class="description">
                     New users can join at<br /><?=$_SESSION['starturl']?><br />
-                    PIN: <?=$_SESSION['pin']?>
+                    <?php if (!empty($_SESSION['pin'])) {
+                        echo "PIN: ";
+                        echo $_SESSION['pin'];
+                    }
+                    ?>
                     <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?>?pin=<?=$_SESSION['pin']?>" alt="QR Code">
                 </div>
                 <button class="pure-button pure-button-primary pure-input-rounded"
