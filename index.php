@@ -164,15 +164,21 @@ function keyControl(number, image, controlClass, key, handler, disabled, title) 
 
   var button = document.createElement('button');
   var icon = document.createElement('i');
-  icon.setAttribute('class', image);
-  button.appendChild(icon);
-  button.setAttribute('class', controlClass);
-  button.setAttribute('onmousedown',
+  if (!disabled) {
+    icon.setAttribute('class', image);
+    button.appendChild(icon);
+    button.setAttribute('class', controlClass);
+    button.setAttribute('onmousedown',
                      'sendToNuc("window=' + number + '&keydown=' + encodeURIComponent(keyHandler) + '")');
-  button.setAttribute('onmouseup',
+    button.setAttribute('onmouseup',
                      'sendToNuc("window=' + number + '&keyup=' + encodeURIComponent(keyHandler) + '")');
-  button.setAttribute('title', title);
-
+    button.setAttribute('title', title);
+  } else {
+    icon.setAttribute('class', image + " unavailable");
+    button.appendChild(icon);
+    button.setAttribute("class", "unavailable");
+    button.setAttribute('title', title + " not available");
+  }
   return button;
 }
 
@@ -374,8 +380,8 @@ function getHandlerCommand(handle, task) {
     handler["feh"]["zoomin"] = "KP_Add";
     handler["feh"]["zoomout"] = "KP_Subtract";
     handler["feh"]["download"] = "download";
-    handler["feh"]["counterclockwise"] = "<";
-    handler["feh"]["clockwise"] = ">";
+    handler["feh"]["counterclockwise"] = "less";
+    handler["feh"]["clockwise"] = "greater";
 
     // Controls in LibreOffice: no zoom in calc and writer, has to be activated first
     // by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
@@ -674,6 +680,37 @@ function addWindowControls(layout, controls, screensection, file, status) {
     var windowcontrols = document.createElement("div");
     windowcontrols.setAttribute("class", "windowcontrols");
 
+    var topbar = document.createElement("div");
+    topbar.setAttribute("class", "topbar");
+    var button = document.createElement('button');
+    button.setAttribute("class", "toogle");
+    icon = document.createElement('i');
+    if (status == 'active') {
+        icon.setAttribute("class", "fa fa-eye");
+    } else {
+        icon.setAttribute("class", "fa fa-eye-slash");
+    }
+    icon.setAttribute('id', 'status_' + screensection);
+    icon.setAttribute('title', '<?=__("Toggle visibility")?>');
+    button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&toggle=TRUE')");
+    button.appendChild(icon);
+    topbar.appendChild(button);
+    topbar.appendChild(keyControl(screensection, 'fa fa-search-plus', 'zoomin', 'zoomin', handler, !zoomin, '<?=__("Zoom in")?>'));
+    topbar.appendChild(keyControl(screensection, 'fa fa-search-minus', 'zoomout', 'zoomout', handler, !zoomout, '<?=__("Zoom out")?>'));
+    topbar.appendChild(keyControl(screensection, 'fa fa-rotate-left', 'counterclockwise', 'counterclockwise', handler, !counterclockwise, '<?=__("Rotate counterclockwise")?>'));
+    topbar.appendChild(keyControl(screensection, 'fa fa-rotate-right', 'clockwise', 'clockwise', handler, !clockwise, '<?=__("Rotate clockwise")?>'));
+    var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', 'download', handler, !download, '<?=__("Download this file")?>');
+    downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
+    topbar.appendChild(downloadbutton);
+    button = document.createElement('button');
+    button.setAttribute("class", "trash");
+    button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
+    button.setAttribute('title', '<?=__("Remove this object")?>');
+    icon = document.createElement('i');
+    icon.setAttribute("class", "fa fa-trash-o");
+    button.appendChild(icon);
+    topbar.appendChild(button);
+
     var movement = document.createElement("div");
     movement.setAttribute("class", "movement");
 
@@ -688,7 +725,7 @@ function addWindowControls(layout, controls, screensection, file, status) {
 
     var jump = document.createElement("div");
     jump.setAttribute("class", "jump");
-    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-left', 'jumpbeginning', 'home', handler, !down, '<?=__("Jump to start")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-left', 'jumpbeginning', 'home', handler, !home, '<?=__("Jump to start")?>'));
     jump.appendChild(keyControl(screensection, 'fa fa-angle-left', 'pageback', 'prior', handler, !prior, '<?=__("Page up")?>'));
     jump.appendChild(keyControl(screensection, 'fa fa-angle-right', 'pageforward', 'next', handler, !next, '<?=__("Page down")?>'));
     jump.appendChild(keyControl(screensection, 'fa fa-angle-double-right', 'jumpend', 'end', handler, !end, '<?=__("Jump to end")?>'));
@@ -696,53 +733,12 @@ function addWindowControls(layout, controls, screensection, file, status) {
     movement.appendChild(arrows);
     movement.appendChild(jump);
 
-    var non_movement = document.createElement("div");
-    non_movement.setAttribute("class", "non_movement");
-
-    var visibility = document.createElement("div");
-    visibility.setAttribute("class", "visibility");
-    visibility.appendChild(keyControl(screensection, 'fa fa-search-plus', 'zoomin', 'zoomin', handler, !zoomin, '<?=__("Zoom in")?>'));
-    visibility.appendChild(keyControl(screensection, 'fa fa-search-minus', 'zoomout', 'zoomout', handler, !zoomout, '<?=__("Zoom out")?>'));
-    visibility.appendChild(document.createElement("br"));
-    visibility.appendChild(keyControl(screensection, 'fa fa-rotate-left', 'counterclockwise', 'counterclockwise', handler, !counterclockwise, '<?=__("Rotate counterclockwise")?>'));
-    visibility.appendChild(keyControl(screensection, 'fa fa-rotate-right', 'clockwise', 'clockwise', handler, !clockwise, '<?=__("Rotate clockwise")?>'));
-
     var position = addWindowPosition(layout, screensection);
 
-    var misc = document.createElement("div");
-    misc.setAttribute("class", "misc");
-    var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', handler, !download, '<?=__("Download this file")?>');
-    downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
-    misc.appendChild(downloadbutton);
-    var button = document.createElement('button');
-    button.setAttribute("class", "toogle");
-    icon = document.createElement('i');
-    if (status == 'active') {
-        icon.setAttribute("class", "fa fa-eye");
-    } else {
-        icon.setAttribute("class", "fa fa-eye-slash");
-    }
-    icon.setAttribute('id', 'status_' + screensection);
-    icon.setAttribute('title', '<?=__("Toggle visibility")?>');
-    button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&toggle=TRUE')");
-    button.appendChild(icon);
-    misc.appendChild(button);
-
-    button = document.createElement('button');
-    button.setAttribute("class", "trash");
-    button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
-    button.setAttribute('title', '<?=__("Remove this object")?>');
-    icon = document.createElement('i');
-    icon.setAttribute("class", "fa fa-trash-o");
-    button.appendChild(icon);
-    misc.appendChild(button);
-
     // Putting it all together
+    windowcontrols.appendChild(topbar);
     windowcontrols.appendChild(movement);
-    non_movement.appendChild(visibility);
-    non_movement.appendChild(position);
-    non_movement.appendChild(misc);
-    windowcontrols.appendChild(non_movement)
+    windowcontrols.appendChild(position);
     return windowcontrols;
 }
 
@@ -792,6 +788,12 @@ function updateWindowList(window){
                 icon.setAttribute("class", "fa fa-globe");
             } else if (handler.indexOf("vnc") > -1) {
                 icon.setAttribute("class", "fa fa-video-camera");
+            } else if (handler.indexOf("vlc") > -1) {
+                icon.setAttribute("class", "fa fa-film");
+            } else if (handler.indexOf("feh") > -1) {
+                icon.setAttribute("class", "fa fa-picture-o");
+            } else if (handler.indexOf("zathura") > -1) {
+                icon.setAttribute("class", "fa fa-file-pdf-o");
             } else {
                 icon.setAttribute("class", "fa fa-file");
             }
@@ -835,7 +837,7 @@ function updateControlsBySection(window) {
 
         if (handler.indexOf("feh") > -1) {
             // up down left right zoomin zoomout home end prior next download rotateleft rotateright
-            control = ["feh", true, true, true, true, true, true, false, false, true, true, true, true, true];
+            control = ["feh", true, true, true, true, true, true, false, false, false, false, true, true, true];
         } else if (handler.indexOf("libreoffice") > -1) {
             // Controls in LibreOffice: no zoom in calc and writer, has to be activated first
             // by pressing <Ctrl+Shift+o> (switch view mode on/off) not implemented yet
