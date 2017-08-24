@@ -86,6 +86,8 @@ abstract class FileHandler
     const PRIOR = 256;
     const NEXT = 512;
     const DOWNLOAD = 1024;
+    const COUNTERCLOCKWISE = 2048;
+    const CLOCKWISE = 4096;
 
     // Shortcuts for combinations of controls.
     const CURSOR = 15; // UP | DOWN | LEFT | RIGHT
