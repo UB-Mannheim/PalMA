@@ -752,7 +752,7 @@ function updateWindowList(window){
     if (window.length == 0) {
         var entry = document.createElement('div');
         entry.setAttribute("class", "description");
-        entry.appendChild(document.createTextNode(<?=__('There is no shared content yet. Click "Add" to get started!')?>);
+        entry.appendChild(document.createTextNode('<?=__("There is no shared content yet. Click Add to get started!")?>'));
         var addbutton = document.createElement('button');
         addbutton.setAttribute("class", "splash_add pure-button");
         addbutton.setAttribute("onclick", "openTab(event, 'Add')");
@@ -1387,7 +1387,7 @@ window.onclick = function(event) {
       if ($user) {
         echo("<a href=\"logout.php\" title=\"" .
             __('Disconnect the current user') .
-            "\"><?=__('Log Out')?><i class=\"fa fa-sign-out\"></i></a>");
+            "\">" . __('Log out') . "<i class=\"fa fa-sign-out\"></i></a>");
       }
     ?>
 </div> <!-- Footer -->
