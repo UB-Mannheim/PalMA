@@ -1322,9 +1322,7 @@ window.onclick = function(event) {
                 <h3><?=__('Tell us what you think')?></h3>
                 <div>
                     <p><?=__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on <a href="https://github.com/UB-Mannheim/PalMA" target="_blank">Github</a>.<br />Thank you!')?></p>
-
-                   <iframe width="100%" height="500" frameborder="0" src="https://www.bib.uni-mannheim.de/palma/feedback/form" />
-
+                    <iframe width="100%" height="500" frameborder="0" src="https://www.bib.uni-mannheim.de/palma/feedback/form"></iframe>
                 </div>
             </div> <!-- contactcontainer -->
         </div> <!-- feedback -->
