@@ -1392,7 +1392,7 @@ window.onclick = function(event) {
       if ($user) {
         echo("<a href=\"logout.php\" title=\"" .
             __('Disconnect the current user') .
-            "\">" . __('Log out') . "<i class=\"fa fa-sign-out\"></i></a>");
+            "\">" . __('Log out') . "$username" . "<i class=\"fa fa-sign-out\"></i></a>");
       }
     ?>
 </div> <!-- Footer -->
