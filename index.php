@@ -84,7 +84,6 @@ Overlays
     $macvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/VineServer.dmg";
     $linuxsh = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/x11.sh";
 
-
     /*
      * contact form elements
      * might be sourced out and included
@@ -1198,7 +1197,12 @@ window.onclick = function(event) {
             <p><?=__('With PalMA, you can share your documents and your desktop
             with your learning group.')?> <?=__('The PalMA team monitor shows up to 4 contributions
             simultaneously.')?></p>
-
+            <?php
+            if (CONFIG_INSTITUTION_URL) { ?>
+                <p>For further information see <a href="<?=CONFIG_INSTITUTION_URL?>" target="_blank">this site of your institution.</a></p>
+            <?php
+            }
+            ?>
             <h4>Connect</h4>
             <p>Team members can join the group at any time with this URL or QR-Code:</p>
             <p class="url_hint"><?=$_SESSION['starturl']?><br />

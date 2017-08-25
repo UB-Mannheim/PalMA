@@ -319,6 +319,9 @@ function set_constants()
     if (array_key_exists('upload_dir', $conf)) {
         define('CONFIG_UPLOAD_DIR', $conf['upload_dir']);
     }
+    if (array_key_exists('institution_url', $conf)) {
+        define('CONFIG_INSTITUTION_URL', $conf['institution_url']);
+    }
 
     // Set default values for constants missing in the configuration file.
     if (!defined('CONFIG_CONTROL_FILE')) {
