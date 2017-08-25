@@ -176,7 +176,7 @@ function keyControl(number, image, controlClass, key, handler, disabled, title) 
     icon.setAttribute('class', image + " unavailable");
     button.appendChild(icon);
     button.setAttribute("class", "unavailable");
-    button.setAttribute('title', title + " not available");
+    button.setAttribute('title', title + " " + "<?=__('not available')?>");
   }
   return button;
 }
@@ -362,7 +362,7 @@ function getHandlerCommand(handle, task) {
     handler["midori"]["end"] = "End";
     handler["midori"]["zoomin"] = "ctrl+plus";
     handler["midori"]["zoomout"] = "ctrl+minus";
-    handler["midori"]["download"] = "download";
+    handler["midori"]["download"] = "undefined";
     handler["midori"]["counterclockwise"] = "undefined";
     handler["midori"]["clockwise"] = "undefined";
 
@@ -752,7 +752,7 @@ function updateWindowList(window){
     if (window.length == 0) {
         var entry = document.createElement('div');
         entry.setAttribute("class", "description");
-        entry.appendChild(document.createTextNode('There is no shared content yet. Click "Add" to get started!'));
+        entry.appendChild(document.createTextNode(<?=__('There is no shared content yet. Click "Add" to get started!')?>);
         var addbutton = document.createElement('button');
         addbutton.setAttribute("class", "splash_add pure-button");
         addbutton.setAttribute("onclick", "openTab(event, 'Add')");
@@ -969,7 +969,7 @@ function getFilePathByOS() {
             break;
         case 'Android':
         case 'iOS':
-            document.getElementById("Screen").innerHTML = '<div class="description">Sorry! Screensharing for your device is currently not supported.</div>';
+            document.getElementById("Screen").innerHTML = '<div class="description"><?=__('Sorry! Screensharing for your device is currently not supported.')?></div>';
             break;
         default: download = null;
     }
@@ -1053,17 +1053,17 @@ window.onclick = function(event) {
 
 <!-- This formating is used to prevent empty textnodes that interfere with the design -->
 <div class="tab"
-    ><button class="tablinks" onclick="openTab(event, 'Add')">Add <i class="fa fa-plus"></i></button
-    ><button class="tablinks" onclick="openTab(event, 'Control')">Control <i class="fa fa-arrows"></i></button
-    ><button class="tablinks" onclick="openTab(event, 'Extras')">Extras <i class="fa fa-info-circle"></i></button
+    ><button class="tablinks" onclick="openTab(event, 'Add')"><?=__('Add')?> <i class="fa fa-plus"></i></button
+    ><button class="tablinks" onclick="openTab(event, 'Control')"><?=__('Control')?> <i class="fa fa-arrows"></i></button
+    ><button class="tablinks" onclick="openTab(event, 'Extras')"><?=__('Extras')?> <i class="fa fa-info-circle"></i></button
 ></div>
 
 <div id="workbench">
     <div id="Add" class="tabcontent">
         <div class="subtab"
-        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'File')">File <i class="fa fa-file"></i></button
-        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'URL')">URL <i class="fa fa-globe"></i></button
-        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'Screen')">Screen <i class="fa fa-video-camera"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'File')"><?=__('File')?> <i class="fa fa-file"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'URL')"><?=__('URL')?> <i class="fa fa-globe"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'Screen')"><?=__('Screen')?> <i class="fa fa-video-camera"></i></button
     ></div>
         <div id="File" class="subtabcontent">
             <div id="file_upload">
@@ -1072,7 +1072,7 @@ window.onclick = function(event) {
                     id="palma-dropzone"
                     title="<?=__('Drop documents here (or click) to load them up')?>">
                     <div class="dz-default dz-message">
-                        Add file (click or drop here)
+                        <?=__('Add file (click or drop here)')?>
                         <i class="fa fa-file fa-2x"></i>
                     </div>
                 </form>
@@ -1091,30 +1091,29 @@ window.onclick = function(event) {
         </div>
         <div id="URL" class="subtabcontent">
             <div>
-                <input type="text" value="Add webpage"
+                <input type="text" value="<?=__('Add webpage')?>"
                     id="url_field" maxlength="256" size="46"
                     onkeydown="if (event.keyCode == 13) document.getElementById('url_button').click()"
                     onfocus="clearURLField('<?=__('Enter URL')?>')">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                     id="url_button"
                     onClick="urlToNuc()" title="<?=__('Show this URL in a new browser window')?>">
-                    Enter <i class="fa fa-globe"></i>
+                    <?=__('Enter')?> <i class="fa fa-globe"></i>
                 </button>
             </div>
         </div>
         <div id="Screen" class="subtabcontent">
             <div id="vnc-button" onclick="javascript:getFilePathByOS()">
                 <div id="vnc-button-container">
-                    <div id="vnc-button-label">Add your screen <i class="fa fa-video-camera fa-2x" aria-hidden="true"></i></div>
-                    <div id="vnc-button-label-subtext">Download screensharing tool</div>
+                    <div id="vnc-button-label"><?=__('Add your screen')?> <i class="fa fa-video-camera fa-2x" aria-hidden="true"></i></div>
+                    <div id="vnc-button-label-subtext"><?=__('Download screensharing tool')?></div>
                 </div>
                 <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
                 <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
                 <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
             </div>
             <div class="description">
-            Download and install screensharing tool (notebooks only). See the help section for further information.
-            <!--<?=__('Share the desktop of your notebook with others. PalMA uses VNC for screen sharing. Simply download the software by clicking the button above.')?>-->
+            <?=__('Download and install screensharing tool (notebooks only). See the help section for further information.')?>
             </div>
             <div class="description">
             <?=__('Linux users can also use the built in function of their device and share the X display like this: ')?>
@@ -1124,8 +1123,8 @@ window.onclick = function(event) {
     </div>
     <div id="Control" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Layout')">Layout <i class="fa fa-desktop"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Navigate')">Navigate <i class="fa fa-arrows"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Layout')"><?=__('Layout')?> <i class="fa fa-desktop"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Navigate')"><?=__('Navigate')?> <i class="fa fa-arrows"></i></button
         ></div>
         <div id="Layout" class="subtabcontent">
             <div class="screenlayout">
@@ -1189,9 +1188,9 @@ window.onclick = function(event) {
     </div>
     <div id="Extras" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Help')">Help <i class="fa fa-question-circle"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Feedback')">Feedback <i class="fa fa-thumbs-o-up"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Users')">Users <i class="fa fa-users"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Help')"><?=__('Help')?> <i class="fa fa-question-circle"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Feedback')"><?=__('Feedback')?> <i class="fa fa-thumbs-o-up"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Users')"><?=__('Users')?> <i class="fa fa-users"></i></button
         ></div>
         <div id="Help" class="subtabcontent">
             <p><?=__('With PalMA, you can share your documents and your desktop
@@ -1199,12 +1198,12 @@ window.onclick = function(event) {
             simultaneously.')?></p>
             <?php
             if (CONFIG_INSTITUTION_URL) { ?>
-                <p>For further information see <a href="<?=CONFIG_INSTITUTION_URL?>" target="_blank">this site of your institution.</a></p>
+                <p><?=__('For further information see <a href="<?=CONFIG_INSTITUTION_URL?>" target="_blank">this site of your institution.')?></a></p>
             <?php
             }
             ?>
-            <h4>Connect</h4>
-            <p>Team members can join the group at any time with this URL or QR-Code:</p>
+            <h4><?=__('Connect')?></h4>
+            <p><?=__('Team members can join the group at any time with this URL or QR-Code:')?></p>
             <p class="url_hint"><?=$_SESSION['starturl']?><br />
             <?php if (!empty($_SESSION['pin'])) {
                 echo "PIN: ";
@@ -1214,12 +1213,12 @@ window.onclick = function(event) {
             </p>
             <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?>?pin=<?=$_SESSION['pin']?>" alt="QR Code">
 
-            <h4>Add <i class="fa fa-plus"></i></h4>
-                <p>Use the "Add"-Section to share content on the PalMA monitor.</p>
+            <h4><?=__('Add')?> <i class="fa fa-plus"></i></h4>
+                <p><?=__('Use the "Add"-Section to share content on the PalMA monitor.')?></p>
                 <ul>
-                <li><i class="fa fa-file"></i> For PDF files, office files, images or videos use the file section.</li>
-                <li><i class="fa fa-globe"></i> To display a website use the URL field.</li>
-                <li><i class="fa fa-video-camera"></i> To share your desktop in real time, download the VNC screen sharing software and follow <a href="theme/<?=_(CONFIG_THEME)?>/palma_d.png">these instructions</a>. (Testlink)</li>
+                <li><i class="fa fa-file"></i> <?=__('For PDF files, office files, images or videos use the file section.')?></li>
+                <li><i class="fa fa-globe"></i> <?=__('To display a website use the URL field.')?></li>
+                <li><i class="fa fa-video-camera"></i> <?=__('To share your desktop in real time, download the VNC screen sharing software and follow the instructions below.')?></li>
                 </ul>
                 <!-- <p><?=__('Share the desktop of your notebook with others. PalMA uses
                 VNC for screen sharing. Download the VNC software once for your
@@ -1230,33 +1229,33 @@ window.onclick = function(event) {
                 onclick="window.open(this.href); return false;">MacBook</a>.')?></p>
                 <p><?=__('Linux users can share their X display like this:')?><br>
                 <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>-->
-            <h4>Control <i class="fa fa-arrows"></i></h4>
-            <p>With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.</p>
-            <p>Below that you find the controls for each content:</p>
+            <h4><?=__('Control')?> <i class="fa fa-arrows"></i></h4>
+            <p><?=__('With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.')?></p>
+            <p><?=__('Below that you find the controls for each content:')?></p>
             <ul>
-            <li>In the top bar you can</li>
+            <li><?=__('In the top bar you can')?></li>
             <ul>
-            <li>Hide and show content <i class="fa fa-eye"></i>,</li>
-            <li>Zoom in and out <i class="fa fa-search-plus"></i> <i class="fa fa-search-minus"></i>,</li>
-            <li>Rotate <i class="fa fa-rotate-left"></i> <i class="fa fa-rotate-right"></i>,</li>
-            <li>Download the item <i class="fa fa-download"></i>,</li>
-            <li>Delete the item <i class="fa fa-trash-o"></i>.</li>
+            <li><?=__('Hide and show content')?> <i class="fa fa-eye"></i>,</li>
+            <li><?=__('Zoom in and out')?> <i class="fa fa-search-plus"></i> <i class="fa fa-search-minus"></i>,</li>
+            <li><?=__('Rotate')?> <i class="fa fa-rotate-left"></i> <i class="fa fa-rotate-right"></i>,</li>
+            <li><?=__('Download the item')?> <i class="fa fa-download"></i>,</li>
+            <li><?=__('Delete the item')?> <i class="fa fa-trash-o"></i>.</li>
             </ul>
-            <li>Below on the left you find the navigation controls.</li>
+            <li><?=__('Below on the left you find the navigation controls.')?></li>
             <ul>
-            <li>Arrow buttons navigate gradually <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
-            <li>Buttons below jump a page back/forth or jump to start/end <i class="fa fa-angle-double-left"></i> <i class="fa fa-angle-left"></i> <i class="fa fa-angle-right"></i> <i class="fa fa-angle-double-right"></i>.</li>
+            <li><?=__('Arrow buttons navigate gradually')?> <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
+            <li><?=__('Buttons below jump a page back/forth or jump to start/end')?> <i class="fa fa-angle-double-left"></i> <i class="fa fa-angle-left"></i> <i class="fa fa-angle-right"></i> <i class="fa fa-angle-double-right"></i>.</li>
             </ul>
             </li>
-            <li>Below on the right you can choose the position on the PalMA monitor <i class="fa fa-desktop"></i>.</li>
+            <li><?=__('Below on the right you can choose the position on the PalMA monitor')?> <i class="fa fa-desktop"></i>.</li>
             </ul>
-            <p>Not every type of content supports every control. Unavailable controls are marked grey.</p>
-            <h4>Extras <i class="fa fa-info-circle"></i></h4>
-            <p>Some additional features are:</p>
+            <p><?=__('Not every type of content supports every control. Unavailable controls are marked grey.')?></p>
+            <h4><?=__('Extras')?> <i class="fa fa-info-circle"></i></h4>
+            <p><?=__('Some additional features are:')?></p>
             <ul>
-            <li><i class="fa fa-question-circle"></i> This help,</li>
-            <li><i class="fa fa-thumbs-o-up"></i> Your chance to recommend us or give us your thoughts in the "Feedback" section,</li>
-            <li><i class="fa fa-users"></i> A list of all logged-in users and a button to kill the session.</li>
+            <li><i class="fa fa-question-circle"></i> <?=__('This help,')?></li>
+            <li><i class="fa fa-thumbs-o-up"></i> <?=__('Your chance to recommend us or give us your thoughts in the "Feedback" section,')?></li>
+            <li><i class="fa fa-users"></i> <?=__('A list of all logged-in users and a button to kill the session.')?></li>
             </ul>
         </div>
         <div id="Feedback" class="subtabcontent">
@@ -1324,9 +1323,9 @@ window.onclick = function(event) {
                     <p><?=__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on <a href="https://github.com/UB-Mannheim/PalMA" target="_blank">Github</a>.<br />Thank you!')?></p>
                     <form id="contact" action="index.php" method="post" >
                         <div class="container">
-                            <input type="text" name="name" placeholder="Name" /><br />
-                            <input type="email" name="email" placeholder="Email" /><br />
-                            <textarea type="text" name="message" placeholder="Message"></textarea><br />
+                            <input type="text" name="name" placeholder="<?=__('Your name')?>" /><br />
+                            <input type="email" name="email" placeholder="<?=__('Your e-mail address')?>" /><br />
+                            <textarea type="text" name="message" placeholder="<?=__('Your message to the developers of PalMA')?>"></textarea><br />
                             <div class="message" hidden>Message Sent</div>
                         </div>
                         <button id="submit" type="submit"
@@ -1341,7 +1340,7 @@ window.onclick = function(event) {
         </div> <!-- feedback -->
         <div id="Users" class="subtabcontent">
             <div class="dropdown">
-                <button onclick="showDropdown()" class="dropbutton pure-button pure-button-primary">Select language: <?=substr($locale, 0, 2)?> <i class="fa fa-caret-down"></i></button>
+                <button onclick="showDropdown()" class="dropbutton pure-button pure-button-primary"><?=__('Select language:')?> <?=substr($locale, 0, 2)?> <i class="fa fa-caret-down"></i></button>
                 <div id="languageSelection" class="dropdown-content">
                 <?php
                 $dirs = array_slice(scandir('locale'), 2);
@@ -1364,7 +1363,7 @@ window.onclick = function(event) {
                     </tbody>
                 </table>
                 <div class="description">
-                    New users can join at<br /><?=$_SESSION['starturl']?><br />
+                    <?=__('New users can join at')?><br /><?=$_SESSION['starturl']?><br />
                     <?php if (!empty($_SESSION['pin'])) {
                         echo "PIN: ";
                         echo $_SESSION['pin'];
@@ -1388,7 +1387,7 @@ window.onclick = function(event) {
       if ($user) {
         echo("<a href=\"logout.php\" title=\"" .
             __('Disconnect the current user') .
-            "\">Log Out<i class=\"fa fa-sign-out\"></i></a>");
+            "\"><?=__('Log Out')?><i class=\"fa fa-sign-out\"></i></a>");
       }
     ?>
 </div> <!-- Footer -->
