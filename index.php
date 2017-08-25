@@ -1234,22 +1234,23 @@ window.onclick = function(event) {
             <p>With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.</p>
             <p>Below that you find the controls for each content:</p>
             <ul>
-            <li>On the left you find the navigation controls.</li>
+            <li>In the top bar you can</li>
+            <ul>
+            <li>Hide and show content <i class="fa fa-eye"></i>,</li>
+            <li>Zoom in and out <i class="fa fa-search-plus"></i> <i class="fa fa-search-minus"></i>,</li>
+            <li>Rotate <i class="fa fa-rotate-left"></i> <i class="fa fa-rotate-right"></i>,</li>
+            <li>Download the item <i class="fa fa-download"></i>,</li>
+            <li>Delete the item <i class="fa fa-trash-o"></i>.</li>
+            </ul>
+            <li>Below on the left you find the navigation controls.</li>
             <ul>
             <li>Arrow buttons navigate gradually <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
             <li>Buttons below jump a page back/forth or jump to start/end <i class="fa fa-angle-double-left"></i> <i class="fa fa-angle-left"></i> <i class="fa fa-angle-right"></i> <i class="fa fa-angle-double-right"></i>.</li>
             </ul>
             </li>
-            <li>On the right you can</li>
-            <ul>
-            <li>Zoom in and out <i class="fa fa-search-plus"></i> <i class="fa fa-search-minus"></i>,</li>
-            <li>Hide and show content <i class="fa fa-eye"></i>,</li>
-            <li>Choose the position on the PalMA monitor <i class="fa fa-desktop"></i>,</li>
-            <li>Download an item <i class="fa fa-download"></i>,</li>
-            <li>Delete an item <i class="fa fa-trash-o"></i>.</li>
+            <li>Below on the right you can choose the position on the PalMA monitor <i class="fa fa-desktop"></i>.</li>
             </ul>
-            </ul>
-
+            <p>Not every type of content supports every control. Unavailable controls are marked grey.</p>
             <h4>Extras <i class="fa fa-info-circle"></i></h4>
             <p>Some additional features are:</p>
             <ul>
