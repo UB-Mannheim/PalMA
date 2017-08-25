@@ -8,23 +8,29 @@ The PalMA web application requires a web server (usually Apache 2) which
 supports PHP 5 and SQLite.
 
 User provided contents are shown using a simple web browser (midori),
-an image viewer (feh), a PDF viewer (zathura), a video player (vlc) and an office suite (libreoffice).
+an image viewer (feh), a PDF viewer (zathura), a video player (vlc) and a VNC
+server.
+Office files are converted to PDF by libreoffice and then handed over to
+zathura.
 
 PalMA controls running viewers using wmctrl and xdotool.
 
-So a complete PalMA installation can be based on Debian GNU Linux (Jessie).
+So a complete PalMA installation can be based on Debian GNU Linux (Version 9
+"Stretch").
 Just add some required Debian packages (these and all other installation
 commands must be run as root user):
 
-    apt-get install apache2 midori eog feh libapache2-mod-php5 libjs-jquery
+    apt-get install apache2 midori feh libapache2-mod-php5 libjs-jquery
     apt-get install openbox php5-curl php5-gd php5-intl php5-sqlite
     apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
 
-Attention (Debian 8 Jessie only): Before you can install Midori on Jessie you must add the
+Attention for Debian 8 "Jessie"! Before you can install Midori on Jessie you
+must add the
 backport repository to `/etc/apt/sources.list`:
 
     cp /etc/apt/sources.list /etc/apt/sources.list.backup
-    echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+    echo "deb http://ftp.debian.org/debian jessie-backports main" >>
+/etc/apt/sources.list
     apt-get update
     apt-get install midori
 
@@ -131,11 +137,10 @@ See [theme/THEMES.md](theme/THEMES.md) for details.
 How to add existing and new translations
 ----------------------------------------
 
-PalMA initially supported English and German user interfaces for the web frontend.
-Students from the University of Mannheim provided additional translations.
-More translations can be added on demand.
-
-All translated texts are under subdirectory `locale`.
+PalMA initially supported English and German user interfaces for the web
+frontend.
+Students from the University of Mannheim provided additional translations. All
+translated texts are in the subdirectory `locale`.
 
 Newly added languages also need modifications in `Makefile`
 and in `i12n.php`.
@@ -147,17 +152,6 @@ example which enables the English locale in its US variant (`en_US.UTF-8`):
 
     perl -pi -e 's/^#.(en_US.UTF-8)/$1/' /etc/locale.gen && locale-gen
 
-PalMA currently includes translations for these locales:
-`de_DE.UTF-8`, `en_US.UTF-8`, `es_ES.UTF-8`, `it_IT.UTF-8`, `ru_RU.UTF-8`.
-
-
-Viewers
--------
-
-PalMA uses external applications as viewers for the different document types.
-For HTML, a web browser is needed. Some light-weight browsers are midori,
-netsurf, dwb, surf, xombrero, uzbl.
-
 
 Raspberry Pi
 ------------
@@ -165,10 +159,11 @@ Raspberry Pi
 A low cost (less than 50 EUR plus monitor) PalMA station can be built using
 the Raspberry Pi. The following configuration which is based on the Rasbian
 distribution (<http://www.raspbian.org/>) was successfully tested with a
-Raspberry Pi 1:
+Raspberry Pi 3:
 
-    apt-get install midori eog feh libjs-jquery nginx-light openbox
-    apt-get install php5-cgi php5-cli php5-curl php5-fpm php5-gd php5-intl php5-sqlite
+    apt-get install midori feh libjs-jquery nginx-light openbox
+    apt-get install php5-cgi php5-cli php5-curl php5-fpm php5-gd php5-intl
+php5-sqlite
     apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
     mkdir -p /var/www/html
     chown www-data:www-data /var/www/html
@@ -188,14 +183,6 @@ file `/etc/nginx/sites-enabled/default`:
                 include fastcgi_params;
         }
     }
-
-Older versions of the Raspberry Pi use a single core 700 MHz ARM CPU with only
-256 or 512 MB RAM. They won't be able to run LibreOffice, so PalMA won't be
-able to show Office documents.
-
-The latest version Raspberry Pi 2 has a 900 MHz quad-core ARM Cortex-A7 CPU
-with 1 GB RAM. This is a good base for running PalMA without any software
-restrictions. It is still limited to full HD video resolution.
 
 
 Security
