@@ -851,7 +851,7 @@ function updateControlsBySection(window) {
                     control = ["libreoffice-writer", true, true, true, true, false, false, false, false, true, true, true, false, false];
                 }
         } else if (handler.indexOf("midori") > -1) {
-            control = ["midori", true, true, true, true, true, true, true, true, true, true, true, false, false];
+            control = ["midori", true, true, true, true, true, true, true, true, true, true, false, false, false];
         } else if (handler.indexOf("vlc") > -1) {
             control = ["vlc", false, false, false, true, false, false, false, false, false, false, false, false, false];
         } else if (handler.indexOf("vnc") > -1) {
