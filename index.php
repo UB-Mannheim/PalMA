@@ -1116,7 +1116,7 @@ window.onclick = function(event) {
                 <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
             </div>
             <div class="description">
-            <?=__('Download and install your screensharing tool (Windows, MAC and Linux only). Visit the help section for further information.')?>
+            <?=__('Download and install your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.')?>
             </div>
         </div>
     </div>
@@ -1222,13 +1222,15 @@ window.onclick = function(event) {
                     <li><i class="fa fa-windows"></i> <?=__('Windows:')?></li>
                         <ul>
                         <li><?=__('Run the downloaded EXE file.')?></li>
-                        <li><?=__('Select your PalMA station.')?></li>
-                        <li><?=__('...?')?></li>
+                        <li><?=__('Double-click on your PalMA station.')?></li>
                         </ul>
                     <li><i class="fa fa-apple"> </i> <?=__('MAC:')?></li>
                         <ul>
-                        <li><?=__('Right click the downloaded file.')?></li>
-                        <li><?=__('...?')?></li>
+                        <li><?=__('CTRL + click the downloaded file.')?></li>
+                        <li><?=__('A second window opens, in which you can start "VineServer".')?></li>
+                        <li><?=__('In the upper left corner, click on "VNC Server".')?></li>
+                        <li><?=__('Select "Reverse Connection".')?></li>
+                        <li><?=__('Enter the URL of your PalMA station and click "Connect".')?></li>
                         </ul>
                     <li><i class="fa fa-linux"></i> <?=__('Linux:')?></li>
                         <ul>
