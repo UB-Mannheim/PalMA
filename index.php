@@ -90,6 +90,7 @@ Overlays
      */
     if(isset($_POST['submit'])){
         $to = "infol@bib.uni-mannheim.de";
+        $to = "alexander.wagner@bib.uni-mannheim.de";
         $from = $_POST['email'];
         $name = $_POST['name'];
         $subject = "Feedback for PalMA";
@@ -97,7 +98,7 @@ Overlays
 
         $headers = "From:" . $from;
         mail($to,$subject,$message,$headers);
-        // echo "Mail Sent. Thank you for your feedback " . $name . ", we will get in touch with you shortly.";
+        echo "Mail Sent. Thank you for your feedback " . $name . ", we will get in touch with you shortly.";
     }
 
 ?>
@@ -1322,20 +1323,9 @@ window.onclick = function(event) {
                 <h3><?=__('Tell us what you think')?></h3>
                 <div>
                     <p><?=__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on <a href="https://github.com/UB-Mannheim/PalMA" target="_blank">Github</a>.<br />Thank you!')?></p>
-                    <form id="contact" action="index.php" method="post" >
-                        <div class="container">
-                            <input type="text" name="name" placeholder="Name" /><br />
-                            <input type="email" name="email" placeholder="Email" /><br />
-                            <textarea type="text" name="message" placeholder="Message"></textarea><br />
-                            <div class="message" hidden>Message Sent</div>
-                        </div>
-                        <button id="submit" type="submit"
-                            class="pure-button pure-button-primary pure-input-rounded"
-                            onclick="alert('Send')">
-                            <?=__('Send')?>
-                            <i class="fa fa-envelope"></i>
-                        </button>
-                    </form>
+
+                   <iframe width="100%" height="500" frameborder="0" src="https://www.bib.uni-mannheim.de/palma/feedback/form" />
+
                 </div>
             </div> <!-- contactcontainer -->
         </div> <!-- feedback -->
