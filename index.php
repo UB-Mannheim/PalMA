@@ -752,11 +752,11 @@ function updateWindowList(window){
     if (window.length == 0) {
         var entry = document.createElement('div');
         entry.setAttribute("class", "description");
-        entry.appendChild(document.createTextNode('<?=__("There is no shared content yet. Click Add to get started!")?>'));
+        entry.appendChild(document.createTextNode('<?=__("There is no shared content yet. Click \"Add\" to get started!")?>'));
         var addbutton = document.createElement('button');
         addbutton.setAttribute("class", "splash_add pure-button");
         addbutton.setAttribute("onclick", "openTab(event, 'Add')");
-        var addtext = document.createTextNode("Add ");
+        var addtext = (document.createTextNode('<?=__("Add ")?>'));
         addbutton.appendChild(addtext);
         var addicon = document.createElement("i");
         addicon.setAttribute("class", "fa fa-plus");
@@ -1113,12 +1113,8 @@ window.onclick = function(event) {
                 <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
             </div>
             <div class="description">
-            <?=__('Download and install screensharing tool (notebooks only). See the help section for further information.')?>
+            <?=__('Download and install your screensharing tool (Windows, MAC and Linux only). Visit the help section for further information.')?>
             </div>
-            <div class="description">
-            <?=__('Linux users can also use the built in function of their device and share the X display like this: ')?>
-            </div>
-            <code>x11vnc -connect <?php echo $_SERVER['HTTP_HOST'] ?></code>
         </div>
     </div>
     <div id="Control" class="tabcontent">
@@ -1198,11 +1194,11 @@ window.onclick = function(event) {
             simultaneously.')?></p>
             <?php
             if (CONFIG_INSTITUTION_URL) { ?>
-                <p><?=__('For further information see <a href="<?=CONFIG_INSTITUTION_URL?>" target="_blank">this site of your institution.')?></a></p>
+                <p><?=__('For further information about PalMA in this institution')?> <a href=<?=CONFIG_INSTITUTION_URL?> target="_blank"><?=__('see here.')?></a></p>
             <?php
             }
             ?>
-            <h4><?=__('Connect')?></h4>
+            <h4><?=__('Connect')?> <i class="fa fa-wifi"></i></h4>
             <p><?=__('Team members can join the group at any time with this URL or QR-Code:')?></p>
             <p class="url_hint"><?=$_SESSION['starturl']?><br />
             <?php if (!empty($_SESSION['pin'])) {
@@ -1218,17 +1214,26 @@ window.onclick = function(event) {
                 <ul>
                 <li><i class="fa fa-file"></i> <?=__('For PDF files, office files, images or videos use the file section.')?></li>
                 <li><i class="fa fa-globe"></i> <?=__('To display a website use the URL field.')?></li>
-                <li><i class="fa fa-video-camera"></i> <?=__('To share your desktop in real time, download the VNC screen sharing software and follow the instructions below.')?></li>
+                <li><i class="fa fa-video-camera"></i> <?=__('To share your desktop in real time download the VNC screen sharing software and')?></li>
+                    <ul>
+                    <li><i class="fa fa-windows"></i> <?=__('Windows:')?></li>
+                        <ul>
+                        <li><?=__('Run the downloaded EXE file.')?></li>
+                        <li><?=__('Select your PalMA station.')?></li>
+                        <li><?=__('...?')?></li>
+                        </ul>
+                    <li><i class="fa fa-apple"> </i> <?=__('MAC:')?></li>
+                        <ul>
+                        <li><?=__('Right click the downloaded file.')?></li>
+                        <li><?=__('...?')?></li>
+                        </ul>
+                    <li><i class="fa fa-linux"></i> <?=__('Linux:')?></li>
+                        <ul>
+                        <li><?=__('Run the downloaded shell script.')?></li>
+                        <li><?=__('Or use this shell command:')?> <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></li>
+                        </ul>
+                    </ul>
                 </ul>
-                <!-- <p><?=__('Share the desktop of your notebook with others. PalMA uses
-                VNC for screen sharing. Download the VNC software once for your
-                <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf"
-                onclick="window.open(this.href); return false;">Windows PC</a>
-                (preconfigured UltraVNC) or
-                <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf"
-                onclick="window.open(this.href); return false;">MacBook</a>.')?></p>
-                <p><?=__('Linux users can share their X display like this:')?><br>
-                <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>-->
             <h4><?=__('Control')?> <i class="fa fa-arrows"></i></h4>
             <p><?=__('With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.')?></p>
             <p><?=__('Below that you find the controls for each content:')?></p>
