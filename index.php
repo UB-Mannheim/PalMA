@@ -1036,9 +1036,15 @@ function showDropdown() {
     document.getElementById("languageSelection").classList.toggle("show");
 }
 // Close the dropdown menu if the user clicks outside of it
+// Must use some workaround to support IE.
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbutton')) {
-
+  var classes = event.target.className.split(' ');
+  var found = false; var i = 0;
+  while (i < classes.length && !found) {
+      if (classes[i]=='dropbutton') found = true;
+      else ++i;
+  }
+  if (!found) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -1221,10 +1227,10 @@ window.onclick = function(event) {
                     <ul>
                     <li><i class="fa fa-windows"></i> <?=__('Windows:')?></li>
                         <ul>
-                        <li><?=__('Run the downloaded EXE file.')?></li>
+                        <li><?=__('Run the downloaded file.')?></li>
                         <li><?=__('Double-click on your PalMA station.')?></li>
                         </ul>
-                    <li><i class="fa fa-apple"> </i> <?=__('MAC:')?></li>
+                    <li><i class="fa fa-apple"> </i> <?=__('Mac:')?></li>
                         <ul>
                         <li><?=__('CTRL + click the downloaded file.')?></li>
                         <li><?=__('A second window opens, in which you can start "VineServer".')?></li>

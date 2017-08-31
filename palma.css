@@ -386,12 +386,6 @@ img.qr-code {
 }
 
 /* Extras Feedback & Recommend */
-#contact {text-align: center;}
-#contact input, #contact textarea {
-    width: 75%;
-    min-width: 200px;
-    margin-bottom: .8em;
-}
 #recommendcontainer a {
     text-align: center;
 }
@@ -552,7 +546,8 @@ background-color: #FF6600
 }
 .resp-sharing-button--telegram:hover {
   background-color: #4B97D1;}
-
+/* Contact Form */
+/* Contact form is included via iframe. Its style is currently low priority. */
 /* Extras User */
 /* Language Selection */
 .dropdown {
