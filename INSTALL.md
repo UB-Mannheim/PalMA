@@ -108,7 +108,7 @@ Typically, PalMA should be started automatically. Activate autostart via systemd
 these commands:
 
     cp /var/www/html/scripts/palma.service /etc/systemd/system
-    chmod 755 /var/www/html/scripts/palma.service
+    chmod 755 /etc/systemd/system/palma.service
     systemctl daemon-reload
     systemctl enable palma.service
 
