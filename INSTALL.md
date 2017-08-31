@@ -104,11 +104,13 @@ Adding write access for www-data can be done by fixing the ownership:
     # Activate javascript for Apache. TODO: Is that necessary?
     #$ a2enconf javascript-common
 
-Normally, PalMA should be started automatically. Activate autostart with
+Typically, PalMA should be started automatically. Activate autostart via systemd with
 these commands:
 
-    cp /var/www/html/scripts/palma /etc/init.d
-    update-rc.d palma defaults
+    cp /var/www/html/scripts/palma.service /etc/systemd/system
+    chmod 755 /var/www/html/scripts/palma.service
+    systemctl daemon-reload
+    systemctl enable palma.service
 
 Now a configuration file `/var/www/html/palma.ini` must be added.
 A template for this file is available from subdirectory `examples`, so run
