@@ -82,7 +82,7 @@ userhome=$(su -c pwd -s /bin/sh -l "$user")
 runx "/usr/bin/openbox --config-file \"$basedir/settings/openbox/rc.xml\"" &
 
 # Allow window manager to start.
-/bin/sleep 2
+/bin/sleep 3
 
 # Show background image.
 runx "/usr/bin/feh --bg-scale --no-fehbg \"$background\""
@@ -97,7 +97,7 @@ runx "/usr/bin/xset s off"
 # /usr/bin/xset q
 
 # Wait a littĺe before the screensaver image hides the background.
-/bin/sleep 2
+/bin/sleep 3
 
 rm palma.db
 
