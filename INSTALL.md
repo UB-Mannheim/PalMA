@@ -88,7 +88,8 @@ Get the latest version of PalMA from GitHub:
     # Create or update translations of PalMA user interface (optional).
     make -C /var/www/html
 
-Typically, PalMA should be started automatically. Activate autostart via systemd
+Typically, PalMA should be started automatically. Activate autostart via
+systemd
 with
 these commands:
 
@@ -106,11 +107,10 @@ this command to get a preliminary file:
 Some entries in `palma.ini` still need to be fixed for your local installation.
 These include at least the entries `theme` and `start_url`.
 
-At last we need to grant write access to www-data so that
-
-  the web server can create and modify a sqlite3 database `palma.db`,
-  a directory for file uploads can be created automatically and
-  some viewer programs can write their configuration data.
+At last we need to grant write access to www-data so that the web server can
+create and modify a sqlite3 database `palma.db`, a directory for file uploads
+can be created automatically and some viewer programs can write their
+configuration data.
 
 So we add write access for www-data in directory `~www-data` (typically
 `/var/www`) by changing the ownership:

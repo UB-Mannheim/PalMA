@@ -3,7 +3,11 @@
 /* General settings */
 html {
     /* This keeps appearing scrollbars from repositioning the webpage */
+    height: 100%;
+    width: 100%;
     margin-left: calc(100vw - 100%);
+    background-image: url(./images/user_background.png);
+    background-position: center;
 }
 body {
     max-width: 1200px;
