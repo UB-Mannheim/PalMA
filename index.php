@@ -207,13 +207,12 @@ function downloadFile(screensection) {
 
 function is_valid_url(url)
 {
-    return url.match(/(^(ht|f)tps?:\/\/)([a-z0-9\.-])+(\.([a-z]{2,}))(\/([^\s\<\>\,\{\}\\\|\^\[\]\'])*)?$/);
+    return url.match(/(^(ht|f)tps?:\/\/)([a-zA-Z0-9\.-])+(\.([a-zA-Z]{2,}))(\/([^\s\<\>\,\{\}\\\|\^\[\]\'])*)?$/);
 }
 
 function urlToNuc() {
 
     var url = document.getElementById('url_field').value;
-    url = url.toLowerCase();
     if (is_valid_url(url)) {
         // Encode special characters
         url = encodeURIComponent(url);
