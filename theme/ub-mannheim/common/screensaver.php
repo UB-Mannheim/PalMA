@@ -82,7 +82,7 @@ h1, p {
     top: 41%;
 }
 #Variant1 #PIN {
-    right: 5%;
+    right: 5.25%;
     top: 57.25%;
 }
 

@@ -324,12 +324,20 @@ div.windowcontrols button.unavailable {
     color: #999999;
     cursor: not-allowed;
 }
+div.jump, div.arrows {
+    display: inline-block;
+}
+div.jump {
+    margin-right: .5em;
+}
+div.jump button {
+    display: block;
+    width: 1em;
+    height: 1em;
+}
 div.arrows button {
     margin: 0 .5em;
     padding: .2em .5em;
-}
-div.jump button {
-    padding: .5em;
 }
 div.position {
     border-radius: 6px;
