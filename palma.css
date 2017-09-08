@@ -272,6 +272,7 @@ div.window_entry {
     margin: 0 auto .5em auto;
     max-width: 500px;
     vertical-align: top;
+    background-color: #f1f1f1;
 }
 div.window_entry button {
     border: none;
@@ -280,7 +281,7 @@ div.window_entry button {
     background-color: transparent;
 }
 div.window_entry button.window_entry_button {
-    background-color: #f1f1f1;
+    background-color: #e2e2e2;
     padding: .6em .8em;
     transition: 0.3s;
     color: black;
