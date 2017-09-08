@@ -8,6 +8,7 @@ html {
     margin-left: calc(100vw - 100%);
     background-image: url(./images/user_background.png);
     background-position: center;
+    background-attachment: fixed;
 }
 body {
     max-width: 1200px;
