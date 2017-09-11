@@ -1121,7 +1121,7 @@ window.onclick = function(event) {
                 <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
             </div>
             <div class="description">
-            <?=__('Download and install your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.')?>
+            <?=__('Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.')?>
             </div>
         </div>
     </div>
@@ -1227,11 +1227,11 @@ window.onclick = function(event) {
                     <li><i class="fa fa-windows"></i> <?=__('Windows:')?></li>
                         <ul>
                         <li><?=__('Run the downloaded file.')?></li>
-                        <li><?=__('Double-click on your PalMA station.')?></li>
+                        <li><?=__('Double-click the name of your PalMA station in the appearing list.')?></li>
                         </ul>
                     <li><i class="fa fa-apple"> </i> <?=__('Mac:')?></li>
                         <ul>
-                        <li><?=__('CTRL + click the downloaded file.')?></li>
+                        <li><?=__('CTRL + click the downloaded file and run it.')?></li>
                         <li><?=__('A second window opens, in which you can start "VineServer".')?></li>
                         <li><?=__('In the upper left corner, click on "VNC Server".')?></li>
                         <li><?=__('Select "Reverse Connection".')?></li>
@@ -1258,19 +1258,19 @@ window.onclick = function(event) {
             </ul>
             <li><?=__('Below on the left you find the navigation controls.')?></li>
             <ul>
-            <li><?=__('Arrow buttons navigate gradually')?> <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
-            <li><?=__('Buttons below jump a page back/forth or jump to start/end')?> <i class="fa fa-angle-double-left"></i> <i class="fa fa-angle-left"></i> <i class="fa fa-angle-right"></i> <i class="fa fa-angle-double-right"></i>.</li>
+            <li><?=__('Arrow buttons in the middle navigate gradually')?> <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
+            <li><?=__('Buttons on the left jump to the top, to the end, a page up or a page down')?> <i class="fa fa-angle-double-up"></i> <i class="fa fa-angle-up"></i> <i class="fa fa-angle-down"></i> <i class="fa fa-angle-double-up"></i>.</li>
             </ul>
             </li>
-            <li><?=__('Below on the right you can choose the position on the PalMA monitor')?> <i class="fa fa-desktop"></i>.</li>
+            <li><?=__('On the right you can choose the position on the PalMA monitor')?> <i class="fa fa-desktop"></i>.</li>
             </ul>
-            <p><?=__('Not every type of content supports every control. Unavailable controls are marked grey.')?></p>
+            <p><?=__('Controls that are not available for certain kinds of content are marked grey.')?></p>
             <h4><?=__('Extras')?> <i class="fa fa-info-circle"></i></h4>
             <p><?=__('Some additional features are:')?></p>
             <ul>
             <li><i class="fa fa-question-circle"></i> <?=__('This help,')?></li>
             <li><i class="fa fa-thumbs-o-up"></i> <?=__('Your chance to recommend us or give us your thoughts in the "Feedback" section,')?></li>
-            <li><i class="fa fa-users"></i> <?=__('A list of all logged-in users and a button to kill the session.')?></li>
+            <li><i class="fa fa-users"></i> <?=__('A list of all logged-in users as well as a button to disconnect everyone and therefore kill the session.')?></li>
             </ul>
         </div>
         <div id="Feedback" class="subtabcontent">
