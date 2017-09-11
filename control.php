@@ -218,7 +218,8 @@ function addNewWindow($db, $new)
     // unused section or it will be hidden.
 
     trace('addNewWindow ' . serialize($new));
-    // '$new' already contains 'file', 'handler' and 'date'.
+    // '$new' already contains 'file', 'handler' and 'date', as well as the
+    // username for VNC connections only.
     // 'win_id', 'section' have to be defined afterwards.
 
     // Get new window. Wait up to 10 s for it.
@@ -280,7 +281,10 @@ function addNewWindow($db, $new)
 
     // TODO: check how to insert the userid.
     // Perhaps better add to array in upload.php ?
-    $new['userid'] = "all";
+    //$new['userid'] = "all";
+
+    $new['userid'] = $db->exec('SELECT user.userid FROM user WHERE user.name=' . $new['userid']);
+    if (empty($new['userid'])) $new['userid'] = "all";
 
     $myWindow = array(
         $new['id'],
