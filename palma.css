@@ -9,7 +9,10 @@ html {
     background-image: url(./images/user_background.png);
     background-position: center;
     background-attachment: fixed;
-}
+     
+    overflow-y: scroll;
+}  
+
 body {
     max-width: 1200px;
     margin: 0 auto;
@@ -277,12 +280,17 @@ div.window_entry {
     max-width: 500px;
     vertical-align: top;
     background-color: #f1f1f1;
+
+    box-shadow: 7px 7px 3px #cfcfcf;
+    border-radius: 6px;
 }
 div.window_entry button {
     border: none;
     outline: none;
     cursor: pointer;
     background-color: transparent;
+
+    border-radius: 6px 6px 0px 0px; /* as in .window_entry */
 }
 div.window_entry button.window_entry_button {
     background-color: #e2e2e2;
@@ -384,6 +392,8 @@ div.position button.selected i {
 /* Extras Help */
 #Help, #Feedback {
     text-align: left;
+
+    background-color: #f8f8f8;
 }
 p.url_hint {
     font-weight: bold;
@@ -407,6 +417,10 @@ img.qr-code {
 #recommendcontainer a {
     text-align: center;
 }
+#Users {
+    background-color: #f8f8f8;
+}
+
 /* Socical Media Buttons */
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
