@@ -1,0 +1,9 @@
+[Unit]
+Description=Start PalMA Station
+
+[Service]
+Type=forking
+ExecStart=/var/www/html/scripts/palma start
+
+[Install]
+WantedBy=multi-user.target

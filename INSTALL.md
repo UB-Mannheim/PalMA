@@ -88,27 +88,15 @@ Get the latest version of PalMA from GitHub:
     # Create or update translations of PalMA user interface (optional).
     make -C /var/www/html
 
-The web server wants to create and modify a sqlite3 database `palma.db`,
-so www-data needs write access to the installation directory.
-
-For file uploads, a writable directory upload is created automatically.
-This also needs write access for www-data to the installation directory.
-
-Some viewer programs want to write their configuration data. This requires
-write access for www-data in directory `~www-data` (typically `/var/www`).
-
-Adding write access for www-data can be done by fixing the ownership:
-
-    chown -R www-data.www-data /var/www
-
-    # Activate javascript for Apache. TODO: Is that necessary?
-    #$ a2enconf javascript-common
-
-Normally, PalMA should be started automatically. Activate autostart with
+Typically, PalMA should be started automatically. Activate autostart via
+systemd
+with
 these commands:
 
-    cp /var/www/html/scripts/palma /etc/init.d
-    update-rc.d palma defaults
+    cp /var/www/html/scripts/palma.service /etc/systemd/system
+    chmod 755 /etc/systemd/system/palma.service
+    systemctl daemon-reload
+    systemctl enable palma.service
 
 Now a configuration file `/var/www/html/palma.ini` must be added.
 A template for this file is available from subdirectory `examples`, so run
@@ -118,6 +106,16 @@ this command to get a preliminary file:
 
 Some entries in `palma.ini` still need to be fixed for your local installation.
 These include at least the entries `theme` and `start_url`.
+
+At last we need to grant write access to www-data so that the web server can
+create and modify a sqlite3 database `palma.db`, a directory for file uploads
+can be created automatically and some viewer programs can write their
+configuration data.
+
+So we add write access for www-data in directory `~www-data` (typically
+`/var/www`) by changing the ownership:
+
+    chown -R www-data:www-data /var/www
 
 
 Customize an installation

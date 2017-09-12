@@ -207,13 +207,12 @@ function downloadFile(screensection) {
 
 function is_valid_url(url)
 {
-    return url.match(/(^(ht|f)tps?:\/\/)([a-z0-9\.-])+(\.([a-z]{2,}))(\/([^\s\<\>\,\{\}\\\|\^\[\]\'])*)?$/);
+    return url.match(/(^(ht|f)tps?:\/\/)([a-zA-Z0-9\.-])+(\.([a-zA-Z]{2,}))(\/([^\s\<\>\,\{\}\\\|\^\[\]\'])*)?$/);
 }
 
 function urlToNuc() {
 
     var url = document.getElementById('url_field').value;
-    url = url.toLowerCase();
     if (is_valid_url(url)) {
         // Encode special characters
         url = encodeURIComponent(url);
@@ -714,6 +713,13 @@ function addWindowControls(layout, controls, screensection, file, status) {
     var movement = document.createElement("div");
     movement.setAttribute("class", "movement");
 
+    var jump = document.createElement("div");
+    jump.setAttribute("class", "jump");
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-up', 'jumpbeginning', 'home', handler, !home, '<?=__("Jump to start")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-up', 'pageback', 'prior', handler, !prior, '<?=__("Page up")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-down', 'pageforward', 'next', handler, !next, '<?=__("Page down")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-down', 'jumpend', 'end', handler, !end, '<?=__("Jump to end")?>'));
+
     var arrows = document.createElement("div");
     arrows.setAttribute("class", "arrows");
     arrows.appendChild(keyControl(screensection, 'fa fa-toggle-up', 'arrowup', 'up', handler, !up, '<?=__("Cursor control")?>'));
@@ -723,15 +729,8 @@ function addWindowControls(layout, controls, screensection, file, status) {
     arrows.appendChild(document.createElement("br"));
     arrows.appendChild(keyControl(screensection, 'fa fa-toggle-down', 'arrowdown', 'down', handler, !down, '<?=__("Cursor control")?>'));
 
-    var jump = document.createElement("div");
-    jump.setAttribute("class", "jump");
-    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-left', 'jumpbeginning', 'home', handler, !home, '<?=__("Jump to start")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-angle-left', 'pageback', 'prior', handler, !prior, '<?=__("Page up")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-angle-right', 'pageforward', 'next', handler, !next, '<?=__("Page down")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-right', 'jumpend', 'end', handler, !end, '<?=__("Jump to end")?>'));
-
-    movement.appendChild(arrows);
     movement.appendChild(jump);
+    movement.appendChild(arrows);
 
     var position = addWindowPosition(layout, screensection);
 
@@ -753,11 +752,13 @@ function updateWindowList(window){
     if (window.length == 0) {
         var entry = document.createElement('div');
         entry.setAttribute("class", "description");
-        entry.appendChild(document.createTextNode('<?=__("There is no shared content yet. Click Add to get started!")?>'));
+        entry.appendChild(document.createTextNode('<?=__('Welcome')?>, <?=$username?>!'));
+        entry.appendChild(document.createElement("br"));
+        entry.appendChild(document.createTextNode('<?=__("There is no shared content yet. Click \"Add\" to get started!")?>'));
         var addbutton = document.createElement('button');
         addbutton.setAttribute("class", "splash_add pure-button");
         addbutton.setAttribute("onclick", "openTab(event, 'Add')");
-        var addtext = document.createTextNode("Add ");
+        var addtext = (document.createTextNode('<?=__("Add ")?>'));
         addbutton.appendChild(addtext);
         var addicon = document.createElement("i");
         addicon.setAttribute("class", "fa fa-plus");
@@ -1034,9 +1035,15 @@ function showDropdown() {
     document.getElementById("languageSelection").classList.toggle("show");
 }
 // Close the dropdown menu if the user clicks outside of it
+// Must use some workaround to support IE.
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbutton')) {
-
+  var classes = event.target.className.split(' ');
+  var found = false; var i = 0;
+  while (i < classes.length && !found) {
+      if (classes[i]=='dropbutton') found = true;
+      else ++i;
+  }
+  if (!found) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -1114,12 +1121,8 @@ window.onclick = function(event) {
                 <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
             </div>
             <div class="description">
-            <?=__('Download and install screensharing tool (notebooks only). See the help section for further information.')?>
+            <?=__('Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.')?>
             </div>
-            <div class="description">
-            <?=__('Linux users can also use the built in function of their device and share the X display like this: ')?>
-            </div>
-            <code>x11vnc -connect <?php echo $_SERVER['HTTP_HOST'] ?></code>
         </div>
     </div>
     <div id="Control" class="tabcontent">
@@ -1199,11 +1202,11 @@ window.onclick = function(event) {
             simultaneously.')?></p>
             <?php
             if (CONFIG_INSTITUTION_URL) { ?>
-                <p><?=__('For further information see <a href="<?=CONFIG_INSTITUTION_URL?>" target="_blank">this site of your institution.')?></a></p>
+                <p><?=__('For further information about PalMA in this institution')?> <a href=<?=CONFIG_INSTITUTION_URL?> target="_blank"><?=__('see here.')?></a></p>
             <?php
             }
             ?>
-            <h4><?=__('Connect')?></h4>
+            <h4><?=__('Connect')?> <i class="fa fa-wifi"></i></h4>
             <p><?=__('Team members can join the group at any time with this URL or QR-Code:')?></p>
             <p class="url_hint"><?=$_SESSION['starturl']?><br />
             <?php if (!empty($_SESSION['pin'])) {
@@ -1219,17 +1222,28 @@ window.onclick = function(event) {
                 <ul>
                 <li><i class="fa fa-file"></i> <?=__('For PDF files, office files, images or videos use the file section.')?></li>
                 <li><i class="fa fa-globe"></i> <?=__('To display a website use the URL field.')?></li>
-                <li><i class="fa fa-video-camera"></i> <?=__('To share your desktop in real time, download the VNC screen sharing software and follow the instructions below.')?></li>
+                <li><i class="fa fa-video-camera"></i> <?=__('To share your desktop in real time download the VNC screen sharing software and')?></li>
+                    <ul>
+                    <li><i class="fa fa-windows"></i> <?=__('Windows:')?></li>
+                        <ul>
+                        <li><?=__('Run the downloaded file.')?></li>
+                        <li><?=__('Double-click the name of your PalMA station in the appearing list.')?></li>
+                        </ul>
+                    <li><i class="fa fa-apple"> </i> <?=__('Mac:')?></li>
+                        <ul>
+                        <li><?=__('CTRL + click the downloaded file and run it.')?></li>
+                        <li><?=__('A second window opens, in which you can start "VineServer".')?></li>
+                        <li><?=__('In the upper left corner, click on "VNC Server".')?></li>
+                        <li><?=__('Select "Reverse Connection".')?></li>
+                        <li><?=__('Enter the URL of your PalMA station and click "Connect".')?></li>
+                        </ul>
+                    <li><i class="fa fa-linux"></i> <?=__('Linux:')?></li>
+                        <ul>
+                        <li><?=__('Run the downloaded shell script.')?></li>
+                        <li><?=__('Or use this shell command:')?> <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></li>
+                        </ul>
+                    </ul>
                 </ul>
-                <!-- <p><?=__('Share the desktop of your notebook with others. PalMA uses
-                VNC for screen sharing. Download the VNC software once for your
-                <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf"
-                onclick="window.open(this.href); return false;">Windows PC</a>
-                (preconfigured UltraVNC) or
-                <a href="http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf"
-                onclick="window.open(this.href); return false;">MacBook</a>.')?></p>
-                <p><?=__('Linux users can share their X display like this:')?><br>
-                <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></p>-->
             <h4><?=__('Control')?> <i class="fa fa-arrows"></i></h4>
             <p><?=__('With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.')?></p>
             <p><?=__('Below that you find the controls for each content:')?></p>
@@ -1244,19 +1258,19 @@ window.onclick = function(event) {
             </ul>
             <li><?=__('Below on the left you find the navigation controls.')?></li>
             <ul>
-            <li><?=__('Arrow buttons navigate gradually')?> <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
-            <li><?=__('Buttons below jump a page back/forth or jump to start/end')?> <i class="fa fa-angle-double-left"></i> <i class="fa fa-angle-left"></i> <i class="fa fa-angle-right"></i> <i class="fa fa-angle-double-right"></i>.</li>
+            <li><?=__('Arrow buttons in the middle navigate gradually')?> <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
+            <li><?=__('Buttons on the left jump to the top, to the end, a page up or a page down')?> <i class="fa fa-angle-double-up"></i> <i class="fa fa-angle-up"></i> <i class="fa fa-angle-down"></i> <i class="fa fa-angle-double-up"></i>.</li>
             </ul>
             </li>
-            <li><?=__('Below on the right you can choose the position on the PalMA monitor')?> <i class="fa fa-desktop"></i>.</li>
+            <li><?=__('On the right you can choose the position on the PalMA monitor')?> <i class="fa fa-desktop"></i>.</li>
             </ul>
-            <p><?=__('Not every type of content supports every control. Unavailable controls are marked grey.')?></p>
+            <p><?=__('Controls that are not available for certain kinds of content are marked grey.')?></p>
             <h4><?=__('Extras')?> <i class="fa fa-info-circle"></i></h4>
             <p><?=__('Some additional features are:')?></p>
             <ul>
             <li><i class="fa fa-question-circle"></i> <?=__('This help,')?></li>
             <li><i class="fa fa-thumbs-o-up"></i> <?=__('Your chance to recommend us or give us your thoughts in the "Feedback" section,')?></li>
-            <li><i class="fa fa-users"></i> <?=__('A list of all logged-in users and a button to kill the session.')?></li>
+            <li><i class="fa fa-users"></i> <?=__('A list of all logged-in users as well as a button to disconnect everyone and therefore kill the session.')?></li>
             </ul>
         </div>
         <div id="Feedback" class="subtabcontent">

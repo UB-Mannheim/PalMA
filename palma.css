@@ -3,7 +3,12 @@
 /* General settings */
 html {
     /* This keeps appearing scrollbars from repositioning the webpage */
+    height: 100%;
+    width: 100%;
     margin-left: calc(100vw - 100%);
+    background-image: url(./images/user_background.png);
+    background-position: center;
+    background-attachment: fixed;
 }
 body {
     max-width: 1200px;
@@ -267,6 +272,7 @@ div.window_entry {
     margin: 0 auto .5em auto;
     max-width: 500px;
     vertical-align: top;
+    background-color: #f1f1f1;
 }
 div.window_entry button {
     border: none;
@@ -275,7 +281,7 @@ div.window_entry button {
     background-color: transparent;
 }
 div.window_entry button.window_entry_button {
-    background-color: #f1f1f1;
+    background-color: #e2e2e2;
     padding: .6em .8em;
     transition: 0.3s;
     color: black;
@@ -318,12 +324,20 @@ div.windowcontrols button.unavailable {
     color: #999999;
     cursor: not-allowed;
 }
+div.jump, div.arrows {
+    display: inline-block;
+}
+div.jump {
+    margin-right: .5em;
+}
+div.jump button {
+    display: block;
+    width: 1em;
+    height: 1em;
+}
 div.arrows button {
     margin: 0 .5em;
     padding: .2em .5em;
-}
-div.jump button {
-    padding: .5em;
 }
 div.position {
     border-radius: 6px;
@@ -386,12 +400,6 @@ img.qr-code {
 }
 
 /* Extras Feedback & Recommend */
-#contact {text-align: center;}
-#contact input, #contact textarea {
-    width: 75%;
-    min-width: 200px;
-    margin-bottom: .8em;
-}
 #recommendcontainer a {
     text-align: center;
 }
@@ -552,7 +560,8 @@ background-color: #FF6600
 }
 .resp-sharing-button--telegram:hover {
   background-color: #4B97D1;}
-
+/* Contact Form */
+/* Contact form is included via iframe. Its style is currently low priority. */
 /* Extras User */
 /* Language Selection */
 .dropdown {

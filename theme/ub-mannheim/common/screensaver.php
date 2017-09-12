@@ -38,7 +38,7 @@ $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 
 html {
     font-family: DejaVu Sans,sans-serif;
-    font-weight: 100;
+    font-weight: 220;
     height: 100%;
     width: 100%;
 }
@@ -53,46 +53,67 @@ h1, p {
     height: 1075px;
     overflow: hidden;
 }
-#Variant1 #QR-Code {
-    top: 63%;
-}
-#Variant1 #URL {
-    color: white;
-    top: 70%;
-}
-#Variant2 #QR-Code {
-    top: 22%;
-}
-#Variant2 #URL {
-    color: white;
-    left: 13.5%;
-    top: 28%;
-}
+
 #QR-Code {
     position: absolute;
-    right: 15%;
-    top: 55%;
 }
 #URL {
-    font-size: 250%;
+    color: #2e668b;
+    font-size: 500%;
     position: absolute;
-    left: 17%;
-    bottom: 35%;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
 }
+#PIN {
+    font-size: 525%;
+    color: #2e668b;
+    position: absolute;
+}
+#Variant1, #Variant2 {
+    position: relative;
+}
+
+#Variant1 #QR-Code {
+    top: 52%;
+    left: 3.75%;
+}
+#Variant1 #URL {
+    top: 41%;
+}
+#Variant1 #PIN {
+    right: 5.25%;
+    top: 57.25%;
+}
+
+#Variant2 #QR-Code {
+    top: 18%;
+    left: 4%;
+}
+#Variant2 #URL {
+    top: 6.75%;
+}
+#Variant2 #PIN {
+    right: 4.5%;
+    top: 22%;
+}
+
 </style>
 </head>
 
 <body>
     <div id="Variant1">
-    <img class="screen" src="palma_d.png">
-    <img id="QR-Code" src="../../../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
-    <div id="URL"><?=$url?> (PIN: <?=$pin?>)</div>
+        <img class="screen" src="palma_d.png">
+        <img id="QR-Code" src="../../../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
+        <div id="URL"><?=$url?></div>
+        <div id="PIN"><?=$pin?></div>
     </div>
 
     <div id="Variant2" hidden>
-    <img class="screen" src="palma_e.png">
-    <img id="QR-Code" src="../../../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
-    <div id="URL"><?=$url?> (PIN: <?=$pin?>)</div>
+        <img class="screen" src="palma_e.png">
+        <img id="QR-Code" src="../../../qrcode/php/qr_img.php?d=<?=$url?>?pin=<?=$pin?>&amp;e=H" alt="QR Code">
+        <div id="URL"><?=$url?></div>
+        <div id="PIN"><?=$pin?></div>
     </div>
 
 <script type="text/javascript">
@@ -117,7 +138,7 @@ function switchImage() {
 }
 
 switchImage();
-setInterval("switchImage()", 600000);
+setInterval("switchImage()", 300000);
 
 </script>
 </body>

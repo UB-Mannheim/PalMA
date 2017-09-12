@@ -155,6 +155,8 @@ eod;
         // TODO: Support more than one address for a given username.
         $ip = $this->ipAddress();
         $userid = $this->querySingle("SELECT userid from user where name='$username'");
+        // Kill VNC connection associated with the user
+        $this->deleteVNCWindow($userid);
         $this->exec("DELETE FROM address WHERE userid = '$userid' AND address = '$ip'");
         // TODO: Remove user only when no address refers to it.
         $this->exec("DELETE FROM user WHERE userid = '$userid'");
@@ -260,11 +262,10 @@ eod;
         $this->exec('DELETE FROM window WHERE win_id="'.$window_id.'"');
     }
 
-    /*
-    public function deleteVNCWindow($vnc_id) {
-        $this->exec('DELETE FROM window WHERE file="'.$vnc_id.'"');
+    public function deleteVNCWindow($userid) {
+        //$this->exec('DELETE FROM window WHERE file="'.$vnc_id.'"');
+        $this->exec('DELETE * FROM window WHERE handler="vnc" AND userid="' . $userid . '"');
     }
-    */
 
     public function deleteDebug($table, $id, $gt)
     {
