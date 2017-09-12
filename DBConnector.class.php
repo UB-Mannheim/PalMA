@@ -264,7 +264,11 @@ eod;
 
     public function deleteVNCWindow($userid)
     {
-        $this->exec('DELETE FROM window WHERE handler="vnc" AND userid="'.$userid.'"');
+        $winid = $this->querySingle('SELECT win_id FROM window WHERE handler="vnc" AND userid="'.$userid.'"');
+        require_once('control.php');
+        wmClose($winid);
+        deleteWindow($winid);
+        //$this->exec('DELETE FROM window WHERE handler="vnc" AND userid="'.$userid.'"');
     }
 
     public function deleteDebug($table, $id, $gt)
