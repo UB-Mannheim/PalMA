@@ -34,12 +34,14 @@ a:hover, a:active {
 /* Login form (login.php) */
 #login_mask {
     margin: 1em auto;
-    background-color: #f1f1f1;
+    background-color: #f8f8f8;
     border: 1px solid #e2e2e2;
     border-radius: 6px;
     padding: .5em;
     width: auto;
     max-width: 800px;
+    
+    box-shadow: 7px 7px 3px #cfcfcf;
 }
 legend {
     font-family: sans-serif;
@@ -166,11 +168,13 @@ div.description {
 
 /* Add */
 #Add div.subtabcontent {
-    background-color: #f1f1f1;
+    background-color: #f8f8f8;
     margin: .5em auto;
     border: 1px solid #c0c0c0;
     border-radius: 6px;
     text-align: center;
+    
+    box-shadow: 7px 7px 3px #cfcfcf;
 }
 /* Add File */
 #palma-dropzone {
