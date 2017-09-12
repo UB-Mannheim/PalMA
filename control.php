@@ -279,12 +279,15 @@ function addNewWindow($db, $new)
 
     // $new['file'] = $active_window; (?)
 
-    // TODO: check how to insert the userid.
+    // TODO: check how to insert the userid for all content, not just vnc.
     // Perhaps better add to array in upload.php ?
-    //$new['userid'] = "all";
-
-    $new['userid'] = $db->exec('SELECT user.userid FROM user WHERE user.name=' . $new['userid']);
-    if (empty($new['userid'])) $new['userid'] = "all";
+    $userid = "";
+    $queryid = $db->querySingle('SELECT user.userid FROM user WHERE user.name="' . $new['userid'] .'"');
+    if (!empty($queryid)) {
+        $userid = $queryid;
+    } else {
+        $userid = "all";
+    }
 
     $myWindow = array(
         $new['id'],
@@ -293,7 +296,7 @@ function addNewWindow($db, $new)
         $new['state'],
         $new['file'],
         $new['handler'],
-        $new['userid'],
+        $userid,
         $new['date']
     );
 
