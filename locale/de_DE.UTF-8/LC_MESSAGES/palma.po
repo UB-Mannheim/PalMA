@@ -190,12 +190,10 @@ msgstr "Alle Fenster schließen und hochgeladene Dateien löschen"
 # Extras Section
 # Help
 
-msgid "With PalMA, you can share documents, websites and your desktop
-with your learning group.'"
+msgid "With PalMA, you can share documents, websites and your desktop with your learning group."
 msgstr "Mit PalMA können Sie Dokumente, Webseiten und Ihren Desktop mit Ihrer Lerngruppe teilen."
 
-msgid "The PalMA team monitor shows up to four contributions
-simultaneously."
+msgid "The PalMA team monitor shows up to four contributions simultaneously."
 msgstr "Der PalMA Team Bildschirm zeigt bis zu vier Beiträge zeitgleich an."
 
 msgid "For further information about PalMA in this institution"
@@ -207,7 +205,7 @@ msgstr "hier"
 msgid "Connect"
 msgstr "Verbinden"
 
-msgid "Team members can join the sesseion at any time with this URL or QR-Code:"
+msgid "Team members can join the session at any time with this URL or QR-Code:"
 msgstr "Teammitglieder können der Sitzung jederzeit mit dieser URL oder dem QR-Code beitreten:"
 
 # Please mind the whitespace at the end.
@@ -266,7 +264,7 @@ msgstr "Oder benutzen Sie diesen Shellbefehl:"
 msgid "With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor."
 msgstr "Mit den grauen Monitorbuttons ganz oben können Sie bestimmen, wie die Inhalte auf dem PalMA-Monitor angeordnet werden sollen."
 
-msgid "Below that you find the controls for each content:"
+msgid "Below that you find the controls for each item:"
 msgstr "Darunter finden Sie die Steuerelemente für jeden Inhalt:"
 
 msgid "In the top bar you can"
@@ -328,7 +326,7 @@ msgstr "Sagen Sie uns Ihre Meinung"
 
 # Please mind the whitespace at the end
 msgid "Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on "
-msgstr "Bitte informieren Sie uns über Probleme oder Verbesserungsvorschläge. Helfen Sie uns direkt durch das Senden von Fehlerberichten oder durch Ihre Beiträge auf"
+msgstr "Bitte informieren Sie uns über Probleme oder Verbesserungsvorschläge. Helfen Sie uns direkt durch das Senden von Fehlerberichten oder durch Ihre Beiträge auf "
 
 msgid "Thank you!"
 msgstr "Vielen Dank!"
@@ -337,7 +335,7 @@ msgstr "Vielen Dank!"
 # Users
 
 msgid "Select language:"
-msgstr "Sprache auswählen"
+msgstr "Sprache auswählen:"
 
 msgid "User list"
 msgstr "Benutzerliste"
@@ -346,10 +344,10 @@ msgid "List of connected users"
 msgstr "Liste aller angemeldeten Benutzer"
 
 msgid "New users can join at"
-msgstr "Beitreten können neue Nutzer unter"
+msgstr "Neue Nutzer können hier beitreten"
 
 msgid "Disconnect all users and end the session"
-msgstr "Alle Benutzerabmelden und die Sitzung beenden"
+msgstr "Alle Benutzer abmelden und die Sitzung beenden"
 
 msgid "End the session"
 msgstr "Sitzung beenden"

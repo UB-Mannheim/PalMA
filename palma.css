@@ -228,6 +228,7 @@ button.splash_add {
 }
 #Control {display: block;}
 #Layout {display: none;}
+#Control i, #Layout i {margin-left: 0;}
 div.screenlayout {
     display: inline-block;
     vertical-align: middle;

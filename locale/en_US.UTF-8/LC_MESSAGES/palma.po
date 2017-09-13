@@ -190,12 +190,10 @@ msgstr ""
 # Extras Section
 # Help
 
-msgid "With PalMA, you can share documents, websites and your desktop
-with your learning group.'"
+msgid "With PalMA, you can share documents, websites and your desktop with your learning group."
 msgstr ""
 
-msgid "The PalMA team monitor shows up to 4 contributions
-simultaneously."
+msgid "The PalMA team monitor shows up to 4 contributions simultaneously."
 msgstr ""
 
 msgid "For further information about PalMA in this institution"

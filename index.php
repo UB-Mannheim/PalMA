@@ -1197,9 +1197,8 @@ window.onclick = function(event) {
             ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Users')"><?=__('Users')?><i class="fa fa-users"></i></button
         ></div>
         <div id="Help" class="subtabcontent">
-            <p><?=__('With PalMA, you can share documents, websites and your desktop
-            with your learning group.')?> <?=__('The PalMA team monitor shows up to four contributions
-            simultaneously.')?></p>
+            <p><?=__('With PalMA, you can share documents, websites and your desktop with your learning group.')?>
+            <?=__('The PalMA team monitor shows up to four contributions simultaneously.')?></p>
             <?php
             if (CONFIG_INSTITUTION_URL) { ?>
                 <p><?=__('For further information about PalMA in this institution')?> <a href=<?=CONFIG_INSTITUTION_URL?> target="_blank"><?=__('see here.')?></a></p>
