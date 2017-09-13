@@ -698,13 +698,13 @@ function addWindowControls(layout, controls, screensection, file, status) {
     topbar.appendChild(keyControl(screensection, 'fa fa-search-minus', 'zoomout', 'zoomout', handler, !zoomout, '<?=__("Zoom out")?>'));
     topbar.appendChild(keyControl(screensection, 'fa fa-rotate-left', 'counterclockwise', 'counterclockwise', handler, !counterclockwise, '<?=__("Rotate counterclockwise")?>'));
     topbar.appendChild(keyControl(screensection, 'fa fa-rotate-right', 'clockwise', 'clockwise', handler, !clockwise, '<?=__("Rotate clockwise")?>'));
-    var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', 'download', handler, !download, '<?=__("Download this file")?>');
+    var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', 'download', handler, !download, '<?=__("Download this item")?>');
     downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
     topbar.appendChild(downloadbutton);
     button = document.createElement('button');
     button.setAttribute("class", "trash");
     button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
-    button.setAttribute('title', '<?=__("Remove this object")?>');
+    button.setAttribute('title', '<?=__("Remove this item")?>');
     icon = document.createElement('i');
     icon.setAttribute("class", "fa fa-trash-o");
     button.appendChild(icon);
@@ -722,12 +722,12 @@ function addWindowControls(layout, controls, screensection, file, status) {
 
     var arrows = document.createElement("div");
     arrows.setAttribute("class", "arrows");
-    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-up', 'arrowup', 'up', handler, !up, '<?=__("Cursor control")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-up', 'arrowup', 'up', handler, !up, '<?=__("Up")?>'));
     arrows.appendChild(document.createElement("br"));
-    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-left', 'arrowleft', 'left', handler, !left, '<?=__("Cursor control")?>'));
-    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-right', 'arrowright', 'right', handler, !right, '<?=__("Cursor control")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-left', 'arrowleft', 'left', handler, !left, '<?=__("Left")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-right', 'arrowright', 'right', handler, !right, '<?=__("Right")?>'));
     arrows.appendChild(document.createElement("br"));
-    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-down', 'arrowdown', 'down', handler, !down, '<?=__("Cursor control")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-down', 'arrowdown', 'down', handler, !down, '<?=__("Down")?>'));
 
     movement.appendChild(jump);
     movement.appendChild(arrows);
@@ -754,11 +754,11 @@ function updateWindowList(window){
         entry.setAttribute("class", "description");
         entry.appendChild(document.createTextNode('<?=__('Welcome')?>, <?=$username?>!'));
         entry.appendChild(document.createElement("br"));
-        entry.appendChild(document.createTextNode('<?=__("There is no shared content yet. Click \"Add\" to get started!")?>'));
+        entry.appendChild(document.createTextNode('<?=__('There is no shared content yet. Click below to get started!')?>'));
         var addbutton = document.createElement('button');
         addbutton.setAttribute("class", "splash_add pure-button");
         addbutton.setAttribute("onclick", "openTab(event, 'Add')");
-        var addtext = (document.createTextNode('<?=__("Add ")?>'));
+        var addtext = (document.createTextNode('<?=__("Add")?>'));
         addbutton.appendChild(addtext);
         var addicon = document.createElement("i");
         addicon.setAttribute("class", "fa fa-plus");
@@ -1061,24 +1061,24 @@ window.onclick = function(event) {
 
 <!-- This formating is used to prevent empty textnodes that interfere with the design -->
 <div class="tab"
-    ><button class="tablinks" onclick="openTab(event, 'Add')"><?=__('Add')?> <i class="fa fa-plus"></i></button
-    ><button class="tablinks" onclick="openTab(event, 'Control')"><?=__('Control')?> <i class="fa fa-arrows"></i></button
-    ><button class="tablinks" onclick="openTab(event, 'Extras')"><?=__('Extras')?> <i class="fa fa-info-circle"></i></button
+    ><button class="tablinks" onclick="openTab(event, 'Add')"><?=__('Add')?><i class="fa fa-plus"></i></button
+    ><button class="tablinks" onclick="openTab(event, 'Control')"><?=__('Control')?><i class="fa fa-arrows"></i></button
+    ><button class="tablinks" onclick="openTab(event, 'Extras')"><?=__('Extras')?><i class="fa fa-info-circle"></i></button
 ></div>
 
 <div id="workbench">
     <div id="Add" class="tabcontent">
         <div class="subtab"
-        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'File')"><?=__('File')?> <i class="fa fa-file"></i></button
-        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'URL')"><?=__('URL')?> <i class="fa fa-globe"></i></button
-        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'Screen')"><?=__('Screen')?> <i class="fa fa-video-camera"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'File')"><?=__('File')?><i class="fa fa-file"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'URL')"><?=__('URL')?><i class="fa fa-globe"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'Screen')"><?=__('Screen')?><i class="fa fa-video-camera"></i></button
     ></div>
         <div id="File" class="subtabcontent">
             <div id="file_upload">
                 <form action="upload.php"
                     class="dropzone"
                     id="palma-dropzone"
-                    title="<?=__('Drop documents here (or click) to load them up')?>">
+                    title="<?=__('Drag and drop files or click here to upload.')?>">
                     <div class="dz-default dz-message">
                         <?=__('Add file (click or drop here)')?>
                         <i class="fa fa-file fa-2x"></i>
@@ -1105,15 +1105,15 @@ window.onclick = function(event) {
                     onfocus="clearURLField('<?=__('Enter URL')?>')">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                     id="url_button"
-                    onClick="urlToNuc()" title="<?=__('Show this URL in a new browser window')?>">
-                    <?=__('Enter')?> <i class="fa fa-globe"></i>
+                    onClick="urlToNuc()" title="<?=__('Click here to show the webpage on the screen.')?>">
+                    <?=__('Enter')?><i class="fa fa-globe"></i>
                 </button>
             </div>
         </div>
         <div id="Screen" class="subtabcontent">
             <div id="vnc-button" onclick="javascript:getFilePathByOS()">
                 <div id="vnc-button-container">
-                    <div id="vnc-button-label"><?=__('Add your screen')?> <i class="fa fa-video-camera fa-2x" aria-hidden="true"></i></div>
+                    <div id="vnc-button-label"><?=__('Add your screen')?><i class="fa fa-video-camera fa-2x" aria-hidden="true"></i></div>
                     <div id="vnc-button-label-subtext"><?=__('Download screensharing tool')?></div>
                 </div>
                 <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
@@ -1127,8 +1127,8 @@ window.onclick = function(event) {
     </div>
     <div id="Control" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Layout')"><?=__('Layout')?> <i class="fa fa-desktop"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Navigate')"><?=__('Navigate')?> <i class="fa fa-arrows"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Layout')"><?=__('Layout')?><i class="fa fa-desktop"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Navigate')"><?=__('Navigate')?><i class="fa fa-arrows"></i></button
         ></div>
         <div id="Layout" class="subtabcontent">
             <div class="screenlayout">
@@ -1186,19 +1186,19 @@ window.onclick = function(event) {
             <button id="closeWindows" class="pure-button pure-button-primary pure-input-rounded"
                 onClick="sendToNuc('closeAll=TRUE')"
                 title="<?=__('Close all windows and remove uploaded files')?>">
-                <?=__('Close all windows')?>
+                <?=__('Delete all items')?>
             </button>
         </div>
     </div>
     <div id="Extras" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Help')"><?=__('Help')?> <i class="fa fa-question-circle"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Feedback')"><?=__('Feedback')?> <i class="fa fa-thumbs-o-up"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Users')"><?=__('Users')?> <i class="fa fa-users"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Help')"><?=__('Help')?><i class="fa fa-question-circle"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Feedback')"><?=__('Feedback')?><i class="fa fa-thumbs-o-up"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Users')"><?=__('Users')?><i class="fa fa-users"></i></button
         ></div>
         <div id="Help" class="subtabcontent">
-            <p><?=__('With PalMA, you can share your documents and your desktop
-            with your learning group.')?> <?=__('The PalMA team monitor shows up to 4 contributions
+            <p><?=__('With PalMA, you can share documents, websites and your desktop
+            with your learning group.')?> <?=__('The PalMA team monitor shows up to four contributions
             simultaneously.')?></p>
             <?php
             if (CONFIG_INSTITUTION_URL) { ?>
@@ -1206,19 +1206,19 @@ window.onclick = function(event) {
             <?php
             }
             ?>
-            <h4><?=__('Connect')?> <i class="fa fa-wifi"></i></h4>
-            <p><?=__('Team members can join the group at any time with this URL or QR-Code:')?></p>
+            <h4><?=__('Connect')?><i class="fa fa-wifi"></i></h4>
+            <p><?=__('Team members can join the session at any time with this URL or QR-Code:')?></p>
             <p class="url_hint"><?=$_SESSION['starturl']?><br />
             <?php if (!empty($_SESSION['pin'])) {
-                echo "PIN: ";
+                echo __('PIN: ');
                 echo $_SESSION['pin'];
             }
             ?>
             </p>
             <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?>?pin=<?=$_SESSION['pin']?>" alt="QR Code">
 
-            <h4><?=__('Add')?> <i class="fa fa-plus"></i></h4>
-                <p><?=__('Use the "Add"-Section to share content on the PalMA monitor.')?></p>
+            <h4><?=__('Add')?><i class="fa fa-plus"></i></h4>
+                <p><?=__('Use the Add-Section to share content on the PalMA monitor.')?></p>
                 <ul>
                 <li><i class="fa fa-file"></i> <?=__('For PDF files, office files, images or videos use the file section.')?></li>
                 <li><i class="fa fa-globe"></i> <?=__('To display a website use the URL field.')?></li>
@@ -1232,10 +1232,10 @@ window.onclick = function(event) {
                     <li><i class="fa fa-apple"> </i> <?=__('Mac:')?></li>
                         <ul>
                         <li><?=__('CTRL + click the downloaded file and run it.')?></li>
-                        <li><?=__('A second window opens, in which you can start "VineServer".')?></li>
-                        <li><?=__('In the upper left corner, click on "VNC Server".')?></li>
-                        <li><?=__('Select "Reverse Connection".')?></li>
-                        <li><?=__('Enter the URL of your PalMA station and click "Connect".')?></li>
+                        <li><?=__('A second window opens, in which you can start &quot;VineServer&quot;.')?></li>
+                        <li><?=__('In the upper left corner, click on &quot;VNC Server&quot;.')?></li>
+                        <li><?=__('Select &quot;Reverse Connection&quot;.')?></li>
+                        <li><?=__('Enter the URL of your PalMA station and click &quot;Connect&quot;.')?></li>
                         </ul>
                     <li><i class="fa fa-linux"></i> <?=__('Linux:')?></li>
                         <ul>
@@ -1244,33 +1244,33 @@ window.onclick = function(event) {
                         </ul>
                     </ul>
                 </ul>
-            <h4><?=__('Control')?> <i class="fa fa-arrows"></i></h4>
+            <h4><?=__('Control')?><i class="fa fa-arrows"></i></h4>
             <p><?=__('With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.')?></p>
-            <p><?=__('Below that you find the controls for each content:')?></p>
+            <p><?=__('Below that you find the controls for each item:')?></p>
             <ul>
             <li><?=__('In the top bar you can')?></li>
             <ul>
-            <li><?=__('Hide and show content')?> <i class="fa fa-eye"></i>,</li>
-            <li><?=__('Zoom in and out')?> <i class="fa fa-search-plus"></i> <i class="fa fa-search-minus"></i>,</li>
-            <li><?=__('Rotate')?> <i class="fa fa-rotate-left"></i> <i class="fa fa-rotate-right"></i>,</li>
-            <li><?=__('Download the item')?> <i class="fa fa-download"></i>,</li>
-            <li><?=__('Delete the item')?> <i class="fa fa-trash-o"></i>.</li>
+            <li><?=__('Hide and show')?><i class="fa fa-eye"></i>,</li>
+            <li><?=__('Zoom in and out')?><i class="fa fa-search-plus"></i><i class="fa fa-search-minus"></i>,</li>
+            <li><?=__('Rotate')?><i class="fa fa-rotate-left"></i><i class="fa fa-rotate-right"></i>,</li>
+            <li><?=__('Download')?><i class="fa fa-download"></i>,</li>
+            <li><?=__('Delete the item')?><i class="fa fa-trash-o"></i>.</li>
             </ul>
-            <li><?=__('Below on the left you find the navigation controls.')?></li>
+            <li><?=__('Below you find the navigation controls.')?></li>
             <ul>
-            <li><?=__('Arrow buttons in the middle navigate gradually')?> <i class="fa fa-toggle-up"></i> <i class="fa fa-toggle-down"></i> <i class="fa fa-toggle-left"></i> <i class="fa fa-toggle-right"></i>.</li>
-            <li><?=__('Buttons on the left jump to the top, to the end, a page up or a page down')?> <i class="fa fa-angle-double-up"></i> <i class="fa fa-angle-up"></i> <i class="fa fa-angle-down"></i> <i class="fa fa-angle-double-up"></i>.</li>
+            <li><?=__('Buttons on the left jump to the top, to the end, a page up or a page down')?><i class="fa fa-angle-double-up"></i><i class="fa fa-angle-up"></i><i class="fa fa-angle-down"></i><i class="fa fa-angle-double-up"></i>.</li>
+            <li><?=__('Arrow buttons in the middle scroll gradually')?><i class="fa fa-toggle-up"></i><i class="fa fa-toggle-down"></i><i class="fa fa-toggle-left"></i><i class="fa fa-toggle-right"></i>.</li>
             </ul>
             </li>
-            <li><?=__('On the right you can choose the position on the PalMA monitor')?> <i class="fa fa-desktop"></i>.</li>
+            <li><?=__('On the right you can choose the position on the PalMA monitor')?><i class="fa fa-desktop"></i>.</li>
             </ul>
             <p><?=__('Controls that are not available for certain kinds of content are marked grey.')?></p>
-            <h4><?=__('Extras')?> <i class="fa fa-info-circle"></i></h4>
+            <h4><?=__('Extras')?><i class="fa fa-info-circle"></i></h4>
             <p><?=__('Some additional features are:')?></p>
             <ul>
             <li><i class="fa fa-question-circle"></i> <?=__('This help,')?></li>
-            <li><i class="fa fa-thumbs-o-up"></i> <?=__('Your chance to recommend us or give us your thoughts in the "Feedback" section,')?></li>
-            <li><i class="fa fa-users"></i> <?=__('A list of all logged-in users as well as a button to disconnect everyone and therefore kill the session.')?></li>
+            <li><i class="fa fa-thumbs-o-up"></i> <?=__('Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,')?></li>
+            <li><i class="fa fa-users"></i> <?=__('A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.')?></li>
             </ul>
         </div>
         <div id="Feedback" class="subtabcontent">
@@ -1335,14 +1335,14 @@ window.onclick = function(event) {
             <div id="contactcontainer">
                 <h3><?=__('Tell us what you think')?></h3>
                 <div>
-                    <p><?=__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on <a href="https://github.com/UB-Mannheim/PalMA" target="_blank">Github</a>.<br />Thank you!')?></p>
+                    <p><?=__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on ')?><a href="https://github.com/UB-Mannheim/PalMA" target="_blank">GitHub</a>.<br /><?=__('Thank you!')?></p>
                     <iframe width="100%" height="500" frameborder="0" src="https://www.bib.uni-mannheim.de/palma/feedback/form"></iframe>
                 </div>
             </div> <!-- contactcontainer -->
         </div> <!-- feedback -->
         <div id="Users" class="subtabcontent">
             <div class="dropdown">
-                <button onclick="showDropdown()" class="dropbutton pure-button pure-button-primary"><?=__('Select language:')?> <?=substr($locale, 0, 2)?> <i class="fa fa-caret-down"></i></button>
+                <button onclick="showDropdown()" class="dropbutton pure-button pure-button-primary"><?=__('Select language:')?> <?=substr($locale, 0, 2)?><i class="fa fa-caret-down"></i></button>
                 <div id="languageSelection" class="dropdown-content">
                 <?php
                 $dirs = array_slice(scandir('locale'), 2);
@@ -1367,7 +1367,7 @@ window.onclick = function(event) {
                 <div class="description">
                     <?=__('New users can join at')?><br /><?=$_SESSION['starturl']?><br />
                     <?php if (!empty($_SESSION['pin'])) {
-                        echo "PIN: ";
+                        echo __('PIN: ');
                         echo $_SESSION['pin'];
                     }
                     ?>
@@ -1375,8 +1375,8 @@ window.onclick = function(event) {
                 </div>
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         onClick="sendToNuc('logout=ALL')"
-                        title="<?=__('Disconnect all users and reset the work place')?>">
-                    <?=__('Disconnect all users')?>
+                        title="<?=__('Disconnect all users and end the session')?>">
+                    <?=__('End the session')?>
                 </button>
             </div>
         </div>

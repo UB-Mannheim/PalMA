@@ -9,10 +9,8 @@ html {
     background-image: url(./images/user_background.png);
     background-position: center;
     background-attachment: fixed;
-     
     overflow-y: scroll;
-}  
-
+}
 body {
     max-width: 1200px;
     margin: 0 auto;
@@ -33,6 +31,38 @@ a:hover, a:active {
     color: #990000;
     text-decoration: underline;
 }
+i {margin-left: .2em;}
+
+/* Workplace selection / Staff backend (monitor.php and learningcenter.php) */
+#monitor_selection button {
+    margin: .5em;
+    text-align: left;
+    width: 15em;
+}
+#monitor_selection .fa-desktop {
+    float: right;
+    padding: 0 .25em;
+}
+#monitor_selection, #monitor_mask {
+    text-align: center;
+    margin: 2em auto;
+    background-color: #F1F1F1;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 8px 8px 4px #666666;
+    width: 40em;
+    padding: .5em;
+}
+.selectdisplay {
+    background:url("images/main-klein.png");
+    width: 5em;
+    height: 3em;
+    background-repeat:no-repeat;
+    margin: .1em auto;
+}
+.monitorchoice {
+    width: 40em;
+}
 
 /* Login form (login.php) */
 #login_mask {
@@ -43,7 +73,7 @@ a:hover, a:active {
     padding: .5em;
     width: auto;
     max-width: 800px;
-    
+
     box-shadow: 7px 7px 3px #cfcfcf;
 }
 legend {
@@ -57,50 +87,6 @@ legend {
 div.policy {
     text-align: center;
     font-size: .8em;
-}
-/* Workplace selection (monitor.php) */
-#monitor_selection button {
-    margin: 10px 10px 10px 10px;
-    text-align: left;
-    width: 240px;
-}
-#monitor_selection .fa-desktop {
-    float: right;
-    padding: 0 10px 0 10px;
-}
-#monitor_selection {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    background-color: #F1F1F1;
-    border: 1px solid;
-    border-radius: 5px;
-    box-shadow: 8px 8px 4px #666666;
-    width: 790px;
-}
-
-/* Workplace selection (learningcenter.php) */
-#monitor_mask {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    padding: 0 0 20px 0;
-    background-color: #F1F1F1;
-    border: 1px solid;
-    border-radius: 5px;
-    box-shadow: 8px 8px 4px #666666;
-    width: 560px;
-}
-.monitorchoice {
-    margin-left: 40px;
-}
-.selectdisplay {
-    background:url("images/main-klein.png");
-    width:100px;
-    height:80px;
-    background-repeat:no-repeat;
-    display:block;
-    margin: 10px 10px 0 0;
 }
 
 /* Main User Interface (index.php) */
@@ -176,7 +162,7 @@ div.description {
     border: 1px solid #c0c0c0;
     border-radius: 6px;
     text-align: center;
-    
+
     box-shadow: 7px 7px 3px #cfcfcf;
 }
 /* Add File */

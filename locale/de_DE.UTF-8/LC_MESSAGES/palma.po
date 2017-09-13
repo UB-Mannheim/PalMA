@@ -1,330 +1,411 @@
 # PalMA translation.
-# Copyright (C) 2014 Universitätsbibliothek Mannheim
+# Copyright (C) 2017 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
 # Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
+# Dennis Müller <dennis.mueller@bib.uni-mannheim.de>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-07 20:30+0200\n"
-"PO-Revision-Date: 2014-04-09 21:31+0200\n"
-"Last-Translator: Stefan Weil <stefan.weil@bib.uni-mannheim.de>\n"
+"PO-Revision-Date: 2017-09-12 14:38+0200\n"
+"Last-Translator: Dennis Müller <dennis.mueller@bib.uni-mannheim.de>\n"
 "Language-Team: Deutsch <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:170
-msgid "Screen section"
-msgstr "Bildschirmbereich"
-
-#: index.php:175
-msgid "Close the advanced control"
-msgstr "Schließe die erweiterte Steuerung"
-
-#: index.php:232
-msgid "Enter valid URL"
-msgstr "Bitte gültige URL eingeben"
-
-#: index.php:270 index.php:275 index.php:290 index.php:295
-msgid "Cursor control"
-msgstr "Cursortaste"
-
-#: index.php:285
-msgid "Advanced control"
-msgstr "Erweiterte Steuerung"
-
-#: index.php:345
-msgid "Zoom in"
-msgstr "Anzeige vergrößern"
-
-#: index.php:351
-msgid "Zoom out"
-msgstr "Anzeige verkleinern"
-
-#: index.php:366
-msgid "Jump to start"
-msgstr "Springe zum Anfang"
-
-#: index.php:369
-msgid "Page up"
-msgstr "Blättere zurück"
-
-#: index.php:372
-msgid "Page down"
-msgstr "Blättere vorwärts"
-
-#: index.php:375
-msgid "Jump to end"
-msgstr "Springe zum Ende"
-
-#: index.php:378
-msgid "Download this file"
-msgstr "Lade diese Datei herunter"
-
-#: index.php:758
-msgid "You were disconnected!"
-msgstr "Sie wurden abgemeldet!"
-
-#: index.php:841
-msgid "Toggle visibility"
-msgstr "Umschalten zwischen sichtbar / unsichtbar"
-
-#: index.php:849
-msgid "Select screen section for display"
-msgstr "Auswahl des Bildschirmbereiches für die Anzeige"
-
-#: index.php:915
-msgid "Remove this object"
-msgstr "Entferne dieses Objekt"
-
-#: index.php:1074 index.php:1142
-msgid "Team display"
-msgstr "Team-Monitor"
-
-#: index.php:1085
-msgid "Controls"
-msgstr "Steuerung"
-
-#: index.php:1086 index.php:1149 index.php:1150
-msgid "Screen layout"
-msgstr "Bildschirmaufteilung"
-
-#: index.php:1087
-msgid "URL / Document"
-msgstr "URL / Dokument"
-
-#: index.php:1088
-msgid "Menu"
-msgstr "Menü"
-
-#: index.php:1096
-msgid "Disconnect the current user"
-msgstr "Melde den aktuellen Benutzer ab"
-
-#: index.php:1101 index.php:1102
-msgid "User list"
-msgstr "Benutzerliste"
-
-#: index.php:1101
-msgid "List of connected users"
-msgstr "Liste der angemeldeten Benutzer"
-
-#: index.php:1111
-msgid "Disconnect all users and reset the work place"
-msgstr ""
-"Melde alle Benutzer ab und setze den Arbeitsplatz auf den Ausgangszustand "
-"zurück"
-
-#: index.php:1112
-msgid "Disconnect all users"
-msgstr "Alle Benutzer abmelden"
-
-#: index.php:1117 index.php:1119
-msgid "Display list"
-msgstr "Anzeigeliste"
-
-#: index.php:1118
-msgid "List of files, URLs and shared displays"
-msgstr ""
-"Liste der angezeigten bzw. anzeigbaren Dateien, URLs und Bildschirmfreigaben"
-
-#: index.php:1126
-msgid "Close all windows and remove uploaded files"
-msgstr "Schließe alle Fenster und lösche hochgeladene Dateien"
-
-#: index.php:1127
-msgid "Close all windows"
-msgstr "Alle Fenster schließen"
-
-#: index.php:1134
-msgid "Show help and offer some extras"
-msgstr "Zeige eine Hilfeseite mit zusätzlichen Funktionen an"
-
-#: index.php:1135 index.php:1241
-msgid "Help + Extras"
-msgstr "Hilfe + Extras"
-
-#: index.php:1155 index.php:1162 index.php:1169 index.php:1176 index.php:1183
-msgid "Choose screen layout"
-msgstr "Wähle Bildschirmaufteilung"
-
-#: index.php:1192 index.php:1195
-msgid "Enter URL"
-msgstr "Bitte URL eingeben"
-
-#: index.php:1198
-msgid "Show this URL in a new browser window"
-msgstr "Zeige diese URL in einem neuen Browserfenster"
-
-#: index.php:1208
-msgid "Drop documents here (or click) to load them up"
-msgstr "Dokumente zum Hochladen hierher ziehen (oder klicken)"
-
-#: index.php:1212
-msgid "Drop documents here (or click)"
-msgstr "Dokumente hierher ziehen (oder klicken)"
-
-#: index.php:1238
-msgid "Close the help window"
-msgstr "Schließe das Hilfefenster"
-
-#: index.php:1244
-msgid ""
-"With PalMA, you can share your documents and your desktop\n"
-"            with your learning group."
-msgstr ""
-"Mit PalMA können Sie Ihre Dokumente und Ihren Desktop\n"
-"            mit Ihrer Lerngruppe teilen."
-
-#: index.php:1246
-msgid ""
-"Team members can join the group at any time. All they need\n"
-"            is URL and PIN."
-msgstr ""
-"Teammitglieder können der Gruppe jederzeit beitreten. Sie\n"
-"            brauchen dazu nur die URL und die PIN."
-
-#: index.php:1250
-msgid ""
-"The PalMA team monitor shows up to 4 contributions\n"
-"            simultaneously."
-msgstr ""
-"Der PalMA-Team-Monitor zeigt bis zu 4 Beiträge\n"
-"            gleichzeitig an."
-
-#: index.php:1252
-msgid ""
-"Just upload PDF files, images, OpenDocument or\n"
-"            MS Office files or enter a URL &ndash; PalMA will show them."
-msgstr ""
-"PDF-Dateien, Bilder, OpenDocument- oder MS-Office-Dateien\n"
-"            können einfach hochgeladen werden oder eine Webseite per URL "
-"angezeigt werden."
-
-#: index.php:1254
-msgid ""
-"Share the desktop of your notebook with others. PalMA uses\n"
-"            VNC for screen sharing. Download the VNC software once for your\n"
-"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
-"LearningCenter/palma-kurzanleitung.pdf\"\n"
-"            onclick=\"window.open(this.href); return false;\">Windows PC</"
-"a>\n"
-"            (preconfigured UltraVNC) or\n"
-"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
-"LearningCenter/palma-anleitung-mac.pdf\"\n"
-"            onclick=\"window.open(this.href); return false;\">MacBook</a>\n"
-"            (RealVNC)."
-msgstr ""
-"Zur Bildschirmfreigabe von Ihrem Laptop benutzt PalMA die VNC Software.\n"
-"            Diese muss einmalig heruntergeladen werden.\n"
-"            Für <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
-"LearningCenter/palma-kurzanleitung.pdf\"\n"
-"            onclick=\"window.open(this.href); return false;\">Windows</a>\n"
-"            gibt es eine vorkonfigurierte Software auf Basis von UltraVNC "
-"und für\n"
-"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
-"LearningCenter/palma-anleitung-mac.pdf\"\n"
-"            onclick=\"window.open(this.href); return false;\">Mac</a>\n"
-"            kann RealVNC benutzt werden."
-
-#: index.php:1262
-msgid "Linux users can share their X display like this:"
-msgstr "Linux-Benutzer können ihr X Display wie folgt teilen:"
-
-#: index.php:1268
-msgid "Share desktop (free UltraVNC / Windows only)"
-msgstr "Desktopfreigabe (Windows)"
-
-#: index.php:1275
-msgid "Share desktop (non free RealVNC)"
-msgstr "Desktopfreigabe (Mac)"
-
-#: index.php:1283
-msgid "Show team display"
-msgstr "Team-Monitor anzeigen"
-
-#: login.php:93 login.php:101 login.php:104
+# Login Mask
 msgid "Invalid credentials!"
 msgstr "Benutzerkennung ungültig!"
 
-#: login.php:98
 msgid "Cannot check credentials, sorry!"
 msgstr "Prüfung der Benutzerkennung zur Zeit leider nicht möglich!"
 
-#: login.php:133
 msgid "Invalid PIN."
 msgstr "PIN ungültig."
 
-#: login.php:168
 msgid "PalMA &ndash; Login"
 msgstr "PalMA &ndash; Anmeldung"
 
-#: login.php:195
 msgid "Login"
 msgstr "Anmeldung"
 
-#: login.php:199
 msgid "User name"
 msgstr "Benutzername"
 
-#: login.php:206
 msgid "Password"
 msgstr "Passwort"
 
-#: login.php:214
 msgid "PIN"
 msgstr "PIN"
 
-#: login.php:222
 msgid "Log in"
 msgstr "Anmelden"
 
-#: upload.php:53
+
+# Index.php
+
+# Tabs and Subtabs
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "File"
+msgstr "Datei"
+
+msgid "URL"
+msgstr ""
+
+msgid "Screen"
+msgstr "Bildschirm"
+
+msgid "Control"
+msgstr "Steuern"
+
+msgid "Layout"
+msgstr "Anordnung"
+
+msgid "Navigate"
+msgstr "Navigieren"
+
+msgid "Extras"
+msgstr ""
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "Feedback"
+msgstr ""
+
+msgid "Users"
+msgstr "Benutzer"
+
+
+# Greeting
+
+msgid "Welcome"
+msgstr "Willkommen"
+
+msgid "There is no shared content yet. Click below to get started!"
+msgstr "Es gibt noch keine geteilten Inhalte. Klicken Sie hier, um zu beginnen!"
+
+
+# Add Section
+
+msgid "Add file (click or drop here)"
+msgstr "Datei hinzufügen (hierher ziehen oder hier klicken)"
+
+msgid "Drag and drop files or click here to upload."
+msgstr "Dateien per Drag 'n' Drop oder Klick hochladen."
+
+msgid "Add webpage"
+msgstr "Webseite hinzufügen"
+
+msgid "Enter URL"
+msgstr "Bitte geben Sie eine URL ein"
+
+msgid "Enter"
+msgstr "Eingabe"
+
+msgid "Click here to show the webpage on the screen."
+msgstr "Klicken Sie hier, um eine Webseite auf dem Bildschirm anzuzeigen."
+
+msgid "Add your screen"
+msgstr "Ihren Bildschirm hinzufügen"
+
+msgid "Download screensharing tool"
+msgstr "Screensharing software herunterladen"
+
+msgid "Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information."
+msgstr "Laden Sie Ihre Screensharing Software herunter (nur Windows, Max und Linux). Besuchen Sie die Hilfe für weitere Informationen."
+
+msgid "Sorry! Screensharing for your device is currently not supported."
+msgstr "Screensharing für Ihr Gerät ist leider noch nicht verfügbar."
+
+# Control section
+
+msgid "Choose screen layout"
+msgstr "Bildschirmanordnung wählen"
+
+msgid "not available"
+msgstr "nicht verfügbar"
+
+msgid "Select screen section for display"
+msgstr "Bildschirmbereich auswählen"
+
+msgid "Toggle visibility"
+msgstr "Sichtbarkeit umschalten"
+
+msgid "Zoom in"
+msgstr "Hereinzoomen"
+
+msgid "Zoom out"
+msgstr "Herauszoomen"
+
+msgid "Rotate counterclockwise"
+msgstr "Gegen den Uhrzeigersinn drehen"
+
+msgid "Rotate clockwise"
+msgstr "Im Uhrzeigersinn drehen"
+
+msgid "Download this item"
+msgstr "Diesen Eintrag herunterladen"
+
+msgid "Remove this item"
+msgstr "Diesen Eintrag entfernen"
+
+msgid "Jump to start"
+msgstr "Zum Anfang springen"
+
+msgid "Jump to end"
+msgstr "Zum Ende springen"
+
+msgid "Page up"
+msgstr "Seite nach oben"
+
+msgid "Page down"
+msgstr "Seite nach unten"
+
+msgid "Up"
+msgstr "Nach oben"
+
+msgid "Left"
+msgstr "Nach links"
+
+msgid "Right"
+msgstr "Nach rechts"
+
+msgid "Down"
+msgstr "Nach unten"
+
+msgid "Delete all items"
+msgstr "Alle Einträge entfernen"
+
+msgid "Close all windows and remove uploaded files"
+msgstr "Alle Fenster schließen und hochgeladene Dateien löschen"
+
+
+# Extras Section
+# Help
+
+msgid "With PalMA, you can share documents, websites and your desktop
+with your learning group.'"
+msgstr "Mit PalMA können Sie Dokumente, Webseiten und Ihren Desktop mit Ihrer Lerngruppe teilen."
+
+msgid "The PalMA team monitor shows up to four contributions
+simultaneously."
+msgstr "Der PalMA Team Bildschirm zeigt bis zu vier Beiträge zeitgleich an."
+
+msgid "For further information about PalMA in this institution"
+msgstr "Weitere Informationen über PalMA in dieser Einrichtung finden Sie"
+
+msgid "see here."
+msgstr "hier"
+
+msgid "Connect"
+msgstr "Verbinden"
+
+msgid "Team members can join the sesseion at any time with this URL or QR-Code:"
+msgstr "Teammitglieder können der Sitzung jederzeit mit dieser URL oder dem QR-Code beitreten:"
+
+# Please mind the whitespace at the end.
+msgid "PIN: "
+msgstr ""
+
+msgid "Use the Add-Section to share content on the PalMA monitor."
+msgstr "Im Bereich &quot;Hinzufügen&quot; können Sie Inhalte auf den PalMA-Monitor übertragen."
+
+msgid "For PDF files, office files, images or videos use the file section."
+msgstr "Nutzen Sie den Dateiupload für PDF-Dateien, Office-Dateien, Bilder oder Videos."
+
+msgid "To display a website use the URL field."
+msgstr "Mit dem URL-Feld können Sie eine Webseite anzeigen lassen."
+
+msgid "To share your desktop in real time download the VNC screen sharing software and"
+msgstr "Um den Bildschirm Ihres Rechners in Echtzeit anzeigen zu lassen, laden Sie die VNC Screensharing Software herunter und"
+
+# Referring to the popular operating system
+msgid "Windows:"
+msgstr ""
+
+msgid "Run the downloaded file."
+msgstr "Führen Sie die heruntergeladene Datei aus."
+
+msgid "Double-click the name of your PalMA station in the appearing list."
+msgstr "Doppelklicken Sie auf den Namen Ihrer PalMA Station in der erscheinenden Liste."
+
+msgid "Mac:"
+msgstr ""
+
+msgid "CTRL + click the downloaded file and run it."
+msgstr "Halten Sie STRG gedrückt, klicken Sie auf die heruntergeladene Datei und führen Sie sie aus."
+
+msgid "A second window opens, in which you can start &quot;VineServer&quot;."
+msgstr "Es öffnet Sich ein zweites Fenster, in welchem Sie &quot;VineServer&quot; starten können."
+
+msgid "In the upper left corner, click on &quot;VNC Server&quot;."
+msgstr "Klicken Sie auf &quot;VNC Server&quot; in der linken oberen Ecke."
+
+msgid "Select &quot;Reverse Connection&quot;."
+msgstr "Wählen Sie &quot;Reverse Connection&quot; aus."
+
+msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
+msgstr "Geben Sie die URL Ihrer PalMA station ein und klicken Sie auf &quot;Connect&quot;."
+
+msgid "Linux:"
+msgstr ""
+
+msgid "Run the downloaded shell script."
+msgstr "Führen Sie das heruntergeladene Shellskript aus."
+
+msgid "Or use this shell command:"
+msgstr "Oder benutzen Sie diesen Shellbefehl:"
+
+msgid "With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor."
+msgstr "Mit den grauen Monitorbuttons ganz oben können Sie bestimmen, wie die Inhalte auf dem PalMA-Monitor angeordnet werden sollen."
+
+msgid "Below that you find the controls for each content:"
+msgstr "Darunter finden Sie die Steuerelemente für jeden Inhalt:"
+
+msgid "In the top bar you can"
+msgstr "In der oberen Leiste können Sie den Eintrag"
+
+msgid "Hide and show"
+msgstr "Aus- und einblenden"
+
+msgid "Zoom in and out"
+msgstr "Hinein- und herauszoomen"
+
+msgid "Rotate"
+msgstr "Drehen"
+
+msgid "Download"
+msgstr "Drehen"
+
+msgid "Delete the item"
+msgstr "Löschen"
+
+msgid "Below you find the navigation controls."
+msgstr "Darunter finden Sie die Steuerelemente."
+
+msgid "Buttons on the left jump to the top, to the end, a page up or a page down"
+msgstr "Die Buttons links springen zum Anfang, zum Ende, eine Seite nach oben oder eine Seite nach unten"
+
+msgid "Arrow buttons in the middle scroll gradually"
+msgstr "Die Pfeilbuttons in der Mitte scrollen schrittweise"
+
+msgid "On the right you can choose the position on the PalMA monitor"
+msgstr "Rechts können Sie die Position des Eintrags auf dem PalMA-Monitor bestimmen."
+
+msgid "Controls that are not available for certain kinds of content are marked grey."
+msgstr "Steuerelemente, die für einen bestimmten Inhaltstyp nicht verfügbar sind, sind grau markiert."
+
+msgid "Some additional features are:"
+msgstr "Weitere Funktionen sind:"
+
+msgid "This help,"
+msgstr "Diese Hilfe,"
+
+msgid "Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,"
+msgstr "Die Möglichkeit, uns unter &quot;Feedback&quot; zu empfehlen oder Ihre Meinung mitzuteilen,"
+
+msgid "A list of all logged-in users as well as a button to disconnect everyone and therefore end the session."
+msgstr "Eine Liste mit allen angemeldeten Benutzern sowie eine Schaltfläche, mit der Sie die Sitzung für alle beenden können."
+
+
+# Feedback
+
+msgid "Recommend us"
+msgstr "Empfehlen Sie uns"
+
+msgid "If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!"
+msgstr "Wenn Ihnen PalMA gefällt, empfehlen Sie uns bitte in Ihren sozialen Netzwerken.<br />Viel Spaß mit PalMA!"
+
+msgid "Tell us what you think"
+msgstr "Sagen Sie uns Ihre Meinung"
+
+# Please mind the whitespace at the end
+msgid "Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on "
+msgstr "Bitte informieren Sie uns über Probleme oder Verbesserungsvorschläge. Helfen Sie uns direkt durch das Senden von Fehlerberichten oder durch Ihre Beiträge auf"
+
+msgid "Thank you!"
+msgstr "Vielen Dank!"
+
+
+# Users
+
+msgid "Select language:"
+msgstr "Sprache auswählen"
+
+msgid "User list"
+msgstr "Benutzerliste"
+
+msgid "List of connected users"
+msgstr "Liste aller angemeldeten Benutzer"
+
+msgid "New users can join at"
+msgstr "Beitreten können neue Nutzer unter"
+
+msgid "Disconnect all users and end the session"
+msgstr "Alle Benutzerabmelden und die Sitzung beenden"
+
+msgid "End the session"
+msgstr "Sitzung beenden"
+
+
+# Footer
+
+msgid "Disconnect the current user"
+msgstr "Den aktuellen Benutzer abmelden"
+
+msgid "Log out"
+msgstr "Abmelden"
+
+msgid "You were disconnected!"
+msgstr "Sie wurden abgemeldet!"
+
+
+# upload.php
+
 msgid "This file is too large."
 msgstr "Diese Datei ist zu groß."
 
-#: upload.php:56
 msgid "Large files are not supported."
 msgstr "Große Dateien werden nicht unterstützt."
 
-#: upload.php:59
 msgid "File was only partially uploaded."
 msgstr "Die Datei wurde nur teilweise hochgeladen."
 
-#: upload.php:62
 #, php-format
 msgid "Error code %s."
 msgstr "Fehlercode %s."
 
-#: upload.php:74
 #, php-format
 msgid "File '%s' cannot be shown."
 msgstr "Die Datei '%s' kann leider nicht angezeigt werden."
 
-#: examples/screensaver/pictureshow.php:35
-msgid "Picture Show"
-msgstr "Bilderschau"
 
-#: examples/screensaver/tiles.php:33
-msgid "Tiles"
-msgstr "Kacheln"
+# selectplace
 
-#: selectplace/learningcenter.php:25 selectplace/learningcenter.php:39
-#: selectplace/monitor.php:25 selectplace/monitor.php:51
 msgid "Select workplace"
 msgstr "Arbeitsplatz auswählen"
 
-#: selectplace/learningcenter.php:45
 msgid "Conference room"
 msgstr "Besprechungsraum"
 
-#: selectplace/learningcenter.php:45 selectplace/monitor.php:73
 msgid "Test monitor"
 msgstr "Testmonitor"
 
-#: selectplace/learningcenter.php:46 selectplace/monitor.php:66
 msgid "Mannheim table"
 msgstr "Mannheimer Tisch"
+
+
+# examples/screensaver
+
+msgid "Picture Show"
+msgstr "Bilderschau"
+
+msgid "Tiles"
+msgstr "Kacheln"
