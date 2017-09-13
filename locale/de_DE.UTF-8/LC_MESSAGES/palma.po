@@ -200,7 +200,7 @@ msgid "For further information about PalMA in this institution"
 msgstr "Weitere Informationen über PalMA in dieser Einrichtung finden Sie"
 
 msgid "see here."
-msgstr "hier"
+msgstr "hier."
 
 msgid "Connect"
 msgstr "Verbinden"
@@ -232,7 +232,7 @@ msgid "Run the downloaded file."
 msgstr "Führen Sie die heruntergeladene Datei aus."
 
 msgid "Double-click the name of your PalMA station in the appearing list."
-msgstr "Doppelklicken Sie auf den Namen Ihrer PalMA Station in der erscheinenden Liste."
+msgstr "Doppelklicken Sie auf den Namen Ihrer PalMA Station in der sich öffnenden Liste."
 
 msgid "Mac:"
 msgstr ""
@@ -241,7 +241,7 @@ msgid "CTRL + click the downloaded file and run it."
 msgstr "Halten Sie STRG gedrückt, klicken Sie auf die heruntergeladene Datei und führen Sie sie aus."
 
 msgid "A second window opens, in which you can start &quot;VineServer&quot;."
-msgstr "Es öffnet Sich ein zweites Fenster, in welchem Sie &quot;VineServer&quot; starten können."
+msgstr "Es öffnet sich ein zweites Fenster, in welchem Sie &quot;VineServer&quot; starten können."
 
 msgid "In the upper left corner, click on &quot;VNC Server&quot;."
 msgstr "Klicken Sie auf &quot;VNC Server&quot; in der linken oberen Ecke."
@@ -250,7 +250,7 @@ msgid "Select &quot;Reverse Connection&quot;."
 msgstr "Wählen Sie &quot;Reverse Connection&quot; aus."
 
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
-msgstr "Geben Sie die URL Ihrer PalMA station ein und klicken Sie auf &quot;Connect&quot;."
+msgstr "Geben Sie die URL Ihrer PalMA Station ein und klicken Sie auf &quot;Connect&quot;."
 
 msgid "Linux:"
 msgstr ""
@@ -265,7 +265,7 @@ msgid "With the grey monitor buttons at the top you can choose how the shared co
 msgstr "Mit den grauen Monitorbuttons ganz oben können Sie bestimmen, wie die Inhalte auf dem PalMA-Monitor angeordnet werden sollen."
 
 msgid "Below that you find the controls for each item:"
-msgstr "Darunter finden Sie die Steuerelemente für jeden Inhalt:"
+msgstr "Darunter finden Sie die Steuerelemente für jeden Eintrag:"
 
 msgid "In the top bar you can"
 msgstr "In der oberen Leiste können Sie den Eintrag"
@@ -280,7 +280,7 @@ msgid "Rotate"
 msgstr "Drehen"
 
 msgid "Download"
-msgstr "Drehen"
+msgstr "Herunterladen"
 
 msgid "Delete the item"
 msgstr "Löschen"
@@ -295,7 +295,7 @@ msgid "Arrow buttons in the middle scroll gradually"
 msgstr "Die Pfeilbuttons in der Mitte scrollen schrittweise"
 
 msgid "On the right you can choose the position on the PalMA monitor"
-msgstr "Rechts können Sie die Position des Eintrags auf dem PalMA-Monitor bestimmen."
+msgstr "Rechts können Sie die Position des Eintrags auf dem PalMA-Monitor bestimmen"
 
 msgid "Controls that are not available for certain kinds of content are marked grey."
 msgstr "Steuerelemente, die für einen bestimmten Inhaltstyp nicht verfügbar sind, sind grau markiert."
@@ -344,11 +344,7 @@ msgid "List of connected users"
 msgstr "Liste aller angemeldeten Benutzer"
 
 msgid "New users can join at"
-<<<<<<< HEAD
 msgstr "Neue Nutzer können hier beitreten"
-=======
-msgstr "Neue Nutzer hier beitreten"
->>>>>>> 94476bf94de3764f680aaaee8d1f159dfd8c1111
 
 msgid "Disconnect all users and end the session"
 msgstr "Alle Benutzer abmelden und die Sitzung beenden"
