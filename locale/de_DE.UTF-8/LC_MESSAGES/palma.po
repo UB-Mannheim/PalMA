@@ -119,7 +119,7 @@ msgid "Download screensharing tool"
 msgstr "Screensharing software herunterladen"
 
 msgid "Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information."
-msgstr "Laden Sie Ihre Screensharing Software herunter (nur Windows, Max und Linux). Besuchen Sie die Hilfe für weitere Informationen."
+msgstr "Laden Sie Ihre Screensharing Software herunter (nur Windows, Mac und Linux). Besuchen Sie die Hilfe für weitere Informationen."
 
 msgid "Sorry! Screensharing for your device is currently not supported."
 msgstr "Screensharing für Ihr Gerät ist leider noch nicht verfügbar."

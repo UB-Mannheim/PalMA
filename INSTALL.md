@@ -20,9 +20,10 @@ So a complete PalMA installation can be based on Debian GNU Linux (Version 9
 Just add some required Debian packages (these and all other installation
 commands must be run as root user):
 
-    apt-get install apache2 midori feh libapache2-mod-php5 libjs-jquery
-    apt-get install openbox php5-curl php5-gd php5-intl php5-sqlite
-    apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
+    apt-get install midori feh vlc zathura ssvnc x11vnc
+    apt-get install apache2 libapache2-mod-php7.0 sqlite3
+    apt-get install php7.0-curl php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
+    apt-get install wmctrl xdotool openbox libjs-jquery
 
 Attention for Debian 8 "Jessie"! Before you can install Midori on Jessie you
 must add the
@@ -49,7 +50,7 @@ More advanced users will also want to configure mail:
 Apache
 ------
 
-The PHP5 default configuration for the Apache2 webserver permits file uploads
+The PHP default configuration for the Apache2 webserver permits file uploads
 up to 2 MB. This limit is too low for typical documents (images,
 office documents, pdf). Change the setting `upload_max_filesize` in
 `/etc/php5/apache2/php.ini`. 10 MB is a good value. There is another limit
