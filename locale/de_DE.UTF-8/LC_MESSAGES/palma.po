@@ -344,7 +344,11 @@ msgid "List of connected users"
 msgstr "Liste aller angemeldeten Benutzer"
 
 msgid "New users can join at"
+<<<<<<< HEAD
 msgstr "Neue Nutzer können hier beitreten"
+=======
+msgstr "Neue Nutzer hier beitreten"
+>>>>>>> 94476bf94de3764f680aaaee8d1f159dfd8c1111
 
 msgid "Disconnect all users and end the session"
 msgstr "Alle Benutzer abmelden und die Sitzung beenden"
