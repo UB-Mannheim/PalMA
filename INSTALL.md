@@ -1,38 +1,35 @@
 PalMA Installation Instructions
 ===============================
 
-Operating system
+Requirements
 ----------------
 
-The PalMA web application requires a web server (usually Apache 2) which
-supports PHP 5 and SQLite.
+PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
+Hardware requirements are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
 
-User provided contents are shown using a simple web browser (midori),
-an image viewer (feh), a PDF viewer (zathura), a video player (vlc) and a VNC
-server.
-Office files are converted to PDF by libreoffice and then handed over to
-zathura.
+Needed packages
+----------------
 
-PalMA controls running viewers using wmctrl and xdotool.
+_All installation commands must be run as root user._
 
-So a complete PalMA installation can be based on Debian GNU Linux (Version 9
-"Stretch").
-Just add some required Debian packages (these and all other installation
-commands must be run as root user):
+With the following lines run as root user we can install the needed
+1. viewer programs for images, PDFs, videos and VNC connections
+2. tools used for windowmanagement
+3. database
+4. PHP modules
 
     apt-get install midori feh vlc zathura ssvnc x11vnc
-    apt-get install wmctrl xdotool openbox libjs-jquery
-    apt-get install php7.0 php7.0-curl php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
-    apt-get install apache2 libapache2-mod-php7.0 sqlite3
+    apt-get install wmctrl xdotool openbox libjs-jquery sqlite3
+    apt-get install php7.0 php7.0-cgi php7.0-cli php7.0-curl php7.0-fpm php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
 
-Attention for Debian 8 "Jessie"! Before you can install Midori on Jessie you
-must add the
-backport repository to `/etc/apt/sources.list`:
+Now we install the webserver (normally apache2, but for Raspberry Pi we recommend nginx-light):
 
-    cp /etc/apt/sources.list /etc/apt/sources.list.backup
-    echo "deb http://ftp.debian.org/debian jessie-backports main" >>/etc/apt/sources.list
-    apt-get update
-    apt-get install midori
+    apt-get install apache2 libapache2-mod-php7.0
+or
+    apt-get install nginx-light
+
+Optional packages
+----------------
 
 Some more packages are optional:
 
@@ -46,6 +43,9 @@ More advanced users will also want to configure mail:
 
     dpkg-reconfigure exim4-config
 
+
+Webserver configuration
+----------------
 
 Apache
 ------
@@ -73,102 +73,9 @@ The Apache2 module `rewrite` must be enabled, too:
     a2enmod rewrite
     service apache2 restart
 
-PalMA
------
-
-The following description assumes that the web server's root directory
-is `/var/www/html` (this is the default since Debian Jessie)
-and that PalMA is directly installed there.
-
-Of course it is also possible to install PalMA in any other path.
-
-Get the latest version of PalMA from GitHub:
-
-    # Get latest PalMA. Add --branch v1.1.0 to get that version.
-    git clone https://github.com/UB-Mannheim/PalMA.git /var/www/html
-    # Create or update translations of PalMA user interface (optional).
-    make -C /var/www/html
-
-Typically, PalMA should be started automatically. Activate autostart via
-systemd
-with
-these commands:
-
-    cp /var/www/html/scripts/palma.service /etc/systemd/system
-    chmod 755 /etc/systemd/system/palma.service
-    systemctl daemon-reload
-    systemctl enable palma.service
-
-Now a configuration file `/var/www/html/palma.ini` must be added.
-A template for this file is available from subdirectory `examples`, so run
-this command to get a preliminary file:
-
-    cp /var/www/html/examples/palma.ini /var/www/html/palma.ini
-
-Some entries in `palma.ini` still need to be fixed for your local installation.
-These include at least the entries `theme` and `start_url`.
-
-At last we need to grant write access to www-data so that the web server can
-create and modify a sqlite3 database `palma.db`, a directory for file uploads
-can be created automatically and some viewer programs can write their
-configuration data.
-
-So we add write access for www-data in directory `~www-data` (typically
-`/var/www`) by changing the ownership:
-
-    chown -R www-data:www-data /var/www
-
-
-Customize an installation
--------------------------
-
-Most site specific settings are kept in a special subdirectory under `theme`.
-A new PalMA installation can add its own subdirectory which optionally can
-include more subdirectories if the installation uses several different
-settings.
-
-Each setting includes files for the screensaver, several images and icons,
-and a preconfigured Windows executable (UltraVNC SC).
-See [theme/THEMES.md](theme/THEMES.md) for details.
-
-
-How to add existing and new translations
-----------------------------------------
-
-PalMA initially supported English and German user interfaces for the web
-frontend.
-Students from the University of Mannheim provided additional translations. All
-translated texts are in the subdirectory `locale`.
-
-Newly added languages also need modifications in `Makefile`
-and in `i12n.php`.
-
-In a Debian GNU Linux installation, it is also necessary to add matching
-locales, either by running `dpkg-reconfigure locales` manually or by enabling
-the locales in `/etc/locale.gen` and running `locale-gen`. Here is an
-example which enables the English locale in its US variant (`en_US.UTF-8`):
-
-    perl -pi -e 's/^#.(en_US.UTF-8)/$1/' /etc/locale.gen && locale-gen
-
-
-Raspberry Pi
-------------
-
-A low cost (less than 50 EUR plus monitor) PalMA station can be built using
-the Raspberry Pi. The following configuration which is based on the Rasbian
-distribution (<http://www.raspbian.org/>) was successfully tested with a
-Raspberry Pi 3:
-
-    apt-get install midori feh vlc zathura ssvnc x11vnc
-    apt-get install wmctrl xdotool openbox libjs-jquery
-    apt-get install nginx-light sqlite3
-    apt-get install php7.0 php7.0-cgi php7.0-cli php7.0-curl
-    apt-get install php7.0-fpm php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
-
-    mkdir -p /var/www/html
-    chown -R www-data:www-data /var/www/html
-
-We replaced the apache2 web server with nginx because it uses much
+Nginx
+------
+For Raspberry Pi we replaced the apache2 web server with nginx because it uses much
 less resources. Make sure the following configurations (server root, enabling php7) are set in
 file `/etc/nginx/sites-enabled/default`:
 
@@ -182,6 +89,78 @@ file `/etc/nginx/sites-enabled/default`:
             }
     }
 
+
+PalMA
+-----
+
+The following description assumes that the web server's root directory
+is `/var/www/html` (this is the default since Debian Jessie)
+and that PalMA will be installed directly there.
+(Of course it is also possible to install PalMA in any other path.)
+
+Get the latest version of PalMA from GitHub:
+
+    # Get latest PalMA.
+    git clone https://github.com/UB-Mannheim/PalMA.git /var/www/html
+    # Create or update translations of PalMA user interface (optional).
+    make -C /var/www/html
+
+Typically, PalMA should be started automatically. Activate autostart via systemd with these commands:
+
+    cp /var/www/html/scripts/palma.service /etc/systemd/system
+    chmod 755 /etc/systemd/system/palma.service
+    systemctl daemon-reload
+    systemctl enable palma.service
+
+Now a configuration file `/var/www/html/palma.ini` must be added.
+A template for this file is available from subdirectory `examples`, so run
+this command to get a preliminary file:
+
+    cp /var/www/html/examples/palma.ini /var/www/html/palma.ini
+
+Please change entries in `palma.ini` according to your local installation.
+These include at least the entries `theme` and `start_url`.
+
+At last we need to grant write access to www-data so that the web server can
+create and modify a sqlite3 database `palma.db`, a directory for file uploads
+can be created automatically and some viewer programs can write their
+configuration data.
+
+So we add write access for www-data in directory `~www-data` (typically
+`/var/www`) by changing the ownership:
+
+    chown -R www-data:www-data /var/www
+
+
+Customize your installation
+-------------------------
+
+Most site specific settings are kept in a special subdirectory under `theme`.
+A new PalMA installation can add its own subdirectory which optionally can
+include more subdirectories if the installation uses several different
+settings.
+
+Each setting includes files for the screensaver, several images and icons,
+and a (partially) preconfigured files for the VNC feature.
+See [theme/THEMES.md](theme/THEMES.md) for details.
+
+
+Add existing and new translations
+----------------------------------------
+
+PalMA initially supported English and German user interfaces for the web
+frontend.
+Students from the University of Mannheim provided additional translations. All
+translated texts are in the subdirectory `locale`.
+
+Newly added languages also need modifications in `Makefile` and in `i12n.php`.
+
+In a Debian GNU Linux installation, it is also necessary to add matching
+locales, either by running `dpkg-reconfigure locales` manually or by enabling
+the locales in `/etc/locale.gen` and running `locale-gen`. Here is an
+example which enables the English locale in its US variant (`en_US.UTF-8`):
+
+    perl -pi -e 's/^#.(en_US.UTF-8)/$1/' /etc/locale.gen && locale-gen
 
 Security
 --------
