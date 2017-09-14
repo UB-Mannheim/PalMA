@@ -12,20 +12,19 @@ Needed packages
 
 _All installation commands must be run as root user._
 
-With the following lines run as root user we can install the needed
-1. viewer programs for images, PDFs, videos and VNC connections
-2. tools used for windowmanagement
-3. database
-4. PHP modules
+With the following lines run as root user we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for windowmanagement, database and PHP modules.
 
     apt-get install midori feh vlc zathura ssvnc x11vnc
     apt-get install wmctrl xdotool openbox libjs-jquery sqlite3
-    apt-get install php7.0 php7.0-cgi php7.0-cli php7.0-curl php7.0-fpm php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
+    apt-get install php7.0 php7.0-cgi php7.0-cli php7.0-curl
+    apt-get install php7.0-fpm php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
 
 Now we install the webserver (normally apache2, but for Raspberry Pi we recommend nginx-light):
 
     apt-get install apache2 libapache2-mod-php7.0
+    
 or
+
     apt-get install nginx-light
 
 Optional packages
@@ -91,7 +90,7 @@ file `/etc/nginx/sites-enabled/default`:
 
 
 PalMA
------
+----------------
 
 The following description assumes that the web server's root directory
 is `/var/www/html` (this is the default since Debian Jessie)
@@ -133,7 +132,7 @@ So we add write access for www-data in directory `~www-data` (typically
 
 
 Customize your installation
--------------------------
+----------------
 
 Most site specific settings are kept in a special subdirectory under `theme`.
 A new PalMA installation can add its own subdirectory which optionally can
@@ -146,7 +145,7 @@ See [theme/THEMES.md](theme/THEMES.md) for details.
 
 
 Add existing and new translations
-----------------------------------------
+----------------
 
 PalMA initially supported English and German user interfaces for the web
 frontend.
@@ -163,7 +162,7 @@ example which enables the English locale in its US variant (`en_US.UTF-8`):
     perl -pi -e 's/^#.(en_US.UTF-8)/$1/' /etc/locale.gen && locale-gen
 
 Security
---------
+----------------
 
 We try to fix known security problems but also know that PalMA is not
 designed to be used with direct access from the Internet.
