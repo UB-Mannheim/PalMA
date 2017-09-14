@@ -7,10 +7,18 @@ Requirements
 PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
 Hardware requirements are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
 
-Needed packages
-----------------
+In the following we will cover the following points you'll need to set up a PalMA station:
+
+- Needed (and optional) Debian packages
+- Webserver configuration (apache2 and nginx)
+- PalMA
+- Customizing your installation
+- Adding new languages (if needed)
 
 _All installation commands must be run as root user._
+
+Needed packages
+----------------
 
 With the following lines run as root user we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for windowmanagement, database and PHP modules.
 
@@ -160,11 +168,3 @@ the locales in `/etc/locale.gen` and running `locale-gen`. Here is an
 example which enables the English locale in its US variant (`en_US.UTF-8`):
 
     perl -pi -e 's/^#.(en_US.UTF-8)/$1/' /etc/locale.gen && locale-gen
-
-Security
-----------------
-
-We try to fix known security problems but also know that PalMA is not
-designed to be used with direct access from the Internet.
-
-PalMA should be operated in an intranet with limited access.
