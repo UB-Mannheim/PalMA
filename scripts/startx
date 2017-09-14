@@ -149,7 +149,7 @@ while true; do
         # Kill the VNC viewer if it was running.
         date +"%F %T start $webbrowser with screensaver"
         killall -q ssvncviewer
-        runx "/usr/bin/php5 control.php doLogout=ALL"
+        runx "/usr/bin/php7.0 control.php doLogout=ALL"
         case $webbrowser in
             midori)
                 runx "/usr/bin/$webbrowser -e Fullscreen -a \"$screensaver\"" &
@@ -178,7 +178,7 @@ while true; do
             # Start the VNC viewer process, so usercount can share their desktop.
             date +"%F %T kill $webbrowser"
             killall --user $user --quiet $webbrowser
-            runx "/usr/bin/php5 SSVNCDaemon.php" &
+            runx "/usr/bin/php7.0 SSVNCDaemon.php" &
             runx "/usr/bin/touch last_activity"
             state="2"
         fi

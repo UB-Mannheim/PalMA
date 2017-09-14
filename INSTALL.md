@@ -53,7 +53,7 @@ Apache
 The PHP default configuration for the Apache2 webserver permits file uploads
 up to 2 MB. This limit is too low for typical documents (images,
 office documents, pdf). Change the setting `upload_max_filesize` in
-`/etc/php5/apache2/php.ini`. 10 MB is a good value. There is another limit
+`/etc/php/7.0/apache2/php.ini`. 10 MB is a good value. There is another limit
 for the maximum size of HTML posts with a default value of 8 MB.
 As this is less than the 10 MB needed for file uploads, the setting
 `post_max_size` must also be increased by setting it to 10 MB.
