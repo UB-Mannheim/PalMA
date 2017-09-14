@@ -23,19 +23,28 @@ Quality](https://scrutinizer-ci.com/g/UB-Mannheim/PalMA/badges/quality-score.png
 Summary
 -------
 
-PalMA enables people to share several contents on one monitor. Users can
-simultaneously display up to four PDF files, office files, images, videos,
-websites and or computer screens in real time . Everything can be controlled via
+PalMA enables people to share several contents on one monitor. Users can display PDF files, office files, images, videos, websites and or computer screens in real time (up to four entries simultaneously). Everything can be controlled via
 a website, so it's perfectly usable for all kinds of (mobile) devices.
 
 ![PalMA in
 use](https://raw.githubusercontent.com/UB-Mannheim/ubma-screenshots/master/IMG_5965.JPG)
 
+Installation
+------------
+
+See [INSTALL.md](INSTALL.md) for details.
+
+Mannheim University Library develops and installs PalMA
+on mini PCs running Debian GNU Linux and Raspbian (Stretch). Other Linux based hardware
+and software combination can also be used, but might require some smaller
+modifications.
+
 Hardware requirements
 ---------------------
 
-The team monitor with adequate size and high resolution is connected
+The team monitor (with adequate size and resolution) is connected
 to a computing device (usually a mini pc) running Linux.
+Hardware requirements for the pc are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
 
 A minimal setup can be built with an ARM based mini pc like the
 Raspberry Pi for less than 100 EUR. It can drive monitors with
@@ -49,18 +58,6 @@ around 200 EUR. It also provides HDMI and resolutions up to
 A high end setup uses a mini pc with Intel Core i5, more RAM and
 a fast solid state disk (SSD). HDMI allows full HD resolution, display port (DP)
 even larger resolution.
-
-
-Installation
-------------
-
-Mannheim University Library develops and installs the PalMA web application
-on mini PCs running Debian GNU Linux (Stretch). Other Linux based hardware
-and software combination can also be used, but might require some smaller
-modifications.
-
-See [INSTALL.md](INSTALL.md) for details.
-
 
 Client Software
 ---------------
