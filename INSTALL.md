@@ -7,9 +7,9 @@ Requirements
 PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
 Hardware requirements are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
 
-In the following we will cover the following points you'll need to set up a PalMA station:
+In the following we will cover the points you'll need to set up a PalMA station:
 
-- Needed (and optional) Debian packages
+- Required (and optional) Debian packages
 - Webserver configuration (apache2 and nginx)
 - PalMA
 - Customizing your installation
@@ -17,7 +17,7 @@ In the following we will cover the following points you'll need to set up a PalM
 
 _All installation commands must be run as root user._
 
-Needed packages
+Required packages
 ----------------
 
 With the following lines run as root user we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for windowmanagement, database and PHP modules.
