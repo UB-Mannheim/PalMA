@@ -21,9 +21,9 @@ Just add some required Debian packages (these and all other installation
 commands must be run as root user):
 
     apt-get install midori feh vlc zathura ssvnc x11vnc
-    apt-get install apache2 libapache2-mod-php7.0 sqlite3
-    apt-get install php7.0-curl php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
     apt-get install wmctrl xdotool openbox libjs-jquery
+    apt-get install php7.0 php7.0-curl php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
+    apt-get install apache2 libapache2-mod-php7.0 sqlite3
 
 Attention for Debian 8 "Jessie"! Before you can install Midori on Jessie you
 must add the
@@ -159,27 +159,27 @@ the Raspberry Pi. The following configuration which is based on the Rasbian
 distribution (<http://www.raspbian.org/>) was successfully tested with a
 Raspberry Pi 3:
 
-    apt-get install midori feh libjs-jquery nginx-light openbox
-    apt-get install php5-cgi php5-cli php5-curl php5-fpm php5-gd php5-intl
-php5-sqlite
-    apt-get install ssvnc sqlite3 vlc wmctrl xdotool zathura
+    apt-get install midori feh vlc zathura ssvnc x11vnc
+    apt-get install wmctrl xdotool openbox libjs-jquery
+    apt-get install nginx-light sqlite3
+    apt-get install php7.0 php7.0-cgi php7.0-cli php7.0-curl
+    apt-get install php7.0-fpm php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
+
     mkdir -p /var/www/html
-    chown www-data:www-data /var/www/html
+    chown -R www-data:www-data /var/www/html
 
 We replaced the apache2 web server with nginx because it uses much
-less resources. Fix the server root and enable PHP5 in the configuration
+less resources. Make sure the following configurations (server root, enabling php7) are set in
 file `/etc/nginx/sites-enabled/default`:
 
     server {
         root /var/www/html;
-        index index.html index.htm index.php;
+        index index.html index.htm index.php index.nginx-debian.html;
         # ...
         location ~ \.php$ {
-                fastcgi_split_path_info ^(.+\.php)(/.+)$;
-                fastcgi_pass unix:/var/run/php5-fpm.sock;
-                fastcgi_index index.php;
-                include fastcgi_params;
-        }
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+            }
     }
 
 
