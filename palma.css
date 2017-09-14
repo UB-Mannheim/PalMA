@@ -193,7 +193,7 @@ div.description {
     border:1px solid #990000;
     border-radius: 7px;
     background-color: #f1f1f1;
-    width: 13em;
+    width: 15em;
     margin: .3em auto;
     padding: .6em;
     color: #990000;
@@ -693,6 +693,7 @@ background-color: #FF6600
     div.windowcontrols {
         display: block !important;
     }
+    #vnc-button { width: 17em;}
 }
 @media only screen and (min-height: 200px) {
     #Control div.subtab {
