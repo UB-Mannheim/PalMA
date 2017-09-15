@@ -770,6 +770,7 @@ function updateWindowList(window){
     } else {
         document.getElementById("closeWindows").style.display = "inline-block";
         document.getElementById("Layout").style.display = "block";
+        document.getElementById("Control").className += " active";
         // Add an entry for each window.
         var n;
         for (n = 0; n < window.length; n++) {
@@ -1192,7 +1193,7 @@ window.onclick = function(event) {
     </div>
     <div id="Extras" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Help')"><?=__('Help')?><i class="fa fa-question-circle"></i></button
+            ><button class="subtablinks active" onclick="openSubtab(event, 'Extras', 'Help')"><?=__('Help')?><i class="fa fa-question-circle"></i></button
             ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Feedback')"><?=__('Feedback')?><i class="fa fa-thumbs-o-up"></i></button
             ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Users')"><?=__('Users')?><i class="fa fa-users"></i></button
         ></div>

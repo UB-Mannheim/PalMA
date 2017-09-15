@@ -380,9 +380,9 @@ div.position button.selected i {
 /* Extras Help */
 #Help, #Feedback {
     text-align: left;
-
     background-color: #f8f8f8;
 }
+#Help { display: block; }
 p.url_hint {
     font-weight: bold;
     text-align: center;
@@ -567,7 +567,7 @@ background-color: #FF6600
 .resp-sharing-button--telegram:hover {
   background-color: #4B97D1;}
 /* Contact Form */
-/* Contact form is included via iframe. Its style is currently low priority. */
+/* Contact form is included via iframe. */
 /* Extras User */
 /* Language Selection */
 .dropdown {
