@@ -767,11 +767,11 @@ function updateWindowList(window){
         windowlist.appendChild(addbutton);
         document.getElementById("closeWindows").style.display = "none";
         document.getElementById("Layout").style.display = "none";
-        document.getElementById("controlbtn").className.replace(" active", "");
+        document.getElementById("controlbtn").className = "tablinks";
     } else {
         document.getElementById("closeWindows").style.display = "inline-block";
         document.getElementById("Layout").style.display = "block";
-        document.getElementById("controlbtn").className += " active";
+        document.getElementById("controlbtn").className = "tablinks active";
         // Add an entry for each window.
         var n;
         for (n = 0; n < window.length; n++) {
