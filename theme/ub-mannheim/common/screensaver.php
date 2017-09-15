@@ -75,26 +75,26 @@ h1, p {
 }
 
 #Variant1 #QR-Code {
-    top: 52%;
+    top: 57.25%;
     left: 3.75%;
 }
 #Variant1 #URL {
     top: 41%;
 }
 #Variant1 #PIN {
-    right: 5.25%;
+    right: 5.75%;
     top: 57.25%;
 }
 
 #Variant2 #QR-Code {
-    top: 18%;
+    top: 22%;
     left: 4%;
 }
 #Variant2 #URL {
     top: 6.75%;
 }
 #Variant2 #PIN {
-    right: 4.5%;
+    right: 5.5%;
     top: 22%;
 }
 

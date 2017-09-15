@@ -30,7 +30,7 @@ With the following lines run as root user we can install the needed viewer progr
 Now we install the webserver (normally apache2, but for Raspberry Pi we recommend nginx-light):
 
     apt-get install apache2 libapache2-mod-php7.0
-    
+
 or
 
     apt-get install nginx-light
@@ -114,7 +114,7 @@ Get the latest version of PalMA from GitHub:
 
 Typically, PalMA should be started automatically. Activate autostart via systemd with these commands:
 
-    cp /var/www/html/scripts/palma.service /etc/systemd/system
+    cp /var/www/html/scripts/palma.service /etc/systemd/system/palma.service
     chmod 755 /etc/systemd/system/palma.service
     systemctl daemon-reload
     systemctl enable palma.service
