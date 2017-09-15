@@ -271,7 +271,6 @@ libalgorithm-diff-xs-perl
 libalgorithm-merge-perl
 libapache-poi-java
 libapache-pom-java
-libapache2-mod-php5
 libapache2-mod-php7.0
 libapparmor1:armhf
 libapr1:armhf
@@ -1347,14 +1346,6 @@ perl-modules
 perl-modules-5.24
 perl-openssl-defaults:armhf
 php-common
-php5-cli
-php5-common
-php5-curl
-php5-gd
-php5-intl
-php5-json
-php5-readline
-php5-sqlite
 php7.0
 php7.0-cgi
 php7.0-cli
