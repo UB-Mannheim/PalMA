@@ -9,7 +9,7 @@ Hardware requirements are relatively low. For reasonable performance we recommen
 
 In the following we will cover the points you'll need to set up a PalMA station:
 
-- Required (and optional) Debian packages
+- Required Debian packages
 - Webserver configuration (apache2 and nginx)
 - PalMA
 - Customizing your installation
@@ -20,12 +20,13 @@ _All installation commands must be run as root user._
 Required packages
 ----------------
 
-With the following lines run as root user we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for windowmanagement, database and PHP modules.
+With the following lines run as root user we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for windowmanagement, database, PHP modules and building tools.
 
     apt-get install midori feh vlc zathura ssvnc x11vnc
     apt-get install wmctrl xdotool openbox libjs-jquery sqlite3
     apt-get install php7.0 php7.0-cgi php7.0-cli php7.0-curl
     apt-get install php7.0-fpm php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
+    apt-get install gettext git libavcodec-extra make
 
 Now we install the webserver (normally apache2, but for Raspberry Pi we recommend nginx-light):
 
@@ -34,22 +35,6 @@ Now we install the webserver (normally apache2, but for Raspberry Pi we recommen
 or
 
     apt-get install nginx-light
-
-Optional packages
-----------------
-
-Some more packages are optional:
-
-    apt-get install gettext git libavcodec-extra make unattended-upgrades
-
-The last one must be configured:
-
-    dpkg-reconfigure unattended-upgrades
-
-More advanced users will also want to configure mail:
-
-    dpkg-reconfigure exim4-config
-
 
 Webserver configuration
 ----------------
