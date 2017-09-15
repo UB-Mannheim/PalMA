@@ -549,6 +549,7 @@ libjack-jackd2-0:i386
 libjavascriptcoregtk-1.0-0:i386
 libjbig0:i386
 libjbig2dec0:i386
+libjpeg-turbo-progs
 libjpeg62-turbo:i386
 libjs-jquery
 libjson-c3:i386
@@ -841,6 +842,7 @@ libtimedate-perl
 libtinfo5:i386
 libtirpc1:i386
 libtk8.6:i386
+libturbojpeg0:i386
 libtwolame0:i386
 libudev1:i386
 libudisks2-0:i386
