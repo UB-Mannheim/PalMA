@@ -682,7 +682,7 @@ function addWindowControls(layout, controls, screensection, file, status) {
     var topbar = document.createElement("div");
     topbar.setAttribute("class", "topbar");
     var button = document.createElement('button');
-    button.setAttribute("class", "toogle");
+    button.setAttribute("class", "toggle");
     icon = document.createElement('i');
     if (status == 'active') {
         icon.setAttribute("class", "fa fa-eye");
@@ -690,7 +690,7 @@ function addWindowControls(layout, controls, screensection, file, status) {
         icon.setAttribute("class", "fa fa-eye-slash");
     }
     icon.setAttribute('id', 'status_' + screensection);
-    icon.setAttribute('title', '<?=__("Toggle visibility")?>');
+    button.setAttribute('title', '<?=__("Toggle visibility")?>');
     button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&toggle=TRUE')");
     button.appendChild(icon);
     topbar.appendChild(button);
@@ -767,10 +767,11 @@ function updateWindowList(window){
         windowlist.appendChild(addbutton);
         document.getElementById("closeWindows").style.display = "none";
         document.getElementById("Layout").style.display = "none";
+        document.getElementById("controlbtn").className.replace(" active", "");
     } else {
         document.getElementById("closeWindows").style.display = "inline-block";
         document.getElementById("Layout").style.display = "block";
-        document.getElementById("Control").className += " active";
+        document.getElementById("controlbtn").className += " active";
         // Add an entry for each window.
         var n;
         for (n = 0; n < window.length; n++) {
@@ -1063,7 +1064,7 @@ window.onclick = function(event) {
 <!-- This formating is used to prevent empty textnodes that interfere with the design -->
 <div class="tab"
     ><button class="tablinks" onclick="openTab(event, 'Add')"><?=__('Add')?><i class="fa fa-plus"></i></button
-    ><button class="tablinks" onclick="openTab(event, 'Control')"><?=__('Control')?><i class="fa fa-arrows"></i></button
+    ><button class="tablinks" id="controlbtn" onclick="openTab(event, 'Control')"><?=__('Control')?><i class="fa fa-arrows"></i></button
     ><button class="tablinks" onclick="openTab(event, 'Extras')"><?=__('Extras')?><i class="fa fa-info-circle"></i></button
 ></div>
 
