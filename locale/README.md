@@ -6,19 +6,19 @@
 
 |Locale|Completion|
 |---|---|
-|[al_AL](#al_al)|91.04|
-|[ar](#ar)|44.78|
-|[de_DE](#de_de)|98.51|
-|[es_ES](#es_es)|89.55|
-|[it_IT](#it_it)|91.04|
-|[ru_RU](#ru_ru)|95.52|
-|[ur_PK](#ur_pk)|20.90|
-|[zh_CN](#zh_cn)|97.01|
-|[zh_TW](#zh_tw)|97.01|
+|[al_AL](#al_al)|39.83|
+|[ar](#ar)|22.03|
+|[de_DE](#de_de)|93.22|
+|[es_ES](#es_es)|38.98|
+|[it_IT](#it_it)|39.83|
+|[ru_RU](#ru_ru)|42.37|
+|[ur_PK](#ur_pk)|12.71|
+|[zh_CN](#zh_cn)|43.22|
+|[zh_TW](#zh_tw)|43.22|
 
 ## al_AL
 
-Completion: **91.04** (61 / 67 strings)
+Completion: **39.83** (47 / 118 strings)
 
 Contributors:
 
@@ -28,16 +28,81 @@ Contributors:
   * Stefan Weil
 
 Missing:
+  * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
+  * `A second window opens, in which you can start &quot;VineServer&quot;.`
+  * `Add`
+  * `Add file (click or drop here)`
+  * `Add webpage`
+  * `Add your screen`
+  * `Arrow buttons in the middle scroll gradually`
+  * `Below that you find the controls for each item:`
+  * `Below you find the navigation controls.`
+  * `Buttons on the left jump to the top, to the end, a page up or a page down`
+  * `CTRL + click the downloaded file and run it.`
+  * `Click here to show the webpage on the screen.`
+  * `Connect`
+  * `Controls that are not available for certain kinds of content are marked grey.`
+  * `Delete all items`
+  * `Delete the item`
+  * `Double-click the name of your PalMA station in the appearing list.`
+  * `Down`
+  * `Download screensharing tool`
+  * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
+  * `Drag and drop files or click here to upload.`
+  * `End the session`
+  * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
+  * `Feedback`
+  * `File`
+  * `For PDF files, office files, images or videos use the file section.`
+  * `For further information about PalMA in this institution`
+  * `Help`
+  * `Hide and show`
+  * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
+  * `In the top bar you can`
+  * `In the upper left corner, click on &quot;VNC Server&quot;.`
+  * `Layout`
+  * `Left`
+  * `Linux:`
   * `Log in`
   * `Login`
-  * `Menu`
+  * `Mac:`
+  * `Navigate`
+  * `New users can join at`
+  * `On the right you can choose the position on the PalMA monitor`
+  * `Or use this shell command:`
   * `PIN`
+  * `PIN: `
   * `PalMA &ndash; Login`
-  * `URL / Document`
+  * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
+  * `Recommend us`
+  * `Right`
+  * `Rotate`
+  * `Rotate clockwise`
+  * `Rotate counterclockwise`
+  * `Run the downloaded file.`
+  * `Run the downloaded shell script.`
+  * `Select &quot;Reverse Connection&quot;.`
+  * `Some additional features are:`
+  * `Sorry! Screensharing for your device is currently not supported.`
+  * `Tell us what you think`
+  * `Thank you!`
+  * `There is no shared content yet. Click below to get started!`
+  * `This help,`
+  * `To display a website use the URL field.`
+  * `To share your desktop in real time download the VNC screen sharing software and`
+  * `URL`
+  * `Up`
+  * `Use the Add-Section to share content on the PalMA monitor.`
+  * `Welcome`
+  * `Windows:`
+  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
+  * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
+  * `not available`
+  * `see here.`
 
 ## ar
 
-Completion: **44.78** (30 / 67 strings)
+Completion: **22.03** (26 / 118 strings)
 
 Contributors:
 
@@ -48,47 +113,102 @@ Contributors:
   * Stefan Weil
 
 Missing:
+  * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
+  * `A second window opens, in which you can start &quot;VineServer&quot;.`
+  * `Add`
+  * `Add file (click or drop here)`
+  * `Add webpage`
+  * `Add your screen`
+  * `Arrow buttons in the middle scroll gradually`
+  * `Below that you find the controls for each item:`
+  * `Below you find the navigation controls.`
+  * `Buttons on the left jump to the top, to the end, a page up or a page down`
+  * `CTRL + click the downloaded file and run it.`
   * `Cannot check credentials, sorry!`
   * `Choose screen layout`
-  * `Close the help window`
+  * `Click here to show the webpage on the screen.`
   * `Conference room`
+  * `Connect`
+  * `Controls that are not available for certain kinds of content are marked grey.`
+  * `Delete all items`
+  * `Delete the item`
+  * `Double-click the name of your PalMA station in the appearing list.`
+  * `Down`
+  * `Download screensharing tool`
+  * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
+  * `Drag and drop files or click here to upload.`
+  * `End the session`
+  * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
   * `Error code %s.`
+  * `Feedback`
+  * `File`
   * `File '%s' cannot be shown.`
   * `File was only partially uploaded.`
+  * `For PDF files, office files, images or videos use the file section.`
+  * `For further information about PalMA in this institution`
+  * `Help`
+  * `Hide and show`
+  * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
+  * `In the top bar you can`
+  * `In the upper left corner, click on &quot;VNC Server&quot;.`
   * `Invalid PIN.`
   * `Invalid credentials!`
-  * `Just upload PDF files, images, OpenDocument or\n            MS Office files or enter a URL &ndash; PalMA will show them.`
   * `Large files are not supported.`
-  * `Linux users can share their X display like this:`
-  * `List of files, URLs and shared displays`
+  * `Layout`
+  * `Left`
+  * `Linux:`
   * `Log in`
   * `Login`
+  * `Mac:`
   * `Mannheim table`
-  * `Menu`
+  * `Navigate`
+  * `New users can join at`
+  * `On the right you can choose the position on the PalMA monitor`
+  * `Or use this shell command:`
   * `PIN`
+  * `PIN: `
   * `PalMA &ndash; Login`
   * `Password`
   * `Picture Show`
-  * `Screen layout`
+  * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
+  * `Recommend us`
+  * `Right`
+  * `Rotate`
+  * `Rotate clockwise`
+  * `Rotate counterclockwise`
+  * `Run the downloaded file.`
+  * `Run the downloaded shell script.`
+  * `Select &quot;Reverse Connection&quot;.`
+  * `Select language:`
   * `Select workplace`
-  * `Share desktop (free UltraVNC / Windows only)`
-  * `Share desktop (non free RealVNC)`
-  * `Share the desktop of your notebook with others. PalMA uses\n            VNC for screen sharing. Download the VNC software once for your\n            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf\"\n            onclick=\"window.open(this.href); return false;\">Windows PC</a>\n            (preconfigured UltraVNC) or\n            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf\"\n            onclick=\"window.open(this.href); return false;\">MacBook</a>\n            (RealVNC).`
-  * `Show team display`
-  * `Show this URL in a new browser window`
-  * `Team display`
-  * `Team members can join the group at any time. All they need\n            is URL and PIN.`
+  * `Some additional features are:`
+  * `Sorry! Screensharing for your device is currently not supported.`
+  * `Team members can join the session at any time with this URL or QR-Code:`
+  * `Tell us what you think`
   * `Test monitor`
-  * `The PalMA team monitor shows up to 4 contributions\n            simultaneously.`
+  * `Thank you!`
+  * `The PalMA team monitor shows up to four contributions simultaneously.`
+  * `There is no shared content yet. Click below to get started!`
   * `This file is too large.`
+  * `This help,`
   * `Tiles`
-  * `URL / Document`
+  * `To display a website use the URL field.`
+  * `To share your desktop in real time download the VNC screen sharing software and`
+  * `URL`
+  * `Up`
+  * `Use the Add-Section to share content on the PalMA monitor.`
   * `User name`
-  * `With PalMA, you can share your documents and your desktop\n            with your learning group.`
+  * `Welcome`
+  * `Windows:`
+  * `With PalMA, you can share documents, websites and your desktop with your learning group.`
+  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
+  * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
+  * `not available`
+  * `see here.`
 
 ## de_DE
 
-Completion: **98.51** (66 / 67 strings)
+Completion: **93.22** (110 / 118 strings)
 
 Contributors:
 
@@ -98,11 +218,18 @@ Contributors:
   * Stefan Weil
 
 Missing:
+  * `Extras`
+  * `Feedback`
+  * `Linux:`
+  * `Mac:`
   * `PIN`
+  * `PIN: `
+  * `URL`
+  * `Windows:`
 
 ## es_ES
 
-Completion: **89.55** (60 / 67 strings)
+Completion: **38.98** (46 / 118 strings)
 
 Contributors:
 
@@ -111,17 +238,82 @@ Contributors:
   * Stefan Weil
 
 Missing:
+  * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
+  * `A second window opens, in which you can start &quot;VineServer&quot;.`
+  * `Add`
+  * `Add file (click or drop here)`
+  * `Add webpage`
+  * `Add your screen`
+  * `Arrow buttons in the middle scroll gradually`
+  * `Below that you find the controls for each item:`
+  * `Below you find the navigation controls.`
+  * `Buttons on the left jump to the top, to the end, a page up or a page down`
+  * `CTRL + click the downloaded file and run it.`
+  * `Click here to show the webpage on the screen.`
+  * `Connect`
+  * `Controls that are not available for certain kinds of content are marked grey.`
+  * `Delete all items`
+  * `Delete the item`
+  * `Double-click the name of your PalMA station in the appearing list.`
+  * `Down`
+  * `Download screensharing tool`
+  * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
+  * `Drag and drop files or click here to upload.`
+  * `End the session`
+  * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
+  * `Feedback`
+  * `File`
+  * `For PDF files, office files, images or videos use the file section.`
+  * `For further information about PalMA in this institution`
+  * `Help`
+  * `Hide and show`
+  * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
+  * `In the top bar you can`
+  * `In the upper left corner, click on &quot;VNC Server&quot;.`
+  * `Layout`
+  * `Left`
+  * `Linux:`
   * `Log in`
-  * `Menu`
+  * `Mac:`
+  * `Navigate`
+  * `New users can join at`
+  * `On the right you can choose the position on the PalMA monitor`
+  * `Or use this shell command:`
   * `PIN`
+  * `PIN: `
   * `Password`
   * `Picture Show`
+  * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
+  * `Recommend us`
+  * `Right`
+  * `Rotate`
+  * `Rotate clockwise`
+  * `Rotate counterclockwise`
+  * `Run the downloaded file.`
+  * `Run the downloaded shell script.`
+  * `Select &quot;Reverse Connection&quot;.`
+  * `Some additional features are:`
+  * `Sorry! Screensharing for your device is currently not supported.`
+  * `Tell us what you think`
+  * `Thank you!`
+  * `There is no shared content yet. Click below to get started!`
+  * `This help,`
   * `Tiles`
-  * `URL / Document`
+  * `To display a website use the URL field.`
+  * `To share your desktop in real time download the VNC screen sharing software and`
+  * `URL`
+  * `Up`
+  * `Use the Add-Section to share content on the PalMA monitor.`
+  * `Welcome`
+  * `Windows:`
+  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
+  * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
+  * `not available`
+  * `see here.`
 
 ## it_IT
 
-Completion: **91.04** (61 / 67 strings)
+Completion: **39.83** (47 / 118 strings)
 
 Contributors:
 
@@ -130,16 +322,81 @@ Contributors:
   * Stefan Weil
 
 Missing:
+  * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
+  * `A second window opens, in which you can start &quot;VineServer&quot;.`
+  * `Add`
+  * `Add file (click or drop here)`
+  * `Add webpage`
+  * `Add your screen`
+  * `Arrow buttons in the middle scroll gradually`
+  * `Below that you find the controls for each item:`
+  * `Below you find the navigation controls.`
+  * `Buttons on the left jump to the top, to the end, a page up or a page down`
+  * `CTRL + click the downloaded file and run it.`
+  * `Click here to show the webpage on the screen.`
+  * `Connect`
+  * `Controls that are not available for certain kinds of content are marked grey.`
+  * `Delete all items`
+  * `Delete the item`
+  * `Double-click the name of your PalMA station in the appearing list.`
+  * `Down`
+  * `Download screensharing tool`
+  * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
+  * `Drag and drop files or click here to upload.`
+  * `End the session`
+  * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
+  * `Feedback`
+  * `File`
+  * `For PDF files, office files, images or videos use the file section.`
+  * `For further information about PalMA in this institution`
+  * `Help`
+  * `Hide and show`
+  * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
+  * `In the top bar you can`
+  * `In the upper left corner, click on &quot;VNC Server&quot;.`
+  * `Layout`
+  * `Left`
+  * `Linux:`
   * `Login`
-  * `Menu`
+  * `Mac:`
+  * `Navigate`
+  * `New users can join at`
+  * `On the right you can choose the position on the PalMA monitor`
+  * `Or use this shell command:`
   * `PIN`
+  * `PIN: `
   * `PalMA &ndash; Login`
   * `Password`
-  * `URL / Document`
+  * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
+  * `Recommend us`
+  * `Right`
+  * `Rotate`
+  * `Rotate clockwise`
+  * `Rotate counterclockwise`
+  * `Run the downloaded file.`
+  * `Run the downloaded shell script.`
+  * `Select &quot;Reverse Connection&quot;.`
+  * `Some additional features are:`
+  * `Sorry! Screensharing for your device is currently not supported.`
+  * `Tell us what you think`
+  * `Thank you!`
+  * `There is no shared content yet. Click below to get started!`
+  * `This help,`
+  * `To display a website use the URL field.`
+  * `To share your desktop in real time download the VNC screen sharing software and`
+  * `URL`
+  * `Up`
+  * `Use the Add-Section to share content on the PalMA monitor.`
+  * `Welcome`
+  * `Windows:`
+  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
+  * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
+  * `not available`
+  * `see here.`
 
 ## ru_RU
 
-Completion: **95.52** (64 / 67 strings)
+Completion: **42.37** (50 / 118 strings)
 
 Contributors:
 
@@ -151,13 +408,78 @@ Contributors:
   * Stefan Weil
 
 Missing:
+  * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
+  * `A second window opens, in which you can start &quot;VineServer&quot;.`
+  * `Add`
+  * `Add file (click or drop here)`
+  * `Add webpage`
+  * `Add your screen`
+  * `Arrow buttons in the middle scroll gradually`
+  * `Below that you find the controls for each item:`
+  * `Below you find the navigation controls.`
+  * `Buttons on the left jump to the top, to the end, a page up or a page down`
+  * `CTRL + click the downloaded file and run it.`
+  * `Click here to show the webpage on the screen.`
+  * `Connect`
+  * `Controls that are not available for certain kinds of content are marked grey.`
+  * `Delete all items`
+  * `Delete the item`
+  * `Double-click the name of your PalMA station in the appearing list.`
+  * `Down`
+  * `Download screensharing tool`
+  * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
+  * `Drag and drop files or click here to upload.`
+  * `End the session`
+  * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
+  * `Feedback`
+  * `File`
+  * `For PDF files, office files, images or videos use the file section.`
+  * `For further information about PalMA in this institution`
+  * `Help`
+  * `Hide and show`
+  * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
+  * `In the top bar you can`
+  * `In the upper left corner, click on &quot;VNC Server&quot;.`
+  * `Layout`
+  * `Left`
+  * `Linux:`
+  * `Mac:`
   * `Mannheim table`
-  * `Menu`
-  * `URL / Document`
+  * `Navigate`
+  * `New users can join at`
+  * `On the right you can choose the position on the PalMA monitor`
+  * `Or use this shell command:`
+  * `PIN: `
+  * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
+  * `Recommend us`
+  * `Right`
+  * `Rotate`
+  * `Rotate clockwise`
+  * `Rotate counterclockwise`
+  * `Run the downloaded file.`
+  * `Run the downloaded shell script.`
+  * `Select &quot;Reverse Connection&quot;.`
+  * `Some additional features are:`
+  * `Sorry! Screensharing for your device is currently not supported.`
+  * `Tell us what you think`
+  * `Thank you!`
+  * `There is no shared content yet. Click below to get started!`
+  * `This help,`
+  * `To display a website use the URL field.`
+  * `To share your desktop in real time download the VNC screen sharing software and`
+  * `URL`
+  * `Up`
+  * `Use the Add-Section to share content on the PalMA monitor.`
+  * `Welcome`
+  * `Windows:`
+  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
+  * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
+  * `not available`
+  * `see here.`
 
 ## ur_PK
 
-Completion: **20.90** (14 / 67 strings)
+Completion: **12.71** (15 / 118 strings)
 
 Contributors:
 
@@ -166,63 +488,113 @@ Contributors:
   * Taimur
 
 Missing:
+  * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
+  * `A second window opens, in which you can start &quot;VineServer&quot;.`
+  * `Add`
+  * `Add file (click or drop here)`
+  * `Add webpage`
+  * `Add your screen`
+  * `Arrow buttons in the middle scroll gradually`
+  * `Below that you find the controls for each item:`
+  * `Below you find the navigation controls.`
+  * `Buttons on the left jump to the top, to the end, a page up or a page down`
+  * `CTRL + click the downloaded file and run it.`
   * `Cannot check credentials, sorry!`
   * `Choose screen layout`
-  * `Close all windows`
+  * `Click here to show the webpage on the screen.`
   * `Close all windows and remove uploaded files`
-  * `Close the help window`
   * `Conference room`
-  * `Disconnect all users`
-  * `Disconnect all users and reset the work place`
+  * `Connect`
+  * `Controls that are not available for certain kinds of content are marked grey.`
+  * `Delete all items`
+  * `Delete the item`
+  * `Disconnect all users and end the session`
   * `Disconnect the current user`
-  * `Display list`
-  * `Drop documents here (or click)`
-  * `Drop documents here (or click) to load them up`
+  * `Double-click the name of your PalMA station in the appearing list.`
+  * `Down`
+  * `Download screensharing tool`
+  * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
+  * `Drag and drop files or click here to upload.`
+  * `End the session`
+  * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
   * `Error code %s.`
+  * `Extras`
+  * `Feedback`
+  * `File`
   * `File '%s' cannot be shown.`
   * `File was only partially uploaded.`
-  * `Help + Extras`
+  * `For PDF files, office files, images or videos use the file section.`
+  * `For further information about PalMA in this institution`
+  * `Help`
+  * `Hide and show`
+  * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
+  * `In the top bar you can`
+  * `In the upper left corner, click on &quot;VNC Server&quot;.`
   * `Invalid PIN.`
   * `Invalid credentials!`
-  * `Just upload PDF files, images, OpenDocument or\n            MS Office files or enter a URL &ndash; PalMA will show them.`
   * `Large files are not supported.`
-  * `Linux users can share their X display like this:`
+  * `Layout`
+  * `Left`
+  * `Linux:`
   * `List of connected users`
-  * `List of files, URLs and shared displays`
   * `Log in`
   * `Login`
+  * `Mac:`
   * `Mannheim table`
-  * `Menu`
+  * `Navigate`
+  * `New users can join at`
+  * `On the right you can choose the position on the PalMA monitor`
+  * `Or use this shell command:`
   * `PIN`
+  * `PIN: `
   * `PalMA &ndash; Login`
   * `Password`
   * `Picture Show`
-  * `Remove this object`
-  * `Screen layout`
+  * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
+  * `Recommend us`
+  * `Remove this item`
+  * `Right`
+  * `Rotate`
+  * `Rotate clockwise`
+  * `Rotate counterclockwise`
+  * `Run the downloaded file.`
+  * `Run the downloaded shell script.`
+  * `Select &quot;Reverse Connection&quot;.`
+  * `Select language:`
   * `Select screen section for display`
   * `Select workplace`
-  * `Share desktop (free UltraVNC / Windows only)`
-  * `Share desktop (non free RealVNC)`
-  * `Share the desktop of your notebook with others. PalMA uses\n            VNC for screen sharing. Download the VNC software once for your\n            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-kurzanleitung.pdf\"\n            onclick=\"window.open(this.href); return false;\">Windows PC</a>\n            (preconfigured UltraVNC) or\n            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/LearningCenter/palma-anleitung-mac.pdf\"\n            onclick=\"window.open(this.href); return false;\">MacBook</a>\n            (RealVNC).`
-  * `Show help and offer some extras`
-  * `Show team display`
-  * `Show this URL in a new browser window`
-  * `Team display`
-  * `Team members can join the group at any time. All they need\n            is URL and PIN.`
+  * `Some additional features are:`
+  * `Sorry! Screensharing for your device is currently not supported.`
+  * `Team members can join the session at any time with this URL or QR-Code:`
+  * `Tell us what you think`
   * `Test monitor`
-  * `The PalMA team monitor shows up to 4 contributions\n            simultaneously.`
+  * `Thank you!`
+  * `The PalMA team monitor shows up to four contributions simultaneously.`
+  * `There is no shared content yet. Click below to get started!`
   * `This file is too large.`
+  * `This help,`
   * `Tiles`
+  * `To display a website use the URL field.`
+  * `To share your desktop in real time download the VNC screen sharing software and`
   * `Toggle visibility`
-  * `URL / Document`
+  * `URL`
+  * `Up`
+  * `Use the Add-Section to share content on the PalMA monitor.`
   * `User list`
   * `User name`
-  * `With PalMA, you can share your documents and your desktop\n            with your learning group.`
+  * `Users`
+  * `Welcome`
+  * `Windows:`
+  * `With PalMA, you can share documents, websites and your desktop with your learning group.`
+  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
   * `You were disconnected!`
+  * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
+  * `not available`
+  * `see here.`
 
 ## zh_CN
 
-Completion: **97.01** (65 / 67 strings)
+Completion: **43.22** (51 / 118 strings)
 
 Contributors:
 
@@ -233,12 +605,77 @@ Contributors:
   * Yang
 
 Missing:
-  * `Menu`
-  * `URL / Document`
+  * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
+  * `A second window opens, in which you can start &quot;VineServer&quot;.`
+  * `Add`
+  * `Add file (click or drop here)`
+  * `Add webpage`
+  * `Add your screen`
+  * `Arrow buttons in the middle scroll gradually`
+  * `Below that you find the controls for each item:`
+  * `Below you find the navigation controls.`
+  * `Buttons on the left jump to the top, to the end, a page up or a page down`
+  * `CTRL + click the downloaded file and run it.`
+  * `Click here to show the webpage on the screen.`
+  * `Connect`
+  * `Controls that are not available for certain kinds of content are marked grey.`
+  * `Delete all items`
+  * `Delete the item`
+  * `Double-click the name of your PalMA station in the appearing list.`
+  * `Down`
+  * `Download screensharing tool`
+  * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
+  * `Drag and drop files or click here to upload.`
+  * `End the session`
+  * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
+  * `Feedback`
+  * `File`
+  * `For PDF files, office files, images or videos use the file section.`
+  * `For further information about PalMA in this institution`
+  * `Help`
+  * `Hide and show`
+  * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
+  * `In the top bar you can`
+  * `In the upper left corner, click on &quot;VNC Server&quot;.`
+  * `Layout`
+  * `Left`
+  * `Linux:`
+  * `Mac:`
+  * `Navigate`
+  * `New users can join at`
+  * `On the right you can choose the position on the PalMA monitor`
+  * `Or use this shell command:`
+  * `PIN: `
+  * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
+  * `Recommend us`
+  * `Right`
+  * `Rotate`
+  * `Rotate clockwise`
+  * `Rotate counterclockwise`
+  * `Run the downloaded file.`
+  * `Run the downloaded shell script.`
+  * `Select &quot;Reverse Connection&quot;.`
+  * `Some additional features are:`
+  * `Sorry! Screensharing for your device is currently not supported.`
+  * `Tell us what you think`
+  * `Thank you!`
+  * `There is no shared content yet. Click below to get started!`
+  * `This help,`
+  * `To display a website use the URL field.`
+  * `To share your desktop in real time download the VNC screen sharing software and`
+  * `URL`
+  * `Up`
+  * `Use the Add-Section to share content on the PalMA monitor.`
+  * `Welcome`
+  * `Windows:`
+  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
+  * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
+  * `not available`
+  * `see here.`
 
 ## zh_TW
 
-Completion: **97.01** (65 / 67 strings)
+Completion: **43.22** (51 / 118 strings)
 
 Contributors:
 
@@ -250,5 +687,70 @@ Contributors:
   * Yang
 
 Missing:
-  * `Menu`
-  * `URL / Document`
+  * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
+  * `A second window opens, in which you can start &quot;VineServer&quot;.`
+  * `Add`
+  * `Add file (click or drop here)`
+  * `Add webpage`
+  * `Add your screen`
+  * `Arrow buttons in the middle scroll gradually`
+  * `Below that you find the controls for each item:`
+  * `Below you find the navigation controls.`
+  * `Buttons on the left jump to the top, to the end, a page up or a page down`
+  * `CTRL + click the downloaded file and run it.`
+  * `Click here to show the webpage on the screen.`
+  * `Connect`
+  * `Controls that are not available for certain kinds of content are marked grey.`
+  * `Delete all items`
+  * `Delete the item`
+  * `Double-click the name of your PalMA station in the appearing list.`
+  * `Down`
+  * `Download screensharing tool`
+  * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
+  * `Drag and drop files or click here to upload.`
+  * `End the session`
+  * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
+  * `Feedback`
+  * `File`
+  * `For PDF files, office files, images or videos use the file section.`
+  * `For further information about PalMA in this institution`
+  * `Help`
+  * `Hide and show`
+  * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
+  * `In the top bar you can`
+  * `In the upper left corner, click on &quot;VNC Server&quot;.`
+  * `Layout`
+  * `Left`
+  * `Linux:`
+  * `Mac:`
+  * `Navigate`
+  * `New users can join at`
+  * `On the right you can choose the position on the PalMA monitor`
+  * `Or use this shell command:`
+  * `PIN: `
+  * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
+  * `Recommend us`
+  * `Right`
+  * `Rotate`
+  * `Rotate clockwise`
+  * `Rotate counterclockwise`
+  * `Run the downloaded file.`
+  * `Run the downloaded shell script.`
+  * `Select &quot;Reverse Connection&quot;.`
+  * `Some additional features are:`
+  * `Sorry! Screensharing for your device is currently not supported.`
+  * `Tell us what you think`
+  * `Thank you!`
+  * `There is no shared content yet. Click below to get started!`
+  * `This help,`
+  * `To display a website use the URL field.`
+  * `To share your desktop in real time download the VNC screen sharing software and`
+  * `URL`
+  * `Up`
+  * `Use the Add-Section to share content on the PalMA monitor.`
+  * `Welcome`
+  * `Windows:`
+  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
+  * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
+  * `not available`
+  * `see here.`
