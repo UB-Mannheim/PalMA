@@ -1,22 +1,13 @@
 #!/bin/bash
 
-# Arguments list:
-# $1 "install" for a fresh installation or "update" for updating an existing one
-# $2 directory where PalMA already is or should be installed (recommended: "/var/www/html")
-# $3 "rpi" for raspberry pi or "standard" for normal PCs
-# $4 no_url or URL to information about PalMA in your institution (e.g. "https://www.your-institution.org/link-to-your-palma-site/")
-# $5 the name of the palma station
-# $6 the name of the theme
-# $7 the url of the palma station
-
 echo "Checking arguments..."
-var1_ID=$1
-var2_ID=$2
-var3_ID=$3
-var4_ID=$4
-var5_ID=$5
-var6_ID=$6
-var7_ID=$7
+var1_ID=$1 # $1 "install" for a fresh installation or "update" for updating an existing one (includes debian upgrade to stretch!)
+var2_ID=$2 # $2 directory where PalMA already is or should be installed (recommended: "/var/www/html")
+var3_ID=$3 # $3 "rpi" for raspberry pi or "standard" for normal PCs
+var4_ID=$4 # $4 no_url or URL to information about PalMA in your institution (e.g. "https://www.your-institution.org/link-to-your-palma-site/")
+var5_ID=$5 # $5 the name of the palma station, e.g. "palma-01"
+var6_ID=$6 # $6 the name of the theme, e.g. "demo/simple"
+var7_ID=$7 # $7 the url of the palma station, e.g. "http://palma-01.your-institution.org"
 
 for i in {1..7}; do
     v="var${i}_ID"
