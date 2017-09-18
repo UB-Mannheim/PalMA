@@ -6,6 +6,8 @@
 # $3 "rpi" for raspberry pi or "standard" for normal PCs
 # $4 no_url or URL to information about PalMA in your institution (e.g. "https://www.your-institution.org/link-to-your-palma-site/")
 # $5 the name of the palma station
+# $6 the name of the theme
+# $7 the url of the palma station
 
 echo "Checking arguments..."
 var1_ID=$1
@@ -13,17 +15,25 @@ var2_ID=$2
 var3_ID=$3
 var4_ID=$4
 var5_ID=$5
+var6_ID=$6
+var7_ID=$7
 
-for i in {1..5}; do
+for i in {1..7}; do
     v="var${i}_ID"
     if [ -n "${!v}" ]; then
         echo "$v set to: ${!v}"
     else
         echo "$v is not set! Please check your arguments."
-        echo 'Usage: install_palma.sh [install|upgrade] [install dir (e.g. "/var/www/html")] [standard | rpi] [no_url or e.g. "https://www.your-institution.org/link-to-your-palma-site/"] [name, e.g. "palma-bwl-01"]'
+        echo 'Usage: install_palma.sh [install|upgrade] [install dir (e.g. "/var/www/html")] [standard | rpi] [no_url or e.g. "https://www.your-institution.org/link-to-your-palma-site/"] [name, e.g. "palma-01"] [theme, e.g. "demo/simple"] [url of the station, e.g. "http://palma-01.your-institution.org"]'
         exit 1
     fi
 done
+
+INSTALL_DIR=$2
+INSTITUTION_URL=$4
+STATION_NAME=$5
+THEME=$6
+START_URL=$7
 
 if [$1 == "update"]; then
     echo "Saving old sources list"
@@ -62,11 +72,11 @@ fi
 # Remove unwanted packages - Done automatically by cfengine? - TODO
 
 # Install PalMA
-cd $2
+cd $INSTALL_DIR
 if [ $1 == "install" ]; then
         echo "Cloning PalMA"
-        git clone https://github.com/UB-Mannheim/PalMA.git $2
-    else #$2 == update
+        git clone https://github.com/UB-Mannheim/PalMA.git $INSTALL_DIR
+    else #$1 == update
         echo "Cleaning install directory"
         git stash
         echo "Checking out master"
@@ -76,56 +86,63 @@ if [ $1 == "install" ]; then
         git pull
 fi
 
-echo "Adding new lines to palma.ini"
-# TODO: what if there already is a palma.ini with the institution_url line?
-# what about the theme, pin, password, policy etc.?
-# what about the domain (like .bib.uni-mannheim.de)?
-
-if [!$2/palma.ini]; then
-    cp $2/examples/palma.ini $2/palma.ini
+echo "Writing palma.ini - overwrites pin, password and policy to default values"
+if [!$INSTALL_DIR/palma.ini]; then
+    cp $INSTALL_DIR/examples/palma.ini $INSTALL_DIR/palma.ini
+fi
+if [$INSTITUTION_URL == "no_url"]; then
+        $INSTITUTION_URL = ""
 fi
 
-if [$4 == "no_url"]; then
-        cat << EOT >> $2/palma.ini
-        ; URL to additional PalMA information on your webpage (default: "")
-        institution_url = ""
-        EOT
-    else #$4 == "https://someurl.org/palma-info" or whatever
-        cat << EOT >> $2/palma.ini
-        ; URL to additional PalMA information on your webpage (default: "")
-        institution_url = $4
-        EOT
-fi
+cat << EOT > $INSTALL_DIR/palma.ini
+;
+; palma.ini
+;
+; Config File for Environment Variables
+;
+; Copy into the same directory as index.php.
+;
+; The entries here are available as PHP constants:
+;
+; CONFIG_DISPLAY
+; CONFIG_SSH
+; CONFIG_PASSWORD
+; CONFIG_PIN
+; CONFIG_STATIONNAME
+; CONFIG_THEME
+; CONFIG_START_URL
+; CONFIG_POLICY
+; CONFIG_CONTROL_FILE
+; CONFIG_UPLOAD_DIR
+; CONFIG_INSTITUTION_URL
 
+[display]
+; X display id (default: ":1").
+id = ":1"
+; SSH command to connect to display (optional).
+;~ ssh = "ssh palma@localhost";
 
-echo "Updating the hostname"
-# Updates the hostname of a PalMA station to the first argument of this script.
-# Resets the host in /etc/hostname and /etc/hosts.
-# Resets the station name in /var/www/html/palma.ini.
-#
-# NOTE: Expects hostnames of the form "lc00" and expects station names to begin with "LC "
-
-# TODO:
-# - Replace the SSH keys.
-# - Enable other name formats
-
-name="$5"
-files=("/etc/hostname" "/etc/hosts" "$2/palma.ini")
-
-name_uc="LC ${name:2:3}"
-
-for file in "${files[@]}"
-do
-    if [ -f "$file" ]
-    then
-        sed -i "s/lc[0-9][0-9]/$name/g" "$file"
-        sed -i "s/LC [0-9][0-9]/$name_uc/g" "$file"
-    else
-        echo "File with filename '$file' does not exist."
-    fi
-done
-
-
+[general]
+; Enable or disable password authorization (default: false).
+password = false
+; Enable or disable pin authorization (default: true).
+pin = true
+; Name of this PalMA station (default: host name). Only used for display.
+stationname = "$STATION_NAME"
+; Theme (style) to use for this station (default: "demo/simple").
+theme = "$THEME"
+[path]
+; URL which users use to connect.
+start_url = "$START_URL"
+; Privacy policy text (optional).
+;policy = "<a href=\"demo/simple/policy.php\">Privacy Policy</a>"
+; URL used internally for monitor control (default: control.php).
+;control_file = "http://localhost/control.php"
+; Directory for file uploads (default: "/var/www/html/uploads").
+upload_dir = "$INSTALL_DIR/uploads"
+; URL to additional PalMA information on your webpage (default: "")
+institution_url = "$INSTITUTION_URL"
+EOT
 
 # Webserver configuration - TODO: what if there already is a configuration?
 echo "Webserver configuration"
@@ -137,16 +154,16 @@ fi
 
 echo "Remove old and add new autostart"
 rm /etc/init.d/palma
-cp $2/scripts/palma.service /etc/systemd/system/palma.service
+cp $INSTALL_DIR/scripts/palma.service /etc/systemd/system/palma.service
 chmod 755 /etc/systemd/system/palma.service
 systemctl daemon-reload
 systemctl enable palma.service
 
 echo "Create new languages"
-make -C $2
+make -C $INSTALL_DIR
 
 echo "Fix ownership"
-chown -R www-data:www-data $2
+chown -R www-data:www-data .$INSTALL_DIR/..
 
 if [$1 == "update"]; then
         echo "Rebooting system"
