@@ -31,7 +31,7 @@ PalMA in Use
 ![PalMA in
 use](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/images/IMG_5965.JPG)
 
-PalMA New UI (Desktop)
+PalMA New UI
 
 ![PalMA NewUI](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/images/screenshots/palma-newui-overview.png)
 
