@@ -8,6 +8,9 @@ PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver
 Hardware requirements are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
 
 To install PalMA you can run the **installation script** we provide under `scripts/install_palma.sh` to do some of the work for you.
+Call it like e.g. like so:
+`install_palma.sh install "/var/www/html" standard "https://www.your-institution.org/link-to-your-palma-site/" "palma-01" "demo/simple" "http://palma-01.your-institution.org"`
+
 **Warning:** This script was written in the context of upgrading our own machines and it might mess with your Debian package lists. Please read and use said script with care. Also you will still have to manually configure some of the options.
 If in doubt, install PalMA manually as described below.
 
