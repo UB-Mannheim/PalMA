@@ -33,7 +33,7 @@ use](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/ima
 
 PalMA New UI (Desktop)
 
-![PalMA NewUI](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/images/screenshots/desktop/Screenshot_2017-09-18__Control-Beitraege.png)
+![PalMA NewUI](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/images/screenshots/palma-newui-overview.png)
 
 Installation
 ------------
