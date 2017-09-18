@@ -5,7 +5,7 @@ Operating system
 ----------------
 
 The PalMA web application requires a web server (usually Apache 2) which
-supports PHP 5 and SQLite.
+supports PHP 5 (or higher) and SQLite.
 
 User provided contents are shown using a simple web browser (dwb),
 an image viewer (eog, will be replaced by feh),
