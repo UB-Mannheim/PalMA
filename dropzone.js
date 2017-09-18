@@ -370,6 +370,7 @@
           for (j = 0, len = ref.length; j < len; j++) {
             node = ref[j];
             results.push(node.textContent = message);
+            // alert(message);
           }
           return results;
         }
@@ -1030,6 +1031,7 @@
           if (error) {
             file.accepted = false;
             _this._errorProcessing([file], error);
+            alert(error);
           } else {
             file.accepted = true;
             if (_this.options.autoQueue) {
