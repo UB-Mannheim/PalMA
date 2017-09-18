@@ -1,13 +1,10 @@
 PalMA Installation Instructions
 ===============================
 
-Requirements
+Introduction
 ----------------
 
-PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
-Hardware requirements are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
-
-To install PalMA you can run the **installation script** we provide under `scripts/install_palma.sh` to do some of the work for you. Call it like e.g. like so:
+You can install PalMA manually with the descriptions provided in this document or you can run the **experimental installation script** we provide under `scripts/install_palma.sh` to do some of the work for you. You can call it like e.g. like so:
 
 `install_palma.sh install "/var/www/html" standard "https://www.your-institution.org/link-to-your-palma-site/" "palma-01" "demo/simple" "http://palma-01.your-institution.org"`
 
@@ -16,15 +13,24 @@ Please read and use said script with care. If in doubt, install PalMA manually a
 
 In the following we will cover the points you'll need to set up a PalMA station:
 
+- Requirements
 - Required Debian packages
 - Webserver configuration (apache2 and nginx)
 - PalMA
-- Customizing your installation
-- Adding new languages (if needed)
+- Theming your installation
+- Adding new languages
 
 We assume that the web server's root directory is `/var/www/html` (default since Debian Jessie) and that PalMA will be installed directly there. Of course you can install PalMA in any other path.
 
 _All installation commands must be run as root user._
+
+Requirements
+----------------
+
+For a PalMA station you need a computing device (e.g. a regular PC or a Raspberry Pi) with internet access and a monitor connected to it. The larger the screen, the greater the benefit.
+
+PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
+Hardware requirements are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
 
 Required packages
 ----------------
@@ -131,7 +137,7 @@ So we add write access for www-data in directory `~www-data` (typically
 Now you should have your own PalMA station up and running.
 See the next two sections on how to customize your installation and how to add new languages to it.
 
-Customize your installation
+Theming your installation
 ----------------
 
 PalMA was initially developed for the Learning Center at Mannheim University
