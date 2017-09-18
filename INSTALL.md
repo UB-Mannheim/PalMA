@@ -11,8 +11,8 @@ To install PalMA you can run the **installation script** we provide under `scrip
 
 `install_palma.sh install "/var/www/html" standard "https://www.your-institution.org/link-to-your-palma-site/" "palma-01" "demo/simple" "http://palma-01.your-institution.org"`
 
-**Warning:** This script was written in the context of upgrading our own machines and it might mess with your Debian package lists. Please read and use said script with care. Also you will still have to manually configure some of the options.
-If in doubt, install PalMA manually as described below.
+**Warning:** This script was written in the context of upgrading our own machines and it might mess with your Debian package lists. Also it will set the default values for PIN (true), password (false) and policy link (none) in palma.ini.
+Please read and use said script with care. If in doubt, install PalMA manually as described below.
 
 In the following we will cover the points you'll need to set up a PalMA station:
 
