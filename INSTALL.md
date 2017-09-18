@@ -2,7 +2,7 @@
 
 ## Introduction
 
-You can install PalMA manually with the descriptions provided in this document or you can run the **experimental installation script** we provide under `scripts/install_palma.sh` to do some of the work for you. You can call it like e.g. like so:
+You can install PalMA manually with the descriptions provided in this document or you can run the **experimental installation script** we provide under `scripts/install_palma.sh` to do most of the work for you. You can call it e.g. like so:
 
 `install_palma.sh install "/var/www/html" standard "https://www.your-institution.org/link-to-your-palma-site/" "palma-01" "demo/simple" "http://palma-01.your-institution.org"`
 
