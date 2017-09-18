@@ -15,12 +15,14 @@ In the following we will cover the points you'll need to set up a PalMA station:
 - Customizing your installation
 - Adding new languages (if needed)
 
+We assume that the web server's root directory is `/var/www/html` (default since Debian Jessie) and that PalMA will be installed directly there. Of course you can install PalMA in any other path.
+
 _All installation commands must be run as root user._
 
 Required packages
 ----------------
 
-With the following lines run as root user we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for windowmanagement, database, PHP modules and building tools.
+With the following lines we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for windowmanagement, database, PHP modules and building tools.
 
     apt-get install midori feh vlc zathura ssvnc x11vnc
     apt-get install wmctrl xdotool openbox libjs-jquery sqlite3
@@ -85,17 +87,9 @@ file `/etc/nginx/sites-enabled/default`:
 PalMA
 ----------------
 
-The following description assumes that the web server's root directory
-is `/var/www/html` (this is the default since Debian Jessie)
-and that PalMA will be installed directly there.
-(Of course it is also possible to install PalMA in any other path.)
+Now let's install what it's all about and get the latest version of PalMA from GitHub:
 
-Get the latest version of PalMA from GitHub:
-
-    # Get latest PalMA.
     git clone https://github.com/UB-Mannheim/PalMA.git /var/www/html
-    # Create or update translations of PalMA user interface (optional).
-    make -C /var/www/html
 
 Typically, PalMA should be started automatically. Activate autostart via systemd with these commands:
 
@@ -113,8 +107,12 @@ this command to get a preliminary file:
 Please change entries in `palma.ini` according to your local installation.
 These include at least the entries `theme` and `start_url`.
 
+Optionally we can create the language files for the translations of the user interface.
+
+    make -C /var/www/html
+
 At last we need to grant write access to www-data so that the web server can
-create and modify a sqlite3 database `palma.db`, a directory for file uploads
+create and modify the sqlite3 database `palma.db`, a directory for file uploads
 can be created automatically and some viewer programs can write their
 configuration data.
 
@@ -123,6 +121,8 @@ So we add write access for www-data in directory `~www-data` (typically
 
     chown -R www-data:www-data /var/www
 
+Now you should have your own PalMA station up and running.
+See the next two sections on how to customize your installation and how to add new languages to it.
 
 Customize your installation
 ----------------
@@ -140,11 +140,10 @@ See [theme/THEMES.md](theme/THEMES.md) for details.
 Add existing and new translations
 ----------------
 
-PalMA initially supported English and German user interfaces for the web
-frontend.
-Students from the University of Mannheim provided additional translations. All
-translated texts are in the subdirectory `locale`.
+PalMA initially supports English and German user interfaces for the web
+frontend. Please help us by providing additional translations for everyone on GitHub.
 
+All translated texts are in the subdirectory `locale`.
 Newly added languages also need modifications in `Makefile` and in `i12n.php`.
 
 In a Debian GNU Linux installation, it is also necessary to add matching
