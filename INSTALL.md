@@ -11,12 +11,14 @@ Please read and use said script with care. If in doubt, install PalMA manually a
 
 In the following we will cover the points you'll need to set up a PalMA station:
 
-- Requirements
-- Required Debian packages
-- Webserver configuration (apache2 and nginx)
-- PalMA
-- Theming your installation
-- Adding new languages
+* Requirements
+* Required Debian packages
+* Webserver configuration
+  * Apache2
+  * Nginx-light
+* PalMA
+* Theming your installation
+* Adding new languages
 
 We assume that the web server's root directory is `/var/www/html` (default since Debian Jessie) and that PalMA will be installed directly there. Of course you can install PalMA in any other path.
 
