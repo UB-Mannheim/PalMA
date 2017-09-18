@@ -26,8 +26,14 @@ Summary
 PalMA enables people to share several contents on one monitor. Users can display PDF files, office files, images, videos, websites and or computer screens in real time (up to four entries simultaneously). Everything can be controlled via
 a website, so it's perfectly usable for all kinds of (mobile) devices.
 
+PalMA in Use
+
 ![PalMA in
-use](https://raw.githubusercontent.com/UB-Mannheim/ubma-screenshots/master/IMG_5965.JPG)
+use](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/images/IMG_5965.JPG)
+
+PalMA New UI (Desktop)
+
+![PalMA NewUI](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/images/screenshots/desktop/Screenshot_2017-09-18__Control-Beitraege.png)
 
 Installation
 ------------
