@@ -7,7 +7,7 @@ var3_ID=$3 # $3 "rpi" for raspberry pi or "standard" for normal PCs
 var4_ID=$4 # $4 no_url or URL to information about PalMA in your institution (e.g. "https://www.your-institution.org/link-to-your-palma-site/")
 var5_ID=$5 # $5 the name of the palma station, e.g. "palma-01"
 var6_ID=$6 # $6 the name of the theme, e.g. "demo/simple"
-var7_ID=$7 # $7 the url of the palma station, e.g. "http://palma-01.your-institution.org"
+var7_ID=$7 # $7 the url of the palma station, e.g. "http://palma-01.your-institution.org/"
 
 for i in {1..7}; do
     v="var${i}_ID"
@@ -15,7 +15,7 @@ for i in {1..7}; do
         echo "$v set to: ${!v}"
     else
         echo "$v is not set! Please check your arguments."
-        echo 'Usage: install_palma.sh [install|upgrade] [install dir (e.g. "/var/www/html")] [standard | rpi] [no_url or e.g. "https://www.your-institution.org/link-to-your-palma-site/"] [name, e.g. "palma-01"] [theme, e.g. "demo/simple"] [url of the station, e.g. "http://palma-01.your-institution.org"]'
+        echo 'Usage: install_palma.sh [install|upgrade] [install dir (e.g. "/var/www/html")] [standard | rpi] [no_url or e.g. "https://www.your-institution.org/link-to-your-palma-site/"] [name, e.g. "palma-01"] [theme, e.g. "demo/simple"] [url of the station, e.g. "http://palma-01.your-institution.org/"]'
         exit 1
     fi
 done
@@ -26,7 +26,7 @@ STATION_NAME=$5
 THEME=$6
 START_URL=$7
 
-if [$1 == "update"]; then
+if [ $1 == "update" ]; then
     echo "Saving old sources list"
     cp /etc/apt/sources.list /etc/apt/sources.list.backup
     echo "Adding Stretch sources"
@@ -34,7 +34,7 @@ if [$1 == "update"]; then
     deb http://ftp.de.debian.org/debian/ stretch main contrib non-free
     deb http://ftp.de.debian.org/debian/ stretch-updates main controb non-free
     deb http://security.debian.org/ stretch/updates main contrib non-free
-    EOT
+EOT
     # Get OS upgrade
     echo "Getting update..."
     apt-get -y update
@@ -78,66 +78,22 @@ if [ $1 == "install" ]; then
 fi
 
 echo "Writing palma.ini - overwrites pin, password and policy to default values"
-if [!$INSTALL_DIR/palma.ini]; then
+if [ !$INSTALL_DIR/palma.ini ]; then
     cp $INSTALL_DIR/examples/palma.ini $INSTALL_DIR/palma.ini
 fi
-if [$INSTITUTION_URL == "no_url"]; then
+if [ $INSTITUTION_URL == "no_url" ]; then
         $INSTITUTION_URL = ""
 fi
 
-cat << EOT > $INSTALL_DIR/palma.ini
-;
-; palma.ini
-;
-; Config File for Environment Variables
-;
-; Copy into the same directory as index.php.
-;
-; The entries here are available as PHP constants:
-;
-; CONFIG_DISPLAY
-; CONFIG_SSH
-; CONFIG_PASSWORD
-; CONFIG_PIN
-; CONFIG_STATIONNAME
-; CONFIG_THEME
-; CONFIG_START_URL
-; CONFIG_POLICY
-; CONFIG_CONTROL_FILE
-; CONFIG_UPLOAD_DIR
-; CONFIG_INSTITUTION_URL
-
-[display]
-; X display id (default: ":1").
-id = ":1"
-; SSH command to connect to display (optional).
-;~ ssh = "ssh palma@localhost";
-
-[general]
-; Enable or disable password authorization (default: false).
-password = false
-; Enable or disable pin authorization (default: true).
-pin = true
-; Name of this PalMA station (default: host name). Only used for display.
-stationname = "$STATION_NAME"
-; Theme (style) to use for this station (default: "demo/simple").
-theme = "$THEME"
-[path]
-; URL which users use to connect.
-start_url = "$START_URL"
-; Privacy policy text (optional).
-;policy = "<a href=\"demo/simple/policy.php\">Privacy Policy</a>"
-; URL used internally for monitor control (default: control.php).
-;control_file = "http://localhost/control.php"
-; Directory for file uploads (default: "/var/www/html/uploads").
-upload_dir = "$INSTALL_DIR/uploads"
-; URL to additional PalMA information on your webpage (default: "")
-institution_url = "$INSTITUTION_URL"
-EOT
+sed -i "/^[;]stationname = /c\stationname = $STATION_NAME" $INSTALL_DIR/palma.ini
+sed -i "/^[;]theme = /c\theme = $THEME" $INSTALL_DIR/palma.ini
+sed -i "/^[;]start_url = /c\start_url = $START_URL" $INSTALL_DIR/palma.ini
+sed -i "/^[;]upload_dir = /c\upload_dir = $INSTALL_DIR/uploads" $INSTALL_DIR/palma.ini
+sed -i "/^[;]institution_url = /c\institution_url = $INSTITUTION_URL" $INSTALL_DIR/palma.ini || echo "institution_url = $INSTITUTION_URL" >> $INSTALL_DIR/palma.ini
 
 # Webserver configuration - TODO: what if there already is a configuration?
 echo "Webserver configuration"
-if [ $1 = "rpi" ]; then
+if [ $1 == "rpi" ]; then
         echo "Hier nginx configuration einfügen"
     else
         echo "Hier apache configuration einfügen"
@@ -156,7 +112,7 @@ make -C $INSTALL_DIR
 echo "Fix ownership"
 chown -R www-data:www-data .$INSTALL_DIR/..
 
-if [$1 == "update"]; then
+if [ $1 == "update" ]; then
         echo "Rebooting system"
         reboot
     else #$1 == "install"
@@ -165,3 +121,4 @@ if [$1 == "update"]; then
     fi
 
 echo "End of $0"
+#EOF
