@@ -33,7 +33,7 @@ Hardware requirements are relatively low. For reasonable performance we recommen
 
 ## Required packages
 
-With the following lines we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for windowmanagement, database, PHP modules and building tools.
+With the following lines we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for window management, database, PHP modules and building tools.
 
     apt-get install midori feh vlc zathura ssvnc x11vnc
     apt-get install wmctrl xdotool openbox libjs-jquery sqlite3
