@@ -3,7 +3,7 @@ PalMA – share a team monitor
 
 Copyright (C) 2014–2017 Universitätsbibliothek Mannheim
 
-Authors: Alexander Wagner, Stefan Weil (UB Mannheim)
+Authors: Dennis Müller, Alexander Wagner, Stefan Weil (UB Mannheim)
 
 This is free software. You may use it under the terms of the
 GNU General Public License (GPL). See [docs/gpl.txt](docs/gpl.txt) for details.
