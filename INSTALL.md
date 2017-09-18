@@ -7,6 +7,10 @@ Requirements
 PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
 Hardware requirements are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
 
+To install PalMA you can run the **installation script** we provide under `scripts/install_palma.sh` to do some of the work for you.
+**Warning:** This script was written in the context of upgrading our own machines and it might mess with your Debian package lists. Please read and use said script with care. Also you will still have to manually configure some of the options.
+If in doubt, install PalMA manually as described below.
+
 In the following we will cover the points you'll need to set up a PalMA station:
 
 - Required Debian packages
@@ -127,15 +131,33 @@ See the next two sections on how to customize your installation and how to add n
 Customize your installation
 ----------------
 
-Most site specific settings are kept in a special subdirectory under `theme`.
-A new PalMA installation can add its own subdirectory which optionally can
-include more subdirectories if the installation uses several different
-settings.
+PalMA was initially developed for the Learning Center at Mannheim University
+Library. So the looks of PalMA are coherent with our design.
+If you want to customize the design you can add a new theme.
+Add one or more directories for your institution in the directory `theme`. E.g.:
 
-Each setting includes files for the screensaver, several images and icons,
-and a (partially) preconfigured files for the VNC feature.
-See [theme/THEMES.md](theme/THEMES.md) for details.
+    theme/our-institution/department1
+    theme/our-institution/department2
+    theme/some-other-institution
+    theme/your-institution
 
+_To change colors, icons and backgrounds in the user interface you will have to edit_ `palma.css` _and_ `images/user_background.png`.
+_Better theming options might follow in future releases._
+
+Each theme directory must include these files:
+
+* `background.png` - the background image on the team display when they work with PalMA. Any user windows will be shown on top of this background image. (Not to be confused with `images/user_background.png`.)
+* `favicon.ico` - icon typically shown in bookmark lists of browsers or when the PalMA URL is saved on a smartphone.
+* `palma-logo-49x18.png` - logo used by PalMA's web interface `index.php`.
+* `palma-logo-67x25.png` - logo used by the login web interface `login.php`.
+* `screensaver.php` - is shown when no users are connected. It includes dynamically generated URL, PIN and QR-Code as well as background images. To prevent display burn-in it changes between two designs every few minutes. So we use different background images with English and German usage instructions:
+  * `palma_d.png`
+  * `palma_e.png`
+* `winvnc-palma.exe` - an UltraVNC server for Windows, that **must be preconfigured to your institution**.
+* `VineServer.dmg` - a VNC software for Mac.
+* `x11.sh` - a script used for VNC screensharing on Linux.
+
+Don't forget to enable your theme in `palma.ini`.
 
 Add existing and new translations
 ----------------
