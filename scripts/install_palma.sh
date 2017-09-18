@@ -85,11 +85,11 @@ if [ $INSTITUTION_URL == "no_url" ]; then
         $INSTITUTION_URL = ""
 fi
 
-sed -i "/^[;]stationname = /c\stationname = $STATION_NAME" $INSTALL_DIR/palma.ini
-sed -i "/^[;]theme = /c\theme = $THEME" $INSTALL_DIR/palma.ini
-sed -i "/^[;]start_url = /c\start_url = $START_URL" $INSTALL_DIR/palma.ini
-sed -i "/^[;]upload_dir = /c\upload_dir = $INSTALL_DIR/uploads" $INSTALL_DIR/palma.ini
-sed -i "/^[;]institution_url = /c\institution_url = $INSTITUTION_URL" $INSTALL_DIR/palma.ini || echo "institution_url = $INSTITUTION_URL" >> $INSTALL_DIR/palma.ini
+sed -i "/^[;]*[ ]*stationname = /c\stationname = $STATION_NAME" $INSTALL_DIR/palma.ini
+sed -i "/^[;]*[ ]*theme = /c\theme = $THEME" $INSTALL_DIR/palma.ini
+sed -i "/^[;]*[ ]*start_url = /c\start_url = $START_URL" $INSTALL_DIR/palma.ini
+sed -i "/^[;]*[ ]*upload_dir = /c\upload_dir = $INSTALL_DIR/uploads" $INSTALL_DIR/palma.ini
+sed -i "/^[;]*[ ]*institution_url = /c\institution_url = $INSTITUTION_URL" $INSTALL_DIR/palma.ini || echo "institution_url = $INSTITUTION_URL" >> $INSTALL_DIR/palma.ini
 
 # Webserver configuration - TODO: what if there already is a configuration?
 echo "Webserver configuration"
@@ -110,11 +110,11 @@ echo "Create new languages"
 make -C $INSTALL_DIR
 
 echo "Fix ownership"
-chown -R www-data:www-data .$INSTALL_DIR/..
+chown -R www-data:www-data $INSTALL_DIR/..
 
 if [ $1 == "update" ]; then
         echo "Rebooting system"
-        reboot
+        systemctl reboot
     else #$1 == "install"
         echo "Starting PalMA"
         service palma start
