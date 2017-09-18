@@ -1,28 +1,39 @@
-PalMA Installation Instructions
-===============================
+# PalMA Installation Instructions
 
-Requirements
-----------------
+## Introduction
 
-PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
-Hardware requirements are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
+You can install PalMA manually with the descriptions provided in this document or you can run the **experimental installation script** we provide under `scripts/install_palma.sh` to do most of the work for you. You can call it e.g. like so:
+
+`install_palma.sh install "/var/www/html" standard "https://www.your-institution.org/link-to-your-palma-site/" "palma-01" "demo/simple" "http://palma-01.your-institution.org"`
+
+**Warning:** This script was written in the context of upgrading our own machines and it might mess with your Debian package lists. Also it will set the default values for PIN (true), password (false) and policy link (none) in palma.ini.
+Please read and use said script with care. If in doubt, install PalMA manually as described below.
 
 In the following we will cover the points you'll need to set up a PalMA station:
 
-- Required Debian packages
-- Webserver configuration (apache2 and nginx)
-- PalMA
-- Customizing your installation
-- Adding new languages (if needed)
+* Requirements
+* Required Debian packages
+* Webserver configuration
+  * Apache2
+  * Nginx-light
+* PalMA
+* Theming your installation
+* Adding new languages
 
 We assume that the web server's root directory is `/var/www/html` (default since Debian Jessie) and that PalMA will be installed directly there. Of course you can install PalMA in any other path.
 
 _All installation commands must be run as root user._
 
-Required packages
-----------------
+## Requirements
 
-With the following lines we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for windowmanagement, database, PHP modules and building tools.
+For a PalMA station you need a computing device (e.g. a regular PC or a Raspberry Pi) with internet access and a monitor connected to it. The larger the screen, the greater the benefit.
+
+PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
+Hardware requirements are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
+
+## Required packages
+
+With the following lines we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for window management, database, PHP modules and building tools.
 
     apt-get install midori feh vlc zathura ssvnc x11vnc
     apt-get install wmctrl xdotool openbox libjs-jquery sqlite3
@@ -38,11 +49,9 @@ or
 
     apt-get install nginx-light
 
-Webserver configuration
-----------------
+## Webserver configuration
 
-Apache
-------
+### Apache
 
 The PHP default configuration for the Apache2 webserver permits file uploads
 up to 2 MB. This limit is too low for typical documents (images,
@@ -67,8 +76,8 @@ The Apache2 module `rewrite` must be enabled, too:
     a2enmod rewrite
     service apache2 restart
 
-Nginx
-------
+### Nginx
+
 For Raspberry Pi we replaced the apache2 web server with nginx because it uses much
 less resources. Make sure the following configurations (server root, enabling php7) are set in
 file `/etc/nginx/sites-enabled/default`:
@@ -84,8 +93,7 @@ file `/etc/nginx/sites-enabled/default`:
     }
 
 
-PalMA
-----------------
+## PalMA
 
 Now let's install what it's all about and get the latest version of PalMA from GitHub:
 
@@ -124,21 +132,38 @@ So we add write access for www-data in directory `~www-data` (typically
 Now you should have your own PalMA station up and running.
 See the next two sections on how to customize your installation and how to add new languages to it.
 
-Customize your installation
-----------------
+## Theming your installation
 
-Most site specific settings are kept in a special subdirectory under `theme`.
-A new PalMA installation can add its own subdirectory which optionally can
-include more subdirectories if the installation uses several different
-settings.
+PalMA was initially developed for the Learning Center at Mannheim University
+Library. So the looks of PalMA are coherent with our design.
+If you want to customize the design you can add a new theme.
+Add one or more directories for your institution in the directory `theme`, e.g.:
 
-Each setting includes files for the screensaver, several images and icons,
-and a (partially) preconfigured files for the VNC feature.
-See [theme/THEMES.md](theme/THEMES.md) for details.
+    theme/our-institution/department1
+    theme/our-institution/department2
+    theme/some-other-institution
+    theme/your-institution
 
+_To change colors, icons and backgrounds in the user interface you will have to edit_ `palma.css` _and_ `images/user_background.png`.
+_Better theming options might follow in future releases._
 
-Add existing and new translations
-----------------
+Each theme directory must include these files:
+
+* `background.png` - the background image on the team display. Any user windows will be shown on top of this background image. (Not to be confused with `images/user_background.png` that users see in the background of the user interface on their devices.)
+* `favicon.ico` - icon typically shown in bookmark lists of browsers or when the PalMA URL is saved on a smartphone.
+* `palma-logo-49x18.png` - logo used by PalMA's web interface `index.php`.
+* `palma-logo-67x25.png` - logo used by the login web interface `login.php`.
+* `screensaver.php` - is shown when no users are connected. It includes dynamically generated URL, PIN and QR-Code as well as background images. To prevent display burn-in it changes between two designs every few minutes. So we use different background images with English and German usage instructions:
+  * `palma_d.png`
+  * `palma_e.png`
+* VNC software for screensharing
+  * `winvnc-palma.exe` - an UltraVNC server for Windows, that **must be [preconfigured](http://www.uvnc.com/docs/uvnc-sc.html]) to suit your institution**.
+  * `VineServer.dmg` - a VNC software for Mac.
+  * `x11.sh` - a script used for VNC screensharing on Linux.
+
+Don't forget to enable your theme in `palma.ini`.
+
+## Add existing and new translations
 
 PalMA initially supports English and German user interfaces for the web
 frontend. Please help us by providing additional translations for everyone on GitHub.
