@@ -15,7 +15,7 @@ for i in {1..7}; do
         echo "$v set to: ${!v}"
     else
         echo "$v is not set! Please check your arguments."
-        echo 'Usage: install_palma.sh [install|upgrade] [install dir (e.g. "/var/www/html")] [standard | rpi] [no_url or e.g. "https://www.your-institution.org/link-to-your-palma-site/"] [name, e.g. "palma-01"] [theme, e.g. "demo/simple"] [url of the station with closing slash, e.g. "http://palma-01.your-institution.org/"]'
+        echo 'Usage: install_palma.sh [install|update] [install dir without trailing slash (e.g. "/var/www/html")] [standard | rpi] [no_url or e.g. "https://www.your-institution.org/link-to-your-palma-site/"] [name, e.g. "palma-01"] [theme, e.g. "demo/simple"] [url of the station with trailing slash, e.g. "http://palma-01.your-institution.org/"]'
         exit 1
     fi
 done
