@@ -6,8 +6,8 @@ var2_ID=$2 # $2 directory where PalMA already is or should be installed (recomme
 var3_ID=$3 # $3 "rpi" for raspberry pi or "standard" for normal PCs
 var4_ID=$4 # $4 no_url or URL to information about PalMA in your institution (e.g. "https://www.your-institution.org/link-to-your-palma-site/")
 var5_ID=$5 # $5 the name of the palma station, e.g. "palma-01"
-var6_ID=$6 # $6 the name of the theme, e.g. "demo/simple"
-var7_ID=$7 # $7 the url of the palma station, e.g. "http://palma-01.your-institution.org/"
+var6_ID=$6 # $6 the name of the theme, e.g. "demo/simple" or "mytheme" or "our-institution/department2"
+var7_ID=$7 # $7 the url of the palma station with closing slash, e.g. "http://palma-01.your-institution.org/"
 
 for i in {1..7}; do
     v="var${i}_ID"
@@ -15,7 +15,7 @@ for i in {1..7}; do
         echo "$v set to: ${!v}"
     else
         echo "$v is not set! Please check your arguments."
-        echo 'Usage: install_palma.sh [install|upgrade] [install dir (e.g. "/var/www/html")] [standard | rpi] [no_url or e.g. "https://www.your-institution.org/link-to-your-palma-site/"] [name, e.g. "palma-01"] [theme, e.g. "demo/simple"] [url of the station, e.g. "http://palma-01.your-institution.org/"]'
+        echo 'Usage: install_palma.sh [install|upgrade] [install dir (e.g. "/var/www/html")] [standard | rpi] [no_url or e.g. "https://www.your-institution.org/link-to-your-palma-site/"] [name, e.g. "palma-01"] [theme, e.g. "demo/simple"] [url of the station with closing slash, e.g. "http://palma-01.your-institution.org/"]'
         exit 1
     fi
 done
