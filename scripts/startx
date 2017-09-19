@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Start X server, window manager and other software for PalMA.
 
