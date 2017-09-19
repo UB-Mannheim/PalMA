@@ -63,7 +63,7 @@ fi
 
 runx() {
     # Run a shell command as a user without root privileges.
-    su -c "$@" -s /bin/sh $user
+    su -c "$@" -s /bin/bash $user
 }
 
 # Get HOME directory of $user.
@@ -117,10 +117,10 @@ if test -f /usr/bin/midori; then
     fi
     rm -f "$userhome/.config/midori/config"
     cp settings/midori/config "$userhome/.config/midori/"
-# elif test -f /usr/bin/dwb; then
-    # webbrowser=dwb
-    # rm -rf "$userhome/.config/dwb"
-    # cp -a settings/dwb "$userhome/.config"
+elif test -f /usr/bin/dwb; then
+    webbrowser=dwb
+    rm -rf "$userhome/.config/dwb"
+    cp -a settings/dwb "$userhome/.config"
 fi
 
 # Fix ownership of directory for application settings.
@@ -135,13 +135,13 @@ state=0
 set +x
 
 # Get php version
-PHPVERSION = php -i | grep 'PHP Version' -m 1 | sed 's/^PHP Version => //'
-PHPPATH = ''
+PHPVERSION=$(php -i | grep 'PHP Version' -m 1 | sed 's/^PHP Version => //')
+PHPPATH=''
 
 if [[ $PHPVERSION == 7* ]]; then
-    $PHPPATH = "/usr/bin/php7.0"
+    PHPPATH="/usr/bin/php7.0"
 elif [[ $PHPVERSION == 5* ]]; then
-    $PHPPATH = "/usr/bin/php5"
+    PHPPATH="/usr/bin/php5"
 fi
 
 while true; do
