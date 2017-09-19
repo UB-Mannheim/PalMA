@@ -4,7 +4,7 @@
 
 You can install PalMA manually with the descriptions provided in this document or you can run the **experimental installation script** we provide under `scripts/install_palma.sh` to do most of the work for you. You can call it e.g. like so:
 
-`install_palma.sh install "/var/www/html" standard "https://www.your-institution.org/link-to-your-palma-site/" "palma-01" "demo/simple" "http://palma-01.your-institution.org"`
+`install_palma.sh install "/var/www/html" standard "https://www.your-institution.org/link-to-your-palma-site/" "palma-01" "our-institution/department2" "http://palma-01.your-institution.org"`
 
 **Warning:** This script was written in the context of upgrading our own machines and it might mess with your Debian package lists. As of now you would still have to configure the webserver yourself.
 Please read and use said script with care. If in doubt, install PalMA manually as described below.
