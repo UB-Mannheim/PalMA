@@ -79,7 +79,7 @@ The Apache2 module `rewrite` must be enabled, too:
 ### Nginx
 
 For Raspberry Pi we replaced the apache2 web server with nginx because it uses much
-less resources. Make sure the following configurations (server root, enabling php7) are set in
+less resources. Make sure the following configurations (server root, enabling php) are set in
 file `/etc/nginx/sites-enabled/default`:
 
     server {
@@ -89,9 +89,14 @@ file `/etc/nginx/sites-enabled/default`:
         location ~ \.php$ {
                 include snippets/fastcgi-php.conf;
                 fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+
+                # If you still use php5 uncomment these lines instead of the above:
+                #fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                #fastcgi_pass unix:/var/run/php5-fpm.sock;
+                #fastcgi_index index.php;
+                #include fastcgi_params;
             }
     }
-
 
 ## PalMA
 
