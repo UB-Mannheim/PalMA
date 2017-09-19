@@ -2,12 +2,12 @@
 
 echo "Checking arguments..."
 var1_ID=$1 # $1 "install" for a fresh installation or "update" for updating an existing one (includes debian upgrade to stretch!)
-var2_ID=$2 # $2 directory where PalMA already is or should be installed (recommended: "/var/www/html")
+var2_ID=$2 # $2 directory where PalMA already is or should be installed without trailing slash (recommended: "/var/www/html")
 var3_ID=$3 # $3 "rpi" for raspberry pi or "standard" for normal PCs
 var4_ID=$4 # $4 no_url or URL to information about PalMA in your institution (e.g. "https://www.your-institution.org/link-to-your-palma-site/")
 var5_ID=$5 # $5 the name of the palma station, e.g. "palma-01"
 var6_ID=$6 # $6 the name of the theme, e.g. "demo/simple" or "mytheme" or "our-institution/department2"
-var7_ID=$7 # $7 the url of the palma station with closing slash, e.g. "http://palma-01.your-institution.org/"
+var7_ID=$7 # $7 the url of the palma station with trailing slash, e.g. "http://palma-01.your-institution.org/"
 
 for i in {1..7}; do
     v="var${i}_ID"
