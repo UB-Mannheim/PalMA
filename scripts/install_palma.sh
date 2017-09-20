@@ -50,7 +50,7 @@ fi
 
 # Install necessary packages
 echo "Installing viewer packages"
-apt-get -y install midori feh vlc zathura ssvnc x11vnc
+apt-get -y install midori feh libreoffice ssvnc vlc x11vnc zathura
 echo "Installing windowcontrol packages"
 apt-get -y install wmctrl xdotool openbox libjs-jquery sqlite3
 echo "Installing php7.0 packages"

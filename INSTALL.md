@@ -35,7 +35,7 @@ Hardware requirements are relatively low. For reasonable performance we recommen
 
 With the following lines we can install the needed viewer programs (for images, PDFs, videos and VNC connections), tools used for window management, database, PHP modules and building tools.
 
-    apt-get install midori feh vlc zathura ssvnc x11vnc
+    apt-get install midori feh libreoffice ssvnc vlc x11vnc zathura
     apt-get install wmctrl xdotool openbox libjs-jquery sqlite3
     apt-get install php7.0 php7.0-cgi php7.0-cli php7.0-curl
     apt-get install php7.0-fpm php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
