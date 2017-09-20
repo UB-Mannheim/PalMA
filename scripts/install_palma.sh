@@ -1,21 +1,28 @@
 #!/bin/bash
 
 echo "Checking arguments..."
-var1_ID=$1 # $1 "install" for a fresh installation or "update" for updating an existing one (includes debian upgrade to stretch!)
-var2_ID=$2 # $2 directory where PalMA already is or should be installed without trailing slash (recommended: "/var/www/html")
-var3_ID=$3 # $3 "rpi" for raspberry pi or "standard" for normal PCs
-var4_ID=$4 # $4 no_url or URL to information about PalMA in your institution (e.g. "https://www.your-institution.org/link-to-your-palma-site/")
-var5_ID=$5 # $5 the name of the palma station, e.g. "palma-01"
-var6_ID=$6 # $6 the name of the theme, e.g. "demo/simple" or "mytheme" or "our-institution/department2"
-var7_ID=$7 # $7 the url of the palma station with trailing slash, e.g. "http://palma-01.your-institution.org/"
+var1_ID=$1 # [install | update]
+var2_ID=$2 # ["/path/to/install-directory"]
+var3_ID=$3 # [standard | rpi]
+var4_ID=$4 # [no_url | "https://www.your-institution.org/link-to-your-palma-site/"]
+var5_ID=$5 # ["name of this PalMA station"]
+var6_ID=$6 # ["theme-direcotry"]
+var7_ID=$7 # ["http://url-to-this-palma-station.org"]
 
 for i in {1..7}; do
     v="var${i}_ID"
     if [ -n "${!v}" ]; then
         echo "$v set to: ${!v}"
     else
-        echo "$v is not set! Please check your arguments."
-        echo 'Usage: install_palma.sh [install|update] [install dir without trailing slash (e.g. "/var/www/html")] [standard | rpi] [no_url or e.g. "https://www.your-institution.org/link-to-your-palma-site/"] [name, e.g. "palma-01"] [theme, e.g. "demo/simple"] [url of the station with trailing slash, e.g. "http://palma-01.your-institution.org/"]'
+        echo -e "$v is not set! Please check your arguments.\nPlease mind the exact use of double-quotes and trailing slashes."
+        echo -e 'Required arguments in required order:\n
+        [install | update] - install for fresh PalMA installation, update for upgrading existing PalMA installation (INCLUDES DEBIAN UPGRADE TO STRETCH!)\n
+        ["/path/to/install-directory"] - directory where PalMA already is or should be installed - without trailing slash! - recommended: "/var/www/html"\n
+        [standard | rpi] - specify if PalMA is installed on a regular pc or a Raspberry Pi\n
+        [no_url | "https://www.your-institution.org/link-to-your-palma-site/"] - no_url or URL to information about PalMA in your institution\n
+        ["name of this PalMA station"] - the name of the palma station, e.g. "palma-01"\n
+        ["theme-directory"]  - name of the theme (sub)directory, e.g. "demo/simple" or "mytheme" or "our-institution/department2"\n
+        ["http://url-to-this-palma-station.org"] - url used to connect to this palma station - with trailing slash! - e.g. "http://palma-01.your-institution.org/"'
         exit 1
     fi
 done
@@ -30,10 +37,7 @@ if [ $1 == "update" ]; then
     echo "Saving old sources list"
     cp /etc/apt/sources.list /etc/apt/sources.list.backup
     echo "Adding Stretch sources"
-    cat << EOT > /etc/apt/sources.list
-    deb http://ftp.de.debian.org/debian/ stretch main contrib non-free
-    deb http://ftp.de.debian.org/debian/ stretch-updates main controb non-free
-    deb http://security.debian.org/ stretch/updates main contrib non-free
+    sed -i 's/jessie/stretch/g' /etc/apt/sources.list
 EOT
     # Get OS upgrade
     echo "Getting update..."
