@@ -88,7 +88,7 @@ if [ !$INSTALL_DIR/palma.ini ]; then
     cp $INSTALL_DIR/examples/palma.ini $INSTALL_DIR/palma.ini
 fi
 if [ $INSTITUTION_URL == "no_url" ]; then
-        $INSTITUTION_URL = ""
+        INSTITUTION_URL = ""
 fi
 
 sed -i "/^[;]*[ ]*stationname = /c\stationname = $STATION_NAME" $INSTALL_DIR/palma.ini
