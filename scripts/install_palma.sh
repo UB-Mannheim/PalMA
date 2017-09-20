@@ -38,12 +38,14 @@ if [ $1 == "update" ]; then
     cp /etc/apt/sources.list /etc/apt/sources.list.backup
     echo "Adding Stretch sources"
     sed -i 's/jessie/stretch/g' /etc/apt/sources.list
-EOT
+    sed -i 's/Jessie/Stretch/g' /etc/apt/sources.list
     # Get OS upgrade
     echo "Getting update..."
-    apt-get -y update
+    export APT_LISTCHANGES_FRONTEND=none
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get -y --force-yes -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" update
     echo "Getting upgrade..."
-    apt-get -y upgrade
+    apt-get -y --force-yes -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 fi
 
 # Install necessary packages
@@ -74,8 +76,8 @@ if [ $1 == "install" ]; then
     else #$1 == update
         echo "Cleaning install directory"
         git stash
-        echo "Checking out master"
-        git checkout master
+        echo "Checking out redesign branch"
+        git checkout palma-redesign
         git stash
         echo "Pulling latest PalMA"
         git pull
