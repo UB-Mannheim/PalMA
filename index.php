@@ -1394,5 +1394,17 @@ window.onclick = function(event) {
       }
     ?>
 </div> <!-- Footer -->
+
+<?php
+
+    $plugin_dir = "plugins/";
+    $stats = "piwik.php";
+    
+    if(file_exists($plugin_dir . $stats)) {
+        include $plugin_dir . $stats;
+        }
+
+?>
+
 </body>
 </html>
