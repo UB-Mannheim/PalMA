@@ -34,6 +34,8 @@ THEME=$6
 START_URL=$7
 
 if [ $1 == "update" ]; then
+    echo "Killing PalMA"
+    service palma stop
     echo "Saving old sources list"
     cp /etc/apt/sources.list /etc/apt/sources.list.backup
     echo "Adding Stretch sources"
