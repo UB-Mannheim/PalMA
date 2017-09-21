@@ -37,10 +37,14 @@ if [ $1 == "update" ]; then
     echo "Killing PalMA"
     service palma stop
     echo "Saving old sources list"
-    cp /etc/apt/sources.list /etc/apt/sources.list.backup
+    # cp /etc/apt/sources.list /etc/apt/sources.list.backup
+    cp /etc/apt/sources.list.d/jessie.list /etc/apt/sources.list.d/jessie.list.backup
     echo "Adding Stretch sources"
-    sed -i 's/jessie/stretch/g' /etc/apt/sources.list
-    sed -i 's/Jessie/Stretch/g' /etc/apt/sources.list
+    # sed -i 's/jessie/stretch/g' /etc/apt/sources.list
+    # sed -i 's/Jessie/Stretch/g' /etc/apt/sources.list
+    sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/jessie.list
+    sed -i 's/Jessie/Stretch/g' /etc/apt/sources.list.d/jessie.list
+    mv /etc/apt/sources.list.d/jessie.list /etc/apt/sources.list.d/stretch.list
     # Get OS upgrade
     echo "Getting update..."
     export APT_LISTCHANGES_FRONTEND=none
