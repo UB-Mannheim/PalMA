@@ -78,8 +78,8 @@ if [ $1 == "install" ]; then
     else #$1 == update
         echo "Cleaning install directory"
         git stash
-        echo "Checking out redesign branch"
-        git checkout palma-redesign
+        echo "Checking out master branch"
+        git checkout master
         git stash
         echo "Pulling latest PalMA"
         git pull
@@ -113,6 +113,9 @@ cp $INSTALL_DIR/scripts/palma.service /etc/systemd/system/palma.service
 chmod 755 /etc/systemd/system/palma.service
 systemctl daemon-reload
 systemctl enable palma.service
+
+echo "Enable Piwik plugin"
+wget -P $INSTALL_DIR/plugins/ https://www.bib.uni-mannheim.de/palma/plugins/piwik.php
 
 echo "Create new languages"
 make -C $INSTALL_DIR
