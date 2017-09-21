@@ -80,13 +80,13 @@ if [ $1 == "install" ]; then
         echo "Cloning PalMA"
         git clone https://github.com/UB-Mannheim/PalMA.git $INSTALL_DIR
     else #$1 == update
+        echo "Save old PalMA install directory"
+        cp -R $INSTALL_DIR /home/palma/palma-old-backup/
         echo "Cleaning install directory"
-        git stash
-        echo "Checking out master branch"
-        git checkout master
-        git stash
-        echo "Pulling latest PalMA"
-        git pull
+        rm -rf $INSTALL_DIR/*
+        rm -rf $INSTALL_DIR/.*
+        echo "Cloning PalMA"
+        git clone https://github.com/UB-Mannheim/PalMA.git $INSTALL_DIR
 fi
 
 echo "Writing palma.ini - overwrites pin, password and policy to default values"
@@ -106,9 +106,9 @@ sed -i "/^[;]*[ ]*institution_url = /c\institution_url = $INSTITUTION_URL" $INST
 # Webserver configuration - TODO: what if there already is a configuration?
 echo "Webserver configuration"
 if [ $1 == "rpi" ]; then
-        echo "Hier nginx configuration einfügen"
+        echo "Please configure nginx manually - see install.md"
     else
-        echo "Hier apache configuration einfügen"
+        echo "Please configure apache manually - see install.md"
 fi
 
 echo "Remove old and add new autostart"
