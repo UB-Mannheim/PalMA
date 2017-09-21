@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Start X server, window manager and other software for PalMA.
 
@@ -63,7 +63,7 @@ fi
 
 runx() {
     # Run a shell command as a user without root privileges.
-    su -c "$@" -s /bin/sh $user
+    su -c "$@" -s /bin/bash $user
 }
 
 # Get HOME directory of $user.
@@ -82,7 +82,7 @@ userhome=$(su -c pwd -s /bin/sh -l "$user")
 runx "/usr/bin/openbox --config-file \"$basedir/settings/openbox/rc.xml\"" &
 
 # Allow window manager to start.
-/bin/sleep 2
+/bin/sleep 3
 
 # Show background image.
 runx "/usr/bin/feh --bg-scale --no-fehbg \"$background\""
@@ -97,7 +97,7 @@ runx "/usr/bin/xset s off"
 # /usr/bin/xset q
 
 # Wait a littĺe before the screensaver image hides the background.
-/bin/sleep 2
+/bin/sleep 3
 
 rm palma.db
 
@@ -105,15 +105,22 @@ rm palma.db
 mkdir -p "$userhome/.config"
 
 # Find a web browser which supports JavaScript.
-# TODO: try other lightweight browsers.
+# Run browser with PalMA compatible settings.
 webbrowser=/bin/false
-if test -f /usr/bin/dwb; then
+if test -f /usr/bin/midori; then
+    webbrowser=midori
+    # Need to start midori as $user to create config directory and files
+    if [ ! -d "$userhome/.config/midori" ]; then
+        runx "midori https://raw.githubusercontent.com/UB-Mannheim/ubma-screenshots/master/IMG_5965.JPG -e Fullscreen &"
+        sleep 3
+        pkill midori
+    fi
+    rm -f "$userhome/.config/midori/config"
+    cp settings/midori/config "$userhome/.config/midori/"
+elif test -f /usr/bin/dwb; then
     webbrowser=dwb
-    # Run dwb with PalMA compatible settings.
     rm -rf "$userhome/.config/dwb"
     cp -a settings/dwb "$userhome/.config"
-elif test -f /usr/bin/midori; then
-    webbrowser=midori
 fi
 
 # Fix ownership of directory for application settings.
@@ -126,6 +133,16 @@ state=0
 
 # Disable too many log messages while running in loop.
 set +x
+
+# Get php version
+PHPVERSION=$(php -i | grep 'PHP Version' -m 1 | sed 's/^PHP Version => //')
+PHPPATH=''
+
+if [[ $PHPVERSION == 7* ]]; then
+    PHPPATH="/usr/bin/php7.0"
+elif [[ $PHPVERSION == 5* ]]; then
+    PHPPATH="/usr/bin/php5"
+fi
 
 while true; do
 
@@ -142,14 +159,13 @@ while true; do
         # Kill the VNC viewer if it was running.
         date +"%F %T start $webbrowser with screensaver"
         killall -q ssvncviewer
-        runx "/usr/bin/php5 control.php doLogout=ALL"
+        runx "$PHPPATH control.php doLogout=ALL"
         case $webbrowser in
-            dwb)
-                # Start DWB in presentation mode.
-                runx "/usr/bin/dwb --execute=presentation_mode \"$screensaver\"" &
-                ;;
             midori)
                 runx "/usr/bin/$webbrowser -e Fullscreen -a \"$screensaver\"" &
+                ;;
+            dwb)
+                runx "/usr/bin/$webbrowser --execute=presentation_mode \"$screensaver\"" &
                 ;;
             *)
                 runx "$webbrowser \"$screensaver\"" &
@@ -172,7 +188,7 @@ while true; do
             # Start the VNC viewer process, so usercount can share their desktop.
             date +"%F %T kill $webbrowser"
             killall --user $user --quiet $webbrowser
-            runx "/usr/bin/php5 SSVNCDaemon.php" &
+            runx "$PHPPATH SSVNCDaemon.php" &
             runx "/usr/bin/touch last_activity"
             state="2"
         fi

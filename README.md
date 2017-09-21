@@ -3,7 +3,7 @@ PalMA – share a team monitor
 
 Copyright (C) 2014–2017 Universitätsbibliothek Mannheim
 
-Authors: Dennis Müller, Alexander Wagner, Stefan Weil (UB Mannheim)
+Authors: Alexander Wagner, Stefan Weil, Dennis Müller (UB Mannheim)
 
 This is free software. You may use it under the terms of the
 GNU General Public License (GPL). See [docs/gpl.txt](docs/gpl.txt) for details.
@@ -11,31 +11,49 @@ GNU General Public License (GPL). See [docs/gpl.txt](docs/gpl.txt) for details.
 Parts of the software use different licenses which are listed
 in file [LICENSE](LICENSE).
 
+
 [![CircleCI](https://circleci.com/gh/UB-Mannheim/PalMA/tree/master.svg?style=svg)](https://circleci.com/gh/UB-Mannheim/PalMA/tree/master)
-[![Build Status](https://travis-ci.org/UB-Mannheim/PalMA.svg?branch=master)](https://travis-ci.org/UB-Mannheim/PalMA)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e5750c1e19fc4ecf9257a9a4d4418e0c)](https://www.codacy.com/app/UB-Mannheim/PalMA?utm_source=github.com&utm_medium=referral&utm_content=UB-Mannheim/PalMA&utm_campaign=badger)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/UB-Mannheim/PalMA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/UB-Mannheim/PalMA/?branch=master)
+[![Build
+Status](https://travis-ci.org/UB-Mannheim/PalMA.svg?branch=master)](https://travis-ci.org/UB-Mannheim/PalMA)
+[![Codacy
+Badge](https://api.codacy.com/project/badge/Grade/e5750c1e19fc4ecf9257a9a4d4418e0c)](https://www.codacy.com/app/UB-Mannheim/PalMA?utm_source=github.com&utm_medium=referral&utm_content=UB-Mannheim/PalMA&utm_campaign=badger)
+[![Scrutinizer Code
+Quality](https://scrutinizer-ci.com/g/UB-Mannheim/PalMA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/UB-Mannheim/PalMA/?branch=master)
 
 Summary
 -------
 
-With PalMA, a group of people can share a team monitor. Different documents,
-websites or local desktops can be shown simultaneously in up to four display
-sections.
+PalMA enables people to share several contents on one monitor. Users can display PDF files, office files, images, videos, websites and or computer screens in real time (up to four entries simultaneously). Everything can be controlled via
+a website, so it's perfectly usable for all kinds of (mobile) devices.
 
-Users authorize to the team monitor and control it by using a web application
-which runs on their mobile device or on their notebook.
+PalMA in Use
 
-![PalMA in use](https://raw.githubusercontent.com/UB-Mannheim/ubma-screenshots/master/IMG_5965.JPG)
+![PalMA in
+use](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/images/IMG_5965.JPG)
+
+PalMA New UI
+
+![PalMA NewUI](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/images/screenshots/palma-newui-overview.png)
+
+Installation
+------------
+
+See [INSTALL.md](INSTALL.md) for details.
+
+Mannheim University Library develops and installs PalMA
+on mini PCs running Debian GNU Linux and Raspbian (Stretch). Other Linux based hardware
+and software combination can also be used, but might require some smaller
+modifications.
 
 Hardware requirements
 ---------------------
 
-The team monitor with adequate size and high resolution is connected
+The team monitor (with adequate size and resolution) is connected
 to a computing device (usually a mini pc) running Linux.
+Hardware requirements for the pc are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
 
 A minimal setup can be built with an ARM based mini pc like the
-Raspberry PI for less than 100 EUR. It can drive monitors with
+Raspberry Pi for less than 100 EUR. It can drive monitors with
 HDMI and full HD resolution (1920 x 1080 pixel), but is slow
 and only offers limited memory for viewer applications.
 
@@ -44,21 +62,8 @@ around 200 EUR. It also provides HDMI and resolutions up to
 1920 x 1200 pixel.
 
 A high end setup uses a mini pc with Intel Core i5, more RAM and
-a fast solid state disk (SSD). It can drive up to three monitors
-(still untested). HDMI allows full HD resolution, display port (DP)
+a fast solid state disk (SSD). HDMI allows full HD resolution, display port (DP)
 even larger resolution.
-
-
-Installation
-------------
-
-Mannheim University Library develops and installs the PalMA web application
-on mini pcs running Debian GNU Linux (Jessie). Other Linux based hardware
-and software combination can also be used, but might require some smaller
-modifications.
-
-See [INSTALL.md](INSTALL.md) for details.
-
 
 Client Software
 ---------------
@@ -72,7 +77,7 @@ with desktop computers and notebooks:
   Using the Single Click version UltraVNC SC, it is possible
   to address preconfigured displays without any installation.
 
-* RealVNC – http://realvnc.com/ (commercial)
+* VineServer – https://www.testplant.com/osxvnc (commercial)
   This VNC server is needed for MacBooks with retina display.
   There is a free VNC server for individual private use.
 
@@ -80,7 +85,7 @@ with desktop computers and notebooks:
   This VNC server is included in most Linux distributions.
 
 It is currently not possible to share the desktop of mobile
-devices (smartphones) and tablet computers.
+devices (smartphones / tablets).
 
 
 Bug reports
@@ -95,7 +100,7 @@ Contributing
 ------------
 
 Bug fixes, new functions, suggestions for new features and
-other user feedback are appreciated.
+other user feedback are much appreciated.
 
 The source code is available from https://github.com/UB-Mannheim/PalMA.
 Please prepare your code contributions also on GitHub.

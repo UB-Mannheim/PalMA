@@ -30,6 +30,7 @@ function displayCommand($cmd)
     } else {
         $cmd = "DISPLAY=" . CONFIG_DISPLAY . " HOME=/var/www $cmd";
     }
+
     $result = shell_exec($cmd);
     trace("cmd=$cmd, result=$result");
     return $result;
@@ -217,7 +218,8 @@ function addNewWindow($db, $new)
     // unused section or it will be hidden.
 
     trace('addNewWindow ' . serialize($new));
-    // '$new' already contains 'file', 'handler' and 'date'.
+    // '$new' already contains 'file', 'handler' and 'date', as well as the
+    // username for VNC connections only.
     // 'win_id', 'section' have to be defined afterwards.
 
     // Get new window. Wait up to 10 s for it.
@@ -277,9 +279,15 @@ function addNewWindow($db, $new)
 
     // $new['file'] = $active_window; (?)
 
-    // TODO: check how to insert the userid.
+    // TODO: check how to insert the userid for all content, not just vnc.
     // Perhaps better add to array in upload.php ?
-    $new['userid'] = "all";
+    $userid = "";
+    $queryid = $db->querySingle('SELECT user.userid FROM user WHERE user.name="' . $new['userid'] .'"');
+    if (!empty($queryid)) {
+        $userid = $queryid;
+    } else {
+        $userid = "all";
+    }
 
     $myWindow = array(
         $new['id'],
@@ -288,12 +296,18 @@ function addNewWindow($db, $new)
         $new['state'],
         $new['file'],
         $new['handler'],
-        $new['userid'],
+        $userid,
         $new['date']
     );
 
     // Save window in database.
     $db->insertWindow($myWindow);
+
+    // Tab out of browser address bar, otherwise controls won't work
+    if ($new['handler'] = "/usr/bin/midori -p") {
+        displayCommand("xdotool getactiveWindow key Down");
+    }
+
 }
 
 function createNewWindow($db, $w)
@@ -480,22 +494,36 @@ function processRequests($db)
         $openURL = $_REQUEST['openURL'];
         trace("openURL $openURL");
 
-        $dt = new DateTime();
-        $date = $dt->format('Y-m-d H:i:s');
+        // If URL leads to pdf file, download it and treat as upload
+        if (preg_match("/.(pdf|PDF)$/", $openURL)) {
+            trace("openURL $openURL is a pdf file. Downloading it.");
+            $date = time();
+            $temp_name = basename($openURL);
+            $temp_dir = "/tmp/palma_$date";
+            shell_exec("mkdir $temp_dir && wget $openURL -P $temp_dir/");
 
-        $window = array(
-            "id" => "",
-            "win_id" => "",
-            "section" => "",
-            "state" => "",
-            "file" => $openURL,
-            // "handler" => "iceweasel --new-window",
-            "handler" => "/usr/bin/nohup /usr/bin/dwb",
-            "userid" => "",
-            "date" => $date
-        );
+            $_FILES['file']['name'] = "$temp_name";
+            $_FILES['file']['tmp_name'] = "$temp_dir/$temp_name";
+            $_FILES['file']['error'] = "downloaded_from_url";
 
-        createNewWindow($db, $window);
+            trace("Handing over to upload.php");
+            include 'upload.php';
+        } else {
+            $dt = new DateTime();
+            $date = $dt->format('Y-m-d H:i:s');
+            $window = array(
+                "id" => "",
+                "win_id" => "",
+                "section" => "",
+                "state" => "",
+                "file" => $openURL,
+                // "handler" => "iceweasel --new-window",
+                "handler" => "/usr/bin/midori -p",
+                "userid" => "",
+                "date" => $date
+            );
+            createNewWindow($db, $window);
+        }
     }
 
     // TODO: chef if query redundant?

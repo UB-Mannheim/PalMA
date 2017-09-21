@@ -13,7 +13,7 @@ $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
 
 
 
-class EogHandler extends FileHandler
+class FehHandler extends FileHandler
 {
     function getControls()
     {
@@ -35,7 +35,7 @@ class LibreOfficeHandler extends FileHandler
     }
 }
 
-class DwbHandler extends FileHandler
+class MidoriHandler extends FileHandler
 {
     function getControls()
     {
@@ -86,6 +86,8 @@ abstract class FileHandler
     const PRIOR = 256;
     const NEXT = 512;
     const DOWNLOAD = 1024;
+    const COUNTERCLOCKWISE = 2048;
+    const CLOCKWISE = 4096;
 
     // Shortcuts for combinations of controls.
     const CURSOR = 15; // UP | DOWN | LEFT | RIGHT
@@ -112,8 +114,8 @@ abstract class FileHandler
 
         // Define filehandlers
         $pdfHandler = '/usr/bin/zathura';
-        $imageHandler = '/usr/bin/eog';
-        $webHandler = '/usr/bin/dwb --override-restore';
+        $imageHandler = '/usr/bin/feh --scale-down';
+        $webHandler = '/usr/bin/midori -p';
         $avHandler = '/usr/bin/cvlc --no-audio';
         $officeApp = "";
 
@@ -179,10 +181,10 @@ function convertOffice($inputFile, $office, $outputDir, $fileName)
 
 if ($unittest[__FILE__]) {
     // Run unit test.
-    $dwbHandler = new DwbHandler;
+    $midoriHandler = new MidoriHandler;
     $zathuraHandler = new ZathuraHandler;
     echo("DOWNLOAD   =" . FileHandler::DOWNLOAD . "\n");
     echo("filehandler=" . FileHandler::getFileHandler("test.txt") . "\n");
-    $handler = ${'dwb' . 'Handler'};
+    $handler = ${'midori' . 'Handler'};
     echo("controls   =" . $handler->getControls() . "\n");
 }

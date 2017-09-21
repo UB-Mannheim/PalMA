@@ -1,0 +1,9 @@
+[Unit]
+Description=Start PalMA to Go
+
+[Service]
+Type=forking
+ExecStart=/var/www/html/scripts/palma2go
+
+[Install]
+WantedBy=multi-user.target

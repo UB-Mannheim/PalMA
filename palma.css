@@ -1,366 +1,626 @@
 /* Styles for PalMA. */
 
-/* General settings (login.php, learningcenter.php, index.php) */
-
-/* TODO:
-get rid of large white-space in the background on smaller screens
- */
-
+/* General settings */
+html {
+    /* This keeps appearing scrollbars from repositioning the webpage */
+    height: 100%;
+    width: 100%;
+    margin-left: calc(100vw - 100%);
+    background-image: url(./images/user_background.png);
+    background-position: center;
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 1.1em;
+}
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
     background-color: #990000;
     border-radius: 6px;
 }
-
-/* Login form (login.php) */
-
-legend {
-    font-family: sans-serif;
-    font-size: 24px;
-    text-align: center;
+.pure-button {
+    padding: 0.4em;
 }
-
-#login_mask_outer {
-    padding: 1% 5% 1% 5%;
-    min-width: 220px;
-}
-
-#login_mask {
-    margin: 1% auto;
-    padding: 0px 5% 1.5% 5%;
-    width: auto;
-    max-width: 460px;
-    background-color: #F1F1F1;
-    border: 1px solid;
-    border-radius: 5px;
-    box-shadow: 8px 8px 4px #666666;
-}
-#login_mask i {
-    margin: 5px 5px 5px 10px;
-}
-#login_mask p {
-    text-align: center;
-}
-#login_mask .policy {
-    font-size: 75%;
-    margin: .5%;
-    text-align: center;
-}
-#login_mask .policy a {
-    color: #900;
+a {
+    color: #990000;
     text-decoration: none;
 }
-#login_fields {
-    float: left;
-    margin-right: 15%;
+a:hover, a:active {
+    color: #990000;
+    text-decoration: underline;
 }
+i {margin-left: .2em;}
 
-/* Workplace selection (monitor.php) */
-
+/* Workplace selection / Staff backend (monitor.php and learningcenter.php) */
 #monitor_selection button {
-    margin: 10px 10px 10px 10px;
+    margin: .5em;
     text-align: left;
-    width: 240px;
+    width: 15em;
 }
-
 #monitor_selection .fa-desktop {
     float: right;
-    padding: 0px 10px 0px 10px;
+    padding: 0 .25em;
 }
-
-#monitor_selection {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
+#monitor_selection, #monitor_mask {
+    text-align: center;
+    margin: 2em auto;
     background-color: #F1F1F1;
     border: 1px solid;
     border-radius: 5px;
     box-shadow: 8px 8px 4px #666666;
-    width: 790px;
+    width: 40em;
+    padding: .5em;
 }
-
-/* Workplace selection (learningcenter.php) */
-
-#monitor_mask {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-
-    padding: 0px 0px 20px 0px;
-    background-color: #F1F1F1;
-    border: 1px solid;
-    border-radius: 5px;
-    box-shadow: 8px 8px 4px #666666;
-    width: 560px;
-}
-
-.monitorchoice {
-    margin-left: 40px;
-}
-
 .selectdisplay {
     background:url("images/main-klein.png");
-    width:100px;
-    height:80px;
+    width: 5em;
+    height: 3em;
     background-repeat:no-repeat;
-    display:block;
-    margin: 10px 10px 0px 0px;
+    margin: .1em auto;
+}
+.monitorchoice {
+    width: 40em;
 }
 
-/* Workplace (index.php) */
-
-.fa-sign-out {
-    margin: 10px 0px 5px 10px;
-}
-
-
-#workbench_outer {
-    padding: 1% 1.5%;
-    min-width: 220px;
-}
-
-#workbench {
-    background-color: #F1F1F1;
-    border: 1px solid;
-    border-radius: 5px;
-    box-shadow: 8px 8px 4px #666666;
-    margin: 1% auto;
-    padding: .5% 1.5% 1% 1.5%;
-    min-width: 220px;
+/* Login form (login.php) */
+#login_mask {
+    margin: 1em auto;
+    background-color: #f8f8f8;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    padding: .5em;
     width: auto;
-    max-width: 880px;
-    height: auto;
+    max-width: 800px;
+
+    box-shadow: 7px 7px 3px #cfcfcf;
 }
-
-
-/* Left part of workbench */
-
-#workbench_left {
-    width: 80%;
-    max-width: 600px;
-}
-
-#workbench div {
+legend {
+    font-family: sans-serif;
+    font-size: 1.3em;
     text-align: center;
 }
-
-/* Main display. */
-#workbench_left .maindisplay {
-    width: 600px;
-    height: 300px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+#login_mask button i {
+    margin-left: .3em;
 }
-
-#workbench_left .maindisplay caption {
-    caption-side: top;
-}
-
-.maindisplay td, .maindisplay tr {
-    border: 2px solid #EFEFEF;
-}
-.maindisplay {
-    background-color: LightGray;
-    padding: 0px;
+div.policy {
     text-align: center;
-    vertical-align: middle;
+    font-size: .8em;
+}
 
-}
-.maindisplay button {
-    height: 45px;
-    width: 45px;
-    text-align: center;
-    vertical-align: middle;
-}
-.maindisplay i {
+/* Main User Interface (index.php) */
+/* Tabs and Subtabs */
+div.tab, div.subtab {
+    overflow: hidden;
     background-color: #990000;
+    text-align: center;
+}
+div.subtab {
+    background-color: #e2e2e2;
+    border-top: none;
+}
+div.tab button, div.subtab button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: .4em .5em;
+    transition: 0.3s;
+    color: #f1f1f1;
+    width:auto;
+}
+div.subtab button {
+    color: black;
+}
+div.tab button:hover {
+    background-color: #995555;
+}
+div.subtab button:hover {
+    background-color: #d1d1d1;
+}
+div.tab button.active {
+    background-color: #998888;
+}
+div.subtab button.active {
+    background-color: #c0c0c0;
+}
+.tabcontent, .subtabcontent {
+    display: none;
+    text-align: center;
+    -webkit-animation: fadeEffect 1s;
+    -moz-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+.subtabcontent {
+    padding: .5em;
+    margin: 0 auto;
+}
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Workbench */
+#workbench {
+    margin-bottom: 2em;
+}
+div.description {
+    margin: .5em auto;
+    font-size: .8em;
+    font-style: italic;
+}
+
+/* Add */
+#Add div.subtabcontent {
+    background-color: #f8f8f8;
+    margin: .5em auto;
+    border: 1px solid #c0c0c0;
+    border-radius: 6px;
+    text-align: center;
+
+    box-shadow: 7px 7px 3px #cfcfcf;
+}
+/* Add File */
+#palma-dropzone {
+    border: 1px dotted #990000;
     border-radius: 6px;
     cursor: pointer;
     text-align: center;
+}
+#palma-dropzone i {
+    color: #990000;
     vertical-align: middle;
 }
-
-/* Cursor controls. */
-.maindisplay .control {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px;
+.dz-default {
+    padding: .5em;
 }
 
-.maindisplay .control td, .maindisplay .control tr {
-    border: 0px solid green;
-    border-collapse: collapse;
-    border-spacing: 0px;
-}
-
-.maindisplay #more {
-    cursor: pointer;
-    font-size: 120%;
-}
-
-#show_hide {display: none;}
-
-#url_doc {width: 100%;}
+/* Add URL */
 #url_field {
-    width: 80%;
+    width: 55%;
 }
-#url_button {width: 15%;}
-
-#displaylist {
-    width: 100%;
+#url_button {
+    width: 35%;
 }
 
-/* Online help. */
-
-#helpwindow {
-    background-color: #000000;
-    background: rgba(0, 0, 0, 0.7);
-    position: absolute; top: 0; left: 0;
-    visibility: hidden;
-    display: none;
-    width: 100%;
-    z-index: 10;
-    height: 100%;
-}
-#helpcontainer {
-    background: rgba(255, 255, 255, 1);
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    padding: 20px 20px 40px 20px;
-    display: block;
-    width: 720px;
-}
-#helpcontainer h3 {
-    font-size: 2em;
-}
-#helpcontainer button {
-    margin-top: 10px;
-}
-#helpclose {
+/* Add Screen */
+#vnc-button {
+    border:1px solid #990000;
+    border-radius: 7px;
+    background-color: #f1f1f1;
+    width: 15em;
+    margin: .3em auto;
+    padding: .6em;
     color: #990000;
-    cursor: pointer;
-    float:right;
-    font-size: 3em;
+    cursor:pointer;
+    cursor: hand;
+}
+#vnc-button-container {
+    margin: 0 auto;
+    text-align: center;
+}
+#vnc-button-label {
+    font-weight:bold;
+    font-family: Tahoma, Sans-Serif;
+    margin: 0 auto;
+}
+#vnc-button-label i {
+    vertical-align: middle;
+}
+#vnc-button-label-subtext {
+    font-family: Tahoma, Sans-Serif;
+    font-size: 1em;
 }
 
-/* Extended control panel (overlay) */
-
-.overlay button {
-    height: 70px;
-    width: 70px;
-}
-.overlay .fa-times {
-    color: #990000;
-    cursor: pointer;
-    font-size: 1.5em;
-}
-#overlay {
-    background-color: #000000;
-    background: rgba(0, 0, 0, 0.7);
-    font-size: 200%;
-    position: absolute; top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 10;
-}
-#container {
-    background: rgba(255, 255, 255, 1);
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    padding: 20px 20px 40px 20px;
-    display: block;
-    width: 600px;
-}
-#close {
-    float:right;
-}
-
-
-
-/* Right part of workbench */
-
-#workbench_right {
-    float: right;
-    max-width: 250px;
-    width: 30%;
-}
-
-#workbench_right p, #workbench_right table, #workbench_right button {
-    margin-right: auto;
-    margin-left: auto;
-}
-
-#workbench_right button {margin-top: 10px;}
-
-/* Logout link. */
-#workbench_right a {
+/* Control Layout */
+button.splash_add {
+    height: 3em;
     background-color: #990000;
     color: white;
     border-radius: 6px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    font-size: 1.5em;
+    margin-top: 1em;
 }
-#workbench_right a:link {
-    text-decoration: none;
+#Control {display: block;}
+#Layout {display: none;}
+#Control i, #Layout i {margin-left: 0;}
+#Control button.splash_add i {margin-left: .2em;}
+div.screenlayout {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 .05em;
 }
-#workbench_right a:visited {
-    text-decoration: none;
+div.screenlayout button {
+    width: 3em;
+    height: 3em;
+    background-color: #b1b1b1;
+    padding: .2em;
+}
+div.screenlayout button i {
+    vertical-align: middle;
+}
+div.screenlayout button:hover {
+    background-color: #995555;
+}
+div.screenlayout button:active {
+    background-color: #990000;
+}
+div.screenlayout div.layout_left, div.screenlayout div.layout_right {
+    display: inline-block;
+    vertical-align: middle;
+}
+div.vertical i {
+    display: block;
+    margin-top: .1em;
 }
 
-#workbench_end {
-    clear:both;
+/* Control Navigate */
+div.window_entry {
+    display: block;
+    border: 1px solid #b1b1b1;
+    max-height: 15em;
+    margin: 0 auto .5em auto;
+    max-width: 500px;
+    vertical-align: top;
+    background-color: #f1f1f1;
+
+    box-shadow: 7px 7px 3px #cfcfcf;
+    border-radius: 6px;
 }
+div.window_entry button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
 
-
-.fa-upload {
-    float: right;
+    border-radius: 6px 6px 0px 0px; /* as in .window_entry */
 }
-
-/* File list, user list. */
-
-.itemlist, .userlist {
-    margin-top: 20px;
+div.window_entry button.window_entry_button {
+    background-color: #e2e2e2;
+    padding: .6em .8em;
+    transition: 0.3s;
+    color: black;
     width: 100%;
     text-align: left;
 }
-.itemlist caption, .userlist caption {
+button.window_entry_button i {
+    margin: 0 .25em;
+}
+i.accordion-icon { float: right;}
+button.window_entry_button:hover {
+    background-color: #c0c0c0;
+}
+button.window_entry_button.active {
+    background-color: #b1b1b1;
+}
+div.windowcontrols {
+    margin: .3em auto;
+    font-size: 1.3em;
+    display: none;
+}
+div.topbar {
+    margin-bottom: 1em;
+}
+div.topbar button {
+    padding: 0 .35em;
+}
+div.movement, div.position {
+    margin: 0 auto;
+    display: inline-block;
+}
+div.movement {
+    padding-right: 0 .25em;
+    vertical-align: middle;
+}
+div.position {
+    vertical-align: top;
+    margin-top: .2em;
+}
+div.windowcontrols button:active, div.windowcontrols button:hover {
+    color: #990000;
+}
+div.windowcontrols button.unavailable {
+    color: #999999;
+    cursor: not-allowed;
+}
+div.jump, div.arrows {
+    display: inline-block;
+}
+div.jump {
+    margin-right: .25em;
+}
+div.jump button {
+    display: block;
+}
+div.arrows button {
+    margin: 0 .5em;
+    padding: .2em .5em;
+}
+div.position {
+    border-radius: 6px;
+    background-color: #b1b1b1;
+    width: 4em;
+    height: 4em;
+}
+div.g1x1, div.g2x1{
+    line-height: 3.5em;
+}
+div.g1x2, div.g1a2, div.g2x2 {
+    line-height: 1.5em;
+}
+div.position div.layout_left, div.position div.layout_right {
+    display: inline-block;
+    vertical-align: middle;
+}
+div.position button {
+    padding: .2em;
+    display: inline-block;
+    vertical-align: middle;
+}
+div.position button:hover {
+    background-color: transparent;
+    background-image: none;
+}
+div.position i {
+    color: #fff;
+    vertical-align: middle;
+}
+div.position button:hover i {
+    color: #995555;
+    background-color: transparent;
+}
+div.position button.selected i {
+    color: #990000;
+}
+#closeWindows {display: none;}
+
+/* Extras Help */
+#Help, #Feedback {
+    text-align: left;
+    background-color: #f8f8f8;
+}
+#Help { display: block; }
+p.url_hint {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
+}
+#Help h4 {
+    margin: 1.5em 0 .5em 0;
+}
+#Help p {
+    margin: .25em 0;
+}
+img.qr-code {
+    width: 6em;
+    height: 6em;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Extras Feedback & Recommend */
+#recommendcontainer a {
+    text-align: center;
+}
+#Users {
+    background-color: #f8f8f8;
+}
+
+/* Socical Media Buttons */
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+/* Non solid icons get a stroke */
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+/* Solid icons get a fill */
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+.resp-sharing-button--email {
+  background-color: #777
+}
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+.resp-sharing-button--hackernews {
+background-color: #FF6600
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+.resp-sharing-button--google {
+  background-color: #dd4b39;
+  border-color: #dd4b39;
+}
+.resp-sharing-button--google:hover,
+.resp-sharing-button--google:active {
+  background-color: #c23321;
+  border-color: #c23321;
+}
+.resp-sharing-button--email {
+  background-color: #777777;
+  border-color: #777777;
+}
+.resp-sharing-button--email:hover,
+.resp-sharing-button--email:active {
+  background-color: #5e5e5e;
+  border-color: #5e5e5e;
+}
+.resp-sharing-button--whatsapp {
+  background-color: #25D366;
+  border-color: #25D366;
+}
+.resp-sharing-button--whatsapp:hover,
+.resp-sharing-button--whatsapp:active {
+  background-color: #1DA851;
+  border-color: #1DA851;
+}
+.resp-sharing-button--telegram {
+  background-color: #54A9EB;
+}
+.resp-sharing-button--telegram:hover {
+  background-color: #4B97D1;}
+/* Contact Form */
+/* Contact form is included via iframe. */
+/* Extras User */
+/* Language Selection */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1em;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #d1d1d1;
+    z-index: 1;
+    text-align: center;
+    width: 25%;
+    right: 0;
+    border-radius: 6px;
+}
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    border-radius: 6px;
+}
+.dropdown-content a:hover {
+    background-color: #995555;
+    color: white;
+}
+.dropdown-content a:active {
+    background-color: #990000;
+    color: white;
+}
+.show {display:block;}
+.userlist {
+    width: 75%;
+    max-width: 500px;
+    text-align: left;
+    margin: 0 auto 1em auto;
+}
+.userlist caption {
     caption-side: top;
 }
-.itemlist caption i {
-    margin-left: 10px;
-    text-align: center;
-}
-.itemlist i {
-    text-align: center;
-}
-.itemlist .fa-ban, .itemlist .fa-eye, .itemlist .fa-trash-o {
-    background-color: #990000;
-    border-radius: 3px;
-    color: white;
-    cursor: pointer;
-    margin: 2px;
-    width: 15px;
-    padding: 2px;
-}
-.itemlist #itemstatus {
-    width: 4em;
-}
-.itemlist #itemtrash {
-    width: 1em;
-}
-.itemlist, .itemlist td, .itemlist tr, .userlist, .userlist td, .userlist tr {
+.userlist, .userlist td, .userlist tr {
     background-color: white;
     border: 1px solid #666666;
     border-collapse: collapse;
-    border-spacing: 0px;
+    border-spacing: 0;
     padding: 1px;
     vertical-align: top;
 }
 .userlist caption i {
-    background-color: inherit;
+    background-color: transparent;
     color: black;
     margin-left: 10px;
 }
@@ -368,7 +628,7 @@ legend {
     background-color: LightGray;
     border-radius: 3px;
     color: black;
-    margin: 2px 5px 2px 0px;
+    margin: 2px 5px 2px 0;
     width: 15px;
     padding: 2px;
     text-align: center;
@@ -381,162 +641,76 @@ legend {
     padding: 2px;
 }
 
-.dz-default {
-    margin-top: 10px;
-    max-width: 580px;
-    padding: 10px;
-}
-
-.minidisplaylist table {
-    background-color: LightGray;
-    width: 85px;
-    height: 45px;
-}
-.minidisplaylist tr, .minidisplaylist td {
-    border: 1px solid #EFEFEF;
-}
-.minidisplaylist button {
-    color: #990000;
-    width: 100px;
-    height: 60px;
-}
-
-#windowlist div {text-align: left; margin-left: 2px;}
-
-#palma-dropzone {
-    background-color: #990000;
-    border-radius: 6px;
-    color: white;
-    cursor: pointer;
+/* Footer & Logout Link*/
+#footer {
     text-align: center;
+    background-color: #c0c0c0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: inherit;
 }
-
-/* --- */
-
-h2 {
-    text-align: center;
-}
-
-/*
-table, tr, th, td {
-    border: 1px solid Gray;
-    text-align: left;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-*/
-table, tr, td {
-    border-collapse: collapse;
-    border-spacing: 0px;
-/*
-    padding: 0px;
-    empty-cells: show;
-    table-layout: fixed;
-*/
-}
-/*
-#zeit {
-    margin-top: 8px;
-    border: 2px solid darkred;
-    border: 1px solid magenta;
-}
-*/
-
-.controlpanel {
-    background-color: #EFEFEF;
-    border: 1px solid #696969;
-    border-radius: 10px;
-    margin: 20px 20px 0;
-    padding: 20px;
-}
-
-.controlbutton {
+#footer a {
+    color: black;
+    border: none;
+    outline: none;
     cursor: pointer;
-}
-
-.updown {
-    background-color: LightGray;
-    border-radius: 5px;
-    float: left;
-    margin: 0 0 20px;
-    padding: 5px 5px 0 75px;
-    text-align: center;
-    width: 300px;
-}
-
-.zoom {
-    float: right;
-}
-
-.bar {
-    clear: left;
-}
-
-/* List of display variants. */
-.minidisplaylist {
-    border-collapse: collapse;
-    border-spacing: 0px;
-    padding: 0px;
-    width: 600px;
-    height: 90px;
-}
-.minidisplaylist caption {
-    caption-side: top;
-}
-.minidisplaylist td, .minidisplaylist tr {
-    padding: 0px;
-}
-.minidisplaylist, .minidisplaylist td, .minidisplaylist tr {
-}
-
-.minidisplaylist div {
-    cursor: pointer;
+    padding: .3em .8em;
+    transition: 0.3s;
     display: block;
-    height: 80px;
-    width: 100px;
+}
+#footer a:hover, #footer a:active {
+    background-color: #990000;
+    color: white;
+}
+#footer a:link {
+    text-decoration: none;
+}
+#footer a:visited {
+    text-decoration: none;
+}
+.fa-sign-out {
+    margin-left: .5em;
 }
 
-/* Display variant. */
-.minidisplay {
-    border: 1px solid orange;
-    border-collapse: collapse;
-    border-spacing: 0px;
-    width: 120px;
-    height: 80px;
-    margin-left: 0px;
-    margin-right: 5px;
+/* Modifications for larger screens */
+@media only screen and (min-height:600px) and (min-width: 480px){
+    body {font-size: 1.4em;}
+    #Add div.subtab, #Control div.subtab {
+        display: none !important;
+    }
+    #Add div.subtabcontent, #Navigate {
+        display: block !important;
+    }
+    div.subtabcontent {
+        width: 85%;
+    }
+    div.window_entry {
+        display: inline-block;
+        width: 45%;
+        min-width: 380px;
+        margin-left: .25em;
+        margin-right: .25em;
+    }
+    i.accordion-icon { display: none; }
+    div.windowcontrols {
+        display: block !important;
+    }
+    #url_field {width: 60%;}
+    #url_button { width: 30%;}
+    #vnc-button { width: 17em;}
 }
-.minidisplay td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    border-spacing: 0px;
-    text-align: center;
-    vertical-align: middle;
-    width: 50%;
-    height: 50%;
-    padding: 0px;
+@media only screen and (min-height: 200px) {
+    #Control div.subtab {
+        display: none !important;
+    }
+    #Navigate {
+        display: block !important;
+    }
 }
-.minidisplay tr {
-    border-collapse: collapse;
-    border-spacing: 0px;
-    text-align: center;
-    width: 50%;
-    height: 50%;
-    padding: 0px;
-}
-.minidisplay, .minidisplay td, .minidisplay tr {
-    border-collapse: collapse;
-    border-spacing: 0px;
-    padding: 0px;
-}
-.minidisplay:hover {
-    border: 1px solid red;
-}
-
-
+/* Print Layout */
 @media print {
 .hidden { display: block; visibility: visible }
-
 div.slide pre { font-size: 60%; padding-left: 0.5em; }
 div.toolbar { display: none; visibility: hidden; }
 div.slidy_toc { display: none; visibility: hidden; }
@@ -544,238 +718,4 @@ div.background { display: none; visibility: hidden; }
 div.slide { page-break-before: always }
 /* :first-child isn't reliable for print media */
 div.slide.first-slide { page-break-before: avoid }
-}
-
-
-
-@media only screen and (max-width:800px){
-.minidisplaylist div {
-    width: 80px;
-}
-.minidisplaylist button {
-    width: 75px;
-}
-.minidisplaylist button table {
-    width: 60px;
-}
-}
-
-
-
-@media only screen and (max-width:1280px){
-#workbench_left {
-    width: 65%;
-}
-#workbench_left .maindisplay {
-    max-width: 600px;
-    width: 100%;
-    height: 100%;
-    max-height: 300px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-	}
-#workbench_right {
-    padding: 5px;
-}
-.itemlist, .userlist {
-    width: 80%;
-}
-}
-
-
-
-
-
-@media only screen and (max-width:480px){
-.userlist, .itemlist {
-    width: 50%;
-}
-#workbench_outer {
-    padding: 1% 1.5%;
-    min-width: 220px;
-}
-#workbench_right, #url_doc, #displaylist {display: none;}
-#workbench_left .maindisplay {
-    max-width: 600px;
-    width: 100%;
-    height: 80%;
-    max-height: 300px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-	}
-#url_field {
-    width: 70%;
-}
-#url_button {width: 25%;}
-.minidisplaylist div {
-    width: 55px;
-}
-.minidisplaylist button {
-    width: 50px;
-}
-.minidisplaylist button table {
-    width: 35px;
-}
-#workbench_left {
-    width: 100%;
-    max-width: 600px;
-}
-#maindisplay{display: none;}
-#show_hide {display: block; margin: 2px;}
-#show_hide button {
-    margin: 2px;
-    display: inline;
-    float: left;
-    font-size:0.8em;
-}
-.control button {height: 40px; width: 40px;}
-#workbench {margin: .5px;}
-}
-
-
-@media only screen and (max-width:640px){
-#overlay {
-    background-color: #000000;
-    background: rgba(0, 0, 0, 0.7);
-    font-size: 100%;
-    position: absolute; top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 5;
-}
-
-#container {
-    background: rgba(255, 255, 255, 1);
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 25px;
-    padding: 10px 10px 20px 10px;
-    display: block;
-    width: 90%;
-    max-width: 400px;
-}
-
-.overlay button {
-    height: 40px;
-    width: 40px;
-}
-
-.updown {
-    margin: 0 0 20px;
-    padding: 2.5px 2.5px 0 35px;
-    width: 150px;
-}
-
-.controlpanel {
-    margin: 10px 10px 0;
-    padding: 10px;
-}
-
-#workbench_right {
-    max-width: 600px;
-    width: 100%;
-}
-
-#workbench_right button {margin: 5px;}
-
-
-#helpwindow {
-    width: 100%;
-    height: auto;
-
-}
-#helpcontainer {
-    margin-top: 10px;
-    padding: 10px 10px 20px 10px;
-    width: 80%;
-    max-width: 600px;
-}
-#helpcontainer h3 {
-    font-size: 1em;
-}
-#helpcontainer button {
-    margin-top: 5px;
-    width: 90%;
-    font-size: .8em;
-
-}
-#helpclose {
-    color: #990000;
-    cursor: pointer;
-    float:right;
-    font-size: 3em;
-}
-
-}
-
-
-@media only screen and (min-width:480px) and (max-width:640px){
-#workbench_outer {
-    padding: 1% 2.5%;
-    min-width: 220px;
-}
-#workbench_left {
-    width: 100%;
-    max-width: 600px;
-}
-#workbench_right, #url_doc, #displaylist {display: none;}
-#workbench_left .maindisplay {
-    max-width: 600px;
-    width: 100%;
-    height: 80%;
-    max-height: 300px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-	}
-#maindisplay{display: none;}
-
-.minidisplaylist div {
-    width: 80px;
-}
-.minidisplaylist button {
-    width: 75px;
-}
-.minidisplaylist button table {
-    width: 60px;
-}
-
-#show_hide {display: block; margin: 2px;}
-#show_hide button {margin: 2px; display: inline;}
-.control button {height: 40px; width: 40px;}
-#workbench {margin: .5px;}
-
-
-.list_container {
-    display: block;
-    margin-top: 1em;
-    margin-left: 15px;
-    width: 100%;
-    height: auto;
-    min-height: 100px;
-}
-
-.list_container button {
-    width: 45%;
-    max-width: 250px;
-    margin-top: 0px;
-}
-
-.userlist, .itemlist {
-    float: left;
-    width: 50%;
-    max-width: 210px;
-    margin: 0px;
-}
-
-#helpwindow {
-    width: 100%;
-    min-height: 640px;
-    height: auto;
-
-}
-}
-
-@media only screen and (max-width:360px) {
-#show_hide button {width: 48%;}
-.itemlist, .userlist {width: 80%;}
 }

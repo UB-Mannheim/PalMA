@@ -155,6 +155,8 @@ eod;
         // TODO: Support more than one address for a given username.
         $ip = $this->ipAddress();
         $userid = $this->querySingle("SELECT userid from user where name='$username'");
+        // Kill VNC connection associated with the user
+        $this->deleteVNCWindow($userid);
         $this->exec("DELETE FROM address WHERE userid = '$userid' AND address = '$ip'");
         // TODO: Remove user only when no address refers to it.
         $this->exec("DELETE FROM user WHERE userid = '$userid'");
@@ -260,11 +262,14 @@ eod;
         $this->exec('DELETE FROM window WHERE win_id="'.$window_id.'"');
     }
 
-    /*
-    public function deleteVNCWindow($vnc_id) {
-        $this->exec('DELETE FROM window WHERE file="'.$vnc_id.'"');
+    public function deleteVNCWindow($userid)
+    {
+        $winid = $this->querySingle('SELECT win_id FROM window WHERE handler="vnc" AND userid="'.$userid.'"');
+        require_once('control.php');
+        wmClose($winid);
+        $this->deleteWindow($winid);
+        //$this->exec('DELETE FROM window WHERE handler="vnc" AND userid="'.$userid.'"');
     }
-    */
 
     public function deleteDebug($table, $id, $gt)
     {
@@ -318,6 +323,9 @@ function set_constants()
     }
     if (array_key_exists('upload_dir', $conf)) {
         define('CONFIG_UPLOAD_DIR', $conf['upload_dir']);
+    }
+    if (array_key_exists('institution_url', $conf)) {
+        define('CONFIG_INSTITUTION_URL', $conf['institution_url']);
     }
 
     // Set default values for constants missing in the configuration file.
