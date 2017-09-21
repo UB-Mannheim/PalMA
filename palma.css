@@ -291,7 +291,7 @@ div.window_entry button.window_entry_button {
 button.window_entry_button i {
     margin: 0 .25em;
 }
-button.window_entry_button.i.accordion-icon { float: right;}
+i.accordion-icon { float: right;}
 button.window_entry_button:hover {
     background-color: #c0c0c0;
 }
