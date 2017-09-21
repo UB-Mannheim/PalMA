@@ -310,7 +310,7 @@ div.movement, div.position {
     display: inline-block;
 }
 div.movement {
-    padding: 0 .5em;
+    padding-right: 0 .25em;
     vertical-align: middle;
 }
 div.position {
@@ -328,7 +328,7 @@ div.jump, div.arrows {
     display: inline-block;
 }
 div.jump {
-    margin-right: .5em;
+    margin-right: .25em;
 }
 div.jump button {
     display: block;
