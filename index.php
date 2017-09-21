@@ -820,6 +820,9 @@ function updateWindowList(window){
                 title = title.substring(0, 25) + '...';
             }
             button.appendChild(document.createTextNode(title));
+            var icon = document.createElement('i');
+            icon.setAttribute("class", "fa fa-caret-down accordion-icon");
+            button.appendChild(icon);
             entry.appendChild(button);
             windowlist.appendChild(entry);
         }
@@ -1399,7 +1402,7 @@ window.onclick = function(event) {
 
     $plugin_dir = "plugins/";
     $stats = "piwik.php";
-    
+
     if(file_exists($plugin_dir . $stats)) {
         include $plugin_dir . $stats;
         }

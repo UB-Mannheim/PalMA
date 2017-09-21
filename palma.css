@@ -182,10 +182,10 @@ div.description {
 
 /* Add URL */
 #url_field {
-    width: 60%;
+    width: 55%;
 }
 #url_button {
-    width: 30%;
+    width: 35%;
 }
 
 /* Add Screen */
@@ -289,8 +289,9 @@ div.window_entry button.window_entry_button {
     text-align: left;
 }
 button.window_entry_button i {
-    margin-right: .5em;
+    margin: 0 .25em;
 }
+button.window_entry_button.i.accordion-icon { float: right;}
 button.window_entry_button:hover {
     background-color: #c0c0c0;
 }
@@ -691,9 +692,12 @@ background-color: #FF6600
         margin-left: .25em;
         margin-right: .25em;
     }
+    i.accordion-icon { display: none; }
     div.windowcontrols {
         display: block !important;
     }
+    #url_field {width: 60%;}
+    #url_button { width: 30%;}
     #vnc-button { width: 17em;}
 }
 @media only screen and (min-height: 200px) {
