@@ -305,6 +305,9 @@ div.windowcontrols {
 div.topbar {
     margin-bottom: 1em;
 }
+div.topbar button {
+    padding: 0 .35em;
+}
 div.movement, div.position {
     margin: 0 auto;
     display: inline-block;
