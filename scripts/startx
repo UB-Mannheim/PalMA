@@ -134,16 +134,6 @@ state=0
 # Disable too many log messages while running in loop.
 set +x
 
-# Get php version
-PHPVERSION=$(php -i | grep 'PHP Version' -m 1 | sed 's/^PHP Version => //')
-PHPPATH=''
-
-if [[ $PHPVERSION == 7* ]]; then
-    PHPPATH="/usr/bin/php7.0"
-elif [[ $PHPVERSION == 5* ]]; then
-    PHPPATH="/usr/bin/php5"
-fi
-
 while true; do
 
     if test -f palma.db; then
@@ -159,7 +149,7 @@ while true; do
         # Kill the VNC viewer if it was running.
         date +"%F %T start $webbrowser with screensaver"
         killall -q ssvncviewer
-        runx "$PHPPATH control.php doLogout=ALL"
+        runx "/usr/bin/php control.php doLogout=ALL"
         case $webbrowser in
             midori)
                 runx "/usr/bin/$webbrowser -e Fullscreen -a \"$screensaver\"" &
@@ -188,7 +178,7 @@ while true; do
             # Start the VNC viewer process, so usercount can share their desktop.
             date +"%F %T kill $webbrowser"
             killall --user $user --quiet $webbrowser
-            runx "$PHPPATH SSVNCDaemon.php" &
+            runx "/usr/bin/php SSVNCDaemon.php" &
             runx "/usr/bin/touch last_activity"
             state="2"
         fi
