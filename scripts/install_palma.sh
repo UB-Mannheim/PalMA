@@ -118,9 +118,6 @@ chmod 755 /etc/systemd/system/palma.service
 systemctl daemon-reload
 systemctl enable palma.service
 
-echo "Enable Piwik plugin"
-wget -P $INSTALL_DIR/plugins/ https://www.bib.uni-mannheim.de/palma/plugins/piwik.php
-
 echo "Create new languages"
 make -C $INSTALL_DIR
 
