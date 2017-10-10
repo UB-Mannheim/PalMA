@@ -53,7 +53,7 @@ case "$1" in
         $0 start
   ;;
   *)
-        echo "Usage: /etc/init.d/palma {start|stop|restart|reload|force-reload|status}"
+        echo "Usage: /var/www/html/scripts/palma {start|stop|restart|reload|force-reload|status}"
         exit 1
   ;;
 esac
