@@ -36,15 +36,25 @@ START_URL=$7
 if [ $1 == "update" ]; then
     echo "Killing PalMA"
     service palma stop
-    echo "Saving old sources list"
-    # cp /etc/apt/sources.list /etc/apt/sources.list.backup
-    cp /etc/apt/sources.list.d/jessie.list /etc/apt/sources.list.d/jessie.list.backup
-    echo "Adding Stretch sources"
-    # sed -i 's/jessie/stretch/g' /etc/apt/sources.list
-    # sed -i 's/Jessie/Stretch/g' /etc/apt/sources.list
-    sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/jessie.list
-    sed -i 's/Jessie/Stretch/g' /etc/apt/sources.list.d/jessie.list
-    mv /etc/apt/sources.list.d/jessie.list /etc/apt/sources.list.d/stretch.list
+    if [ $3 == "rpi" ]; then
+        echo "Saving old sources list"
+        cp /etc/apt/sources.list.d/jessie.list /etc/apt/sources.list.d/jessie.list.backup
+        cp /etc/apt/sources.list.d/raspi.list /etc/apt/sources.list.d/raspi.list.backup
+        echo "Adding Stretch sources"
+        sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/jessie.list
+        sed -i 's/Jessie/Stretch/g' /etc/apt/sources.list.d/jessie.list
+        sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/raspi.list
+        sed -i 's/Jessie/Stretch/g' /etc/apt/sources.list.d/raspi.list
+        mv /etc/apt/sources.list.d/jessie.list /etc/apt/sources.list.d/stretch.list
+        rm /etc/apt/stretch.list
+    elif [[ $3 == "standard" ]]; then
+        echo "Saving old sources list"
+        cp /etc/apt/sources.list.d/jessie.list /etc/apt/sources.list.d/jessie.list.backup
+        echo "Adding Stretch sources"
+        sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/jessie.list
+        sed -i 's/Jessie/Stretch/g' /etc/apt/sources.list.d/jessie.list
+        mv /etc/apt/sources.list.d/jessie.list /etc/apt/sources.list.d/stretch.list
+    fi
     # Get OS upgrade
     echo "Getting update..."
     export APT_LISTCHANGES_FRONTEND=none
@@ -67,7 +77,7 @@ apt-get -y install gettext git libavcodec-extra make unattended-upgrades
 if [ $3 == "rpi" ]; then
         echo "Installing webserver nginx-light"
         apt-get -y install nginx-light
-    else #$3 == "standard"
+    elif [ $3 == "standard" ]; then
         echo "Installing webserver apache2"
         apt-get -y install apache2 libapache2-mod-php7.0
 fi
@@ -79,7 +89,7 @@ cd $INSTALL_DIR
 if [ $1 == "install" ]; then
         echo "Cloning PalMA"
         git clone https://github.com/UB-Mannheim/PalMA.git $INSTALL_DIR
-    else #$1 == update
+    elif [ $1 == "update" ]; then
         echo "Save old PalMA install directory"
         cp -R $INSTALL_DIR /home/palma/palma-old-backup/
         echo "Cleaning install directory"
@@ -103,9 +113,9 @@ sed -i "/^[;]*[ ]*start_url = /c\start_url = $START_URL" $INSTALL_DIR/palma.ini
 sed -i "/^[;]*[ ]*upload_dir = /c\upload_dir = $INSTALL_DIR/uploads" $INSTALL_DIR/palma.ini
 sed -i "/^[;]*[ ]*institution_url = /c\institution_url = $INSTITUTION_URL" $INSTALL_DIR/palma.ini || echo "institution_url = $INSTITUTION_URL" >> $INSTALL_DIR/palma.ini
 
-# Webserver configuration - TODO: what if there already is a configuration?
+# Webserver configuration - currently not implemented
 echo "Webserver configuration"
-if [ $1 == "rpi" ]; then
+if [ $3 == "rpi" ]; then
         echo "Please configure nginx manually - see install.md"
     else
         echo "Please configure apache manually - see install.md"
@@ -118,8 +128,8 @@ chmod 755 /etc/systemd/system/palma.service
 systemctl daemon-reload
 systemctl enable palma.service
 
-echo "Enable Piwik plugin"
-wget -P $INSTALL_DIR/plugins/ https://www.bib.uni-mannheim.de/palma/plugins/piwik.php
+#echo "Enable Piwik plugin"
+#wget -P $INSTALL_DIR/plugins/ https://www.bib.uni-mannheim.de/palma/plugins/piwik.php
 
 echo "Create new languages"
 make -C $INSTALL_DIR
@@ -130,7 +140,7 @@ chown -R www-data:www-data $INSTALL_DIR/..
 if [ $1 == "update" ]; then
         echo "Rebooting system"
         systemctl reboot
-    else #$1 == "install"
+    elif [ $1 == "install" ]; then
         echo "Starting PalMA"
         service palma start
     fi
