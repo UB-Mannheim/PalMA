@@ -3,12 +3,12 @@
 
 Librarian console for UB Mannheim Learning Center
 
-Copyright (C) 2014 Universitätsbibliothek Mannheim
+Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
 See file LICENSE for license details.
 
-Authors: Alexander Wagner, Stefan Weil
+Authors: Alexander Wagner, Stefan Weil, Sarah Krieg
 
-This web application shows all PalMA stations of the Learning Center.
+This web application shows all PalMA stations of the InfoCenter.
 The status of each station is displayed. It is also possible to reset
 a station.
 
@@ -30,7 +30,7 @@ TODO:
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>LearningCenter &ndash; PalMA-Stationen</title>
+<title>BWL &ndash; PalMA-Stationen</title>
 
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="../../../font-awesome/css/font-awesome.min.css">
@@ -137,21 +137,14 @@ function pollDatabase(lastJSON, urlBase, button) {
 <?php
 $remote = $_SERVER['REMOTE_ADDR'];
 if ($remote == '::1' || $remote == '127.0.0.1' ||
-    $remote == '134.155.62.179' ||
-    $remote == '::1' || $remote == '127.0.0.1' ||
-    $remote == '134.155.63.179' ||
-    //Allow access for zb070 - Auskunft / Rave
-    $remote == '134.155.63.180' ||
-    //Allow access for zb071 - Auskunft / Ulbrich
-    $remote == '134.155.59.79' ||
-    //Allow access for zb017 - Aufsicht
     $remote == '134.155.63.225' ||
     //Allow access for zb085 - BWL-Theke
+    $remote == '::1' || $remote == '127.0.0.1' ||
     preg_match('/^134[.]155[.]36[.]/', $remote) && $remote != '134.155.36.48') {
     // Allow access for localhost and library staff, but not for the proxy host.
 ?>
 
-    <h2>Übersicht Learning Center &ndash; PalMA-Stationen</h2>
+    <h2>Übersicht BWL &ndash; PalMA-Stationen</h2>
     <h4>Station anklicken zum Rücksetzen</h4>
     <div id="stationlist">
     <div id="stations" class="pure-u">
@@ -166,23 +159,11 @@ function resetStation(urlBase) {
 
 var stations = [];
 
-stations.push(['LC 02', 'http://lc02.bib.uni-mannheim.de/']);
-stations.push(['LC 03', 'http://lc03.bib.uni-mannheim.de/']);
-stations.push(['LC 04', 'http://lc04.bib.uni-mannheim.de/']);
-stations.push(['LC 05', 'http://lc05.bib.uni-mannheim.de/']);
-stations.push(['LC 06', 'http://lc06.bib.uni-mannheim.de/']);
-stations.push(['LC 07', 'http://lc07.bib.uni-mannheim.de/']);
-stations.push(['LC 08', 'http://lc08.bib.uni-mannheim.de/']);
-stations.push(['LC 09', 'http://lc09.bib.uni-mannheim.de/']);
-stations.push(['LC 10', 'http://lc10.bib.uni-mannheim.de/']);
-stations.push(['LC 11', 'http://lc11.bib.uni-mannheim.de/']);
-stations.push(['LC 12', 'http://lc12.bib.uni-mannheim.de/']);
-stations.push(['LC 13', 'http://lc13.bib.uni-mannheim.de/']);
-stations.push(['LC 14', 'http://lc14.bib.uni-mannheim.de/']);
-stations.push(['LC 15', 'http://lc15.bib.uni-mannheim.de/']);
-stations.push(['LC 16', 'http://lc16.bib.uni-mannheim.de/']);
-stations.push(['LC 17', 'http://lc17.bib.uni-mannheim.de/']);
-stations.push(['LC 18', 'http://lc18.bib.uni-mannheim.de/']);
+stations.push(['BWL 01', 'http://palma-bwl-01.bib.uni-mannheim.de/']);
+stations.push(['BWL 02', 'http://palma-bwl-02.bib.uni-mannheim.de/']);
+stations.push(['BWL 03', 'http://palma-bwl-03.bib.uni-mannheim.de/']);
+stations.push(['BWL 04', 'http://palma-bwl-04.bib.uni-mannheim.de/']);
+stations.push(['BWL 05', 'http://palma-bwl-05.bib.uni-mannheim.de/']);
 
 // Get the <div> element which contains the station entries.
 var list = document.getElementById('stations');
@@ -219,7 +200,7 @@ for (var n = 0; n < stations.length; n++) {
 } else {
 ?>
 
-    <h2>Übersicht Learning Center &ndash; PalMA-Stationen</h2>
+    <h2>Übersicht BWL &ndash; PalMA-Stationen</h2>
     <h4>Sie sind nicht berechtigt für diese Funktion.</h4>
 
 <?php
