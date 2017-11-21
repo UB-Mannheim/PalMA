@@ -1,8 +1,7 @@
 # PalMA translation.
 # Copyright (C) 2017 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
-# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
-# Dennis Müller <dennis.mueller@bib.uni-mannheim.de>, 2017.
+# 
 #
 msgid ""
 msgstr ""
@@ -10,9 +9,9 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-15 10:27+0200\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
-"Last-Translator: Dennis Müller <dennis.mueller@bib.uni-mannheim.de>\n"
-"Language-Team: English <en@li.org>\n"
-"Language: en\n"
+"Last-Translator: Lena Burger <lburger@uni-mannheim.de>\n"
+"Language-Team: French <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
