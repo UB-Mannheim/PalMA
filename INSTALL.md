@@ -163,7 +163,6 @@ Each theme directory must include these files:
   * `palma_e.png`
 * VNC software for screensharing
   * `winvnc-palma.exe` - an UltraVNC server for Windows, that **must be [preconfigured](http://www.uvnc.com/docs/uvnc-sc.html]) to suit your institution**.
-  * `VineServer.dmg` - a VNC software for Mac.
   * `x11.sh` - a script used for VNC screensharing on Linux.
 
 Don't forget to enable your theme in `palma.ini`.

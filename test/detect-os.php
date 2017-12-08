@@ -51,7 +51,7 @@ Branch:     testing
         // alert(OSName);
 
         // var fileWindows = 'winvnc-palma.exe';
-        // var fileMacOS = 'VineServer.dmg.dmg'
+        // var fileMacOS = 'VineServer.dmg'
 
         var fileWindows = 'download-winvnc';
         var fileMacOS = 'download-macvnc';
@@ -126,7 +126,7 @@ Branch:     testing
 
     // Already exisiting in index.php
     $winvnc = CONFIG_START_URL . "/theme/" . CONFIG_THEME . "/winvnc-palma.exe";
-    $macvnc = CONFIG_START_URL . "/theme/" . CONFIG_THEME . "/VineServer.dmg";
+    $macvnc = "https://www.bib.uni-mannheim.de/palma/VineServer.dmg";
     // Test Cases
     $winvnc = "http://localhost/projects/palma-github/theme/demo/simple/winvnc-palma.exe";
 ?>
