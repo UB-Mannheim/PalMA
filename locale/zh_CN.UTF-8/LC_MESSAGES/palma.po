@@ -1,5 +1,5 @@
 # PalMA translation.
-# Copyright (C) 2014 Universitätsbibliothek Mannheim
+# Copyright (C) 2014-2017 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
 # Caipei Song <csong@mail.uni-mannheim.de>, 2016.
 #
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-15 10:27+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
-"Last-Translator: Caipei Song <csong@mail.uni-mannheim.de>\n"
+"Last-Translator: Chen Zongqi\n"
 "Language-Team: Chinese <zh@li.org>\n"
 "Language: zh\n"
 "MIME-Version: 1.0\n"
