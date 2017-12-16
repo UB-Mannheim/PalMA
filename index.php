@@ -81,7 +81,7 @@ Overlays
      * file paths for vnc downloads
      */
     $winvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/winvnc-palma.exe";
-    $macvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/VineServer.dmg";
+    $macvnc = "https://www.bib.uni-mannheim.de/palma/VineServer.dmg";
     $linuxsh = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/x11.sh";
 
     /*
