@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 11:58+0100\n"
+"POT-Creation-Date: 2017-12-19 14:37+0100\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
 "Last-Translator: Lena Burger <lburger@uni-mannheim.de>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -437,6 +437,10 @@ msgstr ""
 
 #: index.php:1396
 msgid "Log out"
+msgstr ""
+
+#: i12n.php:82
+msgid "Screen section"
 msgstr ""
 
 # Login Mask

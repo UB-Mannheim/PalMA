@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 11:58+0100\n"
+"POT-Creation-Date: 2017-12-19 14:37+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Piero Divasto <pdivasto@mail.uni-mannheim.de>\n"
 "Language-Team: Spanish <en@li.org>\n"
@@ -447,6 +447,10 @@ msgstr "Desconectar al usuario actual"
 msgid "Log out"
 msgstr "Alejar"
 
+#: i12n.php:82
+msgid "Screen section"
+msgstr "Sección de la pantalla"
+
 #: login.php:93 login.php:101 login.php:104
 msgid "Invalid credentials!"
 msgstr "Credenciales inválidas"
@@ -529,9 +533,6 @@ msgstr "Monitor de prueba"
 #: selectplace/learningcenter.php:46 selectplace/monitor.php:66
 msgid "Mannheim table"
 msgstr "Tabla de Mannheim"
-
-#~ msgid "Screen section"
-#~ msgstr "Sección de la pantalla"
 
 #~ msgid "Close the advanced control"
 #~ msgstr "Cerrar panel de control avanzado"

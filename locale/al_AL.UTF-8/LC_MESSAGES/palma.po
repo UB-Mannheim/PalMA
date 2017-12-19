@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 11:58+0100\n"
+"POT-Creation-Date: 2017-12-19 14:37+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Gert Pere <gpere@mail.uni-mannheim.de>\n"
 "Language-Team: Albanian <en@li.org>\n"
@@ -447,6 +447,10 @@ msgstr "Shkeput perdoruesin aktual"
 msgid "Log out"
 msgstr "Zvogelo"
 
+#: i12n.php:82
+msgid "Screen section"
+msgstr "Seksioni i ekranit"
+
 #: login.php:93 login.php:101 login.php:104
 msgid "Invalid credentials!"
 msgstr "Kredenciale jo te sakta"
@@ -529,9 +533,6 @@ msgstr "Testo monitorin"
 #: selectplace/learningcenter.php:46 selectplace/monitor.php:66
 msgid "Mannheim table"
 msgstr "Tabela Mannheim"
-
-#~ msgid "Screen section"
-#~ msgstr "Seksioni i ekranit"
 
 #~ msgid "Close the advanced control"
 #~ msgstr "Mbyll kontrollin e avancuar"

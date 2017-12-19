@@ -6,19 +6,19 @@
 
 |Locale|Completion|
 |---|---|
-|[al_AL](#al_al)|39.83|
-|[ar](#ar)|22.03|
-|[de_DE](#de_de)|93.22|
-|[es_ES](#es_es)|38.98|
-|[it_IT](#it_it)|39.83|
-|[ru_RU](#ru_ru)|42.37|
-|[ur_PK](#ur_pk)|12.71|
-|[zh_CN](#zh_cn)|97.46|
-|[zh_TW](#zh_tw)|43.22|
+|[al_AL](#al_al)|40.34|
+|[ar](#ar)|22.69|
+|[de_DE](#de_de)|93.28|
+|[es_ES](#es_es)|39.50|
+|[it_IT](#it_it)|40.34|
+|[ru_RU](#ru_ru)|42.86|
+|[ur_PK](#ur_pk)|13.45|
+|[zh_CN](#zh_cn)|97.48|
+|[zh_TW](#zh_tw)|43.70|
 
 ## al_AL
 
-Completion: **39.83** (47 / 118 strings)
+Completion: **40.34** (48 / 119 strings)
 
 Contributors:
 
@@ -102,7 +102,7 @@ Missing:
 
 ## ar
 
-Completion: **22.03** (26 / 118 strings)
+Completion: **22.69** (27 / 119 strings)
 
 Contributors:
 
@@ -208,7 +208,7 @@ Missing:
 
 ## de_DE
 
-Completion: **93.22** (110 / 118 strings)
+Completion: **93.28** (111 / 119 strings)
 
 Contributors:
 
@@ -229,7 +229,7 @@ Missing:
 
 ## es_ES
 
-Completion: **38.98** (46 / 118 strings)
+Completion: **39.50** (47 / 119 strings)
 
 Contributors:
 
@@ -313,7 +313,7 @@ Missing:
 
 ## it_IT
 
-Completion: **39.83** (47 / 118 strings)
+Completion: **40.34** (48 / 119 strings)
 
 Contributors:
 
@@ -396,7 +396,7 @@ Missing:
 
 ## ru_RU
 
-Completion: **42.37** (50 / 118 strings)
+Completion: **42.86** (51 / 119 strings)
 
 Contributors:
 
@@ -479,7 +479,7 @@ Missing:
 
 ## ur_PK
 
-Completion: **12.71** (15 / 118 strings)
+Completion: **13.45** (16 / 119 strings)
 
 Contributors:
 
@@ -594,7 +594,7 @@ Missing:
 
 ## zh_CN
 
-Completion: **97.46** (115 / 118 strings)
+Completion: **97.48** (116 / 119 strings)
 
 Contributors:
 
@@ -612,7 +612,7 @@ Missing:
 
 ## zh_TW
 
-Completion: **43.22** (51 / 118 strings)
+Completion: **43.70** (52 / 119 strings)
 
 Contributors:
 

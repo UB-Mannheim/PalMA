@@ -8,6 +8,7 @@ DISTDIR=docs/dist
 LANGUAGES=al_AL ar de_DE en_US es_ES it_IT ru_RU ur_PK zh_CN zh_TW
 
 SRC=index.php
+SRC+=i12n.php
 SRC+=login.php
 SRC+=upload.php
 SRC+=$(wildcard examples/screensaver/*.php)

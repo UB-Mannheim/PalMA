@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 11:58+0100\n"
+"POT-Creation-Date: 2017-12-19 14:37+0100\n"
 "PO-Revision-Date: 2014-07-01 16:39+0200\n"
 "Last-Translator: Mariia Zrianina, Alexander Egurnov\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -446,6 +446,10 @@ msgstr "Отключить текущего пользователя"
 msgid "Log out"
 msgstr "Отдалить"
 
+#: i12n.php:82
+msgid "Screen section"
+msgstr "Область"
+
 #: login.php:93 login.php:101 login.php:104
 msgid "Invalid credentials!"
 msgstr "Неверные логин/пароль"
@@ -528,9 +532,6 @@ msgstr "Тестовый монитор"
 #: selectplace/learningcenter.php:46 selectplace/monitor.php:66
 msgid "Mannheim table"
 msgstr ""
-
-#~ msgid "Screen section"
-#~ msgstr "Область"
 
 #~ msgid "Close the advanced control"
 #~ msgstr "Закрыть расширенные настройки"

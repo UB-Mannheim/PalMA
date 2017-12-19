@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 11:58+0100\n"
+"POT-Creation-Date: 2017-12-19 14:37+0100\n"
 "PO-Revision-Date: 2015-10-19 12:00+0200\n"
 "Last-Translator: Mahmoud Osman <m.hussein0793@gmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
@@ -436,6 +436,11 @@ msgstr "افصل المستخدم الحالي"
 #, fuzzy
 msgid "Log out"
 msgstr "تصغير الصورة"
+
+#: i12n.php:82
+#, fuzzy
+msgid "Screen section"
+msgstr "جزء من الشاشة"
 
 #: login.php:93 login.php:101 login.php:104
 msgid "Invalid credentials!"
