@@ -107,20 +107,13 @@ mkdir -p "$userhome/.config"
 # Find a web browser which supports JavaScript.
 # Run browser with PalMA compatible settings.
 webbrowser=/bin/false
-if test -f /usr/bin/midori; then
-    webbrowser=midori
-    # Need to start midori as $user to create config directory and files
-    if [ ! -d "$userhome/.config/midori" ]; then
-        runx "midori https://raw.githubusercontent.com/UB-Mannheim/ubma-screenshots/master/IMG_5965.JPG -e Fullscreen &"
-        sleep 3
-        pkill midori
-    fi
-    rm -f "$userhome/.config/midori/config"
-    cp settings/midori/config "$userhome/.config/midori/"
-elif test -f /usr/bin/dwb; then
+if test -f /usr/bin/dwb; then
     webbrowser=dwb
+    # Run dwb with PalMA compatible settings.
     rm -rf "$userhome/.config/dwb"
     cp -a settings/dwb "$userhome/.config"
+elif test -f /usr/bin/midori; then
+    webbrowser=midori
 fi
 
 # Fix ownership of directory for application settings.
@@ -151,11 +144,12 @@ while true; do
         killall -q ssvncviewer
         runx "/usr/bin/php control.php doLogout=ALL"
         case $webbrowser in
+            dwb)
+                # Start DWB in presentation mode.
+                runx "/usr/bin/dwb --execute=presentation_mode \"$screensaver\"" &
+                ;;
             midori)
                 runx "/usr/bin/$webbrowser -e Fullscreen -a \"$screensaver\"" &
-                ;;
-            dwb)
-                runx "/usr/bin/$webbrowser --execute=presentation_mode \"$screensaver\"" &
                 ;;
             *)
                 runx "$webbrowser \"$screensaver\"" &

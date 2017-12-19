@@ -302,12 +302,6 @@ function addNewWindow($db, $new)
 
     // Save window in database.
     $db->insertWindow($myWindow);
-
-    // Tab out of browser address bar, otherwise controls won't work
-    if ($new['handler'] = "/usr/bin/midori -p") {
-        displayCommand("xdotool getactiveWindow key Down");
-    }
-
 }
 
 function createNewWindow($db, $w)
@@ -518,7 +512,7 @@ function processRequests($db)
                 "state" => "",
                 "file" => $openURL,
                 // "handler" => "iceweasel --new-window",
-                "handler" => "/usr/bin/midori -p",
+                "handler" => "/usr/bin/midori -e show-navigationbar=false -a",
                 "userid" => "",
                 "date" => $date
             );
