@@ -16,7 +16,6 @@
 // proxy based authorization, LDAP, Shibboleth, fixed password).
 // Password authorization can optionally be disabled.
 
-
     // Connect to database and get configuration constants.
     require_once('DBConnector.class.php');
     $dbcon = new DBConnector();
