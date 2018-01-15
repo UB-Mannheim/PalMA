@@ -24,11 +24,11 @@ msgstr "nicht verfügbar"
 #: index.php:222
 #, fuzzy
 msgid "Enter valid URL"
-msgstr "Please enter URL"
+msgstr "Bitte einen Hyperlink hinzufügen"
 
 #: index.php:562
 msgid "You were disconnected!"
-msgstr ""
+msgstr "Die Verbindung wurde getrennt"
 
 #: index.php:583
 msgid "Select screen section for display"
@@ -68,15 +68,15 @@ msgstr ""
 
 #: index.php:719
 msgid "Page up"
-msgstr ""
+msgstr "Seite hoch"
 
 #: index.php:720
 msgid "Page down"
-msgstr ""
+msgstr "Seite runter"
 
 #: index.php:721
 msgid "Jump to end"
-msgstr ""
+msgstr "Zum Ende springen"
 
 #: index.php:725
 msgid "Up"
