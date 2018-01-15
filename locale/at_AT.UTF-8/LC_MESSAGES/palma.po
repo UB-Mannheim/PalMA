@@ -19,7 +19,7 @@ msgstr ""
 
 #: index.php:180
 msgid "not available"
-msgstr ""
+msgstr "nicht verfügbar"
 
 #: index.php:222
 #, fuzzy
@@ -56,11 +56,11 @@ msgstr ""
 
 #: index.php:701
 msgid "Download this item"
-msgstr ""
+msgstr "Dieses Ding herunterladen"
 
 #: index.php:707
 msgid "Remove this item"
-msgstr ""
+msgstr "Ding entfernen"
 
 #: index.php:718
 msgid "Jump to start"
