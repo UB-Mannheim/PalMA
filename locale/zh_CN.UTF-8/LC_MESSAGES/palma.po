@@ -271,7 +271,7 @@ msgstr "在列表中双击您的PalMa名字"
 
 #: index.php:1236
 msgid "Mac:"
-msgstr "Mac"
+msgstr "Mac:"
 
 #: index.php:1238
 msgid "CTRL + click the downloaded file and run it."
