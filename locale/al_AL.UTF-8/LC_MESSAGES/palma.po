@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-19 14:37+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
-"Last-Translator: Gert Pere <gpere@mail.uni-mannheim.de>\n"
+"Last-Translator: Elisa Greca <egreca@mail.uni-mannheim.de>\n"
 "Language-Team: Albanian <en@li.org>\n"
 "Language: al\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: index.php:180
 msgid "not available"
-msgstr ""
+msgstr "i padisponueshem"
 
 #: index.php:222
 msgid "Enter valid URL"
@@ -80,23 +80,23 @@ msgstr "Shko ne fund"
 
 #: index.php:725
 msgid "Up"
-msgstr ""
+msgstr "Lart"
 
 #: index.php:727
 msgid "Left"
-msgstr ""
+msgstr "Majtas"
 
 #: index.php:728
 msgid "Right"
-msgstr ""
+msgstr "Djathats"
 
 #: index.php:730
 msgid "Down"
-msgstr ""
+msgstr "Poshte"
 
 #: index.php:755
 msgid "Welcome"
-msgstr ""
+msgstr "Miresevini"
 
 #: index.php:757
 msgid "There is no shared content yet. Click below to get started!"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: index.php:761 index.php:1069 index.php:1224
 msgid "Add"
-msgstr ""
+msgstr "Shto"
 
 #: index.php:979
 msgid "Sorry! Screensharing for your device is currently not supported."
@@ -122,7 +122,7 @@ msgstr "Ndihme + Ekstra"
 
 #: index.php:1077
 msgid "File"
-msgstr ""
+msgstr "Skedar"
 
 #: index.php:1078
 msgid "URL"
@@ -203,7 +203,7 @@ msgstr ""
 #: index.php:1202
 #, fuzzy
 msgid "Users"
-msgstr "Lisa e perdoruesve"
+msgstr "Lista e perdoruesve"
 
 #: index.php:1205
 #, fuzzy
@@ -223,15 +223,15 @@ msgstr ""
 
 #: index.php:1209
 msgid "For further information about PalMA in this institution"
-msgstr ""
+msgstr "Per informacion te metejshem rreth PalMA ne kete institucion"
 
 #: index.php:1209
 msgid "see here."
-msgstr ""
+msgstr "Shiko ketu"
 
 #: index.php:1213
 msgid "Connect"
-msgstr ""
+msgstr "Lidhu"
 
 #: index.php:1214
 #, fuzzy
@@ -390,7 +390,7 @@ msgstr ""
 
 #: index.php:1283
 msgid "Recommend us"
-msgstr ""
+msgstr "Na rekomandoni"
 
 #: index.php:1286
 msgid ""
@@ -410,7 +410,7 @@ msgstr ""
 
 #: index.php:1342
 msgid "Thank you!"
-msgstr ""
+msgstr "Faleminderit!"
 
 #: index.php:1349
 #, fuzzy
