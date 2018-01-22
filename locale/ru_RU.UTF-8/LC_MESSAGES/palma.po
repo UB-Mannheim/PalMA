@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-19 14:37+0100\n"
 "PO-Revision-Date: 2014-07-01 16:39+0200\n"
-"Last-Translator: Mariia Zrianina, Alexander Egurnov\n"
+"Last-Translator: Simona Doneva\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: index.php:180
 msgid "not available"
-msgstr ""
+msgstr "недоступен"
 
 #: index.php:222
 msgid "Enter valid URL"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: index.php:755
 msgid "Welcome"
-msgstr ""
+msgstr "Добро пожаловать"
 
 #: index.php:757
 msgid "There is no shared content yet. Click below to get started!"
