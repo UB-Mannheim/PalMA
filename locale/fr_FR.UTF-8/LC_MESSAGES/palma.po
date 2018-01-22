@@ -221,7 +221,7 @@ msgstr ""
 
 #: index.php:1209
 msgid "see here."
-msgstr ""
+msgstr "Vois ici"
 
 #: index.php:1213
 msgid "Connect"
@@ -323,7 +323,7 @@ msgstr ""
 
 #: index.php:1258
 msgid "Zoom in and out"
-msgstr ""
+msgstr "Zoom avant et arrière"
 
 #: index.php:1259
 msgid "Rotate"
