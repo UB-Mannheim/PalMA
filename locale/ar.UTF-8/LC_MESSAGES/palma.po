@@ -1,7 +1,7 @@
 # PalMA translation.
 # Copyright (C) 2015 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
-# Mahmoud Osman <m.hussein0793@gmail.com>, 2015.
+# Ziad Abdelkader <ziad.abdelkader9@gmail.com>, 2018.
 #
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-19 14:37+0100\n"
 "PO-Revision-Date: 2015-10-19 12:00+0200\n"
-"Last-Translator: Mahmoud Osman <m.hussein0793@gmail.com>\n"
+"Last-Translator: Ziad <ziad.abdelkader9@gmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -80,23 +80,23 @@ msgstr "الذهاب إلى نقطة النهاية"
 
 #: index.php:725
 msgid "Up"
-msgstr ""
+msgstr "أعلى"
 
 #: index.php:727
 msgid "Left"
-msgstr ""
+msgstr "يسار"
 
 #: index.php:728
 msgid "Right"
-msgstr ""
+msgstr "يمين "
 
 #: index.php:730
 msgid "Down"
-msgstr ""
+msgstr "أسفل"
 
 #: index.php:755
 msgid "Welcome"
-msgstr ""
+msgstr "مرحبا "
 
 #: index.php:757
 msgid "There is no shared content yet. Click below to get started!"
@@ -139,7 +139,7 @@ msgstr ""
 
 #: index.php:1088
 msgid "Add file (click or drop here)"
-msgstr ""
+msgstr "إضافة ملف "
 
 #: index.php:1107
 msgid "Add webpage"
@@ -178,7 +178,7 @@ msgstr ""
 
 #: index.php:1136
 msgid "Navigate"
-msgstr ""
+msgstr "تصفح"
 
 #: index.php:1142 index.php:1149 index.php:1157 index.php:1165 index.php:1178
 msgid "Choose screen layout"
@@ -194,7 +194,7 @@ msgstr ""
 
 #: index.php:1200
 msgid "Help"
-msgstr ""
+msgstr "مساعدة"
 
 #: index.php:1201
 msgid "Feedback"
