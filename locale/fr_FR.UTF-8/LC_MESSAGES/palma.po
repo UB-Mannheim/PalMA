@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-19 14:37+0100\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
-"Last-Translator: Lena Burger <lburger@uni-mannheim.de>\n"
+"Last-Translator: Nadja Seemann <nseemann@uni-mannheim.de>\n"
 "Language-Team: French <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -221,7 +221,7 @@ msgstr ""
 
 #: index.php:1209
 msgid "see here."
-msgstr ""
+msgstr "Vois ici"
 
 #: index.php:1213
 msgid "Connect"
@@ -323,7 +323,7 @@ msgstr ""
 
 #: index.php:1258
 msgid "Zoom in and out"
-msgstr ""
+msgstr "Zoom avant et arrière"
 
 #: index.php:1259
 msgid "Rotate"
