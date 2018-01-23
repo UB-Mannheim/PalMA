@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-19 14:37+0100\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
-"Last-Translator: Lena Burger <lburger@uni-mannheim.de>\n"
+"Last-Translator: Regina Retter <regina.retter@bib.uni-mannheim.de>\n"
 "Language-Team: French <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -22,98 +22,98 @@ msgstr "non disponible"
 
 #: index.php:222
 msgid "Enter valid URL"
-msgstr ""
+msgstr "Entrez l'URL valide"
 
 #: index.php:562
 msgid "You were disconnected!"
-msgstr ""
+msgstr "Vous avez été déconnecté"
 
 #: index.php:583
 msgid "Select screen section for display"
-msgstr ""
+msgstr "Sélectionnez la section d'écran"
 
 #: index.php:693
 msgid "Toggle visibility"
-msgstr ""
+msgstr "Commutation de la visibilité"
 
 #: index.php:697
 msgid "Zoom in"
-msgstr ""
+msgstr "Zoom en avant"
 
 #: index.php:698
 msgid "Zoom out"
-msgstr ""
+msgstr "Zoom en arrière"
 
 #: index.php:699
 msgid "Rotate counterclockwise"
-msgstr ""
+msgstr "Rotation dans le sens antihoraire"
 
 #: index.php:700
 msgid "Rotate clockwise"
-msgstr ""
+msgstr "Rotation dans le sens horaire"
 
 #: index.php:701
 msgid "Download this item"
-msgstr ""
+msgstr "Téléchargez cet élement"
 
 #: index.php:707
 msgid "Remove this item"
-msgstr ""
+msgstr "Supprimez cet élement"
 
 #: index.php:718
 msgid "Jump to start"
-msgstr ""
+msgstr "Aller au début"
 
 #: index.php:719
 msgid "Page up"
-msgstr ""
+msgstr "Monter une page"
 
 #: index.php:720
 msgid "Page down"
-msgstr ""
+msgstr "Déscendre une page"
 
 #: index.php:721
 msgid "Jump to end"
-msgstr ""
+msgstr "Aller à la fin"
 
 #: index.php:725
 msgid "Up"
-msgstr ""
+msgstr "Monter"
 
 #: index.php:727
 msgid "Left"
-msgstr ""
+msgstr "À gauche"
 
 #: index.php:728
 msgid "Right"
-msgstr ""
+msgstr "À droite"
 
 #: index.php:730
 msgid "Down"
-msgstr ""
+msgstr "Déscendre"
 
 # Greeting
 #: index.php:755
 msgid "Welcome"
-msgstr ""
+msgstr "Bienvenue"
 
 #: index.php:757
 msgid "There is no shared content yet. Click below to get started!"
-msgstr ""
+msgstr "Il n' y a pas encore de contenu partagé. Cliquez ci-dessous pour commencer"
 
 # Index.php
 # Tabs and Subtabs
 #: index.php:761 index.php:1069 index.php:1224
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: index.php:979
 msgid "Sorry! Screensharing for your device is currently not supported."
-msgstr ""
+msgstr "Désolé! Le partage d'écran pour votre appareil n'est actuellement pas pris en charge"
 
 #: index.php:1070 index.php:1251
 msgid "Control"
-msgstr ""
+msgstr "Contrôle"
 
 #: index.php:1071 index.php:1272
 msgid "Extras"
@@ -121,7 +121,7 @@ msgstr ""
 
 #: index.php:1077
 msgid "File"
-msgstr ""
+msgstr "Fichier"
 
 #: index.php:1078
 msgid "URL"
@@ -129,28 +129,28 @@ msgstr ""
 
 #: index.php:1079
 msgid "Screen"
-msgstr ""
+msgstr "Écran"
 
 #: index.php:1086
 msgid "Drag and drop files or click here to upload."
-msgstr ""
+msgstr "Glisser-déposer des fichiers ou cliquez ici pour les télécharger"
 
 # Add Section
 #: index.php:1088
 msgid "Add file (click or drop here)"
-msgstr ""
+msgstr "Ajouter fichier(déposez oder cliquez ici)"
 
 #: index.php:1107
 msgid "Add webpage"
-msgstr ""
+msgstr "Ajouter site web"
 
 #: index.php:1110
 msgid "Enter URL"
-msgstr "Please enter URL"
+msgstr "Entrez URL"
 
 #: index.php:1113
 msgid "Click here to show the webpage on the screen."
-msgstr ""
+msgstr "Clicquez ici pour afficher la page sur l'écran"
 
 #: index.php:1114
 msgid "Enter"
@@ -158,42 +158,42 @@ msgstr ""
 
 #: index.php:1121
 msgid "Add your screen"
-msgstr ""
+msgstr "Ajoutez votre écran"
 
 #: index.php:1122
 msgid "Download screensharing tool"
-msgstr ""
+msgstr "Téléchargez l'outil de partage d'écran"
 
 #: index.php:1129
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
-msgstr ""
+msgstr "Téléchargez votre outil de partage d'écran (uniquement pour Windows, Mac and Linux). Pour plus d'information, voyez la section aide"
 
 #: index.php:1135
 msgid "Layout"
-msgstr ""
+msgstr "Mise en page"
 
 #: index.php:1136
 msgid "Navigate"
-msgstr ""
+msgstr "Navigation"
 
 # Control section
 #: index.php:1142 index.php:1149 index.php:1157 index.php:1165 index.php:1178
 msgid "Choose screen layout"
-msgstr ""
+msgstr "Selectionner la mise en page de l'écran"
 
 #: index.php:1193
 msgid "Close all windows and remove uploaded files"
-msgstr ""
+msgstr "Fermez toutes les fenêtres et supprimez les fichiers téléchargés"
 
 #: index.php:1194
 msgid "Delete all items"
-msgstr ""
+msgstr "Supprimez tous les élements"
 
 #: index.php:1200
 msgid "Help"
-msgstr ""
+msgstr "Aide"
 
 #: index.php:1201
 msgid "Feedback"
@@ -201,7 +201,7 @@ msgstr ""
 
 #: index.php:1202
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 # Extras Section
 # Help
@@ -209,27 +209,27 @@ msgstr ""
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
-msgstr ""
+msgstr "Avec PalMA, vous pouvez partager des documents, des sites Web et votre écran avec votre groupe d'études."
 
 #: index.php:1206
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
-msgstr ""
+msgstr "Le moniteur d'équipe PalMA affiche jusqu' à quatre contributions simultanément"
 
 #: index.php:1209
 msgid "For further information about PalMA in this institution"
-msgstr ""
+msgstr "Pour plus d'information sur PalMA dans cette institution"
 
 #: index.php:1209
 msgid "see here."
-msgstr ""
+msgstr "Voyez ici"
 
 #: index.php:1213
 msgid "Connect"
-msgstr ""
+msgstr "Connecter"
 
 #: index.php:1214
 msgid "Team members can join the session at any time with this URL or QR-Code:"
-msgstr ""
+msgstr "Les membres de l'équipe peuvent rejoindre la session à tout moment avec cette URL ou QR-Code:"
 
 # Please mind the whitespace at the end.
 #: index.php:1217 index.php:1374
@@ -238,21 +238,21 @@ msgstr ""
 
 #: index.php:1225
 msgid "Use the Add-Section to share content on the PalMA monitor."
-msgstr ""
+msgstr "Utilisez la section Ajouter pour partager du contenu sur le moniteur PalMA"
 
 #: index.php:1227
 msgid "For PDF files, office files, images or videos use the file section."
-msgstr ""
+msgstr "Pour les fichiers PDF, fichiers office, images ou vidéos, utilisez la section fichiers."
 
 #: index.php:1228
 msgid "To display a website use the URL field."
-msgstr ""
+msgstr "Pour afficher un site Web, utilisez le champ URL"
 
 #: index.php:1229
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
-msgstr ""
+msgstr "Pour partager votre écran en temps réel, téléchargez le logiciel de partage d'écran VNC"
 
 # Referring to the popular operating system
 #: index.php:1231
@@ -261,11 +261,11 @@ msgstr ""
 
 #: index.php:1233
 msgid "Run the downloaded file."
-msgstr ""
+msgstr "Exécutez le fichier téléchargé"
 
 #: index.php:1234
 msgid "Double-click the name of your PalMA station in the appearing list."
-msgstr ""
+msgstr "Double-cliquez sur le nom de votre station PalMA dans la liste qui s'affiche"
 
 #: index.php:1236
 msgid "Mac:"
@@ -273,7 +273,7 @@ msgstr ""
 
 #: index.php:1238
 msgid "CTRL + click the downloaded file and run it."
-msgstr ""
+msgstr "CTRL + cliquez sur le fichier téléchargé et exécutez-le"
 
 #: index.php:1239
 msgid "A second window opens, in which you can start &quot;VineServer&quot;."
