@@ -202,7 +202,7 @@ msgstr "Hilfe"
 
 #: index.php:1201
 msgid "Feedback"
-msgstr ""
+msgstr "Feedback"
 
 #: index.php:1202
 msgid "Users"
