@@ -6,20 +6,20 @@
 
 |Locale|Completion|
 |---|---|
-|[al_AL](#al_al)|51.26|
+|[al_AL](#al_al)|54.62|
 |[ar](#ar)|29.41|
-|[de_DE](#de_de)|93.28|
-|[es_ES](#es_es)|39.50|
+|[de_DE](#de_de)|100.00|
+|[es_ES](#es_es)|42.02|
 |[fr_FR](#fr_fr)|1.68|
-|[it_IT](#it_it)|40.34|
+|[it_IT](#it_it)|43.70|
 |[ru_RU](#ru_ru)|44.54|
 |[ur_PK](#ur_pk)|13.45|
-|[zh_CN](#zh_cn)|96.64|
+|[zh_CN](#zh_cn)|100.00|
 |[zh_TW](#zh_tw)|43.70|
 
 ## al_AL
 
-Completion: **51.26** (61 / 119 strings)
+Completion: **54.62** (65 / 119 strings)
 
 Contributors:
 
@@ -59,16 +59,12 @@ Missing:
   * `In the upper left corner, click on &quot;VNC Server&quot;.`
   * `Layout`
   * `Linux:`
-  * `Log in`
-  * `Login`
   * `Mac:`
   * `Navigate`
   * `New users can join at`
   * `On the right you can choose the position on the PalMA monitor`
   * `Or use this shell command:`
-  * `PIN`
   * `PIN: `
-  * `PalMA &ndash; Login`
   * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
   * `Rotate`
   * `Rotate clockwise`
@@ -190,28 +186,19 @@ Missing:
 
 ## de_DE
 
-Completion: **93.28** (111 / 119 strings)
+Completion: **100.00** (119 / 119 strings)
 
 Contributors:
 
   * Alexander Wagner
   * Dennis Müller
+  * Nicolas Wipfler
   * Philipp Zumstein
   * Stefan Weil
 
-Missing:
-  * `Extras`
-  * `Feedback`
-  * `Linux:`
-  * `Mac:`
-  * `PIN`
-  * `PIN: `
-  * `URL`
-  * `Windows:`
-
 ## es_ES
 
-Completion: **39.50** (47 / 119 strings)
+Completion: **42.02** (50 / 119 strings)
 
 Contributors:
 
@@ -255,15 +242,12 @@ Missing:
   * `Layout`
   * `Left`
   * `Linux:`
-  * `Log in`
   * `Mac:`
   * `Navigate`
   * `New users can join at`
   * `On the right you can choose the position on the PalMA monitor`
   * `Or use this shell command:`
-  * `PIN`
   * `PIN: `
-  * `Password`
   * `Picture Show`
   * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
   * `Recommend us`
@@ -425,13 +409,13 @@ Missing:
 
 ## it_IT
 
-Completion: **40.34** (48 / 119 strings)
+Completion: **43.70** (52 / 119 strings)
 
 Contributors:
 
   * Alexander Wagner
-  * Stefano Leccese
   * Stefan Weil
+  * Stefano Leccese
 
 Missing:
   * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
@@ -469,16 +453,12 @@ Missing:
   * `Layout`
   * `Left`
   * `Linux:`
-  * `Login`
   * `Mac:`
   * `Navigate`
   * `New users can join at`
   * `On the right you can choose the position on the PalMA monitor`
   * `Or use this shell command:`
-  * `PIN`
   * `PIN: `
-  * `PalMA &ndash; Login`
-  * `Password`
   * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
   * `Recommend us`
   * `Right`
@@ -517,8 +497,8 @@ Contributors:
   * Alexander Wagner
   * Mariia Zrianina
   * Simona Doneva
-  * Stefano Leccese
   * Stefan Weil
+  * Stefano Leccese
 
 Missing:
   * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
@@ -705,23 +685,17 @@ Missing:
 
 ## zh_CN
 
-Completion: **96.64** (115 / 119 strings)
+Completion: **100.00** (119 / 119 strings)
 
 Contributors:
 
   * Alexander Wagner
   * Caipei Song
   * Chen Zongqi
+  * Oak
   * Piero Divasto
   * Stefan Weil
   * Yang
-  * Zhe Sun
-
-Missing:
-  * `Mac:`
-  * `PIN: `
-  * `URL`
-  * `Windows:`
 
 ## zh_TW
 
