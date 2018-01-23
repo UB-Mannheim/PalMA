@@ -80,7 +80,7 @@ msgstr "Ir al final"
 
 #: index.php:725
 msgid "Up"
-msgstr "Abajo"
+msgstr "Arriba"
 
 #: index.php:727
 msgid "Left"
