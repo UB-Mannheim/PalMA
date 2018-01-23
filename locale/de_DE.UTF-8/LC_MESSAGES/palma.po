@@ -120,7 +120,7 @@ msgstr "Steuern"
 
 #: index.php:1071 index.php:1272
 msgid "Extras"
-msgstr ""
+msgstr "Extras"
 
 #: index.php:1077
 msgid "File"
@@ -128,7 +128,7 @@ msgstr "Datei"
 
 #: index.php:1078
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: index.php:1079
 msgid "Screen"
@@ -272,7 +272,7 @@ msgstr ""
 # Referring to the popular operating system
 #: index.php:1231
 msgid "Windows:"
-msgstr ""
+msgstr "Windows:"
 
 #: index.php:1233
 msgid "Run the downloaded file."
@@ -286,7 +286,7 @@ msgstr ""
 
 #: index.php:1236
 msgid "Mac:"
-msgstr ""
+msgstr "Mac:"
 
 #: index.php:1238
 msgid "CTRL + click the downloaded file and run it."
@@ -316,7 +316,7 @@ msgstr ""
 
 #: index.php:1244
 msgid "Linux:"
-msgstr ""
+msgstr "Linux:"
 
 #: index.php:1246
 msgid "Run the downloaded shell script."

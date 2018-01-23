@@ -122,7 +122,7 @@ for my $locale (sort @locales) {
     next if $locale eq 'en_US';
     my %po = parse_po($locale);
     my @total = keys %po;
-    my @untranslated = grep { $po{$_} =~ /^$/smx || exists $reference_po{$po{$_}} } @total;
+    my @untranslated = grep { $po{$_} =~ /^$/smx } @total;
     my $nr_translated = scalar @total - scalar @untranslated;
     if (! $markdown_mode) {
         printf("%s\t%s%%\t (%s / %s)\n", $locale, percent($nr_translated / scalar @total), $nr_translated, scalar @total);
