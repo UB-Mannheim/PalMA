@@ -202,7 +202,7 @@ msgstr "Hilfe"
 
 #: index.php:1201
 msgid "Feedback"
-msgstr ""
+msgstr "Feedback"
 
 #: index.php:1202
 msgid "Users"
@@ -243,7 +243,7 @@ msgstr ""
 # Please mind the whitespace at the end.
 #: index.php:1217 index.php:1374
 msgid "PIN: "
-msgstr ""
+msgstr "PIN: "
 
 #: index.php:1225
 msgid "Use the Add-Section to share content on the PalMA monitor."
