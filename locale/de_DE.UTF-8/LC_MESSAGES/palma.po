@@ -272,7 +272,7 @@ msgstr ""
 # Referring to the popular operating system
 #: index.php:1231
 msgid "Windows:"
-msgstr "Windows"
+msgstr "Windows:"
 
 #: index.php:1233
 msgid "Run the downloaded file."
@@ -286,7 +286,7 @@ msgstr ""
 
 #: index.php:1236
 msgid "Mac:"
-msgstr "Mac"
+msgstr "Mac:"
 
 #: index.php:1238
 msgid "CTRL + click the downloaded file and run it."
@@ -316,7 +316,7 @@ msgstr ""
 
 #: index.php:1244
 msgid "Linux:"
-msgstr "Linux"
+msgstr "Linux:"
 
 #: index.php:1246
 msgid "Run the downloaded shell script."
