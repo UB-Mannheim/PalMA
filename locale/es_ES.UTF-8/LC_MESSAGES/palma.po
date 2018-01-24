@@ -80,23 +80,23 @@ msgstr "Ir al final"
 
 #: index.php:725
 msgid "Up"
-msgstr ""
+msgstr "Arriba"
 
 #: index.php:727
 msgid "Left"
-msgstr ""
+msgstr "Izquierda"
 
 #: index.php:728
 msgid "Right"
-msgstr ""
+msgstr "Derecho"
 
 #: index.php:730
 msgid "Down"
-msgstr ""
+msgstr "Abajo"
 
 #: index.php:755
 msgid "Welcome"
-msgstr ""
+msgstr "Bienvenido"
 
 #: index.php:757
 msgid "There is no shared content yet. Click below to get started!"
