@@ -1,0 +1,321 @@
+# PalMA translation.
+# Copyright (C) 2014 Universitätsbibliothek Mannheim
+# This file is distributed under the same license as the PalMA package.
+# Sisi Wang <veronikawcc@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PalMA 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-15 20:30+0200\n"
+"PO-Revision-Date: 2014-05-17 21:31+0200\n"
+"Last-Translator: Sisi Wang < veronikawcc@gmail.com >\n"
+"Language-Team: Chinese <zh@li.org>\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:170
+msgid "Screen section"
+msgstr "屏幕部分"
+
+#: index.php:175
+msgid "Close the advanced control"
+msgstr "关闭高级控制"
+
+#: index.php:232
+msgid "Enter valid URL"
+msgstr "请输入合法的URL"
+
+#: index.php:270 index.php:275 index.php:290 index.php:295
+msgid "Cursor control"
+msgstr "鼠标指针控制"
+
+#: index.php:285
+msgid "Advanced control"
+msgstr "高级控制"
+
+#: index.php:345
+msgid "Zoom in"
+msgstr "放大"
+
+#: index.php:351
+msgid "Zoom out"
+msgstr "缩小"
+
+#: index.php:366
+msgid "Jump to start"
+msgstr "回到开头"
+
+#: index.php:369
+msgid "Page up"
+msgstr "向上翻页"
+
+#: index.php:372
+msgid "Page down"
+msgstr "向下翻页"
+
+#: index.php:375
+msgid "Jump to end"
+msgstr "跳到结尾"
+
+#: index.php:378
+msgid "Download this file"
+msgstr "下载文件"
+
+#: index.php:758
+msgid "You were disconnected!"
+msgstr "您已断开连接"
+
+#: index.php:841
+msgid "Toggle visibility"
+msgstr "切换可见"
+
+#: index.php:849
+msgid "Select screen section for display"
+msgstr "选取需要显示的屏幕部分"
+
+#: index.php:915
+msgid "Remove this object"
+msgstr "移除物件"
+
+#: index.php:1074 index.php:1142
+msgid "Team display"
+msgstr "显示小组"
+
+#: index.php:1085
+#, fuzzy
+msgid "Controls"
+msgstr "鼠标指针控制"
+
+#: index.php:1086 index.php:1149 index.php:1150
+msgid "Screen layout"
+msgstr "屏幕布局"
+
+#: index.php:1087
+msgid "URL / Document"
+msgstr "网址/文件"
+
+#: index.php:1088
+msgid "Menu"
+msgstr "菜单"
+
+#: index.php:1096
+msgid "Disconnect the current user"
+msgstr "断开当前用户连接"
+
+#: index.php:1101 index.php:1102
+msgid "User list"
+msgstr "用户列表"
+
+#: index.php:1101
+msgid "List of connected users"
+msgstr "已连接用户列表"
+
+#: index.php:1111
+msgid "Disconnect all users and reset the work place"
+msgstr "断开所有用户并重置工作地点"
+
+#: index.php:1112
+msgid "Disconnect all users"
+msgstr "断开所有用户"
+
+#: index.php:1117 index.php:1119
+msgid "Display list"
+msgstr "显示列表"
+
+#: index.php:1118
+msgid "List of files, URLs and shared displays"
+msgstr "文件列表，URL列表以及屏幕共享列表"
+
+#: index.php:1126
+msgid "Close all windows and remove uploaded files"
+msgstr "关闭所有窗口并移除已上传文件"
+
+#: index.php:1127
+msgid "Close all windows"
+msgstr "关闭所有窗口"
+
+#: index.php:1134
+msgid "Show help and offer some extras"
+msgstr "显示帮助以及其它"
+
+#: index.php:1135 index.php:1241
+msgid "Help + Extras"
+msgstr "帮助 + 其它"
+
+#: index.php:1155 index.php:1162 index.php:1169 index.php:1176 index.php:1183
+msgid "Choose screen layout"
+msgstr "选择屏幕布局"
+
+#: index.php:1192 index.php:1195
+msgid "Enter URL"
+msgstr "输入URL"
+
+#: index.php:1198
+msgid "Show this URL in a new browser window"
+msgstr "在新浏览窗口中显示URL"
+
+#: index.php:1208
+msgid "Drop documents here (or click) to load them up"
+msgstr "拖拽文件（或点击）以添加"
+
+#: index.php:1212
+msgid "Drop documents here (or click)"
+msgstr "拖拽文件（或点击）"
+
+#: index.php:1238
+msgid "Close the help window"
+msgstr "关闭帮助窗口"
+
+#: index.php:1244
+msgid ""
+"With PalMA, you can share your documents and your desktop\n"
+"            with your learning group."
+msgstr "用PalMA，你可以和你的学习小组分享你的文件和屏幕"
+
+#: index.php:1246
+msgid ""
+"Team members can join the group at any time. All they need\n"
+"            is URL and PIN."
+msgstr "组员可以随时用URL和PIN加入小组。"
+
+#: index.php:1250
+msgid ""
+"The PalMA team monitor shows up to 4 contributions\n"
+"            simultaneously."
+msgstr "PalMA小组组长同时展示最多4个贡献"
+
+#: index.php:1252
+msgid ""
+"Just upload PDF files, images, OpenDocument or\n"
+"            MS Office files or enter a URL &ndash; PalMA will show them."
+msgstr ""
+"上传PDF文件，图片，开放文档格式(ODF)以及\n"
+"            MS Office文件或者输入URL &ndash; PalMA会显示它们."
+
+#: index.php:1254
+msgid ""
+"Share the desktop of your notebook with others. PalMA uses\n"
+"            VNC for screen sharing. Download the VNC software once for your\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-kurzanleitung.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">Windows PC</"
+"a>\n"
+"            (preconfigured UltraVNC) or\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-anleitung-mac.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">MacBook</a>\n"
+"            (RealVNC)."
+msgstr ""
+"与其他人共享你的笔记本桌面. PalMA用\n"
+"            VNC来实现屏幕共享. 下载 VNC 软件以拓展你的\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-kurzanleitung.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">Windows 个人电"
+"脑</a>\n"
+"            (已配置的 UltraVNC) 或者\n"
+"            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
+"LearningCenter/palma-anleitung-mac.pdf\"\n"
+"            onclick=\"window.open(this.href); return false;\">Mac电脑</a>\n"
+"            (RealVNC)."
+
+#: index.php:1262
+msgid "Linux users can share their X display like this:"
+msgstr "Linux 用户可以这样共享 X display:"
+
+#: index.php:1268
+msgid "Share desktop (free UltraVNC / Windows only)"
+msgstr "共享桌面 (免费 UltraVNC / 仅支持Windows)"
+
+#: index.php:1275
+msgid "Share desktop (non free RealVNC)"
+msgstr "共享桌面 (付费 RealVNC)"
+
+#: index.php:1283
+msgid "Show team display"
+msgstr "展示小组"
+
+#: login.php:93 login.php:101 login.php:104
+msgid "Invalid credentials!"
+msgstr "证书无效！"
+
+#: login.php:98
+msgid "Cannot check credentials, sorry!"
+msgstr "抱歉，无法检查证书。"
+
+#: login.php:133
+msgid "Invalid PIN."
+msgstr "PIN码无效"
+
+#: login.php:168
+msgid "PalMA &ndash; Login"
+msgstr "PalMA &ndash; 登入"
+
+#: login.php:195
+msgid "Login"
+msgstr "登入"
+
+#: login.php:199
+msgid "User name"
+msgstr "用户名"
+
+#: login.php:206
+msgid "Password"
+msgstr "密码"
+
+#: login.php:214
+msgid "PIN"
+msgstr "PIN码"
+
+#: login.php:222
+msgid "Log in"
+msgstr "登入"
+
+#: upload.php:53
+msgid "This file is too large."
+msgstr "文件过大"
+
+#: upload.php:56
+msgid "Large files are not supported."
+msgstr "不支持大型文件"
+
+#: upload.php:59
+msgid "File was only partially uploaded."
+msgstr "仅部分文件上传成功"
+
+#: upload.php:62
+#, php-format
+msgid "Error code %s."
+msgstr "错误码 %s"
+
+#: upload.php:74
+#, php-format
+msgid "File '%s' cannot be shown."
+msgstr "文件 '%s' 显示失败。"
+
+#: examples/screensaver/pictureshow.php:35
+msgid "Picture Show"
+msgstr "显示图片"
+
+#: examples/screensaver/tiles.php:33
+msgid "Tiles"
+msgstr "图像块"
+
+#: selectplace/learningcenter.php:25 selectplace/learningcenter.php:39
+#: selectplace/monitor.php:25 selectplace/monitor.php:51
+msgid "Select workplace"
+msgstr "选择工作地点"
+
+#: selectplace/learningcenter.php:45
+msgid "Conference room"
+msgstr "会议室"
+
+#: selectplace/learningcenter.php:45 selectplace/monitor.php:73
+msgid "Test monitor"
+msgstr "测试监控"
+
+#: selectplace/learningcenter.php:46 selectplace/monitor.php:66
+msgid "Mannheim table"
+msgstr "曼海姆工作台"
