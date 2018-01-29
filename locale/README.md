@@ -92,7 +92,7 @@ Completion: **29.41** (35 / 119 strings)
 Contributors:
 
   * Alexander Wagner
-  * driad91
+  * Daniel Riad
   * Mahmoud Osman
   * Philipp Zumstein
   * Stefan Weil
@@ -522,7 +522,7 @@ Contributors:
 
   * Alexander Wagner
   * Stefan Weil
-  * Taimur
+  * Taimur Ali Khan
 
 Missing:
   * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
@@ -638,10 +638,10 @@ Contributors:
   * Alexander Wagner
   * Caipei Song
   * Chen Zongqi
-  * Oak
   * Piero Divasto
   * Stefan Weil
   * Yang
+  * Zhe Sun
 
 ## zh_TW
 
