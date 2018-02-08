@@ -19,64 +19,64 @@ msgstr ""
 
 #: index.php:180
 msgid "not available"
-msgstr ""
+msgstr "Nav pieejams"
 
 #: index.php:222
 #, fuzzy
 msgid "Enter valid URL"
-msgstr "Please enter URL"
+msgstr "Ievadiet derīgu URL"
 
 #: index.php:562
 msgid "You were disconnected!"
-msgstr ""
+msgstr "Jūsu dators tika atvienots"
 
 #: index.php:583
 msgid "Select screen section for display"
-msgstr ""
+msgstr "Izvēlieties ekrāna sadaļu parādīšanai"
 
 #: index.php:693
 msgid "Toggle visibility"
-msgstr ""
+msgstr "Pārslēgt redzamību"
 
 #: index.php:697
 msgid "Zoom in"
-msgstr ""
+msgstr "Pietuvināt"
 
 #: index.php:698
 msgid "Zoom out"
-msgstr ""
+msgstr "Attālināt"
 
 #: index.php:699
 msgid "Rotate counterclockwise"
-msgstr ""
+msgstr "Pagriezt pretēji pulksteņrādītāja virzienam"
 
 #: index.php:700
 msgid "Rotate clockwise"
-msgstr ""
+msgstr "Pagriezt pulksteņrādītāja virzienā"
 
 #: index.php:701
 msgid "Download this item"
-msgstr ""
+msgstr "Lejupielādēt šo failu"
 
 #: index.php:707
 msgid "Remove this item"
-msgstr ""
+msgstr "Izdzēst šo failu"
 
 #: index.php:718
 msgid "Jump to start"
-msgstr ""
+msgstr "Atpakaļ uz augšu"
 
 #: index.php:719
 msgid "Page up"
-msgstr ""
+msgstr "Lapas augšpusè"
 
 #: index.php:720
 msgid "Page down"
-msgstr ""
+msgstr "Lapas apakšàpuse"
 
 #: index.php:721
 msgid "Jump to end"
-msgstr ""
+msgstr "Pāriet uz beigām"
 
 #: index.php:725
 msgid "Up"
@@ -97,17 +97,17 @@ msgstr ""
 # Greeting
 #: index.php:755
 msgid "Welcome"
-msgstr ""
+msgstr "Laipni lūdzam"
 
 #: index.php:757
 msgid "There is no shared content yet. Click below to get started!"
-msgstr ""
+msgstr "Saturs vēl nav kopīgots. Noklikšķiniet zemāk, lai sāktu!"
 
 # Index.php
 # Tabs and Subtabs
 #: index.php:761 index.php:1064 index.php:1219
 msgid "Add"
-msgstr ""
+msgstr "Pievienot"
 
 #: index.php:974
 msgid "Sorry! Screensharing for your device is currently not supported."
@@ -135,16 +135,16 @@ msgstr ""
 
 #: index.php:1081
 msgid "Drag and drop files or click here to upload."
-msgstr ""
+msgstr "Velciet un nometiet failus vai noklikšķiniet šeit, lai augšupielādētu"
 
 # Add Section
 #: index.php:1083
 msgid "Add file (click or drop here)"
-msgstr ""
+msgstr "Pievienot failu. Noklikšķiniet vai nometiet šeit"
 
 #: index.php:1102
 msgid "Add webpage"
-msgstr ""
+msgstr "Pievienot interneta lapu"
 
 #: index.php:1105
 msgid "Enter URL"
@@ -203,7 +203,7 @@ msgstr ""
 
 #: index.php:1197
 msgid "Users"
-msgstr ""
+msgstr "Lietotāji"
 
 # Extras Section
 # Help
@@ -211,7 +211,7 @@ msgstr ""
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
-msgstr ""
+msgstr "Ar PalMA jūs varat lietot dokumentus, interneta lapas (tīmekļa vietnes) un desktopu kopā ar jūsu mācības grupu"
 
 #: index.php:1201
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
@@ -227,11 +227,11 @@ msgstr ""
 
 #: index.php:1208
 msgid "Connect"
-msgstr ""
+msgstr "Savienot"
 
 #: index.php:1209
 msgid "Team members can join the session at any time with this URL or QR-Code:"
-msgstr ""
+msgstr "Komandas dalībnieki jebkurā laikā var pievienoties sesijai ar šo URL vai QR kodu"
 
 # Please mind the whitespace at the end.
 #: index.php:1212 index.php:1369
@@ -321,19 +321,19 @@ msgstr ""
 
 #: index.php:1252
 msgid "Hide and show"
-msgstr ""
+msgstr "Paslēpt un parādīt"
 
 #: index.php:1253
 msgid "Zoom in and out"
-msgstr ""
+msgstr "Pietuvināt un attālināt"
 
 #: index.php:1254
 msgid "Rotate"
-msgstr ""
+msgstr "Pagriezt"
 
 #: index.php:1255
 msgid "Download"
-msgstr ""
+msgstr "Lejupielādēt"
 
 #: index.php:1256
 msgid "Delete the item"
