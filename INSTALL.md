@@ -7,15 +7,13 @@ You can install PalMA manually with the descriptions provided in this document o
 `install_palma.sh install "/var/www/html" standard "https://www.your-institution.org/link-to-your-palma-site/" "palma-01" "our-institution/department2" "http://palma-01.your-institution.org"`
 
 **Warning:** This script was written in the context of upgrading our own machines and it might mess with your Debian package lists. As of now you would still have to configure the webserver yourself.
-Please read and use said script with care. If in doubt, install PalMA manually as described below.
+Please read and use said script with care. _We highly recommend to install PalMA manually as described below._
 
 In the following we will cover the points you'll need to set up a PalMA station:
 
 * Requirements
 * Required Debian packages
 * Webserver configuration
-  * Apache2
-  * Nginx-light
 * PalMA
 * Theming your installation
 * Adding new languages
@@ -40,12 +38,9 @@ With the following lines we can install the needed viewer programs (for images, 
     apt-get install php7.0 php7.0-cgi php7.0-cli php7.0-curl
     apt-get install php7.0-fpm php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
     apt-get install gettext git libavcodec-extra make
-
-Now we install the webserver (normally apache2, but for Raspberry Pi we recommend nginx-light):
-
     apt-get install apache2 libapache2-mod-php7.0
 
-or
+Instead of apache2 it is also possible to use nginx, for example on weaker machines.
 
     apt-get install nginx-light
 
@@ -78,8 +73,7 @@ The Apache2 module `rewrite` must be enabled, too:
 
 ### Nginx
 
-For Raspberry Pi we replaced the apache2 web server with nginx because it uses much
-less resources. Make sure the following configurations (server root, enabling php) are set in
+When using nginx instead of apache2 make sure the following configurations (server root, enabling php) are set in
 file `/etc/nginx/sites-enabled/default`:
 
     server {
