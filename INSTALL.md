@@ -37,7 +37,7 @@ With the following lines we can install the needed viewer programs (for images, 
     apt-get install wmctrl xdotool openbox libjs-jquery sqlite3
     apt-get install php7.0 php7.0-cgi php7.0-cli php7.0-curl
     apt-get install php7.0-fpm php7.0-gd php7.0-intl php7.0-sqlite3 php7.0-mbstring
-    apt-get install gettext git libavcodec-extra make
+    apt-get install gettext git libavcodec-extra gstreamer1.0-libav make
     apt-get install apache2 libapache2-mod-php7.0
 
 Instead of apache2 it is also possible to use nginx, for example on weaker machines.
