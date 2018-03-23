@@ -1,6 +1,6 @@
 <?php
 
-// Copyright (C) 2014, 2015 Universitätsbibliothek Mannheim
+// Copyright (C) 2014-2018 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
 // This file implements user authorization.
@@ -28,8 +28,7 @@
         // Try to determine the user's device type. The device which is
         // returned is used to select the matching icon for the user list.
         $agent = $_SERVER["HTTP_USER_AGENT"];
-        if (false) {
-        } else if (preg_match('/iPad/', $agent)) {
+        if (preg_match('/iPad/', $agent)) {
             $device = 'tablet';
         } else if (preg_match('/iPhone/', $agent)) {
             $device = 'mobile';
@@ -193,7 +192,7 @@ TODO:
         <img src="theme/<?=CONFIG_THEME?>/palma-logo-67x25.png" alt="PalMA" height="25"/>
         &ndash; <?=_("Login")?>
     </legend>
-	<div id="login_fields">
+    <div id="login_fields">
         <div class="pure-control-group">
             <label for="username"><?=_("User name")?></label
             ><input id="username" name="username" type="text" value="<?=$username?>">
@@ -216,10 +215,10 @@ TODO:
 <?php
         }
 ?>
-	</div>
-        <div class="pure-controls">
-            <button type="submit" class="pure-button pure-button-primary"><?=_("Log in")?><i class="fa fa-sign-in"></i></button>
-        </div>
+    </div>
+    <div class="pure-controls">
+        <button type="submit" class="pure-button pure-button-primary"><?=_("Log in")?><i class="fa fa-sign-in"></i></button>
+    </div>
 </fieldset>
 
 </form>
