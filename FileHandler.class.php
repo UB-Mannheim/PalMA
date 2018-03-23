@@ -15,58 +15,58 @@ $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
 
 class FehHandler extends FileHandler
 {
-    function getControls()
+    public function getControls()
     {
         return FileHandler::CURSOR | FileHandler::ZOOM;
     }
-    function show($path)
+    public function show($path)
     {
     }
 }
 
 class LibreOfficeHandler extends FileHandler
 {
-    function getControls()
+    public function getControls()
     {
         return FileHandler::CURSOR | FileHandler::ZOOM;
     }
-    function show($path)
+    public function show($path)
     {
     }
 }
 
 class MidoriHandler extends FileHandler
 {
-    function getControls()
+    public function getControls()
     {
         return FileHandler::CURSOR | FileHandler::ZOOM;
     }
-    function show($path)
+    public function show($path)
     {
     }
 }
 
 class VlcHandler extends FileHandler
 {
-    function getControls()
+    public function getControls()
     {
         return FileHandler::CURSOR | FileHandler::ZOOM;
     }
-    function show($path)
+    public function show($path)
     {
     }
 }
 
 class ZathuraHandler extends FileHandler
 {
-    function getControls()
+    public function getControls()
     {
         return FileHandler::CURSOR | FileHandler::ZOOM |
                FileHandler::HOME | FileHandler::END |
                FileHandler::PRIOR | FileHandler::NEXT |
                FileHandler::DOWNLOAD;
     }
-    function show($path)
+    public function show($path)
     {
     }
 }
