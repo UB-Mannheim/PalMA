@@ -373,8 +373,8 @@ if ($unittest[__FILE__]) {
 
     print('CONFIG_CONTROL_FILE = ' . CONFIG_CONTROL_FILE . "\n");
     print('CONFIG_DISPLAY = ' . CONFIG_DISPLAY . "\n");
-    print('CONFIG_PASSWORD = ' . CONFIG_PASSWORD . "\n");
-    print('CONFIG_PIN = ' . CONFIG_PIN . "\n");
+    print('CONFIG_PASSWORD = ' . (CONFIG_PASSWORD ? 'true' : 'false') . "\n");
+    print('CONFIG_PIN = ' . (CONFIG_PIN ? 'true' : 'false') . "\n");
     if (defined('CONFIG_POLICY')) {
         print('CONFIG_POLICY = ' . CONFIG_POLICY . "\n");
     }
