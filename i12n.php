@@ -82,9 +82,9 @@ require_once('php-gettext/gettext.inc');
 
 if ($unittest[__FILE__]) {
 
-    function testlocale($locale = false)
+    function testlocale($locale = "")
     {
-        if ($locale) {
+        if ($locale != "") {
             _setlocale(LC_MESSAGES, $locale);
         }
         error_log(sprintf('%-12s ', ($locale ? $locale : 'default') . ':') . __('Screen section'));
