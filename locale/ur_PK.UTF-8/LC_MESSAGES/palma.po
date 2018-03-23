@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 14:37+0100\n"
+"POT-Creation-Date: 2018-03-23 17:52+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Taimur Ali Khan <takhan@mail.uni-mannheim.de>\n"
 "Language-Team: Urdu\n"
@@ -433,7 +433,7 @@ msgstr ""
 msgid "Log out"
 msgstr "زوم باہر"
 
-#: i12n.php:82
+#: i12n.php:86
 #, fuzzy
 msgid "Screen section"
 msgstr "سکرین کے حصے"

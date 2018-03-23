@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 14:37+0100\n"
+"POT-Creation-Date: 2018-03-23 17:52+0100\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
 "Last-Translator: Regina Retter <regina.retter@bib.uni-mannheim.de>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -99,7 +99,8 @@ msgstr "Bienvenue"
 
 #: index.php:757
 msgid "There is no shared content yet. Click below to get started!"
-msgstr "Il n' y a pas encore de contenu partagé. Cliquez ci-dessous pour commencer"
+msgstr ""
+"Il n' y a pas encore de contenu partagé. Cliquez ci-dessous pour commencer"
 
 # Index.php
 # Tabs and Subtabs
@@ -109,7 +110,9 @@ msgstr "Ajouter"
 
 #: index.php:979
 msgid "Sorry! Screensharing for your device is currently not supported."
-msgstr "Désolé! Le partage d'écran pour votre appareil n'est actuellement pas pris en charge"
+msgstr ""
+"Désolé! Le partage d'écran pour votre appareil n'est actuellement pas pris "
+"en charge"
 
 #: index.php:1070 index.php:1251
 msgid "Control"
@@ -168,7 +171,9 @@ msgstr "Téléchargez l'outil de partage d'écran"
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
-msgstr "Téléchargez votre outil de partage d'écran (uniquement pour Windows, Mac and Linux). Pour plus d'information, voyez la section aide"
+msgstr ""
+"Téléchargez votre outil de partage d'écran (uniquement pour Windows, Mac and "
+"Linux). Pour plus d'information, voyez la section aide"
 
 #: index.php:1135
 msgid "Layout"
@@ -209,11 +214,15 @@ msgstr "Utilisateurs"
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
-msgstr "Avec PalMA, vous pouvez partager des documents, des sites Web et votre écran avec votre groupe d'études."
+msgstr ""
+"Avec PalMA, vous pouvez partager des documents, des sites Web et votre écran "
+"avec votre groupe d'études."
 
 #: index.php:1206
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
-msgstr "Le moniteur d'équipe PalMA affiche jusqu' à quatre contributions simultanément"
+msgstr ""
+"Le moniteur d'équipe PalMA affiche jusqu' à quatre contributions "
+"simultanément"
 
 #: index.php:1209
 msgid "For further information about PalMA in this institution"
@@ -229,7 +238,9 @@ msgstr "Connecter"
 
 #: index.php:1214
 msgid "Team members can join the session at any time with this URL or QR-Code:"
-msgstr "Les membres de l'équipe peuvent rejoindre la session à tout moment avec cette URL ou QR-Code:"
+msgstr ""
+"Les membres de l'équipe peuvent rejoindre la session à tout moment avec "
+"cette URL ou QR-Code:"
 
 # Please mind the whitespace at the end.
 #: index.php:1217 index.php:1374
@@ -238,11 +249,14 @@ msgstr ""
 
 #: index.php:1225
 msgid "Use the Add-Section to share content on the PalMA monitor."
-msgstr "Utilisez la section Ajouter pour partager du contenu sur le moniteur PalMA"
+msgstr ""
+"Utilisez la section Ajouter pour partager du contenu sur le moniteur PalMA"
 
 #: index.php:1227
 msgid "For PDF files, office files, images or videos use the file section."
-msgstr "Pour les fichiers PDF, fichiers office, images ou vidéos, utilisez la section fichiers."
+msgstr ""
+"Pour les fichiers PDF, fichiers office, images ou vidéos, utilisez la "
+"section fichiers."
 
 #: index.php:1228
 msgid "To display a website use the URL field."
@@ -252,7 +266,9 @@ msgstr "Pour afficher un site Web, utilisez le champ URL"
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
-msgstr "Pour partager votre écran en temps réel, téléchargez le logiciel de partage d'écran VNC"
+msgstr ""
+"Pour partager votre écran en temps réel, téléchargez le logiciel de partage "
+"d'écran VNC"
 
 # Referring to the popular operating system
 #: index.php:1231
@@ -265,7 +281,8 @@ msgstr "Exécutez le fichier téléchargé"
 
 #: index.php:1234
 msgid "Double-click the name of your PalMA station in the appearing list."
-msgstr "Double-cliquez sur le nom de votre station PalMA dans la liste qui s'affiche"
+msgstr ""
+"Double-cliquez sur le nom de votre station PalMA dans la liste qui s'affiche"
 
 #: index.php:1236
 msgid "Mac:"
@@ -439,7 +456,7 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: i12n.php:82
+#: i12n.php:86
 msgid "Screen section"
 msgstr ""
 

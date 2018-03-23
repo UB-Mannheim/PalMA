@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 14:37+0100\n"
+"POT-Creation-Date: 2018-03-23 17:52+0100\n"
 "PO-Revision-Date: 2014-07-01 16:39+0200\n"
 "Last-Translator: Stefano Leccese\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -448,7 +448,7 @@ msgstr "Disconnette l'utente corrente"
 msgid "Log out"
 msgstr "Rimpicciolire"
 
-#: i12n.php:82
+#: i12n.php:86
 msgid "Screen section"
 msgstr "Sezione dello schermo"
 
