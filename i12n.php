@@ -53,6 +53,10 @@ require_once('php-gettext/gettext.inc');
         // Russian.
         $locale = 'ru_RU.UTF-8';
         break;
+    case 'lv':
+        // Latvian.
+        $locale = 'lv_LV.UTF-8';
+        break;
     case 'ur':
         // Urdu.
         $locale = 'ur_PK.UTF-8';
@@ -99,6 +103,7 @@ if ($unittest[__FILE__]) {
     testlocale('es_ES.UTF-8');
     testlocale('it_IT.UTF-8');
     testlocale('ru_RU.UTF-8');
+    testlocale('lv_LV.UTF-8');
     testlocale('ur_PK.UTF-8');
     testlocale('zh_CN.UTF-8');
 }

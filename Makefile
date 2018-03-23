@@ -5,7 +5,7 @@
 .PHONY: all
 
 DISTDIR=docs/dist
-LANGUAGES=al_AL ar de_DE en_US es_ES fr_FR it_IT ru_RU ur_PK zh_CN zh_TW
+LANGUAGES=$(shell cd locale && ls -d *.UTF-8 | sed s/.UTF-8//)
 
 SRC=index.php
 SRC+=i12n.php
