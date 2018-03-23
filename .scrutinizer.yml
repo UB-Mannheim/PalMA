@@ -23,7 +23,6 @@ checks:
         psr2_switch_declaration: false
         psr2_control_structure_declaration: false
         avoid_superglobals: false
-        security_vulnerabilities: false
         no_exit: false
     javascript: true
 filter:
