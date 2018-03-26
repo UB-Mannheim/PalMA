@@ -409,7 +409,7 @@ msgstr ""
 
 #: index.php:1342
 msgid "Thank you!"
-msgstr ""
+msgstr "Спасибо!"
 
 #: index.php:1349
 #, fuzzy
