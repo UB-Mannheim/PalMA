@@ -13,7 +13,7 @@
 |[fr_FR](#fr_fr)|46.22|
 |[it_IT](#it_it)|43.70|
 |[lv_LV](#lv_lv)|25.21|
-|[ru_RU](#ru_ru)|44.54|
+|[ru_RU](#ru_ru)|52.10|
 |[ur_PK](#ur_pk)|13.45|
 |[zh_CN](#zh_cn)|100.00|
 |[zh_TW](#zh_tw)|43.70|
@@ -537,7 +537,7 @@ Missing:
 
 ## ru_RU
 
-Completion: **44.54** (53 / 119 strings)
+Completion: **52.10** (62 / 119 strings)
 
 Contributors:
 
@@ -545,6 +545,7 @@ Contributors:
   * Alexander Egurnov
   * Alexander Wagner
   * Mariia Zrianina
+  * Olga Pogorelaya
   * Simona Doneva
   * Stefano Leccese
   * Stefan Weil
@@ -552,7 +553,6 @@ Contributors:
 Missing:
   * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
   * `A second window opens, in which you can start &quot;VineServer&quot;.`
-  * `Add`
   * `Add file (click or drop here)`
   * `Add webpage`
   * `Add your screen`
@@ -564,17 +564,13 @@ Missing:
   * `Click here to show the webpage on the screen.`
   * `Connect`
   * `Controls that are not available for certain kinds of content are marked grey.`
-  * `Delete all items`
   * `Delete the item`
   * `Double-click the name of your PalMA station in the appearing list.`
-  * `Down`
   * `Download screensharing tool`
   * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
   * `Drag and drop files or click here to upload.`
   * `End the session`
   * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
-  * `Feedback`
-  * `File`
   * `For PDF files, office files, images or videos use the file section.`
   * `For further information about PalMA in this institution`
   * `Help`
@@ -583,7 +579,6 @@ Missing:
   * `In the top bar you can`
   * `In the upper left corner, click on &quot;VNC Server&quot;.`
   * `Layout`
-  * `Left`
   * `Linux:`
   * `Mac:`
   * `Mannheim table`
@@ -594,7 +589,6 @@ Missing:
   * `PIN: `
   * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
   * `Recommend us`
-  * `Right`
   * `Rotate`
   * `Rotate clockwise`
   * `Rotate counterclockwise`
@@ -604,13 +598,11 @@ Missing:
   * `Some additional features are:`
   * `Sorry! Screensharing for your device is currently not supported.`
   * `Tell us what you think`
-  * `Thank you!`
   * `There is no shared content yet. Click below to get started!`
   * `This help,`
   * `To display a website use the URL field.`
   * `To share your desktop in real time download the VNC screen sharing software and`
   * `URL`
-  * `Up`
   * `Use the Add-Section to share content on the PalMA monitor.`
   * `Windows:`
   * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
