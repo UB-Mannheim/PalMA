@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-23 17:52+0100\n"
 "PO-Revision-Date: 2014-07-01 16:39+0200\n"
-"Last-Translator: Simona Doneva\n"
+"Last-Translator: Olga Pogorelaya\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -81,19 +81,19 @@ msgstr "В конец"
 
 #: index.php:725
 msgid "Up"
-msgstr ""
+msgstr "Вверх"
 
 #: index.php:727
 msgid "Left"
-msgstr ""
+msgstr "Влево"
 
 #: index.php:728
 msgid "Right"
-msgstr ""
+msgstr "Вправо"
 
 #: index.php:730
 msgid "Down"
-msgstr ""
+msgstr "Вниз"
 
 #: index.php:755
 msgid "Welcome"
@@ -105,7 +105,7 @@ msgstr ""
 
 #: index.php:761 index.php:1069 index.php:1224
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: index.php:979
 msgid "Sorry! Screensharing for your device is currently not supported."
@@ -123,7 +123,7 @@ msgstr "Помощь + Дополнительно"
 
 #: index.php:1077
 msgid "File"
-msgstr ""
+msgstr "Файл"
 
 #: index.php:1078
 msgid "URL"
@@ -191,7 +191,7 @@ msgstr "Закрыть все окна и удалить загруженные 
 
 #: index.php:1194
 msgid "Delete all items"
-msgstr ""
+msgstr "Удалить все объекты"
 
 #: index.php:1200
 msgid "Help"
@@ -199,7 +199,7 @@ msgstr ""
 
 #: index.php:1201
 msgid "Feedback"
-msgstr ""
+msgstr "Обратная связь"
 
 #: index.php:1202
 #, fuzzy
@@ -409,7 +409,7 @@ msgstr ""
 
 #: index.php:1342
 msgid "Thank you!"
-msgstr ""
+msgstr "Спасибо!"
 
 #: index.php:1349
 #, fuzzy
