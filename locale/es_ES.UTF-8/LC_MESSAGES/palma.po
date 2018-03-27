@@ -18,11 +18,11 @@ msgstr ""
 
 #: index.php:180
 msgid "not available"
-msgstr ""
+msgstr "No disponible"
 
 #: index.php:222
 msgid "Enter valid URL"
-msgstr "Ingresar URL válida"
+msgstr "Favor de ingresar URL válida"
 
 #: index.php:562
 msgid "You were disconnected!"
@@ -30,7 +30,7 @@ msgstr "Fuiste desconectado!"
 
 #: index.php:583
 msgid "Select screen section for display"
-msgstr "Seleccionar sección de la pantalla para mostrar"
+msgstr "Selecciona la sección de pantalla a mostrar"
 
 #: index.php:693
 msgid "Toggle visibility"
@@ -46,16 +46,16 @@ msgstr "Alejar"
 
 #: index.php:699
 msgid "Rotate counterclockwise"
-msgstr ""
+msgstr "Rotar en contra a las agujas del reloj"
 
 #: index.php:700
 msgid "Rotate clockwise"
-msgstr ""
+msgstr "Rotar según las agujas del reloj"
 
 #: index.php:701
 #, fuzzy
 msgid "Download this item"
-msgstr "Descargar archivo"
+msgstr "Descargar este objecto"
 
 #: index.php:707
 #, fuzzy
@@ -100,50 +100,50 @@ msgstr "Bienvenido"
 
 #: index.php:757
 msgid "There is no shared content yet. Click below to get started!"
-msgstr ""
+msgstr "Todavía no hay contenido compartido. Da click abajo para comenzar!"
 
 #: index.php:761 index.php:1069 index.php:1224
 msgid "Add"
-msgstr ""
+msgstr "Agregar"
 
 #: index.php:979
 msgid "Sorry! Screensharing for your device is currently not supported."
-msgstr ""
+msgstr "Lo lamentamos! Tu dispositivo no está soportado para compartir pantalla."
 
 #: index.php:1070 index.php:1251
 #, fuzzy
 msgid "Control"
-msgstr "Control del cursor"
+msgstr "Control"
 
 #: index.php:1071 index.php:1272
 #, fuzzy
 msgid "Extras"
-msgstr "Ayuda + Extras"
+msgstr "Extras"
 
 #: index.php:1077
 msgid "File"
-msgstr ""
+msgstr "Archivo"
 
 #: index.php:1078
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: index.php:1079
 #, fuzzy
 msgid "Screen"
-msgstr "Distribución de la pantalla"
+msgstr "Pantalla"
 
 #: index.php:1086
 msgid "Drag and drop files or click here to upload."
-msgstr ""
+msgstr "Arrastra y suelta los archivos o da click aqui para subir."
 
 #: index.php:1088
 msgid "Add file (click or drop here)"
-msgstr ""
+msgstr "Aggregar archivo (click o suelta aqui)"
 
 #: index.php:1107
 msgid "Add webpage"
-msgstr ""
+msgstr "Agregar página web"
 
 #: index.php:1110
 msgid "Enter URL"
@@ -151,7 +151,7 @@ msgstr "Favor ingresar URL"
 
 #: index.php:1113
 msgid "Click here to show the webpage on the screen."
-msgstr ""
+msgstr "Da click aqui para mostrar la página web en la pantalla."
 
 #: index.php:1114
 #, fuzzy
@@ -160,7 +160,7 @@ msgstr "Favor ingresar URL"
 
 #: index.php:1121
 msgid "Add your screen"
-msgstr ""
+msgstr "Agrega tu pantalla"
 
 #: index.php:1122
 msgid "Download screensharing tool"
