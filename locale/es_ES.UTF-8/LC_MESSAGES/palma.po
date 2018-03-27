@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-23 17:52+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
-"Last-Translator: Piero Divasto <pdivasto@mail.uni-mannheim.de>\n"
+"Last-Translator: Amy Garcia Kennedy <cecik91@gmail.com>\n"
 "Language-Team: Spanish <en@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,11 @@ msgstr ""
 
 #: index.php:180
 msgid "not available"
-msgstr ""
+msgstr "No disponible"
 
 #: index.php:222
 msgid "Enter valid URL"
-msgstr "Ingresar URL válida"
+msgstr "Favor de ingresar URL válida"
 
 #: index.php:562
 msgid "You were disconnected!"
@@ -30,7 +30,7 @@ msgstr "Fuiste desconectado!"
 
 #: index.php:583
 msgid "Select screen section for display"
-msgstr "Seleccionar sección de la pantalla para mostrar"
+msgstr "Selecciona la sección de pantalla a mostrar"
 
 #: index.php:693
 msgid "Toggle visibility"
@@ -46,19 +46,17 @@ msgstr "Alejar"
 
 #: index.php:699
 msgid "Rotate counterclockwise"
-msgstr ""
+msgstr "Rotar en contra a las agujas del reloj"
 
 #: index.php:700
 msgid "Rotate clockwise"
-msgstr ""
+msgstr "Rotar según las agujas del reloj"
 
 #: index.php:701
-#, fuzzy
 msgid "Download this item"
-msgstr "Descargar archivo"
+msgstr "Descargar este objecto"
 
 #: index.php:707
-#, fuzzy
 msgid "Remove this item"
 msgstr "Eliminar este objecto"
 
@@ -100,50 +98,47 @@ msgstr "Bienvenido"
 
 #: index.php:757
 msgid "There is no shared content yet. Click below to get started!"
-msgstr ""
+msgstr "Todavía no hay contenido compartido. Da click abajo para comenzar!"
 
 #: index.php:761 index.php:1069 index.php:1224
 msgid "Add"
-msgstr ""
+msgstr "Agregar"
 
 #: index.php:979
 msgid "Sorry! Screensharing for your device is currently not supported."
-msgstr ""
+msgstr "Lo lamentamos! Tu dispositivo no está soportado para compartir pantalla."
 
 #: index.php:1070 index.php:1251
-#, fuzzy
 msgid "Control"
-msgstr "Control del cursor"
+msgstr "Control"
 
 #: index.php:1071 index.php:1272
-#, fuzzy
 msgid "Extras"
-msgstr "Ayuda + Extras"
+msgstr "Extras"
 
 #: index.php:1077
 msgid "File"
-msgstr ""
+msgstr "Archivo"
 
 #: index.php:1078
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: index.php:1079
-#, fuzzy
 msgid "Screen"
-msgstr "Distribución de la pantalla"
+msgstr "Pantalla"
 
 #: index.php:1086
 msgid "Drag and drop files or click here to upload."
-msgstr ""
+msgstr "Arrastra y suelta los archivos o da click aqui para subir."
 
 #: index.php:1088
 msgid "Add file (click or drop here)"
-msgstr ""
+msgstr "Aggregar archivo (click o suelta aqui)"
 
 #: index.php:1107
 msgid "Add webpage"
-msgstr ""
+msgstr "Agregar página web"
 
 #: index.php:1110
 msgid "Enter URL"
@@ -151,16 +146,15 @@ msgstr "Favor ingresar URL"
 
 #: index.php:1113
 msgid "Click here to show the webpage on the screen."
-msgstr ""
+msgstr "Da click aqui para mostrar la página web en la pantalla."
 
 #: index.php:1114
-#, fuzzy
 msgid "Enter"
-msgstr "Favor ingresar URL"
+msgstr "Ingresar"
 
 #: index.php:1121
 msgid "Add your screen"
-msgstr ""
+msgstr "Agrega tu pantalla"
 
 #: index.php:1122
 msgid "Download screensharing tool"
@@ -201,21 +195,18 @@ msgid "Feedback"
 msgstr ""
 
 #: index.php:1202
-#, fuzzy
 msgid "Users"
-msgstr "Lista de usuarios"
+msgstr "Usuarios"
 
 #: index.php:1205
-#, fuzzy
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
 msgstr ""
-"Con PalMA, tu puedes compartir documentos y tu escritorio\n"
+"Con PalMA, tu puedes compartir documentos, sitios web y tu escritorio\n"
 "            con tu grupo de trabajo."
 
 #: index.php:1206
-#, fuzzy
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
 msgstr ""
 "PalMA team monitor muestra hasta 4 contribuciones\n"
@@ -234,11 +225,8 @@ msgid "Connect"
 msgstr ""
 
 #: index.php:1214
-#, fuzzy
 msgid "Team members can join the session at any time with this URL or QR-Code:"
-msgstr ""
-"Miembros del grupo pueden unirse en cualquier momento. Todo\n"
-"            lo que necesitan es la URL y el PIN."
+msgstr "Miembros del grupo pueden unirse en cualquier momentocon esta URL o QR-Code:"
 
 #: index.php:1217 index.php:1374
 msgid "PIN: "
@@ -329,18 +317,16 @@ msgid "Hide and show"
 msgstr ""
 
 #: index.php:1258
-#, fuzzy
 msgid "Zoom in and out"
-msgstr "Alejar"
+msgstr "Acercar y alejar el zoom"
 
 #: index.php:1259
 msgid "Rotate"
 msgstr ""
 
 #: index.php:1260
-#, fuzzy
 msgid "Download"
-msgstr "Descargar archivo"
+msgstr "Descargar"
 
 #: index.php:1261
 msgid "Delete the item"
@@ -413,9 +399,8 @@ msgid "Thank you!"
 msgstr ""
 
 #: index.php:1349
-#, fuzzy
 msgid "Select language:"
-msgstr "Seleccionar lugar de trabajo"
+msgstr "Seleccionar un idioma"
 
 #: index.php:1366
 msgid "User list"
@@ -430,9 +415,8 @@ msgid "New users can join at"
 msgstr ""
 
 #: index.php:1382
-#, fuzzy
 msgid "Disconnect all users and end the session"
-msgstr "Desconectar a todos los usuarios y limpiar lugar de trabajo"
+msgstr "Desconectar a todos los usuarios y finalizar la sesión"
 
 #: index.php:1383
 msgid "End the session"
@@ -443,9 +427,8 @@ msgid "Disconnect the current user"
 msgstr "Desconectar al usuario actual"
 
 #: index.php:1396
-#, fuzzy
 msgid "Log out"
-msgstr "Alejar"
+msgstr ""
 
 #: i12n.php:86
 msgid "Screen section"
