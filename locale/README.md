@@ -6,7 +6,6 @@
 
 |Locale|Completion|
 |---|---|
-|[al_AL](#al_al)|100.00|
 |[ar](#ar)|29.41|
 |[de_DE](#de_de)|100.00|
 |[es_ES](#es_es)|46.22|
@@ -14,22 +13,10 @@
 |[it_IT](#it_it)|43.70|
 |[lv_LV](#lv_lv)|25.21|
 |[ru_RU](#ru_ru)|52.10|
+|[sq_AL](#sq_al)|100.00|
 |[ur_PK](#ur_pk)|13.45|
 |[zh_CN](#zh_cn)|100.00|
 |[zh_TW](#zh_tw)|43.70|
-
-## al_AL
-
-Completion: **100.00** (119 / 119 strings)
-
-Contributors:
-
-  * Alexander Wagner
-  * Elisa Greca
-  * Gert Pere
-  * Kristiana Ristani
-  * Piero Divasto
-  * Stefan Weil
 
 ## ar
 
@@ -553,6 +540,19 @@ Missing:
   * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
   * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
   * `see here.`
+
+## sq_AL
+
+Completion: **100.00** (119 / 119 strings)
+
+Contributors:
+
+  * Alexander Wagner
+  * Elisa Greca
+  * Gert Pere
+  * Kristiana Ristani
+  * Piero Divasto
+  * Stefan Weil
 
 ## ur_PK
 

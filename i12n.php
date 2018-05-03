@@ -27,7 +27,7 @@ require_once('php-gettext/gettext.inc');
     switch (substr($locale, 0, 2)) {
     case 'al':
         // Albanian.
-        $locale = 'al_AL.UTF-8';
+        $locale = 'sq_AL.UTF-8';
         break;
     case 'ar':
         // Arabic.
@@ -100,7 +100,7 @@ if ($unittest[__FILE__]) {
     }
 
     testlocale();
-    testlocale('al_AL.UTF-8');
+    testlocale('sq_AL.UTF-8');
     testlocale('ar.UTF-8');
     testlocale('de_DE.UTF-8');
     testlocale('en_US.UTF-8');
