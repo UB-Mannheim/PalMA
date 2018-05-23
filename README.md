@@ -29,11 +29,11 @@ a website, so it's perfectly usable for all kinds of (mobile) devices.
 PalMA in Use
 
 ![PalMA in
-use](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/images/IMG_5965.JPG)
+use](https://raw.githubusercontent.com/UB-Mannheim/PalMA/master/docs/images/IMG_5965.JPG)
 
 PalMA New UI
 
-![PalMA NewUI](https://raw.githubusercontent.com/UB-Mannheim/PalMA/palma-redesign/docs/images/screenshots/palma-newui-overview.png)
+![PalMA NewUI](https://raw.githubusercontent.com/UB-Mannheim/PalMA/master/docs/images/screenshots/palma-newui-overview.png)
 
 Installation
 ------------
