@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-23 17:52+0100\n"
+"POT-Creation-Date: 2018-06-06 10:49+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Chen Zongqi\n"
 "Language-Team: Chinese <zh@li.org>\n"
@@ -444,43 +444,43 @@ msgstr "断开当前用户连接"
 msgid "Log out"
 msgstr "登出"
 
-#: i12n.php:86
+#: i12n.php:90
 msgid "Screen section"
 msgstr "屏幕部分"
 
-#: login.php:93 login.php:101 login.php:104
+#: login.php:92 login.php:100 login.php:103
 msgid "Invalid credentials!"
 msgstr "证书无效！"
 
-#: login.php:98
+#: login.php:97
 msgid "Cannot check credentials, sorry!"
 msgstr "抱歉，无法检查证书。"
 
-#: login.php:133
+#: login.php:132
 msgid "Invalid PIN."
 msgstr "PIN码无效"
 
-#: login.php:168
+#: login.php:167
 msgid "PalMA &ndash; Login"
 msgstr "PalMA &ndash; 登入"
 
-#: login.php:194
+#: login.php:193
 msgid "Login"
 msgstr "登入"
 
-#: login.php:198
+#: login.php:197
 msgid "User name"
 msgstr "用户名"
 
-#: login.php:205
+#: login.php:204
 msgid "Password"
 msgstr "密码"
 
-#: login.php:213
+#: login.php:212
 msgid "PIN"
 msgstr "PIN码"
 
-#: login.php:221
+#: login.php:220
 msgid "Log in"
 msgstr "登入"
 

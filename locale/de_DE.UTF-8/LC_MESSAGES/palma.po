@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-23 17:52+0100\n"
+"POT-Creation-Date: 2018-06-06 10:49+0200\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
 "Last-Translator: Dennis Müller <dennis.mueller@bib.uni-mannheim.de>\n"
 "Language-Team: Deutsch <de@li.org>\n"
@@ -478,44 +478,44 @@ msgstr "Den aktuellen Benutzer abmelden"
 msgid "Log out"
 msgstr "Abmelden"
 
-#: i12n.php:86
+#: i12n.php:90
 msgid "Screen section"
 msgstr "Bildschirmbereich"
 
 # Login Mask
-#: login.php:93 login.php:101 login.php:104
+#: login.php:92 login.php:100 login.php:103
 msgid "Invalid credentials!"
 msgstr "Benutzerkennung ungültig!"
 
-#: login.php:98
+#: login.php:97
 msgid "Cannot check credentials, sorry!"
 msgstr "Prüfung der Benutzerkennung zur Zeit leider nicht möglich!"
 
-#: login.php:133
+#: login.php:132
 msgid "Invalid PIN."
 msgstr "PIN ungültig."
 
-#: login.php:168
+#: login.php:167
 msgid "PalMA &ndash; Login"
 msgstr "PalMA &ndash; Anmeldung"
 
-#: login.php:194
+#: login.php:193
 msgid "Login"
 msgstr "Anmeldung"
 
-#: login.php:198
+#: login.php:197
 msgid "User name"
 msgstr "Benutzername"
 
-#: login.php:205
+#: login.php:204
 msgid "Password"
 msgstr "Passwort"
 
-#: login.php:213
+#: login.php:212
 msgid "PIN"
 msgstr "PIN"
 
-#: login.php:221
+#: login.php:220
 msgid "Log in"
 msgstr "Anmelden"
 
