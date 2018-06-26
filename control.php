@@ -209,7 +209,7 @@ function activateControls($windowhex)
 {
     global $db;
     $fhandler = $db->querySingle("SELECT handler FROM window WHERE win_id='$windowhex'");
-    error_log("activateControls for handler $fhandler");
+    trace("activateControls for handler $fhandler");
 }
 
 function addNewWindow($db, $new)

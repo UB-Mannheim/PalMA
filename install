@@ -1,0 +1,622 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import argparse, grp, os, platform, pwd, re, shutil, socket, sys, tempfile
+from subprocess import call, check_call, check_output, CalledProcessError
+
+################################################################################
+## command line parsing
+################################################################################
+parser = argparse.ArgumentParser(
+    description='Configure script for PalMA',
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+parser.add_argument('--prefix', default='/usr', help='set install prefix')
+parser.add_argument('--sysconfdir', default='/etc', help='set sysconfdir')
+parser.add_argument('--libdir', default=argparse.SUPPRESS,
+                    help='set lib directory explicitly (default: PREFIX/lib/palma)')
+parser.add_argument('--wwwdir', default=argparse.SUPPRESS,
+                    help='set www root directory explicitly (default: PREFIX/share/palma)')
+
+parser.add_argument('--browser', default='midori', choices=['midori','dwb'],
+                    help='set browser')
+parser.add_argument('--debdir', default='..',
+                    help='set debian package output directory')
+parser.add_argument('--debsuffix', default='',
+                    help='add suffix to debian package name')
+parser.add_argument('--debversion', default='auto',
+                    help='set debian package version')
+parser.add_argument('--dbdir', default='/var/lib/palma',
+                    help='set database directory')
+parser.add_argument('--no-deps', action='store_false', dest='deps',
+                    help='install dependencies')
+parser.add_argument('--display', default=':1',
+                    help='set X display')
+parser.add_argument('--fast', action='store_true',
+                    help='disable compression when building debian packages')
+parser.add_argument('--file', default='palma.ini',
+                    help='set config file path')
+parser.add_argument('--infourl', default='',
+                    help='set additional info url')
+parser.add_argument('--init', choices=['sysvinit','systemd'], default='systemd',
+                    help='set init system for start script')
+parser.add_argument('--name', default=argparse.SUPPRESS,
+                    help='set host name (default: %s)' % socket.getfqdn())
+parser.add_argument('--password', action='store_true',
+                    help="enable password authorization")
+parser.add_argument('--phpversion', default='7.2',
+                    help='set php version')
+parser.add_argument('--pin', action='store_false',
+                    help="enable pin authorization")
+parser.add_argument('--server', choices=['apache2','nginx'], default='nginx',
+                    help='set web server')
+parser.add_argument('--theme', default='demo/simple',
+                    help='set theme')
+parser.add_argument('--upload', default='/tmp/palma',
+                    help='set upload directory')
+parser.add_argument('--url', default=argparse.SUPPRESS,
+                    help='set www url (default: http://%s/)' % socket.getfqdn())
+parser.add_argument('--user', default='www-data',
+                    help='set user account for running applications')
+parser.add_argument('-v', '--verbose', action='store_true',
+                    help='set verbose output')
+parser.add_argument('mode', nargs='?', choices=['install','deb'], default='install',
+                    help='run mode')
+args = parser.parse_args()
+
+################################################################################
+## lists of files and dependencies
+################################################################################
+deps_debian = [
+    'feh', 'libreoffice', 'ssvnc', 'vlc', 'x11vnc', 'zathura',
+    'wmctrl', 'xdotool', 'openbox', 'libjs-jquery', 'sqlite3',
+    'php7.0', 'php7.0-cgi', 'php7.0-cli', 'php7.0-curl', 'php7.0-fpm',
+    'php7.0-gd', 'php7.0-intl', 'php7.0-sqlite3', 'php7.0-mbstring',
+    'gettext', 'git', 'libavcodec-extra', 'make', 'unattended-upgrades'
+]
+
+files_wwwdir = [
+    # php
+    'auth.php', 'control.php', 'DBConnector.class.php', 'db.php',
+    'download.php', 'FileHandler.class.php', 'i12n.php', 'index.php',
+    'login.php', 'logout.php', 'SSVNCDaemon.php', 'upload.php',
+    'vncviewer.php',
+    # css
+    'palma.css', 'pure-min.css',
+    # js
+    'dropzone.js', 'unslider.js', 'unslider.min.js',
+]
+
+dirs_wwwdir = [
+    'font-awesome', 'images', 'locale', 'php-gettext', 'qrcode', 'settings',
+    'theme',
+]
+
+pkgs_server = {
+    'nginx':  [ 'nginx-light' ],
+    'apache': [ 'apache2', 'libapache2-mod-php7.0' ],
+}
+
+################################################################################
+## helper functions for configuration file creation
+################################################################################
+def makeconf_palma():
+    return ''';
+; palma.ini
+;
+; Config File for Environment Variables
+;
+; Copy into the same directory as index.php.
+;
+; The entries here are available as PHP constants:
+;
+; CONFIG_DISPLAY
+; CONFIG_SSH
+; CONFIG_PASSWORD
+; CONFIG_PIN
+; CONFIG_STATIONNAME
+; CONFIG_THEME
+; CONFIG_START_URL
+; CONFIG_POLICY
+; CONFIG_CONTROL_FILE
+; CONFIG_UPLOAD_DIR
+; CONFIG_INSTITUTION_URL
+
+[display]
+; X display id (default: ":1").
+id = "{args.display}"
+; SSH command to connect to display (optional).
+;~ ssh = "ssh palma@localhost";
+
+[general]
+; Enable or disable password authorization (default: false).
+password = {password}
+; Enable or disable pin authorization (default: true).
+pin = {pin}
+; Name of this PalMA station (default: host name). Only used for display.
+stationname = "{args.name}"
+; Theme (style) to use for this station (default: "demo/simple").
+theme = "{args.theme}"
+
+[path]
+; URL which users use to connect.
+start_url = "{args.url}"
+; Privacy policy text (optional).
+;policy = "<a href=\"demo/simple/policy.php\">Privacy Policy</a>"
+; URL used internally for monitor control (default: control.php).
+;control_file = "http://localhost/control.php"
+; Directory for file uploads (default: "/var/www/html/uploads").
+upload_dir = "{args.upload}"
+; URL to additional PalMA information on your webpage (default: "")
+institution_url = ""
+'''.format(args=args,password=str(args.password).lower(),pin=str(args.pin).lower())
+
+def makeconf_apache():
+    return """Alias / "{args.wwwdir}/"
+    <Directory {args.wwwdir}>
+        # "RewriteEngine" needs "FileInfo".
+        # "Order" needs "Limit".
+        AllowOverride FileInfo Limit
+    </Directory>
+""".format(args=args)
+    
+def makeconf_nginx():
+    return """server {{
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  root {args.wwwdir};
+  index index.html index.htm index.php index.nginx-debian.html;
+  server_name {args.name};
+
+  location / {{
+    # First attempt to serve request as file, then
+    # as directory, then fall back to displaying a 404.
+    try_files $uri $uri/ =404;
+  }}
+
+  location ~ \.php$ {{
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+
+    # If you still use php5 uncomment these lines instead of the above:
+    #fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    #fastcgi_pass unix:/var/run/php5-fpm.sock;
+    #fastcgi_index index.php;
+    #include fastcgi_params;
+  }}
+}}
+""".format(args=args)
+
+def makeconf_php():
+    return """upload_max_filesize = 10M
+post_max_size = 10M
+"""
+
+def makeconf_systemd():
+    user = pwd.getpwnam(args.user)
+    group = grp.getgrgid(user.pw_gid)
+    home  = user.pw_dir
+    
+    return """[Unit]
+Description=Start PalMA Station
+
+[Service]
+Type=simple
+ExecStart={binary}
+WorkingDirectory={home}
+User=root
+Group={group}
+StandardOutput=syslog
+StandardError=inherit
+SyslogIdentifier=palma
+
+[Install]
+WantedBy=multi-user.target
+""".format(binary=os.path.join(args.libdir,'startx'),user=user.pw_name,group=group.gr_name,home=home)
+
+def makeconf_sysvinit():
+    return """#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          palma
+# Should-Start:      console-screen kbd acpid dbus hal consolekit
+# Required-Start:    $local_fs $remote_fs apache2 x11-common
+# Required-Stop:     $local_fs $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: PalMA
+# Description:       Present and learn in Mannheim
+### END INIT INFO
+#
+# Author:       Alex Wagner, Stefan Weil (UB Mannheim)
+#
+set -e
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON={args.libdir}/startx
+
+test -x $DAEMON || exit 0
+
+if [ -r /etc/default/locale ]; then
+  . /etc/default/locale
+  export LANG LANGUAGE
+fi
+
+case "$1" in
+  start)
+        #log_daemon_msg "Starting PalMA" "palma"
+        #start-stop-daemon --start --quiet --pidfile /var/run/palma.pid --name palma --exec $DAEMON|| echo -n " already running"
+        /usr/bin/nohup $DAEMON 2>&1 | logger --id palma  &
+        sleep 2
+  ;;
+  stop)
+        #log_daemon_msg "Stopping PalMA" "palma"
+        set +e
+        #start-stop-daemon --stop --quiet --pidfile /var/run/palma.pid \
+        #        --name palma --retry 5
+        set -e
+        #log_end_msg $?
+  ;;
+  reload)
+  ;;
+  status)
+        status_of_proc -p "$PIDFILE" "$DAEMON" palma && exit 0 || exit $?
+  ;;
+  restart|force-reload)
+        $0 stop
+        sleep 1
+        $0 start
+  ;;
+  *)
+        echo "Usage: /etc/init.d/palma {{start|stop|restart|reload|force-reload|status}}"
+        exit 1
+  ;;
+esac
+
+exit 0
+""".format(args=args)
+
+def makeconf_rsyslog():
+    return """if $programname == 'palma' then /var/log/palma.log
+if $programname == 'palma' then stop
+"""
+
+def makedeb_control_apache():
+    return """Package: palma{args.debsuffix}-apache
+Version: {args.debversion}
+Maintainer: Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>
+Architecture: all
+Depends: {depends}
+Conflicts: palma{args.debsuffix}-nginx, nginx
+Description: PalMA – share a team monitor
+ PalMA enables people to share several contents on one monitor. Users
+ can display PDF files, office files, images, videos, websites and or
+ computer screens in real time (up to four entries
+ simultaneously). Everything can be controlled via a website, so it's
+ perfectly usable for all kinds of (mobile) devices.
+ This package adds dependencies to apache.
+""".format(args=args,depends=', '.join(pkgs_server['apache']))
+
+def makedeb_control_nginx():
+    return """Package: palma{args.debsuffix}-nginx
+Version: {args.debversion}
+Maintainer: Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>
+Architecture: all
+Depends: {depends}
+Conflicts: palma{args.debsuffix}-apache, apache2-bin
+Description: PalMA – share a team monitor
+ PalMA enables people to share several contents on one monitor. Users
+ can display PDF files, office files, images, videos, websites and or
+ computer screens in real time (up to four entries
+ simultaneously). Everything can be controlled via a website, so it's
+ perfectly usable for all kinds of (mobile) devices.
+ This package adds dependencies to nginx.
+""".format(args=args,depends=', '.join(pkgs_server['nginx']))
+
+def makedeb_control():
+    return """Package: palma{args.debsuffix}
+Version: {args.debversion}
+Maintainer: Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>
+Architecture: all
+Depends: {depends}, palma{args.debsuffix}-nginx | palma{args.debsuffix}-apache, midori | dwb
+Description: PalMA – share a team monitor
+ PalMA enables people to share several contents on one monitor. Users
+ can display PDF files, office files, images, videos, websites and or
+ computer screens in real time (up to four entries
+ simultaneously). Everything can be controlled via a website, so it's
+ perfectly usable for all kinds of (mobile) devices.
+""".format(args=args,depends=', '.join(deps_debian))
+
+def makedeb_postinst():
+    return """#!/bin/sh
+if test -x /usr/sbin/apache2; then
+  a2enmod rewrite
+  a2enconf palma.conf
+  apache2ctl configtest
+  apache2ctl restart
+fi
+
+if test -x /usr/sbin/nginx; then
+  ln -s ../sites-available/palma /etc/nginx/sites-enabled/palma
+  if test -h /etc/nginx/sites-enabled/default; then
+    echo "Removing /etc/nginx/sites-enabled/default"
+    rm -f /etc/nginx/sites-enabled/default
+  fi
+  service nginx reload
+fi
+
+mkdir -p {args.dbdir}
+chown {args.user} {args.dbdir}
+
+sed -i s,PALMA_NAME_REPLACEME,`hostname -f`, /etc/nginx/sites-available/palma
+sed -i s,PALMA_NAME_REPLACEME,`hostname -f`, {args.sysconfdir}/palma.ini
+sed -i s,PALMA_URL_REPLACEME,http://`hostname -f`/, {args.sysconfdir}/palma.ini
+
+if test -d /run/systemd; then
+  systemctl enable palma
+  systemctl start palma
+else
+  /etc/init.d/palma start
+fi
+""".format(args=args)
+
+def makedeb_prerm():
+    return """#!/bin/sh
+if test -d /run/systemd; then
+  systemctl stop palma
+  systemctl disable palma
+else
+  /etc/init.d/palma stop
+fi
+
+rm -f {args.dbdir}/palma.db
+
+if test -x /usr/sbin/apache2; then
+  a2disconf palma.conf
+  apache2ctl configtest
+  apache2ctl restart
+fi
+
+if test -x /usr/sbin/nginx; then
+  rm -f /etc/nginx/sites-enabled/palma
+  service nginx reload
+fi
+""".format(args=args)
+
+def makedeb_version():
+    lastcommit = check_output(
+        ['/usr/bin/git', 'log', '--pretty=format:%h', '-n', '1'])
+    curvers = check_output(
+        ['/usr/bin/git', 'tag', '--contains', lastcommit])
+    if not len(curvers):
+        lastvers = check_output(
+            ['/usr/bin/git', 'tag']).strip().split('\n').pop()
+        lastvers = lastvers.replace('v','')
+        curvers = "%s+%s" % (lastvers,lastcommit)
+    return curvers
+
+################################################################################
+## helper functions
+################################################################################
+def printv(*a):
+    if args.verbose:
+        print>>sys.stderr, " ".join(map(str,a))
+
+def mkdir(d):
+    if not os.path.exists(d):
+        os.makedirs(d)
+        
+def snr(pattern,f):
+    check_call(['/bin/sed', '-i', pattern, f])
+
+################################################################################
+## start of script
+################################################################################
+if 'libdir' not in vars(args):
+    vars(args)['libdir'] = os.path.join(args.prefix,'lib','palma')
+if 'wwwdir' not in vars(args):
+    vars(args)['wwwdir'] = os.path.join(args.prefix,'share','palma')
+
+if 'name' not in vars(args):
+    vars(args)['name'] = socket.fqdn() if args.mode == 'install' \
+                         else 'PALMA_NAME_REPLACEME'
+if 'url' not in vars(args):
+    vars(args)['url'] = "http://%s/" % socket.fqdn() if args.mode == 'install' \
+                        else 'PALMA_URL_REPLACEME'
+    
+if args.debversion == 'auto':
+    vars(args)['debversion'] = makedeb_version()
+
+deps_debian = [ re.sub( r'php7.0', 'php%s' % args.phpversion, i)
+                for i in deps_debian ]
+pkgs_server = { k: [ re.sub( r'php7.0', 'php%s' % args.phpversion, i)
+                     for i in v ] for k,v in pkgs_server.items() }
+
+dpkg_deb = [ '/usr/bin/dpkg-deb' ]
+if args.fast:
+    dpkg_deb.append('-Znone')
+
+arch = platform.machine()
+opsys = platform.system()
+if opsys == "Linux":
+    opsys = " ".join(platform.linux_distribution()).capitalize()
+    
+if args.verbose:
+    printv("Settings summary:")
+    for k,v in sorted(args.__dict__.items()):
+        printv("  %10s: %s" % (k,repr(v)))
+    
+    printv("Detecting system:")
+    printv("  Arch:", arch)
+    printv("    OS:", opsys)
+
+try:
+    prefix = ''
+    if args.mode == 'deb':
+        prefix = tempfile.mkdtemp()
+        printv("Creating debian package in '%s'" % prefix)
+        
+    if args.mode == 'install' and args.deps:
+        # install dependencies
+        if opsys.startswith('Debian'):
+            try:
+                check_call(['/usr/bin/apt-get', 'install', '-y']
+                           + deps_debian + args.browser
+                           + pkgs_server[args.server])
+            except:
+                print>>sys.stderr, 'Error installing dependencies, exiting.'
+                if args.verbose: raise
+                sys.exit(1)
+        
+    if args.mode == 'install':
+        # stop palma if already installed
+        if args.init == 'systemd':
+            if call(['/bin/systemctl', 'is-active', 'palma'],
+                    stdout=open(os.devnull, 'w')) == 0:
+                printv("Stopping systemd service")
+                call(['/bin/systemctl', 'stop', 'palma'])
+        
+    # build localization files
+    check_call(['/usr/bin/make'])
+    
+    # copy files
+    userstruct = pwd.getpwnam(args.user)
+
+    wwwdir = prefix + args.wwwdir
+    mkdir(wwwdir)
+    for f in files_wwwdir:
+        printv("Copying '%s'" % f)
+        shutil.copy(f,wwwdir)
+    for d in dirs_wwwdir:
+        printv("Copying directory '%s'" % d)
+        trg = os.path.join(wwwdir,d)
+        if os.path.exists(trg): shutil.rmtree(trg)
+        shutil.copytree(d,trg,symlinks=True)
+    
+    printv("Installing 'palma.ini'")
+    # palma.ini
+    snr('s,palma.ini,%s,g' % os.path.join(args.sysconfdir,'palma.ini'),
+        os.path.join(wwwdir,'DBConnector.class.php'))
+    sysconfdir = prefix + args.sysconfdir
+    mkdir(sysconfdir)
+    with open(os.path.join(sysconfdir,'palma.ini'),'w') as f:
+        f.write(makeconf_palma())
+
+    # palma.db
+    snr('s,palma.db,%s,g' % os.path.join(args.dbdir,'palma.db'),
+        os.path.join(wwwdir,'DBConnector.class.php'))
+    dbdir = prefix + args.dbdir
+    mkdir(dbdir)
+    if args.mode == 'install':    
+        os.chown(dbdir,userstruct.pw_uid,userstruct.pw_gid)
+        
+    # configure web server
+    if args.server == 'nginx' or args.mode == 'deb':
+        printv("Creating configuration for nginx")
+        path = prefix + '/etc/php/7.0/cgi/conf.d'
+        if not os.path.exists(path):
+            os.makedirs(path)
+        with open(os.path.join(path,'palma.conf'), 'w') as f:
+            f.write(makeconf_php())
+        path = prefix + '/etc/nginx/sites-available'
+        if not os.path.exists(path):
+            os.makedirs(path)
+        with open(os.path.join(path,'palma'), 'w') as f:
+            f.write(makeconf_nginx())
+
+        if args.mode == 'install':
+            path = prefix + '/etc/nginx/sites-enabled'
+            if not os.path.exists(path):
+                os.makedirs(path)
+            if not os.path.exists(os.path.join(path,'palma')):
+                os.symlink('../sites-available/palma',
+                           os.path.join(path,'palma'))
+            if os.path.exists(os.path.join(path,'default')):
+                os.remove(os.path.join(path,'default'))
+            printv("Reloading nginx configuration")
+            if args.init == 'systemd':
+                check_call(['/bin/systemctl', 'reload', 'nginx'])
+            else:
+                check_call(['/etc/init.d/nginx', 'reload'])
+    if args.server == 'apache' or args.mode == 'deb':
+        printv("Creating configuration for apache2")
+        path = prefix + '/etc/apache2/conf-available'
+        if not os.path.exists(path):
+            os.makedirs(path)
+        with open(os.path.join(path,'palma.conf'), 'w') as f:
+            f.write(makeconf_apache())
+        path = prefix + '/etc/php/7.0/apache2/conf.d'
+        if not os.path.exists(path):
+            os.makedirs(path)
+        with open(os.path.join(path,'palma.conf'), 'w') as f:
+            f.write(makeconf_php())
+
+        if args.mode == 'install':
+            printv("Reloading apache2 configuration")
+            check_call(['/usr/sbin/a2enmod', 'rewrite'])
+            check_call(['/usr/sbin/a2enconf', 'palma'])
+            check_call(['/usr/sbin/apache2ctl', 'configtest'])
+            check_call(['/usr/sbin/apache2ctl', 'restart'])
+
+    libdir = prefix + args.libdir
+    mkdir(libdir)
+    shutil.copy('scripts/startx',libdir)
+
+    # install syslog configuration
+    printv('Creating configuration for syslog')
+    path = prefix + '/etc/rsyslog.d'
+    mkdir(path)
+    with open(os.path.join(path,'palma.conf'), 'w') as f:
+        f.write(makeconf_rsyslog())
+    if args.mode == 'install':
+        check_call(['/bin/systemctl', 'restart', 'rsyslog'])
+        
+    # install init script
+    if args.init == 'systemd':
+        printv('Installing systemd service')
+        path = prefix + '/etc/systemd/system'
+        mkdir(path)
+        with open(os.path.join(path,'palma.service'), 'w') as f:
+            f.write(makeconf_systemd())
+            
+        if args.mode == 'install':
+            check_call(['/bin/systemctl', 'daemon-reload'])
+            check_call(['/bin/systemctl', 'enable', 'palma'])
+            check_call(['/bin/systemctl', 'start', 'palma'])
+    else:
+        pass
+
+    if args.mode == 'deb':
+        debdir = os.path.join(prefix,'DEBIAN')
+        mkdir(debdir)
+        with open(os.path.join(debdir,'control'),'w') as f:
+            f.write(makedeb_control())
+        with open(os.path.join(debdir,'postinst'),'w') as f:
+            f.write(makedeb_postinst())
+        os.chmod(os.path.join(debdir,'postinst'), 0755)
+        with open(os.path.join(debdir,'prerm'),'w') as f:
+            f.write(makedeb_prerm())
+        os.chmod(os.path.join(debdir,'prerm'), 0755)
+
+        debfile = 'palma%s_%s_all.deb' % (args.debsuffix,args.debversion)
+        check_call(dpkg_deb + [ '--build', prefix,
+                                os.path.join(args.debdir,debfile)])
+
+        for i in pkgs_server.keys():
+            tmpdir = tempfile.mkdtemp()
+            debdir = os.path.join(tmpdir,'DEBIAN')
+            mkdir(debdir)
+            with open(os.path.join(debdir,'control'),'w') as f:
+                f.write(globals()['makedeb_control_%s' % i]())
+            debfile = 'palma%s-%s_%s_all.deb' % (args.debsuffix,i,args.debversion)
+            check_call(dpkg_deb + [ '--build', tmpdir,
+                                    os.path.join(args.debdir,debfile)])
+            shutil.rmtree(tmpdir)
+
+except:
+    print>>sys.stderr, 'Error installing PalMA, exiting.'
+    if args.mode == 'deb': shutil.rmtree(prefix)
+    if args.verbose: raise
+    sys.exit(1)
+
+if args.mode == 'deb': shutil.rmtree(prefix)

@@ -2,7 +2,7 @@
 
 # Compile all available translations for the PalMA web interface.
 
-.PHONY: all
+.PHONY: all install
 
 DISTDIR=docs/dist
 LANGUAGES=$(shell cd locale && ls -d *.UTF-8 | sed s/.UTF-8//)
@@ -38,3 +38,6 @@ locale/README.md: $(PO)
 
 .git/hooks/%: $(DISTDIR)/%.sh
 	ln -sf ../../$< $@
+
+install: all
+	sudo ./install

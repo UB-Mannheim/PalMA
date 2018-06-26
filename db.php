@@ -85,6 +85,6 @@ for ($t = 0; $t < 300; $t++) {
     sleep(1);
 }
 
-touch("last_activity");
+touch("/tmp/last_activity");
 
 echo($newJSON);

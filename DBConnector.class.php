@@ -11,9 +11,11 @@ if (!isset($unittest)) {
 }
 $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
 
+openlog("palma", LOG_PID, LOG_USER);
 function trace($text)
 {
-    error_log("palma: $text");
+    syslog(LOG_NOTICE, $text);
+    //error_log("palma: $text");
 }
 
 class DBConnector extends SQLite3
@@ -74,7 +76,7 @@ eod;
     public function __construct($filename = false)
     {
         if (!$filename) {
-            $filename = dirname(__FILE__) . '/palma.db';
+            $filename = 'palma.db';
         }
         trace("db file = $filename");
         parent::__construct($filename);
