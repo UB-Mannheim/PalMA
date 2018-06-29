@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-06 10:49+0200\n"
+"POT-Creation-Date: 2018-06-29 14:02+0200\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
 "Last-Translator: Dennis Müller <dennis.mueller@bib.uni-mannheim.de>\n"
 "Language-Team: English <en@li.org>\n"
@@ -512,22 +512,4 @@ msgstr ""
 
 #: examples/screensaver/tiles.php:33
 msgid "Tiles"
-msgstr ""
-
-# selectplace
-#: selectplace/learningcenter.php:25 selectplace/learningcenter.php:39
-#: selectplace/monitor.php:25 selectplace/monitor.php:51
-msgid "Select workplace"
-msgstr ""
-
-#: selectplace/learningcenter.php:45
-msgid "Conference room"
-msgstr ""
-
-#: selectplace/learningcenter.php:45 selectplace/monitor.php:73
-msgid "Test monitor"
-msgstr ""
-
-#: selectplace/learningcenter.php:46 selectplace/monitor.php:66
-msgid "Mannheim table"
 msgstr ""

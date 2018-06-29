@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-06 10:49+0200\n"
+"POT-Creation-Date: 2018-06-29 14:02+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Chen Zongqi\n"
 "Language-Team: Chinese <zh@li.org>\n"
@@ -514,22 +514,17 @@ msgstr "显示图片"
 msgid "Tiles"
 msgstr "题目"
 
-#: selectplace/learningcenter.php:25 selectplace/learningcenter.php:39
-#: selectplace/monitor.php:25 selectplace/monitor.php:51
-msgid "Select workplace"
-msgstr "选择工作地点"
+#~ msgid "Select workplace"
+#~ msgstr "选择工作地点"
 
-#: selectplace/learningcenter.php:45
-msgid "Conference room"
-msgstr "会议室"
+#~ msgid "Conference room"
+#~ msgstr "会议室"
 
-#: selectplace/learningcenter.php:45 selectplace/monitor.php:73
-msgid "Test monitor"
-msgstr "测试监控"
+#~ msgid "Test monitor"
+#~ msgstr "测试监控"
 
-#: selectplace/learningcenter.php:46 selectplace/monitor.php:66
-msgid "Mannheim table"
-msgstr "曼海姆工作台"
+#~ msgid "Mannheim table"
+#~ msgstr "曼海姆工作台"
 
 #~ msgid "Close the advanced control"
 #~ msgstr "关闭高级控制"

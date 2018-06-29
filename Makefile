@@ -12,7 +12,6 @@ SRC+=i12n.php
 SRC+=login.php
 SRC+=upload.php
 SRC+=$(wildcard examples/screensaver/*.php)
-SRC+=$(wildcard selectplace/*.php)
 SRC+=$(wildcard theme/*/*/*.php)
 
 PO=$(wildcard locale/*.UTF-8/LC_MESSAGES/palma.po)
