@@ -50,14 +50,14 @@ Overlays
 */
 
     session_start();
-    if (isset($_REQUEST['monitor'])) {
-        $monitor = $_REQUEST['monitor'];
-        $_SESSION['monitor'] = $monitor;
-    } elseif (!isset($_SESSION['monitor'])) {
-        $_SESSION['monitor'] = '???';
-    }
+if (isset($_REQUEST['monitor'])) {
+    $monitor = $_REQUEST['monitor'];
+    $_SESSION['monitor'] = $monitor;
+} elseif (!isset($_SESSION['monitor'])) {
+    $_SESSION['monitor'] = '???';
+}
     $_SESSION['referer'] = 'index.php';
-    require('auth.php');
+    require_once('auth.php');
 
     // Connect to database and get configuration constants.
     require_once('DBConnector.class.php');
@@ -67,15 +67,15 @@ Overlays
     require_once('i12n.php');
 
     $user = false;
-    if (isset($_SESSION['username'])) {
-        # PHP session based authorization.
-        $username = $_SESSION['username'];
-        $address = $_SESSION['address'];
-        $user = "$username@$address";
-    } elseif (isset($_SERVER['PHP_AUTH_USER'])) {
-        # .htaccess basic authorization.
-        $user = $_SERVER['PHP_AUTH_USER'];
-    }
+if (isset($_SESSION['username'])) {
+    # PHP session based authorization.
+    $username = $_SESSION['username'];
+    $address = $_SESSION['address'];
+    $user = "$username@$address";
+} elseif (isset($_SERVER['PHP_AUTH_USER'])) {
+    # .htaccess basic authorization.
+    $user = $_SERVER['PHP_AUTH_USER'];
+}
 
     /*
      * file paths for vnc downloads
@@ -88,18 +88,18 @@ Overlays
      * contact form elements
      * might be sourced out and included
      */
-    if(isset($_POST['submit'])){
-        $to = "infol@bib.uni-mannheim.de";
-        $to = "alexander.wagner@bib.uni-mannheim.de";
-        $from = $_POST['email'];
-        $name = $_POST['name'];
-        $subject = "Feedback for PalMA";
-        $message = $name . " wrote the following:" . "\n\n" . $_POST['message'];
+if (isset($_POST['submit'])) {
+    $to = "infol@bib.uni-mannheim.de";
+    $to = "alexander.wagner@bib.uni-mannheim.de";
+    $from = $_POST['email'];
+    $name = $_POST['name'];
+    $subject = "Feedback for PalMA";
+    $message = $name . " wrote the following:" . "\n\n" . $_POST['message'];
 
-        $headers = "From:" . $from;
-        mail($to,$subject,$message,$headers);
-        echo "Mail Sent. Thank you for your feedback " . $name . ", we will get in touch with you shortly.";
-    }
+    $headers = "From:" . $from;
+    mail($to, $subject, $message, $headers);
+    echo "Mail Sent. Thank you for your feedback " . $name . ", we will get in touch with you shortly.";
+}
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
@@ -556,22 +556,22 @@ function updateUserList(address, user) {
         }
     } else {
 <?php
-    if ($user) {
-?>
+if ($user) {
+    ?>
         // All users were disconnected.
         alert("<?=__('You were disconnected!')?>");
         window.location = 'logout.php';
-<?php
-    } else {
-?>
+    <?php
+} else {
+    ?>
         // If there is no user, we display an empty entry.
         var tr = document.createElement('tr');
         var td = document.createElement('td');
         td.appendChild(document.createTextNode("\u00a0"));
         tr.appendChild(td);
         list.appendChild(tr);
-<?php
-    }
+    <?php
+}
 ?>
     }
 }
@@ -1207,13 +1207,14 @@ window.onclick = function(event) {
             <?php
             if (CONFIG_INSTITUTION_URL) { ?>
                 <p><?=__('For further information about PalMA in this institution')?> <a href=<?=CONFIG_INSTITUTION_URL?> target="_blank"><?=__('see here.')?></a></p>
-            <?php
+                <?php
             }
             ?>
             <h4><?=__('Connect')?><i class="fa fa-wifi"></i></h4>
             <p><?=__('Team members can join the session at any time with this URL or QR-Code:')?></p>
             <p class="url_hint"><?=$_SESSION['starturl']?><br />
-            <?php if (!empty($_SESSION['pin'])) {
+            <?php
+            if (!empty($_SESSION['pin'])) {
                 echo __('PIN: ');
                 echo $_SESSION['pin'];
             }
@@ -1370,7 +1371,8 @@ window.onclick = function(event) {
                 </table>
                 <div class="description">
                     <?=__('New users can join at')?><br /><?=$_SESSION['starturl']?><br />
-                    <?php if (!empty($_SESSION['pin'])) {
+                    <?php
+                    if (!empty($_SESSION['pin'])) {
                         echo __('PIN: ');
                         echo $_SESSION['pin'];
                     }
@@ -1390,11 +1392,11 @@ window.onclick = function(event) {
 <div id="footer">
     <?php
       # Show authorized user name (and address) and allow logout.
-      if ($user) {
+    if ($user) {
         echo("<a href=\"logout.php\" title=\"" .
-            __('Disconnect the current user') .
-            "\">" . __('Log out') . "<i class=\"fa fa-sign-out\"></i></a>");
-      }
+          __('Disconnect the current user') .
+          "\">" . __('Log out') . "<i class=\"fa fa-sign-out\"></i></a>");
+    }
     ?>
 </div> <!-- Footer -->
 
@@ -1403,9 +1405,9 @@ window.onclick = function(event) {
     $plugin_dir = "plugins/";
     $stats = "piwik.php";
 
-    if(file_exists($plugin_dir . $stats)) {
-        include $plugin_dir . $stats;
-        }
+if (file_exists($plugin_dir . $stats)) {
+    include $plugin_dir . $stats;
+}
 
 ?>
 

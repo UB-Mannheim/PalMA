@@ -144,7 +144,7 @@ if ($remote == '::1' || $remote == '127.0.0.1' ||
     $remote == '::1' || $remote == '127.0.0.1' ||
     preg_match('/^134[.]155[.]36[.]/', $remote) && $remote != '134.155.36.48') {
     // Allow access for localhost and library staff, but not for the proxy host.
-?>
+    ?>
 
     <h2>Übersicht A3 &ndash; PalMA-Stationen</h2>
     <h4>Station anklicken zum Rücksetzen</h4>
@@ -197,17 +197,17 @@ for (var n = 0; n < stations.length; n++) {
 
 </script>
 
-<?= $_SERVER['REMOTE_ADDR'] ?>
+    <?= $_SERVER['REMOTE_ADDR'] ?>
 
 
-<?php
+    <?php
 } else {
-?>
+    ?>
 
     <h2>Übersicht A3 &ndash; PalMA-Stationen</h2>
     <h4>Sie sind nicht berechtigt für diese Funktion.</h4>
 
-<?php
+    <?php
 }
 ?>
 

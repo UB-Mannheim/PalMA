@@ -1,4 +1,4 @@
-<?php
+<?php namespace palma;                          \
 
 // Copyright (C) 2014 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
@@ -209,7 +209,7 @@ eod;
         return $id;
     }
 
-    public function getVNC_ClientInfo()
+    public function getVNCClientInfo()
     {
 
         $info = array();

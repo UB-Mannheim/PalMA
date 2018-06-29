@@ -8,10 +8,10 @@
     $dbcon = new DBConnector();
 
     session_start();
-    if (isset($_SESSION['username'])) {
-        $username = $_SESSION['username'];
-        $dbcon->delUser($username, $dbcon->ipAddress());
-    }
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $dbcon->delUser($username, $dbcon->ipAddress());
+}
     session_destroy();
     header('Location: index.php');
 /*

@@ -89,18 +89,18 @@ img {
 <?php
     //~ <ul id="bannerlist">
     $pictures = '../../pictures';
-    if (is_dir($pictures)) {
-        $filelist = scandir($pictures);
-        sort($filelist, SORT_NATURAL);
-        foreach($filelist as $file) {
-            $picture = "$pictures/$file";
-            if (is_file($picture)) {
-                echo("<li style=\"background-image: url('$picture'); background-repeat: no-repeat\"></li>\n");
-                //~ echo("<li><img src=\"$picture\"></li>\n");
-            }
+if (is_dir($pictures)) {
+    $filelist = scandir($pictures);
+    sort($filelist, SORT_NATURAL);
+    foreach ($filelist as $file) {
+        $picture = "$pictures/$file";
+        if (is_file($picture)) {
+            echo("<li style=\"background-image: url('$picture'); background-repeat: no-repeat\"></li>\n");
+            //~ echo("<li><img src=\"$picture\"></li>\n");
         }
-    } else {
-        echo <<<EOD
+    }
+} else {
+    echo <<<EOD
         <li style="background-image: url('http://www.bib.uni-mannheim.de/typo3temp/pics/b1ad582e53.jpg');"></li>
         <li style="background-image: url('http://www.bib.uni-mannheim.de/typo3temp/pics/640e1eafcd.jpg');"></li>
         <li style="background-image: url('http://www.bib.uni-mannheim.de/typo3temp/pics/998e4505ca.jpg');"></li>
@@ -108,7 +108,7 @@ img {
         <li style="background-image: url('http://www.bib.uni-mannheim.de/typo3temp/pics/565d17487b.jpg');"></li>
         <li style="background-image: url('http://edz.bib.uni-mannheim.de/www-edz/images/edz2.jpg');"></li>
 EOD;
-    }
+}
 ?>
     </ul>
   </div>

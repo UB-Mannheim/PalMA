@@ -47,7 +47,6 @@ if ($error == UPLOAD_ERR_OK || "downloaded_from_url") {
     } else {
         trace("upload failed!");
     }
-
 } else {
     // Support localisation.
     require_once('i12n.php');
@@ -78,8 +77,12 @@ if ($error == UPLOAD_ERR_OK || "downloaded_from_url") {
         fprintf($f, "</head>\n");
         fprintf($f, "<body>\n");
         fprintf($f, "<p>\n");
-        fprintf($f, __("File '%s' cannot be shown.") . "<br>\n%s\n",
-                $filename, $message);
+        fprintf(
+            $f,
+            __("File '%s' cannot be shown.") . "<br>\n%s\n",
+            $filename,
+            $message
+        );
         fprintf($f, "</p>\n");
         fprintf($f, "</body>\n");
         fprintf($f, "</html>\n");

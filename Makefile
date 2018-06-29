@@ -42,7 +42,7 @@ install: all
 	sudo ./install
 
 phpcs:
-	phpcs -n --standard=PSR2 --file-list=.phpcs.list
+	-phpcs -n --standard=PSR2 --file-list=.phpcs.list
 
 phpcbf:
-	phpbf -n --standard=PSR2 --file-list=.phpcs.list
+	-phpcbf -n --standard=PSR2 --file-list=.phpcs.list

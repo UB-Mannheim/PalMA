@@ -24,29 +24,31 @@
 
     $errtext = false;
 
-    function getDevice() {
-        // Try to determine the user's device type. The device which is
-        // returned is used to select the matching icon for the user list.
-        $agent = $_SERVER["HTTP_USER_AGENT"];
-        if (preg_match('/iPad/', $agent)) {
-            $device = 'tablet';
-        } else if (preg_match('/iPhone/', $agent)) {
-            $device = 'mobile';
-        } else if (preg_match('/Android/', $agent)) {
-            $device = 'android';
-        } else if (preg_match('/Linux/', $agent)) {
-            $device = 'linux';
-        } else if (preg_match('/OS X/', $agent)) {
-            $device = 'apple';
-        } else if (preg_match('/Windows/', $agent)) {
-            $device = 'windows';
-        } else {
-            $device = 'laptop';
-        }
-        return $device;
+function getDevice()
+{
+    // Try to determine the user's device type. The device which is
+    // returned is used to select the matching icon for the user list.
+    $agent = $_SERVER["HTTP_USER_AGENT"];
+    if (preg_match('/iPad/', $agent)) {
+        $device = 'tablet';
+    } elseif (preg_match('/iPhone/', $agent)) {
+        $device = 'mobile';
+    } elseif (preg_match('/Android/', $agent)) {
+        $device = 'android';
+    } elseif (preg_match('/Linux/', $agent)) {
+        $device = 'linux';
+    } elseif (preg_match('/OS X/', $agent)) {
+        $device = 'apple';
+    } elseif (preg_match('/Windows/', $agent)) {
+        $device = 'windows';
+    } else {
+        $device = 'laptop';
     }
+    return $device;
+}
 
-  function checkCredentials($username, $password) {
+function checkCredentials($username, $password)
+{
     // Check username + password against fixed internal value and
     // external proxy with authentisation.
 
@@ -78,8 +80,8 @@
     $testurl = 'http://www.weilnetz.de/proxytest';
     $proxy = 'proxy.bib.uni-mannheim.de:3150';
     $curl = curl_init($testurl);
-    curl_setopt($curl, CURLOPT_HEADER, TRUE);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($curl, CURLOPT_HEADER, true);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_PROXY, $proxy);
     curl_setopt($curl, CURLOPT_PROXYAUTH, CURLAUTH_ANY);
     curl_setopt($curl, CURLOPT_PROXYUSERPWD, "$username:$password");
@@ -90,12 +92,12 @@
     if (!$out) {
         trace("curl failed for user '$username'");
         $errtext = __('Invalid credentials!');
-    } else if (preg_match('/404 Not Found/', $out)) {
+    } elseif (preg_match('/404 Not Found/', $out)) {
         return true;
-    } else if (preg_match('/Could not resolve proxy/', $out)) {
+    } elseif (preg_match('/Could not resolve proxy/', $out)) {
         trace('proxy authentisation was not possible');
         $errtext = __('Cannot check credentials, sorry!');
-    } else if (preg_match('/Cache Access Denied/', $out)) {
+    } elseif (preg_match('/Cache Access Denied/', $out)) {
         trace("access denied for user '$username'");
         $errtext = __('Invalid credentials!');
     } else {
@@ -103,16 +105,16 @@
         $errtext = __('Invalid credentials!');
     }
     return false;
-  }
+}
 
     $username = '';
     $pin = '';
     $posted_pin = '';
-    if (isset($_REQUEST['pin'])) {
-        $posted_pin = $_REQUEST['pin'];
-    }
+if (isset($_REQUEST['pin'])) {
+    $posted_pin = $_REQUEST['pin'];
+}
 
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     session_start();
     $username = escapeshellcmd($_POST['username']);
     $password = '';
@@ -127,7 +129,7 @@
 
     if (CONFIG_PASSWORD && !checkCredentials($username, $password)) {
         // Invalid username or password.
-    } else if (CONFIG_PIN && ($pin != $posted_pin)) {
+    } elseif (CONFIG_PIN && ($pin != $posted_pin)) {
         trace("access denied for user '$username', wrong pin $posted_pin");
         $errtext = __('Invalid PIN.');
     } else {
@@ -141,19 +143,18 @@
         $dbcon->addUser($username, $dbcon->ipAddress(), getDevice());
 
        // Weiterleitung zur geschützten Startseite
-       if ($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.1') {
-        if (php_sapi_name() == 'cgi') {
-         header('Status: 303 See Other');
-         }
-        else {
-         header('HTTP/1.1 303 See Other');
-         }
+        if ($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.1') {
+            if (php_sapi_name() == 'cgi') {
+                header('Status: 303 See Other');
+            } else {
+                header('HTTP/1.1 303 See Other');
+            }
         }
 
         header('Location: ' . CONFIG_START_URL);
         exit;
     }
-  }
+}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
        "http://www.w3.org/TR/html4/strict.dtd">
@@ -198,22 +199,22 @@ TODO:
             ><input id="username" name="username" type="text" value="<?=$username?>">
         </div>
 <?php
-        if (CONFIG_PASSWORD) {
-?>
+if (CONFIG_PASSWORD) {
+    ?>
         <div class="pure-control-group">
             <label for="userpassword"><?=__("Password")?></label
             ><input id="userpassword" name="userpassword" type="password">
         </div>
-<?php
-        }
-        if (CONFIG_PIN) {
-?>
+    <?php
+}
+if (CONFIG_PIN) {
+    ?>
         <div class="pure-control-group">
             <label for="pin"><?=__("PIN")?></label
             ><input id="pin" name="pin" type="text" value="<?=$posted_pin?>">
         </div>
-<?php
-        }
+    <?php
+}
 ?>
     </div>
     <div class="pure-controls">

@@ -306,18 +306,18 @@ function addNewWindow($db, $new)
 
 function createNewWindowSafe($db, $w)
 {
-  $inFile = $w['file'];
-  if (!file_exists($inFile)) {
-    trace("".escapeshellarg($inFile)." is not a file, aborting display");
-    return;
-  }
+    $inFile = $w['file'];
+    if (!file_exists($inFile)) {
+        trace("".escapeshellarg($inFile)." is not a file, aborting display");
+        return;
+    }
   
-  require_once ('FileHandler.class.php');
-  list ($handler, $targetFile) =
+    require_once('FileHandler.class.php');
+    list ($handler, $targetFile) =
       FileHandler::getFileHandler($inFile);
-  trace("file is now $targetFile, its handler is $handler");
+    trace("file is now $targetFile, its handler is $handler");
 
-  $window = array(
+    $window = array(
       "id" => "",
       "win_id" => "",
       "name" => "",
@@ -327,7 +327,7 @@ function createNewWindowSafe($db, $w)
       "userid" => "",
       "date" => $w['date']);
   
-  createNewWindow($db, $window);
+    createNewWindow($db, $window);
 }
 
 
@@ -412,7 +412,6 @@ function processRequests($db)
         }
 
         if (array_key_exists('delete', $_REQUEST)) {
-
             $delete = str_replace(" ", "\ ", addslashes($_REQUEST['delete']));
             trace("delete=$delete, close window $windownumber");
 
@@ -425,7 +424,6 @@ function processRequests($db)
                 trace("vnc delete in control");
                 $win_id = $_REQUEST['vncid'];   // = hexWindow in database, but not on screen
                 trace("VNC cia Daemon ... id=$win_id");
-
             } elseif (strstr($delete, "http")) {
                 trace("+++ DELETE Browserwindow +++");
             } elseif (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
@@ -443,7 +441,6 @@ function processRequests($db)
         }
 
         if (array_key_exists('closeOrphans', $_REQUEST)) {
-
             // win_ids in db
             $windows_in_db = $db->getWindows();
             $db_ids = array();
@@ -466,7 +463,6 @@ function processRequests($db)
                     wmClose($id);
                 }
             }
-
         }
 
         if (array_key_exists('toggle', $_REQUEST)) {
@@ -553,7 +549,6 @@ function processRequests($db)
         trace("close all windows $close");
         closeAll();
     }
-
 } // processRequests
 
 processRequests($db);

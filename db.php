@@ -17,10 +17,10 @@ $isAllowed = false;
 $newJSON = '{}';
 $oldJSON = '';
 
- if (!empty($_REQUEST['json'])) {
+if (!empty($_REQUEST['json'])) {
     $oldJSON = $_REQUEST['json'];
     $oldJSONarr = json_decode($oldJSON, true);
-    array_walk_recursive($oldJSONarr, function(&$value, $key) {
+    array_walk_recursive($oldJSONarr, function (&$value, $key) {
         if (is_string($value) && preg_match('/^http/', $value)) {
             $value = rawurlencode($value);
         }
@@ -71,7 +71,7 @@ for ($t = 0; $t < 300; $t++) {
     $database['window'] = $data;
 
     //~ $newJSON = json_encode($database, JSON_PRETTY_PRINT);
-    array_walk_recursive($database, function(&$value, $key) {
+    array_walk_recursive($database, function (&$value, $key) {
         if (is_string($value) && preg_match('/^http/', $value)) {
             $value = rawurlencode($value);
         }

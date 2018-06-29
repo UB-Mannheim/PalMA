@@ -123,24 +123,18 @@ abstract class FileHandler
         // echo $ftype;
         if ($ftype === 'pdf') {
             $fhandler=$pdfHandler;
-
         } elseif ($ftype === 'gif' || $ftype === 'jpg' || $ftype === 'png') {
             $fhandler=$imageHandler;
-
         } elseif ($ftype === 'html' || $ftype === 'url') {
             $fhandler=$webHandler;
-
         } elseif ($ftype === 'mpg' || $ftype === 'mpeg' || $ftype === 'avi' ||
                   $ftype === 'mp3' || $ftype === 'mp4') {
             $fhandler=$avHandler;
-
         } else {
             if ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
                 $officeApp = "writer";
-
             } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
                 $officeApp = "impress";
-
             } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
                 $officeApp = "calc";
             }
