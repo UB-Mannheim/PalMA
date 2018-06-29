@@ -2,7 +2,7 @@
 
 # Compile all available translations for the PalMA web interface.
 
-.PHONY: all install
+.PHONY: all install phpcs phpbf
 
 DISTDIR=docs/dist
 LANGUAGES=$(shell cd locale && ls -d *.UTF-8 | sed s/.UTF-8//)
@@ -40,3 +40,9 @@ locale/README.md: $(PO)
 
 install: all
 	sudo ./install
+
+phpcs:
+	phpcs -n --standard=PSR2 --file-list=.phpcs.list
+
+phpcbf:
+	phpbf -n --standard=PSR2 --file-list=.phpcs.list
