@@ -1,5 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+from __future__ import print_function
 
 import argparse, grp, os, platform, pwd, re, shutil, socket, sys, tempfile
 from subprocess import call, check_call, check_output, CalledProcessError
@@ -390,8 +392,8 @@ def makedeb_version():
         ['/usr/bin/git', 'tag', '--contains', lastcommit])
     if not len(curvers):
         lastvers = check_output(
-            ['/usr/bin/git', 'tag']).strip().split('\n').pop()
-        lastvers = lastvers.replace('v','')
+            ['/usr/bin/git', 'tag']).strip().split(b'\n').pop()
+        lastvers = lastvers.replace(b'v',b'')
         curvers = "%s+%s" % (lastvers,lastcommit)
     return curvers
 
@@ -400,7 +402,10 @@ def makedeb_version():
 ################################################################################
 def printv(*a):
     if args.verbose:
-        print>>sys.stderr, " ".join(map(str,a))
+        print(" ".join(map(str,a)), file=sys.stderr)
+
+def printe(*a):
+    print(" ".join(map(str,a)), file=sys.stderr)
 
 def mkdir(d):
     if not os.path.exists(d):
@@ -418,10 +423,11 @@ if 'wwwdir' not in vars(args):
     vars(args)['wwwdir'] = os.path.join(args.prefix,'share','palma')
 
 if 'name' not in vars(args):
-    vars(args)['name'] = socket.fqdn() if args.mode == 'install' \
+    vars(args)['name'] = socket.getfqdn() if args.mode == 'install' \
                          else 'PALMA_NAME_REPLACEME'
 if 'url' not in vars(args):
-    vars(args)['url'] = "http://%s/" % socket.fqdn() if args.mode == 'install' \
+    vars(args)['url'] = "http://%s/" % socket.getfqdn() \
+                        if args.mode == 'install' \
                         else 'PALMA_URL_REPLACEME'
     
 if args.debversion == 'auto':
@@ -461,10 +467,10 @@ try:
         if opsys.startswith('Debian'):
             try:
                 check_call(['/usr/bin/apt-get', 'install', '-y']
-                           + deps_debian + args.browser
+                           + deps_debian + [ args.browser ]
                            + pkgs_server[args.server])
             except:
-                print>>sys.stderr, 'Error installing dependencies, exiting.'
+                printe('Error installing dependencies, exiting.')
                 if args.verbose: raise
                 sys.exit(1)
         
@@ -593,10 +599,10 @@ try:
             f.write(makedeb_control())
         with open(os.path.join(debdir,'postinst'),'w') as f:
             f.write(makedeb_postinst())
-        os.chmod(os.path.join(debdir,'postinst'), 0755)
+        os.chmod(os.path.join(debdir,'postinst'), 0o755)
         with open(os.path.join(debdir,'prerm'),'w') as f:
             f.write(makedeb_prerm())
-        os.chmod(os.path.join(debdir,'prerm'), 0755)
+        os.chmod(os.path.join(debdir,'prerm'), 0o755)
 
         debfile = 'palma%s_%s_all.deb' % (args.debsuffix,args.debversion)
         check_call(dpkg_deb + [ '--build', prefix,
@@ -614,7 +620,7 @@ try:
             shutil.rmtree(tmpdir)
 
 except:
-    print>>sys.stderr, 'Error installing PalMA, exiting.'
+    printe('Error installing PalMA, exiting.')
     if args.mode == 'deb': shutil.rmtree(prefix)
     if args.verbose: raise
     sys.exit(1)
