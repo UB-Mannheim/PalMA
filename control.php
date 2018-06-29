@@ -304,6 +304,33 @@ function addNewWindow($db, $new)
     $db->insertWindow($myWindow);
 }
 
+function createNewWindowSafe($db, $w)
+{
+  $inFile = $w['file'];
+  if (!file_exists($inFile)) {
+    trace("".escapeshellarg($inFile)." is not a file, aborting display");
+    return;
+  }
+  
+  require_once ('FileHandler.class.php');
+  list ($handler, $targetFile) =
+      FileHandler::getFileHandler($inFile);
+  trace("file is now $targetFile, its handler is $handler");
+
+  $window = array(
+      "id" => "",
+      "win_id" => "",
+      "name" => "",
+      "state" => "",
+      "file" => $targetFile,
+      "handler" => $handler,
+      "userid" => "",
+      "date" => $w['date']);
+  
+  createNewWindow($db, $window);
+}
+
+
 function createNewWindow($db, $w)
 {
     // '$w' already contains 'file', 'handler' and 'date'.
@@ -313,7 +340,7 @@ function createNewWindow($db, $w)
     // TODO: use escapeshellarg() for filename.
     $filename = $w['file'];
 
-    $cmd = "$handler '$filename'";
+    $cmd = "$handler ".escapeshellarg($filename);
     displayCommand("/usr/bin/nohup $cmd >/dev/null 2>&1 &");
 
     addNewWindow($db, $w);
@@ -462,7 +489,7 @@ function processRequests($db)
         // TODO: Better write new code for VNC window.
         addNewWindow($db, unserialize(urldecode($_REQUEST['newVncWindow'])));
     } elseif (array_key_exists('newWindow', $_REQUEST)) {
-        createNewWindow($db, unserialize(urldecode($_REQUEST['newWindow'])));
+        createNewWindowSafe($db, unserialize(urldecode($_REQUEST['newWindow'])));
     }
 
     if (array_key_exists('switchWindows', $_REQUEST)) {
