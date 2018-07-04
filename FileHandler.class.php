@@ -1,4 +1,4 @@
-<?php
+<?php namespace palma;
 
 // Copyright (C) 2014 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.

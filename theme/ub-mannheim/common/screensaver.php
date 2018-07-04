@@ -17,7 +17,7 @@ $url = "http://${servername}${serveruri}";
 
 // Store PIN in database.
 require_once('../../../DBConnector.class.php');
-$dbcon = new DBConnector();
+$dbcon = new palma\DBConnector();
 $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 
 ?>

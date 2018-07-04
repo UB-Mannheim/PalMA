@@ -1,24 +1,13 @@
-<?php namespace palma;                          \
+<?php namespace palma;
 
 // Copyright (C) 2014 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
 // Authors: Alexander Wagner, Stefan Weil
 
-// Test whether the script was called directly (used for unit test).
-if (!isset($unittest)) {
-    $unittest = array();
-}
-$unittest[__FILE__] = (sizeof(get_included_files()) == 1);
+require_once('globals.php');
 
-openlog("palma", LOG_PID, LOG_USER);
-function trace($text)
-{
-    syslog(LOG_NOTICE, $text);
-    //error_log("palma: $text");
-}
-
-class DBConnector extends SQLite3
+class DBConnector extends \SQLite3
 {
     const SQL_CREATE_TABLES = <<< eod
 
@@ -282,156 +271,4 @@ eod;
     {
         $this->exec('UPDATE window SET '.$field.'="'.$value.'" WHERE win_id="'.$window_id.'"');
     }
-}
-
-function set_constants()
-{
-    // Get some constants from a configuration file.
-
-    $conf = parse_ini_file("palma.ini");
-    //~ print_r($conf);
-
-    if (!$conf) {
-        trace("Error, parsing of palma.ini failed");
-    } else {
-        // Entries in group 'display'.
-        if (array_key_exists('id', $conf)) {
-            define('CONFIG_DISPLAY', $conf['id']);
-        }
-        if (array_key_exists('ssh', $conf)) {
-            define('CONFIG_SSH', $conf['ssh']);
-        }
-
-        // Entries in group 'general'.
-        if (array_key_exists('password', $conf)) {
-            define('CONFIG_PASSWORD', $conf['password']);
-        }
-        if (array_key_exists('pin', $conf)) {
-            define('CONFIG_PIN', $conf['pin']);
-        }
-        if (array_key_exists('stationname', $conf)) {
-            define('CONFIG_STATIONNAME', $conf['stationname']);
-        }
-        if (array_key_exists('theme', $conf)) {
-            define('CONFIG_THEME', $conf['theme']);
-        }
-
-        // Entries in group 'path'.
-        if (array_key_exists('control_file', $conf)) {
-            define('CONFIG_CONTROL_FILE', $conf['control_file']);
-        }
-        if (array_key_exists('policy', $conf)) {
-            define('CONFIG_POLICY', $conf['policy']);
-        }
-        if (array_key_exists('start_url', $conf)) {
-            define('CONFIG_START_URL', $conf['start_url']);
-        }
-        if (array_key_exists('upload_dir', $conf)) {
-            define('CONFIG_UPLOAD_DIR', $conf['upload_dir']);
-        }
-        if (array_key_exists('institution_url', $conf)) {
-            define('CONFIG_INSTITUTION_URL', $conf['institution_url']);
-        }
-    }
-
-    // Set default values for constants missing in the configuration file.
-    if (!defined('CONFIG_CONTROL_FILE')) {
-        // By default we use control.php.
-        define('CONFIG_CONTROL_FILE', CONFIG_START_URL . 'control.php');
-    }
-    if (!defined('CONFIG_DISPLAY')) {
-        // By default we use X display :0.
-        define('CONFIG_DISPLAY', ':0');
-    }
-    if (!defined('CONFIG_PASSWORD')) {
-        // Enable password authentisation by default.
-        define('CONFIG_PASSWORD', true);
-    }
-    if (!defined('CONFIG_PIN')) {
-        // Enable PIN authentisation by default.
-        define('CONFIG_PIN', true);
-    }
-    // There is no default value for CONFIG_POLICY.
-    // There is no default value for CONFIG_SSH.
-    // There is no default value for CONFIG_START_URL.
-    if (!defined('CONFIG_STATIONNAME')) {
-        // Use the host name as the default station name.
-        define('CONFIG_STATIONNAME', gethostname());
-    }
-    if (!defined('CONFIG_THEME')) {
-        // The default theme is demo/simple.
-        define('CONFIG_THEME', 'demo/simple');
-    }
-    if (!defined('CONFIG_UPLOAD_DIR')) {
-        // The default theme is /var/www/html/uploads.
-        define('CONFIG_UPLOAD_DIR', '/var/www/html/uploads');
-    }
-}
-
-set_constants();
-
-if ($unittest[__FILE__]) {
-    // Run unit test.
-
-    print('CONFIG_CONTROL_FILE = ' . CONFIG_CONTROL_FILE . "\n");
-    print('CONFIG_DISPLAY = ' . CONFIG_DISPLAY . "\n");
-    print('CONFIG_PASSWORD = ' . (CONFIG_PASSWORD ? 'true' : 'false') . "\n");
-    print('CONFIG_PIN = ' . (CONFIG_PIN ? 'true' : 'false') . "\n");
-    if (defined('CONFIG_POLICY')) {
-        print('CONFIG_POLICY = ' . CONFIG_POLICY . "\n");
-    }
-    if (defined('CONFIG_SSH')) {
-        print('CONFIG_SSH = ' . CONFIG_SSH . "\n");
-    }
-    if (defined('CONFIG_START_URL')) {
-        print('CONFIG_START_URL = ' . CONFIG_START_URL . "\n");
-    }
-    print('CONFIG_STATIONNAME = ' . CONFIG_STATIONNAME . "\n");
-    print('CONFIG_THEME = ' . CONFIG_THEME . "\n");
-    print('CONFIG_UPLOAD_DIR = ' . CONFIG_UPLOAD_DIR . "\n");
-
-    function dbModifiedCallback()
-    {
-        echo("Triggered callback\n");
-    }
-
-    //~ var_dump($_SERVER);
-    $db = new DBConnector('palma-test.db');
-    $db->resetTables();
-    //~ http://stackoverflow.com/questions/1964233/does-sqlite3-support-a-trigger-to-automatically-update-an-updated-on-datetime
-    //~ https://www.sqlite.org/lang_createtrigger.html
-    // TODO: Test database triggers (can be used in db.php).
-    //~ $db->createFunction('dbModifiedCallback', 'dbModifiedCallback', 0);
-    // {AFTER | BEFORE} {DELETE | INSERT | UPDATE } ON table
-    //~ $db->exec("CREATE TRIGGER dbchange AFTER UPDATE ON user
-                //~ BEGIN
-                  //~ dbModifiedCallback();
-                //~ END");
-    //~ $db = new DBConnector('palma.db');
-    echo "Tables=" . $db->querySingle('SELECT count(*) FROM sqlite_master WHERE type="table"') . "\n";
-    var_dump($db->query("SELECT * from sqlite_master"));
-    $address = $db->ipAddress();
-    $db->addUser('testuser1', $address);
-    //~ $db->addUser('testuser2', $address);
-    //~ $db->addUser('testuser3', $address);
-    //~ $db->addUser('testuser4', $address);
-    $users = $db->getUsers();
-    $db->enableUser('testuser1');
-    var_dump($users);
-    $db->delUser('haenger', $address);
-    $db->delUser('ivwz', $address);
-    $db->delUser('skrieg', $address);
-    $db->delUser('testuser1', $address);
-    $db->delUser('testuser2', $address);
-    $db->delUser('testuser3', $address);
-    $db->delUser('testuser4', $address);
-    echo "Query=" . $db->querySingle('select name from user') . "\n";
-    echo "Query=" . $db->querySingle('select count(name) from user') . "\n";
-    echo "Query=" . $db->querySingle('select value from setting where key="layout"') . "\n";
-    $db->close();
-
-    //~ $db = new DBConnector('palma.db');
-    //~ $users = $db->getUsers();
-    //~ var_dump($users);
-    //~ $db->close();
 }

@@ -61,7 +61,7 @@ if (isset($_REQUEST['monitor'])) {
 
     // Connect to database and get configuration constants.
     require_once('DBConnector.class.php');
-    $dbcon = new DBConnector();
+    $dbcon = new palma\DBConnector();
 
     // Support localisation.
     require_once('i12n.php');
@@ -77,6 +77,7 @@ if (isset($_SESSION['username'])) {
     $user = $_SERVER['PHP_AUTH_USER'];
 }
 
+    require_once('globals.php');
     /*
      * file paths for vnc downloads
      */

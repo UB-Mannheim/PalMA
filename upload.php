@@ -3,8 +3,7 @@
 // Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
-// Connect to database and get configuration constants.
-require_once('DBConnector.class.php');
+require_once('globals.php');
 
 if (empty($_FILES)) {
     $error = 99;

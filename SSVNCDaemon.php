@@ -1,9 +1,10 @@
-<?php namespace palma;
+<?php
 
 // Copyright (C) 2014 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
 require_once("DBConnector.class.php");
+require_once("globals.php");
 
 class SSVNCDaemon
 {
@@ -196,7 +197,7 @@ class SSVNCDaemon
 
         $vnc_id = $vncclient["hostname"] . "-" . $id;
 
-        $db = new DBConnector();
+        $db = new palma\DBConnector();
 
         // already existing in db?
         $clients_in_db = array();
@@ -265,7 +266,7 @@ class SSVNCDaemon
     {
         // print("\n[Daemon]: +++ TODO: deleteInactiveWindow() +++");
 
-        $db = new DBConnector();
+        $db = new palma\DBConnector();
 
         // window_ids in db
         $vnc_windows_in_db = array();

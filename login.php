@@ -16,13 +16,14 @@
 // proxy based authorization, LDAP, Shibboleth, fixed password).
 // Password authorization can optionally be disabled.
 
-    // Connect to database and get configuration constants.
-    require_once('DBConnector.class.php');
-    $dbcon = new DBConnector();
+// Connect to database and get configuration constants.
+require_once('DBConnector.class.php');
+$dbcon = new palma\DBConnector();
 
-    require_once('i12n.php');
+require_once('i12n.php');
+require_once('globals.php');
 
-    $errtext = false;
+$errtext = false;
 
 function getDevice()
 {
@@ -114,6 +115,8 @@ if (isset($_REQUEST['pin'])) {
     $posted_pin = $_REQUEST['pin'];
 }
 
+require_once('globals.php');
+monitor("login.php: page loaded");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     session_start();
     $username = escapeshellcmd($_POST['username']);
@@ -128,12 +131,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (CONFIG_PASSWORD && !checkCredentials($username, $password)) {
+        monitor("login.php: access denied for user '$username'");
         // Invalid username or password.
     } elseif (CONFIG_PIN && ($pin != $posted_pin)) {
+        monitor("login.php: access denied for user '$username': invalid pin");
         trace("access denied for user '$username', wrong pin $posted_pin");
         $errtext = __('Invalid PIN.');
     } else {
         // Successfully checked username, password and PIN.
+        monitor("login.php: access granted for user '$username'");
         trace("access granted for user '$username'");
         $_SESSION['username'] = $username;
         $_SESSION['address'] = $dbcon->ipAddress();

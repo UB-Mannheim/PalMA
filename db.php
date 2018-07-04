@@ -9,7 +9,7 @@
 // TODO: Use db triggers instead of time based polling.
 
 require_once('DBConnector.class.php');
-$dbcon = new DBConnector();
+$dbcon = new palma\DBConnector();
 
 $remote = $_SERVER['REMOTE_ADDR'];
 $isAllowed = false;
@@ -17,6 +17,7 @@ $isAllowed = false;
 $newJSON = '{}';
 $oldJSON = '';
 
+require_once('globals.php');
 if (!empty($_REQUEST['json'])) {
     $oldJSON = $_REQUEST['json'];
     $oldJSONarr = json_decode($oldJSON, true);

@@ -14,9 +14,7 @@ if (!isset($_GET['file']) || empty($_GET['file'])) {
 // avoid directory traversal vulnerability
 $filename = basename($_GET['file']);
 
-// Connect to database and get configuration constants.
-require_once('DBConnector.class.php');
-
+require_once('globals.php');
 $filepath = CONFIG_UPLOAD_DIR . '/' . $filename;
 
 if (file_exists($filepath)) {

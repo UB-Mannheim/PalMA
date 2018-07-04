@@ -42,6 +42,8 @@ parser.add_argument('--infourl', default='',
                     help='set additional info url')
 parser.add_argument('--init', choices=['sysvinit','systemd'], default='systemd',
                     help='set init system for start script')
+parser.add_argument('--monitorurl', default=argparse.SUPPRESS,
+                    help='set URL of monitoring web server')
 parser.add_argument('--name', default=argparse.SUPPRESS,
                     help='set host name (default: %s)' % socket.getfqdn())
 parser.add_argument('--password', action='store_true',
@@ -79,14 +81,13 @@ deps_debian = [
 
 files_wwwdir = [
     # php
-    'auth.php', 'control.php', 'DBConnector.class.php', 'db.php',
+    'auth.php', 'globals.php', 'control.php', 'DBConnector.class.php', 'db.php',
     'download.php', 'FileHandler.class.php', 'i12n.php', 'index.php',
     'login.php', 'logout.php', 'SSVNCDaemon.php', 'upload.php',
-    'vncviewer.php',
     # css
     'palma.css', 'pure-min.css',
     # js
-    'dropzone.js', 'unslider.js', 'unslider.min.js',
+    'dropzone.js',
 ]
 
 dirs_wwwdir = [
@@ -150,8 +151,13 @@ start_url = "{args.url}"
 ; Directory for file uploads (default: "/var/www/html/uploads").
 upload_dir = "{args.upload}"
 ; URL to additional PalMA information on your webpage (default: "")
-institution_url = ""
-'''.format(args=args,password=str(args.password).lower(),pin=str(args.pin).lower())
+institution_url = "{args.infourl}"
+
+[monitoring]
+; URL of monitoring web server
+;monitor_url = "https://monitor.example.com/palma"
+{monitor}
+'''.format(args=args,password=str(args.password).lower(),pin=str(args.pin).lower(),monitor='monitor_url = "%s"' % args.monitorurl if 'monitorurl' in vars(args) else '')
 
 def makeconf_apache():
     return """Alias / "{args.wwwdir}/"
@@ -502,7 +508,7 @@ try:
     printv("Installing 'palma.ini'")
     # palma.ini
     snr('s,palma.ini,%s,g' % os.path.join(args.sysconfdir,'palma.ini'),
-        os.path.join(wwwdir,'DBConnector.class.php'))
+        os.path.join(wwwdir,'globals.php'))
     sysconfdir = prefix + args.sysconfdir
     mkdir(sysconfdir)
     with open(os.path.join(sysconfdir,'palma.ini'),'w') as f:

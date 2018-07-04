@@ -18,9 +18,9 @@ TODO:
 
 */
 
-    // Connect to database and get configuration constants.
-    require_once('../../../DBConnector.class.php');
-    $dbcon = new DBConnector();
+// Connect to database and get configuration constants.
+require_once('../../../DBConnector.class.php');
+$dbcon = new palma\DBConnector();
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
