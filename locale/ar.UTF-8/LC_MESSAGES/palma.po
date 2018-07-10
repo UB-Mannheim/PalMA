@@ -46,11 +46,11 @@ msgstr "تصغير الصورة"
 
 #: index.php:699
 msgid "Rotate counterclockwise"
-msgstr ""
+msgstr "أقلب الصفحة عكس عقارب الساعة"
 
 #: index.php:700
 msgid "Rotate clockwise"
-msgstr ""
+msgstr "أقلب الصفحة مع عقارب الساعة"
 
 #: index.php:701
 #, fuzzy
@@ -60,7 +60,7 @@ msgstr "تنزيل الملف"
 #: index.php:707
 #, fuzzy
 msgid "Remove this item"
-msgstr "أزل هذا الملف"
+msgstr "أمسح هذا الملف"
 
 #: index.php:718
 msgid "Jump to start"
@@ -100,11 +100,11 @@ msgstr "مرحبا "
 
 #: index.php:757
 msgid "There is no shared content yet. Click below to get started!"
-msgstr ""
+msgstr "لم يتم مشاركة محتوى حتى الآن. إضغط في الأسفل لكي تبدأ"
 
 #: index.php:761 index.php:1069 index.php:1224
 msgid "Add"
-msgstr ""
+msgstr "إضافة"
 
 #: index.php:979
 msgid "Sorry! Screensharing for your device is currently not supported."
@@ -126,7 +126,7 @@ msgstr ""
 
 #: index.php:1078
 msgid "URL"
-msgstr ""
+msgstr "عنوان URL"
 
 #: index.php:1079
 #, fuzzy
@@ -135,7 +135,7 @@ msgstr "جزء من الشاشة"
 
 #: index.php:1086
 msgid "Drag and drop files or click here to upload."
-msgstr ""
+msgstr "اسحب الملف لأو إضغط هنا لرفع الملف"
 
 #: index.php:1088
 msgid "Add file (click or drop here)"
@@ -143,7 +143,7 @@ msgstr "إضافة ملف "
 
 #: index.php:1107
 msgid "Add webpage"
-msgstr ""
+msgstr "أضف صفحة"
 
 #: index.php:1110
 msgid "Enter URL"
@@ -151,7 +151,7 @@ msgstr "من فضلك أدخل ال-URL"
 
 #: index.php:1113
 msgid "Click here to show the webpage on the screen."
-msgstr ""
+msgstr "إضغط هنا لإظهار الصفحة على الشاشة"
 
 #: index.php:1114
 #, fuzzy
@@ -160,21 +160,21 @@ msgstr "من فضلك أدخل ال-URL"
 
 #: index.php:1121
 msgid "Add your screen"
-msgstr ""
+msgstr "أضف شاشتك"
 
 #: index.php:1122
 msgid "Download screensharing tool"
-msgstr ""
+msgstr "تحميل أداة مشاركة الشاشة"
 
 #: index.php:1129
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
-msgstr ""
+msgstr "قسم المساعدة للمزيد من المعلومات"
 
 #: index.php:1135
 msgid "Layout"
-msgstr ""
+msgstr "تصميم"
 
 #: index.php:1136
 msgid "Navigate"
@@ -182,7 +182,7 @@ msgstr "تصفح"
 
 #: index.php:1142 index.php:1149 index.php:1157 index.php:1165 index.php:1178
 msgid "Choose screen layout"
-msgstr ""
+msgstr "أختر النسق"
 
 #: index.php:1193
 msgid "Close all windows and remove uploaded files"
@@ -190,7 +190,7 @@ msgstr "أغلق جميع الشاشات وحذف الملفات"
 
 #: index.php:1194
 msgid "Delete all items"
-msgstr ""
+msgstr "أمسح جميع البنود"
 
 #: index.php:1200
 msgid "Help"
@@ -198,7 +198,7 @@ msgstr "مساعدة"
 
 #: index.php:1201
 msgid "Feedback"
-msgstr ""
+msgstr "تغذية عكسية"
 
 #: index.php:1202
 #, fuzzy
@@ -209,7 +209,7 @@ msgstr "لأئحة المستخدمين"
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
-msgstr ""
+msgstr "باستخدام PalMAبإمكانك مشاركة مستنداتك، مواقع الانترنت، وسطح المكتب الخاص بك "
 
 #: index.php:1206
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
@@ -221,11 +221,11 @@ msgstr ""
 
 #: index.php:1209
 msgid "see here."
-msgstr ""
+msgstr "أنظر هنا"
 
 #: index.php:1213
 msgid "Connect"
-msgstr ""
+msgstr "إتصل"
 
 #: index.php:1214
 msgid "Team members can join the session at any time with this URL or QR-Code:"
@@ -233,7 +233,7 @@ msgstr ""
 
 #: index.php:1217 index.php:1374
 msgid "PIN: "
-msgstr ""
+msgstr "رمز"
 
 #: index.php:1225
 msgid "Use the Add-Section to share content on the PalMA monitor."
@@ -255,7 +255,7 @@ msgstr ""
 
 #: index.php:1231
 msgid "Windows:"
-msgstr ""
+msgstr "وندوز"
 
 #: index.php:1233
 msgid "Run the downloaded file."
