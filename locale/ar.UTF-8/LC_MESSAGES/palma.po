@@ -241,11 +241,11 @@ msgstr ""
 
 #: index.php:1227
 msgid "For PDF files, office files, images or videos use the file section."
-msgstr ""
+msgstr "استخدم هذا الجزء من أجل ملفات الأوفيس، ملفات البي دي إف، وللصور والفيديوهات"
 
 #: index.php:1228
 msgid "To display a website use the URL field."
-msgstr ""
+msgstr "لعرض صفحات الويب، استخدم حقل الـ URL"
 
 #: index.php:1229
 msgid ""
@@ -326,7 +326,7 @@ msgstr "تصغير الصورة"
 
 #: index.php:1259
 msgid "Rotate"
-msgstr ""
+msgstr "تدوير"
 
 #: index.php:1260
 #, fuzzy
@@ -335,7 +335,7 @@ msgstr "تنزيل الملف"
 
 #: index.php:1261
 msgid "Delete the item"
-msgstr ""
+msgstr "أمسح هذه البند"
 
 #: index.php:1263
 msgid "Below you find the navigation controls."
@@ -361,11 +361,11 @@ msgstr ""
 
 #: index.php:1273
 msgid "Some additional features are:"
-msgstr ""
+msgstr "مزيد من الميزات "
 
 #: index.php:1275
 msgid "This help,"
-msgstr ""
+msgstr "هنا مساعدة"
 
 #: index.php:1276
 msgid ""
@@ -381,7 +381,7 @@ msgstr ""
 
 #: index.php:1283
 msgid "Recommend us"
-msgstr ""
+msgstr "قم بتوصيتنا"
 
 #: index.php:1286
 msgid ""
@@ -391,7 +391,7 @@ msgstr ""
 
 #: index.php:1340
 msgid "Tell us what you think"
-msgstr ""
+msgstr "ما هو رأيك"
 
 #: index.php:1342
 msgid ""
@@ -401,11 +401,11 @@ msgstr ""
 
 #: index.php:1342
 msgid "Thank you!"
-msgstr ""
+msgstr "شكراً لك"
 
 #: index.php:1349
 msgid "Select language:"
-msgstr ""
+msgstr "اختر لغة"
 
 #: index.php:1366
 msgid "User list"
@@ -417,7 +417,7 @@ msgstr "أئحة المستخدمين الحاليين"
 
 #: index.php:1372
 msgid "New users can join at"
-msgstr ""
+msgstr "يستطيع المستخدم الجديد الانضمام من خلال"
 
 #: index.php:1382
 #, fuzzy
@@ -426,7 +426,7 @@ msgstr "حذف جميع المستخدمين وإعادة الوضع قبل ال
 
 #: index.php:1383
 msgid "End the session"
-msgstr ""
+msgstr "انتهاء الحصة "
 
 #: index.php:1395
 msgid "Disconnect the current user"
@@ -444,11 +444,11 @@ msgstr "جزء من الشاشة"
 
 #: login.php:93 login.php:101 login.php:104
 msgid "Invalid credentials!"
-msgstr ""
+msgstr "معرّف خاطئ"
 
 #: login.php:98
 msgid "Cannot check credentials, sorry!"
-msgstr ""
+msgstr "عذراً لم يتم التحقق من هويتك"
 
 #: login.php:133
 msgid "Invalid PIN."
@@ -456,11 +456,11 @@ msgstr ""
 
 #: login.php:168
 msgid "PalMA &ndash; Login"
-msgstr ""
+msgstr "الرمز السري خاطئ"
 
 #: login.php:194
 msgid "Login"
-msgstr ""
+msgstr "تسجيل الدخول"
 
 #: login.php:198
 msgid "User name"
@@ -468,7 +468,7 @@ msgstr ""
 
 #: login.php:205
 msgid "Password"
-msgstr ""
+msgstr "كلمة المرور"
 
 #: login.php:213
 msgid "PIN"
@@ -476,24 +476,24 @@ msgstr ""
 
 #: login.php:221
 msgid "Log in"
-msgstr ""
+msgstr "الرمز"
 
 #: upload.php:60
 msgid "This file is too large."
-msgstr ""
+msgstr "الملف كبير جداً"
 
 #: upload.php:63
 msgid "Large files are not supported."
-msgstr ""
+msgstr "الملفات الكبيرة غير مدعومة"
 
 #: upload.php:66
 msgid "File was only partially uploaded."
-msgstr ""
+msgstr "تم رفع الملف بشكل جزئي"
 
 #: upload.php:69
 #, php-format
 msgid "Error code %s."
-msgstr ""
+msgstr "رمز العطل"
 
 #: upload.php:81
 #, php-format
@@ -506,7 +506,7 @@ msgstr ""
 
 #: examples/screensaver/tiles.php:33
 msgid "Tiles"
-msgstr ""
+msgstr "عناوين"
 
 #: selectplace/learningcenter.php:25 selectplace/learningcenter.php:39
 #: selectplace/monitor.php:25 selectplace/monitor.php:51
