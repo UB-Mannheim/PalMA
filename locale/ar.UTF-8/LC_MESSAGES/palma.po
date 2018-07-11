@@ -1,7 +1,7 @@
 # PalMA translation.
 # Copyright (C) 2015 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
-# Ziad Abdelkader <ziad.abdelkader9@gmail.com>, 2018.
+# Rafik Takieddin <Rafik.takieddin@gmail.com>, 2018.
 #
 msgid ""
 msgstr ""
