@@ -36,7 +36,7 @@ function displayCommand($cmd)
     monitor("control.php: displayCommand $cmd");
 
     $result = shell_exec($cmd);
-    trace("cmd=$cmd, result=$result");
+    trace("displayCommand $cmd, result=$result");
     return $result;
 }
 

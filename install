@@ -43,7 +43,7 @@ args = parser.parse_args()
 ################################################################################
 deps_debian = [
     'feh', 'libreoffice', 'ssvnc', 'vlc', 'x11vnc', 'zathura',
-    'wmctrl', 'xdotool', 'openbox', 'sqlite3',
+    'wmctrl', 'xdotool', 'openbox', 'sqlite3', 'unclutter',
     'php', 'php-cgi', 'php-cli', 'php-curl', 'php-fpm',
     'php-gd', 'php-intl', 'php-sqlite3', 'php-mbstring',
     'gettext', 'git', 'libavcodec-extra', 'make'

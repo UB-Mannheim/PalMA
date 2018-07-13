@@ -33,7 +33,7 @@ $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>PalMA &ndash; <?=__("Picture Show")?></title>
-<script type="text/javascript" src="/javascript/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../jquery.min.js"></script>
 <script type="text/javascript" src="../../unslider.js"></script>
 <style type="text/css">
 * {

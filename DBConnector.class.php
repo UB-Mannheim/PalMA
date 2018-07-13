@@ -67,7 +67,7 @@ eod;
         if (!$filename) {
             $filename = 'palma.db';
         }
-        trace("db file = $filename");
+        trace("DBConnector db file = $filename");
         parent::__construct($filename);
 
         // Wait up to 10000 ms when the database is locked.
@@ -245,7 +245,7 @@ eod;
                 $window[4] . '", "' . $window[5] . '", "' .
                 $window[6] . '", "' . $window[7] . '")';
         $new = $this->exec($sql);
-        trace("sql=$sql, result=$new");
+        trace("insertWindow sql=$sql, result=$new");
     }
 
     public function deleteWindow($window_id)

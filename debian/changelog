@@ -1,5 +1,5 @@
-palma (1.3.3) UNRELEASED; urgency=medium
+palma (1.4.0) UNRELEASED; urgency=medium
 
-  * Initial release. (Closes: #XXXXXX)
+  * Initial release.
 
- -- Jörg Mechnich <Joerg.Mechnich@bib.uni-mannheim.de>  Wed, 04 Jul 2018 10:52:25 +0200
+ -- Jörg Mechnich <Joerg.Mechnich@bib.uni-mannheim.de>  Wed, 13 Jul 2018 14:44:25 +0200
