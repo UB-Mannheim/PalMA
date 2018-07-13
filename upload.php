@@ -15,10 +15,10 @@ if (empty($_FILES)) {
 
 if (!is_dir(CONFIG_UPLOAD_DIR)) {
     /* Target directory is missing, so create it now. */
-    mkdir(CONFIG_UPLOAD_DIR, 0755);
+    mkdir(CONFIG_UPLOAD_DIR, 0755, true);
 }
 
-if ($error == UPLOAD_ERR_OK || "downloaded_from_url") {
+if ($error == UPLOAD_ERR_OK || $error == "downloaded_from_url") {
     # All uploaded files are collected in the upload directory.
     # If necessary, an index is added to get a unique filename.
     $tempFile = $_FILES['file']['tmp_name'];

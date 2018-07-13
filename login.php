@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header('HTTP/1.1 303 See Other');
             }
         }
-
+        trace(CONFIG_START_URL);
         header('Location: ' . CONFIG_START_URL);
         exit;
     }

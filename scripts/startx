@@ -76,8 +76,17 @@ chown $user $rundir
 # Get some configuration parameters from ini file.
 export DISPLAY
 DISPLAY=$(grep "^id[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/')
+if [ -z $DISPLAY ]; then
+    DISPLAY=:1
+fi
 start_url=$(grep "^start_url[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/')
+if [ -z $start_url ]; then
+    start_url="http://$(hostname -f)/"
+fi
 theme=$(grep "^theme[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/')
+if [ -z $theme ]; then
+    theme="demo/simple"
+fi
 background="${start_url}theme/${theme}/background.png"
 screensaver="${start_url}theme/${theme}/screensaver.php"
 

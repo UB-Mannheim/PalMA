@@ -4,9 +4,9 @@ if (!isset($_SESSION)) {
 }
 
 if (!isset($_SESSION['username'])) {
-    if (isset($_SERVER['HTTP_REFERER'])) {
-        error_log("auth.php referred by " . $_SERVER['HTTP_REFERER']);
-    }
+    //if (isset($_SERVER['HTTP_REFERER'])) {
+    //    error_log("auth.php referred by " . $_SERVER['HTTP_REFERER']);
+    //}
     $header = 'Location: login.php';
     $separator = '?';
     if (isset($_REQUEST['lang'])) {

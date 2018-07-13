@@ -1,0 +1,2 @@
+if $programname == 'palma' then /var/log/palma.log
+if $programname == 'palma' then stop

@@ -1,0 +1,14 @@
+/etc/palma.ini
+/etc/rsyslog.d/palma.conf
+/etc/systemd/system/palma.service
+/usr/lib/palma/*
+/usr/share/palma/*.css
+/usr/share/palma/*.js
+/usr/share/palma/*.php
+/usr/share/palma/font-awesome/*
+/usr/share/palma/images/*
+/usr/share/palma/locale/*
+/usr/share/palma/php-gettext/*
+/usr/share/palma/qrcode/*
+/usr/share/palma/settings/*
+/usr/share/palma/theme/demo/*

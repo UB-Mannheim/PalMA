@@ -2,7 +2,7 @@
 
 # Compile all available translations for the PalMA web interface.
 
-.PHONY: all install phpcs phpbf
+.PHONY: all install phpcs phpcbf deb
 
 DISTDIR=docs/dist
 LANGUAGES=$(shell cd locale && ls -d *.UTF-8 | sed s/.UTF-8//)
@@ -38,8 +38,14 @@ locale/README.md: $(PO)
 .git/hooks/%: $(DISTDIR)/%.sh
 	ln -sf ../../$< $@
 
+clean:
+
 install: all
-	sudo ./install
+	./install -v deb
+
+deb:
+	debian/rules clean
+	fakeroot debian/rules binary
 
 phpcs:
 	-phpcs -n --standard=PSR2 --file-list=.phpcs.list

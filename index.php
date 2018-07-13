@@ -118,7 +118,7 @@ if (isset($_POST['submit'])) {
 <link rel="stylesheet" href="pure-min.css">
 <link rel="stylesheet" href="palma.css" type="text/css">
 
-<script type="text/javascript" src="/javascript/jquery/jquery.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
 
 <script type="text/javascript" src="dropzone.js"></script>
 

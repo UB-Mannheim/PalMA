@@ -11,66 +11,6 @@ if (!isset($unittest)) {
 }
 $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
 
-
-
-class FehHandler extends FileHandler
-{
-    public function getControls()
-    {
-        return FileHandler::CURSOR | FileHandler::ZOOM;
-    }
-    public function show($path)
-    {
-    }
-}
-
-class LibreOfficeHandler extends FileHandler
-{
-    public function getControls()
-    {
-        return FileHandler::CURSOR | FileHandler::ZOOM;
-    }
-    public function show($path)
-    {
-    }
-}
-
-class MidoriHandler extends FileHandler
-{
-    public function getControls()
-    {
-        return FileHandler::CURSOR | FileHandler::ZOOM;
-    }
-    public function show($path)
-    {
-    }
-}
-
-class VlcHandler extends FileHandler
-{
-    public function getControls()
-    {
-        return FileHandler::CURSOR | FileHandler::ZOOM;
-    }
-    public function show($path)
-    {
-    }
-}
-
-class ZathuraHandler extends FileHandler
-{
-    public function getControls()
-    {
-        return FileHandler::CURSOR | FileHandler::ZOOM |
-               FileHandler::HOME | FileHandler::END |
-               FileHandler::PRIOR | FileHandler::NEXT |
-               FileHandler::DOWNLOAD;
-    }
-    public function show($path)
-    {
-    }
-}
-
 abstract class FileHandler
 {
 
@@ -171,14 +111,4 @@ function convertOffice($inputFile, $office, $outputDir, $fileName)
     } else {
         return false;
     }
-}
-
-if ($unittest[__FILE__]) {
-    // Run unit test.
-    $midoriHandler = new MidoriHandler;
-    $zathuraHandler = new ZathuraHandler;
-    echo("DOWNLOAD   =" . FileHandler::DOWNLOAD . "\n");
-    echo("filehandler=" . FileHandler::getFileHandler("test.txt") . "\n");
-    $handler = ${'midori' . 'Handler'};
-    echo("controls   =" . $handler->getControls() . "\n");
 }
