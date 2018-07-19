@@ -6,7 +6,7 @@
 
 |Locale|Completion|
 |---|---|
-|[ar](#ar)|65.55|
+|[ar](#ar)|67.83|
 |[de_DE](#de_de)|100.00|
 |[es_ES](#es_es)|54.78|
 |[fr_FR](#fr_fr)|47.83|
@@ -20,7 +20,7 @@
 
 ## ar
 
-Completion: **65.55** (78 / 119 strings)
+Completion: **67.83** (78 / 115 strings)
 
 Contributors:
 
@@ -41,7 +41,6 @@ Missing:
   * `Below you find the navigation controls.`
   * `Buttons on the left jump to the top, to the end, a page up or a page down`
   * `CTRL + click the downloaded file and run it.`
-  * `Conference room`
   * `Controls that are not available for certain kinds of content are marked grey.`
   * `Double-click the name of your PalMA station in the appearing list.`
   * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
@@ -55,7 +54,6 @@ Missing:
   * `Invalid PIN.`
   * `Linux:`
   * `Mac:`
-  * `Mannheim table`
   * `On the right you can choose the position on the PalMA monitor`
   * `Or use this shell command:`
   * `PIN`
@@ -64,10 +62,8 @@ Missing:
   * `Run the downloaded file.`
   * `Run the downloaded shell script.`
   * `Select &quot;Reverse Connection&quot;.`
-  * `Select workplace`
   * `Sorry! Screensharing for your device is currently not supported.`
   * `Team members can join the session at any time with this URL or QR-Code:`
-  * `Test monitor`
   * `The PalMA team monitor shows up to four contributions simultaneously.`
   * `To share your desktop in real time download the VNC screen sharing software and`
   * `Use the Add-Section to share content on the PalMA monitor.`

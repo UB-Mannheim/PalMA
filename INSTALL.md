@@ -2,12 +2,9 @@
 
 ## Introduction
 
-You can install PalMA manually with the descriptions provided in this document or you can run the **experimental installation script** we provide under `scripts/install_palma.sh` to do most of the work for you. You can call it e.g. like so:
-
-`install_palma.sh install "/var/www/html" standard "https://www.your-institution.org/link-to-your-palma-site/" "palma-01" "our-institution/department2" "http://palma-01.your-institution.org"`
-
-**Warning:** This script was written in the context of upgrading our own machines and it might mess with your Debian package lists. As of now you would still have to configure the webserver yourself.
-Please read and use said script with care. _We highly recommend to install PalMA manually as described below._
+You can install PalMA using Debian packages or manually, using the
+installation script `install`. For a list of options, run `./install
+--help`.
 
 In the following we will cover the points you'll need to set up a PalMA station:
 
@@ -18,7 +15,13 @@ In the following we will cover the points you'll need to set up a PalMA station:
 * Theming your installation
 * Adding new languages
 
-We assume that the web server's root directory is `/var/www/html` (default since Debian Jessie) and that PalMA will be installed directly there. Of course you can install PalMA in any other path.
+The default paths when using the installation script are:
+* `/usr/share/palma`: location of data files and the web content shown
+  in the browser
+* `/usr/lib/palma`: location of the `startx` shell script controlling
+  the processes related to PalMA
+* `/etc`: location of `palma.ini`, the main settings file
+* `/var/lib/palma`: location of `palma.db`, the user database
 
 _All installation commands must be run as root user._
 
@@ -27,7 +30,7 @@ _All installation commands must be run as root user._
 For a PalMA station you need a computing device (e.g. a regular PC or a Raspberry Pi) with internet access and a monitor connected to it. The larger the screen, the greater the benefit.
 
 PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
-Hardware requirements are relatively low. For reasonable performance we recommend something at least as strong as a Raspberry Pi 3.
+Hardware requirements are relatively low. For reasonable performance we recommend something at least as powerful as a Raspberry Pi 3.
 
 ## Required packages
 
@@ -46,15 +49,22 @@ Instead of apache2 it is also possible to use nginx, for example on weaker machi
 
 ## Webserver configuration
 
+Example configuration files are provided in the `examples`
+subdirectory, particularly
+* `palma.apache.conf`: configuration file for apache, should go to `/etc/apache2/conf-available/palma.conf` and then be activated by `a2enconf palma`
+* `palma.nginx.conf`: configuration file for nginx, should go to `/etc/ngnx/sites-available/palma` and linked to `/etc/ngnx/sites-enabled/palma`
+* `palma.php.ini`: php configuration file for apache2 and nginx, should go to `/etc/php/7.x/apache2/conf.d` or `/etc/php/7.x/fpm/conf.d`, respectively.
+
 ### Apache
 
-The PHP default configuration for the Apache2 webserver permits file uploads
-up to 2 MB. This limit is too low for typical documents (images,
-office documents, pdf). Change the setting `upload_max_filesize` in
-`/etc/php/7.0/apache2/php.ini`. 10 MB is a good value. There is another limit
-for the maximum size of HTML posts with a default value of 8 MB.
-As this is less than the 10 MB needed for file uploads, the setting
-`post_max_size` must also be increased by setting it to 10 MB.
+The PHP default configuration for the Apache2 webserver permits file
+uploads up to 2 MB. This limit is too low for typical documents
+(images, office documents, pdf). There is another limit for the
+maximum size of HTML posts with a default value of 8 MB.  As this is
+less than the 10 MB needed for file uploads, the setting
+`post_max_size` must also be increased by setting it to 10 MB.  Refer
+to `examples/palma.php.ini` for ready-to-use settings and copy the
+file to its proper location (see above).
 
 PalMA uses `.htaccess` to protect the database and the uploads directory.
 To enable this feature, Apache2 needs this section in file
@@ -65,6 +75,8 @@ To enable this feature, Apache2 needs this section in file
         # "Order" needs "Limit".
         AllowOverride FileInfo Limit
     </Directory>
+    
+or use `examples/palma.apache.conf`.
 
 The Apache2 module `rewrite` must be enabled, too:
 
@@ -73,63 +85,34 @@ The Apache2 module `rewrite` must be enabled, too:
 
 ### Nginx
 
-When using nginx instead of apache2 make sure the following configurations (server root, enabling php) are set in
-file `/etc/nginx/sites-enabled/default`:
-
-    server {
-        root /var/www/html;
-        index index.html index.htm index.php index.nginx-debian.html;
-        # ...
-        location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-                fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
-
-                # If you still use php5 uncomment these lines instead of the above:
-                #fastcgi_split_path_info ^(.+\.php)(/.+)$;
-                #fastcgi_pass unix:/var/run/php5-fpm.sock;
-                #fastcgi_index index.php;
-                #include fastcgi_params;
-            }
-    }
+When using nginx instead of apache2 use `examples/palma.nginx.conf` as
+template for site configuration (server root, enabling php).
 
 ## PalMA
 
-Now let's install what it's all about and get the latest version of PalMA from GitHub:
+When installing PalMA from Debian packages, you will need the main
+`palma` package and either `palma-nginx` or `palma-apache` depending
+on the web server you intend to use.
 
-    git clone https://github.com/UB-Mannheim/PalMA.git /var/www/html
+Download the packages to your designated PalMA host and run (as root):
 
-Typically, PalMA should be started automatically. Activate autostart via systemd with these commands:
+    dpkg -i palma*.deb # in your download directory
+    apt-get -f install # pull missing dependencies
+     
+If everything went well, PalMA should automatically start up.
+For customizing themes and other options, please edit `/etc/palma.ini`.
 
-    cp /var/www/html/scripts/palma.service /etc/systemd/system/palma.service
-    chmod 755 /etc/systemd/system/palma.service
-    systemctl daemon-reload
-    systemctl enable palma.service
+If you are installing PalMA manually, using the installation script,
+you can either pull the git repository or download it as a zip file and unpack it to a directory on the designated PalMA host. After that, just run `./install` as root or `./install -v` for verbose output.
 
-Now a configuration file `/var/www/html/palma.ini` must be added.
-A template for this file is available from subdirectory `examples`, so run
-this command to get a preliminary file:
+Now you should have your own PalMA station up and running.  See the
+next two sections on how to customize your installation and how to add
+new languages to it.
 
-    cp /var/www/html/examples/palma.ini /var/www/html/palma.ini
+## Upgrading
 
-Please change entries in `palma.ini` according to your local installation.
-These include at least the entries `theme` and `start_url`.
-
-Optionally we can create the language files for the translations of the user interface.
-
-    make -C /var/www/html
-
-At last we need to grant write access to www-data so that the web server can
-create and modify the sqlite3 database `palma.db`, a directory for file uploads
-can be created automatically and some viewer programs can write their
-configuration data.
-
-So we add write access for www-data in directory `~www-data` (typically
-`/var/www`) by changing the ownership:
-
-    chown -R www-data:www-data /var/www
-
-Now you should have your own PalMA station up and running.
-See the next two sections on how to customize your installation and how to add new languages to it.
+Older versions of PalMA kept all files in `/var/www/html`. In order to
+remove it, an uninstall script is provided in the `examples` directory.
 
 ## Theming your installation
 
