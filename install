@@ -1,0 +1,293 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
+
+import argparse, grp, os, platform, pwd, re, shutil, socket, sys, tempfile
+from subprocess import call, check_call, check_output, CalledProcessError
+
+################################################################################
+## command line parsing
+################################################################################
+parser = argparse.ArgumentParser(
+    description='Configure script for PalMA',
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+parser.add_argument('--prefix', default='/usr', help='set install prefix')
+parser.add_argument('--sysconfdir', default='/etc', help='set sysconfdir')
+parser.add_argument('--libdir', default=argparse.SUPPRESS,
+                    help='set lib directory explicitly (default: PREFIX/lib/palma)')
+parser.add_argument('--wwwdir', default=argparse.SUPPRESS,
+                    help='set www root directory explicitly (default: PREFIX/share/palma)')
+
+parser.add_argument('--browser', default='midori', choices=['midori','dwb'],
+                    help='set browser')
+parser.add_argument('--dbdir', default='/var/lib/palma',
+                    help='set database directory')
+parser.add_argument('--no-deps', action='store_false', dest='deps',
+                    help='install dependencies')
+parser.add_argument('--init', choices=['sysvinit','systemd'], default='systemd',
+                    help='set init system for start script')
+parser.add_argument('--name', default=argparse.SUPPRESS,
+                    help='set host name (default: %s)' % socket.getfqdn())
+parser.add_argument('--server', choices=['apache2','nginx'], default='nginx',
+                    help='set web server')
+parser.add_argument('-v', '--verbose', action='store_true',
+                    help='set verbose output')
+parser.add_argument('mode', nargs='?', choices=['install','deb'],
+                    default='install', help='run mode')
+args = parser.parse_args()
+
+################################################################################
+## lists of files and dependencies
+################################################################################
+deps_debian = [
+    'feh', 'libreoffice', 'ssvnc', 'vlc', 'x11vnc', 'zathura',
+    'wmctrl', 'xdotool', 'openbox', 'sqlite3', 'unclutter',
+    'php', 'php-cgi', 'php-cli', 'php-curl', 'php-fpm',
+    'php-gd', 'php-intl', 'php-sqlite3', 'php-mbstring',
+    'gettext', 'git', 'libavcodec-extra', 'make'
+]
+
+files_wwwdir = [
+    # php
+    'auth.php', 'globals.php', 'control.php', 'DBConnector.class.php', 'db.php',
+    'download.php', 'FileHandler.class.php', 'i12n.php', 'index.php',
+    'login.php', 'logout.php', 'SSVNCDaemon.php', 'upload.php',
+    # css
+    'palma.css', 'pure-min.css',
+    # js
+    'dropzone.js',
+    'jquery.min.js',
+]
+
+dirs_wwwdir = [
+    'font-awesome', 'images', 'locale', 'php-gettext', 'qrcode', 'settings',
+    'theme',
+]
+
+pkgs_server = {
+    'nginx':  [ 'nginx-light' ],
+    'apache': [ 'apache2', 'libapache2-mod-php' ],
+}
+
+################################################################################
+## helper functions for configuration file creation
+################################################################################
+def makedeb_version():
+    lastcommit = check_output(
+        ['/usr/bin/git', 'log', '--pretty=format:%h', '-n', '1'])
+    curvers = check_output(
+        ['/usr/bin/git', 'tag', '--contains', lastcommit])
+    if not len(curvers):
+        lastvers = check_output(
+            ['/usr/bin/git', 'tag']).strip().split(b'\n').pop()
+        lastvers = lastvers.replace(b'v',b'')
+        curvers = "%s+%s" % (lastvers,lastcommit)
+    return curvers
+
+################################################################################
+## helper functions
+################################################################################
+def printv(*a):
+    if args.verbose:
+        print(" ".join(map(str,a)), file=sys.stderr)
+
+def printe(*a):
+    print(" ".join(map(str,a)), file=sys.stderr)
+
+def mkdir(d):
+    if not os.path.exists(d):
+        os.makedirs(d)
+        
+def snr(pattern,f):
+    check_call(['/bin/sed', '-i', pattern, f])
+
+################################################################################
+## start of script
+################################################################################
+if 'libdir' not in vars(args):
+    vars(args)['libdir'] = os.path.join(args.prefix,'lib','palma')
+if 'wwwdir' not in vars(args):
+    vars(args)['wwwdir'] = os.path.join(args.prefix,'share','palma')
+
+arch = platform.machine()
+opsys = platform.system()
+if opsys == "Linux":
+    opsys = " ".join(platform.linux_distribution()).capitalize()
+    
+if args.verbose:
+    printv("Settings summary:")
+    for k,v in sorted(args.__dict__.items()):
+        printv("  %10s: %s" % (k,repr(v)))
+    
+    printv("Detecting system:")
+    printv("  Arch:", arch)
+    printv("    OS:", opsys)
+
+try:
+    destdir = ''
+    if args.mode == 'deb':
+        destdir = os.getenv('DESTDIR')
+        printv("Creating debian package in '%s'" % destdir)
+        
+    if args.mode == 'install' and args.deps:
+        # install dependencies
+        if opsys.startswith('Debian'):
+            try:
+                check_call(['/usr/bin/apt-get', 'install', '-y']
+                           + deps_debian + [ args.browser ]
+                           + pkgs_server[args.server])
+            except:
+                printe('Error installing dependencies, exiting.')
+                if args.verbose: raise
+                sys.exit(1)
+        
+    if args.mode == 'install':
+        # stop palma if already installed
+        if args.init == 'systemd':
+            if call(['/bin/systemctl', 'is-active', 'palma'],
+                    stdout=open(os.devnull, 'w')) == 0:
+                printv("Stopping systemd service")
+                call(['/bin/systemctl', 'stop', 'palma'])
+        
+    # build localization files
+    check_call(['/usr/bin/make'])
+    
+    # copy files
+    userstruct = pwd.getpwnam('www-data')
+
+    wwwdir = destdir + args.wwwdir
+    mkdir(wwwdir)
+    for f in files_wwwdir:
+        printv("Copying '%s'" % f)
+        shutil.copy(f,wwwdir)
+    for d in dirs_wwwdir:
+        printv("Copying directory '%s'" % d)
+        trg = os.path.join(wwwdir,d)
+        if os.path.exists(trg): shutil.rmtree(trg)
+        shutil.copytree(d,trg,symlinks=True)
+    
+    printv("Installing 'palma.ini'")
+    # palma.ini
+    snr("s,'palma.ini','%s',g" % os.path.join(args.sysconfdir,'palma.ini'),
+        os.path.join(wwwdir,'globals.php'))
+    sysconfdir = destdir + args.sysconfdir
+    mkdir(sysconfdir)
+    shutil.copy('examples/palma.ini', sysconfdir)
+    
+    # palma.db
+    snr('s,palma.db,%s,g' % os.path.join(args.dbdir,'palma.db'),
+        os.path.join(wwwdir,'DBConnector.class.php'))
+    dbdir = destdir + args.dbdir
+    mkdir(dbdir)
+    if args.mode == 'install':    
+        os.chown(dbdir,userstruct.pw_uid,userstruct.pw_gid)
+        
+    # configure web server
+    phpversion = ''
+    if args.mode == 'deb' or args.server == 'nginx':
+        if args.mode == 'install':
+            printv("Creating configuration for nginx")
+            for root, dirs, files in os.walk('/etc/php'):
+                for d in dirs:
+                    if not d == 'fpm': continue
+                    phpversion = os.path.basename(root)
+                    break
+            if not len(phpversion):
+                printe("Could not determine php version, is php-fpm installed? Exiting")
+                sys.exit(1)
+                
+            path = os.path.join(args.sysconfdir,
+                                'php/%s/fpm/conf.d' % phpversion)
+            if not os.path.exists(path):
+                os.makedirs(path)
+            fn = os.path.join(path,'palma.ini')
+            shutil.copyfile('examples/palma.php.ini', fn)
+            path = os.path.join(args.sysconfdir,
+                                'nginx/sites-available')
+            if not os.path.exists(path):
+                os.makedirs(path)
+            fn = os.path.join(path,'palma')
+            shutil.copyfile('examples/palma.nginx.conf',fn)
+            snr('s,/var/www/html,%s,g' % args.wwwdir, fn)
+            snr('s,php7.?,php%s,g' % phpversion, fn)
+        
+            path = os.path.join(args.sysconfdir,'nginx/sites-enabled')
+            if not os.path.exists(path):
+                os.makedirs(path)
+            fn = os.path.join(path,'palma')
+            if not os.path.exists(fn):
+                os.symlink('../sites-available/palma', fn)
+            fn = os.path.join(path,'default')
+            if os.path.exists(fn):
+                os.remove(fn)
+            printv("Reloading nginx configuration")
+            check_call(['/usr/sbin/invoke-rc.d', 'nginx', 'restart'])
+    if args.mode == 'deb' or args.server == 'apache':
+        printv("Creating configuration for apache2")
+
+        path = os.path.join(destdir + args.sysconfdir,'apache2/conf-available')
+        if not os.path.exists(path):
+            os.makedirs(path)
+        fn = os.path.join(path,'palma.conf')
+        shutil.copyfile('examples/palma.apache.conf', fn)
+        snr('s,/var/www/html,%s,g' % args.wwwdir, fn)
+        
+        if args.mode == 'install':
+            for root, dirs, files in os.walk('/etc/php'):
+                for d in dirs:
+                    if not d == 'apache2': continue
+                    phpversion = os.path.basename(root)
+                    break
+            if not len(phpversion):
+                printe("Could not determine php version, is libapache2-mode-php installed? Exiting")
+                sys.exit(1)
+                
+            path = os.path.join(args.sysconfdir,
+                                'php/%s/apache2/conf.d' % phpversion)
+            if not os.path.exists(path):
+                os.makedirs(path)
+            fn = os.path.join(path,'palma.ini')
+            shutil.copyfile('examples/palma.php.ini', fn)
+        
+            printv("Reloading apache2 configuration")
+            check_call(['/usr/sbin/a2enmod', 'rewrite'])
+            check_call(['/usr/sbin/a2enconf', 'palma'])
+            check_call(['/usr/sbin/apache2ctl', 'configtest'])
+            check_call(['/usr/sbin/apache2ctl', 'restart'])
+
+    libdir = destdir + args.libdir
+    mkdir(libdir)
+    shutil.copy('scripts/startx',libdir)
+
+    # install syslog configuration
+    printv('Creating configuration for syslog')
+    path = os.path.join(destdir + args.sysconfdir,'rsyslog.d')
+    mkdir(path)
+    shutil.copyfile('examples/palma.syslog', os.path.join(path,'palma.conf'))
+    if args.mode == 'install':
+        check_call(['/bin/systemctl', 'restart', 'rsyslog'])
+        
+    # install init script
+    if args.init == 'systemd':
+        printv('Installing systemd service')
+        path = os.path.join(destdir + args.sysconfdir,'systemd/system')
+        mkdir(path)
+        fn = os.path.join(path,'palma.service')
+        shutil.copyfile('examples/palma.service', fn)
+        snr('s,^\\(ExecStart\\)=.*,\\1=%s,g' % os.path.join(args.libdir,'startx'), fn)
+        snr('s,^\\(WorkingDirectory\\)=.*,\\1=%s,g' % args.wwwdir, fn)
+        snr('s,^\\(Group\\)=.*,\\1=www-data,g', fn)
+
+        if args.mode == 'install':
+           call(['/bin/systemctl', 'daemon-reload'])
+           call(['/bin/systemctl', 'enable', 'palma'])
+           call(['/usr/sbin/invoke-rc.d', 'palma', 'start'])
+    else:
+        pass
+
+except:
+    printe('Error installing PalMA, exiting.')
+    raise
+    sys.exit(1)

@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+
+import base64, os, sys
+from datetime import datetime
+
+# log dir relative to script directory (or absolute path)
+logdir = '/var/log/palma'
+
+def error(*args, **kwargs):
+    """Writes to error log of http server and exits."""
+    print(" ".join(map(str,args)), **kwargs, file=sys.stderr)
+    sys.exit(1)
+
+def timestamp():
+    return datetime.now().replace(microsecond=0).isoformat()
+
+# return standard header to make scipt GETtable
+print("Content-type: text/html\n")
+
+# extract path from URL and sanitize it
+path = os.getenv('PATH_INFO')
+if path is None:
+    error('Could not get PATH_INFO from environment')
+frags =[ i for i in path.split('/') if i and len(i) ]
+if len(frags) != 2:
+    error("Malformed payload in URL: %s" % path)
+    
+action     = base64.b64decode(frags.pop()).decode('utf-8')
+palma_host = frags.pop()
+
+if not os.path.isdir(logdir):
+    os.mkdir(logdir)
+logfile = palma_host + '.log'
+with open(os.path.join(logdir,logfile), 'a') as f:
+    print(timestamp(), action, file=f)

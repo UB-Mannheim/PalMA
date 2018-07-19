@@ -2,7 +2,7 @@
 
 # Compile all available translations for the PalMA web interface.
 
-.PHONY: all
+.PHONY: all install phpcs phpcbf deb
 
 DISTDIR=docs/dist
 LANGUAGES=$(shell cd locale && ls -d *.UTF-8 | sed s/.UTF-8//)
@@ -12,7 +12,6 @@ SRC+=i12n.php
 SRC+=login.php
 SRC+=upload.php
 SRC+=$(wildcard examples/screensaver/*.php)
-SRC+=$(wildcard selectplace/*.php)
 SRC+=$(wildcard theme/*/*/*.php)
 
 PO=$(wildcard locale/*.UTF-8/LC_MESSAGES/palma.po)
@@ -38,3 +37,18 @@ locale/README.md: $(PO)
 
 .git/hooks/%: $(DISTDIR)/%.sh
 	ln -sf ../../$< $@
+
+clean:
+
+install: all
+	./install -v deb
+
+deb:
+	debian/rules clean
+	fakeroot debian/rules binary
+
+phpcs:
+	-phpcs -n --standard=PSR2 --file-list=.phpcs.list
+
+phpcbf:
+	-phpcbf -n --standard=PSR2 --file-list=.phpcs.list

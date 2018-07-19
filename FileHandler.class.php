@@ -1,4 +1,4 @@
-<?php
+<?php namespace palma;
 
 // Copyright (C) 2014 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
@@ -10,66 +10,6 @@ if (!isset($unittest)) {
     $unittest = array();
 }
 $unittest[__FILE__] = (sizeof(get_included_files()) == 1);
-
-
-
-class FehHandler extends FileHandler
-{
-    public function getControls()
-    {
-        return FileHandler::CURSOR | FileHandler::ZOOM;
-    }
-    public function show($path)
-    {
-    }
-}
-
-class LibreOfficeHandler extends FileHandler
-{
-    public function getControls()
-    {
-        return FileHandler::CURSOR | FileHandler::ZOOM;
-    }
-    public function show($path)
-    {
-    }
-}
-
-class MidoriHandler extends FileHandler
-{
-    public function getControls()
-    {
-        return FileHandler::CURSOR | FileHandler::ZOOM;
-    }
-    public function show($path)
-    {
-    }
-}
-
-class VlcHandler extends FileHandler
-{
-    public function getControls()
-    {
-        return FileHandler::CURSOR | FileHandler::ZOOM;
-    }
-    public function show($path)
-    {
-    }
-}
-
-class ZathuraHandler extends FileHandler
-{
-    public function getControls()
-    {
-        return FileHandler::CURSOR | FileHandler::ZOOM |
-               FileHandler::HOME | FileHandler::END |
-               FileHandler::PRIOR | FileHandler::NEXT |
-               FileHandler::DOWNLOAD;
-    }
-    public function show($path)
-    {
-    }
-}
 
 abstract class FileHandler
 {
@@ -123,24 +63,18 @@ abstract class FileHandler
         // echo $ftype;
         if ($ftype === 'pdf') {
             $fhandler=$pdfHandler;
-
         } elseif ($ftype === 'gif' || $ftype === 'jpg' || $ftype === 'png') {
             $fhandler=$imageHandler;
-
         } elseif ($ftype === 'html' || $ftype === 'url') {
             $fhandler=$webHandler;
-
         } elseif ($ftype === 'mpg' || $ftype === 'mpeg' || $ftype === 'avi' ||
                   $ftype === 'mp3' || $ftype === 'mp4') {
             $fhandler=$avHandler;
-
         } else {
             if ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
                 $officeApp = "writer";
-
             } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
                 $officeApp = "impress";
-
             } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
                 $officeApp = "calc";
             }
@@ -177,14 +111,4 @@ function convertOffice($inputFile, $office, $outputDir, $fileName)
     } else {
         return false;
     }
-}
-
-if ($unittest[__FILE__]) {
-    // Run unit test.
-    $midoriHandler = new MidoriHandler;
-    $zathuraHandler = new ZathuraHandler;
-    echo("DOWNLOAD   =" . FileHandler::DOWNLOAD . "\n");
-    echo("filehandler=" . FileHandler::getFileHandler("test.txt") . "\n");
-    $handler = ${'midori' . 'Handler'};
-    echo("controls   =" . $handler->getControls() . "\n");
 }

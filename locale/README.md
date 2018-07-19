@@ -8,15 +8,15 @@
 |---|---|
 |[ar](#ar)|65.55|
 |[de_DE](#de_de)|100.00|
-|[es_ES](#es_es)|56.30|
-|[fr_FR](#fr_fr)|46.22|
-|[it_IT](#it_it)|43.70|
-|[lv_LV](#lv_lv)|25.21|
-|[ru_RU](#ru_ru)|52.10|
+|[es_ES](#es_es)|54.78|
+|[fr_FR](#fr_fr)|47.83|
+|[it_IT](#it_it)|41.74|
+|[lv_LV](#lv_lv)|26.09|
+|[ru_RU](#ru_ru)|51.30|
 |[sq_AL](#sq_al)|100.00|
-|[ur_PK](#ur_pk)|13.45|
+|[ur_PK](#ur_pk)|13.91|
 |[zh_CN](#zh_cn)|100.00|
-|[zh_TW](#zh_tw)|43.70|
+|[zh_TW](#zh_tw)|41.74|
 
 ## ar
 
@@ -26,6 +26,7 @@ Contributors:
 
   * Alexander Wagner
   * Daniel Riad
+  * Jörg Mechnich
   * Mahmoud Osman
   * Philipp Zumstein
   * Rafik Takieddin
@@ -77,25 +78,27 @@ Missing:
 
 ## de_DE
 
-Completion: **100.00** (119 / 119 strings)
+Completion: **100.00** (115 / 115 strings)
 
 Contributors:
 
   * Alexander Wagner
   * Alexander Weiß
   * Dennis Müller
+  * Jörg Mechnich
   * Nicolas Wipfler
   * Philipp Zumstein
   * Stefan Weil
 
 ## es_ES
 
-Completion: **56.30** (67 / 119 strings)
+Completion: **54.78** (63 / 115 strings)
 
 Contributors:
 
   * Alexander Wagner
   * Amy Garcia Kennedy
+  * Jörg Mechnich
   * Patrick Voelker
   * Piero Divasto
   * Stefan Weil
@@ -156,12 +159,13 @@ Missing:
 
 ## fr_FR
 
-Completion: **46.22** (55 / 119 strings)
+Completion: **47.83** (55 / 115 strings)
 
 Contributors:
 
   * Alexander Wagner
   * Dennis Müller
+  * Jörg Mechnich
   * Lena Burger
   * Nadja Seemann
   * Regina Retter
@@ -175,7 +179,6 @@ Missing:
   * `Below you find the navigation controls.`
   * `Buttons on the left jump to the top, to the end, a page up or a page down`
   * `Cannot check credentials, sorry!`
-  * `Conference room`
   * `Controls that are not available for certain kinds of content are marked grey.`
   * `Delete the item`
   * `Disconnect all users and end the session`
@@ -202,7 +205,6 @@ Missing:
   * `Log out`
   * `Login`
   * `Mac:`
-  * `Mannheim table`
   * `New users can join at`
   * `On the right you can choose the position on the PalMA monitor`
   * `Or use this shell command:`
@@ -218,10 +220,8 @@ Missing:
   * `Screen section`
   * `Select &quot;Reverse Connection&quot;.`
   * `Select language:`
-  * `Select workplace`
   * `Some additional features are:`
   * `Tell us what you think`
-  * `Test monitor`
   * `Thank you!`
   * `This file is too large.`
   * `This help,`
@@ -235,11 +235,12 @@ Missing:
 
 ## it_IT
 
-Completion: **43.70** (52 / 119 strings)
+Completion: **41.74** (48 / 115 strings)
 
 Contributors:
 
   * Alexander Wagner
+  * Jörg Mechnich
   * Stefano Leccese
   * Stefan Weil
 
@@ -314,12 +315,13 @@ Missing:
 
 ## lv_LV
 
-Completion: **25.21** (30 / 119 strings)
+Completion: **26.09** (30 / 115 strings)
 
 Contributors:
 
   * Alexander Wagner
   * Dennis Müller
+  * Jörg Mechnich
   * Polina Potoskueva
   * Stefan Weil
 
@@ -336,7 +338,6 @@ Missing:
   * `Choose screen layout`
   * `Click here to show the webpage on the screen.`
   * `Close all windows and remove uploaded files`
-  * `Conference room`
   * `Control`
   * `Controls that are not available for certain kinds of content are marked grey.`
   * `Delete all items`
@@ -373,7 +374,6 @@ Missing:
   * `Log out`
   * `Login`
   * `Mac:`
-  * `Mannheim table`
   * `Navigate`
   * `New users can join at`
   * `On the right you can choose the position on the PalMA monitor`
@@ -392,11 +392,9 @@ Missing:
   * `Screen section`
   * `Select &quot;Reverse Connection&quot;.`
   * `Select language:`
-  * `Select workplace`
   * `Some additional features are:`
   * `Sorry! Screensharing for your device is currently not supported.`
   * `Tell us what you think`
-  * `Test monitor`
   * `Thank you!`
   * `The PalMA team monitor shows up to four contributions simultaneously.`
   * `This file is too large.`
@@ -416,13 +414,14 @@ Missing:
 
 ## ru_RU
 
-Completion: **52.10** (62 / 119 strings)
+Completion: **51.30** (59 / 115 strings)
 
 Contributors:
 
   * Aleksandra Irtikeeva
   * Alexander Egurnov
   * Alexander Wagner
+  * Jörg Mechnich
   * Mariia Zrianina
   * Olga Pogorelaya
   * Simona Doneva
@@ -460,7 +459,6 @@ Missing:
   * `Layout`
   * `Linux:`
   * `Mac:`
-  * `Mannheim table`
   * `Navigate`
   * `New users can join at`
   * `On the right you can choose the position on the PalMA monitor`
@@ -490,24 +488,26 @@ Missing:
 
 ## sq_AL
 
-Completion: **100.00** (119 / 119 strings)
+Completion: **100.00** (115 / 115 strings)
 
 Contributors:
 
   * Alexander Wagner
   * Elisa Greca
   * Gert Pere
+  * Jörg Mechnich
   * Kristiana Ristani
   * Piero Divasto
   * Stefan Weil
 
 ## ur_PK
 
-Completion: **13.45** (16 / 119 strings)
+Completion: **13.91** (16 / 115 strings)
 
 Contributors:
 
   * Alexander Wagner
+  * Jörg Mechnich
   * Stefan Weil
   * Taimur Ali Khan
 
@@ -527,7 +527,6 @@ Missing:
   * `Choose screen layout`
   * `Click here to show the webpage on the screen.`
   * `Close all windows and remove uploaded files`
-  * `Conference room`
   * `Connect`
   * `Controls that are not available for certain kinds of content are marked grey.`
   * `Delete all items`
@@ -564,7 +563,6 @@ Missing:
   * `Log in`
   * `Login`
   * `Mac:`
-  * `Mannheim table`
   * `Navigate`
   * `New users can join at`
   * `On the right you can choose the position on the PalMA monitor`
@@ -586,12 +584,10 @@ Missing:
   * `Select &quot;Reverse Connection&quot;.`
   * `Select language:`
   * `Select screen section for display`
-  * `Select workplace`
   * `Some additional features are:`
   * `Sorry! Screensharing for your device is currently not supported.`
   * `Team members can join the session at any time with this URL or QR-Code:`
   * `Tell us what you think`
-  * `Test monitor`
   * `Thank you!`
   * `The PalMA team monitor shows up to four contributions simultaneously.`
   * `There is no shared content yet. Click below to get started!`
@@ -618,13 +614,14 @@ Missing:
 
 ## zh_CN
 
-Completion: **100.00** (119 / 119 strings)
+Completion: **100.00** (115 / 115 strings)
 
 Contributors:
 
   * Alexander Wagner
   * Caipei Song
   * Chen Zongqi
+  * Jörg Mechnich
   * Piero Divasto
   * Stefan Weil
   * Yang
@@ -632,13 +629,14 @@ Contributors:
 
 ## zh_TW
 
-Completion: **43.70** (52 / 119 strings)
+Completion: **41.74** (48 / 115 strings)
 
 Contributors:
 
   * Aimee C. Chen
   * Alexander Wagner
   * Caipei Song
+  * Jörg Mechnich
   * Piero Divasto
   * Stefan Weil
   * Yang

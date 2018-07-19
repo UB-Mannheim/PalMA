@@ -15,13 +15,15 @@ if (isset($unittest)) {
 }
 $unittest[__FILE__] = !isset($_SERVER['SERVER_NAME']);
 
-// Connect to database and get configuration constants.
-require_once('DBConnector.class.php');
-$db = new DBConnector();
+require_once('globals.php');
 
 if (!$unittest[__FILE__]) {
     trace("QUERY_STRING=" . $_SERVER['QUERY_STRING']);
 }
+
+// Connect to database and get configuration constants.
+require_once('DBConnector.class.php');
+$db = new palma\DBConnector();
 
 function displayCommand($cmd)
 {
@@ -31,31 +33,37 @@ function displayCommand($cmd)
         $cmd = "DISPLAY=" . CONFIG_DISPLAY . " HOME=/var/www $cmd";
     }
 
+    monitor("control.php: displayCommand $cmd");
+
     $result = shell_exec($cmd);
-    trace("cmd=$cmd, result=$result");
+    trace("displayCommand $cmd, result=$result");
     return $result;
 }
 
 function wmClose($id)
 {
+    monitor("control.php: wmClose");
     // Close window gracefully.
     displayCommand("wmctrl -i -c $id");
 }
 
 function wmHide($id)
 {
+    monitor("control.php: wmHide");
     // Hide window. This is done by moving it to desktop 1.
     displayCommand("wmctrl -i -r $id -t 1");
 }
 
 function wmShow($id)
 {
+    monitor("control.php: wmShow");
     // Show window on current desktop.
     displayCommand("wmctrl -i -R $id");
 }
 
 function windowListOnScreen()
 {
+    monitor("control.php: windowListOnScreen");
     $list = array();
     $windows = explode("\n", displayCommand('wmctrl -l'));
     foreach ($windows as $w) {
@@ -72,6 +80,7 @@ function windowListOnScreen()
 
 function windowList()
 {
+    monitor("control.php: windowList");
     $list = array();
     global $db;
 
@@ -88,6 +97,7 @@ function windowList()
 
 function closeAll()
 {
+    monitor("control.php: closeAll");
     global $db;
 
     $windows_on_screen = windowListOnScreen();
@@ -108,6 +118,7 @@ function closeAll()
 
 function doLogout($username)
 {
+    monitor("control.php: doLogout");
     global $db;
     if ($username == 'ALL') {
         // Terminate all user connections and reset system.
@@ -118,6 +129,7 @@ function doLogout($username)
 
 function clearUploadDir()
 {
+    monitor("control.php: clearUploadDir");
     # Remove all files in the upload directory.
     if (is_dir(CONFIG_UPLOAD_DIR)) {
         if ($dh = opendir(CONFIG_UPLOAD_DIR)) {
@@ -133,6 +145,7 @@ function clearUploadDir()
 
 function setLayout($layout)
 {
+    monitor("control.php: setLayout $layout");
     // Set layout of team display. Layouts are specified by their name.
     // We use names like g1x1, g2x1, g1x2, ...
     // Restore the last layout if the function is called with a null argument.
@@ -209,7 +222,8 @@ function activateControls($windowhex)
 {
     global $db;
     $fhandler = $db->querySingle("SELECT handler FROM window WHERE win_id='$windowhex'");
-    error_log("activateControls for handler $fhandler");
+    trace("activateControls for handler $fhandler");
+    monitor("control.php: activateControls $fhandler");
 }
 
 function addNewWindow($db, $new)
@@ -217,6 +231,7 @@ function addNewWindow($db, $new)
     // Add a new window to the monitor. This window either uses the first
     // unused section or it will be hidden.
 
+    monitor('control.php: addNewWindow ' . serialize($new));
     trace('addNewWindow ' . serialize($new));
     // '$new' already contains 'file', 'handler' and 'date', as well as the
     // username for VNC connections only.
@@ -304,6 +319,33 @@ function addNewWindow($db, $new)
     $db->insertWindow($myWindow);
 }
 
+function createNewWindowSafe($db, $w)
+{
+    $inFile = $w['file'];
+    if (!file_exists($inFile)) {
+        trace("".escapeshellarg($inFile)." is not a file, aborting display");
+        return;
+    }
+  
+    require_once('FileHandler.class.php');
+    list ($handler, $targetFile) =
+      palma\FileHandler::getFileHandler($inFile);
+    trace("file is now $targetFile, its handler is $handler");
+
+    $window = array(
+      "id" => "",
+      "win_id" => "",
+      "name" => "",
+      "state" => "",
+      "file" => $targetFile,
+      "handler" => $handler,
+      "userid" => "",
+      "date" => $w['date']);
+  
+    createNewWindow($db, $window);
+}
+
+
 function createNewWindow($db, $w)
 {
     // '$w' already contains 'file', 'handler' and 'date'.
@@ -313,14 +355,16 @@ function createNewWindow($db, $w)
     // TODO: use escapeshellarg() for filename.
     $filename = $w['file'];
 
-    $cmd = "$handler '$filename'";
+    $cmd = "$handler ".escapeshellarg($filename);
     displayCommand("/usr/bin/nohup $cmd >/dev/null 2>&1 &");
 
     addNewWindow($db, $w);
+    monitor("control.php: createNewWindow");
 }
 
 function processRequests($db)
 {
+    monitor("control.php: processRequests");
     if (array_key_exists('window', $_REQUEST)) {
         // All windows related commands must start with window=.
 
@@ -385,7 +429,6 @@ function processRequests($db)
         }
 
         if (array_key_exists('delete', $_REQUEST)) {
-
             $delete = str_replace(" ", "\ ", addslashes($_REQUEST['delete']));
             trace("delete=$delete, close window $windownumber");
 
@@ -398,7 +441,6 @@ function processRequests($db)
                 trace("vnc delete in control");
                 $win_id = $_REQUEST['vncid'];   // = hexWindow in database, but not on screen
                 trace("VNC cia Daemon ... id=$win_id");
-
             } elseif (strstr($delete, "http")) {
                 trace("+++ DELETE Browserwindow +++");
             } elseif (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
@@ -416,7 +458,6 @@ function processRequests($db)
         }
 
         if (array_key_exists('closeOrphans', $_REQUEST)) {
-
             // win_ids in db
             $windows_in_db = $db->getWindows();
             $db_ids = array();
@@ -439,7 +480,6 @@ function processRequests($db)
                     wmClose($id);
                 }
             }
-
         }
 
         if (array_key_exists('toggle', $_REQUEST)) {
@@ -462,7 +502,7 @@ function processRequests($db)
         // TODO: Better write new code for VNC window.
         addNewWindow($db, unserialize(urldecode($_REQUEST['newVncWindow'])));
     } elseif (array_key_exists('newWindow', $_REQUEST)) {
-        createNewWindow($db, unserialize(urldecode($_REQUEST['newWindow'])));
+        createNewWindowSafe($db, unserialize(urldecode($_REQUEST['newWindow'])));
     }
 
     if (array_key_exists('switchWindows', $_REQUEST)) {
@@ -526,7 +566,6 @@ function processRequests($db)
         trace("close all windows $close");
         closeAll();
     }
-
 } // processRequests
 
 processRequests($db);

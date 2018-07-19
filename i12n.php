@@ -13,18 +13,18 @@ require_once('php-gettext/gettext.inc');
 
     // The default translations are in locale/en_US.UTF-8/LC_MESSAGES/palma.mo.
     $locale = '';
-    if (isset($_REQUEST['lang'])) {
-        // User requested language by URL parameter.
-        $locale = $_REQUEST['lang'];
-        $_SESSION['lang'] = $locale;
-    } else if (isset($_SESSION['lang'])) {
-        // Get language from session data.
-        $locale = $_SESSION['lang'];
-    } else if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-        // Get language from browser settings.
-        $locale = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-    }
-    switch (substr($locale, 0, 2)) {
+if (isset($_REQUEST['lang'])) {
+    // User requested language by URL parameter.
+    $locale = $_REQUEST['lang'];
+    $_SESSION['lang'] = $locale;
+} elseif (isset($_SESSION['lang'])) {
+    // Get language from session data.
+    $locale = $_SESSION['lang'];
+} elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    // Get language from browser settings.
+    $locale = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+}
+switch (substr($locale, 0, 2)) {
     case 'al':
         // Albanian.
         $locale = 'sq_AL.UTF-8';
@@ -72,7 +72,7 @@ require_once('php-gettext/gettext.inc');
     default:
         $locale = 'en_US.UTF-8';
         break;
-    }
+}
     //~ error_log("setlocale $locale");
     putenv("LANG=$locale");
     _setlocale(LC_MESSAGES, $locale);
@@ -94,8 +94,7 @@ if ($unittest[__FILE__]) {
 
     if (locale_emulation()) {
         print "locale '$locale' is not supported on your system, using custom gettext implementation.\n";
-    }
-    else {
+    } else {
         print "locale '$locale' is supported on your system, using native gettext implementation.\n";
     }
 

@@ -3,8 +3,7 @@
 // Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
-// Connect to database and get configuration constants.
-require_once('DBConnector.class.php');
+require_once('globals.php');
 
 if (empty($_FILES)) {
     $error = 99;
@@ -16,10 +15,10 @@ if (empty($_FILES)) {
 
 if (!is_dir(CONFIG_UPLOAD_DIR)) {
     /* Target directory is missing, so create it now. */
-    mkdir(CONFIG_UPLOAD_DIR, 0755);
+    mkdir(CONFIG_UPLOAD_DIR, 0755, true);
 }
 
-if ($error == UPLOAD_ERR_OK || "downloaded_from_url") {
+if ($error == UPLOAD_ERR_OK || $error == "downloaded_from_url") {
     # All uploaded files are collected in the upload directory.
     # If necessary, an index is added to get a unique filename.
     $tempFile = $_FILES['file']['tmp_name'];
@@ -47,7 +46,6 @@ if ($error == UPLOAD_ERR_OK || "downloaded_from_url") {
     } else {
         trace("upload failed!");
     }
-
 } else {
     // Support localisation.
     require_once('i12n.php');
@@ -78,8 +76,12 @@ if ($error == UPLOAD_ERR_OK || "downloaded_from_url") {
         fprintf($f, "</head>\n");
         fprintf($f, "<body>\n");
         fprintf($f, "<p>\n");
-        fprintf($f, __("File '%s' cannot be shown.") . "<br>\n%s\n",
-                $filename, $message);
+        fprintf(
+            $f,
+            __("File '%s' cannot be shown.") . "<br>\n%s\n",
+            $filename,
+            $message
+        );
         fprintf($f, "</p>\n");
         fprintf($f, "</body>\n");
         fprintf($f, "</html>\n");
@@ -88,45 +90,36 @@ if ($error == UPLOAD_ERR_OK || "downloaded_from_url") {
     $targetFile = "file:///$targetFile";
 }
 
-  // Get information of application for uploaded file.
-  require_once ('FileHandler.class.php');
-  list ($returnedHandler, $returnedTargetFile) = FileHandler::getFileHandler($targetFile);
-  $handler = $returnedHandler;
-  $targetFile = $returnedTargetFile;
-  trace("file is now $targetFile, its handler is $handler");
+// create window object and send to nuc
 
-  // create window object and send to nuc
+$dt = new DateTime();
+$date = $dt->format('Y-m-d H:i:s');
 
-  $dt = new DateTime();
-  $date = $dt->format('Y-m-d H:i:s');
+$window = array(
+    "id" => "",
+    "win_id" => "",
+    "name" => "",
+    "state" => "",
+    "file" => $targetFile,
+    "userid" => "",
+    "date" => $date);
 
-    $window = array(
-        "id" => "",
-        "win_id" => "",
-        "name" => "",
-        "state" => "",
-        "file" => $targetFile,
-        "handler" => $handler,
-        "userid" => "",
-        "date" => $date
-    );
+//echo "<body onLoad=\"sendToNuc('newWindow=".serialize($window)."')\" /></body>";
 
-    //echo "<body onLoad=\"sendToNuc('newWindow=".serialize($window)."')\" /></body>";
+$serializedWindow = serialize($window);
 
-    $serializedWindow = serialize($window);
+$sw = urlencode($serializedWindow);
+// Get cURL resource
+$curl = curl_init();
+// Set some options - we are passing in a useragent too here
+curl_setopt_array($curl, array(
+                      CURLOPT_RETURNTRANSFER => 1,
+                      CURLOPT_URL => CONFIG_CONTROL_FILE . '?newWindow=' . $sw,
+                      CURLOPT_USERAGENT => 'PalMA cURL Request'
+                               ));
+// Send the request & save response to $resp
+$resp = curl_exec($curl);
+// Close request to clear up some resources
+curl_close($curl);
 
-    $sw = urlencode($serializedWindow);
-    // Get cURL resource
-    $curl = curl_init();
-    // Set some options - we are passing in a useragent too here
-    curl_setopt_array($curl, array(
-        CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => CONFIG_CONTROL_FILE . '?newWindow=' . $sw,
-        CURLOPT_USERAGENT => 'PalMA cURL Request'
-    ));
-    // Send the request & save response to $resp
-    $resp = curl_exec($curl);
-    // Close request to clear up some resources
-    curl_close($curl);
-
-    trace("upload closed, result='$resp'");
+trace("upload closed, result='$resp'");

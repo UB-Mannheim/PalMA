@@ -9,7 +9,7 @@
 // TODO: Use db triggers instead of time based polling.
 
 require_once('DBConnector.class.php');
-$dbcon = new DBConnector();
+$dbcon = new palma\DBConnector();
 
 $remote = $_SERVER['REMOTE_ADDR'];
 $isAllowed = false;
@@ -17,10 +17,11 @@ $isAllowed = false;
 $newJSON = '{}';
 $oldJSON = '';
 
- if (!empty($_REQUEST['json'])) {
+require_once('globals.php');
+if (!empty($_REQUEST['json'])) {
     $oldJSON = $_REQUEST['json'];
     $oldJSONarr = json_decode($oldJSON, true);
-    array_walk_recursive($oldJSONarr, function(&$value, $key) {
+    array_walk_recursive($oldJSONarr, function (&$value, $key) {
         if (is_string($value) && preg_match('/^http/', $value)) {
             $value = rawurlencode($value);
         }
@@ -71,7 +72,7 @@ for ($t = 0; $t < 300; $t++) {
     $database['window'] = $data;
 
     //~ $newJSON = json_encode($database, JSON_PRETTY_PRINT);
-    array_walk_recursive($database, function(&$value, $key) {
+    array_walk_recursive($database, function (&$value, $key) {
         if (is_string($value) && preg_match('/^http/', $value)) {
             $value = rawurlencode($value);
         }
@@ -85,6 +86,6 @@ for ($t = 0; $t < 300; $t++) {
     sleep(1);
 }
 
-touch("last_activity");
+touch("/tmp/last_activity");
 
 echo($newJSON);

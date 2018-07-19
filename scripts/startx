@@ -10,13 +10,26 @@
 # Now the PalMA state machine can run.
 
 # Enable more log messages.
-set -x
+#set -x
 
 # Set session timeout parameter (minutes).
 TIMEOUT=15
 
 # User which is used for the PalMA desktop.
 user=www-data
+
+function palma_monitor()
+{
+    HTTPGET="wget -q -O-"
+    payload="bash_startx: $@"
+    $HTTPGET "$monitor_url/$(hostname -f)/$(base64<<<$payload)"
+}
+
+function set_pci_powerstate()
+{
+    syspath=/sys/bus/pci/devices/$1/power/control
+    [ -f $syspath ] && echo auto > $syspath
+}
 
 # Power saving recommendations from powertop.
 
@@ -31,15 +44,15 @@ if test -f /sys/module/snd_hda_intel/parameters/power_save; then
 fi
 if test -d /sys/bus/pci; then
     # VGA compatible controller.
-    echo auto >/sys/bus/pci/devices/0000:00:02.0/power/control
+    set_pci_powerstate 0000:00:02.0
     # USB controller.
-    echo auto >/sys/bus/pci/devices/0000:00:14.0/power/control
+    set_pci_powerstate 0000:00:14.0
     # USB controller.
-    echo auto >/sys/bus/pci/devices/0000:00:1a.0/power/control
+    set_pci_powerstate 0000:00:1a.0
     # Audio device.
-    echo auto >/sys/bus/pci/devices/0000:00:1b.0/power/control
+    set_pci_powerstate 0000:00:1b.0
     # USB controller.
-    echo auto >/sys/bus/pci/devices/0000:00:1d.0/power/control
+    set_pci_powerstate 0000:00:1d.0
 fi
 
 basedir=$(dirname "$0")
@@ -49,13 +62,46 @@ cd "$basedir"
 
 inifile="$basedir/palma.ini"
 
+if ! test -r "$inifile"; then
+    inifile=/etc/palma.ini
+    basedir=/usr/share/palma
+fi
+
+if ! test -r "$inifile"; then
+    echo "Could not open $inifile, exiting"
+    exit 1
+fi
+
+dbfile=palma.db
+if test -d /var/lib/palma; then
+    dbfile=/var/lib/palma/palma.db
+fi
+
+wwwroot=/var/www/html
+if test -d /usr/share/palma; then
+    wwwroot=/usr/share/palma
+fi
+
+rundir=/var/run/palma
+mkdir -p $rundir
+chown $user $rundir
+
 # Get some configuration parameters from ini file.
 export DISPLAY
-DISPLAY=$(grep "^id[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/')
-start_url=$(grep "^start_url[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/')
-theme=$(grep "^theme[ ]*=" "$inifile"|perl -pe 's/^[^=]*=[ ]*["]?([^"]*)["]?/\1/')
+eval $(grep -v '^\[\|^[[:space:]]*;\|^[[:space:]]*$' $inifile)
+[ -z "$DISPLAY" ]   && DISPLAY=:1
+[ -z "$start_url" ] && start_url="http://$(hostname -f)/"
+[ -z "$theme" ]     && theme="demo/simple"
+
 background="${start_url}theme/${theme}/background.png"
 screensaver="${start_url}theme/${theme}/screensaver.php"
+
+if [ -z "$monitor_url" ]; then
+    # noop
+    monitor=:
+else
+    monitor=palma_monitor
+fi
 
 if test -z "$HOME"; then
 export HOME=/root
@@ -69,11 +115,13 @@ runx() {
 # Get HOME directory of $user.
 userhome=$(su -c pwd -s /bin/sh -l "$user")
 
+$monitor "starting up X server"
+
 # Allow X server on display :0 to start.
 /bin/sleep 5
 
 # Start X server.
-/usr/bin/Xorg "$DISPLAY" -verbose 0 -nolisten tcp vt8 &
+/usr/bin/Xorg "$DISPLAY" -verbose 0 -nolisten tcp vt8 >/dev/null 2>&1 &
 
 # Allow X server to start before continuing.
 /bin/sleep 5
@@ -85,7 +133,7 @@ runx "/usr/bin/openbox --config-file \"$basedir/settings/openbox/rc.xml\"" &
 /bin/sleep 5
 
 # Show background image.
-runx "/usr/bin/feh --bg-scale --no-fehbg \"$background\""
+runx "/usr/bin/feh --bg-scale --no-fehbg \"$background\"" >/dev/null 2>&1
 
 # Disable DPMS.
 runx "/usr/bin/xset -dpms"
@@ -93,13 +141,15 @@ runx "/usr/bin/xset -dpms"
 # Disable screensaver.
 runx "/usr/bin/xset s off"
 
+[ -x /usr/bin/unclutter ] && runx "/usr/bin/unclutter -root -idle 0" &
+
 # Show the DPMS and screensaver settings.
 # /usr/bin/xset q
 
 # Wait a littĺe before the screensaver image hides the background.
 /bin/sleep 5
 
-rm palma.db
+rm -f "$dbfile"
 
 # Create directory for application settings if needed.
 mkdir -p "$userhome/.config"
@@ -111,13 +161,19 @@ if test -f /usr/bin/dwb; then
     webbrowser=dwb
     # Run dwb with PalMA compatible settings.
     rm -rf "$userhome/.config/dwb"
-    cp -a settings/dwb "$userhome/.config"
+    cp -a "$wwwroot/settings/dwb" "$userhome/.config"
 elif test -f /usr/bin/midori; then
     webbrowser=midori
+else
+    echo "Could not find any supported web browser!"
 fi
 
 # Fix ownership of directory for application settings.
 chown -R "$user:$user" "$userhome/.config"
+
+# Create cache directory for openbox
+mkdir -p "$userhome/.cache"
+chown -R "$user:$user" "$userhome/.cache"
 
 # 0=initial state
 # 1=screen saver running
@@ -129,8 +185,8 @@ set +x
 
 while true; do
 
-    if test -f palma.db; then
-        usercount=$(sqlite3 palma.db "select count(*) from user")
+    if test -f "$dbfile"; then
+        usercount=$(sqlite3 "$dbfile" "select count(*) from user")
     else
         usercount=0
     fi
@@ -138,11 +194,12 @@ while true; do
         # sqlite3 failed - maybe the database table was locked.
         date +"%F %T database was locked, will retry later"
     elif test "$state" = "0"; then
+        $monitor "starting login screen"
         # Initial state. Start a webbrowser with the screensaver image.
         # Kill the VNC viewer if it was running.
         date +"%F %T start $webbrowser with screensaver"
         killall -q ssvncviewer
-        runx "/usr/bin/php control.php doLogout=ALL"
+        runx "/usr/bin/php $wwwroot/control.php doLogout=ALL"
         case $webbrowser in
             dwb)
                 # Start DWB in presentation mode.
@@ -162,32 +219,36 @@ while true; do
             # There is still no user connected.
             # The screensaver should be running. If not: restart it.
             if ! pgrep "$webbrowser" >/dev/null; then
+                $monitor "browser was killed, restarting"
                 # Webbrowser was killed (software bug). Restart it.
                 date +"%F %T $webbrowser was killed"
                 state="0"
                 continue
             fi
         else
+            $monitor "connecting first user, starting SSVNCDaemon.php"
             # First user connected. Terminate the screensaver.
             # Start the VNC viewer process, so usercount can share their desktop.
             date +"%F %T kill $webbrowser"
             killall --user $user --quiet $webbrowser
-            runx "/usr/bin/php SSVNCDaemon.php" &
-            runx "/usr/bin/touch last_activity"
+            runx "/usr/bin/php $wwwroot/SSVNCDaemon.php" &
+            runx "/usr/bin/touch $rundir/last_activity"
             state="2"
         fi
     elif test "$state" = "2"; then
         # Users are connected. The VNC viewer process is running.
         if test "$usercount" = '0'; then
+            $monitor "last user disconnected, restarting"
             # The last user disconnected. Start the screensaver.
             date +"%F %T last user disconnected"
             state="0"
             continue
         else
-            ACTIVITY=$(date -r last_activity '+%s')
+            ACTIVITY=$(date -r $rundir/last_activity '+%s')
             NOW=$(date '+%s')
             DIFF=$((NOW - ACTIVITY))
             if test $((DIFF / 60)) -ge "$TIMEOUT"; then
+                $monitor "timeout reached, restarting"
                 # Users are still connected but for some time no longer active.
                 # Force initial state.
                 date +"%F %T inactivity timeout"

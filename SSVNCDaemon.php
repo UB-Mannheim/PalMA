@@ -1,25 +1,26 @@
-<?php
+<?php namespace palma;
 
 // Copyright (C) 2014 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
 require_once("DBConnector.class.php");
+require_once("globals.php");
 
 class SSVNCDaemon
 {
 
     // all during session connected VNC Clients
-    private $_VNC_CLIENTS;
+    private $VNC_CLIENTS;
 
     // count of all connected clients
     // private $_VNC_CLIENT_COUNT;
 
     // active client count
-    private $_CONNECTIONS = 0;
+    private $CONNECTIONS = 0;
 
     // ignored VNC Clients
     // TODO: check if no more longer helpful, has to be cleaned
-    private $_IGNORE_LIST = array();
+    private $IGNORE_LIST = array();
 
     public $db;
 
@@ -60,11 +61,10 @@ class SSVNCDaemon
 
         // Read File continuously
         while (!feof($handle)) {
-
             $buffer = fgets($handle);
             print($buffer);
 
-            if ($this->_CONNECTIONS == 0) {
+            if ($this->CONNECTIONS == 0) {
                 //print("\n --- WAITING FOR NEW CONNECTIONS --- \n");
             }
 
@@ -84,7 +84,6 @@ class SSVNCDaemon
 
             if (strstr($buffer, 'create_image') && $client["ip"] != "" &&
             $client["hostname"]!="" ) {
-
                 // add client
                 $this->addClient($client["ip"], $client["hostname"]);
 
@@ -94,26 +93,23 @@ class SSVNCDaemon
             }
 
             if ($exit == 1) {
-
                 // decrease active client count
-                if ($this->_CONNECTIONS > 0) {
-                    $this->_CONNECTIONS--;
+                if ($this->CONNECTIONS > 0) {
+                    $this->CONNECTIONS--;
                     $this->deleteInactiveVncWindow();
                 }
             }
 
-            $halt=$this->_CONNECTIONS;
+            $halt=$this->CONNECTIONS;
 
             if ($halt == -1) {
                 exit(0);
             }
 
             flush();
-
         }
 
         pclose($handle);
-
     }
 
     protected function parseIP($buffer)
@@ -174,26 +170,25 @@ class SSVNCDaemon
                         "active" => 1,
                         "exit" => 0
                         );
-        if (count($this->_VNC_CLIENTS) == 0) {
+        if (count($this->VNC_CLIENTS) == 0) {
             $id=1;
         } else {
-            $id=count($this->_VNC_CLIENTS) + 1;
+            $id=count($this->VNC_CLIENTS) + 1;
         }
 
-        $this->_VNC_CLIENTS[$id] = $vncclient;
+        $this->VNC_CLIENTS[$id] = $vncclient;
 
         print("\nCLIENT OBJECT with ID " . $id . " CREATED : "
             . $vncclient["ip"] . " | " . $vncclient["hostname"] . " | "
             . $vncclient["active"] . " | " . $vncclient["exit"] . "\n");
-        print($this->_CONNECTIONS+1 . " CLIENT(S) CONNECTED ...");
+        print($this->CONNECTIONS+1 . " CLIENT(S) CONNECTED ...");
 
         $this->sendVncWindowToNuc($id, $vncclient);
 
-        $this->_CONNECTIONS++;
+        $this->CONNECTIONS++;
 
-        print("\n active connections: ".$this->_CONNECTIONS+1);
-        print("\n all saved clients: " . serialize($this->_VNC_CLIENTS));
-
+        print("\n active connections: ".$this->CONNECTIONS+1);
+        print("\n all saved clients: " . serialize($this->VNC_CLIENTS));
     }
 
     protected function sendVncWindowToNuc($id, $vncclient)
@@ -202,11 +197,11 @@ class SSVNCDaemon
 
         $vnc_id = $vncclient["hostname"] . "-" . $id;
 
-        $db = new DBConnector();
+        $db = new palma\DBConnector();
 
         // already existing in db?
         $clients_in_db = array();
-        $client_info = $db->getVNC_ClientInfo();
+        $client_info = $db->getVNCClientInfo();
 
         foreach ($client_info as $info) {
             $clients_in_db[] = $info["file"];
@@ -226,11 +221,10 @@ class SSVNCDaemon
         // $vncClientsAll = $db->query("SELECT user.name FROM address");
 
         // print("\n[Daemon]: clients in db = " . $vncClientCount);
-        // print("\n[Daemon]: clients ignored = " . serialize($this->_IGNORE_LIST));
+        // print("\n[Daemon]: clients ignored = " . serialize($this->IGNORE_LIST));
 
         // if vnc_id not in database create window and send to nuc
         if (!(in_array($vnc_id, $clients_in_db))) {
-
             // print("\n[Daemon]: insert $vnc_id into db");
 
             $dt = new DateTime();
@@ -262,23 +256,21 @@ class SSVNCDaemon
             curl_exec($curl);
             // Close request to clear up some resources
             curl_close($curl);
-
         }
 
         // add unique id to ignore list after sending to nuc
-        array_push($this->_IGNORE_LIST, $vnc_id);
-
+        array_push($this->IGNORE_LIST, $vnc_id);
     }
 
     protected function deleteInactiveVncWindow()
     {
         // print("\n[Daemon]: +++ TODO: deleteInactiveWindow() +++");
 
-        $db = new DBConnector();
+        $db = new palma\DBConnector();
 
         // window_ids in db
         $vnc_windows_in_db = array();
-        $client_info = $db->getVNC_ClientInfo();
+        $client_info = $db->getVNCClientInfo();
         foreach ($client_info as $info) {
             $vnc_windows_in_db[] = $info["win_id"];
         }
@@ -318,7 +310,7 @@ class SSVNCDaemon
             curl_exec($curl);
             curl_close($curl);
 
-            // print("[Daemon]: inactive vnc_id = $inactive_vnc_id >> add to list: " .serialize($this->_IGNORE_LIST));
+            // print("[Daemon]: inactive vnc_id = $inactive_vnc_id >> add to list: " .serialize($this->IGNORE_LIST));
         }
     }
 }
