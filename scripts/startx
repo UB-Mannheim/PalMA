@@ -161,7 +161,7 @@ if test -f /usr/bin/dwb; then
     webbrowser=dwb
     # Run dwb with PalMA compatible settings.
     rm -rf "$userhome/.config/dwb"
-    cp -a settings/dwb "$userhome/.config"
+    cp -a "$wwwroot/settings/dwb" "$userhome/.config"
 elif test -f /usr/bin/midori; then
     webbrowser=midori
 else
