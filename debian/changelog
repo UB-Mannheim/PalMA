@@ -1,4 +1,10 @@
-palma (1.4.0) UNRELEASED; urgency=medium
+palma (1.4.1) unstable; urgency=medium
+
+  * fixed last_activity monitoring
+
+ -- Jörg Mechnich <Joerg.Mechnich@bib.uni-mannheim.de>  Thu, 16 Aug 2018 13:48:50 +0200
+
+palma (1.4.0) unstable; urgency=medium
 
   * Initial release.
 
