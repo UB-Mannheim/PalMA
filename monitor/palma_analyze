@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+
+import argparse, datetime, os, re, sys
+from enum import Enum
+
+class States(Enum):
+    NONE = 0
+    CONNECTED = 1
+    IDLE = 2
+    
+parser = argparse.ArgumentParser(
+    description=os.path.basename(sys.argv[0]) +
+    ' - analyze PalMA monitoring log files',
+)
+parser.add_argument("logfile", nargs='+',
+                    help="at least one log file")
+
+args = parser.parse_args()
+
+def print_error_and_exit(error):
+    print(line)
+    print(error)
+    print(lastsession)
+    sys.exit(1)
+    
+alldata = {}
+for l in args.logfile:
+    with open(l,'r') as f:
+        print("Processing", l)
+        filedata = {}
+        state = States.NONE
+        lastsession = ""
+        currentsession = None
+        lasttimestamp = None
+        timestamp = None
+        for line in f.readlines():
+            if not len(line.strip()): continue
+            timestamp = datetime.datetime.strptime(
+                line.split()[0], "%Y-%m-%dT%H:%M:%S"
+            )
+            if lasttimestamp:
+                if (timestamp - lasttimestamp).seconds > 60*60*6:
+                    if state is States.CONNECTED:
+                        if currentsession:
+                            currentsession["end"] = lasttimestamp
+                            filedata[currentsession["start"]] = currentsession
+                            currentsession = None
+                        state = States.IDLE
+                        lastsession = ""
+            lasttimestamp = timestamp
+            
+            if re.search(r"connecting first user",line):
+                if state is States.CONNECTED:
+                    print_error_and_exit("Parse error: already connected")
+                else:
+                    state = States.CONNECTED
+                    lastsession = line
+                    currentsession = {
+                        "start": timestamp,
+                        "nuser": 1,
+                    }
+            elif re.search(r"logout.php: logout",line):
+                if not state is States.CONNECTED:
+                    pass #print_error_and_exit("Parse error: 'logout.php: logout', but noone connected")
+                if currentsession:
+                    currentsession["end"] = timestamp
+                    filedata[currentsession["start"]] = currentsession
+                    currentsession = None
+                state = States.IDLE
+                lastsession = ""
+            elif re.search(r"timeout reached",line):
+                if not state is States.CONNECTED:
+                    pass #print_error_and_exit("Parse error: timeout reached, but noone connected")
+                if currentsession:
+                    currentsession["end"] = timestamp
+                    filedata[currentsession["start"]] = currentsession
+                    currentsession = None
+                state = States.IDLE
+                lastsession = ""
+            elif re.search(r"last user disconnected",line):
+                if not state is States.CONNECTED:
+                    pass #print_error_and_exit("Parse error: last user disconnected, but noone connected")
+                if currentsession:
+                    currentsession["end"] = timestamp
+                    filedata[currentsession["start"]] = currentsession
+                    currentsession = None
+                state = States.IDLE
+                lastsession = ""
+            elif re.search(r"access granted for user",line):
+                if state is States.CONNECTED:
+                    currentsession['nuser'] = currentsession['nuser'] + 1
+            else:
+                if state is States.CONNECTED:
+                    lastsession += line
+        alldata[l] = filedata.copy()
+
+print()
+for station,data in sorted(alldata.items()):
+    print(station)
+    for k,v in sorted(data.items(),key=lambda item: item[1]['start']):
+        length = v['end']-v['start']
+        print("  %s length: %s  %d user(s)" % (k,length,v['nuser']))
+        #print("   ", v)
+    print()
