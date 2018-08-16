@@ -86,6 +86,6 @@ for ($t = 0; $t < 300; $t++) {
     sleep(1);
 }
 
-touch("/tmp/last_activity");
+touch("/var/run/palma/last_activity");
 
 echo($newJSON);
