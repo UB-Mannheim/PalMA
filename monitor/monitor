@@ -24,12 +24,12 @@ if path is None:
 frags =[ i for i in path.split('/') if i and len(i) ]
 if len(frags) != 2:
     error("Malformed payload in URL: %s" % path)
-    
-action     = base64.b64decode(frags.pop()).decode('utf-8')
+
+action     = base64.b64decode(frags.pop()).decode('utf-8').strip()
 palma_host = frags.pop()
 
 if not os.path.isdir(logdir):
     os.mkdir(logdir)
 logfile = palma_host + '.log'
-with open(os.path.join(logdir,logfile), 'a') as f:
+with open(os.path.join(logdir,logfile), 'a', encoding='utf-8') as f:
     print(timestamp(), action, file=f)
