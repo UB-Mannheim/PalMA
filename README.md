@@ -19,6 +19,8 @@ Status](https://travis-ci.org/UB-Mannheim/PalMA.svg?branch=master)](https://trav
 Badge](https://api.codacy.com/project/badge/Grade/e5750c1e19fc4ecf9257a9a4d4418e0c)](https://www.codacy.com/app/UB-Mannheim/PalMA?utm_source=github.com&utm_medium=referral&utm_content=UB-Mannheim/PalMA&utm_campaign=badger)
 [![Scrutinizer Code
 Quality](https://scrutinizer-ci.com/g/UB-Mannheim/PalMA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/UB-Mannheim/PalMA/?branch=master)
+[![Open Hub](https://www.openhub.net/p/palma/widgets/project_thin_badge.gif)](https://www.openhub.net/p/palma)
+
 
 Summary
 -------
