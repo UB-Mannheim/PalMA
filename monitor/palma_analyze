@@ -7,98 +7,168 @@ class States(Enum):
     NONE = 0
     CONNECTED = 1
     IDLE = 2
-    
-parser = argparse.ArgumentParser(
-    description=os.path.basename(sys.argv[0]) +
-    ' - analyze PalMA monitoring log files',
-)
-parser.add_argument("logfile", nargs='+',
-                    help="at least one log file")
 
-args = parser.parse_args()
-
-def print_error_and_exit(error):
-    print(line)
-    print(error)
-    print(lastsession)
-    sys.exit(1)
     
-alldata = {}
-for l in args.logfile:
-    with open(l,'r') as f:
-        print("Processing", l)
-        filedata = {}
-        state = States.NONE
-        lastsession = ""
-        currentsession = None
-        lasttimestamp = None
-        timestamp = None
-        for line in f.readlines():
-            if not len(line.strip()): continue
-            timestamp = datetime.datetime.strptime(
-                line.split()[0], "%Y-%m-%dT%H:%M:%S"
-            )
-            if lasttimestamp:
-                if (timestamp - lasttimestamp).seconds > 60*60*6:
-                    if state is States.CONNECTED:
-                        if currentsession:
-                            currentsession["end"] = lasttimestamp
-                            filedata[currentsession["start"]] = currentsession
-                            currentsession = None
-                        state = States.IDLE
-                        lastsession = ""
-            lasttimestamp = timestamp
+class PalmaSession(object):
+    def __init__(self, start):
+        self.__dict__ = {
+            'start': start,
+            'end':   None,
+            'nuser': 0,
+        }
+
+        
+class PalmaLogfile(object):
+    def __init__(self, filename):
+        self.__dict__ = {
+            'filename': filename,
+            'data':     {},
+            'lstamp':   None,
+            'timeout':  60*60*6,
+            'state':    States.IDLE,
+            'current':  None,
+            'logtext':  '',
+        }
+
+        
+    def gapDetected(self, timestamp):
+        """handle big gaps in logfiles ( > 6 hrs)."""
+        return self.lstamp and (timestamp - self.lstamp).total_seconds() > self.timeout
+
+    
+    def newSession(self, timestamp):
+        if self.state is States.CONNECTED:
+            self.error(timestamp, "Parse error: already connected")
+        self.endSession()
+        self.current = PalmaSession(timestamp)
+        self.state = States.CONNECTED
+        self.addUser()
+
+        
+    def addUser(self):
+        if not self.state is States.CONNECTED:
+            return
+        if not self.current:
+            return
+        self.current.nuser += 1
+
+        
+    def endSession(self, timestamp=None, ignoreState=False):
+        if timestamp is None:
+            timestamp = self.lstamp
+        else:
+            if self.gapDetected(timestamp):
+                timestamp = self.lstamp
+        if not self.state is States.CONNECTED and not ignoreState:
+            return
+        if self.current:
+            self.current.end = timestamp
+            self.data[self.current.start] = self.current
+            self.current = None
+        self.state = States.IDLE
+
+        
+    def error(self, timestamp, error):
+        print(self.filename, timestamp, error)
+        sys.exit(1)
+
+        
+    def addLine(self, line):
+        if self.state is States.CONNECTED:
+            self.logtext += line
+
             
-            if re.search(r"connecting first user",line):
-                if state is States.CONNECTED:
-                    print_error_and_exit("Parse error: already connected")
-                else:
-                    state = States.CONNECTED
-                    lastsession = line
-                    currentsession = {
-                        "start": timestamp,
-                        "nuser": 1,
-                    }
-            elif re.search(r"logout.php: logout",line):
-                if not state is States.CONNECTED:
-                    pass #print_error_and_exit("Parse error: 'logout.php: logout', but noone connected")
-                if currentsession:
-                    currentsession["end"] = timestamp
-                    filedata[currentsession["start"]] = currentsession
-                    currentsession = None
-                state = States.IDLE
-                lastsession = ""
-            elif re.search(r"timeout reached",line):
-                if not state is States.CONNECTED:
-                    pass #print_error_and_exit("Parse error: timeout reached, but noone connected")
-                if currentsession:
-                    currentsession["end"] = timestamp
-                    filedata[currentsession["start"]] = currentsession
-                    currentsession = None
-                state = States.IDLE
-                lastsession = ""
-            elif re.search(r"last user disconnected",line):
-                if not state is States.CONNECTED:
-                    pass #print_error_and_exit("Parse error: last user disconnected, but noone connected")
-                if currentsession:
-                    currentsession["end"] = timestamp
-                    filedata[currentsession["start"]] = currentsession
-                    currentsession = None
-                state = States.IDLE
-                lastsession = ""
-            elif re.search(r"access granted for user",line):
-                if state is States.CONNECTED:
-                    currentsession['nuser'] = currentsession['nuser'] + 1
-            else:
-                if state is States.CONNECTED:
-                    lastsession += line
-        alldata[l] = filedata.copy()
+    def printDetails(self,indent=" "*2):
+        for k,v in sorted(self.data.items(),key=lambda item: item[1].start):
+            length = v.end-v.start
+            print("%s%s length: %s  %d user(s)" % (indent,k,length,v.nuser))
 
-print()
-for station,data in sorted(alldata.items()):
-    print(station)
-    for k,v in sorted(data.items(),key=lambda item: item[1]['start']):
-        length = v['end']-v['start']
-        print("  %s length: %s  %d user(s)" % (k,length,v['nuser']))
-        #print("   ", v)
-    print()
+            
+    def printSummary(self):
+        totLength = datetime.timedelta()
+        totUsers  = 0
+        for k,v in self.data.items():
+            totLength += v.end-v.start
+            totUsers  += v.nuser
+        print("%-40s  %8s  %5d  %20s" %
+              (os.path.basename(self.filename), len(self.data),
+               totUsers, totLength)
+        )
+
+        
+class PalmaAnalyzer(object):
+    def __init__(self):
+        self.__dict__ = {
+            'alldata': {},
+        }
+
+        
+    def parseCmdLine(self):
+        parser = argparse.ArgumentParser(
+            description=os.path.basename(sys.argv[0]) +
+            ' - analyze PalMA monitoring log files',
+        )
+        parser.add_argument("-s", "--summary", action="store_true",
+                            help="print summary")
+        parser.add_argument("logfile", nargs='+',
+                            help="at least one log file")
+        self.args = parser.parse_args()
+
+        
+    def processFile(self,filename):
+        with open(filename,'r') as f:
+            print("Processing", filename)
+            logfile = PalmaLogfile(filename)
+            for line in f.readlines():
+                # skip empty lines
+                if not len(line.strip()): continue
+                
+                tstamp = datetime.datetime.strptime(
+                    line.split()[0], "%Y-%m-%dT%H:%M:%S"
+                )
+                if logfile.gapDetected(tstamp):
+                    logfile.endSession()
+                    
+                if re.search(r"connecting first user",line):
+                    logfile.newSession(tstamp)
+                elif re.search(r"logout.php: logout",line):
+                    logfile.endSession(tstamp, ignoreState=True)
+                elif re.search(r"timeout reached",line):
+                    logfile.endSession(tstamp, ignoreState=True)
+                elif re.search(r"last user disconnected",line):
+                    logfile.endSession(tstamp, ignoreState=True)
+                elif re.search(r"bash_startx: starting login screen",line):
+                    logfile.endSession(tstamp, ignoreState=True)
+                elif re.search(r"access granted for user",line):
+                    logfile.addUser()
+                else:
+                    logfile.addLine(line)
+                logfile.lstamp = tstamp
+            self.alldata[filename] = logfile
+
+            
+    def run(self):
+        for logfile in self.args.logfile:
+            self.processFile(logfile)
+
+            
+    def print(self):
+        if self.args.summary:
+            print("%-40s  %-8s  %-5s  %-20s" %
+                  ("Station", "Sessions", "Users", "Total Time")
+            )
+            for station,logfile in sorted(self.alldata.items()):
+                logfile.printSummary()
+        else:
+            print()
+            for station,logfile in sorted(self.alldata.items()):
+                print(station)
+                logfile.printDetails()
+                print()
+
+                
+if __name__ == '__main__':
+    analyzer = PalmaAnalyzer()
+    analyzer.parseCmdLine()
+    analyzer.run()
+    analyzer.print()
