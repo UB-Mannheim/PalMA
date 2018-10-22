@@ -3,8 +3,8 @@
 
 from __future__ import print_function
 
-import argparse, grp, os, platform, pwd, re, shutil, socket, sys, tempfile
-from subprocess import call, check_call, check_output, CalledProcessError
+import argparse, os, platform, pwd, shutil, socket, sys
+from subprocess import call, check_call, check_output
 
 ################################################################################
 ## command line parsing
