@@ -197,7 +197,7 @@ class SSVNCDaemon
 
         $vnc_id = $vncclient["hostname"] . "-" . $id;
 
-        $db = new palma\DBConnector();
+        $db = new DBConnector();
 
         // already existing in db?
         $clients_in_db = array();
@@ -227,7 +227,7 @@ class SSVNCDaemon
         if (!(in_array($vnc_id, $clients_in_db))) {
             // print("\n[Daemon]: insert $vnc_id into db");
 
-            $dt = new DateTime();
+            $dt = new \DateTime();
             $date = $dt->format('Y-m-d H:i:s');
 
             $window = array(
