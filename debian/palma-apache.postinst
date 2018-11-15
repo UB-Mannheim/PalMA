@@ -23,17 +23,13 @@ case "$1" in
 
         # create php configuration for PalMA
         confdir=/etc/php/${php_vers}/apache2/conf.d
-        if [ ! -e $confdir/palma.ini ]; then
-            mkdir -p $confdir
-            cat > $confdir/palma.ini <<EOF
+        mkdir -p $confdir
+        cat > $confdir/palma.ini <<EOF
 upload_max_filesize = 10M
 post_max_size = 10M
 max_execution_time = 600
 request_terminate_timeout = 600
 EOF
-        else
-            echo "$confdir/palma.ini already exists, not overwriting"
-        fi
         
         if test -x /usr/sbin/apache2; then
             a2enmod rewrite
