@@ -28,6 +28,8 @@ case "$1" in
             cat > $confdir/palma.ini <<EOF
 upload_max_filesize = 10M
 post_max_size = 10M
+max_execution_time = 600
+request_terminate_timeout = 600
 EOF
         else
             echo "$confdir/palma.ini already exists, not overwriting"
@@ -56,6 +58,7 @@ server {
   location ~ \.php$ {
     include snippets/fastcgi-php.conf;
     fastcgi_pass unix:/var/run/php/php${php_vers}-fpm.sock;
+    fastcgi_read_timeout 600;
 
     # If you still use php5 uncomment these lines instead of the above:
     #fastcgi_split_path_info ^(.+\.php)(/.+)$;

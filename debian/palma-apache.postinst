@@ -28,6 +28,8 @@ case "$1" in
             cat > $confdir/palma.ini <<EOF
 upload_max_filesize = 10M
 post_max_size = 10M
+max_execution_time = 600
+request_terminate_timeout = 600
 EOF
         else
             echo "$confdir/palma.ini already exists, not overwriting"
