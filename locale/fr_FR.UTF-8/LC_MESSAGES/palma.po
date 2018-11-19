@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 18:48+0200\n"
+"POT-Creation-Date: 2018-11-19 20:33+0100\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
 "Last-Translator: Regina Retter <regina.retter@bib.uni-mannheim.de>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -456,7 +456,7 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: i12n.php:90
+#: i12n.php:94
 msgid "Screen section"
 msgstr ""
 

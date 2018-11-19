@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-23 17:52+0100\n"
+"POT-Creation-Date: 2018-11-19 20:33+0100\n"
 "PO-Revision-Date: 2018-07-11 12:00+0200\n"
 "Last-Translator: Rafik Takieddin <rafik.takieddin@gmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
@@ -209,7 +209,8 @@ msgstr "لأئحة المستخدمين"
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
-msgstr "باستخدام PalMAبإمكانك مشاركة مستنداتك، مواقع الانترنت، وسطح المكتب الخاص بك "
+msgstr ""
+"باستخدام PalMAبإمكانك مشاركة مستنداتك، مواقع الانترنت، وسطح المكتب الخاص بك "
 
 #: index.php:1207
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
@@ -241,7 +242,8 @@ msgstr ""
 
 #: index.php:1229
 msgid "For PDF files, office files, images or videos use the file section."
-msgstr "استخدم هذا الجزء من أجل ملفات الأوفيس، ملفات البي دي إف، وللصور والفيديوهات"
+msgstr ""
+"استخدم هذا الجزء من أجل ملفات الأوفيس، ملفات البي دي إف، وللصور والفيديوهات"
 
 #: index.php:1230
 msgid "To display a website use the URL field."
@@ -437,7 +439,7 @@ msgstr "افصل المستخدم الحالي"
 msgid "Log out"
 msgstr "تصغير الصورة"
 
-#: i12n.php:90
+#: i12n.php:94
 #, fuzzy
 msgid "Screen section"
 msgstr "جزء من الشاشة"

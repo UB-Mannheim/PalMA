@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 18:48+0200\n"
+"POT-Creation-Date: 2018-11-19 20:33+0100\n"
 "PO-Revision-Date: 2014-07-01 16:39+0200\n"
 "Last-Translator: Olga Pogorelaya\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -446,7 +446,7 @@ msgstr "Отключить текущего пользователя"
 msgid "Log out"
 msgstr "Отдалить"
 
-#: i12n.php:90
+#: i12n.php:94
 msgid "Screen section"
 msgstr "Область"
 
