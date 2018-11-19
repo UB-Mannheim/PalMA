@@ -107,7 +107,7 @@ msgstr "Agregar"
 #: index.php:980
 msgid "Sorry! Screensharing for your device is currently not supported."
 msgstr ""
-"Lo lamentamos! Tu dispositivo es actualmente no compatible para compartir pantalla."
+"Lo lamentamos! Tu dispositivo no es actualmente compatible para compartir pantalla."
 
 #: index.php:1071 index.php:1253
 msgid "Control"
