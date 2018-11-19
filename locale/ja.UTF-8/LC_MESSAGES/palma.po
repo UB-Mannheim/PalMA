@@ -1,4 +1,4 @@
-﻿# PalMA translation.
+# PalMA translation.
 # Copyright (C) 2018 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
 # Julian Kissel <julian.kissel@aliru.de>, 2018.
@@ -19,9 +19,8 @@ msgid "not available"
 msgstr ""
 
 #: index.php:223
-#, fuzzy
 msgid "Enter valid URL"
-msgstr "Please enter URL"
+msgstr ""
 
 #: index.php:563
 msgid "You were disconnected!"
