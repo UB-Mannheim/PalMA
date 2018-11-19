@@ -381,7 +381,7 @@ msgstr ""
 
 #: index.php:1285
 msgid "Recommend us"
-msgstr ""
+msgstr "Recomiéndanos"
 
 #: index.php:1288
 msgid ""
