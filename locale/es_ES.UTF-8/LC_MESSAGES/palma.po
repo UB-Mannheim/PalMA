@@ -254,7 +254,7 @@ msgstr ""
 
 #: index.php:1233
 msgid "Windows:"
-msgstr "Windonws:"
+msgstr "Windows:"
 
 #: index.php:1235
 msgid "Run the downloaded file."
