@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-19 20:33+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
-"Last-Translator: Amy Garcia Kennedy <cecik91@gmail.com>\n"
+"Last-Translator: Carolina Cantú Cisneros <ccantuci@uni-mannheim.de>\n"
 "Language-Team: Spanish <en@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -159,13 +159,15 @@ msgstr "Agrega tu pantalla"
 
 #: index.php:1123
 msgid "Download screensharing tool"
-msgstr ""
+msgstr "Descargar herramienta para compartir pantalla"
 
 #: index.php:1130
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
 msgstr ""
+"Descargar herramienta para compartir pantalla (solo Windows, Mac y Linux). "
+"Ve a la sección de ayuda para más información."
 
 #: index.php:1136
 msgid "Layout"
@@ -173,7 +175,7 @@ msgstr "Diseño"
 
 #: index.php:1137
 msgid "Navigate"
-msgstr ""
+msgstr "Navegar"
 
 #: index.php:1143 index.php:1150 index.php:1158 index.php:1166 index.php:1179
 msgid "Choose screen layout"
@@ -185,7 +187,7 @@ msgstr "Cerrar todas las ventanas y remover archivos cargados"
 
 #: index.php:1195
 msgid "Delete all items"
-msgstr ""
+msgstr "Eliminar todos los elementos"
 
 #: index.php:1201
 msgid "Help"
@@ -215,11 +217,11 @@ msgstr ""
 
 #: index.php:1210
 msgid "For further information about PalMA in this institution"
-msgstr ""
+msgstr "Para más información sobre PalMA en esta institución"
 
 #: index.php:1210
 msgid "see here."
-msgstr ""
+msgstr "vea aquí."
 
 #: index.php:1214
 msgid "Connect"
@@ -228,29 +230,30 @@ msgstr "Conectar"
 #: index.php:1215
 msgid "Team members can join the session at any time with this URL or QR-Code:"
 msgstr ""
-"Miembros del grupo pueden unirse en cualquier momentocon esta URL o QR-Code:"
+"Los miembros del grupo pueden unirse en cualquier momento con el URL o QR-Code:"
 
 #: index.php:1219 index.php:1377
 msgid "PIN: "
-msgstr ""
+msgstr "PIN: "
 
 #: index.php:1227
 msgid "Use the Add-Section to share content on the PalMA monitor."
-msgstr ""
+msgstr "Use la sección Agregar para compartir contenido en el monitor PalMa."
 
 #: index.php:1229
 msgid "For PDF files, office files, images or videos use the file section."
-msgstr ""
+msgstr "Para archivos PDF, de Office, imágenes o videos use la sección de archivos."
 
 #: index.php:1230
 msgid "To display a website use the URL field."
-msgstr ""
+msgstr "Para mostrar un sitio web usa el campo del URL."
 
 #: index.php:1231
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
-msgstr ""
+msgstr "Para compartir tu escritorio en tiempo real descarga el software VNC "
+"para compartir pantalla y"
 
 #: index.php:1233
 msgid "Windows:"
@@ -258,11 +261,11 @@ msgstr "Windows:"
 
 #: index.php:1235
 msgid "Run the downloaded file."
-msgstr ""
+msgstr "Ejecutar el archivo descargado."
 
 #: index.php:1236
 msgid "Double-click the name of your PalMA station in the appearing list."
-msgstr ""
+msgstr "Da doble click en el nombre de tu estación PalMA en la lista."
 
 #: index.php:1238
 msgid "Mac:"
@@ -270,19 +273,19 @@ msgstr "Mac:"
 
 #: index.php:1240
 msgid "CTRL + click the downloaded file and run it."
-msgstr ""
+msgstr "Presiona CTRL+click en el archivo descargado y ejecútalo."
 
 #: index.php:1241
 msgid "A second window opens, in which you can start &quot;VineServer&quot;."
-msgstr ""
+msgstr "Se abrirá una segunda ventana, en la que puedes ejecutar &quot;VineServer&quot;."
 
 #: index.php:1242
 msgid "In the upper left corner, click on &quot;VNC Server&quot;."
-msgstr ""
+msgstr "En la esquina superior izquierda, da click en &quot;VNC Server&quot;."
 
 #: index.php:1243
 msgid "Select &quot;Reverse Connection&quot;."
-msgstr ""
+msgstr "Selecciona &quot;Reverse Connection&quot;."
 
 #: index.php:1244
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
@@ -378,7 +381,7 @@ msgstr ""
 
 #: index.php:1285
 msgid "Recommend us"
-msgstr ""
+msgstr "Recomiéndanos"
 
 #: index.php:1288
 msgid ""
