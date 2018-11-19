@@ -106,8 +106,8 @@ msgstr "Agregar"
 
 #: index.php:980
 msgid "Sorry! Screensharing for your device is currently not supported."
-msgstr ""
-"Lo lamentamos! Tu dispositivo no está soportado para compartir pantalla."
+msgstr "Lo lamentamos! Tu dispositivo no está soportado para compartir pantalla."
+
 
 #: index.php:1071 index.php:1253
 msgid "Control"
@@ -169,7 +169,7 @@ msgstr ""
 
 #: index.php:1136
 msgid "Layout"
-msgstr ""
+msgstr "Diseño"
 
 #: index.php:1137
 msgid "Navigate"
@@ -189,11 +189,11 @@ msgstr ""
 
 #: index.php:1201
 msgid "Help"
-msgstr ""
+msgstr "Ayuda"
 
 #: index.php:1202
 msgid "Feedback"
-msgstr ""
+msgstr "Realimentación"
 
 #: index.php:1203
 msgid "Users"
@@ -223,7 +223,7 @@ msgstr ""
 
 #: index.php:1214
 msgid "Connect"
-msgstr ""
+msgstr "Conectar"
 
 #: index.php:1215
 msgid "Team members can join the session at any time with this URL or QR-Code:"
@@ -254,7 +254,7 @@ msgstr ""
 
 #: index.php:1233
 msgid "Windows:"
-msgstr ""
+msgstr "Windonws:"
 
 #: index.php:1235
 msgid "Run the downloaded file."
@@ -266,7 +266,7 @@ msgstr ""
 
 #: index.php:1238
 msgid "Mac:"
-msgstr ""
+msgstr "Mac:"
 
 #: index.php:1240
 msgid "CTRL + click the downloaded file and run it."
@@ -290,7 +290,7 @@ msgstr ""
 
 #: index.php:1246
 msgid "Linux:"
-msgstr ""
+msgstr "Linux:"
 
 #: index.php:1248
 msgid "Run the downloaded shell script."
@@ -324,7 +324,7 @@ msgstr "Acercar y alejar el zoom"
 
 #: index.php:1261
 msgid "Rotate"
-msgstr ""
+msgstr "Girar"
 
 #: index.php:1262
 msgid "Download"
@@ -398,7 +398,7 @@ msgstr ""
 
 #: index.php:1344
 msgid "Thank you!"
-msgstr ""
+msgstr "¡Gracias!"
 
 #: index.php:1351
 msgid "Select language:"
@@ -430,7 +430,7 @@ msgstr "Desconectar al usuario actual"
 
 #: index.php:1399
 msgid "Log out"
-msgstr ""
+msgstr "Cerrar sesión"
 
 #: i12n.php:90
 msgid "Screen section"
