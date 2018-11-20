@@ -58,7 +58,7 @@ h1, p {
     position: absolute;
 }
 #URL {
-    color: #2e668b;
+    color: #032f54;
     font-size: 500%;
     position: absolute;
     margin: 0 auto;
@@ -67,7 +67,7 @@ h1, p {
 }
 #PIN {
     font-size: 525%;
-    color: #2e668b;
+    color: #032f54;
     position: absolute;
 }
 #Variant1, #Variant2 {
