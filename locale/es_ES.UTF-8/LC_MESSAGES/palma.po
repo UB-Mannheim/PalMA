@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-19 20:33+0100\n"
+"POT-Creation-Date: 2018-06-29 18:48+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
-"Last-Translator: Carolina Cantú Cisneros <ccantuci@uni-mannheim.de>\n"
+"Last-Translator: Miguel Arduz <arduz.miguel@gmail.com>\n"
 "Language-Team: Spanish <en@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -106,8 +106,8 @@ msgstr "Agregar"
 
 #: index.php:980
 msgid "Sorry! Screensharing for your device is currently not supported."
-msgstr "Lo lamentamos! Tu dispositivo no está soportado para compartir pantalla."
-
+msgstr ""
+"Lo lamentamos! Tu dispositivo no es actualmente compatible para compartir pantalla."
 
 #: index.php:1071 index.php:1253
 msgid "Control"
@@ -165,13 +165,11 @@ msgstr "Descargar herramienta para compartir pantalla"
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
-msgstr ""
-"Descargar herramienta para compartir pantalla (solo Windows, Mac y Linux). "
-"Ve a la sección de ayuda para más información."
+msgstr "Descarga tu herramienta para compartir pantalla (Solo Window, Mac y Linux). Visita la sección de ayuda para más información."
 
 #: index.php:1136
 msgid "Layout"
-msgstr "Diseño"
+msgstr "Presentación"
 
 #: index.php:1137
 msgid "Navigate"
@@ -187,7 +185,7 @@ msgstr "Cerrar todas las ventanas y remover archivos cargados"
 
 #: index.php:1195
 msgid "Delete all items"
-msgstr "Eliminar todos los elementos"
+msgstr "Eliminar todos los elementos."
 
 #: index.php:1201
 msgid "Help"
@@ -195,7 +193,7 @@ msgstr "Ayuda"
 
 #: index.php:1202
 msgid "Feedback"
-msgstr "Realimentación"
+msgstr "Comentarios"
 
 #: index.php:1203
 msgid "Users"
@@ -206,7 +204,7 @@ msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
 msgstr ""
-"Con PalMA, tu puedes compartir documentos, sitios web y tu escritorio\n"
+"Con PalMA, tú puedes compartir documentos, sitios web y tu escritorio\n"
 "            con tu grupo de trabajo."
 
 #: index.php:1207
@@ -217,11 +215,11 @@ msgstr ""
 
 #: index.php:1210
 msgid "For further information about PalMA in this institution"
-msgstr "Para más información sobre PalMA en esta institución"
+msgstr "Para mayor información sobre PalMA en esta institución"
 
 #: index.php:1210
 msgid "see here."
-msgstr "vea aquí."
+msgstr "vea aquí"
 
 #: index.php:1214
 msgid "Connect"
@@ -230,30 +228,29 @@ msgstr "Conectar"
 #: index.php:1215
 msgid "Team members can join the session at any time with this URL or QR-Code:"
 msgstr ""
-"Los miembros del grupo pueden unirse en cualquier momento con el URL o QR-Code:"
+"Miembros del grupo pueden unirse en cualquier momentocon esta URL o QR-Code:"
 
 #: index.php:1219 index.php:1377
 msgid "PIN: "
-msgstr "PIN: "
+msgstr "PIN"
 
 #: index.php:1227
 msgid "Use the Add-Section to share content on the PalMA monitor."
-msgstr "Use la sección Agregar para compartir contenido en el monitor PalMa."
+msgstr "Utiliza la sección de adición para compartir contenido en el monitor PalMA."
 
 #: index.php:1229
 msgid "For PDF files, office files, images or videos use the file section."
-msgstr "Para archivos PDF, de Office, imágenes o videos use la sección de archivos."
+msgstr "Para archivos PDF, archivos Office, imagenes o video usar la selección de archivo."
 
 #: index.php:1230
 msgid "To display a website use the URL field."
-msgstr "Para mostrar un sitio web usa el campo del URL."
+msgstr "Para compartir una página web usa el campo URL."
 
 #: index.php:1231
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
-msgstr "Para compartir tu escritorio en tiempo real descarga el software VNC "
-"para compartir pantalla y"
+msgstr "Para compartir tu escritorio en tiempo real descarga el software VNC para compartir pantalla y"
 
 #: index.php:1233
 msgid "Windows:"
@@ -265,7 +262,7 @@ msgstr "Ejecutar el archivo descargado."
 
 #: index.php:1236
 msgid "Double-click the name of your PalMA station in the appearing list."
-msgstr "Da doble click en el nombre de tu estación PalMA en la lista."
+msgstr "Haz doble click en el nombre de tu estación PalMA en la lista."
 
 #: index.php:1238
 msgid "Mac:"
@@ -273,23 +270,23 @@ msgstr "Mac:"
 
 #: index.php:1240
 msgid "CTRL + click the downloaded file and run it."
-msgstr "Presiona CTRL+click en el archivo descargado y ejecútalo."
+msgstr "CTRL + click el archivo descargado y ejecútalo."
 
 #: index.php:1241
 msgid "A second window opens, in which you can start &quot;VineServer&quot;."
-msgstr "Se abrirá una segunda ventana, en la que puedes ejecutar &quot;VineServer&quot;."
+msgstr "Una segunda ventana se abre en la que puedes ejecutar &quot;VineServer&quot;."
 
 #: index.php:1242
 msgid "In the upper left corner, click on &quot;VNC Server&quot;."
-msgstr "En la esquina superior izquierda, da click en &quot;VNC Server&quot;."
+msgstr "En la esquina superior izquierda haz click en &quot;VNC Server&quot;."
 
 #: index.php:1243
 msgid "Select &quot;Reverse Connection&quot;."
-msgstr "Selecciona &quot;Reverse Connection&quot;."
+msgstr "Selecciona &quot;Reintentar conección&quot;."
 
 #: index.php:1244
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
-msgstr ""
+msgstr "Inserta el URL de tu estación PalMA y haz click en &quot;Conectar&quot;."
 
 #: index.php:1246
 msgid "Linux:"
@@ -297,29 +294,29 @@ msgstr "Linux:"
 
 #: index.php:1248
 msgid "Run the downloaded shell script."
-msgstr ""
+msgstr "Ejecutar el shell script descargado."
 
 #: index.php:1249
 msgid "Or use this shell command:"
-msgstr ""
+msgstr "O usa este comando shell:"
 
 #: index.php:1254
 msgid ""
 "With the grey monitor buttons at the top you can choose how the shared "
 "content should be arranged on the PalMA monitor."
-msgstr ""
+msgstr "Usa los botones del monitor plomo en la parte superior para elegir como distribuir el contenido compartido en tu monitor PalMA."
 
 #: index.php:1255
 msgid "Below that you find the controls for each item:"
-msgstr ""
+msgstr "Abajo encontrarás los controles para cada elemento:"
 
 #: index.php:1257
 msgid "In the top bar you can"
-msgstr ""
+msgstr "En la barra superior puedes"
 
 #: index.php:1259
 msgid "Hide and show"
-msgstr ""
+msgstr "Esconder y mostrar"
 
 #: index.php:1260
 msgid "Zoom in and out"
@@ -327,7 +324,7 @@ msgstr "Acercar y alejar el zoom"
 
 #: index.php:1261
 msgid "Rotate"
-msgstr "Girar"
+msgstr "Rotar"
 
 #: index.php:1262
 msgid "Download"
@@ -335,77 +332,77 @@ msgstr "Descargar"
 
 #: index.php:1263
 msgid "Delete the item"
-msgstr ""
+msgstr "Eliminar este elemento"
 
 #: index.php:1265
 msgid "Below you find the navigation controls."
-msgstr ""
+msgstr "Abajo encuentras los controles de navegación."
 
 #: index.php:1267
 msgid ""
 "Buttons on the left jump to the top, to the end, a page up or a page down"
-msgstr ""
+msgstr "Los botones de la izquierda te llevan al inicio, al final, una página arriba o una página abajo"
 
 #: index.php:1268
 msgid "Arrow buttons in the middle scroll gradually"
-msgstr ""
+msgstr "Las flechas en el medio permiten bajar o subir gradualmente"
 
 #: index.php:1271
 msgid "On the right you can choose the position on the PalMA monitor"
-msgstr ""
+msgstr "En la derecha puedes escoger la posición en tu monitor PalMa"
 
 #: index.php:1273
 msgid ""
 "Controls that are not available for certain kinds of content are marked grey."
-msgstr ""
+msgstr "Controles no disponibles para ciertos tipos de contenido estan marcados de color plomo."
 
 #: index.php:1275
 msgid "Some additional features are:"
-msgstr ""
+msgstr "Algunas funciones adicionales son:"
 
 #: index.php:1277
 msgid "This help,"
-msgstr ""
+msgstr "Esta ayuda,"
 
 #: index.php:1278
 msgid ""
 "Your chance to recommend us or give us your thoughts in the &quot;"
 "Feedback&quot; section,"
-msgstr ""
+msgstr "Tu chance de recomendarnos algo o darnos tu opinión en la sección de &quot;Comentarios&quot;,"
 
 #: index.php:1279
 msgid ""
 "A list of all logged-in users as well as a button to disconnect everyone and "
 "therefore end the session."
-msgstr ""
+msgstr "Una lista de todos los usuarios activos y un botón para desconectarlos a todos y terminar la sesión."
 
 #: index.php:1285
 msgid "Recommend us"
-msgstr "Recomiéndanos"
+msgstr "Recoméndanos"
 
 #: index.php:1288
 msgid ""
 "If you like PalMA, please recommend us by sharing in your social networks."
 "<br />Enjoy PalMA!"
-msgstr ""
+msgstr "Si te gusta PalMA, recoméndanos a tus amigos compartiendo en tus redes sociales.<br />Disfruta PalMA!"
 
 #: index.php:1342
 msgid "Tell us what you think"
-msgstr ""
+msgstr "Dinos que opinas"
 
 #: index.php:1344
 msgid ""
 "Please let us know about problems or ideas to improve PalMA. Help us "
 "directly by sending crash reports or contributing on "
-msgstr ""
+msgstr "Coméntanos sobre posibles problemas o ideas que tengas para mejorar PalMA. Ayúdanos directamente mandando un reporte de errores o contribuyendo en "
 
 #: index.php:1344
 msgid "Thank you!"
-msgstr "¡Gracias!"
+msgstr "Gracias!"
 
 #: index.php:1351
 msgid "Select language:"
-msgstr "Seleccionar un idioma"
+msgstr "Seleccionar un idioma:"
 
 #: index.php:1368
 msgid "User list"
@@ -417,7 +414,7 @@ msgstr "Lista de usuarios conectados"
 
 #: index.php:1374
 msgid "New users can join at"
-msgstr ""
+msgstr "Nuevos usuario se pueden unir en"
 
 #: index.php:1385
 msgid "Disconnect all users and end the session"
@@ -425,7 +422,7 @@ msgstr "Desconectar a todos los usuarios y finalizar la sesión"
 
 #: index.php:1386
 msgid "End the session"
-msgstr ""
+msgstr "Terminar la sesión"
 
 #: index.php:1398
 msgid "Disconnect the current user"
@@ -435,7 +432,7 @@ msgstr "Desconectar al usuario actual"
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: i12n.php:94
+#: i12n.php:90
 msgid "Screen section"
 msgstr "Sección de la pantalla"
 
@@ -499,11 +496,11 @@ msgstr "El archivo '%s' no puede ser mostrado."
 
 #: examples/screensaver/pictureshow.php:35
 msgid "Picture Show"
-msgstr ""
+msgstr "Show de imágenes"
 
 #: examples/screensaver/tiles.php:33
 msgid "Tiles"
-msgstr ""
+msgstr "Azulejos"
 
 #~ msgid "Select workplace"
 #~ msgstr "Seleccionar lugar de trabajo"
