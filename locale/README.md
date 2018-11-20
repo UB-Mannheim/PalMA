@@ -8,7 +8,7 @@
 |---|---|
 |[ar](#ar)|67.83|
 |[de_DE](#de_de)|100.00|
-|[es_ES](#es_es)|79.13|
+|[es_ES](#es_es)|100.00|
 |[fr_FR](#fr_fr)|47.83|
 |[it_IT](#it_it)|41.74|
 |[ja](#ja)|1.74|
@@ -89,7 +89,7 @@ Contributors:
 
 ## es_ES
 
-Completion: **79.13** (91 / 115 strings)
+Completion: **100.00** (115 / 115 strings)
 
 Contributors:
 
@@ -98,35 +98,10 @@ Contributors:
   * Carolina Cantú Cisneros
   * Jörg Mechnich
   * Lukas Krieger
+  * Miguel Arduz
   * Patrick Voelker
   * Piero Divasto
   * Stefan Weil
-
-Missing:
-  * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
-  * `Arrow buttons in the middle scroll gradually`
-  * `Below that you find the controls for each item:`
-  * `Below you find the navigation controls.`
-  * `Buttons on the left jump to the top, to the end, a page up or a page down`
-  * `Controls that are not available for certain kinds of content are marked grey.`
-  * `Delete the item`
-  * `End the session`
-  * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
-  * `Hide and show`
-  * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
-  * `In the top bar you can`
-  * `New users can join at`
-  * `On the right you can choose the position on the PalMA monitor`
-  * `Or use this shell command:`
-  * `Picture Show`
-  * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
-  * `Run the downloaded shell script.`
-  * `Some additional features are:`
-  * `Tell us what you think`
-  * `This help,`
-  * `Tiles`
-  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
-  * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
 
 ## fr_FR
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 18:48+0200\n"
+"POT-Creation-Date: 2018-11-20 10:52+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Miguel Arduz <arduz.miguel@gmail.com>\n"
 "Language-Team: Spanish <en@li.org>\n"
@@ -107,7 +107,8 @@ msgstr "Agregar"
 #: index.php:980
 msgid "Sorry! Screensharing for your device is currently not supported."
 msgstr ""
-"Lo lamentamos! Tu dispositivo no es actualmente compatible para compartir pantalla."
+"Lo lamentamos! Tu dispositivo no es actualmente compatible para compartir "
+"pantalla."
 
 #: index.php:1071 index.php:1253
 msgid "Control"
@@ -165,7 +166,9 @@ msgstr "Descargar herramienta para compartir pantalla"
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
-msgstr "Descarga tu herramienta para compartir pantalla (Solo Window, Mac y Linux). Visita la sección de ayuda para más información."
+msgstr ""
+"Descarga tu herramienta para compartir pantalla (Solo Window, Mac y Linux). "
+"Visita la sección de ayuda para más información."
 
 #: index.php:1136
 msgid "Layout"
@@ -185,7 +188,7 @@ msgstr "Cerrar todas las ventanas y remover archivos cargados"
 
 #: index.php:1195
 msgid "Delete all items"
-msgstr "Eliminar todos los elementos."
+msgstr "Eliminar todos los elementos"
 
 #: index.php:1201
 msgid "Help"
@@ -204,14 +207,12 @@ msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
 msgstr ""
-"Con PalMA, tú puedes compartir documentos, sitios web y tu escritorio\n"
-"            con tu grupo de trabajo."
+"Con PalMA, tú puedes compartir documentos, sitios web y tu escritorio "
+"con tu grupo de trabajo."
 
 #: index.php:1207
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
-msgstr ""
-"PalMA team monitor muestra hasta 4 contribuciones\n"
-"            simultaneamente."
+msgstr "PalMA team monitor muestra hasta 4 contribuciones simultaneamente."
 
 #: index.php:1210
 msgid "For further information about PalMA in this institution"
@@ -219,7 +220,7 @@ msgstr "Para mayor información sobre PalMA en esta institución"
 
 #: index.php:1210
 msgid "see here."
-msgstr "vea aquí"
+msgstr "vea aquí."
 
 #: index.php:1214
 msgid "Connect"
@@ -232,15 +233,18 @@ msgstr ""
 
 #: index.php:1219 index.php:1377
 msgid "PIN: "
-msgstr "PIN"
+msgstr "PIN:"
 
 #: index.php:1227
 msgid "Use the Add-Section to share content on the PalMA monitor."
-msgstr "Utiliza la sección de adición para compartir contenido en el monitor PalMA."
+msgstr ""
+"Utiliza la sección de adición para compartir contenido en el monitor PalMA."
 
 #: index.php:1229
 msgid "For PDF files, office files, images or videos use the file section."
-msgstr "Para archivos PDF, archivos Office, imagenes o video usar la selección de archivo."
+msgstr ""
+"Para archivos PDF, archivos Office, imagenes o video usar la selección de "
+"archivo."
 
 #: index.php:1230
 msgid "To display a website use the URL field."
@@ -250,7 +254,9 @@ msgstr "Para compartir una página web usa el campo URL."
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
-msgstr "Para compartir tu escritorio en tiempo real descarga el software VNC para compartir pantalla y"
+msgstr ""
+"Para compartir tu escritorio en tiempo real descarga el software VNC para "
+"compartir pantalla y"
 
 #: index.php:1233
 msgid "Windows:"
@@ -274,7 +280,8 @@ msgstr "CTRL + click el archivo descargado y ejecútalo."
 
 #: index.php:1241
 msgid "A second window opens, in which you can start &quot;VineServer&quot;."
-msgstr "Una segunda ventana se abre en la que puedes ejecutar &quot;VineServer&quot;."
+msgstr ""
+"Una segunda ventana se abre en la que puedes ejecutar &quot;VineServer&quot;."
 
 #: index.php:1242
 msgid "In the upper left corner, click on &quot;VNC Server&quot;."
@@ -286,7 +293,8 @@ msgstr "Selecciona &quot;Reintentar conección&quot;."
 
 #: index.php:1244
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
-msgstr "Inserta el URL de tu estación PalMA y haz click en &quot;Conectar&quot;."
+msgstr ""
+"Inserta el URL de tu estación PalMA y haz click en &quot;Conectar&quot;."
 
 #: index.php:1246
 msgid "Linux:"
@@ -304,7 +312,9 @@ msgstr "O usa este comando shell:"
 msgid ""
 "With the grey monitor buttons at the top you can choose how the shared "
 "content should be arranged on the PalMA monitor."
-msgstr "Usa los botones del monitor plomo en la parte superior para elegir como distribuir el contenido compartido en tu monitor PalMA."
+msgstr ""
+"Usa los botones del monitor plomo en la parte superior para elegir como "
+"distribuir el contenido compartido en tu monitor PalMA."
 
 #: index.php:1255
 msgid "Below that you find the controls for each item:"
@@ -341,7 +351,9 @@ msgstr "Abajo encuentras los controles de navegación."
 #: index.php:1267
 msgid ""
 "Buttons on the left jump to the top, to the end, a page up or a page down"
-msgstr "Los botones de la izquierda te llevan al inicio, al final, una página arriba o una página abajo"
+msgstr ""
+"Los botones de la izquierda te llevan al inicio, al final, una página arriba "
+"o una página abajo"
 
 #: index.php:1268
 msgid "Arrow buttons in the middle scroll gradually"
@@ -354,7 +366,9 @@ msgstr "En la derecha puedes escoger la posición en tu monitor PalMa"
 #: index.php:1273
 msgid ""
 "Controls that are not available for certain kinds of content are marked grey."
-msgstr "Controles no disponibles para ciertos tipos de contenido estan marcados de color plomo."
+msgstr ""
+"Controles no disponibles para ciertos tipos de contenido estan marcados de "
+"color plomo."
 
 #: index.php:1275
 msgid "Some additional features are:"
@@ -368,13 +382,17 @@ msgstr "Esta ayuda,"
 msgid ""
 "Your chance to recommend us or give us your thoughts in the &quot;"
 "Feedback&quot; section,"
-msgstr "Tu chance de recomendarnos algo o darnos tu opinión en la sección de &quot;Comentarios&quot;,"
+msgstr ""
+"Tu chance de recomendarnos algo o darnos tu opinión en la sección de &quot;"
+"Comentarios&quot;,"
 
 #: index.php:1279
 msgid ""
 "A list of all logged-in users as well as a button to disconnect everyone and "
 "therefore end the session."
-msgstr "Una lista de todos los usuarios activos y un botón para desconectarlos a todos y terminar la sesión."
+msgstr ""
+"Una lista de todos los usuarios activos y un botón para desconectarlos a "
+"todos y terminar la sesión."
 
 #: index.php:1285
 msgid "Recommend us"
@@ -384,7 +402,9 @@ msgstr "Recoméndanos"
 msgid ""
 "If you like PalMA, please recommend us by sharing in your social networks."
 "<br />Enjoy PalMA!"
-msgstr "Si te gusta PalMA, recoméndanos a tus amigos compartiendo en tus redes sociales.<br />Disfruta PalMA!"
+msgstr ""
+"Si te gusta PalMA, recoméndanos a tus amigos compartiendo en tus redes "
+"sociales.<br />Disfruta PalMA!"
 
 #: index.php:1342
 msgid "Tell us what you think"
@@ -394,7 +414,9 @@ msgstr "Dinos que opinas"
 msgid ""
 "Please let us know about problems or ideas to improve PalMA. Help us "
 "directly by sending crash reports or contributing on "
-msgstr "Coméntanos sobre posibles problemas o ideas que tengas para mejorar PalMA. Ayúdanos directamente mandando un reporte de errores o contribuyendo en "
+msgstr ""
+"Coméntanos sobre posibles problemas o ideas que tengas para mejorar PalMA. "
+"Ayúdanos directamente mandando un reporte de errores o contribuyendo en "
 
 #: index.php:1344
 msgid "Thank you!"
@@ -432,7 +454,7 @@ msgstr "Desconectar al usuario actual"
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: i12n.php:90
+#: i12n.php:94
 msgid "Screen section"
 msgstr "Sección de la pantalla"
 
@@ -501,101 +523,3 @@ msgstr "Show de imágenes"
 #: examples/screensaver/tiles.php:33
 msgid "Tiles"
 msgstr "Azulejos"
-
-#~ msgid "Select workplace"
-#~ msgstr "Seleccionar lugar de trabajo"
-
-#~ msgid "Conference room"
-#~ msgstr "Habitación de conferencias"
-
-#~ msgid "Test monitor"
-#~ msgstr "Monitor de prueba"
-
-#~ msgid "Mannheim table"
-#~ msgstr "Tabla de Mannheim"
-
-#~ msgid "Close the advanced control"
-#~ msgstr "Cerrar panel de control avanzado"
-
-#~ msgid "Cursor control"
-#~ msgstr "Control del cursor"
-
-#~ msgid "Advanced control"
-#~ msgstr "Control avanzado"
-
-#~ msgid "Team display"
-#~ msgstr "Pantalla del equipo"
-
-#~ msgid "Disconnect all users"
-#~ msgstr "Desconectar a todos los usuarios"
-
-#~ msgid "Display list"
-#~ msgstr "Mostrar lista"
-
-#~ msgid "List of files, URLs and shared displays"
-#~ msgstr "Lista de archivos, URLs y presentaciones compartidas"
-
-#~ msgid "Close all windows"
-#~ msgstr "Cerrar todas las ventanas"
-
-#~ msgid "Show help and offer some extras"
-#~ msgstr "Mostrar ayuda y ofrecer algunos extras"
-
-#~ msgid "Show this URL in a new browser window"
-#~ msgstr "Mostrar esta URL en una nueva ventana"
-
-#~ msgid "Drop documents here (or click) to load them up"
-#~ msgstr "Dejar documentos aquí (o click) para cargarlos"
-
-#~ msgid "Drop documents here (or click)"
-#~ msgstr "Dejar documentos aquí (o click)"
-
-#~ msgid "Close the help window"
-#~ msgstr "Cerra ventana de ayuda"
-
-#~ msgid ""
-#~ "Just upload PDF files, images, OpenDocument or\n"
-#~ "            MS Office files or enter a URL &ndash; PalMA will show them."
-#~ msgstr ""
-#~ "Solo cargar archivos PDF, imagenes, OpenDocument o\n"
-#~ "            archivos MS Office o ingresar URL &ndash; PalMA los mostrará"
-
-#~ msgid ""
-#~ "Share the desktop of your notebook with others. PalMA uses\n"
-#~ "            VNC for screen sharing. Download the VNC software once for "
-#~ "your\n"
-#~ "            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
-#~ "LearningCenter/palma-kurzanleitung.pdf\"\n"
-#~ "            onclick=\"window.open(this.href); return false;\">Windows PC</"
-#~ "a>\n"
-#~ "            (preconfigured UltraVNC) or\n"
-#~ "            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
-#~ "LearningCenter/palma-anleitung-mac.pdf\"\n"
-#~ "            onclick=\"window.open(this.href); return false;\">MacBook</"
-#~ "a>\n"
-#~ "            (RealVNC)."
-#~ msgstr ""
-#~ "Comparte el escritorio de tu laptop con otras personal. PalMA usa\n"
-#~ "            VNC para compartir pantalla. Descarga la aplicación VNC para\n"
-#~ "            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
-#~ "LearningCenter/palma-kurzanleitung.pdf\"\n"
-#~ "            onclick=\"window.open(this.href); return false;\">Windows PC</"
-#~ "a>\n"
-#~ "            (preconfigured UltraVNC) or\n"
-#~ "            <a href=\"http://www.bib.uni-mannheim.de/fileadmin/pdf/ub/"
-#~ "LearningCenter/palma-anleitung-mac.pdf\"\n"
-#~ "            onclick=\"window.open(this.href); return false;\">MacBook</"
-#~ "a>\n"
-#~ "            (RealVNC)."
-
-#~ msgid "Linux users can share their X display like this:"
-#~ msgstr "Usuarios de Linux pueden compartir su X display así:"
-
-#~ msgid "Share desktop (free UltraVNC / Windows only)"
-#~ msgstr "Compartir escritorio (UltraVNC gratuito / solamente Windows)"
-
-#~ msgid "Share desktop (non free RealVNC)"
-#~ msgstr "Compartir escritorio (RealVNC pagado)"
-
-#~ msgid "Show team display"
-#~ msgstr "Mostrar pantalla del equipo"
