@@ -1,3 +1,39 @@
+palma (1.4.3) unstable; urgency=medium
+
+  [ Stefan Weil ]
+  * Remove unused import statements
+
+  [ Lukas Krieger ]
+  * added some basic translations
+  * fixed typo
+
+  [ Carolina Cantú Cisneros ]
+  * Update.
+  * translations added
+
+  [ Julian Kissel ]
+  * Added Japanese (#159)
+
+  [ Stefan Weil ]
+  * Removed BOM and wrong fuzzy text in Japanese localization
+  * Activate language support for Japanese
+  * Update translations and status of translations
+  * Update translations and status of translations
+
+  [ Miguel Arduz ]
+  * Spanish translation + Last-Translator added
+
+  [ Stefan Weil ]
+  * Update Spanish translation and status of translations
+
+  [ Dennis Müller ]
+  * Add new library logo
+
+  [ Jörg Mechnich ]
+  * updated comments in palma.ini, updated dependencies in install, fixed typo
+
+ -- Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>  Fri, 23 Nov 2018 18:29:34 +0100
+
 palma (1.4.2) unstable; urgency=medium
 
   * forcefully overwrite PalMA configuration files for apache, nginx and php
