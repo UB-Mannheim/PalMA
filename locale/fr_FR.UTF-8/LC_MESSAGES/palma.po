@@ -120,7 +120,7 @@ msgstr "Contrôle"
 
 #: index.php:1072 index.php:1274
 msgid "Extras"
-msgstr ""
+msgstr "Extras"
 
 #: index.php:1078
 msgid "File"
@@ -128,7 +128,7 @@ msgstr "Fichier"
 
 #: index.php:1079
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: index.php:1080
 msgid "Screen"
@@ -202,7 +202,7 @@ msgstr "Aide"
 
 #: index.php:1202
 msgid "Feedback"
-msgstr ""
+msgstr "Feedback"
 
 #: index.php:1203
 msgid "Users"
@@ -245,7 +245,7 @@ msgstr ""
 # Please mind the whitespace at the end.
 #: index.php:1219 index.php:1377
 msgid "PIN: "
-msgstr ""
+msgstr "PIN: "
 
 #: index.php:1227
 msgid "Use the Add-Section to share content on the PalMA monitor."
@@ -273,7 +273,7 @@ msgstr ""
 # Referring to the popular operating system
 #: index.php:1233
 msgid "Windows:"
-msgstr ""
+msgstr "Windows:"
 
 #: index.php:1235
 msgid "Run the downloaded file."
@@ -286,7 +286,7 @@ msgstr ""
 
 #: index.php:1238
 msgid "Mac:"
-msgstr ""
+msgstr "Mac:"
 
 #: index.php:1240
 msgid "CTRL + click the downloaded file and run it."
@@ -310,7 +310,7 @@ msgstr ""
 
 #: index.php:1246
 msgid "Linux:"
-msgstr ""
+msgstr "Linux:"
 
 #: index.php:1248
 msgid "Run the downloaded shell script."
@@ -344,11 +344,11 @@ msgstr "Zoom avant et arrière"
 
 #: index.php:1261
 msgid "Rotate"
-msgstr ""
+msgstr "Tourner"
 
 #: index.php:1262
 msgid "Download"
-msgstr ""
+msgstr "Télécharger"
 
 #: index.php:1263
 msgid "Delete the item"
@@ -382,7 +382,7 @@ msgstr ""
 
 #: index.php:1277
 msgid "This help,"
-msgstr ""
+msgstr "Cette aide,"
 
 #: index.php:1278
 msgid ""
@@ -399,7 +399,7 @@ msgstr ""
 # Feedback
 #: index.php:1285
 msgid "Recommend us"
-msgstr ""
+msgstr "Recommandez-nous"
 
 #: index.php:1288
 msgid ""
@@ -420,12 +420,12 @@ msgstr ""
 
 #: index.php:1344
 msgid "Thank you!"
-msgstr ""
+msgstr "Merci à vous!"
 
 # Users
 #: index.php:1351
 msgid "Select language:"
-msgstr ""
+msgstr "Choisissez la langue:"
 
 #: index.php:1368
 msgid "User list"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: index.php:1386
 msgid "End the session"
-msgstr ""
+msgstr "Terminez la session"
 
 # Footer
 #: index.php:1398
@@ -471,7 +471,7 @@ msgstr ""
 
 #: login.php:139
 msgid "Invalid PIN."
-msgstr ""
+msgstr "PIN non valide."
 
 #: login.php:174
 msgid "PalMA &ndash; Login"
@@ -487,11 +487,11 @@ msgstr ""
 
 #: login.php:211
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: login.php:219
 msgid "PIN"
-msgstr ""
+msgstr "PIN"
 
 #: login.php:227
 msgid "Log in"
@@ -513,7 +513,7 @@ msgstr ""
 #: upload.php:67
 #, php-format
 msgid "Error code %s."
-msgstr ""
+msgstr "Code d'erreur %s."
 
 #: upload.php:81
 #, php-format
