@@ -9,7 +9,7 @@
 |[ar](#ar)|67.83|
 |[de_DE](#de_de)|100.00|
 |[es_ES](#es_es)|100.00|
-|[fr_FR](#fr_fr)|47.83|
+|[fr_FR](#fr_fr)|63.48|
 |[it_IT](#it_it)|41.74|
 |[ja](#ja)|1.74|
 |[lv_LV](#lv_lv)|26.09|
@@ -105,7 +105,7 @@ Contributors:
 
 ## fr_FR
 
-Completion: **47.83** (55 / 115 strings)
+Completion: **63.48** (73 / 115 strings)
 
 Contributors:
 
@@ -114,6 +114,7 @@ Contributors:
   * Jörg Mechnich
   * Lena Burger
   * Nadja Seemann
+  * Philipp Zumstein
   * Regina Retter
   * Stefan Weil
 
@@ -129,53 +130,35 @@ Missing:
   * `Delete the item`
   * `Disconnect all users and end the session`
   * `Disconnect the current user`
-  * `Download`
-  * `End the session`
   * `Enter`
   * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
-  * `Error code %s.`
-  * `Extras`
-  * `Feedback`
   * `File '%s' cannot be shown.`
   * `File was only partially uploaded.`
   * `Hide and show`
   * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
   * `In the top bar you can`
   * `In the upper left corner, click on &quot;VNC Server&quot;.`
-  * `Invalid PIN.`
   * `Invalid credentials!`
   * `Large files are not supported.`
-  * `Linux:`
   * `List of connected users`
   * `Log in`
   * `Log out`
   * `Login`
-  * `Mac:`
   * `New users can join at`
   * `On the right you can choose the position on the PalMA monitor`
   * `Or use this shell command:`
-  * `PIN`
-  * `PIN: `
   * `PalMA &ndash; Login`
-  * `Password`
   * `Picture Show`
   * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
-  * `Recommend us`
-  * `Rotate`
   * `Run the downloaded shell script.`
   * `Screen section`
   * `Select &quot;Reverse Connection&quot;.`
-  * `Select language:`
   * `Some additional features are:`
   * `Tell us what you think`
-  * `Thank you!`
   * `This file is too large.`
-  * `This help,`
   * `Tiles`
-  * `URL`
   * `User list`
   * `User name`
-  * `Windows:`
   * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
   * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
 
