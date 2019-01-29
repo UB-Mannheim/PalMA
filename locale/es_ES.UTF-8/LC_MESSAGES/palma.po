@@ -116,7 +116,7 @@ msgstr "Control"
 
 #: index.php:1072 index.php:1274
 msgid "Extras"
-msgstr "Extras"
+msgstr "Suplementos"
 
 #: index.php:1078
 msgid "File"
@@ -233,7 +233,7 @@ msgstr ""
 
 #: index.php:1219 index.php:1377
 msgid "PIN: "
-msgstr "PIN:"
+msgstr "PIN: "
 
 #: index.php:1227
 msgid "Use the Add-Section to share content on the PalMA monitor."
