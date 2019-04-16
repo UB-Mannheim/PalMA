@@ -1,0 +1,103 @@
+[TITLE]
+Universitätsbibliothek Mannheim Desktop-Freigabe
+
+
+[HOST]
+PalMA LC 02
+-connect lc02.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 03
+-connect lc03.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 04
+-connect lc04.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 05
+-connect lc05.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 06
+-connect lc06.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 07
+-connect lc07.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 08
+-connect lc08.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 09
+-connect lc09.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 10
+-connect lc10.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 11
+-connect lc11.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 12
+-connect lc12.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 13
+-connect lc13.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 14
+-connect lc14.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 15
+-connect lc15.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 16
+-connect lc16.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 17
+-connect lc17.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA LC 18
+-connect lc18.bib.uni-mannheim.de:5500 -noregistry
+
+
+[TEXTERROR]
+Bitte klicken Sie genau auf die Textzeile oben.
+
+[TEXTTOP]
+Bitte gewünschte Station mit Doppelklick öffnen.
+[TEXTMIDDLE]
+Ihr Desktop wird an der 
+[TEXTBOTTOM]
+ausgewählten Station angezeigt.
+
+[TEXTRTOP]
+PalMA   -   (C) 2014
+[TEXTRMIDDLE]
+Universitätsbibliothek Mannheim
+[TEXTRBOTTOM]
+Basiert auf UltraVNC (www.uvnc.com)
+
+[TEXTBUTTON]
+Online-Informationen
+[WEBPAGE]
+http://www.bib.uni-mannheim.de/
+
+[TEXTCLOSEBUTTON]
+Beenden
+
+
+[BALLOON1TITLE]
+Verbindungsaufbau ...
+[BALLOON1A]
+Falls innerhalb von 5 Minuten keine
+[BALLOON1B]
+Verbindung zu Stande kommt, beendet
+[BALLOON1C]
+sich das Programm automatisch.
+
+[BALLOON2TITLE]
+Ihr Desktop wird beobachtet
+[BALLOON2A]
+ Um die Verbindung zu beenden,
+[BALLOON2B]
+ klicken Sie rechts auf dieses
+[BALLOON2C]
+ Symbol und wählen Sie "Close".
+
+[WEBPAGE]
+https://www.bib.uni-mannheim.de

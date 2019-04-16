@@ -3,21 +3,11 @@ Universitätsbibliothek Mannheim Desktop-Freigabe
 
 
 [HOST]
-PalMA BWL 01
--connect palma-bwl-01.bib.uni-mannheim.de:5500 -noregistry
+PalMA BE 01
+-connect palma-be-01.bib.uni-mannheim.de:5500 -noregistry
 [HOST]
-PalMA BWL 02
--connect palma-bwl-02.bib.uni-mannheim.de:5500 -noregistry
-[HOST]
-PalMA BWL 03
--connect palma-bwl-03.bib.uni-mannheim.de:5500 -noregistry
-[HOST]
-PalMA BWL 04
--connect palma-bwl-04.bib.uni-mannheim.de:5500 -noregistry
-[HOST]
-PalMA BWL 05
--connect palma-bwl-05.bib.uni-mannheim.de:5500 -noregistry
-
+PalMA BE 02
+-connect palma-be-02.bib.uni-mannheim.de:5500 -noregistry
 
 [TEXTERROR]
 Bitte klicken Sie genau auf die Textzeile oben.
@@ -64,4 +54,4 @@ Ihr Desktop wird beobachtet
  Symbol und wählen Sie "Close".
 
 [WEBPAGE]
-http://www.bib.uni-mannheim.de
+https://www.bib.uni-mannheim.de

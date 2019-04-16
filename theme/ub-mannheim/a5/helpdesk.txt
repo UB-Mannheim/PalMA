@@ -1,0 +1,106 @@
+[TITLE]
+Universitätsbibliothek Mannheim Desktop-Freigabe
+
+
+[HOST]
+PalMA A5 01
+-connect palma-a5-01.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 02
+-connect palma-a5-02.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 03
+-connect palma-a5-03.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 04
+-connect palma-a5-04.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 05
+-connect palma-a5-05.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 06
+-connect palma-a5-06.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 07
+-connect palma-a5-07.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 08
+-connect palma-a5-08.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 09
+-connect palma-a5-09.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 10
+-connect palma-a5-10.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 11
+-connect palma-a5-11.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 12
+-connect palma-a5-12.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 13
+-connect palma-a5-13.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 14
+-connect palma-a5-14.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 15
+-connect palma-a5-15.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 16
+-connect palma-a5-16.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 17
+-connect palma-a5-17.bib.uni-mannheim.de:5500 -noregistry
+[HOST]
+PalMA A5 18
+-connect palma-a5-18.bib.uni-mannheim.de:5500 -noregistry
+
+
+[TEXTERROR]
+Bitte klicken Sie genau auf die Textzeile oben.
+
+[TEXTTOP]
+Bitte gewünschte Station mit Doppelklick öffnen.
+[TEXTMIDDLE]
+Ihr Desktop wird an der 
+[TEXTBOTTOM]
+ausgewählten Station angezeigt.
+
+[TEXTRTOP]
+PalMA   -   (C) 2014
+[TEXTRMIDDLE]
+Universitätsbibliothek Mannheim
+[TEXTRBOTTOM]
+Basiert auf UltraVNC (www.uvnc.com)
+
+[TEXTBUTTON]
+Online-Informationen
+[WEBPAGE]
+http://www.bib.uni-mannheim.de/
+
+[TEXTCLOSEBUTTON]
+Beenden
+
+
+[BALLOON1TITLE]
+Verbindungsaufbau ...
+[BALLOON1A]
+Falls innerhalb von 5 Minuten keine
+[BALLOON1B]
+Verbindung zu Stande kommt, beendet
+[BALLOON1C]
+sich das Programm automatisch.
+
+[BALLOON2TITLE]
+Ihr Desktop wird beobachtet
+[BALLOON2A]
+ Um die Verbindung zu beenden,
+[BALLOON2B]
+ klicken Sie rechts auf dieses
+[BALLOON2C]
+ Symbol und wählen Sie "Close".
+
+[WEBPAGE]
+https://www.bib.uni-mannheim.de
