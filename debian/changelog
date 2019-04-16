@@ -1,3 +1,22 @@
+palma (1.4.4) unstable; urgency=medium
+
+  [ Philipp Zumstein ]
+  * Translate some more French terms
+
+  [ Stefan Weil ]
+  * Update status of translations
+
+  [ Daniel Hoffmann ]
+  * Updated ES PALMA file and changed extras to suplementos
+
+  [ CodeLingoBot ]
+  * Change PHP keywords to comply with PSR2
+
+  [ Jörg Mechnich ]
+  * updated ub-mannheim themes
+
+ -- Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>  Tue, 16 Apr 2019 17:16:13 +0200
+
 palma (1.4.3) unstable; urgency=medium
 
   [ Stefan Weil ]

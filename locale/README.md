@@ -96,6 +96,7 @@ Contributors:
   * Alexander Wagner
   * Amy Garcia Kennedy
   * Carolina Cantú Cisneros
+  * Daniel Hoffmann
   * Jörg Mechnich
   * Lukas Krieger
   * Miguel Arduz
