@@ -19,9 +19,10 @@ class PalmaSession(object):
 
         
 class PalmaLogfile(object):
-    def __init__(self, filename):
+    def __init__(self, filename, noexit):
         self.__dict__ = {
             'filename': filename,
+            'noexit':   noexit,
             'data':     {},
             'lstamp':   None,
             'timeout':  60*60*6,
@@ -69,8 +70,9 @@ class PalmaLogfile(object):
 
         
     def error(self, timestamp, error):
-        print(self.filename, timestamp, error)
-        sys.exit(1)
+        print(self.filename, timestamp, error, file=sys.stderr)
+        if not self.noexit:
+            sys.exit(1)
 
         
     def addLine(self, line):
@@ -110,6 +112,8 @@ class PalmaAnalyzer(object):
         )
         parser.add_argument("-s", "--summary", action="store_true",
                             help="print summary")
+        parser.add_argument("-n", "--noexit", action="store_true",
+                            help="don't exit on error")
         parser.add_argument("logfile", nargs='+',
                             help="at least one log file")
         self.args = parser.parse_args()
@@ -117,8 +121,8 @@ class PalmaAnalyzer(object):
         
     def processFile(self,filename):
         with open(filename,'r') as f:
-            print("Processing", filename)
-            logfile = PalmaLogfile(filename)
+            print("Processing", filename, file=sys.stderr)
+            logfile = PalmaLogfile(filename, noexit=self.args.noexit)
             for line in f.readlines():
                 # skip empty lines
                 if not len(line.strip()): continue
