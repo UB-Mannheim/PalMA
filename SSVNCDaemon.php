@@ -266,7 +266,7 @@ class SSVNCDaemon
     {
         // print("\n[Daemon]: +++ TODO: deleteInactiveWindow() +++");
 
-        $db = new palma\DBConnector();
+        $db = new DBConnector();
 
         // window_ids in db
         $vnc_windows_in_db = array();
