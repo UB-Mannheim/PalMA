@@ -1,3 +1,11 @@
+palma (1.4.5) unstable; urgency=medium
+
+  * added globals.php to phpcs list and fixed errors
+  * added noexit argument to palma_analyze, added examples to README
+  * corrected namespace in SSVNCDaemon.php
+
+ -- Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>  Thu, 27 Jun 2019 17:06:09 +0200
+
 palma (1.4.4) unstable; urgency=medium
 
   [ Philipp Zumstein ]
