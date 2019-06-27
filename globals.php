@@ -3,7 +3,7 @@
 function trace($text)
 {
     static $firstRun = true;
-    if($firstRun) {
+    if ($firstRun) {
         $firstRun = false;
         openlog("palma", LOG_PID, LOG_USER);
     }
@@ -12,29 +12,28 @@ function trace($text)
 
 function monitor($action)
 {
-  if (!defined('CONFIG_MONITOR_URL')) {
-    //trace('CONFIG_MONITOR_URL is undefined');
-    return;
-  }
+    if (!defined('CONFIG_MONITOR_URL')) {
+      //trace('CONFIG_MONITOR_URL is undefined');
+        return;
+    }
   //trace("monitor $action");
-  $ch = curl_init();
-  $url = CONFIG_MONITOR_URL;
+    $ch = curl_init();
+    $url = CONFIG_MONITOR_URL;
   
-  curl_setopt_array($ch, array(
+    curl_setopt_array($ch, array(
                         CURLOPT_RETURNTRANSFER => 1,
                         CURLOPT_URL => CONFIG_MONITOR_URL . '/' . CONFIG_STATIONNAME . '/' . base64_encode($action),
                         CURLOPT_USERAGENT => 'PalMA cURL Request'
                                ));
-  $resp = curl_exec($ch);
-  curl_close($ch);
+    $resp = curl_exec($ch);
+    curl_close($ch);
 }
 
 function set_constants()
 {
     // Get some constants from a configuration file.
     $conf_fn = 'palma.ini';
-    if (!file_exists($conf_fn))
-    {
+    if (!file_exists($conf_fn)) {
         $conf_fn = '/etc/palma.ini';
     }
     $conf = parse_ini_file($conf_fn);
@@ -64,8 +63,10 @@ function set_constants()
     if (array_key_exists('stationname', $conf)) {
         define('CONFIG_STATIONNAME', $conf['stationname']);
     } else {
-        define('CONFIG_STATIONNAME',
-               str_replace(array("\r", "\n", " "), '', `hostname -f`));
+        define(
+            'CONFIG_STATIONNAME',
+            str_replace(array("\r", "\n", " "), '', `hostname -f`)
+        );
     }
     if (array_key_exists('theme', $conf)) {
         define('CONFIG_THEME', $conf['theme']);
@@ -78,8 +79,10 @@ function set_constants()
         define('CONFIG_START_URL', $conf['start_url']);
     } else {
         // By default we use the FQDN of the host
-      define('CONFIG_START_URL',
-             'http://' . str_replace(array("\r", "\n", " "), '', `hostname -f`) . '/');
+        define(
+            'CONFIG_START_URL',
+            'http://' . str_replace(array("\r", "\n", " "), '', `hostname -f`) . '/'
+        );
     }
     if (array_key_exists('control_file', $conf)) {
         define('CONFIG_CONTROL_FILE', $conf['control_file']);

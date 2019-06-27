@@ -8,8 +8,6 @@
 ./theme/ub-mannheim/be/console.php
 ./theme/ub-mannheim/lc/screensaver.php
 ./theme/ub-mannheim/lc/console.php
-./theme/ub-mannheim/ic/screensaver.php
-./theme/ub-mannheim/ic/console.php
 ./theme/ub-mannheim/a3/screensaver.php
 ./theme/ub-mannheim/a3/console.php
 ./theme/ub-mannheim/a5/screensaver.php
@@ -24,6 +22,7 @@
 ./login.php
 ./i12n.php
 ./control.php
+./globals.php
 ./logout.php
 ./index.php
 ./palma.css
