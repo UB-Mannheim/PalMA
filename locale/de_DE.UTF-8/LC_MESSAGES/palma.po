@@ -248,7 +248,7 @@ msgstr "PIN: "
 #: index.php:1227
 msgid "Use the Add-Section to share content on the PalMA monitor."
 msgstr ""
-"Im Bereich &quot;Hinzufügen&quot; können beliebige Sie Inhalte auf den PalMA-"
+"Im Bereich &quot;Hinzufügen&quot; können Sie beliebige Inhalte auf den PalMA-"
 "Monitor übertragen."
 
 #: index.php:1229
