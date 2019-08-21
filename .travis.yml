@@ -12,7 +12,7 @@ before_install:
   # php-codesniffer is used for the PSR-2 conformance test.
   # libperl-critic-perl is used for perl checks
   # shellcheck checks shell code
-  - sudo apt-get install -y libperl-critic-perl php-sqlite3 php-codesniffer shellcheck
+  - sudo apt-get install -y libperl-critic-perl php-sqlite3 php-codesniffer php-mbstring shellcheck
 
 script:
   # Errors from docs/dist/pre-commit.sh are currently ignored
