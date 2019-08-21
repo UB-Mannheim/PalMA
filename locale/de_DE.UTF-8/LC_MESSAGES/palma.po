@@ -540,7 +540,7 @@ msgstr "Fehlercode %s."
 #: upload.php:81
 #, php-format
 msgid "File '%s' cannot be shown."
-msgstr "Die Datei '%s' kann leider nicht angezeigt werden."
+msgstr "Datei '%s' kann nicht angezeigt werden."
 
 # examples/screensaver
 #: examples/screensaver/pictureshow.php:35
