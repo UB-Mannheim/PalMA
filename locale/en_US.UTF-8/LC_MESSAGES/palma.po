@@ -19,7 +19,7 @@ msgstr ""
 
 #: index.php:181
 msgid "not available"
-msgstr ""
+msgstr "Nicht verfügbar"
 
 #: index.php:223
 #, fuzzy
@@ -28,7 +28,7 @@ msgstr "Please enter URL"
 
 #: index.php:563
 msgid "You were disconnected!"
-msgstr ""
+msgstr "Ihre Verbindung wurde getrennt!"
 
 #: index.php:584
 msgid "Select screen section for display"
@@ -267,11 +267,11 @@ msgstr ""
 
 #: index.php:1236
 msgid "Double-click the name of your PalMA station in the appearing list."
-msgstr ""
+msgstr "Wähle den Namen deiner PalMA Station mit einem Doppelklick in der Liste aus"
 
 #: index.php:1238
 msgid "Mac:"
-msgstr ""
+msgstr "Mac"
 
 #: index.php:1240
 msgid "CTRL + click the downloaded file and run it."

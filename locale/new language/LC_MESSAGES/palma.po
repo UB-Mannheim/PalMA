@@ -1,17 +1,18 @@
 # PalMA translation.
-# Copyright (C) 2015 Universitätsbibliothek Mannheim
+# Copyright (C) 2017 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
-# Ziad Abdelkader <ziad.abdelkader9@gmail.com>, 2018.
+# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
+# Dennis Müller <dennis.mueller@bib.uni-mannheim.de>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-19 20:33+0100\n"
-"PO-Revision-Date: 2018-07-11 12:00+0200\n"
-"Last-Translator: Rafik Takieddin <rafik.takieddin@gmail.com>\n"
-"Language-Team: Arabic <ar@li.org>\n"
-"Language: ar\n"
+"PO-Revision-Date: 2017-09-12 14:38+0200\n"
+"Last-Translator: Dennis Müller <dennis.mueller@bib.uni-mannheim.de>\n"
+"Language-Team: English <en@li.org>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,104 +22,104 @@ msgid "not available"
 msgstr ""
 
 #: index.php:223
+#, fuzzy
 msgid "Enter valid URL"
-msgstr "من فضلك أدخل URL صحيح"
+msgstr "Please enter URL"
 
 #: index.php:563
 msgid "You were disconnected!"
-msgstr "لقد تم قطع الاتصال"
+msgstr ""
 
 #: index.php:584
 msgid "Select screen section for display"
-msgstr "إختيار جزء من الشاشة للرؤية"
+msgstr ""
 
 #: index.php:694
 msgid "Toggle visibility"
-msgstr "تبديل الرؤية"
+msgstr ""
 
 #: index.php:698
 msgid "Zoom in"
-msgstr "تكبير الصورة"
+msgstr ""
 
 #: index.php:699
 msgid "Zoom out"
-msgstr "تصغير الصورة"
+msgstr ""
 
 #: index.php:700
 msgid "Rotate counterclockwise"
-msgstr "أقلب الصفحة عكس عقارب الساعة"
+msgstr ""
 
 #: index.php:701
 msgid "Rotate clockwise"
-msgstr "أقلب الصفحة مع عقارب الساعة"
+msgstr ""
 
 #: index.php:702
-#, fuzzy
 msgid "Download this item"
-msgstr "تنزيل الملف"
+msgstr ""
 
 #: index.php:708
-#, fuzzy
 msgid "Remove this item"
-msgstr "أمسح هذا الملف"
+msgstr ""
 
 #: index.php:719
 msgid "Jump to start"
-msgstr "الرجوع إلى البداية"
+msgstr ""
 
 #: index.php:720
 msgid "Page up"
-msgstr "صفحة للأعلى"
+msgstr ""
 
 #: index.php:721
 msgid "Page down"
-msgstr "صفحة للأسفل"
+msgstr ""
 
 #: index.php:722
 msgid "Jump to end"
-msgstr "الذهاب إلى نقطة النهاية"
+msgstr ""
 
 #: index.php:726
 msgid "Up"
-msgstr "أعلى"
+msgstr ""
 
 #: index.php:728
 msgid "Left"
-msgstr "يسار"
+msgstr ""
 
 #: index.php:729
 msgid "Right"
-msgstr "يمين "
+msgstr ""
 
 #: index.php:731
 msgid "Down"
-msgstr "أسفل"
+msgstr ""
 
+# Greeting
 #: index.php:756
 msgid "Welcome"
-msgstr "مرحبا "
+msgstr ""
 
 #: index.php:758
 msgid "There is no shared content yet. Click below to get started!"
-msgstr "لم يتم مشاركة محتوى حتى الآن. إضغط في الأسفل لكي تبدأ"
+msgstr ""
 
+# Index.php
+# Tabs and Subtabs
 #: index.php:762 index.php:1070 index.php:1226
 msgid "Add"
-msgstr "إضافة"
+msgstr ""
 
 #: index.php:980
 msgid "Sorry! Screensharing for your device is currently not supported."
 msgstr ""
 
 #: index.php:1071 index.php:1253
-#, fuzzy
 msgid "Control"
-msgstr "التحكم بالمؤشر"
+msgstr ""
 
 #: index.php:1072 index.php:1274
-#, fuzzy
 msgid "Extras"
-msgstr "مساعدة"
+msgstr ""
 
 #: index.php:1078
 msgid "File"
@@ -126,91 +127,91 @@ msgstr ""
 
 #: index.php:1079
 msgid "URL"
-msgstr "عنوان URL"
+msgstr ""
 
 #: index.php:1080
-#, fuzzy
 msgid "Screen"
-msgstr "جزء من الشاشة"
+msgstr ""
 
 #: index.php:1087
 msgid "Drag and drop files or click here to upload."
-msgstr "اسحب الملف لأو إضغط هنا لرفع الملف"
+msgstr ""
 
+# Add Section
 #: index.php:1089
 msgid "Add file (click or drop here)"
-msgstr "إضافة ملف "
+msgstr ""
 
 #: index.php:1108
 msgid "Add webpage"
-msgstr "أضف صفحة"
+msgstr ""
 
 #: index.php:1111
 msgid "Enter URL"
-msgstr "من فضلك أدخل ال-URL"
+msgstr "Please enter URL"
 
 #: index.php:1114
 msgid "Click here to show the webpage on the screen."
-msgstr "إضغط هنا لإظهار الصفحة على الشاشة"
+msgstr ""
 
 #: index.php:1115
-#, fuzzy
 msgid "Enter"
-msgstr "من فضلك أدخل ال-URL"
+msgstr ""
 
 #: index.php:1122
 msgid "Add your screen"
-msgstr "أضف شاشتك"
+msgstr ""
 
 #: index.php:1123
 msgid "Download screensharing tool"
-msgstr "تحميل أداة مشاركة الشاشة"
+msgstr ""
 
 #: index.php:1130
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
-msgstr "قسم المساعدة للمزيد من المعلومات"
+msgstr ""
 
 #: index.php:1136
 msgid "Layout"
-msgstr "تصميم"
+msgstr ""
 
 #: index.php:1137
 msgid "Navigate"
-msgstr "تصفح"
+msgstr ""
 
+# Control section
 #: index.php:1143 index.php:1150 index.php:1158 index.php:1166 index.php:1179
 msgid "Choose screen layout"
-msgstr "أختر النسق"
+msgstr ""
 
 #: index.php:1194
 msgid "Close all windows and remove uploaded files"
-msgstr "أغلق جميع الشاشات وحذف الملفات"
+msgstr ""
 
 #: index.php:1195
 msgid "Delete all items"
-msgstr "أمسح جميع البنود"
+msgstr ""
 
 #: index.php:1201
 msgid "Help"
-msgstr "مساعدة"
+msgstr ""
 
 #: index.php:1202
 msgid "Feedback"
-msgstr "تغذية عكسية"
+msgstr ""
 
 #: index.php:1203
-#, fuzzy
 msgid "Users"
-msgstr "لأئحة المستخدمين"
+msgstr ""
 
+# Extras Section
+# Help
 #: index.php:1206
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
 msgstr ""
-"باستخدام PalMAبإمكانك مشاركة مستنداتك، مواقع الانترنت، وسطح المكتب الخاص بك "
 
 #: index.php:1207
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
@@ -222,19 +223,20 @@ msgstr ""
 
 #: index.php:1210
 msgid "see here."
-msgstr "أنظر هنا"
+msgstr ""
 
 #: index.php:1214
 msgid "Connect"
-msgstr "إتصل"
+msgstr ""
 
 #: index.php:1215
 msgid "Team members can join the session at any time with this URL or QR-Code:"
 msgstr ""
 
+# Please mind the whitespace at the end.
 #: index.php:1219 index.php:1377
 msgid "PIN: "
-msgstr "رمز"
+msgstr ""
 
 #: index.php:1227
 msgid "Use the Add-Section to share content on the PalMA monitor."
@@ -243,11 +245,10 @@ msgstr ""
 #: index.php:1229
 msgid "For PDF files, office files, images or videos use the file section."
 msgstr ""
-"استخدم هذا الجزء من أجل ملفات الأوفيس، ملفات البي دي إف، وللصور والفيديوهات"
 
 #: index.php:1230
 msgid "To display a website use the URL field."
-msgstr "لعرض صفحات الويب، استخدم حقل الـ URL"
+msgstr ""
 
 #: index.php:1231
 msgid ""
@@ -255,16 +256,17 @@ msgid ""
 "and"
 msgstr ""
 
+# Referring to the popular operating system
 #: index.php:1233
 msgid "Windows:"
-msgstr "وندوز"
+msgstr ""
 
 #: index.php:1235
 msgid "Run the downloaded file."
 msgstr ""
 
 #: index.php:1236
-msgid "Double-click the name of your PalMA station in the appearing list!"
+msgid "Double-click the name of your PalMA station in the appearing list."
 msgstr ""
 
 #: index.php:1238
@@ -322,22 +324,20 @@ msgid "Hide and show"
 msgstr ""
 
 #: index.php:1260
-#, fuzzy
 msgid "Zoom in and out"
-msgstr "تصغير الصورة"
+msgstr ""
 
 #: index.php:1261
 msgid "Rotate"
-msgstr "تدوير"
+msgstr ""
 
 #: index.php:1262
-#, fuzzy
 msgid "Download"
-msgstr "تنزيل الملف"
+msgstr ""
 
 #: index.php:1263
 msgid "Delete the item"
-msgstr "أمسح هذه البند"
+msgstr ""
 
 #: index.php:1265
 msgid "Below you find the navigation controls."
@@ -363,11 +363,11 @@ msgstr ""
 
 #: index.php:1275
 msgid "Some additional features are:"
-msgstr "مزيد من الميزات "
+msgstr ""
 
 #: index.php:1277
 msgid "This help,"
-msgstr "هنا مساعدة"
+msgstr ""
 
 #: index.php:1278
 msgid ""
@@ -381,9 +381,10 @@ msgid ""
 "therefore end the session."
 msgstr ""
 
+# Feedback
 #: index.php:1285
 msgid "Recommend us"
-msgstr "قم بتوصيتنا"
+msgstr ""
 
 #: index.php:1288
 msgid ""
@@ -393,8 +394,9 @@ msgstr ""
 
 #: index.php:1342
 msgid "Tell us what you think"
-msgstr "ما هو رأيك"
+msgstr ""
 
+# Please mind the whitespace at the end
 #: index.php:1344
 msgid ""
 "Please let us know about problems or ideas to improve PalMA. Help us "
@@ -403,54 +405,54 @@ msgstr ""
 
 #: index.php:1344
 msgid "Thank you!"
-msgstr "شكراً لك"
+msgstr ""
 
+# Users
 #: index.php:1351
 msgid "Select language:"
-msgstr "اختر لغة"
+msgstr ""
 
 #: index.php:1368
 msgid "User list"
-msgstr "لأئحة المستخدمين"
+msgstr ""
 
 #: index.php:1368
 msgid "List of connected users"
-msgstr "أئحة المستخدمين الحاليين"
+msgstr ""
 
 #: index.php:1374
 msgid "New users can join at"
-msgstr "يستطيع المستخدم الجديد الانضمام من خلال"
+msgstr ""
 
 #: index.php:1385
-#, fuzzy
 msgid "Disconnect all users and end the session"
-msgstr "حذف جميع المستخدمين وإعادة الوضع قبل الإستخدم"
+msgstr ""
 
 #: index.php:1386
 msgid "End the session"
-msgstr "انتهاء الحصة "
+msgstr ""
 
+# Footer
 #: index.php:1398
 msgid "Disconnect the current user"
-msgstr "افصل المستخدم الحالي"
+msgstr ""
 
 #: index.php:1399
-#, fuzzy
 msgid "Log out"
-msgstr "تصغير الصورة"
+msgstr ""
 
 #: i12n.php:94
-#, fuzzy
 msgid "Screen section"
-msgstr "جزء من الشاشة"
+msgstr ""
 
+# Login Mask
 #: login.php:95 login.php:103 login.php:106
 msgid "Invalid credentials!"
-msgstr "معرّف خاطئ"
+msgstr ""
 
 #: login.php:100
 msgid "Cannot check credentials, sorry!"
-msgstr "عذراً لم يتم التحقق من هويتك"
+msgstr ""
 
 #: login.php:139
 msgid "Invalid PIN."
@@ -458,11 +460,11 @@ msgstr ""
 
 #: login.php:174
 msgid "PalMA &ndash; Login"
-msgstr "الرمز السري خاطئ"
+msgstr ""
 
 #: login.php:200
 msgid "Login"
-msgstr "تسجيل الدخول"
+msgstr ""
 
 #: login.php:204
 msgid "User name"
@@ -470,7 +472,7 @@ msgstr ""
 
 #: login.php:211
 msgid "Password"
-msgstr "كلمة المرور"
+msgstr ""
 
 #: login.php:219
 msgid "PIN"
@@ -478,61 +480,36 @@ msgstr ""
 
 #: login.php:227
 msgid "Log in"
-msgstr "الرمز"
+msgstr ""
 
+# upload.php
 #: upload.php:58
 msgid "This file is too large."
-msgstr "الملف كبير جداً"
+msgstr ""
 
 #: upload.php:61
 msgid "Large files are not supported."
-msgstr "الملفات الكبيرة غير مدعومة"
+msgstr ""
 
 #: upload.php:64
 msgid "File was only partially uploaded."
-msgstr "تم رفع الملف بشكل جزئي"
+msgstr ""
 
 #: upload.php:67
 #, php-format
 msgid "Error code %s."
-msgstr "رمز العطل"
+msgstr ""
 
 #: upload.php:81
 #, php-format
 msgid "File '%s' cannot be shown."
 msgstr ""
 
+# examples/screensaver
 #: examples/screensaver/pictureshow.php:35
 msgid "Picture Show"
 msgstr ""
 
 #: examples/screensaver/tiles.php:33
 msgid "Tiles"
-msgstr "عناوين"
-
-#~ msgid "Close the advanced control"
-#~ msgstr "أغلق شاشة التحكم المتقدمه"
-
-#~ msgid "Cursor control"
-#~ msgstr "التحكم بالمؤشر"
-
-#~ msgid "Advanced control"
-#~ msgstr "إعدادات متقدمة"
-
-#~ msgid "Disconnect all users"
-#~ msgstr "افصل جميع المستخدمين"
-
-#~ msgid "Display list"
-#~ msgstr "أظهر اللائحة"
-
-#~ msgid "Close all windows"
-#~ msgstr "أغلق جميع الشاشات"
-
-#~ msgid "Show help and offer some extras"
-#~ msgstr "مساعدة"
-
-#~ msgid "Drop documents here (or click) to load them up"
-#~ msgstr "ضع المستندات هنا أو إضغط لتحميل المستندات "
-
-#~ msgid "Drop documents here (or click)"
-#~ msgstr "أو إضغط لتحميل المستندات"
+msgstr ""
