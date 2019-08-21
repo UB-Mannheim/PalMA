@@ -19,7 +19,7 @@ msgstr ""
 
 #: index.php:181
 msgid "not available"
-msgstr "nicht verfügbar"
+msgstr ""
 
 #: index.php:223
 #, fuzzy
@@ -43,7 +43,7 @@ msgid "Zoom in"
 msgstr ""
 
 #: index.php:699
-msgid "Zoom out please"
+msgid "Zoom out"
 msgstr ""
 
 #: index.php:700
