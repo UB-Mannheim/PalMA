@@ -175,6 +175,23 @@ chown -R "$user:$user" "$userhome/.config"
 mkdir -p "$userhome/.cache"
 chown -R "$user:$user" "$userhome/.cache"
 
+# Make sure webserver is accessible
+i="0"
+webserver_up=false;
+while [ $i -lt 5 ]; do
+    wget http://localhost -O /dev/null 2>/dev/null
+    if [ $? = 0 ]; then
+        webserver_up=true;
+        break
+    fi
+    i=$((i+1))
+    sleep 2
+done
+
+if [ "$webserver_up" = false ] ; then
+    echo 'Error: Could not access http://localhost - please make sure the webserver is running.'
+fi
+
 # 0=initial state
 # 1=screen saver running
 # 2=vnc viewer running
