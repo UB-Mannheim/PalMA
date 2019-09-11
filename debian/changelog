@@ -1,3 +1,15 @@
+palma (1.4.6) unstable; urgency=medium
+
+  [ Stefan Weil ]
+  * Fix German help text
+  * Update Travis to use php-sqlite3 instead of unavailable php5-sqlite
+  * More Travis updates to replace PHP5 by PHP7
+
+  [ Dennis Müller ]
+  * check for running webserver before starting (fixes #175)
+
+ -- Dennis Müller <dennis.mueller@bib.uni-mannheim.de>  Wed, 11 Sep 2019 06:55:18 +0000
+
 palma (1.4.5) unstable; urgency=medium
 
   * added globals.php to phpcs list and fixed errors
