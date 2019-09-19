@@ -51,9 +51,9 @@ Instead of apache2 it is also possible to use nginx, for example on weaker machi
 
 Example configuration files are provided in the `examples`
 subdirectory, particularly
-* `palma.apache.conf`: configuration file for apache, should go to `/etc/apache2/conf-available/palma.conf` and then be activated by `a2enconf palma`
-* `palma.nginx.conf`: configuration file for nginx, should go to `/etc/ngnx/sites-available/palma` and linked to `/etc/ngnx/sites-enabled/palma`
-* `palma.php.ini`: php configuration file for apache2 and nginx, should go to `/etc/php/7.x/apache2/conf.d` or `/etc/php/7.x/fpm/conf.d`, respectively.
+* `palma.apache.conf`: configuration file for apache, should be copied to `/etc/apache2/conf-available/palma.conf` and then be activated by `a2enconf palma`
+* `palma.nginx.conf`: configuration file for nginx, should be copied to `/etc/ngnx/sites-available/palma` and linked to `/etc/ngnx/sites-enabled/palma`
+* `palma.php.ini`: php configuration file for apache2 and nginx, should be copied to `/etc/php/7.x/apache2/conf.d/palma.ini` or `/etc/php/7.x/fpm/conf.d/palma.ini`, respectively.
 
 ### Apache
 
@@ -112,7 +112,7 @@ new languages to it.
 ## Upgrading
 
 Older versions of PalMA kept all files in `/var/www/html`. In order to
-remove it, an uninstall script is provided in the `examples` directory.
+remove it, an uninstall script is provided in the `scripts` directory.
 
 ## Theming your installation
 
