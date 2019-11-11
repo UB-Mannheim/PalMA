@@ -10,7 +10,7 @@
 # Now the PalMA state machine can run.
 
 # Enable more log messages.
-#set -x
+set -x
 
 # Set session timeout parameter (minutes).
 TIMEOUT=15
@@ -56,8 +56,9 @@ if test -d /sys/bus/pci; then
     set_pci_powerstate 0000:00:1d.0
 fi
 
-basedir=$(dirname "$0")
-basedir=$(cd "$basedir" && cd .. && pwd)
+bindir=$(dirname "$0")
+bindir=$(cd "$bindir" && pwd)
+basedir=$(dirname "$bindir")
 
 cd "$basedir"
 
@@ -155,20 +156,6 @@ rm -f "$dbfile"
 # Create directory for application settings if needed.
 mkdir -p "$userhome/.config"
 
-# Find a web browser which supports JavaScript.
-# Run browser with PalMA compatible settings.
-webbrowser=/bin/false
-if test -f /usr/bin/dwb; then
-    webbrowser=dwb
-    # Run dwb with PalMA compatible settings.
-    rm -rf "$userhome/.config/dwb"
-    cp -a "$wwwroot/settings/dwb" "$userhome/.config"
-elif test -f /usr/bin/midori; then
-    webbrowser=midori
-else
-    echo "Could not find any supported web browser!"
-fi
-
 # Fix ownership of directory for application settings.
 chown -R "$user:$user" "$userhome/.config"
 
@@ -215,31 +202,22 @@ while true; do
         $monitor "starting login screen"
         # Initial state. Start a webbrowser with the screensaver image.
         # Kill the VNC viewer if it was running.
-        date +"%F %T start $webbrowser with screensaver"
+        date +"%F %T start palma-browser with screensaver"
         killall -q ssvncviewer
         runx "/usr/bin/php $wwwroot/control.php doLogout=ALL"
-        case $webbrowser in
-            dwb)
-                # Start DWB in presentation mode.
-                runx "/usr/bin/dwb --execute=presentation_mode \"$screensaver\"" &
-                ;;
-            midori)
-                runx "/usr/bin/$webbrowser -e Fullscreen -a \"$screensaver\"" &
-                ;;
-            *)
-                runx "$webbrowser \"$screensaver\"" &
-                ;;
-        esac
+        runx "$bindir/palma-browser $screensaver" &
+	runx "/usr/bin/wmctrl -r :ACTIVE: -b toggle,fullscreen"
         state="1"
     elif test "$state" = "1"; then
         # Screen saver is running. Wait for the first user connection.
         if test "$usercount" = '0'; then
+	    :
             # There is still no user connected.
             # The screensaver should be running. If not: restart it.
-            if ! pgrep "$webbrowser" >/dev/null; then
-                $monitor "browser was killed, restarting"
+            if ! pgrep palma-browser >/dev/null; then
+                $monitor "palma-browser was killed, restarting"
                 # Webbrowser was killed (software bug). Restart it.
-                date +"%F %T $webbrowser was killed"
+                date +"%F %T palma-browser was killed"
                 state="0"
                 continue
             fi
@@ -247,8 +225,8 @@ while true; do
             $monitor "connecting first user, starting SSVNCDaemon.php"
             # First user connected. Terminate the screensaver.
             # Start the VNC viewer process, so usercount can share their desktop.
-            date +"%F %T kill $webbrowser"
-            killall --user $user --quiet $webbrowser
+            date +"%F %T kill palma-browser"
+            kill $(pgrep palma-browser)
             runx "/usr/bin/php $wwwroot/SSVNCDaemon.php" &
             runx "/usr/bin/touch $rundir/last_activity"
             state="2"

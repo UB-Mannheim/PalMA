@@ -1,0 +1,46 @@
+#!/bin/sh
+
+PALMA_BROWSER="${PALMA_BROWSER:-chromium}"
+
+killbrowser() {
+    echo "Killing browser with pid $1"
+    kill "$1"
+    [ -d "$2" ] && rm -rf "$2"
+}
+
+case "${PALMA_BROWSER}" in
+    chromium)
+	BROWSER_PROFILE=`mktemp -d`
+	chromium-browser --disable-features=TranslateUI --app="$@" --user-dir="${BROWSER_PROFILE}" &
+	BROWSER_PID=$!
+	trap "killbrowser ${BROWSER_PID} ${BROWSER_PROFILE}" TERM
+    ;;
+    dwb)
+	mkdir -p "$HOME/.config/dwb"
+	[ -r "$HOME/.config/dwb/keys" ] ||
+	    cat > "$HOME/.config/dwb/keys" <<EOF
+[default]
+scroll_bottom= @End@
+scroll_top= @Home@
+zoom= =
+zoom_in= +
+EOF
+	[ -r "$HOME/.config/dwb/settings" ] ||
+	    cat > "$HOME/.config/dwb/settings" <<EOF
+[default]
+file-sync-interval=3600
+sync-files=session
+enable-private-browsing=true
+cookies-store-policy=session
+save-session=false
+tabbed-browsing=false
+EOF
+	dwb --execute=presentation_mode "$@"
+    ;;
+    midori)
+	midori -e Fullscreen -a "$@"
+    ;;
+    *)
+    ;;
+esac
+wait

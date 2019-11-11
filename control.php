@@ -32,7 +32,8 @@ function displayCommand($cmd)
 
     monitor("control.php: displayCommand $cmd");
 
-    $result = shell_exec($cmd);
+    // add directories with palma-browser to PATH
+    $result = shell_exec('PATH=/usr/lib/palma:./scripts:$PATH '.$cmd);
     trace("displayCommand $cmd, result=$result");
     return $result;
 }
@@ -564,8 +565,7 @@ function processRequests($db)
                 "section" => "",
                 "state" => "",
                 "file" => $openURL,
-                // "handler" => "iceweasel --new-window",
-                "handler" => "/usr/bin/midori -e show-navigationbar=false -a",
+		"handler" => "palma-browser",
                 "userid" => "",
                 "date" => $date
             );
