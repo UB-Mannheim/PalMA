@@ -44,6 +44,7 @@ html {
 }
 body {
     background-color: black;
+    overflow: hidden;
 }
 h1, p {
     color: white;
