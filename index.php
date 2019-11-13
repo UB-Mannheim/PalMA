@@ -351,20 +351,20 @@ function getHandlerCommand(handle, task) {
     handler["default"]["clockwise"] = "undefined";
 
     // Handler for web pages.
-    handler["midori"] = {};
-    handler["midori"]["up"] = "Up";
-    handler["midori"]["down"] = "Down";
-    handler["midori"]["left"] = "Left";
-    handler["midori"]["right"] = "Right";
-    handler["midori"]["next"] = "Next";
-    handler["midori"]["prior"] = "Prior";
-    handler["midori"]["home"] = "Home";
-    handler["midori"]["end"] = "End";
-    handler["midori"]["zoomin"] = "ctrl+plus";
-    handler["midori"]["zoomout"] = "ctrl+minus";
-    handler["midori"]["download"] = "undefined";
-    handler["midori"]["counterclockwise"] = "undefined";
-    handler["midori"]["clockwise"] = "undefined";
+    handler["palma-browser"] = {};
+    handler["palma-browser"]["up"] = "Up";
+    handler["palma-browser"]["down"] = "Down";
+    handler["palma-browser"]["left"] = "Left";
+    handler["palma-browser"]["right"] = "Right";
+    handler["palma-browser"]["next"] = "Next";
+    handler["palma-browser"]["prior"] = "Prior";
+    handler["palma-browser"]["home"] = "Home";
+    handler["palma-browser"]["end"] = "End";
+    handler["palma-browser"]["zoomin"] = "ctrl+plus";
+    handler["palma-browser"]["zoomout"] = "ctrl+minus";
+    handler["palma-browser"]["download"] = "undefined";
+    handler["palma-browser"]["counterclockwise"] = "undefined";
+    handler["palma-browser"]["clockwise"] = "undefined";
 
     // Handler for images.
     handler["feh"] = {};
@@ -694,12 +694,12 @@ function addWindowControls(layout, controls, screensection, file, status) {
     button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&toggle=TRUE')");
     button.appendChild(icon);
     topbar.appendChild(button);
-    topbar.appendChild(keyControl(screensection, 'fa fa-search-plus', 'zoomin', 'zoomin', handler, !zoomin, '<?=addslashes(__("Zoom in"))?>'));
-    topbar.appendChild(keyControl(screensection, 'fa fa-search-minus', 'zoomout', 'zoomout', handler, !zoomout, '<?=addslashes(__("Zoom out"))?>'));
     topbar.appendChild(keyControl(screensection, 'fa fa-rotate-left', 'counterclockwise', 'counterclockwise', handler, !counterclockwise, '<?=addslashes(__("Rotate counterclockwise"))?>'));
     topbar.appendChild(keyControl(screensection, 'fa fa-rotate-right', 'clockwise', 'clockwise', handler, !clockwise, '<?=addslashes(__("Rotate clockwise"))?>'));
     var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', 'download', handler, !download, '<?=addslashes(__("Download this item"))?>');
-    downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
+    if(download) {
+      downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
+    }
     topbar.appendChild(downloadbutton);
     button = document.createElement('button');
     button.setAttribute("class", "trash");
@@ -787,7 +787,7 @@ function updateWindowList(window){
             button.setAttribute("class", "window_entry_button");
             button.setAttribute('onclick', "openAccordion('" + divID + "')");
             var icon = document.createElement('i');
-            if (handler.indexOf("midori") > -1) {
+            if (handler.indexOf("palma-browser") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
             } else if (handler.indexOf("vnc") > -1) {
                 icon.setAttribute("class", "fa fa-video-camera");
@@ -857,8 +857,8 @@ function updateControlsBySection(window) {
                 if (handler.indexOf("--writer") > -1) {
                     control = ["libreoffice-writer", true, true, true, true, false, false, false, false, true, true, true, false, false];
                 }
-        } else if (handler.indexOf("midori") > -1) {
-            control = ["midori", true, true, true, true, true, true, true, true, true, true, false, false, false];
+        } else if (handler.indexOf("palma-browser") > -1) {
+            control = ["palma-browser", true, true, true, true, true, true, true, true, true, true, false, false, false];
         } else if (handler.indexOf("vlc") > -1) {
             control = ["vlc", false, false, false, true, false, false, false, false, false, false, false, false, false];
         } else if (handler.indexOf("vnc") > -1) {
