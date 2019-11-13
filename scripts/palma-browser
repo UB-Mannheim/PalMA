@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PALMA_BROWSER="${PALMA_BROWSER:-chromium}"
+palma_browser="${palma_browser:-chromium}"
 
 killbrowser() {
     echo "Killing browser with pid $1"
@@ -8,10 +8,12 @@ killbrowser() {
     [ -d "$2" ] && rm -rf "$2"
 }
 
-case "${PALMA_BROWSER}" in
+case "${palma_browser}" in
     chromium)
+        BROWSER_CMD=chromium
+        if command -v chromium-browser >/dev/null 2>&1; then BROWSER_CMD=chromium-browser; fi
 	BROWSER_PROFILE=`mktemp -d`
-	chromium-browser --disable-features=TranslateUI --app="$@" --user-dir="${BROWSER_PROFILE}" &
+	${BROWSER_CMD} --disable-features=TranslateUI --app="$@" --user-dir="${BROWSER_PROFILE}" &
 	BROWSER_PID=$!
 	trap "killbrowser ${BROWSER_PID} ${BROWSER_PROFILE}" TERM
     ;;
