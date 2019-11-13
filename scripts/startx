@@ -206,7 +206,8 @@ while true; do
         killall -q ssvncviewer
         runx "/usr/bin/php $wwwroot/control.php doLogout=ALL"
         runx "$bindir/palma-browser $screensaver" &
-	runx "/usr/bin/wmctrl -r :ACTIVE: -b toggle,fullscreen"
+        # switch to fullscreen
+        sleep 1; runx "/usr/bin/wmctrl -r :ACTIVE: -b toggle,fullscreen"
         state="1"
     elif test "$state" = "1"; then
         # Screen saver is running. Wait for the first user connection.
