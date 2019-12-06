@@ -1,3 +1,13 @@
+palma (1.4.7) unstable; urgency=medium
+
+  [ Jörg Mechnich ]
+  * Fixed a few bugs in the installation docs
+
+  [ Stefan Weil ]
+  * Check permission for control commands
+
+ -- Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>  Fri, 06 Dec 2019 21:33:18 +0100
+
 palma (1.4.6) unstable; urgency=medium
 
   [ Stefan Weil ]
