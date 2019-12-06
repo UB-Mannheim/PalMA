@@ -125,6 +125,19 @@ eod;
         return $ip;
     }
 
+    public function checkPermission()
+    {
+        $ip = $this->ipAddress();
+        $ip_list = array();
+        $rows = $this->query("SELECT address FROM address");
+        while ($row = $rows->fetchArray(SQLITE3_ASSOC)) {
+            array_push($ip_list, $row['address']);
+        }
+        $rows->finalize();
+        $allowed = in_array($ip, $ip_list);
+        return $allowed;
+    }
+
     public function addUser($username, $address, $device = 'laptop')
     {
         // Add a new user with his/her address and the device to the database.
