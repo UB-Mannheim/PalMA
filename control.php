@@ -5,9 +5,6 @@
 
 // Authors: Alexander Wagner, Stefan Weil
 
-// TODO: Authentisierung. Funktioniert hier nicht mit auth.php,
-// daher vielleicht über Datenbankabfrage.
-
 // Test whether the script was called directly (used for unit test). Use some
 // heuristics to detect whether we are not running in a web application.
 if (isset($unittest)) {
@@ -345,7 +342,6 @@ function createNewWindowSafe($db, $w)
     createNewWindow($db, $window);
 }
 
-
 function createNewWindow($db, $w)
 {
     // '$w' already contains 'file', 'handler' and 'date'.
@@ -568,7 +564,9 @@ function processRequests($db)
     }
 } // processRequests
 
-processRequests($db);
+if ($db->checkPermission() || $unittest[__FILE__]) {
+    processRequests($db);
+}
 
 if ($unittest[__FILE__]) {
     // Experimental: Get function call from startx.
