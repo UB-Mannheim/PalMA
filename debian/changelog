@@ -1,3 +1,17 @@
+palma (1.4.8) unstable; urgency=medium
+
+  [ Jörg Mechnich ]
+  * added Docker support
+
+  [ Stefan Weil ]
+  * Set theme jekyll-theme-cayman
+
+  [ Jörg Mechnich ]
+  * prettified Dockerfile
+  * checkPermissions(): allow local connections
+
+ -- Jörg Mechnich <Joerg.Mechnich@bib.uni-mannheim.de>  Sun, 08 Dec 2019 21:50:58 +0100
+
 palma (1.4.7) unstable; urgency=medium
 
   [ Jörg Mechnich ]
