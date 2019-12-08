@@ -34,7 +34,7 @@ parser.add_argument('--server', choices=['apache2','nginx'], default='nginx',
                     help='set web server')
 parser.add_argument('-v', '--verbose', action='store_true',
                     help='set verbose output')
-parser.add_argument('mode', nargs='?', choices=['install','deb'],
+parser.add_argument('mode', nargs='?', choices=['install','deb', 'deps'],
                     default='install', help='run mode')
 args = parser.parse_args()
 
@@ -46,7 +46,7 @@ deps_debian = [
     'wmctrl', 'xdotool', 'openbox', 'sqlite3', 'unclutter',
     'php', 'php-cgi', 'php-cli', 'php-curl', 'php-fpm',
     'php-gd', 'php-intl', 'php-sqlite3', 'php-mbstring',
-    'gettext', 'git', 'libavcodec-extra', 'make', 'xorg',
+    'gettext', 'git', 'libavcodec-extra', 'make', 'wget', 'xorg',
 ]
 
 files_wwwdir = [
@@ -111,31 +111,27 @@ if 'libdir' not in vars(args):
 if 'wwwdir' not in vars(args):
     vars(args)['wwwdir'] = os.path.join(args.prefix,'share','palma')
 
-arch = platform.machine()
-opsys = platform.system()
-if opsys == "Linux":
-    opsys = " ".join(platform.linux_distribution()).capitalize()
-    
 if args.verbose:
     printv("Settings summary:")
     for k,v in sorted(args.__dict__.items()):
         printv("  %10s: %s" % (k,repr(v)))
-    
-    printv("Detecting system:")
-    printv("  Arch:", arch)
-    printv("    OS:", opsys)
+
+if args.mode == 'deps':
+    print(" ".join(deps_debian + [args.browser] + pkgs_server[args.server]))
+    sys.exit(0)
 
 try:
     destdir = ''
     if args.mode == 'deb':
-        destdir = os.getenv('DESTDIR')
+        destdir = os.getenv('DESTDIR', 'build-deb')
         printv("Creating debian package in '%s'" % destdir)
         
     if args.mode == 'install' and args.deps:
         # install dependencies
-        if opsys.startswith('Debian'):
+        if os.path.exists('/usr/bin/apt-get'):
             try:
-                check_call(['/usr/bin/apt-get', 'install', '-y']
+                check_call(['/usr/bin/apt-get', 'install',
+                            '-y', '--no-install-recommends']
                            + deps_debian + [ args.browser ]
                            + pkgs_server[args.server])
             except:
@@ -146,7 +142,8 @@ try:
     if args.mode == 'install':
         # stop palma if already installed
         if args.init == 'systemd':
-            if call(['/bin/systemctl', 'is-active', 'palma'],
+            if os.path.exists('/bin/systemctl') and \
+               call(['/bin/systemctl', 'is-active', 'palma'],
                     stdout=open(os.devnull, 'w')) == 0:
                 printv("Stopping systemd service")
                 call(['/bin/systemctl', 'stop', 'palma'])
@@ -223,7 +220,7 @@ try:
             if os.path.exists(fn):
                 os.remove(fn)
             printv("Reloading nginx configuration")
-            check_call(['/usr/sbin/invoke-rc.d', 'nginx', 'restart'])
+            call(['/usr/sbin/invoke-rc.d', 'nginx', 'restart'])
     if args.mode == 'deb' or args.server == 'apache':
         printv("Creating configuration for apache2")
 
@@ -255,7 +252,7 @@ try:
             check_call(['/usr/sbin/a2enmod', 'rewrite'])
             check_call(['/usr/sbin/a2enconf', 'palma'])
             check_call(['/usr/sbin/apache2ctl', 'configtest'])
-            check_call(['/usr/sbin/apache2ctl', 'restart'])
+            call(['/usr/sbin/apache2ctl', 'restart'])
 
     libdir = destdir + args.libdir
     mkdir(libdir)
@@ -267,7 +264,8 @@ try:
     mkdir(path)
     shutil.copyfile('examples/palma.syslog', os.path.join(path,'palma.conf'))
     if args.mode == 'install':
-        check_call(['/bin/systemctl', 'restart', 'rsyslog'])
+        if os.path.exists('/bin/systemctl'):
+            call(['/bin/systemctl', 'restart', 'rsyslog'])
         
     # install init script
     if args.init == 'systemd':
@@ -281,9 +279,10 @@ try:
         snr('s,^\\(Group\\)=.*,\\1=www-data,g', fn)
 
         if args.mode == 'install':
-           call(['/bin/systemctl', 'daemon-reload'])
-           call(['/bin/systemctl', 'enable', 'palma'])
-           call(['/usr/sbin/invoke-rc.d', 'palma', 'start'])
+            if os.path.exists('/bin/systemctl'):
+                call(['/bin/systemctl', 'daemon-reload'])
+                call(['/bin/systemctl', 'enable', 'palma'])
+                call(['/usr/sbin/invoke-rc.d', 'palma', 'start'])
     else:
         pass
 
