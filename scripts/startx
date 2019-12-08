@@ -28,17 +28,18 @@ function palma_monitor()
 function set_pci_powerstate()
 {
     syspath=/sys/bus/pci/devices/$1/power/control
-    [ -f $syspath ] && echo auto > $syspath
+    [ -w $syspath ] && echo auto > $syspath
 }
 
 # Power saving recommendations from powertop.
-
-echo 1500 >/proc/sys/vm/dirty_writeback_centisecs
-if test -f /proc/sys/kernel/nmi_watchdog; then
+if test -w /proc/sys/vm/dirty_writeback_centisecs; then
+    echo 1500 > /proc/sys/vm/dirty_writeback_centisecs
+fi
+if test -w /proc/sys/kernel/nmi_watchdog; then
     # Disable NMI watchdog for AMD /Intel hosts.
     echo 0 >/proc/sys/kernel/nmi_watchdog
 fi
-if test -f /sys/module/snd_hda_intel/parameters/power_save; then
+if test -w /sys/module/snd_hda_intel/parameters/power_save; then
     # Enable power save mode for Intel HDA sound.
     echo 1 >/sys/module/snd_hda_intel/parameters/power_save
 fi
