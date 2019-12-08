@@ -127,11 +127,11 @@ eod;
 
     public function checkPermission()
     {
+        // Check whether the remote IP address is allowed to run commands.
+        // Only localhost or hosts of registered users are allowed.
         $ip = $this->ipAddress();
-        if (in_array($ip, array('127.0.0.1', '::1'))) {
-          return TRUE;
-        }
-        $ip_list = array();
+        // Currently PalMA also makes local connections.
+        $ip_list = array('127.0.0.1', '::1');
         $rows = $this->query("SELECT address FROM address");
         while ($row = $rows->fetchArray(SQLITE3_ASSOC)) {
             array_push($ip_list, $row['address']);
