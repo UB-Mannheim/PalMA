@@ -128,6 +128,9 @@ eod;
     public function checkPermission()
     {
         $ip = $this->ipAddress();
+        if (in_array($ip, array('127.0.0.1', '::1'))) {
+          return TRUE;
+        }
         $ip_list = array();
         $rows = $this->query("SELECT address FROM address");
         while ($row = $rows->fetchArray(SQLITE3_ASSOC)) {
