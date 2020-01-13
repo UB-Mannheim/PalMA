@@ -1,0 +1,515 @@
+# PalMA translation.
+# Copyright (C) 2017 Universitätsbibliothek Mannheim
+# This file is distributed under the same license as the PalMA package.
+# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
+# Dennis Müller <dennis.mueller@bib.uni-mannheim.de>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PalMA 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-19 20:33+0100\n"
+"PO-Revision-Date: 2017-09-12 14:38+0200\n"
+"Last-Translator: Dennis Müller <dennis.mueller@bib.uni-mannheim.de>\n"
+"Language-Team: English <en@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:181
+msgid "not available"
+msgstr ""
+
+#: index.php:223
+#, fuzzy
+msgid "Enter valid URL"
+msgstr "Please enter URL"
+
+#: index.php:563
+msgid "You were disconnected!"
+msgstr ""
+
+#: index.php:584
+msgid "Select screen section for display"
+msgstr ""
+
+#: index.php:694
+msgid "Toggle visibility"
+msgstr ""
+
+#: index.php:698
+msgid "Zoom in"
+msgstr ""
+
+#: index.php:699
+msgid "Zoom out"
+msgstr ""
+
+#: index.php:700
+msgid "Rotate counterclockwise"
+msgstr ""
+
+#: index.php:701
+msgid "Rotate clockwise"
+msgstr ""
+
+#: index.php:702
+msgid "Download this item"
+msgstr ""
+
+#: index.php:708
+msgid "Remove this item"
+msgstr ""
+
+#: index.php:719
+msgid "Jump to start"
+msgstr ""
+
+#: index.php:720
+msgid "Page up"
+msgstr ""
+
+#: index.php:721
+msgid "Page down"
+msgstr ""
+
+#: index.php:722
+msgid "Jump to end"
+msgstr ""
+
+#: index.php:726
+msgid "Up"
+msgstr ""
+
+#: index.php:728
+msgid "Left"
+msgstr ""
+
+#: index.php:729
+msgid "Right"
+msgstr ""
+
+#: index.php:731
+msgid "Down"
+msgstr ""
+
+# Greeting
+#: index.php:756
+msgid "Welcome"
+msgstr ""
+
+#: index.php:758
+msgid "There is no shared content yet. Click below to get started!"
+msgstr ""
+
+# Index.php
+# Tabs and Subtabs
+#: index.php:762 index.php:1070 index.php:1226
+msgid "Add"
+msgstr ""
+
+#: index.php:980
+msgid "Sorry! Screensharing for your device is currently not supported."
+msgstr ""
+
+#: index.php:1071 index.php:1253
+msgid "Control"
+msgstr ""
+
+#: index.php:1072 index.php:1274
+msgid "Extras"
+msgstr ""
+
+#: index.php:1078
+msgid "File"
+msgstr ""
+
+#: index.php:1079
+msgid "URL"
+msgstr ""
+
+#: index.php:1080
+msgid "Screen"
+msgstr ""
+
+#: index.php:1087
+msgid "Drag and drop files or click here to upload."
+msgstr ""
+
+# Add Section
+#: index.php:1089
+msgid "Add file (click or drop here)"
+msgstr ""
+
+#: index.php:1108
+msgid "Add webpage"
+msgstr ""
+
+#: index.php:1111
+msgid "Enter URL"
+msgstr "Please enter URL"
+
+#: index.php:1114
+msgid "Click here to show the webpage on the screen."
+msgstr ""
+
+#: index.php:1115
+msgid "Enter"
+msgstr ""
+
+#: index.php:1122
+msgid "Add your screen"
+msgstr ""
+
+#: index.php:1123
+msgid "Download screensharing tool"
+msgstr ""
+
+#: index.php:1130
+msgid ""
+"Download your screensharing tool (Windows, Mac and Linux only). Visit the "
+"help section for further information."
+msgstr ""
+
+#: index.php:1136
+msgid "Layout"
+msgstr ""
+
+#: index.php:1137
+msgid "Navigate"
+msgstr ""
+
+# Control section
+#: index.php:1143 index.php:1150 index.php:1158 index.php:1166 index.php:1179
+msgid "Choose screen layout"
+msgstr ""
+
+#: index.php:1194
+msgid "Close all windows and remove uploaded files"
+msgstr ""
+
+#: index.php:1195
+msgid "Delete all items"
+msgstr ""
+
+#: index.php:1201
+msgid "Help"
+msgstr ""
+
+#: index.php:1202
+msgid "Feedback"
+msgstr ""
+
+#: index.php:1203
+msgid "Users"
+msgstr ""
+
+# Extras Section
+# Help
+#: index.php:1206
+msgid ""
+"With PalMA, you can share documents, websites and your desktop with your "
+"learning group."
+msgstr ""
+
+#: index.php:1207
+msgid "The PalMA team monitor shows up to four contributions simultaneously."
+msgstr ""
+
+#: index.php:1210
+msgid "For further information about PalMA in this institution"
+msgstr ""
+
+#: index.php:1210
+msgid "see here."
+msgstr ""
+
+#: index.php:1214
+msgid "Connect"
+msgstr ""
+
+#: index.php:1215
+msgid "Team members can join the session at any time with this URL or QR-Code:"
+msgstr ""
+
+# Please mind the whitespace at the end.
+#: index.php:1219 index.php:1377
+msgid "PIN: "
+msgstr ""
+
+#: index.php:1227
+msgid "Use the Add-Section to share content on the PalMA monitor."
+msgstr ""
+
+#: index.php:1229
+msgid "For PDF files, office files, images or videos use the file section."
+msgstr ""
+
+#: index.php:1230
+msgid "To display a website use the URL field."
+msgstr ""
+
+#: index.php:1231
+msgid ""
+"To share your desktop in real time download the VNC screen sharing software "
+"and"
+msgstr ""
+
+# Referring to the popular operating system
+#: index.php:1233
+msgid "Windows:"
+msgstr ""
+
+#: index.php:1235
+msgid "Run the downloaded file."
+msgstr ""
+
+#: index.php:1236
+msgid "Double-click the name of your PalMA station in the appearing list."
+msgstr ""
+
+#: index.php:1238
+msgid "Mac:"
+msgstr ""
+
+#: index.php:1240
+msgid "CTRL + click the downloaded file and run it."
+msgstr ""
+
+#: index.php:1241
+msgid "A second window opens, in which you can start &quot;VineServer&quot;."
+msgstr ""
+
+#: index.php:1242
+msgid "In the upper left corner, click on &quot;VNC Server&quot;."
+msgstr ""
+
+#: index.php:1243
+msgid "Select &quot;Reverse Connection&quot;."
+msgstr ""
+
+#: index.php:1244
+msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
+msgstr ""
+
+#: index.php:1246
+msgid "Linux:"
+msgstr ""
+
+#: index.php:1248
+msgid "Run the downloaded shell script."
+msgstr ""
+
+#: index.php:1249
+msgid "Or use this shell command:"
+msgstr ""
+
+#: index.php:1254
+msgid ""
+"With the grey monitor buttons at the top you can choose how the shared "
+"content should be arranged on the PalMA monitor."
+msgstr ""
+
+#: index.php:1255
+msgid "Below that you find the controls for each item:"
+msgstr ""
+
+#: index.php:1257
+msgid "In the top bar you can"
+msgstr ""
+
+#: index.php:1259
+msgid "Hide and show"
+msgstr ""
+
+#: index.php:1260
+msgid "Zoom in and out"
+msgstr ""
+
+#: index.php:1261
+msgid "Rotate"
+msgstr ""
+
+#: index.php:1262
+msgid "Download"
+msgstr ""
+
+#: index.php:1263
+msgid "Delete the item"
+msgstr ""
+
+#: index.php:1265
+msgid "Below you find the navigation controls."
+msgstr ""
+
+#: index.php:1267
+msgid ""
+"Buttons on the left jump to the top, to the end, a page up or a page down"
+msgstr ""
+
+#: index.php:1268
+msgid "Arrow buttons in the middle scroll gradually"
+msgstr ""
+
+#: index.php:1271
+msgid "On the right you can choose the position on the PalMA monitor"
+msgstr ""
+
+#: index.php:1273
+msgid ""
+"Controls that are not available for certain kinds of content are marked grey."
+msgstr ""
+
+#: index.php:1275
+msgid "Some additional features are:"
+msgstr ""
+
+#: index.php:1277
+msgid "This help,"
+msgstr ""
+
+#: index.php:1278
+msgid ""
+"Your chance to recommend us or give us your thoughts in the &quot;"
+"Feedback&quot; section,"
+msgstr ""
+
+#: index.php:1279
+msgid ""
+"A list of all logged-in users as well as a button to disconnect everyone and "
+"therefore end the session."
+msgstr ""
+
+# Feedback
+#: index.php:1285
+msgid "Recommend us"
+msgstr ""
+
+#: index.php:1288
+msgid ""
+"If you like PalMA, please recommend us by sharing in your social networks."
+"<br />Enjoy PalMA!"
+msgstr ""
+
+#: index.php:1342
+msgid "Tell us what you think"
+msgstr ""
+
+# Please mind the whitespace at the end
+#: index.php:1344
+msgid ""
+"Please let us know about problems or ideas to improve PalMA. Help us "
+"directly by sending crash reports or contributing on "
+msgstr ""
+
+#: index.php:1344
+msgid "Thank you!"
+msgstr ""
+
+# Users
+#: index.php:1351
+msgid "Select language:"
+msgstr ""
+
+#: index.php:1368
+msgid "User list"
+msgstr ""
+
+#: index.php:1368
+msgid "List of connected users"
+msgstr ""
+
+#: index.php:1374
+msgid "New users can join at"
+msgstr ""
+
+#: index.php:1385
+msgid "Disconnect all users and end the session"
+msgstr ""
+
+#: index.php:1386
+msgid "End the session"
+msgstr ""
+
+# Footer
+#: index.php:1398
+msgid "Disconnect the current user"
+msgstr ""
+
+#: index.php:1399
+msgid "Log out"
+msgstr ""
+
+#: i12n.php:94
+msgid "Screen section"
+msgstr ""
+
+# Login Mask
+#: login.php:95 login.php:103 login.php:106
+msgid "Invalid credentials!"
+msgstr ""
+
+#: login.php:100
+msgid "Cannot check credentials, sorry!"
+msgstr ""
+
+#: login.php:139
+msgid "Invalid PIN."
+msgstr ""
+
+#: login.php:174
+msgid "PalMA &ndash; Login"
+msgstr ""
+
+#: login.php:200
+msgid "Login"
+msgstr ""
+
+#: login.php:204
+msgid "User name"
+msgstr ""
+
+#: login.php:211
+msgid "Password"
+msgstr ""
+
+#: login.php:219
+msgid "PIN"
+msgstr ""
+
+#: login.php:227
+msgid "Log in"
+msgstr ""
+
+# upload.php
+#: upload.php:58
+msgid "This file is too large."
+msgstr ""
+
+#: upload.php:61
+msgid "Large files are not supported."
+msgstr ""
+
+#: upload.php:64
+msgid "File was only partially uploaded."
+msgstr ""
+
+#: upload.php:67
+#, php-format
+msgid "Error code %s."
+msgstr ""
+
+#: upload.php:81
+#, php-format
+msgid "File '%s' cannot be shown."
+msgstr ""
+
+# examples/screensaver
+#: examples/screensaver/pictureshow.php:35
+msgid "Picture Show"
+msgstr ""
+
+#: examples/screensaver/tiles.php:33
+msgid "Tiles"
+msgstr ""
