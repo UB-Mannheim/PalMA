@@ -156,7 +156,7 @@ msgstr "Κάντε κλικ εδώ για να εμφανιστεί η ιστο�
 
 #: index.php:1115
 msgid "Enter"
-msgstr "Enter"
+msgstr "Είσοδος"
 
 #: index.php:1122
 msgid "Add your screen"
