@@ -90,12 +90,11 @@ if (isset($_SESSION['username'])) {
      * might be sourced out and included
      */
 if (isset($_POST['submit'])) {
-    $to = "infol@bib.uni-mannheim.de";
-    $to = "alexander.wagner@bib.uni-mannheim.de";
-    $from = $_POST['email'];
-    $name = $_POST['name'];
+    $to = "sysadmin@bib.uni-mannheim.de";
+    $from = escapeshellcmd($_POST['email']);
+    $name = escapeshellcmd($_POST['name']);
     $subject = "Feedback for PalMA";
-    $message = $name . " wrote the following:" . "\n\n" . $_POST['message'];
+    $message = $name . " wrote the following:" . "\n\n" . escapeshellcmd($_POST['message']);
 
     $headers = "From:" . $from;
     mail($to, $subject, $message, $headers);

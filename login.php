@@ -112,7 +112,7 @@ function checkCredentials($username, $password)
     $pin = '';
     $posted_pin = '';
 if (isset($_REQUEST['pin'])) {
-    $posted_pin = $_REQUEST['pin'];
+    $posted_pin = escapeshellcmd($_REQUEST['pin']);
 }
 
 require_once('globals.php');
