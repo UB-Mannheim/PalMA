@@ -115,9 +115,11 @@ eod;
     public function ipAddress()
     {
         $ip = 'unknown';
-        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $hxff = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        if (isset($hxff)) {
             // Server is hidden behind a proxy.
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            // Proxy for loopback ip might indicate spoofing
+            if (!in_array($hxff, array('127.0.0.1', '::1'))) $ip = $hxff;
         } elseif (isset($_SERVER['REMOTE_ADDR'])) {
             // Client has direct access to the server.
             $ip = $_SERVER['REMOTE_ADDR'];
