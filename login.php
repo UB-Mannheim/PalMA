@@ -202,7 +202,7 @@ TODO:
     <div id="login_fields">
         <div class="pure-control-group">
             <label for="username"><?=__("User name")?></label
-            ><input id="username" name="username" type="text" value="<?=$username?>">
+            ><input id="username" name="username" type="text" value="<?=htmlspecialchars($username)?>">
         </div>
 <?php
 if (CONFIG_PASSWORD) {
@@ -217,7 +217,7 @@ if (CONFIG_PIN) {
     ?>
         <div class="pure-control-group">
             <label for="pin"><?=__("PIN")?></label
-            ><input id="pin" name="pin" type="text" value="<?=$posted_pin?>">
+            ><input id="pin" name="pin" type="text" value="<?=htmlspecialchars($posted_pin)?>">
         </div>
     <?php
 }

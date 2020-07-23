@@ -752,7 +752,7 @@ function updateWindowList(window){
     if (window.length == 0) {
         var entry = document.createElement('div');
         entry.setAttribute("class", "description");
-        entry.appendChild(document.createTextNode('<?=__('Welcome')?>, <?=$username?>!'));
+        entry.appendChild(document.createTextNode('<?=__('Welcome')?>, <?=htmlspecialchars($username)?>!'));
         entry.appendChild(document.createElement("br"));
         entry.appendChild(document.createTextNode('<?=__('There is no shared content yet. Click below to get started!')?>'));
         var addbutton = document.createElement('button');
@@ -1212,15 +1212,15 @@ window.onclick = function(event) {
             ?>
             <h4><?=__('Connect')?><i class="fa fa-wifi"></i></h4>
             <p><?=__('Team members can join the session at any time with this URL or QR-Code:')?></p>
-            <p class="url_hint"><?=$_SESSION['starturl']?><br />
+            <p class="url_hint"><?=htmlspecialchars($_SESSION['starturl'])?><br />
             <?php
             if (!empty($_SESSION['pin'])) {
                 echo __('PIN: ');
-                echo $_SESSION['pin'];
+                echo htmlspecialchars($_SESSION['pin']);
             }
             ?>
             </p>
-            <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?>?pin=<?=$_SESSION['pin']?>" alt="QR Code">
+            <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=htmlspecialchars($_SESSION['starturl'])?>?pin=<?=htmlspecialchars($_SESSION['pin'])?>" alt="QR Code">
 
             <h4><?=__('Add')?><i class="fa fa-plus"></i></h4>
                 <p><?=__('Use the Add-Section to share content on the PalMA monitor.')?></p>
@@ -1370,14 +1370,14 @@ window.onclick = function(event) {
                     </tbody>
                 </table>
                 <div class="description">
-                    <?=__('New users can join at')?><br /><?=$_SESSION['starturl']?><br />
+                    <?=__('New users can join at')?><br /><?=htmlspecialchars($_SESSION['starturl'])?><br />
                     <?php
                     if (!empty($_SESSION['pin'])) {
                         echo __('PIN: ');
-                        echo $_SESSION['pin'];
+                        echo htmlspecialchars($_SESSION['pin']);
                     }
                     ?>
-                    <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?>?pin=<?=$_SESSION['pin']?>" alt="QR Code">
+                    <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=htmlspecialchars($_SESSION['starturl'])?>?pin=<?=htmlspecialchars($_SESSION['pin'])?>" alt="QR Code">
                 </div>
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         onClick="sendToNuc('logout=ALL')"
