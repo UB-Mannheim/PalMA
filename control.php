@@ -403,7 +403,7 @@ function processRequests($db)
             // TODO: keydown is currently mapped to key because we had problems
             // with sticking keys (no keyup seen). This should be fixed by a
             // better event handling.
-            $key = $_REQUEST['keydown'];
+            $key = escapeshellcmd($_REQUEST['keydown']);
             trace("keydown '$key' in window '$windownumber'");
             wmShow($windowname);
             // activateControls($windowhex);
@@ -417,7 +417,7 @@ function processRequests($db)
 
         if ($windowname && array_key_exists('keyup', $_REQUEST)) {
             // TODO: keyup is currently ignored, see comment above.
-            $key = $_REQUEST['keyup'];
+            $key = escapeshellcmd($_REQUEST['keyup']);
             trace("keyup '$key' in window '$windownumber'");
             // activateControls($windowhex);
             //~ wmShow($windowname);
@@ -521,23 +521,28 @@ function processRequests($db)
     }
 
     if (array_key_exists('openURL', $_REQUEST)) {
-        $openURL = $_REQUEST['openURL'];
+        $openURL = escapeshellcmd($_REQUEST['openURL']);
         trace("openURL $openURL");
 
         // If URL leads to pdf file, download it and treat as upload
-        if (preg_match("/.(pdf|PDF)$/", $openURL)) {
-            trace("openURL $openURL is a pdf file. Downloading it.");
-            $date = time();
+        $headers = get_headers($openURL, 1);
+        if ($headers["Content-Type"] == "application/pdf"){
+            trace("url seems to lead to a pdf file, so downloading it...");
             $temp_name = basename($openURL);
-            $temp_dir = "/tmp/palma_$date";
-            shell_exec("mkdir $temp_dir && wget $openURL -P $temp_dir/");
-
-            $_FILES['file']['name'] = "$temp_name";
-            $_FILES['file']['tmp_name'] = "$temp_dir/$temp_name";
-            $_FILES['file']['error'] = "downloaded_from_url";
-
-            trace("Handing over to upload.php");
-            include 'upload.php';
+            $temp_dir = "/tmp";
+            file_put_contents("$temp_dir/$temp_name", file_get_contents($openURL));
+            $mimetype = mime_content_type("$temp_dir/$temp_name");
+            trace("mimetype is $mimetype");
+            if ($mimetype == "application/pdf"){
+                $_FILES['file']['name'] = "$temp_name";
+                $_FILES['file']['tmp_name'] = "$temp_dir/$temp_name";
+                $_FILES['file']['error'] = "downloaded_from_url";
+                trace("Handing over to upload.php");
+                include 'upload.php';
+            } else {
+                trace("Deleting file!");
+                unlink("$temp_dir/$temp_name");
+            }
         } else {
             $dt = new DateTime();
             $date = $dt->format('Y-m-d H:i:s');
@@ -556,7 +561,7 @@ function processRequests($db)
         }
     }
 
-    // TODO: chef if query redundant?
+    // TODO: check if query redundant?
     if (array_key_exists('closeAll', $_REQUEST)) {
         $close = $_REQUEST['closeAll'];
         trace("close all windows $close");
