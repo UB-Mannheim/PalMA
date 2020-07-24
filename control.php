@@ -149,12 +149,6 @@ function setLayout($layout)
 
     global $db;
 
-    if ($layout == null) {
-        $layout = $db->querySingle("SELECT value FROM setting WHERE key='layout'");
-    } else {
-        $db->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
-    }
-
     trace("layout $layout");
 
     $geom = array();
@@ -176,41 +170,51 @@ function setLayout($layout)
                         array(0, 1, 2, 2), array(1, 1, 2, 2)
                     );
 
-    $dim = $geom[$layout];
+    if ($layout == null) {
+        $layout = $db->querySingle("SELECT value FROM setting WHERE key='layout'");
+    }
 
-    // Make sure that desktop 0 is selected.
-    displayCommand('wmctrl -s 0');
+    // Make sure $layout is valid
+    if (!array_key_exists($layout, $geom)){
+        trace("layout invalid!");
+    } else {
+        $db->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
+        $dim = $geom[$layout];
 
-    // Get width and height of desktop.
-    $desktops = displayCommand("wmctrl -d");
-    // $desktop looks like this.
-    // 0  * DG: 1600x900  VP: 0,0  WA: 0,27 1600x873  Arbeitsfläche 1
-    $fields = preg_split("/[\n ]+/", $desktops);
-    $geom = preg_split("/x/", $fields[3]);
-    $screenWidth = $geom[0];
-    $screenHeight = $geom[1];
+        // Make sure that desktop 0 is selected.
+        displayCommand('wmctrl -s 0');
 
-    // Show all windows for the current layout which are not disabled.
+        // Get width and height of desktop.
+        $desktops = displayCommand("wmctrl -d");
+        // $desktop looks like this.
+        // 0  * DG: 1600x900  VP: 0,0  WA: 0,27 1600x873  Arbeitsfläche 1
+        $fields = preg_split("/[\n ]+/", $desktops);
+        $geom = preg_split("/x/", $fields[3]);
+        $screenWidth = $geom[0];
+        $screenHeight = $geom[1];
 
-    $maxSection = count($dim);
-    // Get ordered list of all windows from the database.
-    $windows = $db->getWindows();
-    foreach ($windows as $w) {
-        $id = $w['win_id'];
-        $enabled = $w['state'] == 'active';
-        $section = $w['section'];
-        if ($section >= 1 && $section <= $maxSection && $enabled) {
-            // Show window, set size and position.
-            $wi = $section - 1;
-            $dx = $screenWidth / $dim[$wi][2];
-            $dy = $screenHeight / $dim[$wi][3];
-            $x = $dim[$wi][0] * $dx;
-            $y = $dim[$wi][1] * $dy;
-            wmShow($id);
-            displayCommand("wmctrl -i -r $id -e 0,$x,$y,$dx,$dy");
-        } else {
-            // Hide window.
-            wmHide($id);
+        // Show all windows for the current layout which are not disabled.
+
+        $maxSection = count($dim);
+        // Get ordered list of all windows from the database.
+        $windows = $db->getWindows();
+        foreach ($windows as $w) {
+            $id = $w['win_id'];
+            $enabled = $w['state'] == 'active';
+            $section = $w['section'];
+            if ($section >= 1 && $section <= $maxSection && $enabled) {
+                // Show window, set size and position.
+                $wi = $section - 1;
+                $dx = $screenWidth / $dim[$wi][2];
+                $dy = $screenHeight / $dim[$wi][3];
+                $x = $dim[$wi][0] * $dx;
+                $y = $dim[$wi][1] * $dy;
+                wmShow($id);
+                displayCommand("wmctrl -i -r $id -e 0,$x,$y,$dx,$dy");
+            } else {
+                // Hide window.
+                wmHide($id);
+            }
         }
     }
 }
@@ -491,7 +495,7 @@ function processRequests($db)
             }
         }
     } elseif (array_key_exists('layout', $_REQUEST)) {
-        setLayout($_REQUEST['layout']);
+        setLayout(escapeshellcmd($_REQUEST['layout']));
     } elseif (array_key_exists('logout', $_REQUEST)) {
         doLogout($_REQUEST['logout']);
     } elseif (array_key_exists('newVncWindow', $_REQUEST)) {
