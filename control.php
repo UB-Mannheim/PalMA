@@ -368,7 +368,7 @@ function processRequests($db)
     if (array_key_exists('window', $_REQUEST)) {
         // All windows related commands must start with window=.
 
-        $windownumber = $_REQUEST['window'];
+        $windownumber = escapeshellcmd($_REQUEST['window']);
         $windowname = false;
         $windowhex = 0;
         // TODO: $win_id und $windowname können vermutlich zusammengefasst werden.
@@ -392,7 +392,7 @@ function processRequests($db)
         }
 
         if ($windowname && array_key_exists('key', $_REQUEST)) {
-            $key = $_REQUEST['key'];
+            $key = escapeshellcmd($_REQUEST['key']);
             trace("key '$key' in window '$windownumber'");
             wmShow($windowname);
             // activateControls($windowhex);
@@ -432,29 +432,37 @@ function processRequests($db)
             $delete = str_replace(" ", "\ ", addslashes($_REQUEST['delete']));
             trace("delete=$delete, close window $windownumber");
 
-            if (file_exists($delete)) {
-                trace("+++ DELETE FILE FROM WEBINTERFACE +++");
-                unlink($delete);
-            } elseif ($delete == "VNC") {
-                trace("+++ DELETE VNC Client FROM DAEMON +++");
-                // call via daemon: ?window=vncwin&delete=VNC&vncid=123
-                trace("vnc delete in control");
-                $win_id = $_REQUEST['vncid'];   // = hexWindow in database, but not on screen
-                trace("VNC cia Daemon ... id=$win_id");
-            } elseif (strstr($delete, "http")) {
-                trace("+++ DELETE Browserwindow +++");
-            } elseif (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
-                trace("+++ DELETE VNC Client FROM WEBINTERFACE +++");
-                // call via webinterface
-                $win_id = $db->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
-                trace("DELETE VNC Window with ID=$win_id FROM Database ::
-                SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
+            // Restrict deletion to files known in the db.
+            // TODO: check if given file and section match the values in the DB,
+            // but currently, both those values can be ambiguos
+            $file_in_db = $db->querySingle("SELECT id FROM window WHERE file='$delete'");
+            trace("file in db: $file_in_db");
+            if ($file_in_db){
+                if (file_exists($delete)) {
+                    trace("+++ DELETE FILE FROM WEBINTERFACE +++");
+                    unlink($delete);
+                } elseif ($delete == "VNC") {
+                    trace("+++ DELETE VNC Client FROM DAEMON +++");
+                    // call via daemon: ?window=vncwin&delete=VNC&vncid=123
+                    trace("vnc delete in control");
+                    $win_id = escapeshellcmd($_REQUEST['vncid']);   // = hexWindow in database, but not on screen
+                    trace("VNC via Daemon ... id=$win_id");
+                } elseif (strstr($delete, "http")) {
+                    trace("+++ DELETE Browserwindow +++");
+                } elseif (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
+                    trace("+++ DELETE VNC Client FROM WEBINTERFACE +++");
+                    // call via webinterface
+                    $win_id = $db->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
+                    trace("DELETE VNC Window with ID=$win_id FROM Database ::
+                    SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
+                } else {
+                    trace("Unhandled delete for '$delete'");
+                }
+                wmClose($win_id);
+                $db->deleteWindow($win_id);
             } else {
-                trace("Unhandled delete for '$delete'");
+                trace("Given file not present in database!");
             }
-
-            wmClose($win_id);
-            $db->deleteWindow($win_id);
         }
 
         if (array_key_exists('closeOrphans', $_REQUEST)) {
@@ -506,8 +514,8 @@ function processRequests($db)
     }
 
     if (array_key_exists('switchWindows', $_REQUEST)) {
-        $before = $_REQUEST['before'];
-        $after = $_REQUEST['after'];
+        $before = escapeshellcmd($_REQUEST['before']);
+        $after = escapeshellcmd($_REQUEST['after']);
         trace("switching $before and $after");
 
         // exchange section
