@@ -91,7 +91,7 @@ if ($unittest[__FILE__]) {
         if ($locale != "") {
             _setlocale(LC_MESSAGES, $locale);
         }
-        error_log(sprintf('%-12s ', ($locale ? $locale : 'default') . ':') . __('Screen section'));
+        error_log(sprintf('%-12s ', ($locale ? $locale : 'default') . ':') . addslashes(__('Screen section')));
     }
 
     // Run unit test.

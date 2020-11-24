@@ -92,18 +92,18 @@ function checkCredentials($username, $password)
 
     if (!$out) {
         trace("curl failed for user '$username'");
-        $errtext = __('Invalid credentials!');
+        $errtext = addslashes(__('Invalid credentials!'));
     } elseif (preg_match('/404 Not Found/', $out)) {
         return true;
     } elseif (preg_match('/Could not resolve proxy/', $out)) {
         trace('proxy authentisation was not possible');
-        $errtext = __('Cannot check credentials, sorry!');
+        $errtext = addslashes(__('Cannot check credentials, sorry!'));
     } elseif (preg_match('/Cache Access Denied/', $out)) {
         trace("access denied for user '$username'");
-        $errtext = __('Invalid credentials!');
+        $errtext = addslashes(__('Invalid credentials!'));
     } else {
         trace("access not possible for user '$username'");
-        $errtext = __('Invalid credentials!');
+        $errtext = addslashes(__('Invalid credentials!'));
     }
     return false;
 }
@@ -112,7 +112,7 @@ function checkCredentials($username, $password)
     $pin = '';
     $posted_pin = '';
 if (isset($_REQUEST['pin'])) {
-    $posted_pin = $_REQUEST['pin'];
+    $posted_pin = escapeshellcmd($_REQUEST['pin']);
 }
 
 require_once('globals.php');
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (CONFIG_PIN && ($pin != $posted_pin)) {
         monitor("login.php: access denied for user '$username': invalid pin");
         trace("access denied for user '$username', wrong pin $posted_pin");
-        $errtext = __('Invalid PIN.');
+        $errtext = addslashes(__('Invalid PIN.'));
     } else {
         // Successfully checked username, password and PIN.
         monitor("login.php: access granted for user '$username'");
@@ -171,7 +171,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?=__("PalMA &ndash; Login")?></title>
+<title><?=addslashes(__("PalMA &ndash; Login"))?></title>
 
 <link rel="icon" href="theme/<?=CONFIG_THEME?>/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -197,18 +197,18 @@ TODO:
 <fieldset class="login">
     <legend>
         <img src="theme/<?=CONFIG_THEME?>/palma-logo-67x25.png" alt="PalMA" height="25"/>
-        &ndash; <?=__("Login")?>
+        &ndash; <?=addslashes(__("Login"))?>
     </legend>
     <div id="login_fields">
         <div class="pure-control-group">
-            <label for="username"><?=__("User name")?></label
-            ><input id="username" name="username" type="text" value="<?=$username?>">
+            <label for="username"><?=addslashes(__("User name"))?></label
+            ><input id="username" name="username" type="text" value="<?=htmlspecialchars($username)?>">
         </div>
 <?php
 if (CONFIG_PASSWORD) {
     ?>
         <div class="pure-control-group">
-            <label for="userpassword"><?=__("Password")?></label
+            <label for="userpassword"><?=addslashes(__("Password"))?></label
             ><input id="userpassword" name="userpassword" type="password">
         </div>
     <?php
@@ -216,15 +216,15 @@ if (CONFIG_PASSWORD) {
 if (CONFIG_PIN) {
     ?>
         <div class="pure-control-group">
-            <label for="pin"><?=__("PIN")?></label
-            ><input id="pin" name="pin" type="text" value="<?=$posted_pin?>">
+            <label for="pin"><?=addslashes(__("PIN"))?></label
+            ><input id="pin" name="pin" type="text" value="<?=htmlspecialchars($posted_pin)?>">
         </div>
     <?php
 }
 ?>
     </div>
     <div class="pure-controls">
-        <button type="submit" class="pure-button pure-button-primary"><?=__("Log in")?><i class="fa fa-sign-in"></i></button>
+        <button type="submit" class="pure-button pure-button-primary"><?=addslashes(__("Log in"))?><i class="fa fa-sign-in"></i></button>
     </div>
 </fieldset>
 

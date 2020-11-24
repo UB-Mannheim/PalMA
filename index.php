@@ -90,12 +90,11 @@ if (isset($_SESSION['username'])) {
      * might be sourced out and included
      */
 if (isset($_POST['submit'])) {
-    $to = "infol@bib.uni-mannheim.de";
-    $to = "alexander.wagner@bib.uni-mannheim.de";
-    $from = $_POST['email'];
-    $name = $_POST['name'];
+    $to = "sysadmin@bib.uni-mannheim.de";
+    $from = escapeshellcmd($_POST['email']);
+    $name = escapeshellcmd($_POST['name']);
     $subject = "Feedback for PalMA";
-    $message = $name . " wrote the following:" . "\n\n" . $_POST['message'];
+    $message = $name . " wrote the following:" . "\n\n" . escapeshellcmd($_POST['message']);
 
     $headers = "From:" . $from;
     mail($to, $subject, $message, $headers);
@@ -178,7 +177,7 @@ function keyControl(number, image, controlClass, key, handler, disabled, title) 
     icon.setAttribute('class', image + " unavailable");
     button.appendChild(icon);
     button.setAttribute("class", "unavailable");
-    button.setAttribute('title', title + " " + "<?=__('not available')?>");
+    button.setAttribute('title', title + " " + "<?=addslashes(__('not available'))?>");
   }
   return button;
 }
@@ -220,7 +219,7 @@ function urlToNuc() {
         sendToNuc('openURL='+url);
     } else {
         var urlfield = document.getElementById('url_field');
-        urlfield.setAttribute('value', '<?=__("Enter valid URL")?>');
+        urlfield.setAttribute('value', '<?=addslashes(__("Enter valid URL"))?>');
     }
 
     setTimeout(function(){location.reload()}, 1000);
@@ -560,7 +559,7 @@ function updateUserList(address, user) {
 if ($user) {
     ?>
         // All users were disconnected.
-        alert("<?=__('You were disconnected!')?>");
+        alert("<?=addslashes(__('You were disconnected!'))?>");
         window.location = 'logout.php';
     <?php
 } else {
@@ -581,7 +580,7 @@ if ($user) {
 function addWindowPosition(layout, screensection) {
     var position = document.createElement("div");
     position.setAttribute("class", "position " + layout);
-    position.setAttribute('title', '<?=str_replace("'", "\\'", __("Select screen section for display"))?>');
+    position.setAttribute('title', '<?=addslashes(__("Select screen section for display"))?>');
 
     var s;
     var button;
@@ -691,21 +690,21 @@ function addWindowControls(layout, controls, screensection, file, status) {
         icon.setAttribute("class", "fa fa-eye-slash");
     }
     icon.setAttribute('id', 'status_' + screensection);
-    button.setAttribute('title', '<?=__("Toggle visibility")?>');
+    button.setAttribute('title', '<?=addslashes(__("Toggle visibility"))?>');
     button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&toggle=TRUE')");
     button.appendChild(icon);
     topbar.appendChild(button);
-    topbar.appendChild(keyControl(screensection, 'fa fa-search-plus', 'zoomin', 'zoomin', handler, !zoomin, '<?=__("Zoom in")?>'));
-    topbar.appendChild(keyControl(screensection, 'fa fa-search-minus', 'zoomout', 'zoomout', handler, !zoomout, '<?=__("Zoom out")?>'));
-    topbar.appendChild(keyControl(screensection, 'fa fa-rotate-left', 'counterclockwise', 'counterclockwise', handler, !counterclockwise, '<?=__("Rotate counterclockwise")?>'));
-    topbar.appendChild(keyControl(screensection, 'fa fa-rotate-right', 'clockwise', 'clockwise', handler, !clockwise, '<?=__("Rotate clockwise")?>'));
-    var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', 'download', handler, !download, '<?=__("Download this item")?>');
+    topbar.appendChild(keyControl(screensection, 'fa fa-search-plus', 'zoomin', 'zoomin', handler, !zoomin, '<?=addslashes(__("Zoom in"))?>'));
+    topbar.appendChild(keyControl(screensection, 'fa fa-search-minus', 'zoomout', 'zoomout', handler, !zoomout, '<?=addslashes(__("Zoom out"))?>'));
+    topbar.appendChild(keyControl(screensection, 'fa fa-rotate-left', 'counterclockwise', 'counterclockwise', handler, !counterclockwise, '<?=addslashes(__("Rotate counterclockwise"))?>'));
+    topbar.appendChild(keyControl(screensection, 'fa fa-rotate-right', 'clockwise', 'clockwise', handler, !clockwise, '<?=addslashes(__("Rotate clockwise"))?>'));
+    var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', 'download', handler, !download, '<?=addslashes(__("Download this item"))?>');
     downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
     topbar.appendChild(downloadbutton);
     button = document.createElement('button');
     button.setAttribute("class", "trash");
     button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&delete=" + file + "')");
-    button.setAttribute('title', '<?=__("Remove this item")?>');
+    button.setAttribute('title', '<?=addslashes(__("Remove this item"))?>');
     icon = document.createElement('i');
     icon.setAttribute("class", "fa fa-trash-o");
     button.appendChild(icon);
@@ -716,19 +715,19 @@ function addWindowControls(layout, controls, screensection, file, status) {
 
     var jump = document.createElement("div");
     jump.setAttribute("class", "jump");
-    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-up', 'jumpbeginning', 'home', handler, !home, '<?=__("Jump to start")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-angle-up', 'pageback', 'prior', handler, !prior, '<?=__("Page up")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-angle-down', 'pageforward', 'next', handler, !next, '<?=__("Page down")?>'));
-    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-down', 'jumpend', 'end', handler, !end, '<?=__("Jump to end")?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-up', 'jumpbeginning', 'home', handler, !home, '<?=addslashes(__("Jump to start"))?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-up', 'pageback', 'prior', handler, !prior, '<?=addslashes(__("Page up"))?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-down', 'pageforward', 'next', handler, !next, '<?=addslashes(__("Page down"))?>'));
+    jump.appendChild(keyControl(screensection, 'fa fa-angle-double-down', 'jumpend', 'end', handler, !end, '<?=addslashes(__("Jump to end"))?>'));
 
     var arrows = document.createElement("div");
     arrows.setAttribute("class", "arrows");
-    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-up', 'arrowup', 'up', handler, !up, '<?=__("Up")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-up', 'arrowup', 'up', handler, !up, '<?=addslashes(__("Up"))?>'));
     arrows.appendChild(document.createElement("br"));
-    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-left', 'arrowleft', 'left', handler, !left, '<?=__("Left")?>'));
-    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-right', 'arrowright', 'right', handler, !right, '<?=__("Right")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-left', 'arrowleft', 'left', handler, !left, '<?=addslashes(__("Left"))?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-right', 'arrowright', 'right', handler, !right, '<?=addslashes(__("Right"))?>'));
     arrows.appendChild(document.createElement("br"));
-    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-down', 'arrowdown', 'down', handler, !down, '<?=__("Down")?>'));
+    arrows.appendChild(keyControl(screensection, 'fa fa-toggle-down', 'arrowdown', 'down', handler, !down, '<?=addslashes(__("Down"))?>'));
 
     movement.appendChild(jump);
     movement.appendChild(arrows);
@@ -753,13 +752,13 @@ function updateWindowList(window){
     if (window.length == 0) {
         var entry = document.createElement('div');
         entry.setAttribute("class", "description");
-        entry.appendChild(document.createTextNode('<?=__('Welcome')?>, <?=$username?>!'));
+        entry.appendChild(document.createTextNode('<?=addslashes(__('Welcome'))?>, <?=htmlspecialchars($username)?>!'));
         entry.appendChild(document.createElement("br"));
-        entry.appendChild(document.createTextNode('<?=__('There is no shared content yet. Click below to get started!')?>'));
+        entry.appendChild(document.createTextNode('<?=addslashes(__('There is no shared content yet. Click below to get started!'))?>'));
         var addbutton = document.createElement('button');
         addbutton.setAttribute("class", "splash_add pure-button");
         addbutton.setAttribute("onclick", "openTab(event, 'Add')");
-        var addtext = (document.createTextNode('<?=__("Add")?>'));
+        var addtext = (document.createTextNode('<?=addslashes(__("Add"))?>'));
         addbutton.appendChild(addtext);
         var addicon = document.createElement("i");
         addicon.setAttribute("class", "fa fa-plus");
@@ -977,7 +976,7 @@ function getFilePathByOS() {
             break;
         case 'Android':
         case 'iOS':
-            document.getElementById("Screen").innerHTML = '<div class="description"><?=__('Sorry! Screensharing for your device is currently not supported.')?></div>';
+            document.getElementById("Screen").innerHTML = '<div class="description"><?=addslashes(__('Sorry! Screensharing for your device is currently not supported.'))?></div>';
             break;
         default: download = null;
     }
@@ -1067,24 +1066,24 @@ window.onclick = function(event) {
 
 <!-- This formating is used to prevent empty textnodes that interfere with the design -->
 <div class="tab"
-    ><button class="tablinks" onclick="openTab(event, 'Add')"><?=__('Add')?><i class="fa fa-plus"></i></button
-    ><button class="tablinks" id="controlbtn" onclick="openTab(event, 'Control')"><?=__('Control')?><i class="fa fa-arrows"></i></button
-    ><button class="tablinks" onclick="openTab(event, 'Extras')"><?=__('Extras')?><i class="fa fa-info-circle"></i></button
+    ><button class="tablinks" onclick="openTab(event, 'Add')"><?=addslashes(__('Add'))?><i class="fa fa-plus"></i></button
+    ><button class="tablinks" id="controlbtn" onclick="openTab(event, 'Control')"><?=addslashes(__('Control'))?><i class="fa fa-arrows"></i></button
+    ><button class="tablinks" onclick="openTab(event, 'Extras')"><?=addslashes(__('Extras'))?><i class="fa fa-info-circle"></i></button
 ></div>
 
 <div id="workbench">
     <div id="Add" class="tabcontent">
         <div class="subtab"
-        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'File')"><?=__('File')?><i class="fa fa-file"></i></button
-        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'URL')"><?=__('URL')?><i class="fa fa-globe"></i></button
-        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'Screen')"><?=__('Screen')?><i class="fa fa-video-camera"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'File')"><?=addslashes(__('File'))?><i class="fa fa-file"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'URL')"><?=addslashes(__('URL'))?><i class="fa fa-globe"></i></button
+        ><button class="subtablinks" onclick="openSubtab(event, 'Add', 'Screen')"><?=addslashes(__('Screen'))?><i class="fa fa-video-camera"></i></button
     ></div>
         <div id="File" class="subtabcontent">
             <div id="file_upload">
                 <form action="upload.php"
                     class="dropzone"
                     id="palma-dropzone"
-                    title="<?=__('Drag and drop files or click here to upload.')?>">
+                    title="<?=addslashes(__('Drag and drop files or click here to upload.'))?>">
                     <div class="dz-default dz-message">
                         <?=__('Add file (click or drop here)')?>
                         <i class="fa fa-file fa-2x"></i>
@@ -1105,49 +1104,49 @@ window.onclick = function(event) {
         </div>
         <div id="URL" class="subtabcontent">
             <div>
-                <input type="text" value="<?=__('Add webpage')?>"
+                <input type="text" value="<?=addslashes(__('Add webpage'))?>"
                     id="url_field" maxlength="256" size="46"
                     onkeydown="if (event.keyCode == 13) document.getElementById('url_button').click()"
-                    onfocus="clearURLField('<?=__('Enter URL')?>')">
+                    onfocus="clearURLField('<?=addslashes(__('Enter URL'))?>')">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                     id="url_button"
-                    onClick="urlToNuc()" title="<?=__('Click here to show the webpage on the screen.')?>">
-                    <?=__('Enter')?><i class="fa fa-globe"></i>
+                    onClick="urlToNuc()" title="<?=addslashes(__('Click here to show the webpage on the screen.'))?>">
+                    <?=addslashes(__('Enter'))?><i class="fa fa-globe"></i>
                 </button>
             </div>
         </div>
         <div id="Screen" class="subtabcontent">
             <div id="vnc-button" onclick="javascript:getFilePathByOS()">
                 <div id="vnc-button-container">
-                    <div id="vnc-button-label"><?=__('Add your screen')?><i class="fa fa-video-camera fa-2x" aria-hidden="true"></i></div>
-                    <div id="vnc-button-label-subtext"><?=__('Download screensharing tool')?></div>
+                    <div id="vnc-button-label"><?=addslashes(__('Add your screen'))?><i class="fa fa-video-camera fa-2x" aria-hidden="true"></i></div>
+                    <div id="vnc-button-label-subtext"><?=addslashes(__('Download screensharing tool'))?></div>
                 </div>
                 <a href="<?php echo $winvnc; ?>" download id="download-winvnc" hidden></a>
                 <a href="<?php echo $macvnc; ?>" download id="download-macvnc" hidden></a>
                 <a href="<?php echo $linuxsh; ?>" download id="download-linux" hidden></a>
             </div>
             <div class="description">
-            <?=__('Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.')?>
+            <?=addslashes(__('Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.'))?>
             </div>
         </div>
     </div>
     <div id="Control" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Layout')"><?=__('Layout')?><i class="fa fa-desktop"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Navigate')"><?=__('Navigate')?><i class="fa fa-arrows"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Layout')"><?=addslashes(__('Layout'))?><i class="fa fa-desktop"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Control', 'Navigate')"><?=addslashes(__('Navigate'))?><i class="fa fa-arrows"></i></button
         ></div>
         <div id="Layout" class="subtabcontent">
             <div class="screenlayout">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         id="g1x1" onclick="miniDisplaySelect(this)"
-                        title="<?=__('Choose screen layout')?>">
+                        title="<?=addslashes(__('Choose screen layout'))?>">
                     <i alt="1" class="fa fa-desktop fa-2x" aria-hidden="true"></i>
                 </button>
             </div
             ><div class="screenlayout vertical">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         id="g1x2" onclick="miniDisplaySelect(this)"
-                        title="<?=__('Choose screen layout')?>">
+                        title="<?=addslashes(__('Choose screen layout'))?>">
                     <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                     <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                 </button>
@@ -1155,7 +1154,7 @@ window.onclick = function(event) {
             ><div class="screenlayout">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         id="g2x1" onclick="miniDisplaySelect(this)"
-                        title="<?=__('Choose screen layout')?>">
+                        title="<?=addslashes(__('Choose screen layout'))?>">
                     <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                     <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                 </button>
@@ -1163,7 +1162,7 @@ window.onclick = function(event) {
             ><div class="screenlayout">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         id="g1a2" onclick="miniDisplaySelect(this)"
-                        title="<?=__('Choose screen layout')?>">
+                        title="<?=addslashes(__('Choose screen layout'))?>">
                     <div class="layout_left">
                     <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                     </div>
@@ -1176,7 +1175,7 @@ window.onclick = function(event) {
             ><div class="screenlayout">
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         id="g2x2" onclick="miniDisplaySelect(this)"
-                        title="<?=__('Choose screen layout')?>">
+                        title="<?=addslashes(__('Choose screen layout'))?>">
                     <i alt="1" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                     <i alt="2" class="fa fa-desktop fa-1x" aria-hidden="true"></i>
                     <br />
@@ -1191,101 +1190,101 @@ window.onclick = function(event) {
             </div>
             <button id="closeWindows" class="pure-button pure-button-primary pure-input-rounded"
                 onClick="sendToNuc('closeAll=TRUE')"
-                title="<?=__('Close all windows and remove uploaded files')?>">
-                <?=__('Delete all items')?>
+                title="<?=addslashes(__('Close all windows and remove uploaded files'))?>">
+                <?=addslashes(__('Delete all items'))?>
             </button>
         </div>
     </div>
     <div id="Extras" class="tabcontent">
         <div class="subtab"
-            ><button class="subtablinks active" onclick="openSubtab(event, 'Extras', 'Help')"><?=__('Help')?><i class="fa fa-question-circle"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Feedback')"><?=__('Feedback')?><i class="fa fa-thumbs-o-up"></i></button
-            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Users')"><?=__('Users')?><i class="fa fa-users"></i></button
+            ><button class="subtablinks active" onclick="openSubtab(event, 'Extras', 'Help')"><?=addslashes(__('Help'))?><i class="fa fa-question-circle"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Feedback')"><?=addslashes(__('Feedback'))?><i class="fa fa-thumbs-o-up"></i></button
+            ><button class="subtablinks" onclick="openSubtab(event, 'Extras', 'Users')"><?=addslashes(__('Users'))?><i class="fa fa-users"></i></button
         ></div>
         <div id="Help" class="subtabcontent">
-            <p><?=__('With PalMA, you can share documents, websites and your desktop with your learning group.')?>
-            <?=__('The PalMA team monitor shows up to four contributions simultaneously.')?></p>
+            <p><?=addslashes(__('With PalMA, you can share documents, websites and your desktop with your learning group.'))?>
+            <?=addslashes(__('The PalMA team monitor shows up to four contributions simultaneously.'))?></p>
             <?php
             if (CONFIG_INSTITUTION_URL) { ?>
-                <p><?=__('For further information about PalMA in this institution')?> <a href=<?=CONFIG_INSTITUTION_URL?> target="_blank"><?=__('see here.')?></a></p>
+                <p><?=addslashes(__('For further information about PalMA in this institution'))?> <a href=<?=CONFIG_INSTITUTION_URL?> target="_blank"><?=__('see here.')?></a></p>
                 <?php
             }
             ?>
-            <h4><?=__('Connect')?><i class="fa fa-wifi"></i></h4>
-            <p><?=__('Team members can join the session at any time with this URL or QR-Code:')?></p>
-            <p class="url_hint"><?=$_SESSION['starturl']?><br />
+            <h4><?=addslashes(__('Connect'))?><i class="fa fa-wifi"></i></h4>
+            <p><?=addslashes(__('Team members can join the session at any time with this URL or QR-Code:'))?></p>
+            <p class="url_hint"><?=htmlspecialchars($_SESSION['starturl'])?><br />
             <?php
             if (!empty($_SESSION['pin'])) {
-                echo __('PIN: ');
-                echo $_SESSION['pin'];
+                echo addslashes(__('PIN: '));
+                echo htmlspecialchars($_SESSION['pin']);
             }
             ?>
             </p>
-            <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?>?pin=<?=$_SESSION['pin']?>" alt="QR Code">
+            <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=htmlspecialchars($_SESSION['starturl'])?>?pin=<?=htmlspecialchars($_SESSION['pin'])?>" alt="QR Code">
 
-            <h4><?=__('Add')?><i class="fa fa-plus"></i></h4>
-                <p><?=__('Use the Add-Section to share content on the PalMA monitor.')?></p>
+            <h4><?=addslashes(__('Add'))?><i class="fa fa-plus"></i></h4>
+                <p><?=addslashes(__('Use the Add-Section to share content on the PalMA monitor.'))?></p>
                 <ul>
-                <li><i class="fa fa-file"></i> <?=__('For PDF files, office files, images or videos use the file section.')?></li>
-                <li><i class="fa fa-globe"></i> <?=__('To display a website use the URL field.')?></li>
-                <li><i class="fa fa-video-camera"></i> <?=__('To share your desktop in real time download the VNC screen sharing software and')?></li>
+                <li><i class="fa fa-file"></i> <?=addslashes(__('For PDF files, office files, images or videos use the file section.'))?></li>
+                <li><i class="fa fa-globe"></i> <?=addslashes(__('To display a website use the URL field.'))?></li>
+                <li><i class="fa fa-video-camera"></i> <?=addslashes(__('To share your desktop in real time download the VNC screen sharing software and'))?></li>
                     <ul>
-                    <li><i class="fa fa-windows"></i> <?=__('Windows:')?></li>
+                    <li><i class="fa fa-windows"></i> <?=addslashes(__('Windows:'))?></li>
                         <ul>
-                        <li><?=__('Run the downloaded file.')?></li>
-                        <li><?=__('Double-click the name of your PalMA station in the appearing list.')?></li>
+                        <li><?=addslashes(__('Run the downloaded file.'))?></li>
+                        <li><?=addslashes(__('Double-click the name of your PalMA station in the appearing list.'))?></li>
                         </ul>
-                    <li><i class="fa fa-apple"> </i> <?=__('Mac:')?></li>
+                    <li><i class="fa fa-apple"> </i> <?=addslashes(__('Mac:'))?></li>
                         <ul>
-                        <li><?=__('CTRL + click the downloaded file and run it.')?></li>
-                        <li><?=__('A second window opens, in which you can start &quot;VineServer&quot;.')?></li>
-                        <li><?=__('In the upper left corner, click on &quot;VNC Server&quot;.')?></li>
-                        <li><?=__('Select &quot;Reverse Connection&quot;.')?></li>
-                        <li><?=__('Enter the URL of your PalMA station and click &quot;Connect&quot;.')?></li>
+                        <li><?=addslashes(__('CTRL + click the downloaded file and run it.'))?></li>
+                        <li><?=addslashes(__('A second window opens, in which you can start &quot;VineServer&quot;.'))?></li>
+                        <li><?=addslashes(__('In the upper left corner, click on &quot;VNC Server&quot;.'))?></li>
+                        <li><?=addslashes(__('Select &quot;Reverse Connection&quot;.'))?></li>
+                        <li><?=addslashes(__('Enter the URL of your PalMA station and click &quot;Connect&quot;.'))?></li>
                         </ul>
-                    <li><i class="fa fa-linux"></i> <?=__('Linux:')?></li>
+                    <li><i class="fa fa-linux"></i> <?=addslashes(__('Linux:'))?></li>
                         <ul>
-                        <li><?=__('Run the downloaded shell script.')?></li>
-                        <li><?=__('Or use this shell command:')?> <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></li>
+                        <li><?=addslashes(__('Run the downloaded shell script.'))?></li>
+                        <li><?=addslashes(__('Or use this shell command:'))?> <code>x11vnc -connect <?=$_SERVER['HTTP_HOST']?></code></li>
                         </ul>
                     </ul>
                 </ul>
-            <h4><?=__('Control')?><i class="fa fa-arrows"></i></h4>
-            <p><?=__('With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.')?></p>
-            <p><?=__('Below that you find the controls for each item:')?></p>
+            <h4><?=addslashes(__('Control'))?><i class="fa fa-arrows"></i></h4>
+            <p><?=addslashes(__('With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.'))?></p>
+            <p><?=addslashes(__('Below that you find the controls for each item:'))?></p>
             <ul>
-            <li><?=__('In the top bar you can')?></li>
+            <li><?=addslashes(__('In the top bar you can'))?></li>
             <ul>
-            <li><?=__('Hide and show')?><i class="fa fa-eye"></i>,</li>
-            <li><?=__('Zoom in and out')?><i class="fa fa-search-plus"></i><i class="fa fa-search-minus"></i>,</li>
-            <li><?=__('Rotate')?><i class="fa fa-rotate-left"></i><i class="fa fa-rotate-right"></i>,</li>
-            <li><?=__('Download')?><i class="fa fa-download"></i>,</li>
-            <li><?=__('Delete the item')?><i class="fa fa-trash-o"></i>.</li>
+            <li><?=addslashes(__('Hide and show'))?><i class="fa fa-eye"></i>,</li>
+            <li><?=addslashes(__('Zoom in and out'))?><i class="fa fa-search-plus"></i><i class="fa fa-search-minus"></i>,</li>
+            <li><?=addslashes(__('Rotate'))?><i class="fa fa-rotate-left"></i><i class="fa fa-rotate-right"></i>,</li>
+            <li><?=addslashes(__('Download'))?><i class="fa fa-download"></i>,</li>
+            <li><?=addslashes(__('Delete the item'))?><i class="fa fa-trash-o"></i>.</li>
             </ul>
-            <li><?=__('Below you find the navigation controls.')?></li>
+            <li><?=addslashes(__('Below you find the navigation controls.'))?></li>
             <ul>
-            <li><?=__('Buttons on the left jump to the top, to the end, a page up or a page down')?><i class="fa fa-angle-double-up"></i><i class="fa fa-angle-up"></i><i class="fa fa-angle-down"></i><i class="fa fa-angle-double-up"></i>.</li>
-            <li><?=__('Arrow buttons in the middle scroll gradually')?><i class="fa fa-toggle-up"></i><i class="fa fa-toggle-down"></i><i class="fa fa-toggle-left"></i><i class="fa fa-toggle-right"></i>.</li>
+            <li><?=addslashes(__('Buttons on the left jump to the top, to the end, a page up or a page down'))?><i class="fa fa-angle-double-up"></i><i class="fa fa-angle-up"></i><i class="fa fa-angle-down"></i><i class="fa fa-angle-double-up"></i>.</li>
+            <li><?=addslashes(__('Arrow buttons in the middle scroll gradually'))?><i class="fa fa-toggle-up"></i><i class="fa fa-toggle-down"></i><i class="fa fa-toggle-left"></i><i class="fa fa-toggle-right"></i>.</li>
             </ul>
             </li>
-            <li><?=__('On the right you can choose the position on the PalMA monitor')?><i class="fa fa-desktop"></i>.</li>
+            <li><?=addslashes(__('On the right you can choose the position on the PalMA monitor'))?><i class="fa fa-desktop"></i>.</li>
             </ul>
-            <p><?=__('Controls that are not available for certain kinds of content are marked grey.')?></p>
-            <h4><?=__('Extras')?><i class="fa fa-info-circle"></i></h4>
-            <p><?=__('Some additional features are:')?></p>
+            <p><?=addslashes(__('Controls that are not available for certain kinds of content are marked grey.'))?></p>
+            <h4><?=addslashes(__('Extras'))?><i class="fa fa-info-circle"></i></h4>
+            <p><?=addslashes(__('Some additional features are:'))?></p>
             <ul>
-            <li><i class="fa fa-question-circle"></i> <?=__('This help,')?></li>
-            <li><i class="fa fa-thumbs-o-up"></i> <?=__('Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,')?></li>
-            <li><i class="fa fa-users"></i> <?=__('A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.')?></li>
+            <li><i class="fa fa-question-circle"></i> <?=addslashes(__('This help,'))?></li>
+            <li><i class="fa fa-thumbs-o-up"></i> <?=addslashes(__('Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,'))?></li>
+            <li><i class="fa fa-users"></i> <?=addslashes(__('A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.'))?></li>
             </ul>
         </div>
         <div id="Feedback" class="subtabcontent">
             <div id="recommendcontainer">
                 <h3>
-                    <?=__('Recommend us')?>
+                    <?=addslashes(__('Recommend us'))?>
                 </h3>
                 <div>
-                    <p><?=__('If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!')?></p>
+                    <p><?=addslashes(__('If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!'))?></p>
                     <!-- Social Media Button Integration, Source: http://sharingbuttons.io/ -->
                     <?php $github_url = "https%3A%2F%2Fgithub.com/UB-Mannheim/PalMA/blob/master/README.md"; ?>
 
@@ -1339,16 +1338,16 @@ window.onclick = function(event) {
                 </div> <!-- Social media buttons and description -->
             </div> <!-- recommendcontainer -->
             <div id="contactcontainer">
-                <h3><?=__('Tell us what you think')?></h3>
+                <h3><?=addslashes(__('Tell us what you think'))?></h3>
                 <div>
-                    <p><?=__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on ')?><a href="https://github.com/UB-Mannheim/PalMA" target="_blank">GitHub</a>.<br /><?=__('Thank you!')?></p>
+                    <p><?=addslashes(__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on '))?><a href="https://github.com/UB-Mannheim/PalMA" target="_blank">GitHub</a>.<br /><?=__('Thank you!')?></p>
                     <iframe width="100%" height="500" frameborder="0" src="https://www.bib.uni-mannheim.de/palma/feedback/form"></iframe>
                 </div>
             </div> <!-- contactcontainer -->
         </div> <!-- feedback -->
         <div id="Users" class="subtabcontent">
             <div class="dropdown">
-                <button onclick="showDropdown()" class="dropbutton pure-button pure-button-primary"><?=__('Select language:')?> <?=substr($locale, 0, 2)?><i class="fa fa-caret-down"></i></button>
+                <button onclick="showDropdown()" class="dropbutton pure-button pure-button-primary"><?=addslashes(__('Select language:'))?> <?=substr($locale, 0, 2)?><i class="fa fa-caret-down"></i></button>
                 <div id="languageSelection" class="dropdown-content">
                 <?php
                 $dirs = array_slice(scandir('locale'), 2);
@@ -1365,25 +1364,25 @@ window.onclick = function(event) {
                 </div>
             </div>
             <div class="list_container">
-                <table class="userlist" summary="<?=__('User list')?>" title="<?=__('List of connected users')?>">
+                <table class="userlist" summary="<?=addslashes(__('User list'))?>" title="<?=__('List of connected users')?>">
                     <tbody id="userlist">
                         <tr><td><!-- filled by updateUserList() --></td></tr>
                     </tbody>
                 </table>
                 <div class="description">
-                    <?=__('New users can join at')?><br /><?=$_SESSION['starturl']?><br />
+                    <?=addslashes(__('New users can join at'))?><br /><?=htmlspecialchars($_SESSION['starturl'])?><br />
                     <?php
                     if (!empty($_SESSION['pin'])) {
-                        echo __('PIN: ');
-                        echo $_SESSION['pin'];
+                        echo addslashes(__('PIN: '));
+                        echo htmlspecialchars($_SESSION['pin']);
                     }
                     ?>
-                    <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=$_SESSION['starturl']?>?pin=<?=$_SESSION['pin']?>" alt="QR Code">
+                    <img class="qr-code" src="qrcode/php/qr_img.php?d=<?=htmlspecialchars($_SESSION['starturl'])?>?pin=<?=htmlspecialchars($_SESSION['pin'])?>" alt="QR Code">
                 </div>
                 <button class="pure-button pure-button-primary pure-input-rounded"
                         onClick="sendToNuc('logout=ALL')"
-                        title="<?=__('Disconnect all users and end the session')?>">
-                    <?=__('End the session')?>
+                        title="<?=addslashes(__('Disconnect all users and end the session'))?>">
+                    <?=addslashes(__('End the session'))?>
                 </button>
             </div>
         </div>
@@ -1395,8 +1394,8 @@ window.onclick = function(event) {
       # Show authorized user name (and address) and allow logout.
     if ($user) {
         echo("<a href=\"logout.php\" title=\"" .
-          __('Disconnect the current user') .
-          "\">" . __('Log out') . "<i class=\"fa fa-sign-out\"></i></a>");
+          addslashes(__('Disconnect the current user')) .
+          "\">" . addslashes(__('Log out')) . "<i class=\"fa fa-sign-out\"></i></a>");
     }
     ?>
 </div> <!-- Footer -->

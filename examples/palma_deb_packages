@@ -1085,8 +1085,6 @@ perl-modules-5.24
 perl-openssl-defaults:i386
 phonon:i386
 php
-php-common
-php
 php-cli
 php-common
 php-curl

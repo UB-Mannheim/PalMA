@@ -149,12 +149,6 @@ function setLayout($layout)
 
     global $db;
 
-    if ($layout == null) {
-        $layout = $db->querySingle("SELECT value FROM setting WHERE key='layout'");
-    } else {
-        $db->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
-    }
-
     trace("layout $layout");
 
     $geom = array();
@@ -176,41 +170,51 @@ function setLayout($layout)
                         array(0, 1, 2, 2), array(1, 1, 2, 2)
                     );
 
-    $dim = $geom[$layout];
+    if ($layout == null) {
+        $layout = $db->querySingle("SELECT value FROM setting WHERE key='layout'");
+    }
 
-    // Make sure that desktop 0 is selected.
-    displayCommand('wmctrl -s 0');
+    // Make sure $layout is valid
+    if (!array_key_exists($layout, $geom)){
+        trace("layout invalid!");
+    } else {
+        $db->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
+        $dim = $geom[$layout];
 
-    // Get width and height of desktop.
-    $desktops = displayCommand("wmctrl -d");
-    // $desktop looks like this.
-    // 0  * DG: 1600x900  VP: 0,0  WA: 0,27 1600x873  Arbeitsfläche 1
-    $fields = preg_split("/[\n ]+/", $desktops);
-    $geom = preg_split("/x/", $fields[3]);
-    $screenWidth = $geom[0];
-    $screenHeight = $geom[1];
+        // Make sure that desktop 0 is selected.
+        displayCommand('wmctrl -s 0');
 
-    // Show all windows for the current layout which are not disabled.
+        // Get width and height of desktop.
+        $desktops = displayCommand("wmctrl -d");
+        // $desktop looks like this.
+        // 0  * DG: 1600x900  VP: 0,0  WA: 0,27 1600x873  Arbeitsfläche 1
+        $fields = preg_split("/[\n ]+/", $desktops);
+        $geom = preg_split("/x/", $fields[3]);
+        $screenWidth = $geom[0];
+        $screenHeight = $geom[1];
 
-    $maxSection = count($dim);
-    // Get ordered list of all windows from the database.
-    $windows = $db->getWindows();
-    foreach ($windows as $w) {
-        $id = $w['win_id'];
-        $enabled = $w['state'] == 'active';
-        $section = $w['section'];
-        if ($section >= 1 && $section <= $maxSection && $enabled) {
-            // Show window, set size and position.
-            $wi = $section - 1;
-            $dx = $screenWidth / $dim[$wi][2];
-            $dy = $screenHeight / $dim[$wi][3];
-            $x = $dim[$wi][0] * $dx;
-            $y = $dim[$wi][1] * $dy;
-            wmShow($id);
-            displayCommand("wmctrl -i -r $id -e 0,$x,$y,$dx,$dy");
-        } else {
-            // Hide window.
-            wmHide($id);
+        // Show all windows for the current layout which are not disabled.
+
+        $maxSection = count($dim);
+        // Get ordered list of all windows from the database.
+        $windows = $db->getWindows();
+        foreach ($windows as $w) {
+            $id = $w['win_id'];
+            $enabled = $w['state'] == 'active';
+            $section = $w['section'];
+            if ($section >= 1 && $section <= $maxSection && $enabled) {
+                // Show window, set size and position.
+                $wi = $section - 1;
+                $dx = $screenWidth / $dim[$wi][2];
+                $dy = $screenHeight / $dim[$wi][3];
+                $x = $dim[$wi][0] * $dx;
+                $y = $dim[$wi][1] * $dy;
+                wmShow($id);
+                displayCommand("wmctrl -i -r $id -e 0,$x,$y,$dx,$dy");
+            } else {
+                // Hide window.
+                wmHide($id);
+            }
         }
     }
 }
@@ -364,7 +368,7 @@ function processRequests($db)
     if (array_key_exists('window', $_REQUEST)) {
         // All windows related commands must start with window=.
 
-        $windownumber = $_REQUEST['window'];
+        $windownumber = escapeshellcmd($_REQUEST['window']);
         $windowname = false;
         $windowhex = 0;
         // TODO: $win_id und $windowname können vermutlich zusammengefasst werden.
@@ -388,7 +392,7 @@ function processRequests($db)
         }
 
         if ($windowname && array_key_exists('key', $_REQUEST)) {
-            $key = $_REQUEST['key'];
+            $key = escapeshellcmd($_REQUEST['key']);
             trace("key '$key' in window '$windownumber'");
             wmShow($windowname);
             // activateControls($windowhex);
@@ -403,7 +407,7 @@ function processRequests($db)
             // TODO: keydown is currently mapped to key because we had problems
             // with sticking keys (no keyup seen). This should be fixed by a
             // better event handling.
-            $key = $_REQUEST['keydown'];
+            $key = escapeshellcmd($_REQUEST['keydown']);
             trace("keydown '$key' in window '$windownumber'");
             wmShow($windowname);
             // activateControls($windowhex);
@@ -417,7 +421,7 @@ function processRequests($db)
 
         if ($windowname && array_key_exists('keyup', $_REQUEST)) {
             // TODO: keyup is currently ignored, see comment above.
-            $key = $_REQUEST['keyup'];
+            $key = escapeshellcmd($_REQUEST['keyup']);
             trace("keyup '$key' in window '$windownumber'");
             // activateControls($windowhex);
             //~ wmShow($windowname);
@@ -428,29 +432,37 @@ function processRequests($db)
             $delete = str_replace(" ", "\ ", addslashes($_REQUEST['delete']));
             trace("delete=$delete, close window $windownumber");
 
-            if (file_exists($delete)) {
-                trace("+++ DELETE FILE FROM WEBINTERFACE +++");
-                unlink($delete);
-            } elseif ($delete == "VNC") {
-                trace("+++ DELETE VNC Client FROM DAEMON +++");
-                // call via daemon: ?window=vncwin&delete=VNC&vncid=123
-                trace("vnc delete in control");
-                $win_id = $_REQUEST['vncid'];   // = hexWindow in database, but not on screen
-                trace("VNC cia Daemon ... id=$win_id");
-            } elseif (strstr($delete, "http")) {
-                trace("+++ DELETE Browserwindow +++");
-            } elseif (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
-                trace("+++ DELETE VNC Client FROM WEBINTERFACE +++");
-                // call via webinterface
-                $win_id = $db->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
-                trace("DELETE VNC Window with ID=$win_id FROM Database ::
-                SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
+            // Restrict deletion to files known in the db.
+            // TODO: check if given file and section match the values in the DB,
+            // but currently, both those values can be ambiguos
+            $file_in_db = $db->querySingle("SELECT id FROM window WHERE file='$delete'");
+            trace("file in db: $file_in_db");
+            if ($file_in_db){
+                if (file_exists($delete)) {
+                    trace("+++ DELETE FILE FROM WEBINTERFACE +++");
+                    unlink($delete);
+                } elseif ($delete == "VNC") {
+                    trace("+++ DELETE VNC Client FROM DAEMON +++");
+                    // call via daemon: ?window=vncwin&delete=VNC&vncid=123
+                    trace("vnc delete in control");
+                    $win_id = escapeshellcmd($_REQUEST['vncid']);   // = hexWindow in database, but not on screen
+                    trace("VNC via Daemon ... id=$win_id");
+                } elseif (strstr($delete, "http")) {
+                    trace("+++ DELETE Browserwindow +++");
+                } elseif (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
+                    trace("+++ DELETE VNC Client FROM WEBINTERFACE +++");
+                    // call via webinterface
+                    $win_id = $db->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
+                    trace("DELETE VNC Window with ID=$win_id FROM Database ::
+                    SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
+                } else {
+                    trace("Unhandled delete for '$delete'");
+                }
+                wmClose($win_id);
+                $db->deleteWindow($win_id);
             } else {
-                trace("Unhandled delete for '$delete'");
+                trace("Given file not present in database!");
             }
-
-            wmClose($win_id);
-            $db->deleteWindow($win_id);
         }
 
         if (array_key_exists('closeOrphans', $_REQUEST)) {
@@ -491,7 +503,7 @@ function processRequests($db)
             }
         }
     } elseif (array_key_exists('layout', $_REQUEST)) {
-        setLayout($_REQUEST['layout']);
+        setLayout(escapeshellcmd($_REQUEST['layout']));
     } elseif (array_key_exists('logout', $_REQUEST)) {
         doLogout($_REQUEST['logout']);
     } elseif (array_key_exists('newVncWindow', $_REQUEST)) {
@@ -502,8 +514,8 @@ function processRequests($db)
     }
 
     if (array_key_exists('switchWindows', $_REQUEST)) {
-        $before = $_REQUEST['before'];
-        $after = $_REQUEST['after'];
+        $before = escapeshellcmd($_REQUEST['before']);
+        $after = escapeshellcmd($_REQUEST['after']);
         trace("switching $before and $after");
 
         // exchange section
@@ -521,23 +533,28 @@ function processRequests($db)
     }
 
     if (array_key_exists('openURL', $_REQUEST)) {
-        $openURL = $_REQUEST['openURL'];
+        $openURL = escapeshellcmd($_REQUEST['openURL']);
         trace("openURL $openURL");
 
         // If URL leads to pdf file, download it and treat as upload
-        if (preg_match("/.(pdf|PDF)$/", $openURL)) {
-            trace("openURL $openURL is a pdf file. Downloading it.");
-            $date = time();
+        $headers = get_headers($openURL, 1);
+        if ($headers["Content-Type"] == "application/pdf"){
+            trace("url seems to lead to a pdf file, so downloading it...");
             $temp_name = basename($openURL);
-            $temp_dir = "/tmp/palma_$date";
-            shell_exec("mkdir $temp_dir && wget $openURL -P $temp_dir/");
-
-            $_FILES['file']['name'] = "$temp_name";
-            $_FILES['file']['tmp_name'] = "$temp_dir/$temp_name";
-            $_FILES['file']['error'] = "downloaded_from_url";
-
-            trace("Handing over to upload.php");
-            include 'upload.php';
+            $temp_dir = "/tmp";
+            file_put_contents("$temp_dir/$temp_name", file_get_contents($openURL));
+            $mimetype = mime_content_type("$temp_dir/$temp_name");
+            trace("mimetype is $mimetype");
+            if ($mimetype == "application/pdf"){
+                $_FILES['file']['name'] = "$temp_name";
+                $_FILES['file']['tmp_name'] = "$temp_dir/$temp_name";
+                $_FILES['file']['error'] = "downloaded_from_url";
+                trace("Handing over to upload.php");
+                include 'upload.php';
+            } else {
+                trace("Deleting file!");
+                unlink("$temp_dir/$temp_name");
+            }
         } else {
             $dt = new DateTime();
             $date = $dt->format('Y-m-d H:i:s');
@@ -556,7 +573,7 @@ function processRequests($db)
         }
     }
 
-    // TODO: chef if query redundant?
+    // TODO: check if query redundant?
     if (array_key_exists('closeAll', $_REQUEST)) {
         $close = $_REQUEST['closeAll'];
         trace("close all windows $close");
