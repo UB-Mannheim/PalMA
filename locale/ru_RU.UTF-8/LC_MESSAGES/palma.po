@@ -173,7 +173,7 @@ msgid ""
 "help section for further information."
 msgstr "" 
 "Скачать инструмент для совместного использования экрана (только для Windows, Mac и Linux). Посмотрите "
-"секцию "Помощь" для дополнительной информации"
+"секцию \"Помощь\" для дополнительной информации"
 
 #: index.php:1136
 msgid "Layout"
@@ -247,7 +247,7 @@ msgstr "PIN: "
 
 #: index.php:1227
 msgid "Use the Add-Section to share content on the PalMA monitor."
-msgstr "Используйте секцию "Добавить" для отображения контента на мониторе PalMA"
+msgstr "Используйте секцию \"Добавить\" для отображения контента на мониторе PalMA"
 
 #: index.php:1229
 msgid "For PDF files, office files, images or videos use the file section."
