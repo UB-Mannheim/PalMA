@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-19 20:33+0100\n"
 "PO-Revision-Date: 2014-07-01 16:39+0200\n"
-"Last-Translator: Olga Pogorelaya\n"
+"Last-Translator: Eliana Ruslanova\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -47,11 +47,11 @@ msgstr "Отдалить"
 
 #: index.php:700
 msgid "Rotate counterclockwise"
-msgstr ""
+msgstr "Повернуть против часовой стрелки"
 
 #: index.php:701
 msgid "Rotate clockwise"
-msgstr ""
+msgstr "Повернуть по часовой стрелке"
 
 #: index.php:702
 #, fuzzy
@@ -101,7 +101,7 @@ msgstr "Добро пожаловать"
 
 #: index.php:758
 msgid "There is no shared content yet. Click below to get started!"
-msgstr ""
+msgstr "Общего контента пока нет. Нажмите ниже, чтобы начать!"
 
 #: index.php:762 index.php:1070 index.php:1226
 msgid "Add"
@@ -109,7 +109,7 @@ msgstr "Добавить"
 
 #: index.php:980
 msgid "Sorry! Screensharing for your device is currently not supported."
-msgstr ""
+msgstr "Извините! Совместное использование экрана на Вашем устройстве пока не поддерживается."
 
 #: index.php:1071 index.php:1253
 #, fuzzy
@@ -127,7 +127,7 @@ msgstr "Файл"
 
 #: index.php:1079
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: index.php:1080
 #, fuzzy
@@ -136,15 +136,15 @@ msgstr "Схема экрана"
 
 #: index.php:1087
 msgid "Drag and drop files or click here to upload."
-msgstr ""
+msgstr "Перетащите файлы или нажмите сюда для загрузки"
 
 #: index.php:1089
 msgid "Add file (click or drop here)"
-msgstr ""
+msgstr "Добавить файл (кликните или перетащите сюда)"
 
 #: index.php:1108
 msgid "Add webpage"
-msgstr ""
+msgstr "Добавить веб-страницу"
 
 #: index.php:1111
 msgid "Enter URL"
@@ -152,7 +152,7 @@ msgstr "Введите URL"
 
 #: index.php:1114
 msgid "Click here to show the webpage on the screen."
-msgstr ""
+msgstr "Нажмите здесь для показа веб-страницы на экране"
 
 #: index.php:1115
 #, fuzzy
@@ -161,17 +161,19 @@ msgstr "Введите URL"
 
 #: index.php:1122
 msgid "Add your screen"
-msgstr ""
+msgstr "Добавить Ваш экран"
 
 #: index.php:1123
 msgid "Download screensharing tool"
-msgstr ""
+msgstr "Скачать инструмент для совместного использования экрана"
 
 #: index.php:1130
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
-msgstr ""
+msgstr "" 
+"Скачать инструмент для совместного использования экрана (только для Windows, Mac и Linux). Посмотрите "
+"секцию "Помощь" для дополнительной информации"
 
 #: index.php:1136
 msgid "Layout"
@@ -179,7 +181,7 @@ msgstr ""
 
 #: index.php:1137
 msgid "Navigate"
-msgstr ""
+msgstr "Навигация"
 
 #: index.php:1143 index.php:1150 index.php:1158 index.php:1166 index.php:1179
 msgid "Choose screen layout"
@@ -195,7 +197,7 @@ msgstr "Удалить все объекты"
 
 #: index.php:1201
 msgid "Help"
-msgstr ""
+msgstr "Помощь"
 
 #: index.php:1202
 msgid "Feedback"
@@ -222,15 +224,15 @@ msgstr "Команда PalMa отображает до 4 объектов одн
 
 #: index.php:1210
 msgid "For further information about PalMA in this institution"
-msgstr ""
+msgstr "Для дополнительной информации о PalMA в этом учреждении "
 
 #: index.php:1210
 msgid "see here."
-msgstr ""
+msgstr "смотрите здесь"
 
 #: index.php:1214
 msgid "Connect"
-msgstr ""
+msgstr "Подключить"
 
 #: index.php:1215
 #, fuzzy
@@ -241,11 +243,11 @@ msgstr ""
 
 #: index.php:1219 index.php:1377
 msgid "PIN: "
-msgstr ""
+msgstr "PIN: "
 
 #: index.php:1227
 msgid "Use the Add-Section to share content on the PalMA monitor."
-msgstr ""
+msgstr "Используйте секцию "Добавить" для отображения контента на мониторе PalMA"
 
 #: index.php:1229
 msgid "For PDF files, office files, images or videos use the file section."
@@ -253,13 +255,15 @@ msgstr ""
 
 #: index.php:1230
 msgid "To display a website use the URL field."
-msgstr ""
+msgstr "Для отображения веб-страницы используйте поле для URL"
 
 #: index.php:1231
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
 msgstr ""
+"Для демонстрации экрана в режиме реального времени скачайте ПО для демонстрации экрана VNC "
+"и"
 
 #: index.php:1233
 msgid "Windows:"
@@ -334,7 +338,7 @@ msgstr "Отдалить"
 
 #: index.php:1261
 msgid "Rotate"
-msgstr ""
+msgstr "Повернуть"
 
 #: index.php:1262
 #, fuzzy
@@ -343,11 +347,11 @@ msgstr "Скачать этот файл"
 
 #: index.php:1263
 msgid "Delete the item"
-msgstr ""
+msgstr "Удалить"
 
 #: index.php:1265
 msgid "Below you find the navigation controls."
-msgstr ""
+msgstr "Ниже Вы найдете кнопки для навигации"
 
 #: index.php:1267
 msgid ""
@@ -369,7 +373,7 @@ msgstr ""
 
 #: index.php:1275
 msgid "Some additional features are:"
-msgstr ""
+msgstr "Некоторые дополнительные возможности:"
 
 #: index.php:1277
 msgid "This help,"
@@ -389,7 +393,7 @@ msgstr ""
 
 #: index.php:1285
 msgid "Recommend us"
-msgstr ""
+msgstr "Посоветуйте нас"
 
 #: index.php:1288
 msgid ""
@@ -435,7 +439,7 @@ msgstr "Отключить всех пользователей и очистит
 
 #: index.php:1386
 msgid "End the session"
-msgstr ""
+msgstr "Закончить эту сессию"
 
 #: index.php:1398
 msgid "Disconnect the current user"
