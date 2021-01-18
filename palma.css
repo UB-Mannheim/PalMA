@@ -17,18 +17,18 @@ body {
     font-size: 1.1em;
 }
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
-    background-color: #990000;
+    background-color: #232e58;
     border-radius: 6px;
 }
 .pure-button {
     padding: 0.4em;
 }
 a {
-    color: #990000;
+    color: #232e58;
     text-decoration: none;
 }
 a:hover, a:active {
-    color: #990000;
+    color: #232e58;
     text-decoration: underline;
 }
 i {margin-left: .2em;}
@@ -93,7 +93,7 @@ div.policy {
 /* Tabs and Subtabs */
 div.tab, div.subtab {
     overflow: hidden;
-    background-color: #990000;
+    background-color: #232e58;
     text-align: center;
 }
 div.subtab {
@@ -167,13 +167,13 @@ div.description {
 }
 /* Add File */
 #palma-dropzone {
-    border: 1px dotted #990000;
+    border: 1px dotted #232e58;
     border-radius: 6px;
     cursor: pointer;
     text-align: center;
 }
 #palma-dropzone i {
-    color: #990000;
+    color: #232e58;
     vertical-align: middle;
 }
 .dz-default {
@@ -190,13 +190,13 @@ div.description {
 
 /* Add Screen */
 #vnc-button {
-    border:1px solid #990000;
+    border:1px solid #232e58;
     border-radius: 7px;
     background-color: #f1f1f1;
     width: 15em;
     margin: .3em auto;
     padding: .6em;
-    color: #990000;
+    color: #232e58;
     cursor:pointer;
     cursor: hand;
 }
@@ -220,7 +220,7 @@ div.description {
 /* Control Layout */
 button.splash_add {
     height: 3em;
-    background-color: #990000;
+    background-color: #232e58;
     color: white;
     border-radius: 6px;
     font-size: 1.5em;
@@ -248,7 +248,7 @@ div.screenlayout button:hover {
     background-color: #995555;
 }
 div.screenlayout button:active {
-    background-color: #990000;
+    background-color: #232e58;
 }
 div.screenlayout div.layout_left, div.screenlayout div.layout_right {
     display: inline-block;
@@ -322,7 +322,7 @@ div.position {
     margin-top: .2em;
 }
 div.windowcontrols button:active, div.windowcontrols button:hover {
-    color: #990000;
+    color: #232e58;
 }
 div.windowcontrols button.unavailable {
     color: #999999;
@@ -375,7 +375,7 @@ div.position button:hover i {
     background-color: transparent;
 }
 div.position button.selected i {
-    color: #990000;
+    color: #232e58;
 }
 #closeWindows {display: none;}
 
@@ -598,7 +598,7 @@ background-color: #FF6600
     color: white;
 }
 .dropdown-content a:active {
-    background-color: #990000;
+    background-color: #232e58;
     color: white;
 }
 .show {display:block;}
@@ -660,7 +660,7 @@ background-color: #FF6600
     display: block;
 }
 #footer a:hover, #footer a:active {
-    background-color: #990000;
+    background-color: #232e58;
     color: white;
 }
 #footer a:link {

@@ -302,7 +302,7 @@ function markCurrentLayout(layout) {
             children[k].style.backgroundColor = "";
         }
     }
-    document.getElementById(layout).style.backgroundColor = "#990000";
+    document.getElementById(layout).style.backgroundColor = "#232e58";
 }
 
 function miniDisplaySelect(element) {
