@@ -476,7 +476,7 @@ function getHandlerCommand(handle, task) {
     handler["zathura"]["zoomout"] = "minus";
     handler["zathura"]["download"] = "download";
     handler["zathura"]["counterclockwise"] = "undefined";
-    handler["zathura"]["clockwise"] = "undefined";
+    handler["zathura"]["clockwise"] = "r";
 
     var send_keys = handler["default"]["up"];
 
@@ -849,7 +849,7 @@ function updateControlsBySection(window) {
         } else if (handler.indexOf("vnc") > -1) {
             control = ["vnc", true, true, true, true, true, true, false, false, false, false, false, false, false];
         } else if (handler.indexOf("zathura") > -1) {
-            control = ["zathura", true, true, true, true, true, true, true, true, true, true, true, false, false];
+            control = ["zathura", true, true, true, true, true, true, true, true, true, true, true, false, true];
         } else {
             control = ["undefined", false, false, false, false, false, false, false, false, false, false, false, false, false];
         }
