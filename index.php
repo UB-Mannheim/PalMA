@@ -694,6 +694,8 @@ function addWindowControls(layout, controls, screensection, file, status) {
     button.setAttribute('onclick', "sendToNuc('window=" + screensection + "&toggle=TRUE')");
     button.appendChild(icon);
     topbar.appendChild(button);
+    topbar.appendChild(keyControl(screensection, 'fa fa-search-plus', 'zoomin', 'zoomin', handler, !zoomin, '<?=addslashes(__("Zoom in"))?>'));
+    topbar.appendChild(keyControl(screensection, 'fa fa-search-minus', 'zoomout', 'zoomout', handler, !zoomout, '<?=addslashes(__("Zoom out"))?>'));
     topbar.appendChild(keyControl(screensection, 'fa fa-rotate-left', 'counterclockwise', 'counterclockwise', handler, !counterclockwise, '<?=addslashes(__("Rotate counterclockwise"))?>'));
     topbar.appendChild(keyControl(screensection, 'fa fa-rotate-right', 'clockwise', 'clockwise', handler, !clockwise, '<?=addslashes(__("Rotate clockwise"))?>'));
     var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', 'download', handler, !download, '<?=addslashes(__("Download this item"))?>');
