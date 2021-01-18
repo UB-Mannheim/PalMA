@@ -85,22 +85,6 @@ if (isset($_SESSION['username'])) {
     $macvnc = "https://www.bib.uni-mannheim.de/palma/VineServer.dmg";
     $linuxsh = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/x11.sh";
 
-    /*
-     * contact form elements
-     * might be sourced out and included
-     */
-if (isset($_POST['submit'])) {
-    $to = "sysadmin@bib.uni-mannheim.de";
-    $from = escapeshellcmd($_POST['email']);
-    $name = escapeshellcmd($_POST['name']);
-    $subject = "Feedback for PalMA";
-    $message = $name . " wrote the following:" . "\n\n" . escapeshellcmd($_POST['message']);
-
-    $headers = "From:" . $from;
-    mail($to, $subject, $message, $headers);
-    echo "Mail Sent. Thank you for your feedback " . $name . ", we will get in touch with you shortly.";
-}
-
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
        "http://www.w3.org/TR/html4/strict.dtd">
@@ -161,7 +145,6 @@ function keyControl(number, image, controlClass, key, handler, disabled, title) 
   if ( (keyHandler == "") || (keyHandler == null) ) {
     keyHandler = "default";
   }
-
   var button = document.createElement('button');
   var icon = document.createElement('i');
   if (!disabled) {
@@ -1343,7 +1326,6 @@ window.onclick = function(event) {
                 <h3><?=addslashes(__('Tell us what you think'))?></h3>
                 <div>
                     <p><?=addslashes(__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on '))?><a href="https://github.com/UB-Mannheim/PalMA" target="_blank">GitHub</a>.<br /><?=__('Thank you!')?></p>
-                    <iframe width="100%" height="500" frameborder="0" src="https://www.bib.uni-mannheim.de/palma/feedback/form"></iframe>
                 </div>
             </div> <!-- contactcontainer -->
         </div> <!-- feedback -->
