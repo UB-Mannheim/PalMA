@@ -82,7 +82,7 @@ if (isset($_SESSION['username'])) {
      * file paths for vnc downloads
      */
     $winvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/winvnc-palma.exe";
-    $macvnc = "https://www.bib.uni-mannheim.de/palma/VineServer.dmg";
+    $macvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/osx-vnc.dmg";
     $linuxsh = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/x11.sh";
 
 ?>
