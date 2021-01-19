@@ -430,13 +430,14 @@ function processRequests($db)
         }
 
         if (array_key_exists('delete', $_REQUEST)) {
-            $delete = str_replace(" ", "\ ", addslashes($_REQUEST['delete']));
-            trace("delete=$delete, close window $windownumber");
+            $delete = addslashes($_REQUEST['delete']);
+            trace("delete='$delete', close window $windownumber");
 
             // Restrict deletion to files known in the db.
             // TODO: check if given file and section match the values in the DB,
             // but currently, both those values can be ambiguos
             $file_in_db = $db->querySingle("SELECT id FROM window WHERE file='$delete'");
+            $delete = str_replace(" ", "\ ", $delete);
             trace("file in db: $file_in_db");
             if ($file_in_db){
                 if (file_exists($delete)) {
