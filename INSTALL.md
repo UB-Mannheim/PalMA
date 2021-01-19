@@ -29,7 +29,7 @@ _All installation commands must be run as root user._
 
 For a PalMA station you need a computing device (e.g. a regular PC or a Raspberry Pi) with internet access and a monitor connected to it. The larger the screen, the greater the benefit.
 
-PalMA runs on Linux (tested on Debian 9 Stretch and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
+PalMA runs on Linux (tested on the stable releases of Debian and Raspbian), needs a webserver with PHP and SQLite and some viewer programs.
 Hardware requirements are relatively low. For reasonable performance we recommend something at least as powerful as a Raspberry Pi 3.
 
 ## Required packages
