@@ -12,23 +12,23 @@ case "${palma_browser}" in
     chromium)
         BROWSER_CMD=chromium
         if command -v chromium-browser >/dev/null 2>&1; then BROWSER_CMD=chromium-browser; fi
-	BROWSER_PROFILE=`mktemp -d`
-	${BROWSER_CMD} --disable-features=TranslateUI --app="$@" --user-dir="${BROWSER_PROFILE}" &
-	BROWSER_PID=$!
-	trap "killbrowser ${BROWSER_PID} ${BROWSER_PROFILE}" TERM
+    BROWSER_PROFILE=`mktemp -d`
+    ${BROWSER_CMD} --disable-features=TranslateUI --app="$@" --user-dir="${BROWSER_PROFILE}" &
+    BROWSER_PID=$!
+    trap "killbrowser ${BROWSER_PID} ${BROWSER_PROFILE}" TERM
     ;;
     dwb)
-	mkdir -p "$HOME/.config/dwb"
-	[ -r "$HOME/.config/dwb/keys" ] ||
-	    cat > "$HOME/.config/dwb/keys" <<EOF
+    mkdir -p "$HOME/.config/dwb"
+    [ -r "$HOME/.config/dwb/keys" ] ||
+        cat > "$HOME/.config/dwb/keys" <<EOF
 [default]
 scroll_bottom= @End@
 scroll_top= @Home@
 zoom= =
 zoom_in= +
 EOF
-	[ -r "$HOME/.config/dwb/settings" ] ||
-	    cat > "$HOME/.config/dwb/settings" <<EOF
+    [ -r "$HOME/.config/dwb/settings" ] ||
+        cat > "$HOME/.config/dwb/settings" <<EOF
 [default]
 file-sync-interval=3600
 sync-files=session
@@ -37,10 +37,10 @@ cookies-store-policy=session
 save-session=false
 tabbed-browsing=false
 EOF
-	dwb --execute=presentation_mode "$@"
+    dwb --execute=presentation_mode "$@"
     ;;
     midori)
-	midori -e Fullscreen -a "$@"
+    midori -e Fullscreen -a "$@"
     ;;
     *)
     ;;
