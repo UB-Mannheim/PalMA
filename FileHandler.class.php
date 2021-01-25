@@ -68,7 +68,7 @@ abstract class FileHandler
         } elseif ($ftype === 'html' || $ftype === 'url') {
             $fhandler=$webHandler;
         } elseif ($ftype === 'mpg' || $ftype === 'mpeg' || $ftype === 'avi' ||
-                  $ftype === 'mp3' || $ftype === 'mp4') {
+                  $ftype === 'mp3' || $ftype === 'mp4' || $ftype === 'wmv') {
             $fhandler=$avHandler;
         } else {
             if ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
