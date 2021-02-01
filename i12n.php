@@ -37,6 +37,10 @@ switch (substr($locale, 0, 2)) {
         // German.
         $locale = 'de_DE.UTF-8';
         break;
+    case 'el':
+        // Greek.
+        $locale = 'el_GR.UTF-8';
+        break;
     case 'en':
         // English.
         $locale = 'en_US.UTF-8';
@@ -106,6 +110,7 @@ if ($unittest[__FILE__]) {
     testlocale('sq_AL.UTF-8');
     testlocale('ar.UTF-8');
     testlocale('de_DE.UTF-8');
+    testlocale('el_GR.UTF-8');
     testlocale('en_US.UTF-8');
     testlocale('es_ES.UTF-8');
     testlocale('fr_FR.UTF-8');
