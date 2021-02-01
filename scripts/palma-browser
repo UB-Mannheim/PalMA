@@ -13,7 +13,7 @@ case "${palma_browser}" in
         BROWSER_CMD=chromium
         if command -v chromium-browser >/dev/null 2>&1; then BROWSER_CMD=chromium-browser; fi
     BROWSER_PROFILE=`mktemp -d`
-    ${BROWSER_CMD} --disable-features=TranslateUI --disable-features=Translate --app="$@" --user-dir="${BROWSER_PROFILE}" &
+    ${BROWSER_CMD} --disable-features=TranslateUI --disable-features=Translate --app="$@" --user-dir="${BROWSER_PROFILE}" --user-data-dir="${BROWSER_PROFILE}" --load-extension=/usr/share/palma/settings/chromium/i-dont-care-about-cookies &
     BROWSER_PID=$!
     trap "killbrowser ${BROWSER_PID} ${BROWSER_PROFILE}" TERM
     ;;
