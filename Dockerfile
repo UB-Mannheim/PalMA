@@ -1,6 +1,7 @@
-FROM debian:stretch
+FROM debian:bullseye
 
-ARG BROWSER=midori
+ARG BROWSER=chromium
+ARG BROWSERSANDBOX=chromium-sandbox
 ARG INITSYS=systemd
 ARG PALMANAME=palma-docker
 ARG WWWSERV=nginx
@@ -13,7 +14,7 @@ WORKDIR /tmp
 RUN  apt-get -q update \
   && apt-get install --no-install-recommends -y \
      ca-certificates python3 x11vnc x11-xserver-utils xserver-xorg-video-dummy feh libreoffice ssvnc vlc x11vnc zathura wmctrl xdotool openbox sqlite3 unclutter php php-cgi php-cli php-curl php-fpm php-gd php-intl php-sqlite3 php-mbstring gettext git libavcodec-extra make wget xorg \
-     ${BROWSER} \
+     ${BROWSER} ${BROWSERSANDBOX}\
      "$(echo ${WWWSERV} | sed -e 's,nginx,nginx-light,' -e 's,apache,apache2 libapache2-mod-php,')" \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
