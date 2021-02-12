@@ -190,11 +190,10 @@ function downloadFile(screensection) {
 
 function is_valid_url(url)
 {
-    return url.match(/(^(ht|f)tps?:\/\/)([a-zA-Z0-9\.-])+(\.([a-zA-Z]{2,}))(\/([^\s\<\>\,\{\}\\\|\^\[\]\'])*)?$/);
+    return url.match(/(^(ht|f)tps?:\/\/)([a-zA-Z0-9\.-])+(\.([a-zA-Z]{2,}))?(\:([0-9]{1,5}))?(\/([^\s\<\>\,\{\}\\\|\^\[\]\'])*)?$/);
 }
 
 function urlToNuc() {
-
     var url = document.getElementById('url_field').value;
     if (is_valid_url(url)) {
         // Encode special characters
@@ -874,7 +873,7 @@ function updateScreen() {
 
 function clearURLField(defaultText) {
     var browseto = document.getElementById('url_field');
-    browseto.setAttribute('value', 'http://');
+    browseto.setAttribute('value', 'https://');
 }
 
 // lastJSON is used to reduce the database polling rate.
