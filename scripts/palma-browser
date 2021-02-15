@@ -8,12 +8,25 @@ killbrowser() {
     [ -d "$2" ] && rm -rf "$2"
 }
 
+install_chromium_extension() {
+    EXTDIR="${BROWSER_PROFILE}/Default/Extensions"
+    mkdir -p $EXTDIR
+    if [ ! -d "$EXTDIR/$1" ]; then
+        if [ ! -f "/tmp/$1.crx" ]; then
+            CHROMIUM_VERSION=$(chromium --version | awk '{print $2}')
+            wget "https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion=$CHROMIUM_VERSION&x=id%3D$1%26installsource%3Dondemand%26uc" -O /tmp/$1.crx
+        fi
+        unzip /tmp/$1.crx -d $EXTDIR/$1
+    fi
+}
+
 case "${palma_browser}" in
     chromium)
         BROWSER_CMD=chromium
         if command -v chromium-browser >/dev/null 2>&1; then BROWSER_CMD=chromium-browser; fi
     BROWSER_PROFILE=`mktemp -d`
-    ${BROWSER_CMD} --disable-features=TranslateUI --disable-features=Translate --app="$@" --user-dir="${BROWSER_PROFILE}" --user-data-dir="${BROWSER_PROFILE}" --load-extension=/usr/share/palma/settings/chromium/i-dont-care-about-cookies &
+    install_chromium_extension "fihnjjcciajhdojfnbdddfaoknhalnja"
+    ${BROWSER_CMD} --disable-features=TranslateUI --disable-features=Translate --app="$@" --user-dir="${BROWSER_PROFILE}" --user-data-dir="${BROWSER_PROFILE}" --load-extension=`ls -dm ${BROWSER_PROFILE}/Default/Extensions/* 2>/dev/null | tr -d '\n'` &
     BROWSER_PID=$!
     trap "killbrowser ${BROWSER_PID} ${BROWSER_PROFILE}" TERM
     ;;
