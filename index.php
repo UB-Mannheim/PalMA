@@ -82,24 +82,8 @@ if (isset($_SESSION['username'])) {
      * file paths for vnc downloads
      */
     $winvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/winvnc-palma.exe";
-    $macvnc = "https://www.bib.uni-mannheim.de/palma/VineServer.dmg";
+    $macvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/osx-vnc.dmg";
     $linuxsh = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/x11.sh";
-
-    /*
-     * contact form elements
-     * might be sourced out and included
-     */
-if (isset($_POST['submit'])) {
-    $to = "sysadmin@bib.uni-mannheim.de";
-    $from = escapeshellcmd($_POST['email']);
-    $name = escapeshellcmd($_POST['name']);
-    $subject = "Feedback for PalMA";
-    $message = $name . " wrote the following:" . "\n\n" . escapeshellcmd($_POST['message']);
-
-    $headers = "From:" . $from;
-    mail($to, $subject, $message, $headers);
-    echo "Mail Sent. Thank you for your feedback " . $name . ", we will get in touch with you shortly.";
-}
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
@@ -161,7 +145,6 @@ function keyControl(number, image, controlClass, key, handler, disabled, title) 
   if ( (keyHandler == "") || (keyHandler == null) ) {
     keyHandler = "default";
   }
-
   var button = document.createElement('button');
   var icon = document.createElement('i');
   if (!disabled) {
@@ -207,11 +190,10 @@ function downloadFile(screensection) {
 
 function is_valid_url(url)
 {
-    return url.match(/(^(ht|f)tps?:\/\/)([a-zA-Z0-9\.-])+(\.([a-zA-Z]{2,}))(\/([^\s\<\>\,\{\}\\\|\^\[\]\'])*)?$/);
+    return url.match(/(^(ht|f)tps?:\/\/)([a-zA-Z0-9\.-])+(\.([a-zA-Z]{2,}))?(\:([0-9]{1,5}))?(\/([^\s\<\>\,\{\}\\\|\^\[\]\'])*)?$/);
 }
 
 function urlToNuc() {
-
     var url = document.getElementById('url_field').value;
     if (is_valid_url(url)) {
         // Encode special characters
@@ -319,7 +301,7 @@ function markCurrentLayout(layout) {
             children[k].style.backgroundColor = "";
         }
     }
-    document.getElementById(layout).style.backgroundColor = "#990000";
+    document.getElementById(layout).style.backgroundColor = "#232e58";
 }
 
 function miniDisplaySelect(element) {
@@ -351,20 +333,20 @@ function getHandlerCommand(handle, task) {
     handler["default"]["clockwise"] = "undefined";
 
     // Handler for web pages.
-    handler["midori"] = {};
-    handler["midori"]["up"] = "Up";
-    handler["midori"]["down"] = "Down";
-    handler["midori"]["left"] = "Left";
-    handler["midori"]["right"] = "Right";
-    handler["midori"]["next"] = "Next";
-    handler["midori"]["prior"] = "Prior";
-    handler["midori"]["home"] = "Home";
-    handler["midori"]["end"] = "End";
-    handler["midori"]["zoomin"] = "ctrl+plus";
-    handler["midori"]["zoomout"] = "ctrl+minus";
-    handler["midori"]["download"] = "undefined";
-    handler["midori"]["counterclockwise"] = "undefined";
-    handler["midori"]["clockwise"] = "undefined";
+    handler["palma-browser"] = {};
+    handler["palma-browser"]["up"] = "Up";
+    handler["palma-browser"]["down"] = "Down";
+    handler["palma-browser"]["left"] = "Left";
+    handler["palma-browser"]["right"] = "Right";
+    handler["palma-browser"]["next"] = "Next";
+    handler["palma-browser"]["prior"] = "Prior";
+    handler["palma-browser"]["home"] = "Home";
+    handler["palma-browser"]["end"] = "End";
+    handler["palma-browser"]["zoomin"] = "ctrl+plus";
+    handler["palma-browser"]["zoomout"] = "ctrl+minus";
+    handler["palma-browser"]["download"] = "undefined";
+    handler["palma-browser"]["counterclockwise"] = "undefined";
+    handler["palma-browser"]["clockwise"] = "undefined";
 
     // Handler for images.
     handler["feh"] = {};
@@ -493,7 +475,7 @@ function getHandlerCommand(handle, task) {
     handler["zathura"]["zoomout"] = "minus";
     handler["zathura"]["download"] = "download";
     handler["zathura"]["counterclockwise"] = "undefined";
-    handler["zathura"]["clockwise"] = "undefined";
+    handler["zathura"]["clockwise"] = "r";
 
     var send_keys = handler["default"]["up"];
 
@@ -699,7 +681,9 @@ function addWindowControls(layout, controls, screensection, file, status) {
     topbar.appendChild(keyControl(screensection, 'fa fa-rotate-left', 'counterclockwise', 'counterclockwise', handler, !counterclockwise, '<?=addslashes(__("Rotate counterclockwise"))?>'));
     topbar.appendChild(keyControl(screensection, 'fa fa-rotate-right', 'clockwise', 'clockwise', handler, !clockwise, '<?=addslashes(__("Rotate clockwise"))?>'));
     var downloadbutton = keyControl(screensection, 'fa fa-download', 'download', 'download', handler, !download, '<?=addslashes(__("Download this item"))?>');
-    downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
+    if(download) {
+      downloadbutton.setAttribute('onclick', 'downloadFile(' + screensection + ')');
+    }
     topbar.appendChild(downloadbutton);
     button = document.createElement('button');
     button.setAttribute("class", "trash");
@@ -787,7 +771,7 @@ function updateWindowList(window){
             button.setAttribute("class", "window_entry_button");
             button.setAttribute('onclick', "openAccordion('" + divID + "')");
             var icon = document.createElement('i');
-            if (handler.indexOf("midori") > -1) {
+            if (handler.indexOf("palma-browser") > -1) {
                 icon.setAttribute("class", "fa fa-globe");
             } else if (handler.indexOf("vnc") > -1) {
                 icon.setAttribute("class", "fa fa-video-camera");
@@ -857,14 +841,14 @@ function updateControlsBySection(window) {
                 if (handler.indexOf("--writer") > -1) {
                     control = ["libreoffice-writer", true, true, true, true, false, false, false, false, true, true, true, false, false];
                 }
-        } else if (handler.indexOf("midori") > -1) {
-            control = ["midori", true, true, true, true, true, true, true, true, true, true, false, false, false];
+        } else if (handler.indexOf("palma-browser") > -1) {
+            control = ["palma-browser", true, true, true, true, true, true, true, true, true, true, false, false, false];
         } else if (handler.indexOf("vlc") > -1) {
             control = ["vlc", false, false, false, true, false, false, false, false, false, false, false, false, false];
         } else if (handler.indexOf("vnc") > -1) {
             control = ["vnc", true, true, true, true, true, true, false, false, false, false, false, false, false];
         } else if (handler.indexOf("zathura") > -1) {
-            control = ["zathura", true, true, true, true, true, true, true, true, true, true, true, false, false];
+            control = ["zathura", true, true, true, true, true, true, true, true, true, true, true, false, true];
         } else {
             control = ["undefined", false, false, false, false, false, false, false, false, false, false, false, false, false];
         }
@@ -889,7 +873,7 @@ function updateScreen() {
 
 function clearURLField(defaultText) {
     var browseto = document.getElementById('url_field');
-    browseto.setAttribute('value', 'http://');
+    browseto.setAttribute('value', 'https://');
 }
 
 // lastJSON is used to reduce the database polling rate.
@@ -1341,7 +1325,6 @@ window.onclick = function(event) {
                 <h3><?=addslashes(__('Tell us what you think'))?></h3>
                 <div>
                     <p><?=addslashes(__('Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on '))?><a href="https://github.com/UB-Mannheim/PalMA" target="_blank">GitHub</a>.<br /><?=__('Thank you!')?></p>
-                    <iframe width="100%" height="500" frameborder="0" src="https://www.bib.uni-mannheim.de/palma/feedback/form"></iframe>
                 </div>
             </div> <!-- contactcontainer -->
         </div> <!-- feedback -->
@@ -1399,17 +1382,6 @@ window.onclick = function(event) {
     }
     ?>
 </div> <!-- Footer -->
-
-<?php
-
-    $plugin_dir = "plugins/";
-    $stats = "piwik.php";
-
-if (file_exists($plugin_dir . $stats)) {
-    include $plugin_dir . $stats;
-}
-
-?>
 
 </body>
 </html>

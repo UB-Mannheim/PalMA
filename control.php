@@ -32,7 +32,8 @@ function displayCommand($cmd)
 
     monitor("control.php: displayCommand $cmd");
 
-    $result = shell_exec($cmd);
+    // add directories with palma-browser to PATH
+    $result = shell_exec('PATH=/usr/lib/palma:./scripts:$PATH '.$cmd);
     trace("displayCommand $cmd, result=$result");
     return $result;
 }
@@ -429,13 +430,14 @@ function processRequests($db)
         }
 
         if (array_key_exists('delete', $_REQUEST)) {
-            $delete = str_replace(" ", "\ ", addslashes($_REQUEST['delete']));
-            trace("delete=$delete, close window $windownumber");
+            $delete = addslashes($_REQUEST['delete']);
+            trace("delete='$delete', close window $windownumber");
 
             // Restrict deletion to files known in the db.
             // TODO: check if given file and section match the values in the DB,
             // but currently, both those values can be ambiguos
             $file_in_db = $db->querySingle("SELECT id FROM window WHERE file='$delete'");
+            $delete = str_replace(" ", "\ ", $delete);
             trace("file in db: $file_in_db");
             if ($file_in_db){
                 if (file_exists($delete)) {
@@ -564,8 +566,7 @@ function processRequests($db)
                 "section" => "",
                 "state" => "",
                 "file" => $openURL,
-                // "handler" => "iceweasel --new-window",
-                "handler" => "/usr/bin/midori -e show-navigationbar=false -a",
+		"handler" => "palma-browser",
                 "userid" => "",
                 "date" => $date
             );

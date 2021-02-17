@@ -1,9 +1,9 @@
 PalMA – share a team monitor
 ============================
 
-Copyright (C) 2014–2017 Universitätsbibliothek Mannheim
+Copyright (C) 2014–2021 Universitätsbibliothek Mannheim
 
-Authors: Alexander Wagner, Stefan Weil, Dennis Müller (UB Mannheim)
+Authors: Alexander Wagner, Stefan Weil, Jörg Mechnich, Dennis Müller (UB Mannheim)
 
 This is free software. You may use it under the terms of the
 GNU General Public License (GPL). See [docs/gpl.txt](docs/gpl.txt) for details.
@@ -30,9 +30,9 @@ PalMA in Use
 ![PalMA in
 use](https://raw.githubusercontent.com/UB-Mannheim/PalMA/master/docs/images/IMG_5965.JPG)
 
-PalMA New UI
+PalMA UI
 
-![PalMA NewUI](https://raw.githubusercontent.com/UB-Mannheim/PalMA/master/docs/images/screenshots/palma-newui-overview.png)
+![PalMA UI](https://raw.githubusercontent.com/UB-Mannheim/PalMA/master/docs/images/screenshots/palma-newui-overview.png)
 
 Installation
 ------------
@@ -40,7 +40,7 @@ Installation
 See [INSTALL.md](INSTALL.md) for details.
 
 Mannheim University Library develops and installs PalMA
-on mini PCs running Debian GNU Linux and Raspbian (Stretch). Other Linux based hardware
+on mini PCs running the stable releases of Debian GNU Linux and Raspbian. Other Linux based hardware
 and software combination can also be used, but might require some smaller
 modifications.
 
@@ -76,9 +76,8 @@ with desktop computers and notebooks:
   Using the Single Click version UltraVNC SC, it is possible
   to address preconfigured displays without any installation.
 
-* VineServer – https://www.testplant.com/osxvnc (commercial)
+* VineServer – https://github.com/stweil/OSXvnc (GNU General Public License)
   This VNC server is needed for MacBooks with retina display.
-  There is a free VNC server for individual private use.
 
 * x11vnc – http://www.karlrunge.com/x11vnc/ (free)
   This VNC server is included in most Linux distributions.

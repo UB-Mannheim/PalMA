@@ -20,7 +20,8 @@ parser.add_argument('--libdir', default=argparse.SUPPRESS,
 parser.add_argument('--wwwdir', default=argparse.SUPPRESS,
                     help='set www root directory explicitly (default: PREFIX/share/palma)')
 
-parser.add_argument('--browser', default='midori', choices=['midori','dwb'],
+parser.add_argument('--browser', default='midori',
+                    choices=[ 'chromium', 'dwb', 'midori' ],
                     help='set browser')
 parser.add_argument('--dbdir', default='/var/lib/palma',
                     help='set database directory')
@@ -256,6 +257,7 @@ try:
 
     libdir = destdir + args.libdir
     mkdir(libdir)
+    shutil.copy('scripts/palma-browser',libdir)
     shutil.copy('scripts/startx',libdir)
 
     # install syslog configuration
