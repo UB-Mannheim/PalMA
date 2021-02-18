@@ -1,3 +1,77 @@
+palma (1.4.9) unstable; urgency=medium
+
+  [ Jörg Mechnich ]
+  * refined .dockerignore
+
+  [ Stefan Weil ]
+  * Update list of required packages
+
+  [ Dennis Müller ]
+  * use php-sqlite3 instead of php5-sqlite in circle.yml
+
+  [ Stefan Weil ]
+  * Add documentation for function checkPermission and simplify code
+
+  [ Dennis Müller ]
+  * escape some user input, change feedback form mail address
+  * improve pdf download, escape user input
+  * escape potentially insecure variables
+  * deny access for indirect loopback IPs
+  * check layout for valid value and escape parameter
+  * restrict file deletion to known items in db, escape more request params
+  * escape locale strings (fix #188)
+  * remove duplicate package entries
+
+  [ Jörg Mechnich ]
+  * removed CircleCI
+
+  [ Eliana Ruslanova ]
+  * Some texts were translated to Russian
+
+  [ Stefan Weil ]
+  * Fix two syntax issues
+  * Update status of translations
+
+  [ Jörg Mechnich ]
+  * added palma-browser
+  * fixed browser scrollbar behaviour
+  * added one second wait after switching screensaver to fullscreen
+  * updated debian package dependencies
+  * renamed handler for web pages from 'midori' to 'palma-browser'
+  * detect chromium vs. chromium-browser
+  * added palma-browser script, offer chromium as browser choice
+
+  [ Dennis Müller ]
+  * re-add zoom controls
+  * remove feedback form (fix #184)
+  * new main color
+  * circumvent 'undefined index' warnings
+  * add rotation to zathura
+  * remove obsolete plugin code
+  * fix error in deletion of files with names containing whitespace
+  * add local binary for osx-vnc
+  * update readmes
+  * switch to fullscreen if there even is a window; some whitespace stuff
+  * disable translation in older and newer versions of chromium
+  * remove obsolete console.php
+  * add wmv to vlc handler
+  * update osxvnc
+  * add chromium plugin to automatically accept cookies
+
+  [ Angelos Loucas ]
+  * Added language: Greek (#194)
+
+  [ Stefan Weil ]
+  * Update status of translations
+
+  [ Dennis Müller ]
+  * update dockerfile
+  * url field: https by default, allow ip addresses and ports
+  * update link to osxvnc in readme
+  * download cookie plugin on the fly (instead of providing it ootb)
+
+ -- Dennis Müller <dennmuel@bss07.bib.uni-mannheim.de>  Thu, 18 Feb 2021 09:31:21 +0100
+
 palma (1.4.8) unstable; urgency=medium
 
   [ Jörg Mechnich ]
