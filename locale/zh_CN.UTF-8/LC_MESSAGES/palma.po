@@ -255,7 +255,7 @@ msgstr "用URL来显示网站"
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
-msgstr "实时显示您的桌面情下载VNC屏幕分享软件"
+msgstr "实时显示您的桌面请下载VNC屏幕分享软件"
 
 #: index.php:1233
 msgid "Windows:"
@@ -494,7 +494,7 @@ msgstr "不支持大型文件"
 
 #: upload.php:64
 msgid "File was only partially uploaded."
-msgstr "仅部分文件上传成功"
+msgstr "文件仅部分上传成功"
 
 #: upload.php:67
 #, php-format
@@ -504,7 +504,7 @@ msgstr "错误码 %s"
 #: upload.php:81
 #, php-format
 msgid "File '%s' cannot be shown."
-msgstr "文件 '%s' 显示失败。"
+msgstr "文件 '%s' 无法显示。"
 
 #: examples/screensaver/pictureshow.php:35
 msgid "Picture Show"
