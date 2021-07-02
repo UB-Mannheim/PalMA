@@ -746,6 +746,7 @@ Completion: **100.00** (115 / 115 strings)
 Contributors:
 
   * Alexander Wagner
+  * Bo Tong
   * Caipei Song
   * Chen Zongqi
   * Jörg Mechnich
