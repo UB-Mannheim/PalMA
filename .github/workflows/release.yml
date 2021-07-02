@@ -1,0 +1,72 @@
+name: build deb
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set release version env
+        id: vars
+        run: |
+            version=$(echo ${GITHUB_REF#refs/*/} | sed s/^v//)
+            echo "::set-output name=version::$version"
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Build Debian Packages
+        run: |
+            sudo apt install dh-make
+            make deb
+      - name: Upload Main Package
+        id: upload-deb-main
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ../palma_${{ steps.vars.outputs.version }}_all.deb
+          asset_name: palma_${{ steps.vars.outputs.version }}_all.deb
+          asset_content_type: application/zip
+      - name: Upload Nginx Package
+        id: upload-deb-nginx
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ../palma-nginx_${{ steps.vars.outputs.version }}_all.deb
+          asset_name: palma-nginx_${{ steps.vars.outputs.version }}_all.deb
+          asset_content_type: application/zip
+      - name: Upload Apache Package
+        id: upload-deb-apache
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ../palma-apache_${{ steps.vars.outputs.version }}_all.deb
+          asset_name: palma-apache_${{ steps.vars.outputs.version }}_all.deb
+          asset_content_type: application/zip
+      - name: Upload Themes Package
+        id: upload-deb-themes
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ../palma-themes-ubma_${{ steps.vars.outputs.version }}_all.deb
+          asset_name: palma-themes-ubma_${{ steps.vars.outputs.version }}_all.deb
+          asset_content_type: application/zip
