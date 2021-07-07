@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-02 17:13+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
-"Last-Translator: Chieh-Han Chen <chichen@mail.uni-mannheim.de>\n"
+"Last-Translator: Noel Chia <nchia@mail.uni-mannheim.de>\n"
 "Language-Team: Traditional Chinese <zh-tw@li.org>\n"
 "Language: zh-tw\n"
 "MIME-Version: 1.0\n"
@@ -46,11 +46,11 @@ msgstr "縮小"
 
 #: index.php:681
 msgid "Rotate counterclockwise"
-msgstr ""
+msgstr "逆時針旋轉"
 
 #: index.php:682
 msgid "Rotate clockwise"
-msgstr ""
+msgstr "順時針旋轉"
 
 #: index.php:683
 #, fuzzy
@@ -80,19 +80,19 @@ msgstr "返回最後一頁"
 
 #: index.php:709
 msgid "Up"
-msgstr ""
+msgstr "上"
 
 #: index.php:711
 msgid "Left"
-msgstr ""
+msgstr "左"
 
 #: index.php:712
 msgid "Right"
-msgstr ""
+msgstr "右"
 
 #: index.php:714
 msgid "Down"
-msgstr ""
+msgstr "下"
 
 #: index.php:739
 msgid "Welcome"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: index.php:745 index.php:1053 index.php:1209
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: index.php:963
 msgid "Sorry! Screensharing for your device is currently not supported."
@@ -126,7 +126,7 @@ msgstr ""
 
 #: index.php:1062
 msgid "URL"
-msgstr ""
+msgstr "網址"
 
 #: index.php:1063
 #, fuzzy
@@ -227,7 +227,7 @@ msgstr ""
 
 #: index.php:1197
 msgid "Connect"
-msgstr ""
+msgstr "連接"
 
 #: index.php:1198
 #, fuzzy
