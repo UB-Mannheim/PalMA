@@ -96,7 +96,7 @@ msgstr "下"
 
 #: index.php:739
 msgid "Welcome"
-msgstr ""
+msgstr "歡迎"
 
 #: index.php:741
 msgid "There is no shared content yet. Click below to get started!"
@@ -122,7 +122,7 @@ msgstr "幫出 ＋ 其他"
 
 #: index.php:1061
 msgid "File"
-msgstr ""
+msgstr "檔案"
 
 #: index.php:1062
 msgid "URL"
@@ -164,7 +164,7 @@ msgstr ""
 
 #: index.php:1106
 msgid "Download screensharing tool"
-msgstr ""
+msgstr "下載螢幕分享工具"
 
 #: index.php:1113
 msgid ""
