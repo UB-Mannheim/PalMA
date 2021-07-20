@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-02 17:13+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
-"Last-Translator: Chen Zongqi\n"
+"Last-Translator: RR\n"
 "Language-Team: Chinese <zh@li.org>\n"
 "Language: zh\n"
 "MIME-Version: 1.0\n"
@@ -126,7 +126,7 @@ msgstr "文件"
 
 #: index.php:1062
 msgid "URL"
-msgstr "URL"
+msgstr "网域地址"
 
 #: index.php:1063
 #, fuzzy
