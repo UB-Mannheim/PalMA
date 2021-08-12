@@ -4,44 +4,35 @@ palma_browser="${palma_browser:-chromium}"
 
 killbrowser() {
     echo "Killing browser with pid $1"
-    kill "$1"
-    [ -d "$2" ] && rm -rf "$2"
-}
-
-install_chromium_extension() {
-    EXTDIR="${BROWSER_PROFILE}/Default/Extensions"
-    mkdir -p $EXTDIR
-    if [ ! -d "$EXTDIR/$1" ]; then
-        if [ ! -f "/tmp/$1.crx" ]; then
-            CHROMIUM_VERSION=$(chromium --version | awk '{print $2}')
-            wget "https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion=$CHROMIUM_VERSION&x=id%3D$1%26installsource%3Dondemand%26uc" -O /tmp/$1.crx
-        fi
-        unzip /tmp/$1.crx -d $EXTDIR/$1
-    fi
+    kill "$1" > /dev/null 2>&1
+    rm -rf "$2"
 }
 
 case "${palma_browser}" in
     chromium)
         BROWSER_CMD=chromium
-        if command -v chromium-browser >/dev/null 2>&1; then BROWSER_CMD=chromium-browser; fi
-    BROWSER_PROFILE=`mktemp -d`
-    install_chromium_extension "fihnjjcciajhdojfnbdddfaoknhalnja"
-    ${BROWSER_CMD} --disable-features=TranslateUI --disable-features=Translate --app="$@" --user-dir="${BROWSER_PROFILE}" --user-data-dir="${BROWSER_PROFILE}" --load-extension=`ls -dm ${BROWSER_PROFILE}/Default/Extensions/* 2>/dev/null | tr -d '\n'` &
-    BROWSER_PID=$!
-    trap "killbrowser ${BROWSER_PID} ${BROWSER_PROFILE}" TERM
-    ;;
+        if command -v chromium-browser >/dev/null 2>&1; then
+	    BROWSER_CMD=chromium-browser
+	fi
+	BROWSER_PROFILE=`mktemp -d`
+	${BROWSER_CMD} \
+	    --disable-features=TranslateUI --disable-features=Translate \
+	    --user-dir="${BROWSER_PROFILE}" --user-data-dir="${BROWSER_PROFILE}" \
+	    --app="$@"
+	trap "killbrowser $! ${BROWSER_PROFILE}" TERM KILL EXIT
+	;;
     dwb)
-    mkdir -p "$HOME/.config/dwb"
-    [ -r "$HOME/.config/dwb/keys" ] ||
-        cat > "$HOME/.config/dwb/keys" <<EOF
+	mkdir -p "$HOME/.config/dwb"
+	[ -r "$HOME/.config/dwb/keys" ] ||
+            cat > "$HOME/.config/dwb/keys" <<EOF
 [default]
 scroll_bottom= @End@
 scroll_top= @Home@
 zoom= =
 zoom_in= +
 EOF
-    [ -r "$HOME/.config/dwb/settings" ] ||
-        cat > "$HOME/.config/dwb/settings" <<EOF
+	[ -r "$HOME/.config/dwb/settings" ] ||
+            cat > "$HOME/.config/dwb/settings" <<EOF
 [default]
 file-sync-interval=3600
 sync-files=session
@@ -50,12 +41,12 @@ cookies-store-policy=session
 save-session=false
 tabbed-browsing=false
 EOF
-    dwb --execute=presentation_mode "$@"
-    ;;
+	dwb --execute=presentation_mode "$@"
+	;;
     midori)
-    midori -e Fullscreen -a "$@"
-    ;;
+	midori -e Fullscreen -a "$@"
+	;;
     *)
-    ;;
+	;;
 esac
 wait
