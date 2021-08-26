@@ -1,3 +1,23 @@
+palma (1.4.10) unstable; urgency=medium
+
+  [ Dennis Müller ]
+  * Create release.yml
+
+  [ Bo Tong ]
+  * Change something in zh_CN part translation (#197)
+
+  [ Stefan Weil ]
+  * Update files in locale
+
+  [ Noel Chia ]
+  * Added some zh_TW translations
+
+  [ Jörg Mechnich ]
+  * palma-browser: removed extensions for chromium as they can no longer be added from command line
+  * updated locale/README.md
+
+ -- Jörg Mechnich <Joerg.Mechnich@gmail.com>  Thu, 26 Aug 2021 18:21:46 +0200
+
 palma (1.4.9) unstable; urgency=medium
 
   [ Jörg Mechnich ]
