@@ -18,7 +18,7 @@
 |[sq_AL](#sq_al)|100.00|
 |[ur_PK](#ur_pk)|13.91|
 |[zh_CN](#zh_cn)|100.00|
-|[zh_TW](#zh_tw)|41.74|
+|[zh_TW](#zh_tw)|49.57|
 
 ## ar
 
@@ -757,7 +757,7 @@ Contributors:
 
 ## zh_TW
 
-Completion: **41.74** (48 / 115 strings)
+Completion: **49.57** (57 / 115 strings)
 
 Contributors:
 
@@ -765,6 +765,7 @@ Contributors:
   * Alexander Wagner
   * Caipei Song
   * Jörg Mechnich
+  * Noel Chia
   * Piero Divasto
   * Stefan Weil
   * Yang
@@ -772,7 +773,6 @@ Contributors:
 Missing:
   * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
   * `A second window opens, in which you can start &quot;VineServer&quot;.`
-  * `Add`
   * `Add file (click or drop here)`
   * `Add webpage`
   * `Add your screen`
@@ -782,12 +782,10 @@ Missing:
   * `Buttons on the left jump to the top, to the end, a page up or a page down`
   * `CTRL + click the downloaded file and run it.`
   * `Click here to show the webpage on the screen.`
-  * `Connect`
   * `Controls that are not available for certain kinds of content are marked grey.`
   * `Delete all items`
   * `Delete the item`
   * `Double-click the name of your PalMA station in the appearing list.`
-  * `Down`
   * `Download screensharing tool`
   * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
   * `Drag and drop files or click here to upload.`
@@ -803,7 +801,6 @@ Missing:
   * `In the top bar you can`
   * `In the upper left corner, click on &quot;VNC Server&quot;.`
   * `Layout`
-  * `Left`
   * `Linux:`
   * `Mac:`
   * `Navigate`
@@ -813,10 +810,7 @@ Missing:
   * `PIN: `
   * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
   * `Recommend us`
-  * `Right`
   * `Rotate`
-  * `Rotate clockwise`
-  * `Rotate counterclockwise`
   * `Run the downloaded file.`
   * `Run the downloaded shell script.`
   * `Select &quot;Reverse Connection&quot;.`
@@ -828,8 +822,6 @@ Missing:
   * `This help,`
   * `To display a website use the URL field.`
   * `To share your desktop in real time download the VNC screen sharing software and`
-  * `URL`
-  * `Up`
   * `Use the Add-Section to share content on the PalMA monitor.`
   * `Welcome`
   * `Windows:`
