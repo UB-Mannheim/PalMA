@@ -175,7 +175,7 @@ msgstr ""
 
 #: index.php:1119
 msgid "Layout"
-msgstr "登出"
+msgstr "界面排布"
 
 #: index.php:1120
 msgid "Navigate"
@@ -191,7 +191,7 @@ msgstr "关闭所有窗口并移除已上传文件"
 
 #: index.php:1178
 msgid "Delete all items"
-msgstr "删除所有"
+msgstr "删除所有项目"
 
 #: index.php:1184
 msgid "Help"
@@ -220,7 +220,7 @@ msgstr "PalMA小组屏幕同时展示最多4个贡献"
 
 #: index.php:1193
 msgid "For further information about PalMA in this institution"
-msgstr "更多关于本机构的PalMa信息"
+msgstr "更多关于本机构PalMa的信息"
 
 #: index.php:1193
 msgid "see here."
@@ -287,7 +287,7 @@ msgstr "在左上角，点击VNC Server"
 
 #: index.php:1226
 msgid "Select &quot;Reverse Connection&quot;."
-msgstr "选择撤销连接"
+msgstr "选择‘撤销连接’"
 
 #: index.php:1227
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
@@ -365,11 +365,11 @@ msgstr "控制那些已被标灰的无效类型内容"
 
 #: index.php:1258
 msgid "Some additional features are:"
-msgstr "一些额外的特点"
+msgstr "一些额外的特点有："
 
 #: index.php:1260
 msgid "This help,"
-msgstr "这可以帮助,"
+msgstr "这有帮助,"
 
 #: index.php:1261
 msgid ""
