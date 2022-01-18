@@ -108,7 +108,7 @@ msgstr "添加"
 
 #: index.php:963
 msgid "Sorry! Screensharing for your device is currently not supported."
-msgstr "十分抱歉！您的设备现在还不能使用屏幕分享"
+msgstr "十分抱歉！您的设备现在还不支持屏幕分享"
 
 #: index.php:1054 index.php:1236
 #, fuzzy
@@ -119,7 +119,6 @@ msgstr "鼠标指针控制"
 #, fuzzy
 msgid "Extras"
 msgstr "帮助 + 其它"
-
 #: index.php:1061
 msgid "File"
 msgstr "文件"
@@ -135,7 +134,7 @@ msgstr "屏幕"
 
 #: index.php:1070
 msgid "Drag and drop files or click here to upload."
-msgstr "拖拽您要上传的文件或者点击这里来上传"
+msgstr "拖拽文件或者点击此处来上传"
 
 #: index.php:1072
 msgid "Add file (click or drop here)"
