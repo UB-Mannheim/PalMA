@@ -18,7 +18,7 @@ msgstr ""
 
 #: index.php:163
 msgid "not available"
-msgstr ""
+msgstr "無法使用"
 
 #: index.php:204
 msgid "Enter valid URL"
