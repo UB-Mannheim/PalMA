@@ -429,7 +429,7 @@ msgstr "新用户可以加入于"
 #: index.php:1367
 #, fuzzy
 msgid "Disconnect all users and end the session"
-msgstr "断开所有用户并结束会话（计算机用语）"
+msgstr "断开所有用户并结束会话"
 
 #: index.php:1368
 msgid "End the session"
