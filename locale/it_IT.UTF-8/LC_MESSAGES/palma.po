@@ -80,31 +80,31 @@ msgstr "salta alla fine"
 
 #: index.php:709
 msgid "Up"
-msgstr ""
+msgstr "Verso l'alto"
 
 #: index.php:711
 msgid "Left"
-msgstr ""
+msgstr "A sinistra"
 
 #: index.php:712
 msgid "Right"
-msgstr ""
+msgstr "A destra"
 
 #: index.php:714
 msgid "Down"
-msgstr ""
+msgstr "Giù"
 
 #: index.php:739
 msgid "Welcome"
-msgstr ""
+msgstr "Benvenuto"
 
 #: index.php:741
 msgid "There is no shared content yet. Click below to get started!"
-msgstr ""
+msgstr "Non ci sono ancora contenuti condivisi. Clicca qui per iniziare!"
 
 #: index.php:745 index.php:1053 index.php:1209
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: index.php:963
 msgid "Sorry! Screensharing for your device is currently not supported."
@@ -126,7 +126,7 @@ msgstr ""
 
 #: index.php:1062
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: index.php:1063
 #, fuzzy
