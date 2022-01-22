@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-02 17:13+0200\n"
 "PO-Revision-Date: 2014-07-01 16:39+0200\n"
-"Last-Translator: Stefano Leccese\n"
+"Last-Translator: Simon Rankl\n"
 "Language-Team: Italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -46,11 +46,11 @@ msgstr "Rimpicciolire"
 
 #: index.php:681
 msgid "Rotate counterclockwise"
-msgstr ""
+msgstr "Ruotare in senso antiorario"
 
 #: index.php:682
 msgid "Rotate clockwise"
-msgstr ""
+msgstr "Ruotare in senso orario"
 
 #: index.php:683
 #, fuzzy
