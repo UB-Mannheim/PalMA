@@ -1,3 +1,20 @@
+palma (1.4.11) unstable; urgency=medium
+
+  [ chihchih-ouoh ]
+  * translate some words
+
+  [ Simon Rankl ]
+  * Modified Italian directory
+  * Header changed & additional texts translated
+
+  [ Stefan Weil ]
+  * Update status of translations
+
+  [ Jörg Mechnich ]
+  * Fix issues with palma-browser
+
+ -- Jörg Mechnich <Joerg.Mechnich@gmail.com>  Sun, 17 Jul 2022 23:35:14 +0200
+
 palma (1.4.10) unstable; urgency=medium
 
   [ Dennis Müller ]
