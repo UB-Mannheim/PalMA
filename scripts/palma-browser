@@ -3,9 +3,16 @@
 palma_browser="${palma_browser:-chromium}"
 
 killbrowser() {
-    echo "Killing browser with pid $1"
+    echo "palma-browser: killing browser with pid $1"
     kill "$1" > /dev/null 2>&1
-    rm -rf "$2"
+    sleep 1
+    kill -9 "$1" > /dev/null 2>&1
+    shift
+    if [ $# -gt 0 ] && [ -d "$1" ]; then
+	echo "palma-browser: deleting profile directory"
+	rm -rf "$1"
+    fi
+    shift
 }
 
 case "${palma_browser}" in
@@ -14,39 +21,24 @@ case "${palma_browser}" in
         if command -v chromium-browser >/dev/null 2>&1; then
 	    BROWSER_CMD=chromium-browser
 	fi
+	echo "palma-browser: using $BROWSER_CMD"
+
 	BROWSER_PROFILE=`mktemp -d`
 	${BROWSER_CMD} \
 	    --disable-features=TranslateUI --disable-features=Translate \
 	    --user-dir="${BROWSER_PROFILE}" --user-data-dir="${BROWSER_PROFILE}" \
-	    --app="$@"
-	trap "killbrowser $! ${BROWSER_PROFILE}" TERM KILL EXIT
-	;;
-    dwb)
-	mkdir -p "$HOME/.config/dwb"
-	[ -r "$HOME/.config/dwb/keys" ] ||
-            cat > "$HOME/.config/dwb/keys" <<EOF
-[default]
-scroll_bottom= @End@
-scroll_top= @Home@
-zoom= =
-zoom_in= +
-EOF
-	[ -r "$HOME/.config/dwb/settings" ] ||
-            cat > "$HOME/.config/dwb/settings" <<EOF
-[default]
-file-sync-interval=3600
-sync-files=session
-enable-private-browsing=true
-cookies-store-policy=session
-save-session=false
-tabbed-browsing=false
-EOF
-	dwb --execute=presentation_mode "$@"
+	    --app="$@" &
+	trap "killbrowser $!" TERM KILL EXIT
 	;;
     midori)
-	midori -e Fullscreen -a "$@"
+	echo "palma-browser: using midori"
+	midori -p -e Fullscreen -a "$@" &
+	trap "killbrowser $!" TERM KILL EXIT
 	;;
     *)
+	echo "palma-browser: unsupported browser '$palma_browser#"
 	;;
 esac
+echo "palma-browser: entering wait"
 wait
+echo "palma-browser: normal exit"

@@ -91,9 +91,10 @@ chown $user $rundir
 # Get some configuration parameters from ini file.
 export DISPLAY
 eval $(grep -v '^\[\|^[[:space:]]*;\|^[[:space:]]*$' $inifile)
-[ -z "$DISPLAY" ]   && DISPLAY=:1
-[ -z "$start_url" ] && start_url="http://$(hostname -f)/"
-[ -z "$theme" ]     && theme="demo/simple"
+[ -z "$DISPLAY" ]       && DISPLAY=:1
+[ -z "$start_url" ]     && start_url="http://$(hostname -f)/"
+[ -z "$theme" ]         && theme="demo/simple"
+[ -n "$palma_browser" ] && export palma_browser
 
 background="${start_url}theme/${theme}/background.png"
 screensaver="${start_url}theme/${theme}/screensaver.php"
