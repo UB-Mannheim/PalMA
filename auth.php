@@ -29,10 +29,8 @@ if (!isset($_SESSION['username'])) {
 } else {
     require_once('DBConnector.class.php');
     $dbcon = new palma\DBConnector();
-    $users = $dbcon->getUsers();
-    // empty db (e.g. after PalMA restart) or old session
-    if (count($users) === 0 ||
-        !in_array($_SESSION['username'], $users)) {
+    if (!$dbcon->checkUser($_SESSION['username'])) {
+        // empty db (e.g. after PalMA restart) or old session
         showLogin();
     }
 }

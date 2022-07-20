@@ -199,6 +199,16 @@ eod;
         return $users;
     }
 
+    public function checkUser($username)
+    {
+        $users = $this->getUsers();
+        // empty db (e.g. after PalMA restart) or old session
+        if (count($users) === 0 || !in_array($username, $users)) {
+            return false;
+        }
+        return true;
+    }
+
     public function getWindows()
     {
         // Get list of all windows, ordered by their section.
