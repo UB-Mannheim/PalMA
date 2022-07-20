@@ -11,8 +11,8 @@ killbrowser() {
     if [ $# -gt 0 ] && [ -d "$1" ]; then
 	echo "palma-browser: deleting profile directory"
 	rm -rf "$1"
+        shift
     fi
-    shift
 }
 
 case "${palma_browser}" in
