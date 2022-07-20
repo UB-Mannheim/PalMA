@@ -16,4 +16,4 @@
 /locale/*/LC_MESSAGES/*.mo
 /locale/*/LC_MESSAGES/*.po~
 *~
-\.#*
+\#*
