@@ -8,7 +8,7 @@ Homepage: https://github.com/UB-Mannheim/PalMA
 
 Package: palma
 Architecture: all
-Depends: ${misc:Depends}, palma-nginx | palma-apache, chromium | dwb | midori, feh, libreoffice, ssvnc, x11vnc, zathura, wmctrl, xdotool, openbox, sqlite3, php, php-curl, php-gd, php-intl, php-sqlite3, php-mbstring, gettext, libavcodec-extra | libavcodec58 , xserver-xorg, unclutter
+Depends: ${misc:Depends}, palma-nginx | palma-apache, chromium-browser | chromium | midori, feh, libreoffice, ssvnc, x11vnc, zathura, wmctrl, xdotool, openbox, sqlite3, php, php-curl, php-gd, php-intl, php-sqlite3, php-mbstring, gettext, libavcodec-extra | libavcodec58 , xserver-xorg, unclutter
 Description: PalMA – share a team monitor
  PalMA enables people to share several contents on one monitor. Users
  can display PDF files, office files, images, videos, websites and or

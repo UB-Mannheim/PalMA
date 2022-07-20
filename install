@@ -20,8 +20,8 @@ parser.add_argument('--libdir', default=argparse.SUPPRESS,
 parser.add_argument('--wwwdir', default=argparse.SUPPRESS,
                     help='set www root directory explicitly (default: PREFIX/share/palma)')
 
-parser.add_argument('--browser', default='midori',
-                    choices=[ 'chromium', 'dwb', 'midori' ],
+parser.add_argument('--browser', default='chromium',
+                    choices=[ 'chromium', 'chromium-browser', 'midori' ],
                     help='set browser')
 parser.add_argument('--dbdir', default='/var/lib/palma',
                     help='set database directory')
@@ -197,7 +197,7 @@ try:
                 sys.exit(1)
                 
             path = os.path.join(args.sysconfdir,
-                                'php/%s/fpm/conf.d' % phpversion)
+                                'php/%s/mods-available' % phpversion)
             if not os.path.exists(path):
                 os.makedirs(path)
             fn = os.path.join(path,'palma.ini')
@@ -210,6 +210,8 @@ try:
             shutil.copyfile('examples/palma.nginx.conf',fn)
             snr('s,/var/www/html,%s,g' % args.wwwdir, fn)
             snr('s,php7\.[0-9],php%s,g' % phpversion, fn)
+            call(['/usr/sbin/phpenmod', 'palma'])
+            call(['/usr/sbin/invoke-rc.d', 'php%s-fpm' % phpversion, 'restart'])
         
             path = os.path.join(args.sysconfdir,'nginx/sites-enabled')
             if not os.path.exists(path):

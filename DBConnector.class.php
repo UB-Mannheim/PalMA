@@ -10,7 +10,7 @@ require_once('globals.php');
 class DBConnector extends \SQLite3
 {
     const SQL_CREATE_TABLES = <<< eod
-
+BEGIN EXCLUSIVE TRANSACTION;
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE IF NOT EXISTS setting (
@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS window (
   userid INTEGER,
   date DATETIME
 );
+END TRANSACTION;
 eod;
 
     const SQL_RESET_TABLES = <<< eod

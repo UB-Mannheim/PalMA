@@ -1,9 +1,6 @@
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-}
 
-if (!isset($_SESSION['username'])) {
+function showLogin() {
     //if (isset($_SERVER['HTTP_REFERER'])) {
     //    error_log("auth.php referred by " . $_SERVER['HTTP_REFERER']);
     //}
@@ -20,4 +17,22 @@ if (!isset($_SESSION['username'])) {
     header($header);
 
     exit;
+}
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['username'])) {
+    // empty session
+    showLogin();
+} else {
+    require_once('DBConnector.class.php');
+    $dbcon = new palma\DBConnector();
+    $users = $dbcon->getUsers();
+    // empty db (e.g. after PalMA restart) or old session
+    if (count($users) === 0 ||
+        !in_array($_SESSION['username'], $users)) {
+        showLogin();
+    }
 }

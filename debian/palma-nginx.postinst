@@ -22,7 +22,7 @@ case "$1" in
         php_vers=$(ls -1 /usr/sbin/php-fpm* | tail -1 | grep -o '[0-9]\.[0-9]')
 
         # create php configuration for PalMA
-        confdir=/etc/php/${php_vers}/fpm/conf.d
+        confdir=/etc/php/${php_vers}/mods-available
         mkdir -p $confdir
         cat > $confdir/palma.ini <<EOF
 upload_max_filesize = 10M
@@ -30,6 +30,7 @@ post_max_size = 10M
 max_execution_time = 600
 request_terminate_timeout = 600
 EOF
+        phpenmod palma
         
         # create nginx site configuration for PalMA
         confdir=/etc/nginx/sites-available

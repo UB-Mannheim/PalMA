@@ -19,7 +19,8 @@ set -e
 case "$1" in
     purge)
         rm -f /etc/nginx/sites-available/palma
-        rm -f /etc/php/*/fpm/conf.d/palma.ini
+        phpdismod palma
+        rm -f /etc/php/*/mods-available/palma.ini
     ;;
     
     remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
