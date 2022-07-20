@@ -896,6 +896,9 @@ function pollDatabase() {
                     var text = xmlHttp.responseText;
                     lastJSON = text;
                     var db = JSON.parse(text);
+                    if (db === null || Object.keys(db).length === 0) {
+                        return;
+                    }
                     var i;
                     var layout = '';
                     for (i = 0; i < db.setting.length; i++) {

@@ -21,12 +21,14 @@ require_once('globals.php');
 if (!empty($_REQUEST['json'])) {
     $oldJSON = $_REQUEST['json'];
     $oldJSONarr = json_decode($oldJSON, true);
-    array_walk_recursive($oldJSONarr, function (&$value, $key) {
-        if (is_string($value) && preg_match('/^http/', $value)) {
-            $value = rawurlencode($value);
-        }
-    });
-    $oldJSON = json_encode($oldJSONarr);
+    if ($oldJSONarr != null) {
+        array_walk_recursive($oldJSONarr, function (&$value, $key) {
+            if (is_string($value) && preg_match('/^http/', $value)) {
+                $value = rawurlencode($value);
+            }
+        });
+        $oldJSON = json_encode($oldJSONarr);
+    }
     trace("db old: $oldJSON");
 }
 

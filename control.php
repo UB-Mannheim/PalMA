@@ -385,8 +385,11 @@ function processRequests($db)
 
             if (count($windowlist) == 0) {
                 trace("no window found for command");
+            } else if (is_numeric($window) && count($windowlist) <= $window) {
+                trace("window $window is out of bounds");
+            } else if (!is_numeric($window)) {
+                trace("unhandled window $window");
             } else {
-                // TODO: improve test whether window exists.
                 $windowname = $windowlist[$window];
                 $windowhex = hexdec($windowname);
             }
