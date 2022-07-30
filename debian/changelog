@@ -1,3 +1,20 @@
+palma (1.4.12) unstable; urgency=medium
+
+  [ Jörg Mechnich ]
+  * Add DEVELOPMENT.md
+
+  [ Dennis Müller ]
+  * fix broken link
+
+  [ Jörg Mechnich ]
+  * Remove dwb support and make chromium default. Fix small bugs wrt php and authentication.
+  * Add checkUser() to DBConnector class
+  * Add several sanity checks
+  * Fix bug in palma-browser
+  * Update gitignore
+
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Sat, 30 Jul 2022 16:34:52 +0200
+
 palma (1.4.11) unstable; urgency=medium
 
   [ chihchih-ouoh ]
@@ -13,7 +30,7 @@ palma (1.4.11) unstable; urgency=medium
   [ Jörg Mechnich ]
   * Fix issues with palma-browser
 
- -- Jörg Mechnich <Joerg.Mechnich@gmail.com>  Sun, 17 Jul 2022 23:35:14 +0200
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Sun, 17 Jul 2022 23:35:14 +0200
 
 palma (1.4.10) unstable; urgency=medium
 
@@ -33,7 +50,7 @@ palma (1.4.10) unstable; urgency=medium
   * palma-browser: removed extensions for chromium as they can no longer be added from command line
   * updated locale/README.md
 
- -- Jörg Mechnich <Joerg.Mechnich@gmail.com>  Thu, 26 Aug 2021 18:21:46 +0200
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Thu, 26 Aug 2021 18:21:46 +0200
 
 palma (1.4.9) unstable; urgency=medium
 
@@ -107,7 +124,7 @@ palma (1.4.9) unstable; urgency=medium
   * update link to osxvnc in readme
   * download cookie plugin on the fly (instead of providing it ootb)
 
- -- Dennis Müller <dennmuel@bss07.bib.uni-mannheim.de>  Thu, 18 Feb 2021 09:31:21 +0100
+ -- Dennis Müller <dennis.mueller@uni-mannheim.de>  Thu, 18 Feb 2021 09:31:21 +0100
 
 palma (1.4.8) unstable; urgency=medium
 
@@ -121,7 +138,7 @@ palma (1.4.8) unstable; urgency=medium
   * prettified Dockerfile
   * checkPermissions(): allow local connections
 
- -- Jörg Mechnich <Joerg.Mechnich@bib.uni-mannheim.de>  Sun, 08 Dec 2019 21:50:58 +0100
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Sun, 08 Dec 2019 21:50:58 +0100
 
 palma (1.4.7) unstable; urgency=medium
 
@@ -131,7 +148,7 @@ palma (1.4.7) unstable; urgency=medium
   [ Stefan Weil ]
   * Check permission for control commands
 
- -- Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>  Fri, 06 Dec 2019 21:33:18 +0100
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Fri, 06 Dec 2019 21:33:18 +0100
 
 palma (1.4.6) unstable; urgency=medium
 
@@ -143,7 +160,7 @@ palma (1.4.6) unstable; urgency=medium
   [ Dennis Müller ]
   * check for running webserver before starting (fixes #175)
 
- -- Dennis Müller <dennis.mueller@bib.uni-mannheim.de>  Wed, 11 Sep 2019 06:55:18 +0000
+ -- Dennis Müller <dennis.mueller@uni-mannheim.de>  Wed, 11 Sep 2019 06:55:18 +0000
 
 palma (1.4.5) unstable; urgency=medium
 
@@ -151,7 +168,7 @@ palma (1.4.5) unstable; urgency=medium
   * added noexit argument to palma_analyze, added examples to README
   * corrected namespace in SSVNCDaemon.php
 
- -- Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>  Thu, 27 Jun 2019 17:06:09 +0200
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Thu, 27 Jun 2019 17:06:09 +0200
 
 palma (1.4.4) unstable; urgency=medium
 
@@ -170,7 +187,7 @@ palma (1.4.4) unstable; urgency=medium
   [ Jörg Mechnich ]
   * updated ub-mannheim themes
 
- -- Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>  Tue, 16 Apr 2019 17:16:13 +0200
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Tue, 16 Apr 2019 17:16:13 +0200
 
 palma (1.4.3) unstable; urgency=medium
 
@@ -206,7 +223,7 @@ palma (1.4.3) unstable; urgency=medium
   [ Jörg Mechnich ]
   * updated comments in palma.ini, updated dependencies in install, fixed typo
 
- -- Jörg Mechnich <joerg.mechnich@bib.uni-mannheim.de>  Fri, 23 Nov 2018 18:29:34 +0100
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Fri, 23 Nov 2018 18:29:34 +0100
 
 palma (1.4.2) unstable; urgency=medium
 
@@ -215,16 +232,16 @@ palma (1.4.2) unstable; urgency=medium
   * updated Debian package dependencies
   * corrected namespaces in SSVNCDaemon.php
 
- -- Jörg Mechnich <Joerg.Mechnich@bib.uni-mannheim.de>  Thu, 15 Nov 2018 18:27:42 +0100
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Thu, 15 Nov 2018 18:27:42 +0100
 
 palma (1.4.1) unstable; urgency=medium
 
   * fixed last_activity monitoring
 
- -- Jörg Mechnich <Joerg.Mechnich@bib.uni-mannheim.de>  Thu, 16 Aug 2018 13:48:50 +0200
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Thu, 16 Aug 2018 13:48:50 +0200
 
 palma (1.4.0) unstable; urgency=medium
 
   * Initial release.
 
- -- Jörg Mechnich <Joerg.Mechnich@bib.uni-mannheim.de>  Wed, 13 Jul 2018 14:44:25 +0200
+ -- Jörg Mechnich <joerg.mechnich@uni-mannheim.de>  Wed, 13 Jul 2018 14:44:25 +0200
