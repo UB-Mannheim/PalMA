@@ -59,9 +59,11 @@ files_wwwdir = [
     'download.php', 'FileHandler.class.php', 'i12n.php', 'index.php',
     'login.php', 'logout.php', 'SSVNCDaemon.php', 'upload.php',
     # css
-    'palma.css', 'pure-min.css',
+    'dropzone.min.css',
+    'palma.css',
+    'pure-min.css',
     # js
-    'dropzone.js',
+    'dropzone.min.js',
     'jquery.min.js',
 ]
 

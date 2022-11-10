@@ -103,7 +103,12 @@ if (isset($_SESSION['username'])) {
 
 <script type="text/javascript" src="jquery.min.js"></script>
 
-<script type="text/javascript" src="dropzone.js"></script>
+<script src="dropzone.min.js"></script>
+<link
+  rel="stylesheet"
+  href="dropzone.min.css"
+  type="text/css"
+/>
 
 <script type="text/javascript">
 
