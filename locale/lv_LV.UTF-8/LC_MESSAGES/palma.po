@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-02 17:13+0200\n"
+"POT-Creation-Date: 2022-11-10 18:08+0100\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
 "Last-Translator: Polina Potoskueva <ppotosku@mail.uni-mannheim.de>\n"
 "Language-Team: English <en@li.org>\n"
@@ -17,197 +17,197 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:163
+#: index.php:168
 msgid "not available"
 msgstr "Nav pieejams"
 
-#: index.php:204
+#: index.php:209
 #, fuzzy
 msgid "Enter valid URL"
 msgstr "Ievadiet derīgu URL"
 
-#: index.php:544
+#: index.php:549
 msgid "You were disconnected!"
 msgstr "Jūsu dators tika atvienots"
 
-#: index.php:565
+#: index.php:570
 msgid "Select screen section for display"
 msgstr "Izvēlieties ekrāna sadaļu parādīšanai"
 
-#: index.php:675
+#: index.php:680
 msgid "Toggle visibility"
 msgstr "Pārslēgt redzamību"
 
-#: index.php:679
+#: index.php:684
 msgid "Zoom in"
 msgstr "Pietuvināt"
 
-#: index.php:680
+#: index.php:685
 msgid "Zoom out"
 msgstr "Attālināt"
 
-#: index.php:681
+#: index.php:686
 msgid "Rotate counterclockwise"
 msgstr "Pagriezt pretēji pulksteņrādītāja virzienam"
 
-#: index.php:682
+#: index.php:687
 msgid "Rotate clockwise"
 msgstr "Pagriezt pulksteņrādītāja virzienā"
 
-#: index.php:683
+#: index.php:688
 msgid "Download this item"
 msgstr "Lejupielādēt šo failu"
 
-#: index.php:691
+#: index.php:696
 msgid "Remove this item"
 msgstr "Izdzēst šo failu"
 
-#: index.php:702
+#: index.php:707
 msgid "Jump to start"
 msgstr "Atpakaļ uz augšu"
 
-#: index.php:703
+#: index.php:708
 msgid "Page up"
 msgstr "Lapas augšpusè"
 
-#: index.php:704
+#: index.php:709
 msgid "Page down"
 msgstr "Lapas apakšàpuse"
 
-#: index.php:705
+#: index.php:710
 msgid "Jump to end"
 msgstr "Pāriet uz beigām"
 
-#: index.php:709
+#: index.php:714
 msgid "Up"
 msgstr ""
 
-#: index.php:711
+#: index.php:716
 msgid "Left"
 msgstr ""
 
-#: index.php:712
+#: index.php:717
 msgid "Right"
 msgstr ""
 
-#: index.php:714
+#: index.php:719
 msgid "Down"
 msgstr ""
 
 # Greeting
-#: index.php:739
+#: index.php:744
 msgid "Welcome"
 msgstr "Laipni lūdzam"
 
-#: index.php:741
+#: index.php:746
 msgid "There is no shared content yet. Click below to get started!"
 msgstr "Saturs vēl nav kopīgots. Noklikšķiniet zemāk, lai sāktu!"
 
 # Index.php
 # Tabs and Subtabs
-#: index.php:745 index.php:1053 index.php:1209
+#: index.php:750 index.php:1061 index.php:1217
 msgid "Add"
 msgstr "Pievienot"
 
-#: index.php:963
+#: index.php:971
 msgid "Sorry! Screensharing for your device is currently not supported."
 msgstr ""
 
-#: index.php:1054 index.php:1236
+#: index.php:1062 index.php:1244
 msgid "Control"
 msgstr ""
 
-#: index.php:1055 index.php:1257
+#: index.php:1063 index.php:1265
 msgid "Extras"
 msgstr ""
 
-#: index.php:1061
+#: index.php:1069
 msgid "File"
 msgstr ""
 
-#: index.php:1062
+#: index.php:1070
 msgid "URL"
 msgstr ""
 
-#: index.php:1063
+#: index.php:1071
 msgid "Screen"
 msgstr ""
 
-#: index.php:1070
+#: index.php:1078
 msgid "Drag and drop files or click here to upload."
 msgstr "Velciet un nometiet failus vai noklikšķiniet šeit, lai augšupielādētu"
 
 # Add Section
-#: index.php:1072
+#: index.php:1080
 msgid "Add file (click or drop here)"
 msgstr "Pievienot failu. Noklikšķiniet vai nometiet šeit"
 
-#: index.php:1091
+#: index.php:1099
 msgid "Add webpage"
 msgstr "Pievienot interneta lapu"
 
-#: index.php:1094
+#: index.php:1102
 msgid "Enter URL"
 msgstr "Please enter URL"
 
-#: index.php:1097
+#: index.php:1105
 msgid "Click here to show the webpage on the screen."
 msgstr ""
 
-#: index.php:1098
+#: index.php:1106
 msgid "Enter"
 msgstr ""
 
-#: index.php:1105
+#: index.php:1113
 msgid "Add your screen"
 msgstr ""
 
-#: index.php:1106
+#: index.php:1114
 msgid "Download screensharing tool"
 msgstr ""
 
-#: index.php:1113
+#: index.php:1121
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
 msgstr ""
 
-#: index.php:1119
+#: index.php:1127
 msgid "Layout"
 msgstr ""
 
-#: index.php:1120
+#: index.php:1128
 msgid "Navigate"
 msgstr ""
 
 # Control section
-#: index.php:1126 index.php:1133 index.php:1141 index.php:1149 index.php:1162
+#: index.php:1134 index.php:1141 index.php:1149 index.php:1157 index.php:1170
 msgid "Choose screen layout"
 msgstr ""
 
-#: index.php:1177
+#: index.php:1185
 msgid "Close all windows and remove uploaded files"
 msgstr ""
 
-#: index.php:1178
+#: index.php:1186
 msgid "Delete all items"
 msgstr ""
 
-#: index.php:1184
+#: index.php:1192
 msgid "Help"
 msgstr ""
 
-#: index.php:1185
+#: index.php:1193
 msgid "Feedback"
 msgstr ""
 
-#: index.php:1186
+#: index.php:1194
 msgid "Users"
 msgstr "Lietotāji"
 
 # Extras Section
 # Help
-#: index.php:1189
+#: index.php:1197
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
@@ -215,233 +215,233 @@ msgstr ""
 "Ar PalMA jūs varat lietot dokumentus, interneta lapas (tīmekļa vietnes) un "
 "desktopu kopā ar jūsu mācības grupu"
 
-#: index.php:1190
+#: index.php:1198
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
 msgstr ""
 
-#: index.php:1193
+#: index.php:1201
 msgid "For further information about PalMA in this institution"
 msgstr ""
 
-#: index.php:1193
+#: index.php:1201
 msgid "see here."
 msgstr ""
 
-#: index.php:1197
+#: index.php:1205
 msgid "Connect"
 msgstr "Savienot"
 
-#: index.php:1198
+#: index.php:1206
 msgid "Team members can join the session at any time with this URL or QR-Code:"
 msgstr ""
 "Komandas dalībnieki jebkurā laikā var pievienoties sesijai ar šo URL vai QR "
 "kodu"
 
 # Please mind the whitespace at the end.
-#: index.php:1202 index.php:1359
+#: index.php:1210 index.php:1367
 msgid "PIN: "
 msgstr ""
 
-#: index.php:1210
+#: index.php:1218
 msgid "Use the Add-Section to share content on the PalMA monitor."
 msgstr ""
 
-#: index.php:1212
+#: index.php:1220
 msgid "For PDF files, office files, images or videos use the file section."
 msgstr ""
 
-#: index.php:1213
+#: index.php:1221
 msgid "To display a website use the URL field."
 msgstr ""
 
-#: index.php:1214
+#: index.php:1222
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
 msgstr ""
 
 # Referring to the popular operating system
-#: index.php:1216
+#: index.php:1224
 msgid "Windows:"
 msgstr ""
 
-#: index.php:1218
+#: index.php:1226
 msgid "Run the downloaded file."
 msgstr ""
 
-#: index.php:1219
+#: index.php:1227
 msgid "Double-click the name of your PalMA station in the appearing list."
 msgstr ""
 
-#: index.php:1221
+#: index.php:1229
 msgid "Mac:"
 msgstr ""
 
-#: index.php:1223
+#: index.php:1231
 msgid "CTRL + click the downloaded file and run it."
 msgstr ""
 
-#: index.php:1224
+#: index.php:1232
 msgid "A second window opens, in which you can start &quot;VineServer&quot;."
 msgstr ""
 
-#: index.php:1225
+#: index.php:1233
 msgid "In the upper left corner, click on &quot;VNC Server&quot;."
 msgstr ""
 
-#: index.php:1226
+#: index.php:1234
 msgid "Select &quot;Reverse Connection&quot;."
 msgstr ""
 
-#: index.php:1227
+#: index.php:1235
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
 msgstr ""
 
-#: index.php:1229
+#: index.php:1237
 msgid "Linux:"
 msgstr ""
 
-#: index.php:1231
+#: index.php:1239
 msgid "Run the downloaded shell script."
 msgstr ""
 
-#: index.php:1232
+#: index.php:1240
 msgid "Or use this shell command:"
 msgstr ""
 
-#: index.php:1237
+#: index.php:1245
 msgid ""
 "With the grey monitor buttons at the top you can choose how the shared "
 "content should be arranged on the PalMA monitor."
 msgstr ""
 
-#: index.php:1238
+#: index.php:1246
 msgid "Below that you find the controls for each item:"
 msgstr ""
 
-#: index.php:1240
+#: index.php:1248
 msgid "In the top bar you can"
 msgstr ""
 
-#: index.php:1242
+#: index.php:1250
 msgid "Hide and show"
 msgstr "Paslēpt un parādīt"
 
-#: index.php:1243
+#: index.php:1251
 msgid "Zoom in and out"
 msgstr "Pietuvināt un attālināt"
 
-#: index.php:1244
+#: index.php:1252
 msgid "Rotate"
 msgstr "Pagriezt"
 
-#: index.php:1245
+#: index.php:1253
 msgid "Download"
 msgstr "Lejupielādēt"
 
-#: index.php:1246
+#: index.php:1254
 msgid "Delete the item"
 msgstr ""
 
-#: index.php:1248
+#: index.php:1256
 msgid "Below you find the navigation controls."
 msgstr ""
 
-#: index.php:1250
+#: index.php:1258
 msgid ""
 "Buttons on the left jump to the top, to the end, a page up or a page down"
 msgstr ""
 
-#: index.php:1251
+#: index.php:1259
 msgid "Arrow buttons in the middle scroll gradually"
 msgstr ""
 
-#: index.php:1254
+#: index.php:1262
 msgid "On the right you can choose the position on the PalMA monitor"
 msgstr ""
 
-#: index.php:1256
+#: index.php:1264
 msgid ""
 "Controls that are not available for certain kinds of content are marked grey."
 msgstr ""
 
-#: index.php:1258
+#: index.php:1266
 msgid "Some additional features are:"
 msgstr ""
 
-#: index.php:1260
+#: index.php:1268
 msgid "This help,"
 msgstr ""
 
-#: index.php:1261
+#: index.php:1269
 msgid ""
 "Your chance to recommend us or give us your thoughts in the &quot;"
 "Feedback&quot; section,"
 msgstr ""
 
-#: index.php:1262
+#: index.php:1270
 msgid ""
 "A list of all logged-in users as well as a button to disconnect everyone and "
 "therefore end the session."
 msgstr ""
 
 # Feedback
-#: index.php:1268
+#: index.php:1276
 msgid "Recommend us"
 msgstr ""
 
-#: index.php:1271
+#: index.php:1279
 msgid ""
 "If you like PalMA, please recommend us by sharing in your social networks."
 "<br />Enjoy PalMA!"
 msgstr ""
 
-#: index.php:1325
+#: index.php:1333
 msgid "Tell us what you think"
 msgstr ""
 
 # Please mind the whitespace at the end
-#: index.php:1327
+#: index.php:1335
 msgid ""
 "Please let us know about problems or ideas to improve PalMA. Help us "
 "directly by sending crash reports or contributing on "
 msgstr ""
 
-#: index.php:1327
+#: index.php:1335
 msgid "Thank you!"
 msgstr ""
 
 # Users
-#: index.php:1333
+#: index.php:1341
 msgid "Select language:"
 msgstr ""
 
-#: index.php:1350
+#: index.php:1358
 msgid "User list"
 msgstr ""
 
-#: index.php:1350
+#: index.php:1358
 msgid "List of connected users"
 msgstr ""
 
-#: index.php:1356
+#: index.php:1364
 msgid "New users can join at"
 msgstr ""
 
-#: index.php:1367
+#: index.php:1375
 msgid "Disconnect all users and end the session"
 msgstr ""
 
-#: index.php:1368
+#: index.php:1376
 msgid "End the session"
 msgstr ""
 
 # Footer
-#: index.php:1380
+#: index.php:1388
 msgid "Disconnect the current user"
 msgstr ""
 
-#: index.php:1381
+#: index.php:1389
 msgid "Log out"
 msgstr ""
 

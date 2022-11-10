@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-02 17:13+0200\n"
+"POT-Creation-Date: 2022-11-10 18:08+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Kristiana Ristani <k_ristani@yahoo.com>\n"
 "Language-Team: Albanian <en@li.org>\n"
@@ -16,157 +16,157 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:163
+#: index.php:168
 msgid "not available"
 msgstr "i padisponueshem"
 
-#: index.php:204
+#: index.php:209
 msgid "Enter valid URL"
 msgstr "Fut nje URL te vlefshme"
 
-#: index.php:544
+#: index.php:549
 msgid "You were disconnected!"
 msgstr "U shkepute"
 
-#: index.php:565
+#: index.php:570
 msgid "Select screen section for display"
 msgstr "Zgjidh seksionin e ekranit per t'u paraqitur"
 
-#: index.php:675
+#: index.php:680
 msgid "Toggle visibility"
 msgstr "Ndrysho paraqitje"
 
-#: index.php:679
+#: index.php:684
 msgid "Zoom in"
 msgstr "Zmadho"
 
-#: index.php:680
+#: index.php:685
 msgid "Zoom out"
 msgstr "Zvogelo"
 
-#: index.php:681
+#: index.php:686
 msgid "Rotate counterclockwise"
 msgstr "Rrotullo në të kundërt të akrepave të orës"
 
-#: index.php:682
+#: index.php:687
 msgid "Rotate clockwise"
 msgstr "Rrotullo sipas akrepave të orë"
 
-#: index.php:683
+#: index.php:688
 #, fuzzy
 msgid "Download this item"
 msgstr "Shkarko kete skedar"
 
-#: index.php:691
+#: index.php:696
 #, fuzzy
 msgid "Remove this item"
 msgstr "Fshi kete objekt"
 
-#: index.php:702
+#: index.php:707
 msgid "Jump to start"
 msgstr "Shko ne fillim"
 
-#: index.php:703
+#: index.php:708
 msgid "Page up"
 msgstr "Një faqe më lart"
 
-#: index.php:704
+#: index.php:709
 msgid "Page down"
 msgstr "Një faqe më poshtë"
 
-#: index.php:705
+#: index.php:710
 msgid "Jump to end"
 msgstr "Shko në fund"
 
-#: index.php:709
+#: index.php:714
 msgid "Up"
 msgstr "Lart"
 
-#: index.php:711
+#: index.php:716
 msgid "Left"
 msgstr "Majtas"
 
-#: index.php:712
+#: index.php:717
 msgid "Right"
 msgstr "Djathtas"
 
-#: index.php:714
+#: index.php:719
 msgid "Down"
 msgstr "Poshtë"
 
-#: index.php:739
+#: index.php:744
 msgid "Welcome"
 msgstr "Miresevini"
 
-#: index.php:741
+#: index.php:746
 msgid "There is no shared content yet. Click below to get started!"
 msgstr "Nuk ka përmbajtje ende. Kliko më poshtë për të filluar!"
 
-#: index.php:745 index.php:1053 index.php:1209
+#: index.php:750 index.php:1061 index.php:1217
 msgid "Add"
 msgstr "Shto"
 
-#: index.php:963
+#: index.php:971
 msgid "Sorry! Screensharing for your device is currently not supported."
 msgstr "Ndjesë! Ndarja e ekranit nuk suportohet ende për pajisjen tuaj."
 
-#: index.php:1054 index.php:1236
+#: index.php:1062 index.php:1244
 #, fuzzy
 msgid "Control"
 msgstr "Kontroll i kursorit"
 
-#: index.php:1055 index.php:1257
+#: index.php:1063 index.php:1265
 #, fuzzy
 msgid "Extras"
 msgstr "Ndihme + Ekstra"
 
-#: index.php:1061
+#: index.php:1069
 msgid "File"
 msgstr "Skedar"
 
-#: index.php:1062
+#: index.php:1070
 msgid "URL"
 msgstr "URL"
 
-#: index.php:1063
+#: index.php:1071
 #, fuzzy
 msgid "Screen"
 msgstr "Korniza e ekranit"
 
-#: index.php:1070
+#: index.php:1078
 msgid "Drag and drop files or click here to upload."
 msgstr "Drag and drop skedarët ose kliko këtu për të ngarkuar"
 
-#: index.php:1072
+#: index.php:1080
 msgid "Add file (click or drop here)"
 msgstr "Shto skedarin(kliko ose drop këtu)"
 
-#: index.php:1091
+#: index.php:1099
 msgid "Add webpage"
 msgstr "Shto faqen e web"
 
-#: index.php:1094
+#: index.php:1102
 msgid "Enter URL"
 msgstr "Vendos URL"
 
-#: index.php:1097
+#: index.php:1105
 msgid "Click here to show the webpage on the screen."
 msgstr "Kliko këtu për të treguar faqen web në ekran"
 
-#: index.php:1098
+#: index.php:1106
 #, fuzzy
 msgid "Enter"
 msgstr "Vendos URL"
 
-#: index.php:1105
+#: index.php:1113
 msgid "Add your screen"
 msgstr "Shto ekranin tuaj"
 
-#: index.php:1106
+#: index.php:1114
 msgid "Download screensharing tool"
 msgstr "Shkarko mjetin e ndarjes së ekranit"
 
-#: index.php:1113
+#: index.php:1121
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
@@ -174,40 +174,40 @@ msgstr ""
 "Shkarkoni mjetin tuaj të ndarjes së ekranit(vetem per Windows, Mac ose "
 "Linux). Vizitoni seksionin e ndihmes per informacion shtese"
 
-#: index.php:1119
+#: index.php:1127
 msgid "Layout"
 msgstr "Struktura e faqes"
 
-#: index.php:1120
+#: index.php:1128
 msgid "Navigate"
 msgstr "Navigoni"
 
-#: index.php:1126 index.php:1133 index.php:1141 index.php:1149 index.php:1162
+#: index.php:1134 index.php:1141 index.php:1149 index.php:1157 index.php:1170
 msgid "Choose screen layout"
 msgstr "Zgjidh strukturen e ekranit"
 
-#: index.php:1177
+#: index.php:1185
 msgid "Close all windows and remove uploaded files"
 msgstr "Mbyll gjithe dritaret dhe fshi skedaret e ngarkuar"
 
-#: index.php:1178
+#: index.php:1186
 msgid "Delete all items"
 msgstr "Fshi gjithe artikujt"
 
-#: index.php:1184
+#: index.php:1192
 msgid "Help"
 msgstr "Ndihme"
 
-#: index.php:1185
+#: index.php:1193
 msgid "Feedback"
 msgstr "Feedback"
 
-#: index.php:1186
+#: index.php:1194
 #, fuzzy
 msgid "Users"
 msgstr "Lista e perdoruesve"
 
-#: index.php:1189
+#: index.php:1197
 #, fuzzy
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
@@ -216,49 +216,49 @@ msgstr ""
 "Me PalMa, mund te shperndani dokumentat dhe desktopin tuaj\n"
 "            me grupin e studimit tuaj."
 
-#: index.php:1190
+#: index.php:1198
 #, fuzzy
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
 msgstr "Monitori i grupit PalMA tregon deri ne kater kontribute njekohesisht."
 
-#: index.php:1193
+#: index.php:1201
 msgid "For further information about PalMA in this institution"
 msgstr "Per informacion te metejshem rreth PalMA ne kete institucion"
 
-#: index.php:1193
+#: index.php:1201
 msgid "see here."
 msgstr "shiko ketu"
 
-#: index.php:1197
+#: index.php:1205
 msgid "Connect"
 msgstr "Lidhu"
 
-#: index.php:1198
+#: index.php:1206
 #, fuzzy
 msgid "Team members can join the session at any time with this URL or QR-Code:"
 msgstr ""
 "Pjesetaret e grupit mund t'i bashkohen sesionit ne cdo kohe me kete URL ose "
 "Kod QR:"
 
-#: index.php:1202 index.php:1359
+#: index.php:1210 index.php:1367
 msgid "PIN: "
 msgstr "PIN:"
 
-#: index.php:1210
+#: index.php:1218
 msgid "Use the Add-Section to share content on the PalMA monitor."
 msgstr "Perdor seksionin Add per te ndare permbajtje ne monitorin PalMA"
 
-#: index.php:1212
+#: index.php:1220
 msgid "For PDF files, office files, images or videos use the file section."
 msgstr ""
 "Per skedare PDF, skedare office, imazhe ose video perdor seksionin e "
 "skedareve."
 
-#: index.php:1213
+#: index.php:1221
 msgid "To display a website use the URL field."
 msgstr "Per te shfaqur nje website perdor fushen e URL"
 
-#: index.php:1214
+#: index.php:1222
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
@@ -266,57 +266,57 @@ msgstr ""
 "Per te ndare desktopin tuaj ne kohe reale, shkarkoni software-in e ndarjes "
 "se ekranit VNC dhe "
 
-#: index.php:1216
+#: index.php:1224
 msgid "Windows:"
 msgstr "Windows:"
 
-#: index.php:1218
+#: index.php:1226
 msgid "Run the downloaded file."
 msgstr "Ekzekutoni skedarin e shkarkuar"
 
-#: index.php:1219
+#: index.php:1227
 msgid "Double-click the name of your PalMA station in the appearing list."
 msgstr "Klikoni dy herë emrin e stacionit tuaj PalMA në listën që shfaqet"
 
-#: index.php:1221
+#: index.php:1229
 msgid "Mac:"
 msgstr "Mac:"
 
-#: index.php:1223
+#: index.php:1231
 msgid "CTRL + click the downloaded file and run it."
 msgstr "CTRL + click skedarin e shkarkuar dhe ekzekutojeni"
 
-#: index.php:1224
+#: index.php:1232
 msgid "A second window opens, in which you can start &quot;VineServer&quot;."
 msgstr ""
 "Një dritare e dytë hapet, në të cilën mund të startoni &quot;"
 "VineServer&quot;. "
 
-#: index.php:1225
+#: index.php:1233
 msgid "In the upper left corner, click on &quot;VNC Server&quot;."
 msgstr "Në cepin majtas lart, kliko në&quot;VNC Server&quot;."
 
-#: index.php:1226
+#: index.php:1234
 msgid "Select &quot;Reverse Connection&quot;."
 msgstr "Zgjidhni &quot;Reverse Connection&quot;."
 
-#: index.php:1227
+#: index.php:1235
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
 msgstr "Vendos URL e stacionit tuaj PalMA dhe kliko &quot;Lidhu&quot;."
 
-#: index.php:1229
+#: index.php:1237
 msgid "Linux:"
 msgstr "Linux"
 
-#: index.php:1231
+#: index.php:1239
 msgid "Run the downloaded shell script."
 msgstr "Ekzekuto skriptin shell të ngarkuar"
 
-#: index.php:1232
+#: index.php:1240
 msgid "Or use this shell command:"
 msgstr "Ose përdorni këtë komandë të shell-it"
 
-#: index.php:1237
+#: index.php:1245
 msgid ""
 "With the grey monitor buttons at the top you can choose how the shared "
 "content should be arranged on the PalMA monitor."
@@ -324,71 +324,71 @@ msgstr ""
 "Me butonat gri te monitorit ne krye mund te zgjidhni sesi permbajtja e ndare "
 "duhet te organizohet ne monitorin PalMA"
 
-#: index.php:1238
+#: index.php:1246
 msgid "Below that you find the controls for each item:"
 msgstr "Më poshtë mund të gjeni kontrollet për çdo artikull"
 
-#: index.php:1240
+#: index.php:1248
 msgid "In the top bar you can"
 msgstr "Në shiritin e mësipërm ju mund të"
 
-#: index.php:1242
+#: index.php:1250
 msgid "Hide and show"
 msgstr "Fsheh dhe trego"
 
-#: index.php:1243
+#: index.php:1251
 #, fuzzy
 msgid "Zoom in and out"
 msgstr "Zvogelo"
 
-#: index.php:1244
+#: index.php:1252
 msgid "Rotate"
 msgstr "Rrotullo"
 
-#: index.php:1245
+#: index.php:1253
 #, fuzzy
 msgid "Download"
 msgstr "Shkarko kete skedar"
 
-#: index.php:1246
+#: index.php:1254
 msgid "Delete the item"
 msgstr "Fshi artikullin"
 
-#: index.php:1248
+#: index.php:1256
 msgid "Below you find the navigation controls."
 msgstr "Më poshtë, gjeni kontrollin e navigimit"
 
-#: index.php:1250
+#: index.php:1258
 msgid ""
 "Buttons on the left jump to the top, to the end, a page up or a page down"
 msgstr ""
 "Me anë të butonave në të majtë, mund të lëvizni në krye, në fund, një faqe "
 "më lart ose një faqe më poshtë"
 
-#: index.php:1251
+#: index.php:1259
 msgid "Arrow buttons in the middle scroll gradually"
 msgstr "Butonat shigjetë në mes bejne te mundur levizjen(scroll) graduale "
 
-#: index.php:1254
+#: index.php:1262
 msgid "On the right you can choose the position on the PalMA monitor"
 msgstr "Në të djathtë mund të zgjidhni pozicionin në monitorin e PalMa"
 
-#: index.php:1256
+#: index.php:1264
 msgid ""
 "Controls that are not available for certain kinds of content are marked grey."
 msgstr ""
 "Kontrollet që nuk janë të disponueshme për disa lloje përmbajtjesh janë të "
 "shënuara me gri."
 
-#: index.php:1258
+#: index.php:1266
 msgid "Some additional features are:"
 msgstr "Disa tipare shtesë janë:"
 
-#: index.php:1260
+#: index.php:1268
 msgid "This help,"
 msgstr "Kjo ndihme,"
 
-#: index.php:1261
+#: index.php:1269
 msgid ""
 "Your chance to recommend us or give us your thoughts in the &quot;"
 "Feedback&quot; section,"
@@ -396,7 +396,7 @@ msgstr ""
 "Mundësia juaj për të na rekomanduar ose për të ndarë mendimet tuaja në "
 "seksionin &quot;Feedback&quot; "
 
-#: index.php:1262
+#: index.php:1270
 msgid ""
 "A list of all logged-in users as well as a button to disconnect everyone and "
 "therefore end the session."
@@ -404,11 +404,11 @@ msgstr ""
 "Nje liste e te gjithe perdoruesve te loguar, si dhe nje buton per te "
 "shkeputur te gjithe dhe keshtu te mbyllet sesioni"
 
-#: index.php:1268
+#: index.php:1276
 msgid "Recommend us"
 msgstr "Na rekomandoni"
 
-#: index.php:1271
+#: index.php:1279
 msgid ""
 "If you like PalMA, please recommend us by sharing in your social networks."
 "<br />Enjoy PalMA!"
@@ -416,11 +416,11 @@ msgstr ""
 "Nëse e pëlqeni PalMA, ju lutem na rekomandoni duke e ndarë në rrjetet tuaja "
 "sociale"
 
-#: index.php:1325
+#: index.php:1333
 msgid "Tell us what you think"
 msgstr "Na tregoni se cfare mendoni"
 
-#: index.php:1327
+#: index.php:1335
 msgid ""
 "Please let us know about problems or ideas to improve PalMA. Help us "
 "directly by sending crash reports or contributing on "
@@ -428,41 +428,41 @@ msgstr ""
 "Ju lutem na vini ne dijeni per probleme ose ide sesi te permiresohet PalMA. "
 "Na ndihmoni direkt duke derguar raporte per crash ose duke kontribuar ne"
 
-#: index.php:1327
+#: index.php:1335
 msgid "Thank you!"
 msgstr "Faleminderit!"
 
-#: index.php:1333
+#: index.php:1341
 #, fuzzy
 msgid "Select language:"
 msgstr "Zgjidh gjuhën:"
 
-#: index.php:1350
+#: index.php:1358
 msgid "User list"
 msgstr "Lista e përdoruesve"
 
-#: index.php:1350
+#: index.php:1358
 msgid "List of connected users"
 msgstr "Lista e përdoruesve të lidhur"
 
-#: index.php:1356
+#: index.php:1364
 msgid "New users can join at"
 msgstr "Përdoruesit e rinj mund të regjistrohen në"
 
-#: index.php:1367
+#: index.php:1375
 #, fuzzy
 msgid "Disconnect all users and end the session"
 msgstr "Shkeput te gjithe perdoruesit dhe mbyll sesionin"
 
-#: index.php:1368
+#: index.php:1376
 msgid "End the session"
 msgstr "Mbyll sesionin"
 
-#: index.php:1380
+#: index.php:1388
 msgid "Disconnect the current user"
 msgstr "Shkeput perdoruesin aktual"
 
-#: index.php:1381
+#: index.php:1389
 #, fuzzy
 msgid "Log out"
 msgstr "Dil"

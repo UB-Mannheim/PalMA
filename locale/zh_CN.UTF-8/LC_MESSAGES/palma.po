@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-02 17:13+0200\n"
+"POT-Creation-Date: 2022-11-10 18:08+0100\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Chen Zongqi\n"
 "Language-Team: Chinese <zh@li.org>\n"
@@ -16,388 +16,388 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:163
+#: index.php:168
 msgid "not available"
 msgstr "无效行为"
 
-#: index.php:204
+#: index.php:209
 msgid "Enter valid URL"
 msgstr "请输入合法的URL"
 
-#: index.php:544
+#: index.php:549
 msgid "You were disconnected!"
 msgstr "您已断开连接"
 
-#: index.php:565
+#: index.php:570
 msgid "Select screen section for display"
 msgstr "选取需要显示的屏幕部分"
 
-#: index.php:675
+#: index.php:680
 msgid "Toggle visibility"
 msgstr "切换可见"
 
-#: index.php:679
+#: index.php:684
 msgid "Zoom in"
 msgstr "放大"
 
-#: index.php:680
+#: index.php:685
 msgid "Zoom out"
 msgstr "缩小"
 
-#: index.php:681
+#: index.php:686
 msgid "Rotate counterclockwise"
 msgstr "逆时针旋转"
 
-#: index.php:682
+#: index.php:687
 msgid "Rotate clockwise"
 msgstr "顺时针旋转"
 
-#: index.php:683
+#: index.php:688
 #, fuzzy
 msgid "Download this item"
 msgstr "下载文件"
 
-#: index.php:691
+#: index.php:696
 #, fuzzy
 msgid "Remove this item"
 msgstr "移除物件"
 
-#: index.php:702
+#: index.php:707
 msgid "Jump to start"
 msgstr "回到开头"
 
-#: index.php:703
+#: index.php:708
 msgid "Page up"
 msgstr "向上翻页"
 
-#: index.php:704
+#: index.php:709
 msgid "Page down"
 msgstr "向下翻页"
 
-#: index.php:705
+#: index.php:710
 msgid "Jump to end"
 msgstr "跳到结尾"
 
-#: index.php:709
+#: index.php:714
 msgid "Up"
 msgstr "上"
 
-#: index.php:711
+#: index.php:716
 msgid "Left"
 msgstr "左"
 
-#: index.php:712
+#: index.php:717
 msgid "Right"
 msgstr "右"
 
-#: index.php:714
+#: index.php:719
 msgid "Down"
 msgstr "下"
 
-#: index.php:739
+#: index.php:744
 msgid "Welcome"
 msgstr "欢迎您"
 
-#: index.php:741
+#: index.php:746
 msgid "There is no shared content yet. Click below to get started!"
 msgstr "现在还没有可以分享的内容， 请点击下面来开始"
 
-#: index.php:745 index.php:1053 index.php:1209
+#: index.php:750 index.php:1061 index.php:1217
 msgid "Add"
 msgstr "添加"
 
-#: index.php:963
+#: index.php:971
 msgid "Sorry! Screensharing for your device is currently not supported."
 msgstr "十分抱歉！您的设备现在还不能使用屏幕分享"
 
-#: index.php:1054 index.php:1236
+#: index.php:1062 index.php:1244
 #, fuzzy
 msgid "Control"
 msgstr "鼠标指针控制"
 
-#: index.php:1055 index.php:1257
+#: index.php:1063 index.php:1265
 #, fuzzy
 msgid "Extras"
 msgstr "帮助 + 其它"
 
-#: index.php:1061
+#: index.php:1069
 msgid "File"
 msgstr "文件"
 
-#: index.php:1062
+#: index.php:1070
 msgid "URL"
 msgstr "URL"
 
-#: index.php:1063
+#: index.php:1071
 #, fuzzy
 msgid "Screen"
 msgstr "屏幕"
 
-#: index.php:1070
+#: index.php:1078
 msgid "Drag and drop files or click here to upload."
 msgstr "拖拽您要上传的文件或者点击这里来上传"
 
-#: index.php:1072
+#: index.php:1080
 msgid "Add file (click or drop here)"
 msgstr "添加文件（点击或者拖拽）"
 
-#: index.php:1091
+#: index.php:1099
 msgid "Add webpage"
 msgstr "添加页面"
 
-#: index.php:1094
+#: index.php:1102
 msgid "Enter URL"
 msgstr "输入URL"
 
-#: index.php:1097
+#: index.php:1105
 msgid "Click here to show the webpage on the screen."
 msgstr "点击这里好在屏幕上显示页面"
 
-#: index.php:1098
+#: index.php:1106
 #, fuzzy
 msgid "Enter"
 msgstr "进入"
 
-#: index.php:1105
+#: index.php:1113
 msgid "Add your screen"
 msgstr "添加您的屏幕"
 
-#: index.php:1106
+#: index.php:1114
 msgid "Download screensharing tool"
 msgstr "下载屏幕分享工具"
 
-#: index.php:1113
+#: index.php:1121
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
 msgstr ""
 "下载您的屏幕分享工具（只有Windows，Mac 和 Linux可以）.访问帮助以获取更多信息"
 
-#: index.php:1119
+#: index.php:1127
 msgid "Layout"
 msgstr "登出"
 
-#: index.php:1120
+#: index.php:1128
 msgid "Navigate"
 msgstr "导航"
 
-#: index.php:1126 index.php:1133 index.php:1141 index.php:1149 index.php:1162
+#: index.php:1134 index.php:1141 index.php:1149 index.php:1157 index.php:1170
 msgid "Choose screen layout"
 msgstr "选择屏幕布局"
 
-#: index.php:1177
+#: index.php:1185
 msgid "Close all windows and remove uploaded files"
 msgstr "关闭所有窗口并移除已上传文件"
 
-#: index.php:1178
+#: index.php:1186
 msgid "Delete all items"
 msgstr "删除所有"
 
-#: index.php:1184
+#: index.php:1192
 msgid "Help"
 msgstr "帮助"
 
-#: index.php:1185
+#: index.php:1193
 msgid "Feedback"
 msgstr "反馈"
 
-#: index.php:1186
+#: index.php:1194
 #, fuzzy
 msgid "Users"
 msgstr "用户列表"
 
-#: index.php:1189
+#: index.php:1197
 #, fuzzy
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
 msgstr "用PalMA，你可以和你的学习小组分享你的文件和屏幕"
 
-#: index.php:1190
+#: index.php:1198
 #, fuzzy
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
 msgstr "PalMA小组屏幕同时展示最多4个贡献"
 
-#: index.php:1193
+#: index.php:1201
 msgid "For further information about PalMA in this institution"
 msgstr "更多关于本机构的PalMa信息"
 
-#: index.php:1193
+#: index.php:1201
 msgid "see here."
 msgstr "看这里"
 
-#: index.php:1197
+#: index.php:1205
 msgid "Connect"
 msgstr "连接"
 
-#: index.php:1198
+#: index.php:1206
 #, fuzzy
 msgid "Team members can join the session at any time with this URL or QR-Code:"
 msgstr "组员可以随时用URL和二维码加入小组。"
 
-#: index.php:1202 index.php:1359
+#: index.php:1210 index.php:1367
 msgid "PIN: "
 msgstr "PIN"
 
-#: index.php:1210
+#: index.php:1218
 msgid "Use the Add-Section to share content on the PalMA monitor."
 msgstr "使用添加选项以便在PalMa屏幕上分享内容"
 
-#: index.php:1212
+#: index.php:1220
 msgid "For PDF files, office files, images or videos use the file section."
 msgstr "对于PDF文件，office文件，图片或者视频，请使用文件选项"
 
-#: index.php:1213
+#: index.php:1221
 msgid "To display a website use the URL field."
 msgstr "用URL来显示网站"
 
-#: index.php:1214
+#: index.php:1222
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
 msgstr "实时显示您的桌面请下载VNC屏幕分享软件"
 
-#: index.php:1216
+#: index.php:1224
 msgid "Windows:"
 msgstr "Windows:"
 
-#: index.php:1218
+#: index.php:1226
 msgid "Run the downloaded file."
 msgstr "运行已下载文件"
 
-#: index.php:1219
+#: index.php:1227
 msgid "Double-click the name of your PalMA station in the appearing list."
 msgstr "在列表中双击您的PalMa名字"
 
-#: index.php:1221
+#: index.php:1229
 msgid "Mac:"
 msgstr "Mac:"
 
-#: index.php:1223
+#: index.php:1231
 msgid "CTRL + click the downloaded file and run it."
 msgstr "同时按下CTRL和单击已下载的文件，来运行它."
 
-#: index.php:1224
+#: index.php:1232
 msgid "A second window opens, in which you can start &quot;VineServer&quot;."
 msgstr "打开第二个窗口，来使用VineServer."
 
-#: index.php:1225
+#: index.php:1233
 msgid "In the upper left corner, click on &quot;VNC Server&quot;."
 msgstr "在左上角，点击VNC Server"
 
-#: index.php:1226
+#: index.php:1234
 msgid "Select &quot;Reverse Connection&quot;."
 msgstr "选择撤销连接"
 
-#: index.php:1227
+#: index.php:1235
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
 msgstr "输入您的PalMa 屏幕上的URL， 并点击连接"
 
-#: index.php:1229
+#: index.php:1237
 msgid "Linux:"
 msgstr "Linux"
 
-#: index.php:1231
+#: index.php:1239
 msgid "Run the downloaded shell script."
 msgstr "运行下载shell脚本"
 
-#: index.php:1232
+#: index.php:1240
 msgid "Or use this shell command:"
 msgstr "或者使用shell命令"
 
-#: index.php:1237
+#: index.php:1245
 msgid ""
 "With the grey monitor buttons at the top you can choose how the shared "
 "content should be arranged on the PalMA monitor."
 msgstr "在顶部的灰色按钮，您可以选择如何在您的PalMa屏幕上分享内容"
 
-#: index.php:1238
+#: index.php:1246
 msgid "Below that you find the controls for each item:"
 msgstr "下面您可以找到每个项目的控制选项"
 
-#: index.php:1240
+#: index.php:1248
 msgid "In the top bar you can"
 msgstr "在顶部的条，您可以"
 
-#: index.php:1242
+#: index.php:1250
 msgid "Hide and show"
 msgstr "隐藏且显示"
 
-#: index.php:1243
+#: index.php:1251
 #, fuzzy
 msgid "Zoom in and out"
 msgstr "缩小"
 
-#: index.php:1244
+#: index.php:1252
 msgid "Rotate"
 msgstr "旋转"
 
-#: index.php:1245
+#: index.php:1253
 #, fuzzy
 msgid "Download"
 msgstr "下载文件"
 
-#: index.php:1246
+#: index.php:1254
 msgid "Delete the item"
 msgstr "删除项目"
 
-#: index.php:1248
+#: index.php:1256
 msgid "Below you find the navigation controls."
 msgstr "下面您可以找到控制导航"
 
-#: index.php:1250
+#: index.php:1258
 msgid ""
 "Buttons on the left jump to the top, to the end, a page up or a page down"
 msgstr "左边的按钮，可以跳到顶部或者底部，也可以上一页或者下一页"
 
-#: index.php:1251
+#: index.php:1259
 msgid "Arrow buttons in the middle scroll gradually"
 msgstr "滚动中间的箭头按钮"
 
-#: index.php:1254
+#: index.php:1262
 msgid "On the right you can choose the position on the PalMA monitor"
 msgstr "右边您可以选择PalMa屏幕的位置"
 
-#: index.php:1256
+#: index.php:1264
 msgid ""
 "Controls that are not available for certain kinds of content are marked grey."
 msgstr "控制那些已被标灰的无效类型内容"
 
-#: index.php:1258
+#: index.php:1266
 msgid "Some additional features are:"
 msgstr "一些额外的特点"
 
-#: index.php:1260
+#: index.php:1268
 msgid "This help,"
 msgstr "这可以帮助,"
 
-#: index.php:1261
+#: index.php:1269
 msgid ""
 "Your chance to recommend us or give us your thoughts in the &quot;"
 "Feedback&quot; section,"
 msgstr "您可以在反馈中给我们提出宝贵的意见与建议（当然要用德语）"
 
-#: index.php:1262
+#: index.php:1270
 msgid ""
 "A list of all logged-in users as well as a button to disconnect everyone and "
 "therefore end the session."
 msgstr "所有登陆用户的列表，同时也可以用按钮取消每一个人的连接"
 
-#: index.php:1268
+#: index.php:1276
 msgid "Recommend us"
 msgstr "推荐我们"
 
-#: index.php:1271
+#: index.php:1279
 msgid ""
 "If you like PalMA, please recommend us by sharing in your social networks."
 "<br />Enjoy PalMA!"
 msgstr "如果您喜欢PalMa，请在社交媒体中分享并推荐. 祝好"
 
-#: index.php:1325
+#: index.php:1333
 msgid "Tell us what you think"
 msgstr "告诉我们您的想法"
 
-#: index.php:1327
+#: index.php:1335
 msgid ""
 "Please let us know about problems or ideas to improve PalMA. Help us "
 "directly by sending crash reports or contributing on "
@@ -405,41 +405,41 @@ msgstr ""
 "请让我们知道任何问题或者想法，以便优化我们的PalMa. 您可以直接发送错误报告或者"
 "帮我们贡献您的代码."
 
-#: index.php:1327
+#: index.php:1335
 msgid "Thank you!"
 msgstr "十分感谢您"
 
-#: index.php:1333
+#: index.php:1341
 #, fuzzy
 msgid "Select language:"
 msgstr "选择语言"
 
-#: index.php:1350
+#: index.php:1358
 msgid "User list"
 msgstr "用户列表"
 
-#: index.php:1350
+#: index.php:1358
 msgid "List of connected users"
 msgstr "已连接用户列表"
 
-#: index.php:1356
+#: index.php:1364
 msgid "New users can join at"
 msgstr "新用户可以加入于"
 
-#: index.php:1367
+#: index.php:1375
 #, fuzzy
 msgid "Disconnect all users and end the session"
 msgstr "断开所有用户并结束会话（计算机用语）"
 
-#: index.php:1368
+#: index.php:1376
 msgid "End the session"
 msgstr "结束会话（计算机用语）"
 
-#: index.php:1380
+#: index.php:1388
 msgid "Disconnect the current user"
 msgstr "断开当前用户连接"
 
-#: index.php:1381
+#: index.php:1389
 #, fuzzy
 msgid "Log out"
 msgstr "登出"
