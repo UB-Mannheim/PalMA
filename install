@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
-from __future__ import print_function
+import argparse
+import os
+import pwd
+import shutil
+import socket
+import subprocess
+import sys
 
-import argparse, os, platform, pwd, shutil, socket, sys
-from subprocess import call, check_call, check_output
 
 ################################################################################
 ## command line parsing
@@ -102,7 +105,7 @@ def mkdir(d):
         os.makedirs(d)
         
 def snr(pattern,f):
-    check_call(['/bin/sed', '-i', pattern, f])
+    subprocess.check_call(['/bin/sed', '-i', pattern, f])
 
 ################################################################################
 ## start of script
@@ -131,11 +134,11 @@ try:
         # install dependencies
         if os.path.exists('/usr/bin/apt-get'):
             try:
-                check_call(['/usr/bin/apt-get', 'install',
+                subprocess.check_call(['/usr/bin/apt-get', 'install',
                             '-y', '--no-install-recommends']
                            + deps_debian + [ args.browser ]
                            + pkgs_server[args.server])
-            except:
+            except Exception:
                 printe('Error installing dependencies, exiting.')
                 if args.verbose: raise
                 sys.exit(1)
@@ -144,13 +147,15 @@ try:
         # stop palma if already installed
         if args.init == 'systemd':
             if os.path.exists('/bin/systemctl') and \
-               call(['/bin/systemctl', 'is-active', 'palma'],
-                    stdout=open(os.devnull, 'w')) == 0:
+               subprocess.call(
+                   ['/bin/systemctl', 'is-active', 'palma'],
+                   subprocess.DEVNULL
+               ) == 0:
                 printv("Stopping systemd service")
-                call(['/bin/systemctl', 'stop', 'palma'])
+                subprocess.call(['/bin/systemctl', 'stop', 'palma'])
         
     # build localization files
-    check_call(['/usr/bin/make'])
+    subprocess.check_call(['/usr/bin/make'])
     
     # copy files
     userstruct = pwd.getpwnam('www-data')
@@ -210,8 +215,10 @@ try:
             shutil.copyfile('examples/palma.nginx.conf',fn)
             snr('s,/var/www/html,%s,g' % args.wwwdir, fn)
             snr('s,php7\.[0-9],php%s,g' % phpversion, fn)
-            call(['/usr/sbin/phpenmod', 'palma'])
-            call(['/usr/sbin/invoke-rc.d', 'php%s-fpm' % phpversion, 'restart'])
+            subprocess.call(['/usr/sbin/phpenmod', 'palma'])
+            subprocess.call(
+                ['/usr/sbin/invoke-rc.d', 'php%s-fpm' % phpversion, 'restart']
+            )
         
             path = os.path.join(args.sysconfdir,'nginx/sites-enabled')
             if not os.path.exists(path):
@@ -223,7 +230,7 @@ try:
             if os.path.exists(fn):
                 os.remove(fn)
             printv("Reloading nginx configuration")
-            call(['/usr/sbin/invoke-rc.d', 'nginx', 'restart'])
+            subprocess.call(['/usr/sbin/invoke-rc.d', 'nginx', 'restart'])
     if args.mode == 'deb' or args.server == 'apache':
         printv("Creating configuration for apache2")
 
@@ -252,10 +259,10 @@ try:
             shutil.copyfile('examples/palma.php.ini', fn)
         
             printv("Reloading apache2 configuration")
-            check_call(['/usr/sbin/a2enmod', 'rewrite'])
-            check_call(['/usr/sbin/a2enconf', 'palma'])
-            check_call(['/usr/sbin/apache2ctl', 'configtest'])
-            call(['/usr/sbin/apache2ctl', 'restart'])
+            subprocess.check_call(['/usr/sbin/a2enmod', 'rewrite'])
+            subprocess.check_call(['/usr/sbin/a2enconf', 'palma'])
+            subprocess.check_call(['/usr/sbin/apache2ctl', 'configtest'])
+            subprocess.call(['/usr/sbin/apache2ctl', 'restart'])
 
     libdir = destdir + args.libdir
     mkdir(libdir)
@@ -269,7 +276,7 @@ try:
     shutil.copyfile('examples/palma.syslog', os.path.join(path,'palma.conf'))
     if args.mode == 'install':
         if os.path.exists('/bin/systemctl'):
-            call(['/bin/systemctl', 'restart', 'rsyslog'])
+            subprocess.call(['/bin/systemctl', 'restart', 'rsyslog'])
         
     # install init script
     if args.init == 'systemd':
@@ -284,13 +291,15 @@ try:
 
         if args.mode == 'install':
             if os.path.exists('/bin/systemctl'):
-                call(['/bin/systemctl', 'daemon-reload'])
-                call(['/bin/systemctl', 'enable', 'palma'])
-                call(['/usr/sbin/invoke-rc.d', 'palma', 'start'])
+                subprocess.call(['/bin/systemctl', 'daemon-reload'])
+                subprocess.call(['/bin/systemctl', 'enable', 'palma'])
+                subprocess.call(['/usr/sbin/invoke-rc.d', 'palma', 'start'])
     else:
         pass
 
-except:
+except Exception:
     printe('Error installing PalMA, exiting.')
-    raise
+    #raise
     sys.exit(1)
+except KeyboardInterrupt:
+    sys.exit(0)
