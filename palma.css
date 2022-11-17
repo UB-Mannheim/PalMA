@@ -478,12 +478,6 @@ img.qr-code {
 .resp-sharing-button--reddit:hover {
   background-color: #3a80c1
 }
-.resp-sharing-button--google {
-  background-color: #dd4b39
-}
-.resp-sharing-button--google:hover {
-  background-color: #c23321
-}
 .resp-sharing-button--linkedin {
   background-color: #0077b5
 }
@@ -535,15 +529,6 @@ background-color: #FF6600
 .resp-sharing-button--twitter:active {
   background-color: #2795e9;
   border-color: #2795e9;
-}
-.resp-sharing-button--google {
-  background-color: #dd4b39;
-  border-color: #dd4b39;
-}
-.resp-sharing-button--google:hover,
-.resp-sharing-button--google:active {
-  background-color: #c23321;
-  border-color: #c23321;
 }
 .resp-sharing-button--email {
   background-color: #777777;
