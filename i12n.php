@@ -53,6 +53,10 @@ switch (substr($locale, 0, 2)) {
         // French.
         $locale = 'fr_FR.UTF-8';
         break;
+    case 'hi':
+        // Hindi.
+        $locale = 'hi_IN.UTF-8';
+        break;
     case 'it':
         // Italian.
         $locale = 'it_IT.UTF-8';
@@ -114,6 +118,7 @@ if ($unittest[__FILE__]) {
     testlocale('en_US.UTF-8');
     testlocale('es_ES.UTF-8');
     testlocale('fr_FR.UTF-8');
+    testlocale('hi_IN.UTF-8');
     testlocale('it_IT.UTF-8');
     testlocale('ja.UTF-8');
     testlocale('lv_LV.UTF-8');

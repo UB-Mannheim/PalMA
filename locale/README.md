@@ -11,6 +11,7 @@
 |[el_GR](#el_gr)|30.43|
 |[es_ES](#es_es)|100.00|
 |[fr_FR](#fr_fr)|63.48|
+|[hi_IN](#hi_in)|100.00|
 |[it_IT](#it_it)|50.43|
 |[ja](#ja)|1.74|
 |[lv_LV](#lv_lv)|26.09|
@@ -258,6 +259,14 @@ Missing:
   * `User name`
   * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
   * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
+
+## hi_IN
+
+Completion: **100.00** (115 / 115 strings)
+
+Contributors:
+
+  * Ashish Rana
 
 ## it_IT
 
