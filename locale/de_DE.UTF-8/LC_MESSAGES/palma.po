@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 18:08+0100\n"
+"POT-Creation-Date: 2023-01-26 14:31+0100\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
 "Last-Translator: Dennis Müller <dennis.mueller@bib.uni-mannheim.de>\n"
 "Language-Team: Deutsch <de@li.org>\n"
@@ -22,9 +22,8 @@ msgid "not available"
 msgstr "nicht verfügbar"
 
 #: index.php:209
-#, fuzzy
 msgid "Enter valid URL"
-msgstr "Bitte geben Sie eine URL ein"
+msgstr "Bitte geben Sie eine gültige URL ein"
 
 #: index.php:549
 msgid "You were disconnected!"
@@ -241,7 +240,7 @@ msgstr ""
 "Code beitreten:"
 
 # Please mind the whitespace at the end.
-#: index.php:1210 index.php:1367
+#: index.php:1210 index.php:1359
 msgid "PIN: "
 msgstr "PIN: "
 
@@ -426,12 +425,12 @@ msgstr ""
 "Wenn Ihnen PalMA gefällt, empfehlen Sie uns weiter und teilen Sie folgenden "
 "Link in Ihren sozialen Netzwerken. Viel Spaß mit PalMA!"
 
-#: index.php:1333
+#: index.php:1325
 msgid "Tell us what you think"
 msgstr "Sagen Sie uns Ihre Meinung"
 
 # Please mind the whitespace at the end
-#: index.php:1335
+#: index.php:1327
 msgid ""
 "Please let us know about problems or ideas to improve PalMA. Help us "
 "directly by sending crash reports or contributing on "
@@ -440,45 +439,45 @@ msgstr ""
 "Sie uns direkt durch das Senden von Fehlerberichten oder einen persönlichen "
 "Beitrag auf "
 
-#: index.php:1335
+#: index.php:1327
 msgid "Thank you!"
 msgstr "Vielen Dank!"
 
 # Users
-#: index.php:1341
+#: index.php:1333
 msgid "Select language:"
 msgstr "Sprache auswählen:"
 
-#: index.php:1358
+#: index.php:1350
 msgid "User list"
 msgstr "Benutzerliste"
 
-#: index.php:1358
+#: index.php:1350
 msgid "List of connected users"
 msgstr "Liste aller angemeldeten Benutzer"
 
-#: index.php:1364
+#: index.php:1356
 msgid "New users can join at"
 msgstr "Neue Nutzer können hier beitreten"
 
-#: index.php:1375
+#: index.php:1367
 msgid "Disconnect all users and end the session"
 msgstr "Alle Benutzer abmelden und die Sitzung beenden"
 
-#: index.php:1376
+#: index.php:1368
 msgid "End the session"
 msgstr "Sitzung beenden"
 
 # Footer
-#: index.php:1388
+#: index.php:1380
 msgid "Disconnect the current user"
 msgstr "Den aktuellen Benutzer abmelden"
 
-#: index.php:1389
+#: index.php:1381
 msgid "Log out"
 msgstr "Abmelden"
 
-#: i12n.php:98
+#: i12n.php:102
 msgid "Screen section"
 msgstr "Bildschirmbereich"
 
