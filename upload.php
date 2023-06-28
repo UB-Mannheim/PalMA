@@ -1,13 +1,13 @@
 <?php
 
-// Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
+// Copyright (C) 2014-2023 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
 require_once('globals.php');
 
 if (empty($_FILES)) {
-    $error = 99;
-    $filename = 'unknown';
+    trace("skipping empty upload request.");
+    return;
 } else {
     $error = $_FILES['file']['error'];
     $filename = $_FILES['file']['name'];
