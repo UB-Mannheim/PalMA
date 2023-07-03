@@ -1,3 +1,33 @@
+palma (1.4.13) unstable; urgency=medium
+
+  [ LGTM Migrator ]
+  * Add CodeQL workflow for GitHub code scanning
+
+  [ Jörg Mechnich ]
+  * Clean up install according to CodeQL
+  * Update dropzone to 5.9.3, use CSS and minimized files
+  * Update jquery to 3.6.1
+  * Update line number references in translation files
+
+  [ Matthias Häsing-Keller ]
+  * Remove link to google plus
+
+  [ Ashish Rana ]
+  * Hindi Devanagari script translation added (#210)
+
+  [ Stefan Weil ]
+  * Activate language support for Hindi
+  * Update German translation
+
+  [ Jörg Mechnich ]
+  * index.php: fix indentation
+  * Fix unauthorized upload
+  * Fix web browser handling after upload, recognize ASCII files without .txt suffix
+  * Update PHP_CodeSniffer configuration and clean code
+  * Update language files
+
+ -- Joerg Mechnich <joerg@mechni.ch>  Mon, 03 Jul 2023 20:19:28 +0200
+
 palma (1.4.12) unstable; urgency=medium
 
   [ Jörg Mechnich ]
