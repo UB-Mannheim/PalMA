@@ -267,6 +267,7 @@ Completion: **100.00** (115 / 115 strings)
 Contributors:
 
   * Ashish Rana
+  * Stefan Weil
 
 ## it_IT
 
