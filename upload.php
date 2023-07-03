@@ -3,6 +3,9 @@
 // Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
+// This action requires an authorized user.
+require_once('auth.php');
+
 require_once('globals.php');
 
 if (empty($_FILES)) {
