@@ -49,24 +49,24 @@ Overlays
 
 */
 
-    session_start();
+session_start();
 if (isset($_REQUEST['monitor'])) {
     $monitor = $_REQUEST['monitor'];
     $_SESSION['monitor'] = $monitor;
 } elseif (!isset($_SESSION['monitor'])) {
     $_SESSION['monitor'] = '???';
 }
-    $_SESSION['referer'] = 'index.php';
-    require_once('auth.php');
+$_SESSION['referer'] = 'index.php';
+require_once('auth.php');
 
-    // Connect to database and get configuration constants.
-    require_once('DBConnector.class.php');
-    $dbcon = new palma\DBConnector();
+// Connect to database and get configuration constants.
+require_once('DBConnector.class.php');
+$dbcon = new palma\DBConnector();
 
-    // Support localisation.
-    require_once('i12n.php');
+// Support localisation.
+require_once('i12n.php');
 
-    $user = false;
+$user = false;
 if (isset($_SESSION['username'])) {
     # PHP session based authorization.
     $username = $_SESSION['username'];
@@ -77,13 +77,12 @@ if (isset($_SESSION['username'])) {
     $user = $_SERVER['PHP_AUTH_USER'];
 }
 
-    require_once('globals.php');
-    /*
-     * file paths for vnc downloads
-     */
-    $winvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/winvnc-palma.exe";
-    $macvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/osx-vnc.dmg";
-    $linuxsh = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/x11.sh";
+require_once('globals.php');
+
+// file paths for vnc downloads
+$winvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/winvnc-palma.exe";
+$macvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/osx-vnc.dmg";
+$linuxsh = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/x11.sh";
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
