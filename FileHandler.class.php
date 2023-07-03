@@ -55,9 +55,16 @@ abstract class FileHandler
         // Define filehandlers
         $pdfHandler = '/usr/bin/zathura';
         $imageHandler = '/usr/bin/feh --scale-down';
-        $webHandler = '/usr/bin/midori -p';
+        $webHandler = '/usr/bin/x-www-browser';
+        foreach (["/usr/lib/palma", "./scripts"] as $dir) {
+            $palmaBrowser = $dir."/palma-browser";
+            if (file_exists($palmaBrowser)) {
+                $webHandler = $palmaBrowser;
+                break;
+            }
+        }
         $avHandler = '/usr/bin/cvlc --no-audio';
-        $officeApp = "";
+        $officeApp = "writer";
 
         // $params;
         // echo $ftype;
@@ -77,6 +84,8 @@ abstract class FileHandler
                 $officeApp = "impress";
             } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
                 $officeApp = "calc";
+            } elseif (shell_exec("/usr/bin/file -b '$file'") === "ASCII text") {
+                $officeApp = "writer";
             }
             $convertedFile = convertOffice($file, $officeApp, $fdir, $fname);
             if ($convertedFile) {
