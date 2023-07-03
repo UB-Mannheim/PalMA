@@ -176,7 +176,7 @@ function setLayout($layout)
     }
 
     // Make sure $layout is valid
-    if (!array_key_exists($layout, $geom)){
+    if (!array_key_exists($layout, $geom)) {
         trace("layout invalid!");
     } else {
         $db->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
@@ -442,7 +442,7 @@ function processRequests($db)
             $file_in_db = $db->querySingle("SELECT id FROM window WHERE file='$delete'");
             $delete = str_replace(" ", "\ ", $delete);
             trace("file in db: $file_in_db");
-            if ($file_in_db){
+            if ($file_in_db) {
                 if (file_exists($delete)) {
                     trace("+++ DELETE FILE FROM WEBINTERFACE +++");
                     unlink($delete);
@@ -543,14 +543,14 @@ function processRequests($db)
 
         // If URL leads to pdf file, download it and treat as upload
         $headers = get_headers($openURL, 1);
-        if ($headers["Content-Type"] == "application/pdf"){
+        if ($headers["Content-Type"] == "application/pdf") {
             trace("url seems to lead to a pdf file, so downloading it...");
             $temp_name = basename($openURL);
             $temp_dir = "/tmp";
             file_put_contents("$temp_dir/$temp_name", file_get_contents($openURL));
             $mimetype = mime_content_type("$temp_dir/$temp_name");
             trace("mimetype is $mimetype");
-            if ($mimetype == "application/pdf"){
+            if ($mimetype == "application/pdf") {
                 $_FILES['file']['name'] = "$temp_name";
                 $_FILES['file']['tmp_name'] = "$temp_dir/$temp_name";
                 $_FILES['file']['error'] = "downloaded_from_url";
@@ -569,7 +569,7 @@ function processRequests($db)
                 "section" => "",
                 "state" => "",
                 "file" => $openURL,
-		"handler" => "palma-browser",
+                "handler" => "palma-browser",
                 "userid" => "",
                 "date" => $date
             );

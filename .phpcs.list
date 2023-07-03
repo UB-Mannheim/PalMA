@@ -5,15 +5,10 @@
 ./theme/demo/simple/screensaver.php
 ./theme/ub-mannheim/common/screensaver.php
 ./theme/ub-mannheim/be/screensaver.php
-./theme/ub-mannheim/be/console.php
 ./theme/ub-mannheim/lc/screensaver.php
-./theme/ub-mannheim/lc/console.php
 ./theme/ub-mannheim/a3/screensaver.php
-./theme/ub-mannheim/a3/console.php
 ./theme/ub-mannheim/a5/screensaver.php
-./theme/ub-mannheim/a5/console.php
 ./theme/ub-mannheim/bwl/screensaver.php
-./theme/ub-mannheim/bwl/console.php
 ./auth.php
 ./upload.php
 ./SSVNCDaemon.php

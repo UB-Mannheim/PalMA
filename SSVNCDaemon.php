@@ -83,7 +83,7 @@ class SSVNCDaemon
             }
 
             if (strstr($buffer, 'create_image') && $client["ip"] != "" &&
-            $client["hostname"]!="" ) {
+            $client["hostname"]!="") {
                 // add client
                 $this->addClient($client["ip"], $client["hostname"]);
 

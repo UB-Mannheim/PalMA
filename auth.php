@@ -1,6 +1,7 @@
 <?php
 
-function showLogin() {
+function showLogin()
+{
     //if (isset($_SERVER['HTTP_REFERER'])) {
     //    error_log("auth.php referred by " . $_SERVER['HTTP_REFERER']);
     //}
