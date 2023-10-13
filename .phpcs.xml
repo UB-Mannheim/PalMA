@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<ruleset name="UBMA Standard" namespace="UBMA\CS\Standard">
+  <!-- process local directory -->
+  <file>.</file>
+
+  <!-- exclude temporary and external files -->
+  <exclude-pattern>debian/*</exclude-pattern>
+  <exclude-pattern>php-gettext/*</exclude-pattern>
+  <exclude-pattern>*.min.css</exclude-pattern>
+  <exclude-pattern>*.min.js</exclude-pattern>
+
+  <!-- raise memory limit -->
+  <ini name="memory_limit" value="512M"/>
+
+  <!-- use PSR12 standard as baseline -->
+  <rule ref="PSR12"/>
+
+  <!-- default indent is two spaces -->
+  <arg name="tab-width" value="2"/>
+
+  <rule ref="Generic.WhiteSpace.ScopeIndent">
+    <properties>
+      <property name="indent" value="2"/>
+      <property name="tabIndent" value="false"/>
+    </properties>
+  </rule>
+  <rule ref="Generic.WhiteSpace.DisallowTabIndent" />
+  <rule ref="PSR2.ControlStructures.SwitchDeclaration">
+    <properties>
+      <property name="indent" value="2"/>
+    </properties>
+  </rule>
+
+  <!-- ignore line length in some files -->
+  <rule ref="Generic.Files.LineLength">
+    <exclude-pattern>index.php</exclude-pattern>
+    <exclude-pattern>qrcode/php/qr_img.php</exclude-pattern>
+  </rule>
+</ruleset>

@@ -1,4 +1,5 @@
 <?php
+
 // Copyright (C) 2014-2016 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 

@@ -30,66 +30,66 @@ if ($error == UPLOAD_ERR_OK || $error == "downloaded_from_url") {
     $fparts = pathinfo($filename);
     $fname = $fparts['filename'];
     $ftype = null;
-    if (isset($fparts['extension'])) {
-        $ftype = $fparts['extension'];
-    }
-    while (file_exists($targetFile)) {
-        $index++;
-        if ($ftype) {
-            $targetFile = CONFIG_UPLOAD_DIR . "/$fname-$index.$ftype";
-        } else {
-            $targetFile = CONFIG_UPLOAD_DIR . "/$fname-$index";
-        }
-    }
-    trace("upload '$tempFile' to '$targetFile'");
-    if (is_uploaded_file($tempFile)) {
-        move_uploaded_file($tempFile, $targetFile);
-    } elseif ($error == "downloaded_from_url") {
-        rename($tempFile, $targetFile);
+  if (isset($fparts['extension'])) {
+      $ftype = $fparts['extension'];
+  }
+  while (file_exists($targetFile)) {
+      $index++;
+    if ($ftype) {
+        $targetFile = CONFIG_UPLOAD_DIR . "/$fname-$index.$ftype";
     } else {
-        trace("upload failed!");
+        $targetFile = CONFIG_UPLOAD_DIR . "/$fname-$index";
     }
+  }
+    trace("upload '$tempFile' to '$targetFile'");
+  if (is_uploaded_file($tempFile)) {
+      move_uploaded_file($tempFile, $targetFile);
+  } elseif ($error == "downloaded_from_url") {
+      rename($tempFile, $targetFile);
+  } else {
+      trace("upload failed!");
+  }
 } else {
     // Support localisation.
     require_once('i12n.php');
 
     $targetFile = CONFIG_UPLOAD_DIR . "/error.html";
     $f = fopen($targetFile, 'w');
-    if ($f) {
-        switch ($error) {
-            case UPLOAD_ERR_INI_SIZE:
-                $message = addslashes(__("This file is too large."));
-                break;
-            case UPLOAD_ERR_FORM_SIZE:
-                $message = addslashes(__("Large files are not supported."));
-                break;
-            case UPLOAD_ERR_PARTIAL:
-                $message = addslashes(__("File was only partially uploaded."));
-                break;
-            default:
-                $message = sprintf(addslashes(__("Error code %s.")), $error);
-                break;
-        }
-        fprintf($f, "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\"");
-        fprintf($f, "\"http://www.w3.org/TR/html4/strict.dtd\">");
-        fprintf($f, "<html>\n");
-        fprintf($f, "<head>\n");
-        fprintf($f, "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n");
-        fprintf($f, "<title>Error</title>\n");
-        fprintf($f, "</head>\n");
-        fprintf($f, "<body>\n");
-        fprintf($f, "<p>\n");
-        fprintf(
-            $f,
-            addslashes(__("File '%s' cannot be shown.")) . "<br>\n%s\n",
-            $filename,
-            $message
-        );
-        fprintf($f, "</p>\n");
-        fprintf($f, "</body>\n");
-        fprintf($f, "</html>\n");
-        fclose($f);
+  if ($f) {
+    switch ($error) {
+      case UPLOAD_ERR_INI_SIZE:
+        $message = addslashes(__("This file is too large."));
+        break;
+      case UPLOAD_ERR_FORM_SIZE:
+          $message = addslashes(__("Large files are not supported."));
+        break;
+      case UPLOAD_ERR_PARTIAL:
+          $message = addslashes(__("File was only partially uploaded."));
+        break;
+      default:
+          $message = sprintf(addslashes(__("Error code %s.")), $error);
+        break;
     }
+      fprintf($f, "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\"");
+      fprintf($f, "\"http://www.w3.org/TR/html4/strict.dtd\">");
+      fprintf($f, "<html>\n");
+      fprintf($f, "<head>\n");
+      fprintf($f, "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n");
+      fprintf($f, "<title>Error</title>\n");
+      fprintf($f, "</head>\n");
+      fprintf($f, "<body>\n");
+      fprintf($f, "<p>\n");
+      fprintf(
+          $f,
+          addslashes(__("File '%s' cannot be shown.")) . "<br>\n%s\n",
+          $filename,
+          $message
+      );
+      fprintf($f, "</p>\n");
+      fprintf($f, "</body>\n");
+      fprintf($f, "</html>\n");
+      fclose($f);
+  }
     $targetFile = "file:///$targetFile";
 }
 
