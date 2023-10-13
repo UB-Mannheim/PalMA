@@ -1,0 +1,3 @@
+[codespell]
+skip = *.dat,*.min.js,*.svg,helpdesk.txt,./TODO,./debian,./examples,./locale,./settings,./.git
+ignore-words-list = hda,ans

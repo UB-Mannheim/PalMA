@@ -14,7 +14,7 @@ def error(*args, **kwargs):
 def timestamp():
     return datetime.now().replace(microsecond=0).isoformat()
 
-# return standard header to make scipt GETtable
+# return standard header to make script GETtable
 print("Content-type: text/html\n")
 
 # extract path from URL and sanitize it

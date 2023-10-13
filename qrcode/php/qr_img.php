@@ -22,7 +22,7 @@
 #
 #   d= data         URL encoded data.
 #   e= ECC level    L or M or Q or H   (default M)
-#   s= module size  (dafault PNG:4 JPEG:8)
+#   s= module size  (default PNG:4 JPEG:8)
 #   v= version      1-40 or Auto select if you do not set.
 #   t= image type   J:jpeg image , other: PNG image
 #

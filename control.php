@@ -438,7 +438,7 @@ function processRequests($db)
 
             // Restrict deletion to files known in the db.
             // TODO: check if given file and section match the values in the DB,
-            // but currently, both those values can be ambiguos
+            // but currently, both those values can be ambiguous
             $file_in_db = $db->querySingle("SELECT id FROM window WHERE file='$delete'");
             $delete = str_replace(" ", "\ ", $delete);
             trace("file in db: $file_in_db");
