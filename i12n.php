@@ -25,69 +25,69 @@ if (isset($_REQUEST['lang'])) {
     $locale = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
 }
 switch (substr($locale, 0, 2)) {
-    case 'al':
-        // Albanian.
-        $locale = 'sq_AL.UTF-8';
-        break;
-    case 'ar':
-        // Arabic.
-        $locale = 'ar.UTF-8';
-        break;
-    case 'de':
-        // German.
-        $locale = 'de_DE.UTF-8';
-        break;
-    case 'el':
-        // Greek.
-        $locale = 'el_GR.UTF-8';
-        break;
-    case 'en':
-        // English.
-        $locale = 'en_US.UTF-8';
-        break;
-    case 'es':
-        // Spanish.
-        $locale = 'es_ES.UTF-8';
-        break;
-    case 'fr':
-        // French.
-        $locale = 'fr_FR.UTF-8';
-        break;
-    case 'hi':
-        // Hindi.
-        $locale = 'hi_IN.UTF-8';
-        break;
-    case 'it':
-        // Italian.
-        $locale = 'it_IT.UTF-8';
-        break;
-    case 'ja':
-        // Japanese.
-        $locale = 'ja.UTF-8';
-        break;
-    case 'kg':
-        // Kyrgyz.
-        $locale = 'kg_KG.UTF-8';
-        break;
-    case 'lv':
-        // Latvian.
-        $locale = 'lv_LV.UTF-8';
-        break;
-    case 'ru':
-        // Russian.
-        $locale = 'ru_RU.UTF-8';
-        break;
-    case 'ur':
-        // Urdu.
-        $locale = 'ur_PK.UTF-8';
-        break;
-    case 'zh':
-        // Chinese.
-        $locale = 'zh_CN.UTF-8';
-        break;
-    default:
-        $locale = 'en_US.UTF-8';
-        break;
+  case 'al':
+      // Albanian.
+      $locale = 'sq_AL.UTF-8';
+      break;
+  case 'ar':
+      // Arabic.
+      $locale = 'ar.UTF-8';
+      break;
+  case 'de':
+      // German.
+      $locale = 'de_DE.UTF-8';
+      break;
+  case 'el':
+      // Greek.
+      $locale = 'el_GR.UTF-8';
+      break;
+  case 'en':
+      // English.
+      $locale = 'en_US.UTF-8';
+      break;
+  case 'es':
+      // Spanish.
+      $locale = 'es_ES.UTF-8';
+      break;
+  case 'fr':
+      // French.
+      $locale = 'fr_FR.UTF-8';
+      break;
+  case 'hi':
+      // Hindi.
+      $locale = 'hi_IN.UTF-8';
+      break;
+  case 'it':
+      // Italian.
+      $locale = 'it_IT.UTF-8';
+      break;
+  case 'ja':
+      // Japanese.
+      $locale = 'ja.UTF-8';
+      break;
+  case 'kg':
+      // Kyrgyz.
+      $locale = 'kg_KG.UTF-8';
+      break;
+  case 'lv':
+      // Latvian.
+      $locale = 'lv_LV.UTF-8';
+      break;
+  case 'ru':
+      // Russian.
+      $locale = 'ru_RU.UTF-8';
+      break;
+  case 'ur':
+      // Urdu.
+      $locale = 'ur_PK.UTF-8';
+      break;
+  case 'zh':
+      // Chinese.
+      $locale = 'zh_CN.UTF-8';
+      break;
+  default:
+      $locale = 'en_US.UTF-8';
+      break;
 }
     //~ error_log("setlocale $locale");
     putenv("LANG=$locale");
@@ -98,21 +98,21 @@ switch (substr($locale, 0, 2)) {
 
 if ($unittest[__FILE__]) {
 
-    function testlocale($locale = "")
-    {
-        if ($locale != "") {
-            _setlocale(LC_MESSAGES, $locale);
-        }
-        error_log(sprintf('%-12s ', ($locale ? $locale : 'default') . ':') . addslashes(__('Screen section')));
+  function testlocale($locale = "")
+  {
+    if ($locale != "") {
+        _setlocale(LC_MESSAGES, $locale);
     }
+      error_log(sprintf('%-12s ', ($locale ? $locale : 'default') . ':') . addslashes(__('Screen section')));
+  }
 
     // Run unit test.
 
-    if (locale_emulation()) {
-        print "locale '$locale' is not supported on your system, using custom gettext implementation.\n";
-    } else {
-        print "locale '$locale' is supported on your system, using native gettext implementation.\n";
-    }
+  if (locale_emulation()) {
+      print "locale '$locale' is not supported on your system, using custom gettext implementation.\n";
+  } else {
+      print "locale '$locale' is supported on your system, using native gettext implementation.\n";
+  }
 
     testlocale();
     testlocale('sq_AL.UTF-8');
