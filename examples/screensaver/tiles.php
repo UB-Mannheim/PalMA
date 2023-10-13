@@ -18,8 +18,8 @@ http://www.tutorialspoint.com/javascript/javascript_animation.htm
 $pin = sprintf("%04u", rand(0, 9999));
 
 // Store PIN in database.
-require_once('../../DBConnector.class.php');
-$dbcon = new DBConnector();
+require_once '../../DBConnector.class.php';
+$dbcon = palma\DBConnector::getInstance();
 $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 
 ?>

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-palma_browser="${palma_browser:-chromium}"
+palma_browser="${browser:-chromium}"
 
 killbrowser() {
     echo "palma-browser: killing browser with pid $1"

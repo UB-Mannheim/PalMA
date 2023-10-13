@@ -16,8 +16,8 @@ $pin = sprintf("%04u", rand(0, 9999));
 $url = "http://${servername}${serveruri}";
 
 // Store PIN in database.
-require_once('../../../DBConnector.class.php');
-$dbcon = new palma\DBConnector();
+require_once '../../../DBConnector.class.php';
+$dbcon = palma\DBConnector::getInstance();
 $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 
 ?>

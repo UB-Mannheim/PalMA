@@ -9,7 +9,7 @@ Author: Stefan Weil, Universitätsbibliothek Mannheim
 
 */
 
-require_once('../../../DBConnector.class.php');
+require_once '../../../DBConnector.class.php';
 
 $servername = $_SERVER["SERVER_NAME"];
 $serveraddress = $_SERVER["SERVER_ADDR"];
@@ -18,7 +18,7 @@ $pin = sprintf("%04u", rand(0, 9999));
 $url = "http://${servername}${serveruri}";
 
 // Store PIN in database.
-$dbcon = new palma\DBConnector();
+$dbcon = palma\DBConnector::getInstance();
 $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 
 ?>
