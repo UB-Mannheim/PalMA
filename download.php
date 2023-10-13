@@ -1,10 +1,13 @@
 <?php
 
-// Copyright (C) 2014-2016 Universitätsbibliothek Mannheim
+// Copyright (C) 2014-2023 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
+require_once 'globals.php';
+debug('download.php: begin');
+
 // This action requires an authorized user.
-require_once('auth.php');
+require_once 'auth.php';
 
 // a valid request has to contain a file to be downloaded
 if (!isset($_GET['file']) || empty($_GET['file'])) {
@@ -15,7 +18,6 @@ if (!isset($_GET['file']) || empty($_GET['file'])) {
 // avoid directory traversal vulnerability
 $filename = basename($_GET['file']);
 
-require_once('globals.php');
 $filepath = CONFIG_UPLOAD_DIR . '/' . $filename;
 
 if (file_exists($filepath)) {

@@ -1,53 +1,7 @@
 <?php
-/*
-   Copyright (C) 2014-2015 Universitätsbibliothek Mannheim
-   See file LICENSE for license details.
 
-   Authors: Alexander Wagner, Stefan Weil, Dennis Müller
-
-   References:
-
-   File upload (general)
-
- * http://www.php.net/manual/en/features.file-upload.post-method.php
-
-   File upload with dropzone
-
- * http://www.dropzonejs.com/
- * http://www.startutorial.com/articles/view/how-to-build-a-file-upload-form-using-dropzonejs-and-php
- * http://maxoffsky.com/code-blog/howto-ajax-multiple-file-upload-in-laravel/
-
-   Websockets:
-
- * https://en.wikipedia.org/wiki/Server-sent_events
- * https://developer.mozilla.org/en-US/docs/WebSockets/Writing_WebSocket_client_applications
- * http://code.google.com/p/phpwebsocket/
- * http://dharman.eu/?menu=phpWebSocketsTutorial
-
-   Keyboard input
-
- * http://jsfiddle.net/angusgrant/E3tE6/
- * http://stackoverflow.com/questions/3181648/how-can-i-handle-arrowkeys-and-greater-than-in-a-javascript-function-which
- * http://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
- * http://www.quirksmode.org/js/keys.html
-
-   Key symbols
-
- * http://www.tcl.tk/man/tcl8.4/TkCmd/keysyms.htm
-
- * wmctrl, suckless-tools (lsw, sprop, wmname, ...)
-
- * display.im6, evince
-
-   Authorization
-
- * http://aktuell.de.selfhtml.org/artikel/php/loginsystem/
-
-   Overlays
-
- * http://answers.oreilly.com/topic/1823-adding-a-page-overlay-in-javascript/
-
- */
+// Copyright (C) 2014-2023 Universitätsbibliothek Mannheim
+// See file LICENSE for license details.
 
 session_start();
 if (isset($_REQUEST['monitor'])) {
@@ -57,16 +11,19 @@ if (isset($_REQUEST['monitor'])) {
   $_SESSION['monitor'] = '???';
 }
 $_SESSION['referer'] = 'index.php';
-require_once('auth.php');
+require_once 'auth.php';
 
 // Connect to database and get configuration constants.
-require_once('DBConnector.class.php');
-$dbcon = new palma\DBConnector();
+require_once 'DBConnector.class.php';
+$dbcon = palma\DBConnector::getInstance();
 
 // Support localisation.
-require_once('i12n.php');
+$locale = '';
+require_once 'i12n.php';
 
 $user = false;
+$username = '';
+$address = '';
 if (isset($_SESSION['username'])) {
   # PHP session based authorization.
   $username = $_SESSION['username'];
@@ -77,7 +34,7 @@ if (isset($_SESSION['username'])) {
   $user = $_SERVER['PHP_AUTH_USER'];
 }
 
-require_once('globals.php');
+require_once 'globals.php';
 
 // file paths for vnc downloads
 $winvnc = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/winvnc-palma.exe";
@@ -141,7 +98,7 @@ $pin = htmlspecialchars($_SESSION['pin']);
          }
        };
        xmlHttp.send(null);
-       //~ alert("sendToNuc " + url);
+       //console.log("sendToNuc " + url);
      }
 
      function keyControl(number, image, controlClass, key, handler, disabled, title) {
@@ -500,11 +457,10 @@ $pin = htmlspecialchars($_SESSION['pin']);
          this.on("complete", function() {
            if (this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0) {
              // File finished uploading, and there aren't any left in the queue.
-             // console.log("File(s) uploaded");
+             //console.log("File(s) uploaded");
              setTimeout(function() {
                location.reload();
              }, 1);
-             // location.reload(); // verlangt Eingabe von Enter zum wiederholten Schicken der Daten
            }
          });
        }
@@ -1059,7 +1015,7 @@ $pin = htmlspecialchars($_SESSION['pin']);
          case 'iOS':
            document.getElementById("Screen").innerHTML =
              '<div class="description">'
-             + <?=addslashes(__('Sorry! Screensharing for your device is currently not supported.'))?>
+             + "<?=addslashes(__('Sorry! Screensharing for your device is currently not supported.'))?>"
              + '</div>';
            break;
          default: download = null;

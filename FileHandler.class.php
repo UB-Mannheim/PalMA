@@ -2,20 +2,12 @@
 
 namespace palma;
 
-// Copyright (C) 2014 Universitätsbibliothek Mannheim
+// Copyright (C) 2014-2023 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
-
-// Authors: Alexander Wagner, Stefan Weil
-
-// Test whether the script was called directly (used for unit test).
-if (!isset($unittest)) {
-    $unittest = array();
-}
-$unittest[__FILE__] = (sizeof(get_included_files()) == 1);
 
 abstract class FileHandler
 {
-    // Constants for allowed controls.
+  // Constants for allowed controls.
   public const UP = 1;
   public const DOWN = 2;
   public const LEFT = 4;
@@ -30,101 +22,102 @@ abstract class FileHandler
   public const COUNTERCLOCKWISE = 2048;
   public const CLOCKWISE = 4096;
 
-    // Shortcuts for combinations of controls.
+  // Shortcuts for combinations of controls.
   public const CURSOR = 15; // UP | DOWN | LEFT | RIGHT
   public const ZOOM = 48;   // ZOOMIN | ZOOMOUT
   public const ALL = 2047;
 
-    // up down left right zoomin zoomout home end prior next download
+  // up down left right zoomin zoomout home end prior next download
 
-    // protected $FILES = array();
-    // protected $UPLOAD_PATH;
+  // protected $FILES = array();
+  // protected $UPLOAD_PATH;
 
-  abstract protected function getControls();
-  abstract protected function show($path);
+  abstract protected function getControls(): void;
+  abstract protected function show(string $path): void;
 
-  public static function getFileHandler($file)
+  /** @return array<int,string> */
+  public static function getFileHandler(string $file): array
   {
 
-      // Get get directory, name and file extension
-      $pathParts = pathinfo($file);
-      $ftype = strtolower($pathParts['extension']);
-      $fdir = $pathParts['dirname'];
-      $fname = $pathParts['filename'];
-      $fhandler = "";
+    // Get get directory, name and file extension
+    $pathParts = pathinfo($file);
+    $ftype = strtolower($pathParts['extension']);
+    $fdir = $pathParts['dirname'];
+    $fname = $pathParts['filename'];
+    $fhandler = "";
 
-      // Define filehandlers
-      $pdfHandler = '/usr/bin/zathura';
-      $imageHandler = '/usr/bin/feh --scale-down';
-      $webHandler = '/usr/bin/x-www-browser';
+    // Define filehandlers
+    $pdfHandler = '/usr/bin/zathura';
+    $imageHandler = '/usr/bin/feh --scale-down';
+    $webHandler = '/usr/bin/x-www-browser';
     foreach (["/usr/lib/palma", "./scripts"] as $dir) {
-        $palmaBrowser = $dir . "/palma-browser";
+      $palmaBrowser = $dir . "/palma-browser";
       if (file_exists($palmaBrowser)) {
         $webHandler = $palmaBrowser;
         break;
       }
     }
-      $avHandler = '/usr/bin/cvlc --no-audio';
-      $officeApp = "writer";
+    $avHandler = '/usr/bin/cvlc --no-audio';
+    $officeApp = "writer";
 
-      // $params;
-      // echo $ftype;
+    // $params;
+    // echo $ftype;
     if ($ftype === 'pdf') {
-        $fhandler = $pdfHandler;
+      $fhandler = $pdfHandler;
     } elseif ($ftype === 'gif' || $ftype === 'jpg' || $ftype === 'png') {
-        $fhandler = $imageHandler;
+      $fhandler = $imageHandler;
     } elseif ($ftype === 'html' || $ftype === 'url') {
-        $fhandler = $webHandler;
+      $fhandler = $webHandler;
     } elseif (
         $ftype === 'mpg' || $ftype === 'mpeg' || $ftype === 'avi' ||
-                $ftype === 'mp3' || $ftype === 'mp4' || $ftype === 'wmv'
+        $ftype === 'mp3' || $ftype === 'mp4' || $ftype === 'wmv'
     ) {
-        $fhandler = $avHandler;
+      $fhandler = $avHandler;
     } else {
       if ($ftype === 'doc' || $ftype === 'docx' || $ftype === 'odt' || $ftype === 'txt') {
-            $officeApp = "writer";
+        $officeApp = "writer";
       } elseif ($ftype === 'ppt' || $ftype === 'pptx' || $ftype === 'pps' || $ftype === 'ppsx' || $ftype === 'odp') {
-          $officeApp = "impress";
+        $officeApp = "impress";
       } elseif ($ftype === 'xls' || $ftype === 'xlsx' || $ftype === 'ods') {
-          $officeApp = "calc";
+        $officeApp = "calc";
       } elseif (shell_exec("/usr/bin/file -b '$file'") === "ASCII text") {
-          $officeApp = "writer";
+        $officeApp = "writer";
       }
-        $convertedFile = convertOffice($file, $officeApp, $fdir, $fname);
+      $convertedFile = convertOffice($file, $officeApp, $fdir, $fname);
       if ($convertedFile) {
-          $file = $convertedFile;
-          $fhandler = $pdfHandler;
+        $file = $convertedFile;
+        $fhandler = $pdfHandler;
       } else {
-          $fhandler = "/usr/bin/libreoffice --'$officeApp' --nologo --norestore -o";
+        $fhandler = "/usr/bin/libreoffice --'$officeApp' --nologo --norestore -o";
       }
     }
 
-      /*
-      alternatively with mime-types
+    /*
+       alternatively with mime-types
 
-          // $ftype = mime_content_type($this->UPLOAD_PATH.$file);
-          // if($ftype=='application/pdf')
-          // if($ftype=='image/gif' || $ftype=='image/jpg' || $ftype=='image/png' )
-          // if($ftype=='html' || $ftype=='url' || $ftype="text/plain")
-          // (...)
+       // $ftype = mime_content_type($this->UPLOAD_PATH.$file);
+       // if($ftype=='application/pdf')
+       // if($ftype=='image/gif' || $ftype=='image/jpg' || $ftype=='image/png' )
+       // if($ftype=='html' || $ftype=='url' || $ftype="text/plain")
+       // (...)
 
-      */
+     */
 
-      return array($fhandler, $file);
+    return array($fhandler, $file);
   }
 }
 
-function convertOffice($inputFile, $office, $outputDir, $fileName)
+function convertOffice(string $inputFile, string $office, string $outputDir, string $fileName): mixed
 {
   $cmd = "/usr/bin/libreoffice --headless" .
-      " --convert-to pdf:'$office'_pdf_Export" .
-      " --outdir '$outputDir'" .
-      " '$inputFile' >/dev/null 2>&1"
+         " --convert-to pdf:'$office'_pdf_Export" .
+         " --outdir '$outputDir'" .
+         " '$inputFile' >/dev/null 2>&1";
   shell_exec($cmd);
   $newFile = $outputDir . '/' . $fileName . '.pdf';
   if (file_exists($newFile)) {
-      return $newFile;
+    return $newFile;
   } else {
-      return false;
+    return false;
   }
 }

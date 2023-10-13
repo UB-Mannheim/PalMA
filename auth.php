@@ -1,37 +1,19 @@
 <?php
 
-function showLogin()
-{
-    //if (isset($_SERVER['HTTP_REFERER'])) {
-    //    error_log("auth.php referred by " . $_SERVER['HTTP_REFERER']);
-    //}
-    $header = 'Location: login.php';
-    $separator = '?';
-  if (isset($_REQUEST['lang'])) {
-      $header = $header . $separator . 'lang=' . $_REQUEST['lang'];
-      $separator = '&';
-  }
-  if (isset($_REQUEST['pin'])) {
-      $header = $header . $separator . 'pin=' . $_REQUEST['pin'];
-      $separator = '&';
-  }
-    header($header);
-
-    exit;
-}
+require_once 'globals.php';
+debug('auth.php: begin');
 
 if (!isset($_SESSION)) {
-    session_start();
+  session_start();
 }
 
+require_once 'DBConnector.class.php';
+$db = palma\DBConnector::getInstance();
+
 if (!isset($_SESSION['username'])) {
-    // empty session
-    showLogin();
-} else {
-    require_once('DBConnector.class.php');
-    $dbcon = new palma\DBConnector();
-  if (!$dbcon->checkUser($_SESSION['username'])) {
-      // empty db (e.g. after PalMA restart) or old session
-      showLogin();
-  }
+  // empty session
+  showLogin();
+} elseif (!$db->checkUser($_SESSION['username'])) {
+  // empty db (e.g. after PalMA restart) or old session
+  showLogin();
 }

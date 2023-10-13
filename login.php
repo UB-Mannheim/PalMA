@@ -1,6 +1,6 @@
 <?php
 
-// Copyright (C) 2014-2018 Universitätsbibliothek Mannheim
+// Copyright (C) 2014-2023 Universitätsbibliothek Mannheim
 // See file LICENSE for license details.
 
 // This file implements user authorization.
@@ -16,99 +16,15 @@
 // proxy based authorization, LDAP, Shibboleth, fixed password).
 // Password authorization can optionally be disabled.
 
-// Connect to database and get configuration constants.
-require_once('DBConnector.class.php');
-$dbcon = new palma\DBConnector();
+require_once 'globals.php';
+debug('login.php: begin');
 
-require_once('i12n.php');
-require_once('globals.php');
+require_once 'i12n.php';
+require_once 'DBConnector.class.php';
+
+$dbcon = palma\DBConnector::getInstance();
 
 $errtext = false;
-
-function getDevice()
-{
-  // Try to determine the user's device type. The device which is
-  // returned is used to select the matching icon for the user list.
-  $agent = $_SERVER["HTTP_USER_AGENT"];
-  if (preg_match('/iPad/', $agent)) {
-    $device = 'tablet';
-  } elseif (preg_match('/iPhone/', $agent)) {
-    $device = 'mobile';
-  } elseif (preg_match('/Android/', $agent)) {
-    $device = 'android';
-  } elseif (preg_match('/Linux/', $agent)) {
-    $device = 'linux';
-  } elseif (preg_match('/OS X/', $agent)) {
-    $device = 'apple';
-  } elseif (preg_match('/Windows/', $agent)) {
-    $device = 'windows';
-  } else {
-    $device = 'laptop';
-  }
-  return $device;
-}
-
-function checkCredentials($username, $password)
-{
-  // Check username + password against fixed internal value and
-  // external proxy with authentisation.
-
-  global $errtext;
-
-  $remote = $_SERVER['REMOTE_ADDR'];
-  if ($username == 'chef' && $password == 'chef') {
-    if (
-        $remote == '::1' || $remote == '127.0.0.1' ||
-        preg_match('/^134[.]155[.]36[.]/', $remote) &&
-        $remote != '134.155.36.48'
-    ) {
-      // Allow test access for restricted remote hosts (localhost,
-      // UB Mannheim library staff, but not via proxy server).
-      // TODO: PalMA installations which are accessible from
-      // the Internet may want to remove this test access.
-      return true;
-    } else {
-      trace("Test access not allowed for IP address $remote");
-      return false;
-    }
-  }
-
-  if ($username == '' || $password == '') {
-    // Don't allow empty user name or password.
-    // Proxy authentisation can fail with empty values.
-    trace("access denied for user '$username'");
-    return false;
-  }
-  // TODO: testurl sollte auf einem lokalen Server liegen.
-  $testurl = 'http://www.weilnetz.de/proxytest';
-  $proxy = 'proxy.bib.uni-mannheim.de:3150';
-  $curl = curl_init($testurl);
-  curl_setopt($curl, CURLOPT_HEADER, true);
-  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($curl, CURLOPT_PROXY, $proxy);
-  curl_setopt($curl, CURLOPT_PROXYAUTH, CURLAUTH_ANY);
-  curl_setopt($curl, CURLOPT_PROXYUSERPWD, "$username:$password");
-  //~ trace("Start curl");
-  $out = curl_exec($curl);
-  curl_close($curl);
-
-  if (!$out) {
-    trace("curl failed for user '$username'");
-    $errtext = addslashes(__('Invalid credentials!'));
-  } elseif (preg_match('/404 Not Found/', $out)) {
-    return true;
-  } elseif (preg_match('/Could not resolve proxy/', $out)) {
-    trace('proxy authentisation was not possible');
-    $errtext = addslashes(__('Cannot check credentials, sorry!'));
-  } elseif (preg_match('/Cache Access Denied/', $out)) {
-    trace("access denied for user '$username'");
-    $errtext = addslashes(__('Invalid credentials!'));
-  } else {
-    trace("access not possible for user '$username'");
-    $errtext = addslashes(__('Invalid credentials!'));
-  }
-  return false;
-}
 
 $username = '';
 $pin = '';
@@ -117,7 +33,6 @@ if (isset($_REQUEST['pin'])) {
   $posted_pin = escapeshellcmd($_REQUEST['pin']);
 }
 
-require_once('globals.php');
 monitor("login.php: page loaded");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   session_start();
@@ -137,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Invalid username or password.
   } elseif (CONFIG_PIN && ($pin != $posted_pin)) {
     monitor("login.php: access denied for user '$username': invalid pin");
-    trace("access denied for user '$username', wrong pin $posted_pin");
+    debug("login.php: access denied for user '$username', wrong pin $posted_pin");
     $errtext = addslashes(__('Invalid PIN.'));
   } else {
     // Successfully checked username, password and PIN.
     monitor("login.php: access granted for user '$username'");
-    trace("access granted for user '$username'");
+    debug("login.php: access granted for user '$username'");
     $_SESSION['username'] = $username;
     $_SESSION['address'] = $dbcon->ipAddress();
     $_SESSION['pin'] = $pin;
@@ -158,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('HTTP/1.1 303 See Other');
       }
     }
-    trace(CONFIG_START_URL);
+    debug('login.php' . CONFIG_START_URL);
     header('Location: ' . CONFIG_START_URL);
     exit;
   }

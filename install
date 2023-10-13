@@ -53,11 +53,12 @@ deps_debian = [
     'gettext', 'git', 'libavcodec-extra', 'make', 'wget', 'xorg',
 ]
 
+
 files_wwwdir = [
     # php
-    'auth.php', 'globals.php', 'control.php', 'DBConnector.class.php', 'db.php',
-    'download.php', 'FileHandler.class.php', 'i12n.php', 'index.php',
-    'login.php', 'logout.php', 'SSVNCDaemon.php', 'upload.php',
+    'auth.php', 'control.php', 'DBConnector.class.php', 'db.php', 'do_logout_all.php',
+    'download.php', 'FileHandler.class.php', 'globals.php', 'i12n.php', 'index.php',
+    'login.php', 'logout.php', 'SSVNCDaemon.class.php', 'start_ssvnc.php', 'upload.php',
     # css
     'dropzone.min.css',
     'palma.css',
@@ -301,7 +302,7 @@ try:
 
 except Exception:
     printe('Error installing PalMA, exiting.')
-    #raise
+    if args.verbose: raise
     sys.exit(1)
 except KeyboardInterrupt:
     sys.exit(0)

@@ -15,5 +15,6 @@
 /docs/dist/phpcs.phar
 /locale/*/LC_MESSAGES/*.mo
 /locale/*/LC_MESSAGES/*.po~
+/vendor/
 *~
 \#*
