@@ -143,7 +143,7 @@ function sendToNuc(command) {
 }
 
 function keyControl(number, image, controlClass, key, handler, disabled, title) {
-    // "number" refers to the slected screensection
+    // "number" refers to the selected screensection
 
   var keyHandler = getHandlerCommand(handler, key);
   if ( (keyHandler == "") || (keyHandler == null) ) {
@@ -1055,7 +1055,7 @@ window.onclick = function(event) {
 
 <body>
 
-<!-- This formating is used to prevent empty textnodes that interfere with the design -->
+<!-- This formatting is used to prevent empty textnodes that interfere with the design -->
 <div class="tab"
     ><button class="tablinks" onclick="openTab(event, 'Add')"><?=addslashes(__('Add'))?><i class="fa fa-plus"></i></button
     ><button class="tablinks" id="controlbtn" onclick="openTab(event, 'Control')"><?=addslashes(__('Control'))?><i class="fa fa-arrows"></i></button
