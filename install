@@ -180,7 +180,15 @@ try:
         os.path.join(wwwdir,'globals.php'))
     sysconfdir = destdir + args.sysconfdir
     mkdir(sysconfdir)
-    shutil.copy('examples/palma.ini', sysconfdir)
+    if args.mode == 'install' and \
+       os.path.exists(os.path.join(sysconfdir, 'palma.ini')):
+        print("Not overwriting existing palma.ini")
+        shutil.copy(
+            'examples/palma.ini',
+            os.path.join(sysconfdir, 'palma.ini.dist')
+        )
+    else:
+        shutil.copy('examples/palma.ini', sysconfdir)
     
     # palma.db
     snr('s,palma.db,%s,g' % os.path.join(args.dbdir,'palma.db'),
