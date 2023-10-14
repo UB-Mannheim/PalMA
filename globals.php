@@ -87,7 +87,7 @@ function checkCredentials(string $username, string $password): bool
       // the Internet may want to remove this test access.
       return true;
     } else {
-      trace("Test access not allowed for IP address $remote");
+      trace("checkCredentials: Test access not allowed for IP address $remote");
       return false;
     }
   }
@@ -95,7 +95,7 @@ function checkCredentials(string $username, string $password): bool
   if ($username == '' || $password == '') {
     // Don't allow empty user name or password.
     // Proxy authentisation can fail with empty values.
-    trace("access denied for user '$username'");
+    trace("checkCredentials: access denied for user '$username'");
     return false;
   }
   // TODO: testurl sollte auf einem lokalen Server liegen.
@@ -107,23 +107,23 @@ function checkCredentials(string $username, string $password): bool
   curl_setopt($curl, CURLOPT_PROXY, $proxy);
   curl_setopt($curl, CURLOPT_PROXYAUTH, CURLAUTH_ANY);
   curl_setopt($curl, CURLOPT_PROXYUSERPWD, "$username:$password");
-  //~ trace("Start curl");
+  //~ trace("checkCredentials: Start curl");
   $out = curl_exec($curl);
   curl_close($curl);
 
   if (!$out) {
-    trace("curl failed for user '$username'");
+    trace("checkCredentials: curl failed for user '$username'");
     $errtext = addslashes(__('Invalid credentials!'));
   } elseif (preg_match('/404 Not Found/', $out)) {
     return true;
   } elseif (preg_match('/Could not resolve proxy/', $out)) {
-    trace('proxy authentisation was not possible');
+    trace('checkCredentials: proxy authentication was not possible');
     $errtext = addslashes(__('Cannot check credentials, sorry!'));
   } elseif (preg_match('/Cache Access Denied/', $out)) {
-    trace("access denied for user '$username'");
+    trace("checkCredentials: access denied for user '$username'");
     $errtext = addslashes(__('Invalid credentials!'));
   } else {
-    trace("access not possible for user '$username'");
+    trace("checkCredentials: access not possible for user '$username'");
     $errtext = addslashes(__('Invalid credentials!'));
   }
   return false;
@@ -169,7 +169,7 @@ function debug(string $text): void
 function monitor(string $action): void
 {
   if (is_null(CONFIG_MONITOR_URL)) {
-    debug('CONFIG_MONITOR_URL is unset');
+    debug('globals.php: CONFIG_MONITOR_URL is unset');
     return;
   }
 
@@ -202,7 +202,7 @@ function displayCommand(string $cmd): ?string
 
   // add directories with palma-browser to PATH
   $result = shell_exec('PATH=/usr/lib/palma:./scripts:$PATH ' . $cmd);
-  trace("displayCommand $cmd, result=$result");
+  trace("displayCommand: $cmd, result=$result");
   return $result;
 }
 
@@ -326,7 +326,7 @@ function setLayout(?string $layout = null): void
   // We use names like g1x1, g2x1, g1x2, ...
   // Restore the last layout if the function is called with a null argument.
 
-  trace("layout $layout");
+  trace("setLayout: $layout");
 
   require_once 'DBConnector.class.php';
   $db = palma\DBConnector::getInstance();
@@ -356,7 +356,7 @@ function setLayout(?string $layout = null): void
 
   // Make sure $layout is valid
   if (!array_key_exists($layout, $geom)) {
-    trace("layout invalid!");
+    trace("setLayout: layout invalid!");
   } else {
     $db->exec("UPDATE setting SET value='$layout' WHERE key='layout'");
     $dim = $geom[$layout];
@@ -405,7 +405,7 @@ function activateControls(string $windowhex): void
   $db = palma\DBConnector::getInstance();
 
   $fhandler = $db->querySingle("SELECT handler FROM window WHERE win_id='$windowhex'");
-  trace("activateControls for handler $fhandler");
+  trace("activateControls: handler $fhandler");
   monitor("control.php: activateControls $fhandler");
 }
 
@@ -418,7 +418,7 @@ function addNewWindow(array $new): void
   // unused section or it will be hidden.
 
   monitor('control.php: addNewWindow ' . serialize($new));
-  trace('addNewWindow ' . serialize($new));
+  trace('addNewWindow: ' . serialize($new));
 
   require_once 'DBConnector.class.php';
   $db = palma\DBConnector::getInstance();
@@ -454,11 +454,11 @@ function addNewWindow(array $new): void
   } while (!$new_window_id && $t_total++ <= 10 && !sleep(1));
 
   if (!$new_window_id) {
-    trace('warning: no new window found');
+    trace('addNewWindow: warning: no new window found');
     return;
   }
 
-  trace("new window $new_window_id");
+  trace("addNewWindow: new window $new_window_id");
 
   // Determine last assigned monitor section.
   //~ $max_section = $db->querySingle('SELECT MAX(section) FROM window');
@@ -479,7 +479,7 @@ function addNewWindow(array $new): void
     // We could hide the new window immediately, but don't do it here:
     // Each new window will be shown in the middle of the screen.
     //~ wmHide($new_window_id);
-    //~ trace("hide new window $new_window_id");
+    //~ trace("addNewWindow: hide new window $new_window_id");
   }
 
   // $new['file'] = $active_window; (?)
@@ -519,14 +519,14 @@ function createNewWindowSafe(array $w): void
 
   $inFile = $w['file'];
   if (!file_exists($inFile)) {
-    trace("" . escapeshellarg($inFile) . " is not a file, aborting display");
+    trace("createNewWindowSafe: " . escapeshellarg($inFile) . " is not a file, aborting display");
     return;
   }
 
   require_once 'FileHandler.class.php';
   list ($handler, $targetFile) =
     palma\FileHandler::getFileHandler($inFile);
-  trace("file is now $targetFile, its handler is $handler");
+  trace("createNewWindowSafe: file is now $targetFile, its handler is $handler");
 
   $window = array(
     "id" => "",
@@ -588,12 +588,13 @@ function processRequests(): void
       $windowlist = windowList();
 
       if (count($windowlist) == 0) {
-        trace("no window found for command");
+        trace("processRequests: no window found for command");
       } elseif (is_numeric($window) && count($windowlist) <= $window) {
-        trace("window $window is out of bounds");
+        trace("processRequests: window $window is out of bounds");
       } elseif (!is_numeric($window)) {
-        trace("unhandled window $window");
+        trace("processRequests: unhandled window $window");
       } else {
+        trace("processRequests: command window");
         $windowname = $windowlist[$window];
         $windowhex = hexdec($windowname);
       }
@@ -601,7 +602,7 @@ function processRequests(): void
 
     if ($windowname && array_key_exists('key', $_REQUEST)) {
       $key = escapeshellcmd($_REQUEST['key']);
-      trace("key '$key' in window '$windownumber'");
+      trace("processRequests: key '$key' in window '$windownumber'");
       wmShow($windowname);
       // activateControls($windowhex);
       // displayCommand("xdotool windowfocus $windowhex key $key");
@@ -616,7 +617,7 @@ function processRequests(): void
       // with sticking keys (no keyup seen). This should be fixed by a
       // better event handling.
       $key = escapeshellcmd($_REQUEST['keydown']);
-      trace("keydown '$key' in window '$windownumber'");
+      trace("processRequests: keydown '$key' in window '$windownumber'");
       wmShow($windowname);
       // activateControls($windowhex);
       // displayCommand("xdotool windowfocus $windowhex key $key");
@@ -630,7 +631,7 @@ function processRequests(): void
     if ($windowname && array_key_exists('keyup', $_REQUEST)) {
       // TODO: keyup is currently ignored, see comment above.
       $key = escapeshellcmd($_REQUEST['keyup']);
-      trace("keyup '$key' in window '$windownumber'");
+      trace("processRequests: keyup '$key' in window '$windownumber'");
       // activateControls($windowhex);
       //~ wmShow($windowname);
       //~ displayCommand("xdotool windowfocus $windowhex keyup $key");
@@ -638,39 +639,36 @@ function processRequests(): void
 
     if (array_key_exists('delete', $_REQUEST)) {
       $delete = addslashes($_REQUEST['delete']);
-      trace("delete='$delete', close window $windownumber");
+      trace("processRequests: delete='$delete', close window $windownumber");
 
       // Restrict deletion to files known in the db.
       // TODO: check if given file and section match the values in the DB,
       // but currently, both those values can be ambiguous
       $file_in_db = $db->querySingle("SELECT id FROM window WHERE file='$delete'");
       $delete = str_replace(" ", "\ ", $delete);
-      trace("file in db: $file_in_db");
+      trace("processRequests: file in db: $file_in_db");
       if ($file_in_db) {
         if (file_exists($delete)) {
-          trace("+++ DELETE FILE FROM WEBINTERFACE +++");
+          trace("processRequests: delete file $delete");
           unlink($delete);
         } elseif ($delete == "VNC") {
-          trace("+++ DELETE VNC Client FROM DAEMON +++");
+          trace("processRequests: delete vnc window");
           // call via daemon: ?window=vncwin&delete=VNC&vncid=123
-          trace("vnc delete in control");
           $win_id = escapeshellcmd($_REQUEST['vncid']);   // = hexWindow in database, but not on screen
           trace("VNC via Daemon ... id=$win_id");
         } elseif (strstr($delete, "http")) {
-          trace("+++ DELETE Browserwindow +++");
+          trace("processRequests: delete browser window");
         } elseif (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
-          trace("+++ DELETE VNC Client FROM WEBINTERFACE +++");
+          trace("processRequests: delete vnc client from webinterface");
           // call via webinterface
           $win_id = $db->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
-          trace("DELETE VNC Window with ID=$win_id FROM Database ::
-                    SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
         } else {
-          trace("Unhandled delete for '$delete'");
+          trace("processRequests: unhandled delete for '$delete'");
         }
         wmClose($win_id);
         $db->deleteWindow($win_id);
       } else {
-        trace("Given file not present in database!");
+        trace("processRequests: given file not present in database!");
       }
     }
 
@@ -702,7 +700,7 @@ function processRequests(): void
     if (array_key_exists('toggle', $_REQUEST)) {
       // Change window state from visible to invisible and vice versa.
       $state = $db->getWindowState($win_id);
-      trace("toggle window $windownumber, id=$win_id, state=$state");
+      trace("processRequests: toggle window $windownumber, id=$win_id, state=$state");
       if ($state == "active") {
         wmHide($win_id);
         $db->setWindowState($win_id, "inactive");
@@ -725,7 +723,7 @@ function processRequests(): void
   if (array_key_exists('switchWindows', $_REQUEST)) {
     $before = escapeshellcmd($_REQUEST['before']);
     $after = escapeshellcmd($_REQUEST['after']);
-    trace("switching $before and $after");
+    trace("processRequests: switchWindows $before -> $after");
 
     // exchange section
     $win_id1 = $db->getWindowIDBySection($before);
@@ -734,8 +732,8 @@ function processRequests(): void
     $db->updateWindow($win_id1, 'section', $after);
     $db->updateWindow($win_id2, 'section', $before);
 
-    trace("++updating database $win_id1 section=$after");
-    trace("++updating database $win_id2 section=$before");
+    debug("processRequests: updating database $win_id1 section=$after");
+    debug("processRequests: updating database $win_id2 section=$before");
 
     // Update display (no layout change).
     setLayout();
@@ -743,25 +741,25 @@ function processRequests(): void
 
   if (array_key_exists('openURL', $_REQUEST)) {
     $openURL = escapeshellcmd($_REQUEST['openURL']);
-    trace("openURL $openURL");
+    trace("processRequests: openURL $openURL");
 
     // If URL leads to pdf file, download it and treat as upload
     $headers = get_headers($openURL, PHP_MAJOR_VERSION < 8 ? 1 : true);
     if ($headers["Content-Type"] == "application/pdf") {
-      trace("url seems to lead to a pdf file, so downloading it...");
+      debug("processRequests: url seems to lead to a pdf file, so downloading it...");
       $temp_name = basename($openURL);
       $temp_dir = "/tmp";
       file_put_contents("$temp_dir/$temp_name", file_get_contents($openURL));
       $mimetype = mime_content_type("$temp_dir/$temp_name");
-      trace("mimetype is $mimetype");
+      debug("processRequests: mimetype is $mimetype");
       if ($mimetype == "application/pdf") {
         $_FILES['file']['name'] = "$temp_name";
         $_FILES['file']['tmp_name'] = "$temp_dir/$temp_name";
         $_FILES['file']['error'] = "downloaded_from_url";
-        trace("Handing over to upload.php");
+        debug("processRequests: handing over to upload.php");
         include 'upload.php';
       } else {
-        trace("Deleting file!");
+        debug("processRequests: deleting file");
         unlink("$temp_dir/$temp_name");
       }
     } else {
@@ -784,7 +782,7 @@ function processRequests(): void
   // TODO: check if query redundant?
   if (array_key_exists('closeAll', $_REQUEST)) {
     $close = $_REQUEST['closeAll'];
-    trace("close all windows $close");
+    trace("processRequests: closeAll $close");
     closeAll();
   }
 }
