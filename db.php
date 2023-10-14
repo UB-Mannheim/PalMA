@@ -81,7 +81,7 @@ for ($t = 0; $t < 300; $t++) {
   });
   $newJSON = json_encode($database);
   if ($oldJSON != $newJSON) {
-    debug("db.php: new  $newJSON");
+    debug("db.php: new $newJSON");
     break;
   }
 
