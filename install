@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
 import argparse
+import glob
 import os
 import pwd
+import re
 import shutil
 import socket
 import subprocess
 import sys
-
 
 ################################################################################
 ## command line parsing
@@ -36,9 +37,11 @@ parser.add_argument('--name', default=argparse.SUPPRESS,
                     help='set host name (default: %s)' % socket.getfqdn())
 parser.add_argument('--server', choices=['apache2','nginx'], default='nginx',
                     help='set web server')
+parser.add_argument('-f', '--force', action='store_true',
+                    help='force action (e.g. uninstall all files)')
 parser.add_argument('-v', '--verbose', action='store_true',
                     help='set verbose output')
-parser.add_argument('mode', nargs='?', choices=['install','deb', 'deps'],
+parser.add_argument('mode', nargs='?', choices=['install','deb', 'deps', 'uninstall'],
                     default='install', help='run mode')
 args = parser.parse_args()
 
@@ -52,7 +55,6 @@ deps_debian = [
     'php-gd', 'php-intl', 'php-sqlite3', 'php-mbstring',
     'gettext', 'git', 'libavcodec-extra', 'make', 'wget', 'xorg',
 ]
-
 
 files_wwwdir = [
     # php
@@ -106,9 +108,52 @@ def printe(*a):
 def mkdir(d):
     if not os.path.exists(d):
         os.makedirs(d)
-        
+
 def snr(pattern,f):
     subprocess.check_call(['/bin/sed', '-i', pattern, f])
+
+def uninstall(root, files=[], dirs=[], deleteRoot=True):
+    for f in map(lambda x: os.path.join(root, x), files):
+        if os.path.exists(f):
+            printv(f'Removing {f}')
+            os.remove(f)
+    for d in map(lambda x: os.path.join(root, x), dirs):
+        if os.path.exists(d):
+            printv(f'Recursively deleting {d}')
+            shutil.rmtree(d)
+    if deleteRoot and os.path.exists(root):
+        if len(os.listdir(root)):
+            printv(f'{root} not empty, not removing')
+        else:
+            printv(f'Removing {root}')
+            os.rmdir(root)
+
+def php_version(method=None):
+    methods = {
+        'apache2': '/etc/apache2/mods-available/php*.conf',
+        'fpm': '/run/php/php*-fpm.pid',
+    }
+
+    if method and method not in methods:
+        printe(f'php version lookup for {method} is not supported!')
+        sys.exit(1)
+
+    for m, pattern in methods.items():
+        if method and m != method:
+            continue
+        results = glob.glob(pattern)
+        if len(results) > 1:
+            print(f"Ambiguous result for method {m}: {','.join(results)}")
+        elif len(results) == 0:
+            continue
+        mo = re.search(r'\d\.\d', os.path.basename(results[0]))
+        if mo:
+            phpversion = mo[0]
+
+    if not len(phpversion):
+        printe(f"Could not determine php version, is {methods[method]} installed? Exiting")
+        sys.exit(1)
+    return phpversion
 
 ################################################################################
 ## start of script
@@ -132,7 +177,7 @@ try:
     if args.mode == 'deb':
         destdir = os.getenv('DESTDIR', 'build-deb')
         printv("Creating debian package in '%s'" % destdir)
-        
+
     if args.mode == 'install' and args.deps:
         # install dependencies
         if os.path.exists('/usr/bin/apt-get'):
@@ -145,168 +190,193 @@ try:
                 printe('Error installing dependencies, exiting.')
                 if args.verbose: raise
                 sys.exit(1)
-        
-    if args.mode == 'install':
+
+    if args.mode in ['install', 'uninstall']:
         # stop palma if already installed
         if args.init == 'systemd':
             if os.path.exists('/bin/systemctl') and \
                subprocess.call(
                    ['/bin/systemctl', 'is-active', 'palma'],
-                   subprocess.DEVNULL
+                   stdout=subprocess.DEVNULL
                ) == 0:
                 printv("Stopping systemd service")
                 subprocess.call(['/bin/systemctl', 'stop', 'palma'])
-        
+
     # build localization files
     subprocess.check_call(['/usr/bin/make'])
-    
+
     # copy files
     userstruct = pwd.getpwnam('www-data')
 
     wwwdir = destdir + args.wwwdir
-    mkdir(wwwdir)
-    for f in files_wwwdir:
-        printv("Copying '%s'" % f)
-        shutil.copy(f,wwwdir)
-    for d in dirs_wwwdir:
-        printv("Copying directory '%s'" % d)
-        trg = os.path.join(wwwdir,d)
-        if os.path.exists(trg): shutil.rmtree(trg)
-        shutil.copytree(d,trg,symlinks=True)
-    
-    printv("Installing 'palma.ini'")
-    # palma.ini
-    snr("s,'palma.ini','%s',g" % os.path.join(args.sysconfdir,'palma.ini'),
-        os.path.join(wwwdir,'globals.php'))
-    sysconfdir = destdir + args.sysconfdir
-    mkdir(sysconfdir)
-    if args.mode == 'install' and \
-       os.path.exists(os.path.join(sysconfdir, 'palma.ini')):
-        print("Not overwriting existing palma.ini")
-        shutil.copy(
-            'examples/palma.ini',
-            os.path.join(sysconfdir, 'palma.ini.dist')
-        )
+    if args.mode == 'uninstall':
+        uninstall(wwwdir, files_wwwdir, dirs_wwwdir)
     else:
-        shutil.copy('examples/palma.ini', sysconfdir)
-    
-    # palma.db
-    snr('s,palma.db,%s,g' % os.path.join(args.dbdir,'palma.db'),
-        os.path.join(wwwdir,'DBConnector.class.php'))
-    dbdir = destdir + args.dbdir
-    mkdir(dbdir)
-    if args.mode == 'install':    
-        os.chown(dbdir,userstruct.pw_uid,userstruct.pw_gid)
-        
-    # configure web server
-    phpversion = ''
-    if args.mode == 'deb' or args.server == 'nginx':
-        if args.mode == 'install':
-            printv("Creating configuration for nginx")
-            for root, dirs, files in os.walk('/etc/php'):
-                for d in dirs:
-                    if not d == 'fpm': continue
-                    phpversion = os.path.basename(root)
-                    break
-            if not len(phpversion):
-                printe("Could not determine php version, is php-fpm installed? Exiting")
-                sys.exit(1)
-                
-            path = os.path.join(args.sysconfdir,
-                                'php/%s/mods-available' % phpversion)
-            if not os.path.exists(path):
-                os.makedirs(path)
-            fn = os.path.join(path,'palma.ini')
-            shutil.copyfile('examples/palma.php.ini', fn)
-            path = os.path.join(args.sysconfdir,
-                                'nginx/sites-available')
-            if not os.path.exists(path):
-                os.makedirs(path)
-            fn = os.path.join(path,'palma')
-            shutil.copyfile('examples/palma.nginx.conf',fn)
-            snr('s,/var/www/html,%s,g' % args.wwwdir, fn)
-            snr('s,php7\.[0-9],php%s,g' % phpversion, fn)
-            subprocess.call(['/usr/sbin/phpenmod', 'palma'])
-            subprocess.call(
-                ['/usr/sbin/invoke-rc.d', 'php%s-fpm' % phpversion, 'restart']
-            )
-        
-            path = os.path.join(args.sysconfdir,'nginx/sites-enabled')
-            if not os.path.exists(path):
-                os.makedirs(path)
-            fn = os.path.join(path,'palma')
-            if not os.path.exists(fn):
-                os.symlink('../sites-available/palma', fn)
-            fn = os.path.join(path,'default')
-            if os.path.exists(fn):
-                os.remove(fn)
-            printv("Reloading nginx configuration")
-            subprocess.call(['/usr/sbin/invoke-rc.d', 'nginx', 'restart'])
-    if args.mode == 'deb' or args.server == 'apache':
-        printv("Creating configuration for apache2")
+        mkdir(wwwdir)
+        for f in files_wwwdir:
+            printv(f'Copying {f}')
+            shutil.copy(f,wwwdir)
+        for d in dirs_wwwdir:
+            printv(f'Copying directory {d}')
+            trg = os.path.join(wwwdir,d)
+            if os.path.exists(trg): shutil.rmtree(trg)
+            shutil.copytree(d,trg,symlinks=True)
 
-        path = os.path.join(destdir + args.sysconfdir,'apache2/conf-available')
-        if not os.path.exists(path):
-            os.makedirs(path)
-        fn = os.path.join(path,'palma.conf')
-        shutil.copyfile('examples/palma.apache.conf', fn)
-        snr('s,/var/www/html,%s,g' % args.wwwdir, fn)
-        
+    # palma.ini
+    sysconfdir = destdir + args.sysconfdir
+    palma_ini = os.path.join(sysconfdir, 'palma.ini')
+    if args.mode == 'uninstall':
+        for f in [ palma_ini, palma_ini + '.dist' ]:
+            if os.path.exists(f) and args.force:
+                os.remove(f)
+    else:
+        mkdir(sysconfdir)
+        snr("s,'palma.ini','%s',g" % os.path.join(args.sysconfdir,'palma.ini'),
+            os.path.join(wwwdir,'globals.php'))
         if args.mode == 'install':
-            for root, dirs, files in os.walk('/etc/php'):
-                for d in dirs:
-                    if not d == 'apache2': continue
-                    phpversion = os.path.basename(root)
-                    break
-            if not len(phpversion):
-                printe("Could not determine php version, is libapache2-mode-php installed? Exiting")
-                sys.exit(1)
-                
-            path = os.path.join(args.sysconfdir,
-                                'php/%s/apache2/conf.d' % phpversion)
+            if os.path.exists(palma_ini):
+                print("Not overwriting existing palma.ini")
+                palma_ini += '.dist'
+        shutil.copy('examples/palma.ini', palma_ini)
+
+    # palma.db
+    dbdir = destdir + args.dbdir
+    if args.mode == 'uninstall':
+        if os.path.exists(dbdir):
+            shutil.rmtree(dbdir)
+    else:
+        mkdir(dbdir)
+        snr('s,palma.db,%s,g' % os.path.join(args.dbdir,'palma.db'),
+            os.path.join(wwwdir,'DBConnector.class.php'))
+        if args.mode == 'install':
+            os.chown(dbdir,userstruct.pw_uid,userstruct.pw_gid)
+
+    # configure web server
+    if args.mode == 'uninstall':
+        if args.server == 'nginx':
+            phpversion = php_version('fpm')
+            if os.path.exists(os.path.join(
+                    args.sysconfdir,
+                    f'php/{phpversion}/mods-available/palma.ini'
+            )):
+                subprocess.call(['/usr/sbin/phpdismod', 'palma'])
+            subprocess.call(
+                ['/bin/systemctl', 'restart', 'php%s-fpm' % phpversion]
+            )
+            for (subdir, f) in [
+                    (f'php/{phpversion}/mods-available', 'palma.ini'),
+                    (f'nginx/sites-enabled', 'palma'),
+                    (f'nginx/sites-available', 'palma'),
+            ]:
+                uninstall(os.path.join(args.sysconfdir, subdir), [f], deleteRoot=False)
+            subprocess.call(['/bin/systemctl', 'restart', 'nginx'])
+        else:
+            pass
+    else:
+        if args.mode == 'deb' or args.server == 'nginx':
+            phpversion = php_version('fpm')
+            if args.mode == 'install':
+                printv("Creating configuration for nginx")
+
+                path = os.path.join(args.sysconfdir,
+                                    'php/%s/mods-available' % phpversion)
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                fn = os.path.join(path,'palma.ini')
+                shutil.copyfile('examples/palma.php.ini', fn)
+                path = os.path.join(args.sysconfdir,
+                                    'nginx/sites-available')
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                fn = os.path.join(path,'palma')
+                shutil.copyfile('examples/palma.nginx.conf',fn)
+                snr('s,/var/www/html,%s,g' % args.wwwdir, fn)
+                snr('s,php7\.[0-9],php%s,g' % phpversion, fn)
+                subprocess.call(['/usr/sbin/phpenmod', 'palma'])
+                subprocess.call(
+                    ['/bin/systemctl', 'restart', 'php%s-fpm' % phpversion]
+                )
+
+                path = os.path.join(args.sysconfdir,'nginx/sites-enabled')
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                fn = os.path.join(path,'palma')
+                if not os.path.exists(fn):
+                    os.symlink('../sites-available/palma', fn)
+                fn = os.path.join(path,'default')
+                if os.path.exists(fn):
+                    os.remove(fn)
+                printv("Reloading nginx configuration")
+                subprocess.call(['/bin/systemctl', 'restart', 'nginx'])
+        if args.mode == 'deb' or args.server == 'apache':
+            printv("Creating configuration for apache2")
+
+            path = os.path.join(destdir + args.sysconfdir,'apache2/conf-available')
             if not os.path.exists(path):
                 os.makedirs(path)
-            fn = os.path.join(path,'palma.ini')
-            shutil.copyfile('examples/palma.php.ini', fn)
-        
-            printv("Reloading apache2 configuration")
-            subprocess.check_call(['/usr/sbin/a2enmod', 'rewrite'])
-            subprocess.check_call(['/usr/sbin/a2enconf', 'palma'])
-            subprocess.check_call(['/usr/sbin/apache2ctl', 'configtest'])
-            subprocess.call(['/usr/sbin/apache2ctl', 'restart'])
+            fn = os.path.join(path,'palma.conf')
+            shutil.copyfile('examples/palma.apache.conf', fn)
+            snr('s,/var/www/html,%s,g' % args.wwwdir, fn)
+
+            if args.mode == 'install':
+                phpversion = php_version('apache2')
+                path = os.path.join(args.sysconfdir,
+                                    'php/%s/apache2/conf.d' % phpversion)
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                fn = os.path.join(path,'palma.ini')
+                shutil.copyfile('examples/palma.php.ini', fn)
+
+                printv("Reloading apache2 configuration")
+                subprocess.check_call(['/usr/sbin/a2enmod', 'rewrite'])
+                subprocess.check_call(['/usr/sbin/a2enconf', 'palma'])
+                subprocess.check_call(['/usr/sbin/apache2ctl', 'configtest'])
+                subprocess.call(['/usr/sbin/apache2ctl', 'restart'])
 
     libdir = destdir + args.libdir
-    mkdir(libdir)
-    shutil.copy('scripts/palma-browser',libdir)
-    shutil.copy('scripts/startx',libdir)
+    palma_scripts = ['palma-browser', 'startx']
+    if args.mode == 'uninstall':
+        uninstall(libdir, palma_scripts)
+    else:
+        mkdir(libdir)
+        for f in palma_scripts:
+            shutil.copy(os.path.join('scripts/', f),libdir)
 
-    # install syslog configuration
-    printv('Creating configuration for syslog')
+    # syslog configuration
     path = os.path.join(destdir + args.sysconfdir,'rsyslog.d')
-    mkdir(path)
-    shutil.copyfile('examples/palma.syslog', os.path.join(path,'palma.conf'))
-    if args.mode == 'install':
-        if os.path.exists('/bin/systemctl'):
-            subprocess.call(['/bin/systemctl', 'restart', 'rsyslog'])
-        
-    # install init script
-    if args.init == 'systemd':
-        printv('Installing systemd service')
-        path = os.path.join(destdir + args.sysconfdir,'systemd/system')
+    if args.mode == 'uninstall':
+        uninstall(path, ['palma.conf'])
+    else:
         mkdir(path)
-        fn = os.path.join(path,'palma.service')
-        shutil.copyfile('examples/palma.service', fn)
-        snr('s,^\\(ExecStart\\)=.*,\\1=%s,g' % os.path.join(args.libdir,'startx'), fn)
-        snr('s,^\\(WorkingDirectory\\)=.*,\\1=%s,g' % args.wwwdir, fn)
-        snr('s,^\\(Group\\)=.*,\\1=www-data,g', fn)
-
+        shutil.copyfile('examples/palma.syslog', os.path.join(path,'palma.conf'))
         if args.mode == 'install':
             if os.path.exists('/bin/systemctl'):
-                subprocess.call(['/bin/systemctl', 'daemon-reload'])
-                subprocess.call(['/bin/systemctl', 'enable', 'palma'])
-                subprocess.call(['/usr/sbin/invoke-rc.d', 'palma', 'start'])
+                subprocess.call(['/bin/systemctl', 'restart', 'rsyslog'])
+
+    # init script
+    path = os.path.join(destdir + args.sysconfdir, 'systemd/system')
+    if args.mode == 'uninstall':
+        subprocess.call(['/bin/systemctl', 'stop', 'palma'], stderr=subprocess.DEVNULL)
+        subprocess.call(['/bin/systemctl', 'disable', 'palma'], stderr=subprocess.DEVNULL)
+        uninstall(path, ['palma.service'], deleteRoot=False)
+        subprocess.call(['/bin/systemctl', 'daemon-reload'])
     else:
-        pass
+        if args.init == 'systemd':
+            systemd_service = os.path.join(path, 'palma.service')
+            printv('Installing systemd service')
+            mkdir(os.path.dirname(systemd_service))
+            shutil.copyfile('examples/palma.service', systemd_service)
+            snr('s,^\\(ExecStart\\)=.*,\\1=%s,g' % os.path.join(args.libdir,'startx'), systemd_service)
+            snr('s,^\\(WorkingDirectory\\)=.*,\\1=%s,g' % args.wwwdir, systemd_service)
+            snr('s,^\\(Group\\)=.*,\\1=www-data,g', systemd_service)
+
+            if args.mode == 'install':
+                if os.path.exists('/bin/systemctl'):
+                    subprocess.call(['/bin/systemctl', 'daemon-reload'])
+                    subprocess.call(['/bin/systemctl', 'enable', 'palma'], stderr=subprocess.DEVNULL)
+                    subprocess.call(['/bin/systemctl', 'restart', 'palma'])
+        else:
+            pass
 
 except Exception:
     printe('Error installing PalMA, exiting.')
