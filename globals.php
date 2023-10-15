@@ -169,7 +169,6 @@ function debug(string $text): void
 function monitor(string $action): void
 {
   if (is_null(CONFIG_MONITOR_URL)) {
-    debug('globals.php: CONFIG_MONITOR_URL is unset');
     return;
   }
 

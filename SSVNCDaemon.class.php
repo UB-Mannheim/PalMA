@@ -88,6 +88,9 @@ class SSVNCDaemon
           $client["hostname"] != ""
       ) {
         // add client
+        if ($client["hostname"] == "unknown") {
+          $client["hostname"] = $client["ip"];
+        }
         $this->addClient($client["ip"], $client["hostname"]);
 
         // reset local Client information after adding it
@@ -294,8 +297,8 @@ class SSVNCDaemon
       }
     }
 
-    // print("[Daemon]: clients in db = " . serialize($vnc_windows_in_db));
-    // print("[Daemon]: client on screen = " . serialize($windows_on_screen));
+    debug("  clients in db = " . serialize($vnc_windows_in_db));
+    debug("  client on screen = " . serialize($windows_on_screen));
 
     // window_ids that are in the db, but not on the screen (window already closed)
     $inactive_vnc_window_ids = array_diff($vnc_windows_in_db, $windows_on_screen);
@@ -318,7 +321,7 @@ class SSVNCDaemon
       curl_exec($curl);
       curl_close($curl);
 
-      // print("[Daemon]: inactive vnc_id = $inactive_vnc_id >> add to list: " .serialize($this->IGNORE_LIST));
+      // debug(" inactive vnc_id = $inactive_vnc_id >> add to list: " .serialize($this->IGNORE_LIST));
     }
   }
 }
