@@ -58,9 +58,9 @@ deps_debian = [
 
 files_wwwdir = [
     # php
-    'auth.php', 'control.php', 'DBConnector.class.php', 'db.php', 'do_logout_all.php',
+    'auth.php', 'control.php', 'DBConnector.class.php', 'db.php',
     'download.php', 'FileHandler.class.php', 'globals.php', 'i12n.php', 'index.php',
-    'login.php', 'logout.php', 'SSVNCDaemon.class.php', 'start_ssvnc.php', 'upload.php',
+    'login.php', 'logout.php', 'SSVNCDaemon.class.php', 'upload.php',
     # css
     'dropzone.min.css',
     'palma.css',
@@ -351,7 +351,7 @@ try:
         shutil.copyfile('examples/palma.syslog', os.path.join(path,'palma.conf'))
         if args.mode == 'install':
             if os.path.exists('/bin/systemctl'):
-                subprocess.call(['/bin/systemctl', 'restart', 'rsyslog'])
+                subprocess.call(['/bin/systemctl', 'restart', 'rsyslog'], stderr=subprocess.DEVNULL)
 
     # init script
     path = os.path.join(destdir + args.sysconfdir, 'systemd/system')

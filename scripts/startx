@@ -129,6 +129,11 @@ $monitor "starting up X server"
 # Allow X server to start before continuing.
 /bin/sleep 5
 
+# Force display geometry if set in configuration file
+if [ -n "$force_geometry" ]; then
+    xrandr -s "$force_geometry"
+fi
+
 # Start X window manager.
 runx "/usr/bin/openbox --config-file \"$basedir/settings/openbox/rc.xml\"" &
 
@@ -205,7 +210,7 @@ while true; do
         # Kill the VNC viewer if it was running.
         date +"%F %T start palma-browser with screensaver"
         killall -q ssvncviewer
-        runx "/usr/bin/php $wwwroot/do_logout_all.php"
+        runx "/usr/bin/php -r \"require_once '$wwwroot/globals.php';doLogout('ALL');\""
         runx "$bindir/palma-browser $screensaver" &
         # switch to fullscreen
         for try in {1..10}; do
@@ -237,7 +242,7 @@ while true; do
             # Start the VNC viewer process, so usercount can share their desktop.
             date +"%F %T kill palma-browser"
             kill $(pgrep palma-browser)
-            runx "/usr/bin/php $wwwroot/start_ssvnc.php" &
+            runx "/usr/bin/php -r \"require_once '/usr/share/palma/SSVNCDaemon.class.php';new palma\SSVNCDaemon();\"" &
             runx "/usr/bin/touch $rundir/last_activity"
             state="2"
         fi
