@@ -506,6 +506,8 @@ function addNewWindow(array $new): void
 
   // Save window in database.
   $db->insertWindow($myWindow);
+
+  setLayout();
 }
 
 /**
@@ -640,35 +642,35 @@ function processRequests(): void
       $delete = addslashes($_REQUEST['delete']);
       trace("processRequests: delete='$delete', close window $windownumber");
 
-      // Restrict deletion to files known in the db.
-      // TODO: check if given file and section match the values in the DB,
-      // but currently, both those values can be ambiguous
-      $file_in_db = $db->querySingle("SELECT id FROM window WHERE file='$delete'");
-      $delete = str_replace(" ", "\ ", $delete);
-      trace("processRequests: file in db: $file_in_db");
-      if ($file_in_db) {
-        if (file_exists($delete)) {
-          trace("processRequests: delete file $delete");
-          unlink($delete);
-        } elseif ($delete == "VNC") {
-          trace("processRequests: delete vnc window");
-          // call via daemon: ?window=vncwin&delete=VNC&vncid=123
-          $win_id = escapeshellcmd($_REQUEST['vncid']);   // = hexWindow in database, but not on screen
-          trace("VNC via Daemon ... id=$win_id");
-        } elseif (strstr($delete, "http")) {
-          trace("processRequests: delete browser window");
-        } elseif (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
-          trace("processRequests: delete vnc client from webinterface");
-          // call via webinterface
-          $win_id = $db->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
-        } else {
-          trace("processRequests: unhandled delete for '$delete'");
-        }
-        wmClose($win_id);
-        $db->deleteWindow($win_id);
+      if ($delete == "VNC") {
+        trace("processRequests: delete vnc window");
+        // call via daemon: ?window=vncwin&delete=VNC&vncid=123
+        $win_id = escapeshellcmd($_REQUEST['vncid']);   // = hexWindow in database, but not on screen
+        trace("VNC via Daemon ... id=$win_id");
+      } elseif (strstr($delete, "http")) {
+        trace("processRequests: delete browser window");
+      } elseif (preg_match('/(^\w{3,}@\w{1,})/', $delete)) {
+        trace("processRequests: delete vnc client from webinterface");
+        // call via webinterface
+        $win_id = $db->querySingle("SELECT win_id FROM window WHERE file='$delete' AND handler='vnc'");
       } else {
-        trace("processRequests: given file not present in database!");
+        // Restrict deletion to files known in the db.
+        // TODO: check if given file and section match the values in the DB,
+        // but currently, both those values can be ambiguous
+        $file_in_db = $db->querySingle("SELECT id FROM window WHERE file='$delete'");
+        $delete = str_replace(" ", "\ ", $delete);
+        trace("processRequests: file in db: $file_in_db");
+        if ($file_in_db) {
+          if(file_exists($delete)) {
+            trace("processRequests: delete file $delete");
+            unlink($delete);
+          }
+        } else {
+          trace("processRequests: given file not present in database!");
+        }
       }
+      wmClose($win_id);
+      $db->deleteWindow($win_id);
     }
 
     if (array_key_exists('closeOrphans', $_REQUEST)) {
