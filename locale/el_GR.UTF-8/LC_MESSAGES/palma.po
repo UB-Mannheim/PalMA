@@ -2,13 +2,15 @@
 # Copyright (C) 2017 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
 # Angelos Loucas <aloucas@mail.uni-mannheim.de>, 2021.
+# Christos Sidiropoulos <christos.sidiropoulos@uni-mannheim.de>, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-29 18:50+0200\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
-"Last-Translator: Angelos locuas <aloucas@mail.uni-mannheim.de>\n"
+"Last-Translator: Christos Sidiropoulos <christos.sidiropoulos@uni-mannheim.de>\n"
 "Language-Team: Greek <gr@li.org>\n"
 "Language: gr\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +24,7 @@ msgstr "δεν είναι διαθέσιμο"
 #: index.php:208
 #, fuzzy
 msgid "Enter valid URL"
-msgstr "εισαγωγή URL"
+msgstr "Εισαγωγή URL"
 
 #: index.php:548
 msgid "You were disconnected!"
@@ -78,7 +80,7 @@ msgstr "Μετάβαση στο τέλος"
 
 #: index.php:713
 msgid "Up"
-msgstr "πάνω"
+msgstr "Πάνω"
 
 #: index.php:715
 msgid "Left"
@@ -86,16 +88,16 @@ msgstr "Αριστερά"
 
 #: index.php:716
 msgid "Right"
-msgstr "δεξια"
+msgstr "Δεξια"
 
 #: index.php:718
 msgid "Down"
-msgstr "κάτω"
+msgstr "Kάτω"
 
 # Greeting
 #: index.php:743
 msgid "Welcome"
-msgstr "καλως ΗΡΘΑΤΕ"
+msgstr "Kαλώς ήρθατε"
 
 #: index.php:745
 msgid "There is no shared content yet. Click below to get started!"
@@ -150,7 +152,7 @@ msgstr "Προσθήκη ιστοσελίδας"
 
 #: index.php:1101
 msgid "Enter URL"
-msgstr "εισαγωγή URL"
+msgstr "Εισαγωγή URL"
 
 #: index.php:1104
 msgid "Click here to show the webpage on the screen."
@@ -176,36 +178,36 @@ msgstr ""
 
 #: index.php:1126
 msgid "Layout"
-msgstr ""
+msgstr "Διάταξη"
 
 #: index.php:1127
 msgid "Navigate"
-msgstr ""
+msgstr "Πλοήγηση"
 
 # Control section
 #: index.php:1133 index.php:1140 index.php:1148 index.php:1156 index.php:1169
 msgid "Choose screen layout"
-msgstr ""
+msgstr "Επιλογή διάταξης οθόνης"
 
 #: index.php:1184
 msgid "Close all windows and remove uploaded files"
-msgstr ""
+msgstr "Κλείσιμο όλων των παραθύρων και αφαίρεση των αρχείων που έχουν μεταφορτωθεί"
 
 #: index.php:1185
 msgid "Delete all items"
-msgstr ""
+msgstr "Διαγραφή όλων των στοιχείων"
 
 #: index.php:1191
 msgid "Help"
-msgstr ""
+msgstr "Βοήθεια"
 
 #: index.php:1192
 msgid "Feedback"
-msgstr ""
+msgstr "Ανάδραση"
 
 #: index.php:1193
 msgid "Users"
-msgstr ""
+msgstr "Χρήστες"
 
 # Extras Section
 # Help
@@ -213,32 +215,32 @@ msgstr ""
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
-msgstr ""
+msgstr "Με το PalMA, μπορείτε να μοιράζεστε έγγραφα, ιστοσελίδες και την επιφάνεια εργασίας σας με την μαθησιακή σας ομάδα."
 
 #: index.php:1197
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
-msgstr ""
+msgstr "Η ομαδική οθόνη PalMA εμφανίζει έως και τέσσερις συνεισφορές ταυτόχρονα."
 
 #: index.php:1200
 msgid "For further information about PalMA in this institution"
-msgstr ""
+msgstr "Για περισσότερες πληροφορίες σχετικά με το PalMA σε αυτό το ίδρυμα"
 
 #: index.php:1200
 msgid "see here."
-msgstr ""
+msgstr "δείτε εδώ."
 
 #: index.php:1204
 msgid "Connect"
-msgstr ""
+msgstr "Σύνδεση"
 
 #: index.php:1205
 msgid "Team members can join the session at any time with this URL or QR-Code:"
-msgstr ""
+msgstr "Τα μέλη της ομάδας μπορούν να συνδεθούν στη συνεδρία ανά πάσα στιγμή με αυτό το URL ή τον κωδικό QR:"
 
 # Please mind the whitespace at the end.
 #: index.php:1209 index.php:1358
 msgid "PIN: "
-msgstr ""
+msgstr "PIN: "
 
 #: index.php:1217
 msgid "Use the Add-Section to share content on the PalMA monitor."
@@ -246,157 +248,163 @@ msgstr ""
 
 #: index.php:1219
 msgid "For PDF files, office files, images or videos use the file section."
-msgstr ""
+msgstr "Για αρχεία PDF, αρχεία γραφείου, φωτογραφίες ή βίντεο χρησιμοποιήστε την επιλογή αρχείων."
 
 #: index.php:1220
 msgid "To display a website use the URL field."
-msgstr ""
+msgstr "Για την εμφάνιση ενός ιστότοπου χρησιμοποιήστε το πεδίο URL."
 
 #: index.php:1221
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
-msgstr ""
+msgstr "Για να μοιραστείτε την οθόνη σας σε πραγματικό χρόνο, κατεβάστε το λογισμικό διαμοιρασμού οθόνης VNC και"
 
 # Referring to the popular operating system
 #: index.php:1223
 msgid "Windows:"
-msgstr ""
+msgstr "Windows:"
 
 #: index.php:1225
 msgid "Run the downloaded file."
-msgstr ""
+msgstr "Εκτελέστε το αρχείο που κατεβάσατε."
 
 #: index.php:1226
 msgid "Double-click the name of your PalMA station in the appearing list."
-msgstr ""
+msgstr "Διπλοπατήστε στο όνομα του σταθμού PalMA στη λίστα που εμφανίζεται."
 
 #: index.php:1228
 msgid "Mac:"
-msgstr ""
+msgstr "Mac:"
 
 #: index.php:1230
 msgid "CTRL + click the downloaded file and run it."
-msgstr ""
+msgstr "Κάντε CTRL + κλικ στο αρχείο που κατεβάσατε και εκτελέστε το."
 
 #: index.php:1231
 msgid "A second window opens, in which you can start &quot;VineServer&quot;."
-msgstr ""
+msgstr "Ένα δεύτερο παράθυρο ανοίγει, στο οποίο μπορείτε να ξεκινήσετε το &quot;VineServer&quot;."
 
 #: index.php:1232
 msgid "In the upper left corner, click on &quot;VNC Server&quot;."
-msgstr ""
+msgstr "Στην επάνω αριστερή γωνία, πατήστε στο &quot;VNC Server&quot;."
 
 #: index.php:1233
 msgid "Select &quot;Reverse Connection&quot;."
-msgstr ""
+msgstr "Επιλέξτε &quot;Reverse Connection&quot;."
 
 #: index.php:1234
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
-msgstr ""
+msgstr "Εισάγετε τη διεύθυνση URL του σταθμού PalMA και πατήστε &quot;Connect&quot;."
 
 #: index.php:1236
 msgid "Linux:"
-msgstr ""
+msgstr "Linux:"
 
 #: index.php:1238
 msgid "Run the downloaded shell script."
-msgstr ""
+msgstr "Run the downloaded shell script."
 
 #: index.php:1239
 msgid "Or use this shell command:"
-msgstr ""
+msgstr "Ή χρησιμοποιήστε αυτή την εντολή του κελύφους:"
 
 #: index.php:1244
 msgid ""
 "With the grey monitor buttons at the top you can choose how the shared "
 "content should be arranged on the PalMA monitor."
-msgstr ""
+msgstr "Με τα γκρίζα κουμπιά οθόνης στο επάνω μέρος μπορείτε να επιλέξετε τον τρόπο διάταξης του κοινού περιεχομένου στην οθόνη PalMA."
 
 #: index.php:1245
 msgid "Below that you find the controls for each item:"
-msgstr ""
+msgstr "Παρακάτω θα βρείτε τα χειριστήρια για κάθε στοιχείο:"
 
 #: index.php:1247
 msgid "In the top bar you can"
-msgstr ""
+msgstr "Στην επάνω γραμμή μπορείτε"
 
 #: index.php:1249
 msgid "Hide and show"
-msgstr ""
+msgstr "Απόκρυψη και εμφάνιση"
 
 #: index.php:1250
 msgid "Zoom in and out"
-msgstr ""
+msgstr "Μεγέθυνση και σμίκρυνση"
 
 #: index.php:1251
 msgid "Rotate"
-msgstr ""
+msgstr "Περιστροφή"
 
 #: index.php:1252
 msgid "Download"
-msgstr ""
+msgstr "Κατεβάστε"
 
 #: index.php:1253
 msgid "Delete the item"
-msgstr ""
+msgstr "Διαγράψτε το στοιχείο"
 
 #: index.php:1255
 msgid "Below you find the navigation controls."
-msgstr ""
+msgstr "Παρακάτω θα βρείτε τα χειριστήρια πλοήγησης."
 
 #: index.php:1257
 msgid ""
 "Buttons on the left jump to the top, to the end, a page up or a page down"
-msgstr ""
+msgstr "Τα κουμπιά στα αριστερά πηγαίνουν στην κορυφή, στο τέλος, σε μια σελίδα πάνω"
 
 #: index.php:1258
 msgid "Arrow buttons in the middle scroll gradually"
-msgstr ""
+msgstr "Τα βέλη στο κέντρο κυλούν σταδιακά"
 
 #: index.php:1261
 msgid "On the right you can choose the position on the PalMA monitor"
-msgstr ""
+msgstr "Στα δεξιά μπορείτε να επιλέξετε τη θέση στην οθόνη PalMA"
 
 #: index.php:1263
 msgid ""
 "Controls that are not available for certain kinds of content are marked grey."
-msgstr ""
+msgstr "Τα χειριστήρια που δεν είναι διαθέσιμα για ορισμένους τύπους περιεχομένου είναι σημειωμένα με γκρι."
 
 #: index.php:1265
 msgid "Some additional features are:"
-msgstr ""
+msgstr "Ορισμένα επιπλέον χαρακτηριστικά είναι:"
 
 #: index.php:1267
 msgid "This help,"
-msgstr ""
+msgstr "Αυτή η βοήθεια,"
 
 #: index.php:1268
 msgid ""
 "Your chance to recommend us or give us your thoughts in the &quot;"
 "Feedback&quot; section,"
 msgstr ""
+"Η ευκαιρία σας να μας συστήσετε ή να μας δώσετε τις σκέψεις σας στην ενότητα &quot;"
+"Ανάδραση&quot;,"
 
 #: index.php:1269
 msgid ""
 "A list of all logged-in users as well as a button to disconnect everyone and "
 "therefore end the session."
 msgstr ""
+"Μια λίστα όλων των συνδεδεμένων χρηστών καθώς και ένα κουμπί για να αποσυνδέσετε όλους και "
+"επομένως να τερματίσετε τη συνεδρία."
 
 # Feedback
 #: index.php:1275
 msgid "Recommend us"
-msgstr ""
+msgstr "Συστήστε μας"
 
 #: index.php:1278
 msgid ""
 "If you like PalMA, please recommend us by sharing in your social networks."
 "<br />Enjoy PalMA!"
 msgstr ""
+"Αν σας αρέσει το PalMA, παρακαλούμε συστήστε μας μοιραζόμενοι στα κοινωνικά δίκτυα."
+"<br />Απολαύστε το PalMA!"
 
 #: index.php:1324
 msgid "Tell us what you think"
-msgstr ""
+msgstr "Πείτε μας τι πιστεύετε"
 
 # Please mind the whitespace at the end
 #: index.php:1326
@@ -404,114 +412,116 @@ msgid ""
 "Please let us know about problems or ideas to improve PalMA. Help us "
 "directly by sending crash reports or contributing on "
 msgstr ""
+"Παρακαλούμε ενημερώστε μας για προβλήματα ή ιδέες για τη βελτίωση του PalMA. Βοηθήστε μας "
+"στέλνοντας αναφορές σφάλματος ή συνεισφέροντας στο "
 
 #: index.php:1326
 msgid "Thank you!"
-msgstr ""
+msgstr "Ευχαριστούμε!"
 
 # Users
 #: index.php:1332
 msgid "Select language:"
-msgstr ""
+msgstr "Επιλέξτε γλώσσα:"
 
 #: index.php:1349
 msgid "User list"
-msgstr ""
+msgstr "Λίστα χρηστών"
 
 #: index.php:1349
 msgid "List of connected users"
-msgstr ""
+msgstr "Λίστα συνδεδεμένων χρηστών"
 
 #: index.php:1355
 msgid "New users can join at"
-msgstr ""
+msgstr "Οι νέοι χρήστες μπορούν να συνδεθούν στο"
 
 #: index.php:1366
 msgid "Disconnect all users and end the session"
-msgstr ""
+msgstr "Αποσύνδεση όλων των χρηστών και τερματισμός της συνεδρίας"
 
 #: index.php:1367
 msgid "End the session"
-msgstr ""
+msgstr "Τερματισμός της συνεδρίας"
 
 # Footer
 #: index.php:1379
 msgid "Disconnect the current user"
-msgstr ""
+msgstr "Αποσύνδεση του τρέχοντος χρήστη"
 
 #: index.php:1380
 msgid "Log out"
-msgstr ""
+msgstr "Αποσύνδεση"
 
 #: i12n.php:102
 msgid "Screen section"
-msgstr ""
+msgstr "Ενότητα οθόνης"
 
 # Login Mask
 #: login.php:95 login.php:103 login.php:106
 msgid "Invalid credentials!"
-msgstr ""
+msgstr "Άκυρα διαπιστευτήρια!"
 
 #: login.php:100
 msgid "Cannot check credentials, sorry!"
-msgstr ""
+msgstr "Δεν είναι δυνατόν να ελεγχθούν τα διαπιστευτήρια, συγνώμη!"
 
 #: login.php:139
 msgid "Invalid PIN."
-msgstr ""
+msgstr "Άκυρο PIN."
 
 #: login.php:174
 msgid "PalMA &ndash; Login"
-msgstr ""
+msgstr "PalMA &ndash; Σύνδεση"
 
 #: login.php:200
 msgid "Login"
-msgstr ""
+msgstr "Σύνδεση"
 
 #: login.php:204
 msgid "User name"
-msgstr ""
+msgstr "Όνομα χρήστη"
 
 #: login.php:211
 msgid "Password"
-msgstr ""
+msgstr "Κωδικός πρόσβασης"
 
 #: login.php:219
 msgid "PIN"
-msgstr ""
+msgstr "PIN"
 
 #: login.php:227
 msgid "Log in"
-msgstr ""
+msgstr "Σύνδεση"
 
 # upload.php
 #: upload.php:61
 msgid "This file is too large."
-msgstr ""
+msgstr "Αυτό το αρχείο είναι πολύ μεγάλο."
 
 #: upload.php:64
 msgid "Large files are not supported."
-msgstr ""
+msgstr "Δεν υποστηρίζονται μεγάλα αρχεία."
 
 #: upload.php:67
 msgid "File was only partially uploaded."
-msgstr ""
+msgstr "Το αρχείο μεταφορτώθηκε μόνο εν μέρει."
 
 #: upload.php:70
 #, php-format
 msgid "Error code %s."
-msgstr ""
+msgstr "Κωδικός σφάλματος %s."
 
 #: upload.php:84
 #, php-format
 msgid "File '%s' cannot be shown."
-msgstr ""
+msgstr "Το αρχείο '%s' δεν μπορεί να εμφανιστεί."
 
 # examples/screensaver
 #: examples/screensaver/pictureshow.php:35
 msgid "Picture Show"
-msgstr ""
+msgstr "Παρουσίαση εικόνων"
 
 #: examples/screensaver/tiles.php:33
 msgid "Tiles"
-msgstr ""
+msgstr "Πλακίδια"
