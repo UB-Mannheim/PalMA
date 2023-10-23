@@ -8,7 +8,7 @@
 |---|---|
 |[ar](#ar)|67.83|
 |[de_DE](#de_de)|100.00|
-|[el_GR](#el_gr)|30.43|
+|[el_GR](#el_gr)|97.39|
 |[es_ES](#es_es)|100.00|
 |[fr_FR](#fr_fr)|63.48|
 |[hi_IN](#hi_in)|100.00|
@@ -91,98 +91,22 @@ Contributors:
 
 ## el_GR
 
-Completion: **30.43** (35 / 115 strings)
+Completion: **97.39** (112 / 115 strings)
 
 Contributors:
 
   * Alexander Wagner
   * Angelos Loucas
+  * Christos Sidiropoulos
   * Dennis Müller
   * Jörg Mechnich
   * Polina Potoskueva
   * Stefan Weil
 
 Missing:
-  * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
-  * `A second window opens, in which you can start &quot;VineServer&quot;.`
-  * `Arrow buttons in the middle scroll gradually`
-  * `Below that you find the controls for each item:`
-  * `Below you find the navigation controls.`
-  * `Buttons on the left jump to the top, to the end, a page up or a page down`
-  * `CTRL + click the downloaded file and run it.`
-  * `Cannot check credentials, sorry!`
-  * `Choose screen layout`
-  * `Close all windows and remove uploaded files`
-  * `Connect`
-  * `Controls that are not available for certain kinds of content are marked grey.`
-  * `Delete all items`
-  * `Delete the item`
-  * `Disconnect all users and end the session`
-  * `Disconnect the current user`
-  * `Double-click the name of your PalMA station in the appearing list.`
-  * `Download`
   * `Download screensharing tool`
   * `Download your screensharing tool (Windows, Mac and Linux only). Visit the help section for further information.`
-  * `End the session`
-  * `Enter the URL of your PalMA station and click &quot;Connect&quot;.`
-  * `Error code %s.`
-  * `Feedback`
-  * `File '%s' cannot be shown.`
-  * `File was only partially uploaded.`
-  * `For PDF files, office files, images or videos use the file section.`
-  * `For further information about PalMA in this institution`
-  * `Help`
-  * `Hide and show`
-  * `If you like PalMA, please recommend us by sharing in your social networks.<br />Enjoy PalMA!`
-  * `In the top bar you can`
-  * `In the upper left corner, click on &quot;VNC Server&quot;.`
-  * `Invalid PIN.`
-  * `Invalid credentials!`
-  * `Large files are not supported.`
-  * `Layout`
-  * `Linux:`
-  * `List of connected users`
-  * `Log in`
-  * `Log out`
-  * `Login`
-  * `Mac:`
-  * `Navigate`
-  * `New users can join at`
-  * `On the right you can choose the position on the PalMA monitor`
-  * `Or use this shell command:`
-  * `PIN`
-  * `PIN: `
-  * `PalMA &ndash; Login`
-  * `Password`
-  * `Picture Show`
-  * `Please let us know about problems or ideas to improve PalMA. Help us directly by sending crash reports or contributing on `
-  * `Recommend us`
-  * `Rotate`
-  * `Run the downloaded file.`
-  * `Run the downloaded shell script.`
-  * `Screen section`
-  * `Select &quot;Reverse Connection&quot;.`
-  * `Select language:`
-  * `Some additional features are:`
-  * `Team members can join the session at any time with this URL or QR-Code:`
-  * `Tell us what you think`
-  * `Thank you!`
-  * `The PalMA team monitor shows up to four contributions simultaneously.`
-  * `This file is too large.`
-  * `This help,`
-  * `Tiles`
-  * `To display a website use the URL field.`
-  * `To share your desktop in real time download the VNC screen sharing software and`
   * `Use the Add-Section to share content on the PalMA monitor.`
-  * `User list`
-  * `User name`
-  * `Users`
-  * `Windows:`
-  * `With PalMA, you can share documents, websites and your desktop with your learning group.`
-  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
-  * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
-  * `Zoom in and out`
-  * `see here.`
 
 ## es_ES
 
@@ -267,6 +191,7 @@ Completion: **100.00** (115 / 115 strings)
 Contributors:
 
   * Ashish Rana
+  * Jörg Mechnich
   * Stefan Weil
 
 ## it_IT
@@ -278,8 +203,8 @@ Contributors:
   * Alexander Wagner
   * Jörg Mechnich
   * Simon Rankl
-  * Stefano Leccese
   * Stefan Weil
+  * Stefano Leccese
 
 Missing:
   * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
@@ -348,8 +273,8 @@ Contributors:
 
   * Alexander Wagner
   * Dennis Müller
-  * Jörg Mechnich
   * Julian Kissel
+  * Jörg Mechnich
   * Stefan Weil
 
 Missing:
@@ -580,8 +505,8 @@ Contributors:
   * Mariia Zrianina
   * Olga Pogorelaya
   * Simona Doneva
-  * Stefano Leccese
   * Stefan Weil
+  * Stefano Leccese
 
 Missing:
   * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
@@ -765,12 +690,12 @@ Contributors:
   * Aimee C. Chen
   * Alexander Wagner
   * Caipei Song
-  * chihchih-ouoh
   * Jörg Mechnich
   * Noel Chia
   * Piero Divasto
   * Stefan Weil
   * Yang
+  * chihchih-ouoh
 
 Missing:
   * `A list of all logged-in users as well as a button to disconnect everyone and therefore end the session.`
