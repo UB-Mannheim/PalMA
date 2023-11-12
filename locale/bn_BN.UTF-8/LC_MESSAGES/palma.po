@@ -1,0 +1,515 @@
+# PalMA translation.
+# Copyright (C) 2017 Universitätsbibliothek Mannheim
+# This file is distributed under the same license as the PalMA package.
+# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
+# Dennis Müller <dennis.mueller@bib.uni-mannheim.de>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PalMA 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-07 21:30+0100\n"
+"PO-Revision-Date: 2017-09-12 14:38+0200\n"
+"Last-Translator: Muntasir Sami <muntasir.sami@students.uni-mannheim.de>\n"
+"Language-Team: Bengali <bn@li.org>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:167
+msgid "not available"
+msgstr "পাওয়া যাচ্ছে না"
+
+#: index.php:208
+#, fuzzy
+msgid "Enter valid URL"
+msgstr "বৈধ URL লিখুন"
+
+#: index.php:548
+msgid "You were disconnected!"
+msgstr "আপনি বিচ্ছিন্ন হয়ে গিয়েছিলেন!"
+
+#: index.php:569
+msgid "Select screen section for display"
+msgstr "প্রদর্শনের জন্য পর্দার অংশ নির্বাচন করুন"
+
+#: index.php:679
+msgid "Toggle visibility"
+msgstr "দৃশ্যমানতা টগল করুন"
+
+#: index.php:683
+msgid "Zoom in"
+msgstr "জুম ইন"
+
+#: index.php:684
+msgid "Zoom out"
+msgstr "জুম আউট"
+
+#: index.php:685
+msgid "Rotate counterclockwise"
+msgstr "ঘড়ির কাঁটার বিপরীত দিকে ঘোরান"
+
+#: index.php:686
+msgid "Rotate clockwise"
+msgstr "ঘড়ির কাঁটার দিকে ঘোরান"
+
+#: index.php:687
+msgid "Download this item"
+msgstr "এই আইটেমটি ডাউনলোড করুন"
+
+#: index.php:695
+msgid "Remove this item"
+msgstr "এই আইটেমটি মুছে ফেলুন"
+
+#: index.php:706
+msgid "Jump to start"
+msgstr "শুরু তে ফিরে যান"
+
+#: index.php:707
+msgid "Page up"
+msgstr "পৃষ্ঠা আপ"
+
+#: index.php:708
+msgid "Page down"
+msgstr "পৃষ্ঠা নিচে"
+
+#: index.php:709
+msgid "Jump to end"
+msgstr "শেষ এ চলে যান"
+
+#: index.php:713
+msgid "Up"
+msgstr "উপরে"
+
+#: index.php:715
+msgid "Left"
+msgstr "বামে"
+
+#: index.php:716
+msgid "Right"
+msgstr "ডানে"
+
+#: index.php:718
+msgid "Down"
+msgstr "নিচে"
+
+# Greeting
+#: index.php:743
+msgid "Welcome"
+msgstr "স্বাগতম"
+
+#: index.php:745
+msgid "There is no shared content yet. Click below to get started!"
+msgstr "শেয়ার করা কনটেন্ট এখনও পাওয়া যায়নি। শুরু করার জন্য নিচে ক্লিক করুন!"
+
+# Index.php
+# Tabs and Subtabs
+#: index.php:749 index.php:1060 index.php:1216
+msgid "Add"
+msgstr "যোগ করুন"
+
+#: index.php:970
+msgid "Sorry! Screensharing for your device is currently not supported."
+msgstr "দুঃখিত! আপনার ডিভাইসের জন্য স্ক্রিনশেয়ারিং বর্তমানে সমর্থিত নয়."
+
+#: index.php:1061 index.php:1243
+msgid "Control"
+msgstr "নিয়ন্ত্রণ"
+
+#: index.php:1062 index.php:1264
+msgid "Extras"
+msgstr "অতিরিক্ত"
+
+#: index.php:1068
+msgid "File"
+msgstr "ফাইল"
+
+#: index.php:1069
+msgid "URL"
+msgstr "ইউআরএল"
+
+#: index.php:1070
+msgid "Screen"
+msgstr "পর্দা"
+
+#: index.php:1077
+msgid "Drag and drop files or click here to upload."
+msgstr "ফাইল টেনে আনুন বা আপলোড করতে এখানে ক্লিক করুন."
+
+# Add Section
+#: index.php:1079
+msgid "Add file (click or drop here)"
+msgstr "ফাইল যোগ করুন (এখানে ক্লিক করুন বা ড্রপ করুন)"
+
+#: index.php:1098
+msgid "Add webpage"
+msgstr "ওয়েবপৃষ্ঠা যোগ করুন।"
+
+#: index.php:1101
+msgid "Enter URL"
+msgstr "ইউআরএল লিখুন"
+
+#: index.php:1104
+msgid "Click here to show the webpage on the screen."
+msgstr "স্ক্রিনে ওয়েবপৃষ্ঠা দেখাতে এখানে ক্লিক করুন."
+
+#: index.php:1105
+msgid "Enter"
+msgstr "প্রবেশ করুন"
+
+#: index.php:1112
+msgid "Add your screen"
+msgstr "আপনার স্ক্রিন যোগ করুন"
+
+#: index.php:1113
+msgid "Download screensharing tool"
+msgstr "স্ক্রিনশেয়ারিং টুল ডাউনলোড করুন"
+
+#: index.php:1120
+msgid ""
+"Download your screensharing tool (Windows, Mac and Linux only). Visit the "
+"help section for further information."
+msgstr "আপনার স্ক্রিনশেয়ারিং টুল ডাউনলোড করুন (উইন্ডোজ, ম্যাক এবং লিনাক্স শুধুমাত্র). আরও তথ্যের জন্য সহায়তা বিভাগে যান."
+
+#: index.php:1126
+msgid "Layout"
+msgstr "নকশা"
+
+#: index.php:1127
+msgid "Navigate"
+msgstr "নেভিগেট করুন"
+
+# Control section
+#: index.php:1133 index.php:1140 index.php:1148 index.php:1156 index.php:1169
+msgid "Choose screen layout"
+msgstr "স্ক্রিন লেআউট নির্বাচন করুন"
+
+#: index.php:1184
+msgid "Close all windows and remove uploaded files"
+msgstr "সমস্ত উইন্ডোজ বন্ধ করুন এবং আপলোড করা ফাইলগুলি সরিয়ে ফেলুন"
+
+#: index.php:1185
+msgid "Delete all items"
+msgstr "সমস্ত আইটেম মুছে দিন"
+
+#: index.php:1191
+msgid "Help"
+msgstr "সাহায্য"
+
+#: index.php:1192
+msgid "Feedback"
+msgstr "প্রতিক্রিয়া"
+
+#: index.php:1193
+msgid "Users"
+msgstr "ব্যবহারকারী"
+
+# Extras Section
+# Help
+#: index.php:1196
+msgid ""
+"With PalMA, you can share documents, websites and your desktop with your "
+"learning group."
+msgstr "PalMA এর সাথে, আপনি আপনার শেখার গ্রুপের সাথে নথি, ওয়েবসাইট এবং আপনার ডেস্কটপ শেয়ার করতে পারেন."
+
+#: index.php:1197
+msgid "The PalMA team monitor shows up to four contributions simultaneously."
+msgstr "PalMA টিম মনিটর একই সাথে চারটি অবদান দেখায়."
+
+#: index.php:1200
+msgid "For further information about PalMA in this institution"
+msgstr "এই প্রতিষ্ঠানে PalMA সম্পর্কে আরও তথ্যের জন্য"
+
+#: index.php:1200
+msgid "see here."
+msgstr "এখানে দেখুন."
+
+#: index.php:1204
+msgid "Connect"
+msgstr "সংযোগ করুন"
+
+#: index.php:1205
+msgid "Team members can join the session at any time with this URL or QR-Code:"
+msgstr "দলের সদস্যরা এই URL বা QR-কোড দিয়ে যে কোনো সময় সেশনে যোগ দিতে পারেন:"
+
+# Please mind the whitespace at the end.
+#: index.php:1209 index.php:1358
+msgid "PIN: "
+msgstr "পিন: "
+
+#: index.php:1217
+msgid "Use the Add-Section to share content on the PalMA monitor."
+msgstr "PalMA মনিটরে বিষয়বস্তু শেয়ার করতে অ্যাড-সেকশন ব্যবহার করুন."
+
+#: index.php:1219
+msgid "For PDF files, office files, images or videos use the file section."
+msgstr "পিডিএফ ফাইল, অফিস ফাইল, ছবি বা ভিডিওর জন্য ফাইল বিভাগ ব্যবহার করুন."
+
+#: index.php:1220
+msgid "To display a website use the URL field."
+msgstr "একটি ওয়েবসাইট প্রদর্শন করতে URL এলাকা ব্যবহার করুন."
+
+#: index.php:1221
+msgid ""
+"To share your desktop in real time download the VNC screen sharing software "
+"and"
+msgstr "রিয়েল টাইমে আপনার ডেস্কটপ শেয়ার করতে ভিএনসি স্ক্রিন শেয়ারিং সফটওয়্যার ডাউনলোড করুন এবং"
+
+# Referring to the popular operating system
+#: index.php:1223
+msgid "Windows:"
+msgstr "উইন্ডোজ:"
+
+#: index.php:1225
+msgid "Run the downloaded file."
+msgstr "ডাউনলোড করা ফাইলটি চালান।"
+
+#: index.php:1226
+msgid "Double-click the name of your PalMA station in the appearing list."
+msgstr "উপস্থিত তালিকায় আপনার পালমা স্টেশনের নাম ডাবল ক্লিক করুন."
+
+#: index.php:1228
+msgid "Mac:"
+msgstr "ম্যাক:"
+
+#: index.php:1230
+msgid "CTRL + click the downloaded file and run it."
+msgstr "CTRL + ডাউনলোড করা ফাইলটিতে ক্লিক করুন এবং এটি চালান।"
+
+#: index.php:1231
+msgid "A second window opens, in which you can start &quot;VineServer&quot;."
+msgstr "একটি দ্বিতীয় উইন্ডো খোলে, যেখানে আপনি শুরু করতে পারেন &quot;ভাইন সার্ভার&quot;"
+
+#: index.php:1232
+msgid "In the upper left corner, click on &quot;VNC Server&quot;."
+msgstr "উপরের বাম কোণে, ক্লিক করুন &quot;ভিএনসি সার্ভার&quot;."
+
+#: index.php:1233
+msgid "Select &quot;Reverse Connection&quot;."
+msgstr "&quot;বিপরীত সংযোগ&quot; নির্বাচন করুন"
+
+#: index.php:1234
+msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
+msgstr "Enter the URL of your PalMA station and click &quot;Connect&quot;."
+
+#: index.php:1236
+msgid "Linux:"
+msgstr "লিনাক্স:"
+
+#: index.php:1238
+msgid "Run the downloaded shell script."
+msgstr "ডাউনলোড করা শেল স্ক্রিপ্ট চালান।"
+
+#: index.php:1239
+msgid "Or use this shell command:"
+msgstr "অথবা এই শেল কমান্ড ব্যবহার করুন:"
+
+#: index.php:1244
+msgid ""
+"With the grey monitor buttons at the top you can choose how the shared "
+"content should be arranged on the PalMA monitor."
+msgstr """উপরের ধূসর মনিটর বোতামগুলির সাহায্যে আপনি পালমা মনিটরে ভাগ করা সামগ্রীটি কীভাবে সাজানো উচিত তা পছন্দ করতে পারেন."
+
+#: index.php:1245
+msgid "Below that you find the controls for each item:"
+msgstr "এর নীচে আপনি প্রতিটি আইটেমের জন্য নিয়ন্ত্রণগুলি খুঁজে পাবেন:"
+
+#: index.php:1247
+msgid "In the top bar you can"
+msgstr "উপরের বারে আপনি পারেন"
+
+#: index.php:1249
+msgid "Hide and show"
+msgstr "লুকান এবং প্রদর্শন করুন"
+
+#: index.php:1250
+msgid "Zoom in and out"
+msgstr "জুম ইন এবং আউট"
+
+#: index.php:1251
+msgid "Rotate"
+msgstr "ঘোরান"
+
+#: index.php:1252
+msgid "Download"
+msgstr "ডাউনলোড"
+
+#: index.php:1253
+msgid "Delete the item"
+msgstr "আইটেমটি মুছে দিন"
+
+#: index.php:1255
+msgid "Below you find the navigation controls."
+msgstr "নীচে আপনি নেভিগেশন নিয়ন্ত্রণগুলি খুঁজে পাবেন।"
+
+#: index.php:1257
+msgid ""
+"Buttons on the left jump to the top, to the end, a page up or a page down"
+msgstr """বাম দিকের বোতামগুলি উপরে, শেষে, একটি পৃষ্ঠা উপরে বা একটি পৃষ্ঠা নীচে লাফ দেয়"
+
+#: index.php:1258
+msgid "Arrow buttons in the middle scroll gradually"
+msgstr "মাঝখানে তীর বোতামগুলি ধীরে ধীরে স্ক্রোল করার জন্য"
+
+#: index.php:1261
+msgid "On the right you can choose the position on the PalMA monitor"
+msgstr "ডানদিকে আপনি PalMA মনিটরে এর অবস্থান পছন্দ করতে পারেন"
+
+#: index.php:1263
+msgid ""
+"Controls that are not available for certain kinds of content are marked grey."
+msgstr """নির্দিষ্ট ধরণের সামগ্রীর জন্য উপলব্ধ নয় এমন নিয়ন্ত্রণগুলি ধূসর চিহ্নিত করা হয়েছে৷"
+
+#: index.php:1265
+msgid "Some additional features are:"
+msgstr "কিছু অতিরিক্ত বৈশিষ্ট্য: "
+
+#: index.php:1267
+msgid "This help,"
+msgstr "এই সাহায্য,"
+
+#: index.php:1268
+msgid ""
+"Your chance to recommend us or give us your thoughts in the &quot;"
+"Feedback&quot; section,"
+msgstr """প্রতিক্রিয়া বিভাগে" আমাদের সুপারিশ করার বা আমাদের আপনার মতামত দেওয়ার আপনার সুযোগ""
+
+#: index.php:1269
+msgid ""
+"A list of all logged-in users as well as a button to disconnect everyone and "
+"therefore end the session."
+msgstr """সমস্ত লগ-ইন করা ব্যবহারকারীদের একটি তালিকা এবং সেই সাথে সকলকে সংযোগ বিচ্ছিন্ন করার জন্য একটি বোতাম এবং সেইজন্য সেশনটি শেষ করুন৷"
+
+# Feedback
+#: index.php:1275
+msgid "Recommend us"
+msgstr "আমাদের সুপারিশ করুন"
+
+#: index.php:1278
+msgid ""
+"If you like PalMA, please recommend us by sharing in your social networks."
+"<br />Enjoy PalMA!"
+msgstr "আপনি যদি PalMA পছন্দ করেন, দয়া করে আপনার সামাজিক নেটওয়ার্কগুলিতে ভাগ করে আমাদের সুপারিশ করুন৷ <br />Enjoy PalMA!"
+
+#: index.php:1324
+msgid "Tell us what you think"
+msgstr "আপনি কি মনে করেন তা আমাদের বলুন"
+
+# Please mind the whitespace at the end
+#: index.php:1326
+msgid ""
+"Please let us know about problems or ideas to improve PalMA. Help us "
+"directly by sending crash reports or contributing on "
+msgstr """PalMA উন্নত করতে সমস্যা বা ধারণা সম্পর্কে আমাদের জানান। ক্র্যাশ রিপোর্ট পাঠিয়ে বা অবদান রেখে সরাসরি আমাদের সাহায্য করুন এখানে "
+
+#: index.php:1326
+msgid "Thank you!"
+msgstr "ধন্যবাদ!"
+
+# Users
+#: index.php:1332
+msgid "Select language:"
+msgstr "ভাষা নির্বাচন:"
+
+#: index.php:1349
+msgid "User list"
+msgstr "ব্যবহারকারীর তালিকা"
+
+#: index.php:1349
+msgid "List of connected users"
+msgstr "সংযুক্ত ব্যবহারকারীদের তালিকা"
+
+#: index.php:1355
+msgid "New users can join at"
+msgstr "নতুন ব্যবহারকারীরা এতে যোগ দিতে পারবেন"
+
+#: index.php:1366
+msgid "Disconnect all users and end the session"
+msgstr "সমস্ত ব্যবহারকারীদের সংযোগ বিচ্ছিন্ন করুন এবং সেশন শেষ করুন"
+
+#: index.php:1367
+msgid "End the session"
+msgstr "সেশন শেষ করুন"
+
+# Footer
+#: index.php:1379
+msgid "Disconnect the current user"
+msgstr "বর্তমান ব্যবহারকারীর সাথে সংযোগ বিচ্ছিন্ন করুন"
+
+#: index.php:1380
+msgid "Log out"
+msgstr "লগ আউট"
+
+#: i12n.php:102
+msgid "Screen section"
+msgstr "স্ক্রিন বিভাগ"
+
+# Login Mask
+#: login.php:95 login.php:103 login.php:106
+msgid "Invalid credentials!"
+msgstr "অবৈধ পরিচয়!"
+
+#: login.php:100
+msgid "Cannot check credentials, sorry!"
+msgstr "পরিচয় চেক করা যাচ্ছে না, দুঃখিত"
+
+#: login.php:139
+msgid "Invalid PIN."
+msgstr "অবৈধ পিন৷"
+
+#: login.php:174
+msgid "PalMA &ndash; Login"
+msgstr "পালমা - লগইন করুন"
+
+#: login.php:200
+msgid "Login"
+msgstr "লগইন"
+
+#: login.php:204
+msgid "User name"
+msgstr "ইউজার নেম"
+
+#: login.php:211
+msgid "Password"
+msgstr "পাসওয়ার্ড"
+
+#: login.php:219
+msgid "PIN"
+msgstr "পিন"
+
+#: login.php:227
+msgid "Log in"
+msgstr "লগইন"
+
+# upload.php
+#: upload.php:61
+msgid "This file is too large."
+msgstr "এই ফাইলটি খুব বড়।"
+
+#: upload.php:64
+msgid "Large files are not supported."
+msgstr "বড় ফাইল সমর্থিত নয়."
+
+#: upload.php:67
+msgid "File was only partially uploaded."
+msgstr "ফাইল শুধুমাত্র আংশিক আপলোড করা হয়েছে."
+
+#: upload.php:70
+#, php-format
+msgid "Error code %s."
+msgstr "ত্রুটি কোড %s."
+
+#: upload.php:84
+#, php-format
+msgid "File '%s' cannot be shown."
+msgstr "ফাইল '%s' দেখানো সম্ভব না।"
+
+# examples/screensaver
+#: examples/screensaver/pictureshow.php:35
+msgid "Picture Show"
+msgstr "ছবি প্রদর্শনী"
+
+#: examples/screensaver/tiles.php:33
+msgid "Tiles"
+msgstr "টাইলস"
