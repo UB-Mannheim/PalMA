@@ -10,9 +10,9 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-29 18:50+0200\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
-"Last-Translator: Dennis Müller <dennis.mueller@bib.uni-mannheim.de>\n"
-"Language-Team: English <en@li.org>\n"
-"Language: en\n"
+"Last-Translator: Ayhan Yakici <ayhan.yakici@students.uni-mannheim.de>\n"
+"Language-Team: Turko <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,11 +68,11 @@ msgstr "Başlamak için zıpla"
 
 #: index.php:707
 msgid "Page up"
-msgstr ""
+msgstr "Sayfa yukarı"
 
 #: index.php:708
 msgid "Page down"
-msgstr "Sayfa yukarı"
+msgstr "Sayfa aşağı
 
 #: index.php:709
 msgid "Jump to end"
