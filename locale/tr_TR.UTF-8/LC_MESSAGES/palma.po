@@ -69,7 +69,7 @@ msgstr "Sayfa yukarı"
 
 #: index.php:708
 msgid "Page down"
-msgstr "Sayfa aşağı
+msgstr "Sayfa aşağı"
 
 #: index.php:709
 msgid "Jump to end"
@@ -280,19 +280,19 @@ msgstr "&quot;VineServer&quot;ı başlatabileceğiniz ikinci bir pencere açıl�
 
 #: index.php:1232
 msgid "In the upper left corner, click on &quot;VNC Server&quot;."
-msgstr "Sol üst köşede "VNC Sunucusu" seçeneğine tıklayın;"
+msgstr "Sol üst köşede &quot;VNC Sunucusu&quot; seçeneğine tıklayın;"
 
 #: index.php:1233
 msgid "Select &quot;Reverse Connection&quot;."
-msgstr ""Ters Bağlantı"yı seçin."
+msgstr "&quot;Ters Bağlantı&quot;yı seçin."
 
 #: index.php:1234
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
-msgstr "PalMA istasyonunuzun URL'sini girin ve "Bağlan"ı tıklayın."
+msgstr "PalMA istasyonunuzun URL'sini girin ve &quot;Bağlan&quot;ı tıklayın."
 
 #: index.php:1236
 msgid "Linux:"
-msgstr "Linux"
+msgstr "Linux:"
 
 #: index.php:1238
 msgid "Run the downloaded shell script."
