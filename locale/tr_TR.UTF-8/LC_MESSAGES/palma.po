@@ -1,8 +1,6 @@
 # PalMA translation.
-# Copyright (C) 2017 Universitätsbibliothek Mannheim
+# Copyright (C) 2017-2024 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
-# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
-# Dennis Müller <dennis.mueller@bib.uni-mannheim.de>, 2017.
 #
 msgid ""
 msgstr ""
@@ -22,7 +20,6 @@ msgid "not available"
 msgstr "Uygun değil"
 
 #: index.php:208
-#, fuzzy
 msgid "Enter valid URL"
 msgstr "Geçerli bir URL girin"
 

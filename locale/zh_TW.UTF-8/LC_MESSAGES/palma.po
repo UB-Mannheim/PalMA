@@ -1,7 +1,6 @@
 # PalMA translation.
-# Copyright (C) 2014 Universitätsbibliothek Mannheim
+# Copyright (C) 2014-2024 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
-# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
 #
 msgid ""
 msgstr ""
@@ -53,12 +52,10 @@ msgid "Rotate clockwise"
 msgstr "順時針旋轉"
 
 #: index.php:687
-#, fuzzy
 msgid "Download this item"
 msgstr "下載這個檔案"
 
 #: index.php:695
-#, fuzzy
 msgid "Remove this item"
 msgstr "移除這個物件"
 
@@ -111,12 +108,10 @@ msgid "Sorry! Screensharing for your device is currently not supported."
 msgstr ""
 
 #: index.php:1061 index.php:1243
-#, fuzzy
 msgid "Control"
 msgstr "滑鼠控制"
 
 #: index.php:1062 index.php:1264
-#, fuzzy
 msgid "Extras"
 msgstr "幫出 ＋ 其他"
 
@@ -129,7 +124,6 @@ msgid "URL"
 msgstr "網址"
 
 #: index.php:1070
-#, fuzzy
 msgid "Screen"
 msgstr "螢幕樣式"
 
@@ -154,7 +148,6 @@ msgid "Click here to show the webpage on the screen."
 msgstr ""
 
 #: index.php:1105
-#, fuzzy
 msgid "Enter"
 msgstr "請輸入網址"
 
@@ -201,19 +194,16 @@ msgid "Feedback"
 msgstr ""
 
 #: index.php:1193
-#, fuzzy
 msgid "Users"
 msgstr "使用者清單"
 
 #: index.php:1196
-#, fuzzy
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
 msgstr "使用PalMA, 你可以與你的組員分享你的檔案和桌面"
 
 #: index.php:1197
-#, fuzzy
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
 msgstr "PalMA team monitor 顯示最多離連續4個人"
 
@@ -230,7 +220,6 @@ msgid "Connect"
 msgstr "連接"
 
 #: index.php:1205
-#, fuzzy
 msgid "Team members can join the session at any time with this URL or QR-Code:"
 msgstr "小組成員可以隨時加入群組，只需要網址和金鑰"
 
@@ -323,7 +312,6 @@ msgid "Hide and show"
 msgstr ""
 
 #: index.php:1250
-#, fuzzy
 msgid "Zoom in and out"
 msgstr "縮小"
 
@@ -332,7 +320,6 @@ msgid "Rotate"
 msgstr ""
 
 #: index.php:1252
-#, fuzzy
 msgid "Download"
 msgstr "下載這個檔案"
 
@@ -407,7 +394,6 @@ msgid "Thank you!"
 msgstr ""
 
 #: index.php:1332
-#, fuzzy
 msgid "Select language:"
 msgstr "選擇座位"
 
@@ -424,7 +410,6 @@ msgid "New users can join at"
 msgstr ""
 
 #: index.php:1366
-#, fuzzy
 msgid "Disconnect all users and end the session"
 msgstr "登出所有使用者並且重設工作區域"
 
@@ -437,7 +422,6 @@ msgid "Disconnect the current user"
 msgstr "登出目前使用者"
 
 #: index.php:1380
-#, fuzzy
 msgid "Log out"
 msgstr "縮小"
 

@@ -1,7 +1,6 @@
 # PalMA translation.
-# Copyright (C) 2016 Universitätsbibliothek Mannheim
+# Copyright (C) 2016-2024 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
-# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2016.
 #
 msgid ""
 msgstr ""
@@ -53,7 +52,6 @@ msgid "Rotate clockwise"
 msgstr ""
 
 #: index.php:687
-#, fuzzy
 msgid "Download this item"
 msgstr "اس فائل کی اتار"
 
@@ -110,7 +108,6 @@ msgid "Sorry! Screensharing for your device is currently not supported."
 msgstr ""
 
 #: index.php:1061 index.php:1243
-#, fuzzy
 msgid "Control"
 msgstr "کرسر کنٹرول"
 
@@ -127,7 +124,6 @@ msgid "URL"
 msgstr ""
 
 #: index.php:1070
-#, fuzzy
 msgid "Screen"
 msgstr "سکرین کے حصے"
 
@@ -152,7 +148,6 @@ msgid "Click here to show the webpage on the screen."
 msgstr ""
 
 #: index.php:1105
-#, fuzzy
 msgid "Enter"
 msgstr "Please enter URL"
 
@@ -317,7 +312,6 @@ msgid "Hide and show"
 msgstr ""
 
 #: index.php:1250
-#, fuzzy
 msgid "Zoom in and out"
 msgstr "زوم باہر"
 
@@ -326,7 +320,6 @@ msgid "Rotate"
 msgstr ""
 
 #: index.php:1252
-#, fuzzy
 msgid "Download"
 msgstr "اس فائل کی اتار"
 
@@ -429,12 +422,10 @@ msgid "Disconnect the current user"
 msgstr ""
 
 #: index.php:1380
-#, fuzzy
 msgid "Log out"
 msgstr "زوم باہر"
 
 #: i12n.php:102
-#, fuzzy
 msgid "Screen section"
 msgstr "سکرین کے حصے"
 

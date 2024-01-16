@@ -1,5 +1,5 @@
 # PalMA translation.
-# Copyright (C) 2017 Universitätsbibliothek Mannheim
+# Copyright (C) 2017-2024 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
 # Angelos Loucas <aloucas@mail.uni-mannheim.de>, 2021.
 # Christos Sidiropoulos <christos.sidiropoulos@uni-mannheim.de>, 2023.
@@ -22,7 +22,6 @@ msgid "not available"
 msgstr "δεν είναι διαθέσιμο"
 
 #: index.php:208
-#, fuzzy
 msgid "Enter valid URL"
 msgstr "Εισαγωγή URL"
 

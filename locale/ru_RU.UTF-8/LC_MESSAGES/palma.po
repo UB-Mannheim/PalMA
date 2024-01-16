@@ -1,5 +1,5 @@
 # PalMA translation.
-# Copyright (C) 2014 Universitätsbibliothek Mannheim
+# Copyright (C) 2014-2024 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
 # Alexander Egurnov <aegurnov@mail.uni-mannheim.de>, 2014.
 # Mariia Zrianina <zryaninam@gmail.com>, 2014.
@@ -54,12 +54,10 @@ msgid "Rotate clockwise"
 msgstr "Повернуть по часовой стрелке"
 
 #: index.php:687
-#, fuzzy
 msgid "Download this item"
 msgstr "Скачать этот файл"
 
 #: index.php:695
-#, fuzzy
 msgid "Remove this item"
 msgstr "Удалить объект"
 
@@ -114,12 +112,10 @@ msgstr ""
 "поддерживается."
 
 #: index.php:1061 index.php:1243
-#, fuzzy
 msgid "Control"
 msgstr "Управление курсором"
 
 #: index.php:1062 index.php:1264
-#, fuzzy
 msgid "Extras"
 msgstr "Помощь + Дополнительно"
 
@@ -132,7 +128,6 @@ msgid "URL"
 msgstr "URL"
 
 #: index.php:1070
-#, fuzzy
 msgid "Screen"
 msgstr "Схема экрана"
 
@@ -157,7 +152,6 @@ msgid "Click here to show the webpage on the screen."
 msgstr "Нажмите здесь для показа веб-страницы на экране"
 
 #: index.php:1105
-#, fuzzy
 msgid "Enter"
 msgstr "Введите URL"
 
@@ -206,12 +200,10 @@ msgid "Feedback"
 msgstr "Обратная связь"
 
 #: index.php:1193
-#, fuzzy
 msgid "Users"
 msgstr "Список пользователей"
 
 #: index.php:1196
-#, fuzzy
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
@@ -220,7 +212,6 @@ msgstr ""
 "            с вашей учебной группой."
 
 #: index.php:1197
-#, fuzzy
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
 msgstr "Команда PalMa отображает до 4 объектов одновременно."
 
@@ -237,7 +228,6 @@ msgid "Connect"
 msgstr "Подключить"
 
 #: index.php:1205
-#, fuzzy
 msgid "Team members can join the session at any time with this URL or QR-Code:"
 msgstr ""
 "Члены группы могут присоединиться в любое время. Понадобятся только URL и "
@@ -335,7 +325,6 @@ msgid "Hide and show"
 msgstr ""
 
 #: index.php:1250
-#, fuzzy
 msgid "Zoom in and out"
 msgstr "Отдалить"
 
@@ -344,7 +333,6 @@ msgid "Rotate"
 msgstr "Повернуть"
 
 #: index.php:1252
-#, fuzzy
 msgid "Download"
 msgstr "Скачать этот файл"
 
@@ -419,7 +407,6 @@ msgid "Thank you!"
 msgstr "Спасибо!"
 
 #: index.php:1332
-#, fuzzy
 msgid "Select language:"
 msgstr "Выбрать рабочую область"
 
@@ -436,7 +423,6 @@ msgid "New users can join at"
 msgstr ""
 
 #: index.php:1366
-#, fuzzy
 msgid "Disconnect all users and end the session"
 msgstr "Отключить всех пользователей и очистить рабочую область"
 
@@ -449,7 +435,6 @@ msgid "Disconnect the current user"
 msgstr "Отключить текущего пользователя"
 
 #: index.php:1380
-#, fuzzy
 msgid "Log out"
 msgstr "Отдалить"
 

@@ -1,5 +1,5 @@
 # PalMA translation.
-# Copyright (C) 2014 Universitätsbibliothek Mannheim
+# Copyright (C) 2014-2024 Universitätsbibliothek Mannheim
 # This file is distributed under the same license as the PalMA package.
 # Gert Pere <gpere@mail.uni-mannheim.de>, 2016.
 #
@@ -53,12 +53,10 @@ msgid "Rotate clockwise"
 msgstr "Rrotullo sipas akrepave të orë"
 
 #: index.php:687
-#, fuzzy
 msgid "Download this item"
 msgstr "Shkarko kete skedar"
 
 #: index.php:695
-#, fuzzy
 msgid "Remove this item"
 msgstr "Fshi kete objekt"
 
@@ -111,12 +109,10 @@ msgid "Sorry! Screensharing for your device is currently not supported."
 msgstr "Ndjesë! Ndarja e ekranit nuk suportohet ende për pajisjen tuaj."
 
 #: index.php:1061 index.php:1243
-#, fuzzy
 msgid "Control"
 msgstr "Kontroll i kursorit"
 
 #: index.php:1062 index.php:1264
-#, fuzzy
 msgid "Extras"
 msgstr "Ndihme + Ekstra"
 
@@ -129,7 +125,6 @@ msgid "URL"
 msgstr "URL"
 
 #: index.php:1070
-#, fuzzy
 msgid "Screen"
 msgstr "Korniza e ekranit"
 
@@ -154,7 +149,6 @@ msgid "Click here to show the webpage on the screen."
 msgstr "Kliko këtu për të treguar faqen web në ekran"
 
 #: index.php:1105
-#, fuzzy
 msgid "Enter"
 msgstr "Vendos URL"
 
@@ -203,12 +197,10 @@ msgid "Feedback"
 msgstr "Feedback"
 
 #: index.php:1193
-#, fuzzy
 msgid "Users"
 msgstr "Lista e perdoruesve"
 
 #: index.php:1196
-#, fuzzy
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
@@ -217,7 +209,6 @@ msgstr ""
 "            me grupin e studimit tuaj."
 
 #: index.php:1197
-#, fuzzy
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
 msgstr "Monitori i grupit PalMA tregon deri ne kater kontribute njekohesisht."
 
@@ -234,7 +225,6 @@ msgid "Connect"
 msgstr "Lidhu"
 
 #: index.php:1205
-#, fuzzy
 msgid "Team members can join the session at any time with this URL or QR-Code:"
 msgstr ""
 "Pjesetaret e grupit mund t'i bashkohen sesionit ne cdo kohe me kete URL ose "
@@ -337,7 +327,6 @@ msgid "Hide and show"
 msgstr "Fsheh dhe trego"
 
 #: index.php:1250
-#, fuzzy
 msgid "Zoom in and out"
 msgstr "Zvogelo"
 
@@ -346,7 +335,6 @@ msgid "Rotate"
 msgstr "Rrotullo"
 
 #: index.php:1252
-#, fuzzy
 msgid "Download"
 msgstr "Shkarko kete skedar"
 
@@ -433,7 +421,6 @@ msgid "Thank you!"
 msgstr "Faleminderit!"
 
 #: index.php:1332
-#, fuzzy
 msgid "Select language:"
 msgstr "Zgjidh gjuhën:"
 
@@ -450,7 +437,6 @@ msgid "New users can join at"
 msgstr "Përdoruesit e rinj mund të regjistrohen në"
 
 #: index.php:1366
-#, fuzzy
 msgid "Disconnect all users and end the session"
 msgstr "Shkeput te gjithe perdoruesit dhe mbyll sesionin"
 
@@ -463,7 +449,6 @@ msgid "Disconnect the current user"
 msgstr "Shkeput perdoruesin aktual"
 
 #: index.php:1380
-#, fuzzy
 msgid "Log out"
 msgstr "Dil"
 
