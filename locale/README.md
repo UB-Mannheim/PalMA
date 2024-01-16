@@ -7,6 +7,7 @@
 |Locale|Completion|
 |---|---|
 |[ar](#ar)|67.83|
+|[bn_BN](#bn_bn)|100.00|
 |[de_DE](#de_de)|100.00|
 |[el_GR](#el_gr)|97.39|
 |[es_ES](#es_es)|100.00|
@@ -17,6 +18,7 @@
 |[lv_LV](#lv_lv)|26.09|
 |[ru_RU](#ru_ru)|74.78|
 |[sq_AL](#sq_al)|100.00|
+|[tr_TR](#tr_tr)|98.26|
 |[ur_PK](#ur_pk)|13.91|
 |[zh_CN](#zh_cn)|100.00|
 |[zh_TW](#zh_tw)|52.17|
@@ -74,6 +76,14 @@ Missing:
   * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
   * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
   * `not available`
+
+## bn_BN
+
+Completion: **100.00** (115 / 115 strings)
+
+Contributors:
+
+  * Muntasir
 
 ## de_DE
 
@@ -552,6 +562,22 @@ Contributors:
   * Kristiana Ristani
   * Piero Divasto
   * Stefan Weil
+
+## tr_TR
+
+Completion: **98.26** (113 / 115 strings)
+
+Contributors:
+
+  * Alexander Wagner
+  * Ayhan Yakici
+  * Dennis Müller
+  * Jörg Mechnich
+  * Stefan Weil
+
+Missing:
+  * `In the top bar you can`
+  * `Page down`
 
 ## ur_PK
 
