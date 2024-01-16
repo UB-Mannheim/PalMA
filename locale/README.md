@@ -18,7 +18,7 @@
 |[lv_LV](#lv_lv)|26.09|
 |[ru_RU](#ru_ru)|74.78|
 |[sq_AL](#sq_al)|100.00|
-|[tr_TR](#tr_tr)|98.26|
+|[tr_TR](#tr_tr)|99.13|
 |[ur_PK](#ur_pk)|13.91|
 |[zh_CN](#zh_cn)|100.00|
 |[zh_TW](#zh_tw)|52.17|
@@ -84,6 +84,7 @@ Completion: **100.00** (115 / 115 strings)
 Contributors:
 
   * Muntasir
+  * Stefan Weil
 
 ## de_DE
 
@@ -565,7 +566,7 @@ Contributors:
 
 ## tr_TR
 
-Completion: **98.26** (113 / 115 strings)
+Completion: **99.13** (114 / 115 strings)
 
 Contributors:
 
@@ -577,7 +578,6 @@ Contributors:
 
 Missing:
   * `In the top bar you can`
-  * `Page down`
 
 ## ur_PK
 
