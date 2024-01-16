@@ -31,7 +31,7 @@ $(PO): palma.po
 	touch $@
 
 locale/README.md: $(PO)
-	perl $(DISTDIR)/find-untranslated.pl --markdown $(LANGUAGES) >$@
+	LANG=C.UTF-8 perl $(DISTDIR)/find-untranslated.pl --markdown $(LANGUAGES) >$@
 
 .git/hooks: .git/hooks/pre-push .git/hooks/pre-commit
 
