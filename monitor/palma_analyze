@@ -96,7 +96,32 @@ class PalmaLogfile(object):
               (os.path.basename(self.filename), len(self.data),
                totUsers, totLength)
         )
+    
+    def printMonthlySummary(self):
+        def print_bin(month_bin):
+            length = datetime.timedelta()
+            users = 0
+            for x in month_bin: 
+                length += x.end - x.start
+                users += x.nuser
+            print("%-10s  %-8s  %-5s  %-20s" %(last_time, len(month_bin), users, length))
 
+        x = 0
+        month_bin = []
+        last_time = 0
+        sortedItems = sorted(self.data.items(),key=lambda item: item[1].start)
+        if(self.data.items()):
+            last_time = sortedItems[0][0].strftime("%Y-%m")
+        for k,v in sortedItems:
+            time = k.strftime("%Y-%m")
+            if(time == last_time): month_bin.append(v)
+            else: 
+                print_bin(month_bin)
+                month_bin = list()
+                month_bin.append(v)
+            last_time = time
+        print_bin(month_bin)        
+        
         
 class PalmaAnalyzer(object):
     def __init__(self):
@@ -114,6 +139,8 @@ class PalmaAnalyzer(object):
                             help="print summary")
         parser.add_argument("-n", "--noexit", action="store_true",
                             help="don't exit on error")
+        parser.add_argument("-m", "--monthly",action="store_true", 
+                            help="print monthly summary")
         parser.add_argument("logfile", nargs='+',
                             help="at least one log file")
         self.args = parser.parse_args()
@@ -163,6 +190,13 @@ class PalmaAnalyzer(object):
             )
             for station,logfile in sorted(self.alldata.items()):
                 logfile.printSummary()
+        elif self.args.monthly:
+            print("%-10s  %-8s  %-5s  %-20s" %
+                  ("Month", "Sessions", "Users", "Total Time")
+            )
+            for station,logfile in sorted(self.alldata.items()):
+                logfile.printMonthlySummary()
+                print()
         else:
             print()
             for station,logfile in sorted(self.alldata.items()):
