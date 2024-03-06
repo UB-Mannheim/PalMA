@@ -205,9 +205,8 @@ class PalmaAnalyzer(object):
             for station,logfile in sorted(self.alldata.items()):
                 summary = logfile.printMonthlySummary()
                 if self.args.csv:
-                    file = open('%s.csv' %(os.path.basename(logfile.filename)), 'w') 
-                    with file:
-                        writer = csv.writer(file)
+                    with open('%s.csv' %(os.path.basename(logfile.filename)), 'w') as f:
+                        writer = csv.writer(f)
                         writer.writerows(summary)    
         else:
             print()
