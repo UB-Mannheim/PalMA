@@ -111,7 +111,7 @@ class PalmaLogfile(object):
                 length += x.end - x.start
                 users += x.nuser
             sessions = len(month_bin)
-            avg_length = length // sessions
+            avg_length = length / sessions
             summary.append([last_time, sessions, users, length, avg_length])
             print("%-10s  %-8s  %-5s  %-20s %-20s" %(last_time, sessions, users, length, avg_length))
         
