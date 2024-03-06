@@ -120,7 +120,8 @@ class PalmaLogfile(object):
         month_bin = []
         last_time = 0
         sortedItems = sorted(self.data.items(), key=lambda item: item[1].start)
-        if(self.data.items()):last_time = sortedItems[0][0].strftime("%Y-%m")
+        if(self.data.items()):
+            last_time = sortedItems[0][0].strftime("%Y-%m")
         for k,v in sortedItems:
             time = k.strftime("%Y-%m")
             if(time == last_time):
