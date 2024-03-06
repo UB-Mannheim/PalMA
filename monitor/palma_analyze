@@ -209,7 +209,7 @@ class PalmaAnalyzer(object):
             print("%-10s  %-8s  %-5s  %-20s %-20s" %
                   ("Month", "Sessions", "Users", "Total Time", "Average Time per Session")
             )
-            for station,logfile in sorted(self.alldata.items()):
+            for station, logfile in sorted(self.alldata.items()):
                 summary = logfile.printMonthlySummary()
                 if self.args.csv:
                     with open('%s.csv' %(os.path.basename(logfile.filename)), 'w') as f:
