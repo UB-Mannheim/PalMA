@@ -147,8 +147,8 @@ class PalmaAnalyzer(object):
                             help="don't exit on error")
         parser.add_argument("-m", "--monthly",action="store_true", 
                             help="print monthly summary")
-        parser.add_argument("-mcsv", "--monthlycsv",action="store_true", 
-                            help="output monthly analysis in csv file")                    
+        parser.add_argument("-c", "--csv",action="store_true", 
+                            help="output to csv file")                    
         parser.add_argument("logfile", nargs='+',
                             help="at least one log file")
         self.args = parser.parse_args()
