@@ -13,7 +13,7 @@ class States(Enum):
     CONNECTED = 1
     IDLE = 2
 
-    
+
 class PalmaSession(object):
     def __init__(self, start):
         self.__dict__ = {
@@ -22,7 +22,7 @@ class PalmaSession(object):
             'nuser': 0,
         }
 
-        
+
 class PalmaLogfile(object):
     def __init__(self, filename, noexit):
         self.__dict__ = {
@@ -36,12 +36,12 @@ class PalmaLogfile(object):
             'logtext':  '',
         }
 
-        
+
     def gapDetected(self, timestamp):
         """handle big gaps in logfiles ( > 6 hrs)."""
         return self.lstamp and (timestamp - self.lstamp).total_seconds() > self.timeout
 
-    
+
     def newSession(self, timestamp):
         if self.state is States.CONNECTED:
             self.error(timestamp, "Parse error: already connected")
@@ -50,7 +50,7 @@ class PalmaLogfile(object):
         self.state = States.CONNECTED
         self.addUser()
 
-        
+
     def addUser(self):
         if not self.state is States.CONNECTED:
             return
@@ -58,7 +58,7 @@ class PalmaLogfile(object):
             return
         self.current.nuser += 1
 
-        
+
     def endSession(self, timestamp=None, ignoreState=False):
         if timestamp is None:
             timestamp = self.lstamp
@@ -73,24 +73,24 @@ class PalmaLogfile(object):
             self.current = None
         self.state = States.IDLE
 
-        
+
     def error(self, timestamp, error):
         print(self.filename, timestamp, error, file=sys.stderr)
         if not self.noexit:
             sys.exit(1)
 
-        
+
     def addLine(self, line):
         if self.state is States.CONNECTED:
             self.logtext += line
 
-            
+
     def printDetails(self,indent=" "*2):
         for k,v in sorted(self.data.items(),key=lambda item: item[1].start):
             length = v.end-v.start
             print("%s%s length: %s  %d user(s)" % (indent,k,length,v.nuser))
 
-            
+
     def printSummary(self):
         totLength = datetime.timedelta()
         totUsers  = 0
@@ -101,21 +101,22 @@ class PalmaLogfile(object):
               (os.path.basename(self.filename), len(self.data),
                totUsers, totLength)
         )
-    
-    def printMonthlySummary(self):
-          
-        def print_bin(month_bin):
+
+
+    def createMonthlySummary(self):
+        def appendBin(month_bin):
             length = datetime.timedelta()
             users = 0
-            for x in month_bin: 
+            for x in month_bin:
                 length += x.end - x.start
                 users += x.nuser
             sessions = len(month_bin)
             avg_length = length / sessions
+            # cut off microseconds
+            avg_length -= datetime.timedelta(microseconds=avg_length.microseconds)
             summary.append([last_time, sessions, users, length, avg_length])
-            print("%-10s  %-8s  %-5s  %-20s %-20s" %(last_time, sessions, users, length, avg_length))
-        
-        summary = [["Month", "Sessions", "Users", "Total Time", "Average Length per Session"]] 
+
+        summary = [["Month", "Sessions", "Users", "Total Time", "Average Length per Session"]]
         x = 0
         month_bin = []
         last_time = 0
@@ -126,14 +127,14 @@ class PalmaLogfile(object):
             time = k.strftime("%Y-%m")
             if(time == last_time):
                 month_bin.append(v)
-            else: 
-                print_bin(month_bin)
+            else:
+                appendBin(month_bin)
                 month_bin = list()
                 month_bin.append(v)
             last_time = time
-        print_bin(month_bin)  
+        appendBin(month_bin)
 
-        return summary      
+        return summary
 
 
 class PalmaAnalyzer(object):
@@ -142,7 +143,7 @@ class PalmaAnalyzer(object):
             'alldata': {},
         }
 
-        
+
     def parseCmdLine(self):
         parser = argparse.ArgumentParser(
             description=os.path.basename(sys.argv[0]) +
@@ -152,15 +153,15 @@ class PalmaAnalyzer(object):
                             help="print summary")
         parser.add_argument("-n", "--noexit", action="store_true",
                             help="don't exit on error")
-        parser.add_argument("-m", "--monthly",action="store_true", 
+        parser.add_argument("-m", "--monthly",action="store_true",
                             help="print monthly summary")
-        parser.add_argument("-c", "--csv",action="store_true", 
-                            help="output to csv file")                    
+        parser.add_argument("-c", "--csv",action="store_true",
+                            help="output to csv file")
         parser.add_argument("logfile", nargs='+',
                             help="at least one log file")
         self.args = parser.parse_args()
 
-        
+
     def processFile(self,filename):
         with open(filename,'r') as f:
             print("Processing", filename, file=sys.stderr)
@@ -168,13 +169,13 @@ class PalmaAnalyzer(object):
             for line in f.readlines():
                 # skip empty lines
                 if not len(line.strip()): continue
-                
+
                 tstamp = datetime.datetime.strptime(
                     line.split()[0], "%Y-%m-%dT%H:%M:%S"
                 )
                 if logfile.gapDetected(tstamp):
                     logfile.endSession()
-                    
+
                 if re.search(r"connecting first user",line):
                     logfile.newSession(tstamp)
                 elif re.search(r"logout.php: logout",line):
@@ -192,12 +193,12 @@ class PalmaAnalyzer(object):
                 logfile.lstamp = tstamp
             self.alldata[filename] = logfile
 
-            
+
     def run(self):
         for logfile in self.args.logfile:
             self.processFile(logfile)
 
-            
+
     def print(self):
         if self.args.summary:
             print("%-40s  %-8s  %-5s  %-20s" %
@@ -206,15 +207,14 @@ class PalmaAnalyzer(object):
             for station,logfile in sorted(self.alldata.items()):
                 logfile.printSummary()
         elif self.args.monthly or self.args.csv:
-            print("%-10s  %-8s  %-5s  %-20s %-20s" %
-                  ("Month", "Sessions", "Users", "Total Time", "Average Time per Session")
-            )
             for station, logfile in sorted(self.alldata.items()):
-                summary = logfile.printMonthlySummary()
+                summary = logfile.createMonthlySummary()
+                for l in summary:
+                    print("%-7s  %-8s  %-5s  %-10s  %-20s" % tuple(l))
                 if self.args.csv:
                     with open('%s.csv' %(os.path.basename(logfile.filename)), 'w') as f:
                         writer = csv.writer(f)
-                        writer.writerows(summary)    
+                        writer.writerows(summary)
         else:
             print()
             for station,logfile in sorted(self.alldata.items()):
@@ -222,7 +222,7 @@ class PalmaAnalyzer(object):
                 logfile.printDetails()
                 print()
 
-                
+
 if __name__ == '__main__':
     analyzer = PalmaAnalyzer()
     analyzer.parseCmdLine()
