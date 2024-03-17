@@ -15,6 +15,7 @@
 |[hi_IN](#hi_in)|100.00|
 |[it_IT](#it_it)|50.43|
 |[ja](#ja)|1.74|
+|[kg_KG](#kg_kg)|97.39|
 |[lv_LV](#lv_lv)|26.09|
 |[ru_RU](#ru_ru)|74.78|
 |[sq_AL](#sq_al)|100.00|
@@ -402,6 +403,19 @@ Missing:
   * `Zoom out`
   * `not available`
   * `see here.`
+
+## kg_KG
+
+Completion: **97.39** (112 / 115 strings)
+
+Contributors:
+
+  * Nursultan Mamatov
+
+Missing:
+  * `Arrow buttons in the middle scroll gradually`
+  * `Disconnect all users and end the session`
+  * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
 
 ## lv_LV
 
