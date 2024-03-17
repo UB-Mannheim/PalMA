@@ -1,0 +1,522 @@
+# PalMA translation.
+# Copyright (C) 2017-2024 Universitätsbibliothek Mannheim
+# This file is distributed under the same license as the PalMA package.
+# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
+# Dennis Müller <dennis.mueller@bib.uni-mannheim.de>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PalMA 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-17 18:50+0200\n"
+"PO-Revision-Date: 2017-09-12 14:38+0200\n"
+"Last-Translator: Nursultan Mamatov <nursultan.mamatov@students.uni-mannheim.de>\n"
+"Language-Team: Kyrgyz <kg@li.org>\n"
+"Language: kg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:167
+msgid "not available"
+msgstr "жеткиликтүү эмес"
+
+#: index.php:208
+msgid "Enter valid URL"
+msgstr "Жарактуу URL киргизиңиз"
+
+#: index.php:548
+msgid "You were disconnected!"
+msgstr "Сиз байланыштан ажыратылдыңыз!"
+
+#: index.php:569
+msgid "Select screen section for display"
+msgstr "Көрсөтүү үчүн экран тандаңыз"
+
+#: index.php:679
+msgid "Toggle visibility"
+msgstr "Көрүнүүнү которуу"
+
+#: index.php:683
+msgid "Zoom in"
+msgstr "Чоңойтуу"
+
+#: index.php:684
+msgid "Zoom out"
+msgstr "Кичирейтүү"
+
+#: index.php:685
+msgid "Rotate counterclockwise"
+msgstr "Саат жебесине каршы айлантуу"
+
+#: index.php:686
+msgid "Rotate clockwise"
+msgstr "Саат жебеси боюнча айлантуу"
+
+#: index.php:687
+msgid "Download this item"
+msgstr "Бул файлды жүктөө"
+
+#: index.php:695
+msgid "Remove this item"
+msgstr "Бул файлды өчүрүү"
+
+#: index.php:706
+msgid "Jump to start"
+msgstr "Башына өтүү"
+
+#: index.php:707
+msgid "Page up"
+msgstr "Үстүңкү баракча"
+
+#: index.php:708
+msgid "Page down"
+msgstr "Алдыңкы баракча"
+
+#: index.php:709
+msgid "Jump to end"
+msgstr "Аягына өтүү"
+
+#: index.php:713
+msgid "Up"
+msgstr "Өйдө"
+
+#: index.php:715
+msgid "Left"
+msgstr "Солго"
+
+#: index.php:716
+msgid "Right"
+msgstr "Оңго"
+
+#: index.php:718
+msgid "Down"
+msgstr "Ылдый"
+
+# Greeting
+#: index.php:743
+msgid "Welcome"
+msgstr "Кош келдиңиз"
+
+#: index.php:745
+msgid "There is no shared content yet. Click below to get started!"
+msgstr "Азырынча жалпы контент жок. Баштоо үчүн бул жерди бысыңыз!"
+
+# Index.php
+# Tabs and Subtabs
+#: index.php:749 index.php:1060 index.php:1216
+msgid "Add"
+msgstr "Кошуу"
+
+#: index.php:970
+msgid "Sorry! Screensharing for your device is currently not supported."
+msgstr "Кечиресиз! Азырынча сиздин девайсыңызда экранды чогуу колдонуу иштебейт."
+
+#: index.php:1061 index.php:1243
+msgid "Control"
+msgstr "Курсорду башкаруу"
+
+#: index.php:1062 index.php:1264
+msgid "Extras"
+msgstr "Кошумчалар"
+
+#: index.php:1068
+msgid "File"
+msgstr "Файл"
+
+#: index.php:1069
+msgid "URL"
+msgstr "URL"
+
+#: index.php:1070
+msgid "Screen"
+msgstr "Экран"
+
+#: index.php:1077
+msgid "Drag and drop files or click here to upload."
+msgstr "Файлдарды алып келиңиз же жүктөө үчүн бул жакты чыкылдатыңыз."
+
+# Add Section
+#: index.php:1079
+msgid "Add file (click or drop here)"
+msgstr "Файлды кошуңуз (чыкылдатыңыз же алып келиңиз)"
+
+#: index.php:1098
+msgid "Add webpage"
+msgstr "Веб-баракчаны кошуңуз"
+
+#: index.php:1101
+msgid "Enter URL"
+msgstr "URL ди киргизиңиз"
+
+#: index.php:1104
+msgid "Click here to show the webpage on the screen."
+msgstr "Веб-баракчаны көргөзүү үчүн бул жакты чыкылдатыңыз"
+
+#: index.php:1105
+msgid "Enter"
+msgstr "Киргизиңиз"
+
+#: index.php:1112
+msgid "Add your screen"
+msgstr "Экраныңызды кошуңуз"
+
+#: index.php:1113
+msgid "Download screensharing tool"
+msgstr "Экранды чогуу колдонуу үчүн инструментти жүктөңүз"
+
+#: index.php:1120
+msgid ""
+"Download your screensharing tool (Windows, Mac and Linux only). Visit the "
+"help section for further information."
+msgstr "Экранды чогуу колдонуу үчүн инструментти жүктөңүз (Бир гана Windows, Mac жана Linux)."
+"Кийнки маалыматты алуу үчүн жардам берүү секциясына кайрылыңыз." 
+
+#: index.php:1126
+msgid "Layout"
+msgstr "Схема"
+
+#: index.php:1127
+msgid "Navigate"
+msgstr "Навигация"
+
+# Control section
+#: index.php:1133 index.php:1140 index.php:1148 index.php:1156 index.php:1169
+msgid "Choose screen layout"
+msgstr "Экрандын схемасын тандаңыз"
+
+#: index.php:1184
+msgid "Close all windows and remove uploaded files"
+msgstr "Бардык терезелерди жабыгыңыз жана жүктөлгөн файлдарды өчүрүңүз"
+
+#: index.php:1185
+msgid "Delete all items"
+msgstr "Бардык объекттерди өчүрүңүз"
+
+#: index.php:1191
+msgid "Help"
+msgstr "Жардам"
+
+#: index.php:1192
+msgid "Feedback"
+msgstr "Кайтарым байланыщ"
+
+#: index.php:1193
+msgid "Users"
+msgstr "Колдонуучулар"
+
+# Extras Section
+# Help
+#: index.php:1196
+msgid ""
+"With PalMA, you can share documents, websites and your desktop with your "
+"learning group."
+msgstr "PalMA нын жардамы менен документтерди, вебсайттарды жана иш стөлүн "
+"үйрөнүү тобуңуз менен бөлүшө аласыз"
+
+#: index.php:1197
+msgid "The PalMA team monitor shows up to four contributions simultaneously."
+msgstr "PalMA командасы бир эле убакытта 4 объектке чейин чагылдырат"
+
+#: index.php:1200
+msgid "For further information about PalMA in this institution"
+msgstr "PalMA жөнүндө кийнки маалыматты алуу үчүн бул институтта"
+
+#: index.php:1200
+msgid "see here."
+msgstr "бул жактан көрүңүз."
+
+#: index.php:1204
+msgid "Connect"
+msgstr "Кошуу"
+
+#: index.php:1205
+msgid "Team members can join the session at any time with this URL or QR-Code:"
+msgstr "Команда мүчөлөрү каалаган убакытта ушул URL жана QR-код менен сессияга кошула алат:"
+
+# Please mind the whitespace at the end.
+#: index.php:1209 index.php:1358
+msgid "PIN: "
+msgstr "PIN"
+
+#: index.php:1217
+msgid "Use the Add-Section to share content on the PalMA monitor."
+msgstr "PalMA мониторунда контентти чагылдыруу үчүн \"Кошуу\" секциясын колдонуңуз."
+
+#: index.php:1219
+msgid "For PDF files, office files, images or videos use the file section."
+msgstr "PDF файлдар, офис файлдар, сүрөттөр же видеолор үчүн файл секциясын колдонуңуз."
+
+#: index.php:1220
+msgid "To display a website use the URL field."
+msgstr "Вебсайтты чагылдыруу үчүн URL талаасын колдонуңуз."
+
+#: index.php:1221
+msgid ""
+"To share your desktop in real time download the VNC screen sharing software "
+"and"
+msgstr "Экраныңызды реалдуу убакытта бөлүшүү үчүн VNC экранды бөлүшүү программаны жүктөп алыңыз"
+"жана"
+
+# Referring to the popular operating system
+#: index.php:1223
+msgid "Windows:"
+msgstr "Windows:"
+
+#: index.php:1225
+msgid "Run the downloaded file."
+msgstr "Жүктөлгөн файлды иштетиңиз."
+
+#: index.php:1226
+msgid "Double-click the name of your PalMA station in the appearing list."
+msgstr "Пайда болгон тизмедеги PalMA станцияңыздын атын эки жолу чыкылдатыңыз."
+
+#: index.php:1228
+msgid "Mac:"
+msgstr "Mac:"
+
+#: index.php:1230
+msgid "CTRL + click the downloaded file and run it."
+msgstr "CTRL + жүктөлгөн файлды чыкылдатыңыз жана иштетиңиз."
+
+#: index.php:1231
+msgid "A second window opens, in which you can start &quot;VineServer&quot;."
+msgstr "Экинчи терезе ачылат, бул болсо &quot;VineServer&quot; баштоого мүмкүнчүлүк түзөт."
+
+#: index.php:1232
+msgid "In the upper left corner, click on &quot;VNC Server&quot;."
+msgstr "Өйдөңкү сол бурчта &quot;VNC Server&quot; чыкылдатыңыз."
+
+#: index.php:1233
+msgid "Select &quot;Reverse Connection&quot;."
+msgstr "&quot;Reverse Connection&quot; тандаңыз"
+
+#: index.php:1234
+msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
+msgstr "PalMA станцияңыздын URL'ын киргизиңиз жана &quot;Connect&quot; чыкылдатыңыз."
+
+#: index.php:1236
+msgid "Linux:"
+msgstr "Linux:"
+
+#: index.php:1238
+msgid "Run the downloaded shell script."
+msgstr "Жүктөлүп алынган кабык сценарийин иштетиңиз."
+
+#: index.php:1239
+msgid "Or use this shell command:"
+msgstr "Же кабык командасын колдонуңуз:"
+
+#: index.php:1244
+msgid ""
+"With the grey monitor buttons at the top you can choose how the shared "
+"content should be arranged on the PalMA monitor."
+msgstr ""
+
+#: index.php:1245
+msgid "Below that you find the controls for each item:"
+msgstr "Жогору жактагы боз монитор баскычтары менен сиз кантип бөлүшүүнү тандай аласыз "
+"Мазмун PalMA мониторунда уюштурулушу керек."
+
+#: index.php:1247
+msgid "In the top bar you can"
+msgstr "Жогорку панелде кылаласыз"
+
+#: index.php:1249
+msgid "Hide and show"
+msgstr "Катыңыз жана көрсөтүңүз"
+
+#: index.php:1250
+msgid "Zoom in and out"
+msgstr "Чоңойтуңуз жана киргизиңиз"
+
+#: index.php:1251
+msgid "Rotate"
+msgstr "Буруңуз"
+
+#: index.php:1252
+msgid "Download"
+msgstr "Жүктөңүз"
+
+#: index.php:1253
+msgid "Delete the item"
+msgstr "Объектти өчүрүңүз"
+
+#: index.php:1255
+msgid "Below you find the navigation controls."
+msgstr "Төмөндө сиз навигацияны башкаруу элементтерин табасыз."
+
+#: index.php:1257
+msgid ""
+"Buttons on the left jump to the top, to the end, a page up or a page down"
+msgstr "Сол жактагы баскычтар жогоруга, аягына, бир барак өйдө же ылдыйга секирет"
+
+#: index.php:1258
+msgid "Arrow buttons in the middle scroll gradually"
+msgstr ""
+
+#: index.php:1261
+msgid "On the right you can choose the position on the PalMA monitor"
+msgstr "Ортодогу жебе баскычтары акырындык менен жылдырылат"
+
+#: index.php:1263
+msgid ""
+"Controls that are not available for certain kinds of content are marked grey."
+msgstr "Кээ бир контент түрлөрү үчүн жеткиликтүү эмес башкаруу элементтери боз болуп белгиленет."
+
+#: index.php:1265
+msgid "Some additional features are:"
+msgstr "Кээ бир кошумча өзгөчөлүктөр болуп төмөнкүлөр саналат:"
+
+#: index.php:1267
+msgid "This help,"
+msgstr "Ушул жардам,"
+
+#: index.php:1268
+msgid ""
+"Your chance to recommend us or give us your thoughts in the &quot;"
+"Feedback&quot; section,"
+msgstr "Бизди сунуштоо мүмкүнчүлүгүңүз же бизге &quot;Feedback&quot; бөлүмү,"
+
+
+#: index.php:1269
+msgid ""
+"A list of all logged-in users as well as a button to disconnect everyone and "
+"therefore end the session."
+msgstr "Бардык кирген колдонуучулардын тизмеси, ошондой эле баарын ажырата турган баскыч жана "
+"Ошондуктан сессия бүтсүн".
+
+# Feedback
+#: index.php:1275
+msgid "Recommend us"
+msgstr "Бизге сунуштаңыз"
+
+#: index.php:1278
+msgid ""
+"If you like PalMA, please recommend us by sharing in your social networks."
+"<br />Enjoy PalMA!"
+msgstr "Эгер сизге PalMA жакса, социалдык тармактарыңызда бөлүшүү аркылуу бизге сунуштайбыз."
+"<br />Enjoy PalMA!"
+
+#: index.php:1324
+msgid "Tell us what you think"
+msgstr "Бизге оюңузду айтыңыз"
+
+# Please mind the whitespace at the end
+#: index.php:1326
+msgid ""
+"Please let us know about problems or ideas to improve PalMA. Help us "
+"directly by sending crash reports or contributing on "
+msgstr "Сураныч, PalMAны жакшыртуу үчүн көйгөйлөр же идеялар жөнүндө бизге кабарлаңыз. Бизге жардам бериңиз "
+"түз эле ката жөнүндө кабарларды жөнөтүү же салым кошуу менен"
+
+#: index.php:1326
+msgid "Thank you!"
+msgstr "Рахмат!"
+
+# Users
+#: index.php:1332
+msgid "Select language:"
+msgstr "Тилди тандаңыз:"
+
+#: index.php:1349
+msgid "User list"
+msgstr "Колдонуучунун тизмеси"
+
+#: index.php:1349
+msgid "List of connected users"
+msgstr "Туташкан колдонуучулардын тизмеси"
+
+#: index.php:1355
+msgid "New users can join at"
+msgstr "Жаңы колдонуучулар кошула алышат"
+
+#: index.php:1366
+msgid "Disconnect all users and end the session"
+msgstr ""
+
+#: index.php:1367
+msgid "End the session"
+msgstr "Бардык колдонуучуларды ажыратып, сессияны бүтүрүңүз"
+
+# Footer
+#: index.php:1379
+msgid "Disconnect the current user"
+msgstr "Учурдагы колдонуучуну ажыратыңыз"
+
+#: index.php:1380
+msgid "Log out"
+msgstr "Чыгыңыз"
+
+#: i12n.php:102
+msgid "Screen section"
+msgstr "Экран бөлүмү"
+
+# Login Mask
+#: login.php:95 login.php:103 login.php:106
+msgid "Invalid credentials!"
+msgstr "Жараксыз эсептик дайындар!"
+
+#: login.php:100
+msgid "Cannot check credentials, sorry!"
+msgstr "Каттоо маалыматтарын текшерүү мүмкүн эмес, кечиресиз!"
+
+#: login.php:139
+msgid "Invalid PIN."
+msgstr "Жараксыз PIN."
+
+#: login.php:174
+msgid "PalMA &ndash; Login"
+msgstr "PalMA &ndash; Login"
+
+#: login.php:200
+msgid "Login"
+msgstr "Логин"
+
+#: login.php:204
+msgid "User name"
+msgstr "Колдонуучунун аты"
+
+#: login.php:211
+msgid "Password"
+msgstr "Пароль"
+
+#: login.php:219
+msgid "PIN"
+msgstr "PIN"
+
+#: login.php:227
+msgid "Log in"
+msgstr "Кириңиз"
+
+# upload.php
+#: upload.php:61
+msgid "This file is too large."
+msgstr "Бул файл өтө чоң."
+
+#: upload.php:64
+msgid "Large files are not supported."
+msgstr "Чоң файлдар колдоого алынбайт."
+
+#: upload.php:67
+msgid "File was only partially uploaded."
+msgstr "Файл жарым-жартылай гана жүктөлүп берилди."
+
+#: upload.php:70
+#, php-format
+msgid "Error code %s."
+msgstr "Ката коду %s."
+
+#: upload.php:84
+#, php-format
+msgid "File '%s' cannot be shown."
+msgstr "'%s' файлын көрсөтүү мүмкүн эмес."
+
+# examples/screensaver
+#: examples/screensaver/pictureshow.php:35
+msgid "Picture Show"
+msgstr "Сүрөт көрсөтүү"
+
+#: examples/screensaver/tiles.php:33
+msgid "Tiles"
+msgstr "Tiles"
