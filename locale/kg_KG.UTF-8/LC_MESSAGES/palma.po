@@ -384,7 +384,7 @@ msgid ""
 "A list of all logged-in users as well as a button to disconnect everyone and "
 "therefore end the session."
 msgstr "Бардык кирген колдонуучулардын тизмеси, ошондой эле баарын ажырата турган баскыч жана "
-"Ошондуктан сессия бүтсүн".
+"Ошондуктан сессия бүтсүн."
 
 # Feedback
 #: index.php:1275
