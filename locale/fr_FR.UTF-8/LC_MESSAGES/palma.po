@@ -429,19 +429,19 @@ msgstr "Choisissez la langue:"
 
 #: index.php:1349
 msgid "User list"
-msgstr ""
+msgstr "Liste des utilisateurs"
 
 #: index.php:1349
 msgid "List of connected users"
-msgstr ""
+msgstr "Liste des utilisateurs connectés"
 
 #: index.php:1355
 msgid "New users can join at"
-msgstr ""
+msgstr "Les nouveaux utilisateurs peuvent se joindre à"
 
 #: index.php:1366
 msgid "Disconnect all users and end the session"
-msgstr ""
+msgstr "Déconnecter tous les utilisateurs et terminer la session"
 
 #: index.php:1367
 msgid "End the session"
@@ -450,24 +450,24 @@ msgstr "Terminez la session"
 # Footer
 #: index.php:1379
 msgid "Disconnect the current user"
-msgstr ""
+msgstr "Déconnecter l'utilisateur actuel"
 
 #: index.php:1380
 msgid "Log out"
-msgstr ""
+msgstr "Déconnexion"
 
 #: i12n.php:102
 msgid "Screen section"
-msgstr ""
+msgstr "Section d'écran"
 
 # Login Mask
 #: login.php:95 login.php:103 login.php:106
 msgid "Invalid credentials!"
-msgstr ""
+msgstr "Identifiants non valides!"
 
 #: login.php:100
 msgid "Cannot check credentials, sorry!"
-msgstr ""
+msgstr Impossible de vérifier les identifiants, désolé !"
 
 #: login.php:139
 msgid "Invalid PIN."
@@ -475,15 +475,15 @@ msgstr "PIN non valide."
 
 #: login.php:174
 msgid "PalMA &ndash; Login"
-msgstr ""
+msgstr "alMA &ndash; Connexion"
 
 #: login.php:200
 msgid "Login"
-msgstr ""
+msgstr "Connexion"
 
 #: login.php:204
 msgid "User name"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 #: login.php:211
 msgid "Password"
@@ -495,20 +495,20 @@ msgstr "PIN"
 
 #: login.php:227
 msgid "Log in"
-msgstr ""
+msgstr "Se connecter"
 
 # upload.php
 #: upload.php:61
 msgid "This file is too large."
-msgstr ""
+msgstr "Ce fichier est trop volumineux."
 
 #: upload.php:64
 msgid "Large files are not supported."
-msgstr ""
+msgstr "Les fichiers volumineux ne sont pas pris en charge."
 
 #: upload.php:67
 msgid "File was only partially uploaded."
-msgstr ""
+msgstr "Le fichier n'a été que partiellement téléchargé."
 
 #: upload.php:70
 #, php-format
@@ -518,13 +518,13 @@ msgstr "Code d'erreur %s."
 #: upload.php:84
 #, php-format
 msgid "File '%s' cannot be shown."
-msgstr ""
+msgstr "Le fichier '%s' ne peut pas être affiché."
 
 # examples/screensaver
 #: examples/screensaver/pictureshow.php:35
 msgid "Picture Show"
-msgstr ""
+msgstr "Diaporama"
 
 #: examples/screensaver/tiles.php:33
 msgid "Tiles"
-msgstr ""
+msgstr "Tuiles"
