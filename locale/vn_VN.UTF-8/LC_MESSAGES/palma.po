@@ -1,0 +1,514 @@
+# PalMA translation.
+# Copyright (C) 2017-2024 Universitätsbibliothek Mannheim
+# This file is distributed under the same license as the PalMA package.
+# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
+# Dennis Müller <dennis.mueller@bib.uni-mannheim.de>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PalMA 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-29 18:50+0200\n"
+"PO-Revision-Date: 2017-09-12 14:38+0200\n"
+"Last-Translator: Dennis Müller <dennis.mueller@bib.uni-mannheim.de>\n"
+"Language-Team: English <en@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:167
+msgid "not available"
+msgstr "không có sẵn"
+
+#: index.php:208
+msgid "Enter valid URL"
+msgstr "Vui lòng nhập URL hợp lệ"
+
+#: index.php:548
+msgid "You were disconnected!"
+msgstr "Bạn đã bị ngắt kết nối!"
+
+#: index.php:569
+msgid "Select screen section for display"
+msgstr "Chọn phần màn hình để hiển thị"
+
+#: index.php:679
+msgid "Toggle visibility"
+msgstr "Chuyển đổi hiển thị"
+
+#: index.php:683
+msgid "Zoom in"
+msgstr "Phóng to"
+
+#: index.php:684
+msgid "Zoom out"
+msgstr "Thu nhỏ"
+
+#: index.php:685
+msgid "Rotate counterclockwise"
+msgstr "Xoay ngược chiều kim đồng hồ"
+
+#: index.php:686
+msgid "Rotate clockwise"
+msgstr "Xoay theo chiều kim đồng hồ"
+
+#: index.php:687
+msgid "Download this item"
+msgstr "Tải xuống mục này"
+
+#: index.php:695
+msgid "Remove this item"
+msgstr "Xóa mục này"
+
+#: index.php:706
+msgid "Jump to start"
+msgstr "Nhảy đến đầu"
+
+#: index.php:707
+msgid "Page up"
+msgstr "Trang lên"
+
+#: index.php:708
+msgid "Page down"
+msgstr "Trang xuống"
+
+#: index.php:709
+msgid "Jump to end"
+msgstr "Nhảy đến cuối"
+
+#: index.php:713
+msgid "Up"
+msgstr "Lên"
+
+#: index.php:715
+msgid "Left"
+msgstr "Trái"
+
+#: index.php:716
+msgid "Right"
+msgstr "Phải"
+
+#: index.php:718
+msgid "Down"
+msgstr "Xuống"
+
+# Greeting
+#: index.php:743
+msgid "Welcome"
+msgstr "Chào mừng"
+
+#: index.php:745
+msgid "There is no shared content yet. Click below to get started!"
+msgstr "Chưa có nội dung chia sẻ. Nhấp vào bên dưới để bắt đầu!"
+
+# Index.php
+# Tabs and Subtabs
+#: index.php:749 index.php:1060 index.php:1216
+msgid "Add"
+msgstr "Thêm"
+
+#: index.php:970
+msgid "Sorry! Screensharing for your device is currently not supported."
+msgstr "Xin lỗi! Chia sẻ màn hình cho thiết bị của bạn hiện không được hỗ trợ."
+
+#: index.php:1061 index.php:1243
+msgid "Control"
+msgstr "Điều khiển"
+
+#: index.php:1062 index.php:1264
+msgid "Extras"
+msgstr "Tiện ích"
+
+#: index.php:1068
+msgid "File"
+msgstr "Tệp"
+
+#: index.php:1069
+msgid "URL"
+msgstr "URL"
+
+#: index.php:1070
+msgid "Screen"
+msgstr "Màn hình"
+
+#: index.php:1077
+msgid "Drag and drop files or click here to upload."
+msgstr "Kéo và thả tệp hoặc nhấp vào đây để tải lên."
+
+# Add Section
+#: index.php:1079
+msgid "Add file (click or drop here)"
+msgstr "Thêm tệp (nhấp hoặc thả vào đây)"
+
+#: index.php:1098
+msgid "Add webpage"
+msgstr "Thêm trang web"
+
+#: index.php:1101
+msgid "Enter URL"
+msgstr "Vui lòng nhập URL"
+
+#: index.php:1104
+msgid "Click here to show the webpage on the screen."
+msgstr "Nhấp vào đây để hiển thị trang web trên màn hình."
+
+#: index.php:1105
+msgid "Enter"
+msgstr "Nhập"
+
+#: index.php:1112
+msgid "Add your screen"
+msgstr "Thêm màn hình của bạn"
+
+#: index.php:1113
+msgid "Download screensharing tool"
+msgstr "Tải xuống công cụ chia sẻ màn hình"
+
+#: index.php:1120
+msgid ""
+"Download your screensharing tool (Windows, Mac and Linux only). Visit the "
+"help section for further information."
+msgstr "Tải xuống công cụ chia sẻ màn hình của bạn (chỉ dành cho Windows, Mac và Linux). Truy cập phần trợ giúp để biết thêm thông tin."
+
+#: index.php:1126
+msgid "Layout"
+msgstr "Bố cục"
+
+#: index.php:1127
+msgid "Navigate"
+msgstr "Điều hướng"
+
+# Control section
+#: index.php:1133 index.php:1140 index.php:1148 index.php:1156 index.php:1169
+msgid "Choose screen layout"
+msgstr "Chọn bố cục màn hình"
+
+#: index.php:1184
+msgid "Close all windows and remove uploaded files"
+msgstr "Đóng tất cả cửa sổ và xóa các tệp đã tải lên"
+
+#: index.php:1185
+msgid "Delete all items"
+msgstr "Xóa tất cả các mục"
+
+#: index.php:1191
+msgid "Help"
+msgstr "Trợ giúp"
+
+#: index.php:1192
+msgid "Feedback"
+msgstr "Phản hồi"
+
+#: index.php:1193
+msgid "Users"
+msgstr "Người dùng"
+
+# Extras Section
+# Help
+#: index.php:1196
+msgid ""
+"With PalMA, you can share documents, websites and your desktop with your "
+"learning group."
+msgstr "Với PalMA, bạn có thể chia sẻ tài liệu, trang web và màn hình của mình với nhóm học tập của bạn."
+
+#: index.php:1197
+msgid "The PalMA team monitor shows up to four contributions simultaneously."
+msgstr "Màn hình nhóm PalMA hiển thị tối đa bốn đóng góp cùng lúc."
+
+#: index.php:1200
+msgid "For further information about PalMA in this institution"
+msgstr "Để biết thêm thông tin về PalMA trong tổ chức này"
+
+#: index.php:1200
+msgid "see here."
+msgstr "xem tại đây."
+
+#: index.php:1204
+msgid "Connect"
+msgstr "Kết nối"
+
+#: index.php:1205
+msgid "Team members can join the session at any time with this URL or QR-Code:"
+msgstr "Các thành viên trong nhóm có thể tham gia phiên bất cứ lúc nào với URL hoặc mã QR này:"
+
+# Please mind the whitespace at the end.
+#: index.php:1209 index.php:1358
+msgid "PIN: "
+msgstr "PIN: "
+
+#: index.php:1217
+msgid "Use the Add-Section to share content on the PalMA monitor."
+msgstr "Sử dụng phần Thêm để chia sẻ nội dung trên màn hình PalMA."
+
+#: index.php:1219
+msgid "For PDF files, office files, images or videos use the file section."
+msgstr "Đối với tệp PDF, tệp văn phòng, hình ảnh hoặc video, hãy sử dụng phần tệp."
+
+#: index.php:1220
+msgid "To display a website use the URL field."
+msgstr "Để hiển thị một trang web, hãy sử dụng trường URL."
+
+#: index.php:1221
+msgid ""
+"To share your desktop in real time download the VNC screen sharing software "
+"and"
+msgstr "Để chia sẻ màn hình của bạn trong thời gian thực, hãy tải xuống phần mềm chia sẻ màn hình VNC và"
+
+# Referring to the popular operating system
+#: index.php:1223
+msgid "Windows:"
+msgstr "Windows:"
+
+#: index.php:1225
+msgid "Run the downloaded file."
+msgstr "Chạy tệp đã tải xuống."
+
+#: index.php:1226
+msgid "Double-click the name of your PalMA station in the appearing list."
+msgstr "Nhấp đúp vào tên của trạm PalMA của bạn trong danh sách xuất hiện."
+
+#: index.php:1228
+msgid "Mac:"
+msgstr "Mac:"
+
+#: index.php:1230
+msgid "CTRL + click the downloaded file and run it."
+msgstr "CTRL + nhấp vào tệp đã tải xuống và chạy nó."
+
+#: index.php:1231
+msgid "A second window opens, in which you can start &quot;VineServer&quot;."
+msgstr "Một cửa sổ thứ hai mở ra, trong đó bạn có thể bắt đầu &quot;VineServer&quot;."
+
+#: index.php:1232
+msgid "In the upper left corner, click on &quot;VNC Server&quot;."
+msgstr "Ở góc trên bên trái, nhấp vào &quot;VNC Server&quot;."
+
+#: index.php:1233
+msgid "Select &quot;Reverse Connection&quot;."
+msgstr "Chọn &quot;Reverse Connection&quot;."
+
+#: index.php:1234
+msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
+msgstr "Nhập URL của trạm PalMA của bạn và nhấp vào &quot;Connect&quot;."
+
+#: index.php:1236
+msgid "Linux:"
+msgstr "Linux:"
+
+#: index.php:1238
+msgid "Run the downloaded shell script."
+msgstr "Chạy tập lệnh shell đã tải xuống."
+
+#: index.php:1239
+msgid "Or use this shell command:"
+msgstr "Hoặc sử dụng lệnh shell này:"
+
+#: index.php:1244
+msgid ""
+"With the grey monitor buttons at the top you can choose how the shared "
+"content should be arranged on the PalMA monitor."
+msgstr "Với các nút màn hình màu xám ở trên cùng, bạn có thể chọn cách sắp xếp nội dung chia sẻ trên màn hình PalMA."
+
+#: index.php:1245
+msgid "Below that you find the controls for each item:"
+msgstr "Bên dưới đó, bạn sẽ tìm thấy các điều khiển cho từng mục:"
+
+#: index.php:1247
+msgid "In the top bar you can"
+msgstr "Trong thanh trên cùng, bạn có thể"
+
+#: index.php:1249
+msgid "Hide and show"
+msgstr "Ẩn và hiển thị"
+
+#: index.php:1250
+msgid "Zoom in and out"
+msgstr "Phóng to và thu nhỏ"
+
+#: index.php:1251
+msgid "Rotate"
+msgstr "Xoay"
+
+#: index.php:1252
+msgid "Download"
+msgstr "Tải xuống"
+
+#: index.php:1253
+msgid "Delete the item"
+msgstr "Xóa mục"
+
+#: index.php:1255
+msgid "Below you find the navigation controls."
+msgstr "Bên dưới bạn sẽ tìm thấy các điều khiển điều hướng."
+
+#: index.php:1257
+msgid ""
+"Buttons on the left jump to the top, to the end, a page up or a page down"
+msgstr "Các nút ở bên trái nhảy lên đầu, xuống cuối, trang lên hoặc trang xuống"
+
+#: index.php:1258
+msgid "Arrow buttons in the middle scroll gradually"
+msgstr "Các nút mũi tên ở giữa cuộn dần dần"
+
+#: index.php:1261
+msgid "On the right you can choose the position on the PalMA monitor"
+msgstr "Ở bên phải, bạn có thể chọn vị trí trên màn hình PalMA"
+
+#: index.php:1263
+msgid ""
+"Controls that are not available for certain kinds of content are marked grey."
+msgstr "Các điều khiển không có sẵn cho một số loại nội dung nhất định được đánh dấu màu xám."
+
+#: index.php:1265
+msgid "Some additional features are:"
+msgstr "Một số tính năng bổ sung là:"
+
+#: index.php:1267
+msgid "This help,"
+msgstr "Trợ giúp này,"
+
+#: index.php:1268
+msgid ""
+"Your chance to recommend us or give us your thoughts in the &quot;"
+"Feedback&quot; section,"
+msgstr "Cơ hội của bạn để giới thiệu chúng tôi hoặc cho chúng tôi biết suy nghĩ của bạn trong phần &quot;Phản hồi&quot;,"
+
+#: index.php:1269
+msgid ""
+"A list of all logged-in users as well as a button to disconnect everyone and "
+"therefore end the session."
+msgstr "Danh sách tất cả người dùng đã đăng nhập cũng như nút để ngắt kết nối tất cả mọi người và do đó kết thúc phiên."
+
+# Feedback
+#: index.php:1275
+msgid "Recommend us"
+msgstr "Giới thiệu chúng tôi"
+
+#: index.php:1278
+msgid ""
+"If you like PalMA, please recommend us by sharing in your social networks."
+"<br />Enjoy PalMA!"
+msgstr "Nếu bạn thích PalMA, vui lòng giới thiệu chúng tôi bằng cách chia sẻ trên các mạng xã hội của bạn. <br />Thưởng thức PalMA!"
+
+#: index.php:1324
+msgid "Tell us what you think"
+msgstr "Cho chúng tôi biết suy nghĩ của bạn"
+
+# Please mind the whitespace at the end
+#: index.php:1326
+msgid ""
+"Please let us know about problems or ideas to improve PalMA. Help us "
+"directly by sending crash reports or contributing on "
+msgstr "Vui lòng cho chúng tôi biết về các vấn đề hoặc ý tưởng để cải thiện PalMA. Giúp chúng tôi trực tiếp bằng cách gửi báo cáo sự cố hoặc đóng góp trên"
+
+#: index.php:1326
+msgid "Thank you!"
+msgstr "Cảm ơn bạn!"
+
+# Users
+#: index.php:1332
+msgid "Select language:"
+msgstr "Chọn ngôn ngữ:"
+
+#: index.php:1349
+msgid "User list"
+msgstr "Danh sách người dùng"
+
+#: index.php:1349
+msgid "List of connected users"
+msgstr "Danh sách người dùng đã kết nối"
+
+#: index.php:1355
+msgid "New users can join at"
+msgstr "Người dùng mới có thể tham gia tại"
+
+#: index.php:1366
+msgid "Disconnect all users and end the session"
+msgstr "Ngắt kết nối tất cả người dùng và kết thúc phiên"
+
+#: index.php:1367
+msgid "End the session"
+msgstr "Kết thúc phiên"
+
+# Footer
+#: index.php:1379
+msgid "Disconnect the current user"
+msgstr "Ngắt kết nối người dùng hiện tại"
+
+#: index.php:1380
+msgid "Log out"
+msgstr "Đăng xuất"
+
+#: i12n.php:102
+msgid "Screen section"
+msgstr "Phần màn hình"
+
+# Login Mask
+#: login.php:95 login.php:103 login.php:106
+msgid "Invalid credentials!"
+msgstr "Thông tin đăng nhập không hợp lệ!"
+
+#: login.php:100
+msgid "Cannot check credentials, sorry!"
+msgstr "Không thể kiểm tra thông tin đăng nhập, xin lỗi!"
+
+#: login.php:139
+msgid "Invalid PIN."
+msgstr "PIN không hợp lệ."
+
+#: login.php:174
+msgid "PalMA &ndash; Login"
+msgstr "PalMA &ndash; Đăng nhập"
+
+#: login.php:200
+msgid "Login"
+msgstr "Đăng nhập"
+
+#: login.php:204
+msgid "User name"
+msgstr "Tên người dùng"
+
+#: login.php:211
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: login.php:219
+msgid "PIN"
+msgstr "PIN"
+
+#: login.php:227
+msgid "Log in"
+msgstr "Đăng nhập"
+
+# upload.php
+#: upload.php:61
+msgid "This file is too large."
+msgstr "Tệp này quá lớn."
+
+#: upload.php:64
+msgid "Large files are not supported."
+msgstr "Các tệp lớn không được hỗ trợ."
+
+#: upload.php:67
+msgid "File was only partially uploaded."
+msgstr "Tệp chỉ được tải lên một phần."
+
+#: upload.php:70
+#, php-format
+msgid "Error code %s."
+msgstr "Mã lỗi %s."
+
+#: upload.php:84
+#, php-format
+msgid "File '%s' cannot be shown."
+msgstr "Tệp '%s' không thể hiển thị."
+
+# examples/screensaver
+#: examples/screensaver/pictureshow.php:35
+msgid "Picture Show"
+msgstr "Trình chiếu hình ảnh"
+
+#: examples/screensaver/tiles.php:33
+msgid "Tiles"
+msgstr "Ô"
