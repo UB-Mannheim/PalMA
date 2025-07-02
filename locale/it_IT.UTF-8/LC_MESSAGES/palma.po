@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-16 14:31+0200\n"
-"PO-Revision-Date: 2014-07-01 16:39+0200\n"
-"Last-Translator: Simon Rankl\n"
+"POT-Creation-Date: 2023-06-29 18:50+0200\n"
+"PO-Revision-Date: 2025-06-01 15:05+0200\n"
+"Last-Translator: Benedetta Fiorillo\n"
 "Language-Team: Italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: index.php:167
 msgid "not available"
-msgstr ""
+msgstr "non disponibile"
 
 #: index.php:208
 msgid "Enter valid URL"
@@ -34,7 +34,7 @@ msgstr "Seleziona la sezione dello schermo per la visualizzazione"
 
 #: index.php:679
 msgid "Toggle visibility"
-msgstr "Visibilità ginocchiera"
+msgstr "Attiva/Disattiva visibilità"
 
 #: index.php:683
 msgid "Zoom in"
@@ -62,19 +62,19 @@ msgstr "Rimuovi questo oggetto"
 
 #: index.php:706
 msgid "Jump to start"
-msgstr "salta all'inizio"
+msgstr "Salta all'inizio"
 
 #: index.php:707
 msgid "Page up"
-msgstr "pagina su"
+msgstr "Pagina su"
 
 #: index.php:708
 msgid "Page down"
-msgstr "pagina giù"
+msgstr "Pagina giù"
 
 #: index.php:709
 msgid "Jump to end"
-msgstr "salta alla fine"
+msgstr "Salta alla fine"
 
 #: index.php:713
 msgid "Up"
@@ -106,7 +106,7 @@ msgstr "Aggiungi"
 
 #: index.php:970
 msgid "Sorry! Screensharing for your device is currently not supported."
-msgstr ""
+msgstr "Spiacent! La condivisione dello schermo per il tuo dispositivo non è attualmente supportata"
 
 #: index.php:1061 index.php:1243
 msgid "Control"
@@ -118,7 +118,7 @@ msgstr "Aiuto + Supplementi"
 
 #: index.php:1068
 msgid "File"
-msgstr ""
+msgstr "File"
 
 #: index.php:1069
 msgid "URL"
@@ -130,15 +130,15 @@ msgstr "Disposizione dello schermo"
 
 #: index.php:1077
 msgid "Drag and drop files or click here to upload."
-msgstr ""
+msgstr "Trascina i file qui o clicca per caricarli"
 
 #: index.php:1079
 msgid "Add file (click or drop here)"
-msgstr ""
+msgstr "Aggiungi file (clicca o trascina qui)"
 
 #: index.php:1098
 msgid "Add webpage"
-msgstr ""
+msgstr "Aggiungi pagina web"
 
 #: index.php:1101
 msgid "Enter URL"
@@ -146,7 +146,7 @@ msgstr "Inserisci URL"
 
 #: index.php:1104
 msgid "Click here to show the webpage on the screen."
-msgstr ""
+msgstr "Clicca qui per mostrare la pagina web sullo schermo"
 
 #: index.php:1105
 msgid "Enter"
@@ -154,11 +154,11 @@ msgstr "Inserisci URL"
 
 #: index.php:1112
 msgid "Add your screen"
-msgstr ""
+msgstr "Condividi il tuo schermo"
 
 #: index.php:1113
 msgid "Download screensharing tool"
-msgstr ""
+msgstr "Scarica lo strumento per la condivisione dello schermo"
 
 #: index.php:1120
 msgid ""
@@ -188,11 +188,11 @@ msgstr ""
 
 #: index.php:1191
 msgid "Help"
-msgstr ""
+msgstr "Aiuto"
 
 #: index.php:1192
 msgid "Feedback"
-msgstr ""
+msgstr "Feedback"
 
 #: index.php:1193
 msgid "Users"
@@ -379,7 +379,7 @@ msgstr ""
 
 #: index.php:1275
 msgid "Recommend us"
-msgstr ""
+msgstr "Consigliaci ad altri"
 
 #: index.php:1278
 msgid ""
@@ -389,7 +389,7 @@ msgstr ""
 
 #: index.php:1324
 msgid "Tell us what you think"
-msgstr ""
+msgstr "Dicci cosa ne pensi"
 
 #: index.php:1326
 msgid ""
@@ -399,11 +399,11 @@ msgstr ""
 
 #: index.php:1326
 msgid "Thank you!"
-msgstr ""
+msgstr "Grazie!"
 
 #: index.php:1332
 msgid "Select language:"
-msgstr "Seleziona posto di lavoro"
+msgstr "Seleziona lingua"
 
 #: index.php:1349
 msgid "User list"
@@ -423,7 +423,7 @@ msgstr "Scollega tutti gli utenti e azzera il posto di lavoro"
 
 #: index.php:1367
 msgid "End the session"
-msgstr ""
+msgstr "Termina sessione"
 
 #: index.php:1379
 msgid "Disconnect the current user"
@@ -431,7 +431,7 @@ msgstr "Disconnette l'utente corrente"
 
 #: index.php:1380
 msgid "Log out"
-msgstr "Rimpicciolire"
+msgstr "Esci"
 
 #: i12n.php:106
 msgid "Screen section"
@@ -439,7 +439,7 @@ msgstr "Sezione dello schermo"
 
 #: login.php:95 login.php:103 login.php:106
 msgid "Invalid credentials!"
-msgstr "credenziali invalide!"
+msgstr "Credenziali invalide!"
 
 #: login.php:100
 msgid "Cannot check credentials, sorry!"
