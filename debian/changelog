@@ -1,3 +1,46 @@
+palma (1.4.14) unstable; urgency=medium
+
+  [ Christos Sidiropoulos ]
+  * Update greek el_GR localization
+
+  [ Stefan Weil ]
+  * Update status of translations
+
+  [ Muntasir ]
+  * Added language Bengali language support (#213)
+
+  [ Ayhan Yakici ]
+  * TR translated from EN (#216)
+
+  [ Stefan Weil ]
+  * Update status of translations
+  * Remove fuzzy comments in locales
+  * Fix syntax errors in translation for bn_BN.UTF-8
+  * Fix syntax errors in translation for tr_TR.UTF-8
+  * Update status of translations
+  * Use C.UTF-8 sort order when generating locale/README.md
+
+  [ vanessa ]
+  * Update palma_analyze (#218)
+
+  [ Jörg Mechnich ]
+  * palma_analyze: whitespace fixes and cleanup
+
+  [ Nursultan Mamatov ]
+  * added Kyrgyz language translation (#219)
+
+  [ Stefan Weil ]
+  * Activate language support for Kyrgyz
+
+  [ Elise Wolf ]
+  * Add French translations for user interface strings
+
+  [ Jörg Mechnich ]
+  * Update language files
+  * Remove translation dialog from screen saver
+
+ -- Joerg Mechnich <joerg@mechni.ch>  Wed, 16 Jul 2025 14:38:58 +0200
+
 palma (1.4.13) unstable; urgency=medium
 
   [ LGTM Migrator ]
