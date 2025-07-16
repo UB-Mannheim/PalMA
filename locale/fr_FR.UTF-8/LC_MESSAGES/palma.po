@@ -467,7 +467,7 @@ msgstr "Identifiants non valides!"
 
 #: login.php:100
 msgid "Cannot check credentials, sorry!"
-msgstr Impossible de vérifier les identifiants, désolé !"
+msgstr "Impossible de vérifier les identifiants, désolé !"
 
 #: login.php:139
 msgid "Invalid PIN."

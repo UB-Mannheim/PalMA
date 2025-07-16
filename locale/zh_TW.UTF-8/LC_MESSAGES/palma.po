@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-29 18:50+0200\n"
+"POT-Creation-Date: 2025-07-16 14:31+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Noel Chia <nchia@mail.uni-mannheim.de>\n"
 "Language-Team: Traditional Chinese <zh-tw@li.org>\n"
@@ -425,7 +425,7 @@ msgstr "登出目前使用者"
 msgid "Log out"
 msgstr "縮小"
 
-#: i12n.php:102
+#: i12n.php:106
 msgid "Screen section"
 msgstr "螢幕區域"
 

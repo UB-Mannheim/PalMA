@@ -8,9 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-17 18:50+0200\n"
+"POT-Creation-Date: 2025-07-16 14:31+0200\n"
 "PO-Revision-Date: 2017-09-12 14:38+0200\n"
-"Last-Translator: Nursultan Mamatov <nursultan.mamatov@students.uni-mannheim.de>\n"
+"Last-Translator: Nursultan Mamatov <nursultan.mamatov@students.uni-mannheim."
+"de>\n"
 "Language-Team: Kyrgyz <kg@li.org>\n"
 "Language: kg\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +111,8 @@ msgstr "Кошуу"
 
 #: index.php:970
 msgid "Sorry! Screensharing for your device is currently not supported."
-msgstr "Кечиресиз! Азырынча сиздин девайсыңызда экранды чогуу колдонуу иштебейт."
+msgstr ""
+"Кечиресиз! Азырынча сиздин девайсыңызда экранды чогуу колдонуу иштебейт."
 
 #: index.php:1061 index.php:1243
 msgid "Control"
@@ -169,8 +171,9 @@ msgstr "Экранды чогуу колдонуу үчүн инструмент
 msgid ""
 "Download your screensharing tool (Windows, Mac and Linux only). Visit the "
 "help section for further information."
-msgstr "Экранды чогуу колдонуу үчүн инструментти жүктөңүз (Бир гана Windows, Mac жана Linux)."
-"Кийнки маалыматты алуу үчүн жардам берүү секциясына кайрылыңыз."
+msgstr ""
+"Экранды чогуу колдонуу үчүн инструментти жүктөңүз (Бир гана Windows, Mac "
+"жана Linux).Кийнки маалыматты алуу үчүн жардам берүү секциясына кайрылыңыз."
 
 #: index.php:1126
 msgid "Layout"
@@ -211,8 +214,9 @@ msgstr "Колдонуучулар"
 msgid ""
 "With PalMA, you can share documents, websites and your desktop with your "
 "learning group."
-msgstr "PalMA нын жардамы менен документтерди, вебсайттарды жана иш стөлүн "
-"үйрөнүү тобуңуз менен бөлүшө аласыз"
+msgstr ""
+"PalMA нын жардамы менен документтерди, вебсайттарды жана иш стөлүн үйрөнүү "
+"тобуңуз менен бөлүшө аласыз"
 
 #: index.php:1197
 msgid "The PalMA team monitor shows up to four contributions simultaneously."
@@ -232,7 +236,9 @@ msgstr "Кошуу"
 
 #: index.php:1205
 msgid "Team members can join the session at any time with this URL or QR-Code:"
-msgstr "Команда мүчөлөрү каалаган убакытта ушул URL жана QR-код менен сессияга кошула алат:"
+msgstr ""
+"Команда мүчөлөрү каалаган убакытта ушул URL жана QR-код менен сессияга "
+"кошула алат:"
 
 # Please mind the whitespace at the end.
 #: index.php:1209 index.php:1358
@@ -241,11 +247,14 @@ msgstr "PIN"
 
 #: index.php:1217
 msgid "Use the Add-Section to share content on the PalMA monitor."
-msgstr "PalMA мониторунда контентти чагылдыруу үчүн \"Кошуу\" секциясын колдонуңуз."
+msgstr ""
+"PalMA мониторунда контентти чагылдыруу үчүн \"Кошуу\" секциясын колдонуңуз."
 
 #: index.php:1219
 msgid "For PDF files, office files, images or videos use the file section."
-msgstr "PDF файлдар, офис файлдар, сүрөттөр же видеолор үчүн файл секциясын колдонуңуз."
+msgstr ""
+"PDF файлдар, офис файлдар, сүрөттөр же видеолор үчүн файл секциясын "
+"колдонуңуз."
 
 #: index.php:1220
 msgid "To display a website use the URL field."
@@ -255,8 +264,9 @@ msgstr "Вебсайтты чагылдыруу үчүн URL талаасын к
 msgid ""
 "To share your desktop in real time download the VNC screen sharing software "
 "and"
-msgstr "Экраныңызды реалдуу убакытта бөлүшүү үчүн VNC экранды бөлүшүү программаны жүктөп алыңыз"
-"жана"
+msgstr ""
+"Экраныңызды реалдуу убакытта бөлүшүү үчүн VNC экранды бөлүшүү программаны "
+"жүктөп алыңызжана"
 
 # Referring to the popular operating system
 #: index.php:1223
@@ -281,7 +291,9 @@ msgstr "CTRL + жүктөлгөн файлды чыкылдатыңыз жана
 
 #: index.php:1231
 msgid "A second window opens, in which you can start &quot;VineServer&quot;."
-msgstr "Экинчи терезе ачылат, бул болсо &quot;VineServer&quot; баштоого мүмкүнчүлүк түзөт."
+msgstr ""
+"Экинчи терезе ачылат, бул болсо &quot;VineServer&quot; баштоого мүмкүнчүлүк "
+"түзөт."
 
 #: index.php:1232
 msgid "In the upper left corner, click on &quot;VNC Server&quot;."
@@ -293,7 +305,8 @@ msgstr "&quot;Reverse Connection&quot; тандаңыз"
 
 #: index.php:1234
 msgid "Enter the URL of your PalMA station and click &quot;Connect&quot;."
-msgstr "PalMA станцияңыздын URL'ын киргизиңиз жана &quot;Connect&quot; чыкылдатыңыз."
+msgstr ""
+"PalMA станцияңыздын URL'ын киргизиңиз жана &quot;Connect&quot; чыкылдатыңыз."
 
 #: index.php:1236
 msgid "Linux:"
@@ -315,8 +328,9 @@ msgstr ""
 
 #: index.php:1245
 msgid "Below that you find the controls for each item:"
-msgstr "Жогору жактагы боз монитор баскычтары менен сиз кантип бөлүшүүнү тандай аласыз "
-"Мазмун PalMA мониторунда уюштурулушу керек."
+msgstr ""
+"Жогору жактагы боз монитор баскычтары менен сиз кантип бөлүшүүнү тандай "
+"аласыз Мазмун PalMA мониторунда уюштурулушу керек."
 
 #: index.php:1247
 msgid "In the top bar you can"
@@ -349,7 +363,8 @@ msgstr "Төмөндө сиз навигацияны башкаруу элеме
 #: index.php:1257
 msgid ""
 "Buttons on the left jump to the top, to the end, a page up or a page down"
-msgstr "Сол жактагы баскычтар жогоруга, аягына, бир барак өйдө же ылдыйга секирет"
+msgstr ""
+"Сол жактагы баскычтар жогоруга, аягына, бир барак өйдө же ылдыйга секирет"
 
 #: index.php:1258
 msgid "Arrow buttons in the middle scroll gradually"
@@ -362,7 +377,9 @@ msgstr "Ортодогу жебе баскычтары акырындык мен
 #: index.php:1263
 msgid ""
 "Controls that are not available for certain kinds of content are marked grey."
-msgstr "Кээ бир контент түрлөрү үчүн жеткиликтүү эмес башкаруу элементтери боз болуп белгиленет."
+msgstr ""
+"Кээ бир контент түрлөрү үчүн жеткиликтүү эмес башкаруу элементтери боз болуп "
+"белгиленет."
 
 #: index.php:1265
 msgid "Some additional features are:"
@@ -378,13 +395,13 @@ msgid ""
 "Feedback&quot; section,"
 msgstr "Бизди сунуштоо мүмкүнчүлүгүңүз же бизге &quot;Feedback&quot; бөлүмү,"
 
-
 #: index.php:1269
 msgid ""
 "A list of all logged-in users as well as a button to disconnect everyone and "
 "therefore end the session."
-msgstr "Бардык кирген колдонуучулардын тизмеси, ошондой эле баарын ажырата турган баскыч жана "
-"Ошондуктан сессия бүтсүн."
+msgstr ""
+"Бардык кирген колдонуучулардын тизмеси, ошондой эле баарын ажырата турган "
+"баскыч жана Ошондуктан сессия бүтсүн."
 
 # Feedback
 #: index.php:1275
@@ -395,8 +412,9 @@ msgstr "Бизге сунуштаңыз"
 msgid ""
 "If you like PalMA, please recommend us by sharing in your social networks."
 "<br />Enjoy PalMA!"
-msgstr "Эгер сизге PalMA жакса, социалдык тармактарыңызда бөлүшүү аркылуу бизге сунуштайбыз."
-"<br />Enjoy PalMA!"
+msgstr ""
+"Эгер сизге PalMA жакса, социалдык тармактарыңызда бөлүшүү аркылуу бизге "
+"сунуштайбыз.<br />Enjoy PalMA!"
 
 #: index.php:1324
 msgid "Tell us what you think"
@@ -407,8 +425,10 @@ msgstr "Бизге оюңузду айтыңыз"
 msgid ""
 "Please let us know about problems or ideas to improve PalMA. Help us "
 "directly by sending crash reports or contributing on "
-msgstr "Сураныч, PalMAны жакшыртуу үчүн көйгөйлөр же идеялар жөнүндө бизге кабарлаңыз. Бизге жардам бериңиз "
-"түз эле ката жөнүндө кабарларды жөнөтүү же салым кошуу менен"
+msgstr ""
+"Сураныч, PalMAны жакшыртуу үчүн көйгөйлөр же идеялар жөнүндө бизге "
+"кабарлаңыз. Бизге жардам бериңиз түз эле ката жөнүндө кабарларды жөнөтүү же "
+"салым кошуу менен"
 
 #: index.php:1326
 msgid "Thank you!"
@@ -448,7 +468,7 @@ msgstr "Учурдагы колдонуучуну ажыратыңыз"
 msgid "Log out"
 msgstr "Чыгыңыз"
 
-#: i12n.php:102
+#: i12n.php:106
 msgid "Screen section"
 msgstr "Экран бөлүмү"
 

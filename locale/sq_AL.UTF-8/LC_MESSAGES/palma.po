@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PalMA 0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-29 18:50+0200\n"
+"POT-Creation-Date: 2025-07-16 14:31+0200\n"
 "PO-Revision-Date: 2014-04-09 21:31+0200\n"
 "Last-Translator: Kristiana Ristani <k_ristani@yahoo.com>\n"
 "Language-Team: Albanian <en@li.org>\n"
@@ -452,7 +452,7 @@ msgstr "Shkeput perdoruesin aktual"
 msgid "Log out"
 msgstr "Dil"
 
-#: i12n.php:102
+#: i12n.php:106
 msgid "Screen section"
 msgstr "Seksioni i ekranit"
 
