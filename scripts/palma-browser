@@ -28,7 +28,6 @@ case "${palma_browser}" in
 
 	BROWSER_PROFILE=`mktemp -d`
 	${BROWSER_CMD} \
-	    --disable-features=TranslateUI --disable-features=Translate \
 	    --user-dir="${BROWSER_PROFILE}" --user-data-dir="${BROWSER_PROFILE}" \
 	    --app="$@" &
 	trap "killbrowser $!" TERM KILL EXIT

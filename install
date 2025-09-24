@@ -377,6 +377,16 @@ try:
         else:
             pass
 
+    # chromium initial settings
+    path = os.path.join(destdir + args.sysconfdir, 'chromium')
+    fn = 'initial_preferences'
+    if args.mode == 'uninstall':
+        uninstall(path, [fn], deleteRoot=False)
+    else:
+        printv('Installing initial settings for chromium')
+        mkdir(path)
+        shutil.copyfile(os.path.join('examples', fn), os.path.join(path, fn))
+
 except Exception:
     printe('Error installing PalMA, exiting.')
     if args.verbose: raise
