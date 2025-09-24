@@ -1,0 +1,62 @@
+# PalMA translation.
+# Copyright (C) 2017-2024 Universitätsbibliothek Mannheim
+# This file is distributed under the same license as the PalMA package.
+# Stefan Weil <stefan.weil@bib.uni-mannheim.de>, 2014.
+# Dennis Müller <dennis.mueller@bib.uni-mannheim.de>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PalMA 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-29 18:50+0200\n"
+"PO-Revision-Date: 2025-01-10 10:00+0200\n"
+"Last-Translator: Translator Name <ignatovski.d@gmail.com>\n"
+"Language-Team: Bulgarian <bg@li.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:167
+msgid "not available"
+msgstr "не е налично"
+
+#: index.php:208
+msgid "Enter valid URL"
+msgstr "Моля, въведете валиден URL"
+
+#: index.php:548
+msgid "You were disconnected!"
+msgstr "Вие бяхте изключени!"
+
+#: index.php:569
+msgid "Select screen section for display"
+msgstr "Изберете секция на екрана за показване"
+
+#: index.php:679
+msgid "Toggle visibility"
+msgstr "Превключване на видимостта"
+
+#: index.php:683
+msgid "Zoom in"
+msgstr "Увеличи"
+
+#: index.php:684
+msgid "Zoom out"
+msgstr "Намали"
+
+#: index.php:685
+msgid "Rotate counterclockwise"
+msgstr "Завърти обратно на часовниковата стрелка"
+
+#: index.php:686
+msgid "Rotate clockwise"
+msgstr "Завърти по часовниковата стрелка"
+
+#: index.php:687
+msgid "Download this item"
+msgstr "Изтегли този елемент"
+
+#: index.php:695
+msgid "Remove this item"
+msgstr "Према
