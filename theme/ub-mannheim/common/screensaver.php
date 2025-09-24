@@ -78,6 +78,7 @@ h1, p {
 #Variant1 #QR-Code {
     top: 57.25%;
     left: 3.75%;
+    width: 10%;
 }
 #Variant1 #URL {
     top: 41%;
@@ -90,6 +91,7 @@ h1, p {
 #Variant2 #QR-Code {
     top: 22%;
     left: 4%;
+    width: 10%;
 }
 #Variant2 #URL {
     top: 6.75%;
