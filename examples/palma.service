@@ -7,9 +7,6 @@ ExecStart=/usr/lib/palma/startx
 WorkingDirectory=/var/www/html
 User=root
 Group=www-data
-StandardOutput=syslog
-StandardError=inherit
-SyslogIdentifier=palma
 
 [Install]
 WantedBy=multi-user.target
