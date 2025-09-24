@@ -341,17 +341,6 @@ try:
         for f in palma_scripts:
             shutil.copy(os.path.join('scripts/', f),libdir)
 
-    # syslog configuration
-    path = os.path.join(destdir + args.sysconfdir,'rsyslog.d')
-    if args.mode == 'uninstall':
-        uninstall(path, ['palma.conf'])
-    else:
-        mkdir(path)
-        shutil.copyfile('examples/palma.syslog', os.path.join(path,'palma.conf'))
-        if args.mode == 'install':
-            if os.path.exists('/bin/systemctl'):
-                subprocess.call(['/bin/systemctl', 'restart', 'rsyslog'], stderr=subprocess.DEVNULL)
-
     # init script
     path = os.path.join(destdir + args.sysconfdir, 'systemd/system')
     if args.mode == 'uninstall':

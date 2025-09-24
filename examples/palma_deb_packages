@@ -1157,7 +1157,6 @@ reportbug
 resolvconf
 rpcbind
 rsync
-rsyslog
 rtkit
 sane-utils
 sed

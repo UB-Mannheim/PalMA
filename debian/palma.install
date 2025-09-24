@@ -1,6 +1,5 @@
 /etc/chromium/initial_preferences
 /etc/palma.ini
-/etc/rsyslog.d/palma.conf
 /etc/systemd/system/palma.service
 /usr/lib/palma/*
 /usr/share/palma/*.css
