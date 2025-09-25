@@ -140,6 +140,9 @@ runx "/usr/bin/openbox --config-file \"$basedir/settings/openbox/rc.xml\"" &
 # Allow window manager to start.
 /bin/sleep 5
 
+# Set number of virtual desktops to two (required for "hiding" of windows)
+runx "/usr/bin/wmctrl -n2"
+
 # Show background image.
 runx "/usr/bin/feh --bg-scale --no-fehbg \"$background\"" >/dev/null 2>&1
 
@@ -222,7 +225,7 @@ while true; do
                 break
             fi
         done
-        if test "$(/usr/bin/wmctrl -l | wc -l)" != "1"; then date +"%F %T no screenaver found after $try attempts!"; fi
+        if test "$(/usr/bin/wmctrl -l | wc -l)" != "1"; then date +"%F %T no screensaver found after $try attempts!"; fi
     elif test "$state" = "1"; then
         # Screen saver is running. Wait for the first user connection.
         if test "$usercount" = '0'; then
