@@ -1,3 +1,33 @@
+palma (1.4.15) unstable; urgency=medium
+
+  [ Benedetta Fiorillo ]
+  * Improve and extend Italian translation for the user interface
+
+  [ Stefan Weil ]
+  * Update status of translations
+
+  [ Jörg Mechnich ]
+  * Add codespell configuration, fix spelling
+  * Add php-codesniffer config, fix errors and most warnings
+  * Add phpstan configuration, fix reported errors, clean up code
+  * Clean up debugging output
+  * Do not overwrite palma.ini when running install script
+  * Remove superfluous files
+  * Add uninstall option to install script
+  * Remove minimal php scripts, use php -r instead
+  * Add force_geometry to configuration settings
+  * Clean up logging
+  * Fix window management bugs
+  * Use journald logging
+  * Use generic php-fpm socket
+  * Disable translations in chromium by using initial_preferences config file
+  * Fix QR code size for UB Mannheim screensaver
+  * Use journald for logging
+  * Explicitly set number of virtual desktops to 2, fixes hiding of windows
+  * Update translations
+
+ -- Joerg Mechnich <joerg@mechni.ch>  Thu, 25 Sep 2025 10:14:42 +0200
+
 palma (1.4.14) unstable; urgency=medium
 
   [ Christos Sidiropoulos ]
