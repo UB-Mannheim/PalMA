@@ -7,6 +7,7 @@
 |Locale|Completion|
 |---|---|
 |[ar](#ar)|66.96|
+|[bg_BG](#bg_bg)|100.00|
 |[bn_BN](#bn_bn)|100.00|
 |[de_DE](#de_de)|100.00|
 |[el_GR](#el_gr)|97.32|
@@ -21,6 +22,7 @@
 |[sq_AL](#sq_al)|100.00|
 |[tr_TR](#tr_tr)|99.11|
 |[ur_PK](#ur_pk)|13.39|
+|[vn_VN](#vn_vn)|100.00|
 |[zh_CN](#zh_cn)|100.00|
 |[zh_TW](#zh_tw)|50.89|
 
@@ -77,6 +79,14 @@ Missing:
   * `With the grey monitor buttons at the top you can choose how the shared content should be arranged on the PalMA monitor.`
   * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
   * `not available`
+
+## bg_BG
+
+Completion: **100.00** (11 / 11 strings)
+
+Contributors:
+
+  * Danail Ignatovski
 
 ## bn_BN
 
@@ -137,6 +147,7 @@ Contributors:
   * Patrick Voelker
   * Piero Divasto
   * Stefan Weil
+  * javiereduma
 
 ## fr_FR
 
@@ -666,6 +677,14 @@ Missing:
   * `Your chance to recommend us or give us your thoughts in the &quot;Feedback&quot; section,`
   * `not available`
   * `see here.`
+
+## vn_VN
+
+Completion: **100.00** (112 / 112 strings)
+
+Contributors:
+
+  * Anh Tu Duong Nguyen
 
 ## zh_CN
 

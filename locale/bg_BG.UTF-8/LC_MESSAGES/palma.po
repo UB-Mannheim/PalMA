@@ -59,4 +59,4 @@ msgstr "Изтегли този елемент"
 
 #: index.php:695
 msgid "Remove this item"
-msgstr "Према
+msgstr "Према"
