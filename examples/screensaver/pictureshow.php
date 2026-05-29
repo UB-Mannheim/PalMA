@@ -20,8 +20,8 @@ $pin = sprintf("%04u", rand(0, 9999));
 $url = "http://${servername}${serveruri}/index.php";
 
 // Store PIN in database.
-require_once('../../DBConnector.class.php');
-$dbcon = new DBConnector();
+require_once '../../DBConnector.class.php';
+$dbcon = palma\DBConnector::getInstance();
 $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 
 ?>
@@ -92,13 +92,13 @@ img {
 if (is_dir($pictures)) {
     $filelist = scandir($pictures);
     sort($filelist, SORT_NATURAL);
-    foreach ($filelist as $file) {
-        $picture = "$pictures/$file";
-        if (is_file($picture)) {
-            echo("<li style=\"background-image: url('$picture'); background-repeat: no-repeat\"></li>\n");
-            //~ echo("<li><img src=\"$picture\"></li>\n");
-        }
+  foreach ($filelist as $file) {
+      $picture = "$pictures/$file";
+    if (is_file($picture)) {
+        echo("<li style=\"background-image: url('$picture'); background-repeat: no-repeat\"></li>\n");
+        //~ echo("<li><img src=\"$picture\"></li>\n");
     }
+  }
 } else {
     echo <<<EOD
         <li style="background-image: url('http://www.bib.uni-mannheim.de/typo3temp/pics/b1ad582e53.jpg');"></li>

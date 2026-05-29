@@ -3,6 +3,7 @@
 /uploads
 /palma.po
 /last_activity
+/build-deb/
 /debian/.debhelper/
 /debian/debhelper-build-stamp
 /debian/files
@@ -15,5 +16,6 @@
 /docs/dist/phpcs.phar
 /locale/*/LC_MESSAGES/*.mo
 /locale/*/LC_MESSAGES/*.po~
+/vendor/
 *~
 \#*

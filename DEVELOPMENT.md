@@ -64,3 +64,40 @@ sudo apt-get -f install
 * [1]: [Fix qemu-bridge-helper](https://mike42.me/blog/2019-08-how-to-use-the-qemu-bridge-helper-on-debian-10)
 * [2]: [Find IP address of VM guest](https://www.cyberciti.biz/faq/find-ip-address-of-linux-kvm-guest-virtual-machine/)
 * [3]: [PalMA releases](https://github.com/UB-Mannheim/PalMA/releases)
+
+## Notes / References
+
+### File upload (general)
+
+* http://www.php.net/manual/en/features.file-upload.post-method.php
+
+### File upload with dropzone
+* http://www.dropzonejs.com/
+* http://www.startutorial.com/articles/view/how-to-build-a-file-upload-form-using-dropzonejs-and-php
+* http://maxoffsky.com/code-blog/howto-ajax-multiple-file-upload-in-laravel/
+
+### Websockets
+* https://en.wikipedia.org/wiki/Server-sent_events
+* https://developer.mozilla.org/en-US/docs/WebSockets/Writing_WebSocket_client_applications
+* http://code.google.com/p/phpwebsocket/
+* http://dharman.eu/?menu=phpWebSocketsTutorial
+
+### Keyboard input
+* http://jsfiddle.net/angusgrant/E3tE6/
+* http://stackoverflow.com/questions/3181648/how-can-i-handle-arrowkeys-and-greater-than-in-a-javascript-function-which
+* http://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
+* http://www.quirksmode.org/js/keys.html
+
+### Key symbols
+* http://www.tcl.tk/man/tcl8.4/TkCmd/keysyms.htm
+
+### Authorization
+* http://aktuell.de.selfhtml.org/artikel/php/loginsystem/
+
+### Overlays
+* http://answers.oreilly.com/topic/1823-adding-a-page-overlay-in-javascript/
+
+### Misc
+
+* wmctrl, suckless-tools (lsw, sprop, wmname, ...)
+* display.im6, evince

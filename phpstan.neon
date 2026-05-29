@@ -1,0 +1,15 @@
+parameters:
+  level: 6
+  paths:
+    - .
+  scanFiles:
+    - php-gettext/gettext.inc
+  scanDirectories:
+    - .
+  excludePaths:
+    analyse:
+      - vendor
+      - php-gettext
+      - qrcode
+    analyseAndScan:
+      - debian

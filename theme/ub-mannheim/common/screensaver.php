@@ -16,15 +16,15 @@ $pin = sprintf("%04u", rand(0, 9999));
 $url = "http://${servername}${serveruri}";
 
 // Store PIN in database.
-require_once('../../../DBConnector.class.php');
-$dbcon = new palma\DBConnector();
+require_once '../../../DBConnector.class.php';
+$dbcon = palma\DBConnector::getInstance();
 $dbcon->exec("UPDATE setting SET value='$pin' WHERE key='pin'");
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
        "http://www.w3.org/TR/html4/strict.dtd">
 
-<html lang="de">
+<html>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -78,6 +78,7 @@ h1, p {
 #Variant1 #QR-Code {
     top: 57.25%;
     left: 3.75%;
+    width: 10%;
 }
 #Variant1 #URL {
     top: 41%;
@@ -90,6 +91,7 @@ h1, p {
 #Variant2 #QR-Code {
     top: 22%;
     left: 4%;
+    width: 10%;
 }
 #Variant2 #URL {
     top: 6.75%;
