@@ -80,8 +80,8 @@ $webrtcDisplayUrl  = CONFIG_START_URL . 'webrtc_display.php?sid=' . session_id()
      var focus_section = '1';
 
      // WebRTC configuration (server-side URLs and i18n strings passed from PHP).
-     var webrtcReceiverUrl = '<?=addslashes($webrtcReceiverUrl)?>';
-     var webrtcDisplayUrl  = '<?=addslashes($webrtcDisplayUrl)?>';
+     var webrtcReceiverUrl = <?=json_encode($webrtcReceiverUrl)?>;
+     var webrtcDisplayUrl  = <?=json_encode($webrtcDisplayUrl)?>;
      var webrtcCloseUrl    = '';
      window.webrtcStrings = {
        sharing:           '<?=addslashes(__('Sharing…'))?>',

@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$sessionId = session_id();
+$sessionId = preg_replace('/[^a-zA-Z0-9]/', '', session_id());
 if (empty($sessionId)) {
     http_response_code(403);
     echo json_encode(['status' => 'error', 'message' => 'No valid session']);

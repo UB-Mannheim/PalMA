@@ -71,7 +71,8 @@ To enable HTTPS, you can use:
 | Chrome / Chromium 72+ | ✅ | ✅ |
 | Firefox 66+ | ✅ | ✅ |
 | Edge 79+ (Chromium-based) | ✅ | ✅ |
-| Safari 13+ (macOS / iOS) | ✅ (screen: macOS 13+) | ✅ |
+| Safari 13+ (macOS) | ✅ (screen share requires macOS 13+ Ventura) | ✅ |
+| Safari on iOS 13+ | ❌ (screen share not supported) | ✅ |
 | Android (Chrome) | ❌ (screen share not available) | ✅ |
 | iOS (Safari) | ❌ | ✅ |
 
