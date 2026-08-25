@@ -1,5 +1,8 @@
 {
   "translate": {
     "enabled": false
+  },
+  "distribution": {
+    "require_eula": false
   }
 }
