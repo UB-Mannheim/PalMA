@@ -28,6 +28,7 @@ if [ -d /etc/apache2/conf-available ]; then
     fi
     echo "Installing /etc/apache2/conf-available/palma-monitor.conf"
     cat > /etc/apache2/conf-available/palma-monitor.conf <<EOF
+# Created by $(cd `dirname $0` && pwd)/install_monitor.sh
 ScriptAlias "/$hash" "$scriptdir"
 <Directory "$scriptdir">
     AllowOverride None
@@ -37,6 +38,7 @@ ScriptAlias "/$hash" "$scriptdir"
 </Directory>
 EOF
     a2enconf palma-monitor
+    a2enmod cgi
     echo "Reloading apache2"
     if [ -d /run/systemd ]; then
         systemctl reload apache2
@@ -91,7 +93,7 @@ mkdir -p "$logdir"
 chown www-data:www-data "$logdir"
 
 proto='http'
-if netstat -l -n | grep -q 443; then
+if ss -ltn | grep -q 443; then
     proto='https'
     echo "Listening port 443 detected, assuming https support"
 fi
