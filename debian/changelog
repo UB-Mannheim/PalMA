@@ -1,3 +1,22 @@
+palma (1.4.16) unstable; urgency=medium
+
+  [ javiereduma ]
+  * Update spanish translation in palma.po (#226)
+
+  [ Danail Ignatovski ]
+  * Add bulgarian translation (#223)
+
+  [ Anh Tu Duong Nguyen ]
+  * Add vietnamese translation (#222)
+
+  [ Jörg Mechnich ]
+  * Add missing quotation mark in bulgarian translation, update locales
+  * Workaround for chromium showing EULA on startup
+  * monitor/install_monitor.sh: minor updates
+  * Update translations
+
+ -- Joerg Mechnich <joerg.mechnich@uni-mannheim.de>  Wed, 26 Aug 2026 10:58:47 +0200
+
 palma (1.4.15) unstable; urgency=medium
 
   [ Benedetta Fiorillo ]
@@ -26,7 +45,7 @@ palma (1.4.15) unstable; urgency=medium
   * Explicitly set number of virtual desktops to 2, fixes hiding of windows
   * Update translations
 
- -- Joerg Mechnich <joerg@mechni.ch>  Thu, 25 Sep 2025 10:14:42 +0200
+ -- Joerg Mechnich <joerg.mechnich@uni-mannheim.de>  Thu, 25 Sep 2025 10:14:42 +0200
 
 palma (1.4.14) unstable; urgency=medium
 
@@ -69,7 +88,7 @@ palma (1.4.14) unstable; urgency=medium
   * Update language files
   * Remove translation dialog from screen saver
 
- -- Joerg Mechnich <joerg@mechni.ch>  Wed, 16 Jul 2025 14:38:58 +0200
+ -- Joerg Mechnich <joerg.mechnich@uni-mannheim.de>  Wed, 16 Jul 2025 14:38:58 +0200
 
 palma (1.4.13) unstable; urgency=medium
 
@@ -99,7 +118,7 @@ palma (1.4.13) unstable; urgency=medium
   * Update PHP_CodeSniffer configuration and clean code
   * Update language files
 
- -- Joerg Mechnich <joerg@mechni.ch>  Mon, 03 Jul 2023 20:19:28 +0200
+ -- Joerg Mechnich <joerg.mechnich@uni-mannheim.de>  Mon, 03 Jul 2023 20:19:28 +0200
 
 palma (1.4.12) unstable; urgency=medium
 
