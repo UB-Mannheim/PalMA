@@ -106,7 +106,7 @@ class DBConnector extends \SQLite3
     if (count($next_ids) > 0) {
       $next = $next_ids[0];
     } else {
-      $next = $this->querySingle('SELECT MAX(id) FROM window') + 1;
+      $next = intval($this->querySingle('SELECT MAX(id) FROM window')) + 1;
     }
     return $next;
   }
