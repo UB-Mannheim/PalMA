@@ -217,6 +217,33 @@ div.description {
     font-size: 1em;
 }
 
+/* Add WebRTC */
+#webrtc-section {
+    padding: .5em;
+    text-align: center;
+}
+#webrtc-buttons {
+    margin: .5em auto;
+}
+.webrtc-button {
+    margin: .3em;
+    border-radius: 7px;
+}
+#webrtc-preview {
+    max-width: 100%;
+    width: 20em;
+    border: 1px solid #232e58;
+    border-radius: 6px;
+    margin: .5em auto;
+    display: block;
+}
+#webrtc-status {
+    font-style: italic;
+    font-size: .9em;
+    margin: .3em auto;
+    color: #555;
+}
+
 /* Control Layout */
 button.splash_add {
     height: 3em;
@@ -684,6 +711,7 @@ background-color: #FF6600
     #url_field {width: 60%;}
     #url_button { width: 30%;}
     #vnc-button { width: 17em;}
+    #webrtc-preview { width: 30em; }
 }
 @media only screen and (min-height: 200px) {
     #Control div.subtab {
