@@ -8,7 +8,7 @@ parameters:
     - .
   excludePaths:
     analyse:
-      - vendor
+      - vendor?
       - php-gettext
       - qrcode
     analyseAndScan:
