@@ -43,6 +43,10 @@ $linuxsh = CONFIG_START_URL . "theme/" . CONFIG_THEME . "/x11.sh";
 
 $starturl = htmlspecialchars($_SESSION['starturl']);
 $pin = htmlspecialchars($_SESSION['pin']);
+
+// URLs used by the WebRTC feature.
+$webrtcReceiverUrl = CONFIG_START_URL . 'webrtc_receiver.php';
+$webrtcDisplayUrl  = CONFIG_START_URL . 'webrtc_display.php?sid=' . session_id();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
           "http://www.w3.org/TR/html4/strict.dtd">
@@ -68,10 +72,27 @@ $pin = htmlspecialchars($_SESSION['pin']);
       type="text/css"
     />
 
+    <script type="text/javascript" src="webrtc.js"></script>
+
     <script type="text/javascript">
 
      // Screen section which responds to keyboard input.
      var focus_section = '1';
+
+     // WebRTC configuration (server-side URLs and i18n strings passed from PHP).
+     var webrtcReceiverUrl = <?=json_encode($webrtcReceiverUrl)?>;
+     var webrtcDisplayUrl  = <?=json_encode($webrtcDisplayUrl)?>;
+     var webrtcCloseUrl    = '';
+     window.webrtcStrings = {
+       sharing:           '<?=addslashes(__('Sharing…'))?>',
+       stopped:           '<?=addslashes(__('Sharing stopped.'))?>',
+       httpsRequired:     '<?=addslashes(__('WebRTC requires HTTPS. Please connect via https://.'))?>',
+       notSupported:      '<?=addslashes(__('WebRTC is not supported by your browser. Please try Chrome 72+, Firefox 66+, or Safari 13+.'))?>',
+       screenNotSupported:'<?=addslashes(__('Screen sharing is not supported by your browser.'))?>',
+       cameraNotSupported:'<?=addslashes(__('Camera sharing is not supported by your browser.'))?>',
+       denied:            '<?=addslashes(__('Permission denied.'))?>',
+       error:             '<?=addslashes(__('Error:'))?>'
+     };
 
      function sendToNuc(command) {
        var xmlHttp = new XMLHttpRequest();
@@ -1135,6 +1156,10 @@ $pin = htmlspecialchars($_SESSION['pin']);
             <?=addslashes(__('Screen'))?>
             <i class="fa fa-video-camera"></i>
           </button>
+          <button class="subtablinks" onclick="openSubtab(event, 'Add', 'WebRTC')">
+            <?=addslashes(__('WebRTC'))?>
+            <i class="fa fa-wifi"></i>
+          </button>
         </div>
         <div id="File" class="subtabcontent">
           <div id="file_upload">
@@ -1192,6 +1217,36 @@ $pin = htmlspecialchars($_SESSION['pin']);
             <?=addslashes(__('Download your screensharing tool'
                            . ' (Windows, Mac and Linux only).'
                            . ' Visit the help section for further information.'))?>
+          </div>
+        </div>
+        <div id="WebRTC" class="subtabcontent">
+          <div id="webrtc-section">
+            <div id="webrtc-buttons">
+              <button class="pure-button pure-button-primary webrtc-button"
+                      id="webrtc-screen-btn"
+                      onclick="startScreenShare(webrtcReceiverUrl, webrtcDisplayUrl)"
+                      title="<?=addslashes(__('Share your screen or a window directly from the browser — no software installation required.'))?>">
+                <i class="fa fa-desktop"></i>
+                <?=addslashes(__('Share Screen / Window'))?>
+              </button>
+              <button class="pure-button pure-button-primary webrtc-button"
+                      id="webrtc-camera-btn"
+                      onclick="startCameraShare(webrtcReceiverUrl, webrtcDisplayUrl)"
+                      title="<?=addslashes(__('Share your webcam or mobile camera.'))?>">
+                <i class="fa fa-camera"></i>
+                <?=addslashes(__('Share Camera'))?>
+              </button>
+              <button class="pure-button webrtc-button" id="webrtc-stop"
+                      onclick="stopWebRTCSharing()" style="display:none;">
+                <i class="fa fa-stop"></i>
+                <?=addslashes(__('Stop Sharing'))?>
+              </button>
+            </div>
+            <video id="webrtc-preview" autoplay muted playsinline style="display:none;"></video>
+            <div id="webrtc-status"></div>
+            <div class="description">
+              <?=addslashes(__('Share your screen, a window or your camera directly in the browser. Requires HTTPS and a modern browser (Chrome 72+, Firefox 66+, Safari 13+).'))?>
+            </div>
           </div>
         </div>
       </div>
